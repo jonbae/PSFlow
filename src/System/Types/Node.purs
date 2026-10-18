@@ -59,7 +59,9 @@ type NodeBaseRow nodeData =
   , data :: nodeData
   , sourcePosition :: Maybe Position
   , targetPosition :: Maybe Position
-  , hidden :: Boolean
+  -- | Absent unless the consumer sets it, as upstream's optional field is.
+  -- | Every reader treats absent as `false`.
+  , hidden :: Maybe Boolean
   , selected :: Boolean
   , dragging :: Boolean
   , draggable :: Maybe Boolean

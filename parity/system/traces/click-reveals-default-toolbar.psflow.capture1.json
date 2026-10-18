@@ -1293,7 +1293,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 344,
+            "timeStamp": 359.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1362,7 +1362,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 344,
+            "timeStamp": 359.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1407,7 +1407,6 @@
               "toolbarPosition": "top"
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1439,7 +1438,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 344,
+            "timeStamp": 359.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1504,7 +1503,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 344,
+            "timeStamp": 359.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1547,7 +1546,6 @@
               "toolbarPosition": "top"
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1591,7 +1589,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 359.30000001192093,
+            "timeStamp": 376.9000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1634,7 +1632,6 @@
               "toolbarPosition": "top"
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1661,7 +1658,6 @@
                   "toolbarPosition": "top"
                 },
                 "type": "ToolbarNode",
-                "hidden": false,
                 "selected": true,
                 "dragging": false,
                 "measured": {
@@ -1691,7 +1687,6 @@
               "toolbarPosition": "top"
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": true,
             "dragging": false,
             "measured": {
@@ -1713,7 +1708,6 @@
               "toolbarVisible": true
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1735,7 +1729,6 @@
               "toolbarVisible": true
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1757,7 +1750,6 @@
               "toolbarVisible": true
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1779,7 +1771,6 @@
               "toolbarVisible": true
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1801,7 +1792,6 @@
               "toolbarVisible": true
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1823,7 +1813,6 @@
               "toolbarVisible": true
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1845,7 +1834,6 @@
               "toolbarVisible": true
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1867,7 +1855,6 @@
               "toolbarVisible": true
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1889,7 +1876,6 @@
               "toolbarVisible": true
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1911,7 +1897,6 @@
               "toolbarVisible": true
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1933,7 +1918,6 @@
               "toolbarVisible": true
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1955,7 +1939,6 @@
               "toolbarVisible": true
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1976,7 +1959,6 @@
             "toolbarPosition": "top"
           },
           "type": "ToolbarNode",
-          "hidden": false,
           "selected": true,
           "dragging": false,
           "measured": {
@@ -1996,7 +1978,6 @@
             "toolbarPosition": "top"
           },
           "type": "ToolbarNode",
-          "hidden": false,
           "selected": true,
           "dragging": false,
           "measured": {
@@ -2066,7 +2047,6 @@
               "toolbarPosition": "top"
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": true,
             "dragging": false,
             "measured": {
@@ -2088,7 +2068,6 @@
               "toolbarVisible": true
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2110,7 +2089,6 @@
               "toolbarVisible": true
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2132,7 +2110,6 @@
               "toolbarVisible": true
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2154,7 +2131,6 @@
               "toolbarVisible": true
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2176,7 +2152,6 @@
               "toolbarVisible": true
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2198,7 +2173,6 @@
               "toolbarVisible": true
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2220,7 +2194,6 @@
               "toolbarVisible": true
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2242,7 +2215,6 @@
               "toolbarVisible": true
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2264,7 +2236,6 @@
               "toolbarVisible": true
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2286,7 +2257,6 @@
               "toolbarVisible": true
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2308,7 +2278,6 @@
               "toolbarVisible": true
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2330,7 +2299,6 @@
               "toolbarVisible": true
             },
             "type": "ToolbarNode",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2378,7 +2346,6 @@
                 "toolbarPosition": "top"
               },
               "type": "ToolbarNode",
-              "hidden": false,
               "selected": true,
               "dragging": false,
               "measured": {
@@ -2400,7 +2367,6 @@
                 "toolbarVisible": true
               },
               "type": "ToolbarNode",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -2422,7 +2388,6 @@
                 "toolbarVisible": true
               },
               "type": "ToolbarNode",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -2444,7 +2409,6 @@
                 "toolbarVisible": true
               },
               "type": "ToolbarNode",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -2466,7 +2430,6 @@
                 "toolbarVisible": true
               },
               "type": "ToolbarNode",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -2488,7 +2451,6 @@
                 "toolbarVisible": true
               },
               "type": "ToolbarNode",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -2510,7 +2472,6 @@
                 "toolbarVisible": true
               },
               "type": "ToolbarNode",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -2532,7 +2493,6 @@
                 "toolbarVisible": true
               },
               "type": "ToolbarNode",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -2554,7 +2514,6 @@
                 "toolbarVisible": true
               },
               "type": "ToolbarNode",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -2576,7 +2535,6 @@
                 "toolbarVisible": true
               },
               "type": "ToolbarNode",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -2598,7 +2556,6 @@
                 "toolbarVisible": true
               },
               "type": "ToolbarNode",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -2620,7 +2577,6 @@
                 "toolbarVisible": true
               },
               "type": "ToolbarNode",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -2642,7 +2598,6 @@
                 "toolbarVisible": true
               },
               "type": "ToolbarNode",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {

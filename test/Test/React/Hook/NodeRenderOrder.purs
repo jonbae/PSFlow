@@ -41,7 +41,7 @@ internalNode id x y =
   , data: unit
   , sourcePosition: Nothing
   , targetPosition: Nothing
-  , hidden: false
+  , hidden: Nothing
   , selected: false
   , dragging: false
   , draggable: Nothing

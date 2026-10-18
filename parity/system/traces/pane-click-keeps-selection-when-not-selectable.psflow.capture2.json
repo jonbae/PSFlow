@@ -459,7 +459,6 @@
                   "label": "Node-1"
                 },
                 "type": "input",
-                "hidden": false,
                 "selected": true,
                 "dragging": false
               }
@@ -586,7 +585,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 164.60000002384186,
+            "timeStamp": 163.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -653,7 +652,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 164.60000002384186,
+            "timeStamp": 163.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -746,7 +745,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 169.80000001192093,
+            "timeStamp": 168.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -795,7 +794,6 @@
               "label": "Node-1"
             },
             "type": "input",
-            "hidden": false,
             "selected": true,
             "dragging": false,
             "measured": {
@@ -813,7 +811,6 @@
               "label": "Node-2"
             },
             "type": "output",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -830,7 +827,6 @@
             "data": {
               "label": "Node-3"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -848,7 +844,6 @@
               "label": "Node-4"
             },
             "type": "output",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -867,7 +862,6 @@
             "label": "Node-1"
           },
           "type": "input",
-          "hidden": false,
           "selected": true,
           "dragging": false,
           "measured": {
@@ -885,7 +879,6 @@
             "label": "Node-1"
           },
           "type": "input",
-          "hidden": false,
           "selected": true,
           "dragging": false,
           "measured": {
@@ -953,7 +946,6 @@
               "label": "Node-1"
             },
             "type": "input",
-            "hidden": false,
             "selected": true,
             "dragging": false,
             "measured": {
@@ -971,7 +963,6 @@
               "label": "Node-2"
             },
             "type": "output",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -988,7 +979,6 @@
             "data": {
               "label": "Node-3"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1006,7 +996,6 @@
               "label": "Node-4"
             },
             "type": "output",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1066,7 +1055,6 @@
                 "label": "Node-1"
               },
               "type": "input",
-              "hidden": false,
               "selected": true,
               "dragging": false,
               "measured": {
@@ -1084,7 +1072,6 @@
                 "label": "Node-2"
               },
               "type": "output",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -1101,7 +1088,6 @@
               "data": {
                 "label": "Node-3"
               },
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -1119,7 +1105,6 @@
                 "label": "Node-4"
               },
               "type": "output",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {

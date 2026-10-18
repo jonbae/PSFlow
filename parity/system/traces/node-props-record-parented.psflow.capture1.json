@@ -270,7 +270,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 261.30000001192093,
+            "timeStamp": 294.9000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -339,7 +339,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 261.30000001192093,
+            "timeStamp": 294.9000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -383,7 +383,6 @@
               "label": "props-parent"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "width": 300,
@@ -416,7 +415,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 261.30000001192093,
+            "timeStamp": 294.9000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -481,7 +480,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 261.30000001192093,
+            "timeStamp": 294.9000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -523,7 +522,6 @@
               "label": "props-parent"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "width": 300,
@@ -568,7 +566,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 272.30000001192093,
+            "timeStamp": 304.4000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -610,7 +608,6 @@
               "label": "props-parent"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "width": 300,
@@ -637,7 +634,6 @@
                   "label": "props-parent"
                 },
                 "type": "propsRecord",
-                "hidden": false,
                 "selected": true,
                 "dragging": false,
                 "width": 300,
@@ -675,7 +671,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 287.60000002384186,
+            "timeStamp": 320.7000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -719,7 +715,6 @@
               "label": "props-parent"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": true,
             "dragging": false,
             "width": 300,
@@ -754,7 +749,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 287.60000002384186,
+            "timeStamp": 320.7000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -798,7 +793,6 @@
               "label": "props-child"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "draggable": false,
@@ -835,7 +829,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 287.60000002384186,
+            "timeStamp": 320.7000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -900,7 +894,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 287.60000002384186,
+            "timeStamp": 320.7000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -942,7 +936,6 @@
               "label": "props-child"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "draggable": false,
@@ -1007,7 +1000,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 302.80000001192093,
+            "timeStamp": 335.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1049,7 +1042,6 @@
               "label": "props-child"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "draggable": false,
@@ -1080,7 +1072,6 @@
               "label": "props-parent"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": true,
             "dragging": false,
             "width": 300,
@@ -1100,7 +1091,6 @@
               "label": "props-child"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "draggable": false,
@@ -1125,7 +1115,6 @@
             "label": "props-parent"
           },
           "type": "propsRecord",
-          "hidden": false,
           "selected": true,
           "dragging": false,
           "width": 300,
@@ -1145,7 +1134,6 @@
             "label": "props-parent"
           },
           "type": "propsRecord",
-          "hidden": false,
           "selected": true,
           "dragging": false,
           "width": 300,
@@ -1181,7 +1169,6 @@
               "label": "props-parent"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": true,
             "dragging": false,
             "width": 300,
@@ -1201,7 +1188,6 @@
               "label": "props-child"
             },
             "type": "propsRecord",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "draggable": false,
@@ -1237,7 +1223,6 @@
                 "label": "props-parent"
               },
               "type": "propsRecord",
-              "hidden": false,
               "selected": true,
               "dragging": false,
               "width": 300,
@@ -1257,7 +1242,6 @@
                 "label": "props-child"
               },
               "type": "propsRecord",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "draggable": false,

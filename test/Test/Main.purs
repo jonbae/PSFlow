@@ -48,6 +48,7 @@ import Test.Boundary.ConnectionNullHandle (runConnectionNullHandleTests)
 import Test.Boundary.EdgeAnimated (runEdgeAnimatedTests)
 import Test.Boundary.EdgeHidden (runEdgeHiddenTests)
 import Test.Boundary.EdgeSelected (runEdgeSelectedTests)
+import Test.Boundary.NodeHidden (runNodeHiddenTests)
 import Test.Boundary.NodeExpandParent (runNodeExpandParentTests)
 import Test.Boundary.PrunedKeys (runPrunedKeysTests)
 import Test.Boundary.Wrapper (runWrapperTests)
@@ -487,7 +488,7 @@ main = do
       , data: unit
       , sourcePosition: Nothing
       , targetPosition: Nothing
-      , hidden: false
+      , hidden: Nothing
       , selected: false
       , dragging: false
       , draggable: Nothing
@@ -647,7 +648,7 @@ main = do
       , data: unit
       , sourcePosition: Nothing
       , targetPosition: Nothing
-      , hidden: false
+      , hidden: Nothing
       , selected
       , dragging: false
       , draggable
@@ -1127,6 +1128,7 @@ main = do
   runNodeExpandParentTests
   runEdgeHiddenTests
   runEdgeSelectedTests
+  runNodeHiddenTests
 
   -- Function parity — live differential against XYFlow (via the @psflow/oracle bundle).
   -- Requires `npm run build:oracle` to have produced oracle/index.js.

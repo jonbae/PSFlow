@@ -50,7 +50,7 @@ nodeAt id at =
   , data: unit
   , sourcePosition: Nothing
   , targetPosition: Nothing
-  , hidden: false
+  , hidden: Nothing
   , selected: true
   , dragging: false
   , draggable: Just true

@@ -139,7 +139,7 @@ placeholderNode nodeId =
   , data: (unsafeCoerce {} :: n)
   , sourcePosition: Nothing
   , targetPosition: Nothing
-  , hidden: true
+  , hidden: Just true
   , selected: false
   , dragging: false
   , draggable: Nothing
@@ -335,7 +335,7 @@ nodeWrapper =
 
       dragging <- useDrag
         { wrapperRef: nodeRef
-        , disabled: node.hidden || not isDraggable
+        , disabled: node.hidden == Just true || not isDraggable
         , nodeId: Just (NodeId props.id)
         , noDragClassName: Just props.noDragClassName
         , handleSelector: node.dragHandle
@@ -493,7 +493,7 @@ nodeWrapper =
                   )
 
       pure $
-        if node.hidden then mempty
+        if node.hidden == Just true then mempty
         else
           div_
             { className: buildNodeClassName

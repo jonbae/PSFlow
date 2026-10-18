@@ -91,7 +91,7 @@ selector s =
     boundingRect =
       if Map.isEmpty s.nodeLookup then viewBB
       else getBoundsOfRects
-        (getInternalNodesBounds s.nodeLookup (Just (\n -> not n.hidden)))
+        (getInternalNodesBounds s.nodeLookup (Just (\n -> n.hidden /= Just true)))
         viewBB
   in
     MMSlice

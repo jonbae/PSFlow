@@ -471,7 +471,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 162.5999999642372,
+            "timeStamp": 160.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -538,7 +538,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 162.5999999642372,
+            "timeStamp": 160.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -617,7 +617,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 170.69999998807907,
+            "timeStamp": 169.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -706,7 +706,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 186.80000001192093,
+            "timeStamp": 185.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -795,7 +795,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 202.89999997615814,
+            "timeStamp": 202.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -884,7 +884,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 219.5,
+            "timeStamp": 218.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -973,7 +973,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 236.30000001192093,
+            "timeStamp": 236.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1076,7 +1076,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 259.30000001192093,
+            "timeStamp": 257.7999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1155,7 +1155,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 269,
+            "timeStamp": 268.5999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1244,7 +1244,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 286.0999999642372,
+            "timeStamp": 284.7999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1333,7 +1333,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 302.89999997615814,
+            "timeStamp": 302.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1422,7 +1422,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 320.0999999642372,
+            "timeStamp": 319.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1511,7 +1511,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 335.80000001192093,
+            "timeStamp": 335,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1608,7 +1608,6 @@
               "label": "1"
             },
             "type": "input",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1625,7 +1624,6 @@
             "data": {
               "label": "2"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1642,7 +1640,6 @@
             "data": {
               "label": "3"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1661,7 +1658,6 @@
             "label": "1"
           },
           "type": "input",
-          "hidden": false,
           "selected": false,
           "dragging": false,
           "measured": {
@@ -1679,7 +1675,6 @@
             "label": "1"
           },
           "type": "input",
-          "hidden": false,
           "selected": false,
           "dragging": false,
           "measured": {
@@ -1739,7 +1734,6 @@
               "label": "1"
             },
             "type": "input",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1756,7 +1750,6 @@
             "data": {
               "label": "2"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1773,7 +1766,6 @@
             "data": {
               "label": "3"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1833,7 +1825,6 @@
                 "label": "1"
               },
               "type": "input",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -1850,7 +1841,6 @@
               "data": {
                 "label": "2"
               },
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -1867,7 +1857,6 @@
               "data": {
                 "label": "3"
               },
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {

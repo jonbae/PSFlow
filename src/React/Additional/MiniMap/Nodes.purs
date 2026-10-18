@@ -51,7 +51,7 @@ renderOne props internal =
     base :: Node n
     base = internalToBase internal
   in
-    if internal.hidden then Nothing
+    if internal.hidden == Just true then Nothing
     else if not (nodeHasDimensions base) then Nothing
     else case getNodeDimensions internal of
       Nothing -> Nothing

@@ -530,7 +530,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 146.5,
+            "timeStamp": 146.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -599,7 +599,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 146.5,
+            "timeStamp": 146.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -643,7 +643,6 @@
               "label": "Node-1"
             },
             "type": "input",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -674,7 +673,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 146.5,
+            "timeStamp": 146.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -739,7 +738,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 146.5,
+            "timeStamp": 146.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -781,7 +780,6 @@
               "label": "Node-1"
             },
             "type": "input",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -820,7 +818,6 @@
               "label": "Node-1"
             },
             "type": "input",
-            "hidden": false,
             "selected": false,
             "dragging": true,
             "measured": {
@@ -839,7 +836,6 @@
                 "label": "Node-1"
               },
               "type": "input",
-              "hidden": false,
               "selected": false,
               "dragging": true,
               "measured": {
@@ -865,7 +861,6 @@
                   "label": "Node-1"
                 },
                 "type": "input",
-                "hidden": false,
                 "selected": true,
                 "dragging": false,
                 "measured": {
@@ -895,7 +890,6 @@
               "label": "Node-1"
             },
             "type": "input",
-            "hidden": false,
             "selected": true,
             "dragging": false,
             "measured": {
@@ -914,7 +908,6 @@
                 "label": "Node-1"
               },
               "type": "input",
-              "hidden": false,
               "selected": true,
               "dragging": false,
               "measured": {
@@ -946,7 +939,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 161.39999997615814,
+            "timeStamp": 162,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -988,7 +981,6 @@
               "label": "Node-1"
             },
             "type": "input",
-            "hidden": false,
             "selected": true,
             "dragging": false,
             "measured": {
@@ -1133,7 +1125,6 @@
               "label": "Node-1"
             },
             "type": "input",
-            "hidden": false,
             "selected": true,
             "dragging": false,
             "measured": {
@@ -1150,7 +1141,6 @@
             "data": {
               "label": "Node-2"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1167,7 +1157,6 @@
             "data": {
               "label": "Node-3"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1185,7 +1174,6 @@
               "label": "Node-4"
             },
             "type": "output",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1204,7 +1192,6 @@
             "label": "Node-1"
           },
           "type": "input",
-          "hidden": false,
           "selected": true,
           "dragging": false,
           "measured": {
@@ -1222,7 +1209,6 @@
             "label": "Node-1"
           },
           "type": "input",
-          "hidden": false,
           "selected": true,
           "dragging": false,
           "measured": {
@@ -1287,7 +1273,6 @@
               "label": "Node-1"
             },
             "type": "input",
-            "hidden": false,
             "selected": true,
             "dragging": false,
             "measured": {
@@ -1304,7 +1289,6 @@
             "data": {
               "label": "Node-2"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1321,7 +1305,6 @@
             "data": {
               "label": "Node-3"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1339,7 +1322,6 @@
               "label": "Node-4"
             },
             "type": "output",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1385,7 +1367,6 @@
                 "label": "Node-1"
               },
               "type": "input",
-              "hidden": false,
               "selected": true,
               "dragging": false,
               "measured": {
@@ -1402,7 +1383,6 @@
               "data": {
                 "label": "Node-2"
               },
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -1419,7 +1399,6 @@
               "data": {
                 "label": "Node-3"
               },
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -1437,7 +1416,6 @@
                 "label": "Node-4"
               },
               "type": "output",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {

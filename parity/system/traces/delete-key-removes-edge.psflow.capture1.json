@@ -1806,7 +1806,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 360.10000002384186,
+            "timeStamp": 379,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1875,7 +1875,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 360.10000002384186,
+            "timeStamp": 379,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1938,7 +1938,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 360.10000002384186,
+            "timeStamp": 379,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2003,7 +2003,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 360.10000002384186,
+            "timeStamp": 379,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2076,7 +2076,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 371.60000002384186,
+            "timeStamp": 390.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2176,7 +2176,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 442.9000000357628,
+            "timeStamp": 459.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2237,7 +2237,6 @@
               "label": "1"
             },
             "type": "input",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2254,7 +2253,6 @@
             "data": {
               "label": "2"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2271,7 +2269,6 @@
             "data": {
               "label": "3"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2288,7 +2285,6 @@
             "data": {
               "label": "4"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2305,7 +2301,6 @@
             "data": {
               "label": "5"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2322,7 +2317,6 @@
             "data": {
               "label": "6"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2339,7 +2333,6 @@
             "data": {
               "label": "7"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2356,7 +2349,6 @@
             "data": {
               "label": "8"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2373,7 +2365,6 @@
             "data": {
               "label": "9"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2390,7 +2381,6 @@
             "data": {
               "label": "10"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2407,7 +2397,6 @@
             "data": {
               "label": "11"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2424,7 +2413,6 @@
             "data": {
               "label": "12"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "width": 200,
@@ -2443,7 +2431,6 @@
             "data": {
               "label": "12-a"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "width": 50,
@@ -2463,7 +2450,6 @@
             "data": {
               "label": "12-b"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "width": 50,
@@ -2485,7 +2471,6 @@
             "label": "1"
           },
           "type": "input",
-          "hidden": false,
           "selected": false,
           "dragging": false,
           "measured": {
@@ -2503,7 +2488,6 @@
             "label": "1"
           },
           "type": "input",
-          "hidden": false,
           "selected": false,
           "dragging": false,
           "measured": {
@@ -2635,7 +2619,6 @@
               "label": "1"
             },
             "type": "input",
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2652,7 +2635,6 @@
             "data": {
               "label": "2"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2669,7 +2651,6 @@
             "data": {
               "label": "3"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2686,7 +2667,6 @@
             "data": {
               "label": "4"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2703,7 +2683,6 @@
             "data": {
               "label": "5"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2720,7 +2699,6 @@
             "data": {
               "label": "6"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2737,7 +2715,6 @@
             "data": {
               "label": "7"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2754,7 +2731,6 @@
             "data": {
               "label": "8"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2771,7 +2747,6 @@
             "data": {
               "label": "9"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2788,7 +2763,6 @@
             "data": {
               "label": "10"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2805,7 +2779,6 @@
             "data": {
               "label": "11"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2822,7 +2795,6 @@
             "data": {
               "label": "12"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "width": 200,
@@ -2841,7 +2813,6 @@
             "data": {
               "label": "12-a"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "width": 50,
@@ -2861,7 +2832,6 @@
             "data": {
               "label": "12-b"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "width": 50,
@@ -2910,7 +2880,6 @@
                 "label": "1"
               },
               "type": "input",
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -2927,7 +2896,6 @@
               "data": {
                 "label": "2"
               },
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -2944,7 +2912,6 @@
               "data": {
                 "label": "3"
               },
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -2961,7 +2928,6 @@
               "data": {
                 "label": "4"
               },
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -2978,7 +2944,6 @@
               "data": {
                 "label": "5"
               },
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -2995,7 +2960,6 @@
               "data": {
                 "label": "6"
               },
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -3012,7 +2976,6 @@
               "data": {
                 "label": "7"
               },
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -3029,7 +2992,6 @@
               "data": {
                 "label": "8"
               },
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -3046,7 +3008,6 @@
               "data": {
                 "label": "9"
               },
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -3063,7 +3024,6 @@
               "data": {
                 "label": "10"
               },
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -3080,7 +3040,6 @@
               "data": {
                 "label": "11"
               },
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
@@ -3097,7 +3056,6 @@
               "data": {
                 "label": "12"
               },
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "width": 200,
@@ -3116,7 +3074,6 @@
               "data": {
                 "label": "12-a"
               },
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "width": 50,
@@ -3136,7 +3093,6 @@
               "data": {
                 "label": "12-b"
               },
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "width": 50,

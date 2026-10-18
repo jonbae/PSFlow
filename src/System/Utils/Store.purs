@@ -437,7 +437,7 @@ adoptUserNodes nodes prev _prevParent options =
               isJust internalNode.measured.width
                 && isJust internalNode.measured.height
           in
-            if not measuredOk && not internalNode.hidden then
+            if not measuredOk && internalNode.hidden /= Just true then
               st1 { nodesInitialized = false }
             else st1
 
@@ -738,7 +738,7 @@ processUpdate update acc zoom origin extent zMode =
   case Map.lookup update.id acc.nodeLookup of
     Nothing -> pure acc
     Just node ->
-      if node.hidden then
+      if node.hidden == Just true then
         let
           cleared = node
             { internals = node.internals { handleBounds = Nothing } }

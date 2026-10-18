@@ -424,7 +424,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 160.79999995231628,
+            "timeStamp": 145.5999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -493,7 +493,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 160.79999995231628,
+            "timeStamp": 145.5999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -536,7 +536,6 @@
             "data": {
               "label": "child"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "parentId": "parent",
@@ -569,7 +568,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 160.79999995231628,
+            "timeStamp": 145.5999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -634,7 +633,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 160.79999995231628,
+            "timeStamp": 145.5999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -675,7 +674,6 @@
             "data": {
               "label": "child"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "parentId": "parent",
@@ -715,7 +713,6 @@
             "data": {
               "label": "child"
             },
-            "hidden": false,
             "selected": false,
             "dragging": true,
             "parentId": "parent",
@@ -735,7 +732,6 @@
               "data": {
                 "label": "child"
               },
-              "hidden": false,
               "selected": false,
               "dragging": true,
               "parentId": "parent",
@@ -762,7 +758,6 @@
                 "data": {
                   "label": "child"
                 },
-                "hidden": false,
                 "selected": true,
                 "dragging": false,
                 "parentId": "parent",
@@ -798,7 +793,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 174.5,
+            "timeStamp": 159.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -878,7 +873,6 @@
             "data": {
               "label": "child"
             },
-            "hidden": false,
             "selected": true,
             "dragging": true,
             "parentId": "parent",
@@ -898,7 +892,6 @@
               "data": {
                 "label": "child"
               },
-              "hidden": false,
               "selected": true,
               "dragging": true,
               "parentId": "parent",
@@ -932,7 +925,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 190.5999999642372,
+            "timeStamp": 175.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1012,7 +1005,6 @@
             "data": {
               "label": "child"
             },
-            "hidden": false,
             "selected": true,
             "dragging": true,
             "parentId": "parent",
@@ -1032,7 +1024,6 @@
               "data": {
                 "label": "child"
               },
-              "hidden": false,
               "selected": true,
               "dragging": true,
               "parentId": "parent",
@@ -1066,7 +1057,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 205.89999997615814,
+            "timeStamp": 190.5999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1146,7 +1137,6 @@
             "data": {
               "label": "child"
             },
-            "hidden": false,
             "selected": true,
             "dragging": true,
             "parentId": "parent",
@@ -1166,7 +1156,6 @@
               "data": {
                 "label": "child"
               },
-              "hidden": false,
               "selected": true,
               "dragging": true,
               "parentId": "parent",
@@ -1200,7 +1189,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 223.79999995231628,
+            "timeStamp": 208.5999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1280,7 +1269,6 @@
             "data": {
               "label": "child"
             },
-            "hidden": false,
             "selected": true,
             "dragging": true,
             "parentId": "parent",
@@ -1300,7 +1288,6 @@
               "data": {
                 "label": "child"
               },
-              "hidden": false,
               "selected": true,
               "dragging": true,
               "parentId": "parent",
@@ -1334,7 +1321,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 241,
+            "timeStamp": 223.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1414,7 +1401,6 @@
             "data": {
               "label": "child"
             },
-            "hidden": false,
             "selected": true,
             "dragging": true,
             "parentId": "parent",
@@ -1434,7 +1420,6 @@
               "data": {
                 "label": "child"
               },
-              "hidden": false,
               "selected": true,
               "dragging": true,
               "parentId": "parent",
@@ -1468,7 +1453,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 255.79999995231628,
+            "timeStamp": 241.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1548,7 +1533,6 @@
             "data": {
               "label": "child"
             },
-            "hidden": false,
             "selected": true,
             "dragging": true,
             "parentId": "parent",
@@ -1568,7 +1552,6 @@
               "data": {
                 "label": "child"
               },
-              "hidden": false,
               "selected": true,
               "dragging": true,
               "parentId": "parent",
@@ -1602,7 +1585,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 272.89999997615814,
+            "timeStamp": 257.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1682,7 +1665,6 @@
             "data": {
               "label": "child"
             },
-            "hidden": false,
             "selected": true,
             "dragging": true,
             "parentId": "parent",
@@ -1702,7 +1684,6 @@
               "data": {
                 "label": "child"
               },
-              "hidden": false,
               "selected": true,
               "dragging": true,
               "parentId": "parent",
@@ -1736,7 +1717,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 289,
+            "timeStamp": 273.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1816,7 +1797,6 @@
             "data": {
               "label": "child"
             },
-            "hidden": false,
             "selected": true,
             "dragging": true,
             "parentId": "parent",
@@ -1836,7 +1816,6 @@
               "data": {
                 "label": "child"
               },
-              "hidden": false,
               "selected": true,
               "dragging": true,
               "parentId": "parent",
@@ -1885,7 +1864,6 @@
             "data": {
               "label": "child"
             },
-            "hidden": false,
             "selected": true,
             "dragging": false,
             "parentId": "parent",
@@ -1905,7 +1883,6 @@
               "data": {
                 "label": "child"
               },
-              "hidden": false,
               "selected": true,
               "dragging": false,
               "parentId": "parent",
@@ -1932,7 +1909,6 @@
             "data": {
               "label": "parent"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "width": 190,
@@ -1956,7 +1932,6 @@
             "data": {
               "label": "child"
             },
-            "hidden": false,
             "selected": true,
             "dragging": false,
             "parentId": "parent",
@@ -1975,7 +1950,6 @@
             "data": {
               "label": "outside"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -1993,7 +1967,6 @@
           "data": {
             "label": "parent"
           },
-          "hidden": false,
           "selected": false,
           "dragging": false,
           "width": 190,
@@ -2017,7 +1990,6 @@
           "data": {
             "label": "parent"
           },
-          "hidden": false,
           "selected": false,
           "dragging": false,
           "width": 190,
@@ -2091,7 +2063,6 @@
             "data": {
               "label": "parent"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "width": 190,
@@ -2115,7 +2086,6 @@
             "data": {
               "label": "child"
             },
-            "hidden": false,
             "selected": true,
             "dragging": false,
             "parentId": "parent",
@@ -2134,7 +2104,6 @@
             "data": {
               "label": "outside"
             },
-            "hidden": false,
             "selected": false,
             "dragging": false,
             "measured": {
@@ -2163,7 +2132,6 @@
               "data": {
                 "label": "parent"
               },
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "width": 190,
@@ -2187,7 +2155,6 @@
               "data": {
                 "label": "child"
               },
-              "hidden": false,
               "selected": true,
               "dragging": false,
               "parentId": "parent",
@@ -2206,7 +2173,6 @@
               "data": {
                 "label": "outside"
               },
-              "hidden": false,
               "selected": false,
               "dragging": false,
               "measured": {
