@@ -151,6 +151,7 @@ import Boundary.Enums
   , zIndexModeIn
   )
 import Boundary.Refusal (Refusal, refuseFirst)
+import Boundary.Rest (restOf)
 import Boundary.Undefined (Undefinable, fromUndefinable, isDefined, orNullable)
 import Boundary.Untagged (asArray, asBoolean, asNumber, asString, typeName)
 import Data.Array.NonEmpty (fromArray) as NEA
@@ -297,6 +298,8 @@ type JsFlowProps =
   , onMove :: Undefinable JsOnMove
   , onMoveStart :: Undefinable JsOnMove
   , onMoveEnd :: Undefinable JsOnMove
+  , className :: Undefinable String
+  , style :: Undefinable Foreign
   , onScroll :: Undefinable JsOnScroll
   , onPaneScroll :: Undefinable JsOnPaneScroll
   , onPaneClick :: Undefinable JsMouseEventHandler
@@ -455,6 +458,8 @@ convertProps p forwarded =
   , onMove: map onMoveIn (fromUndefinable p.onMove)
   , onMoveStart: map onMoveIn (fromUndefinable p.onMoveStart)
   , onMoveEnd: map onMoveIn (fromUndefinable p.onMoveEnd)
+  , className: fromUndefinable p.className
+  , style: map asCssStyle (fromUndefinable p.style)
   , onScroll: map onScrollIn (fromUndefinable p.onScroll)
   , onPaneScroll: map onPaneScrollIn (fromUndefinable p.onPaneScroll)
   , onPaneClick: map mouseEventHandlerIn (fromUndefinable p.onPaneClick)
@@ -542,6 +547,10 @@ convertProps p forwarded =
   , debug: fromUndefinable p.debug
   , zIndexMode: map (zIndexModeIn "zIndexMode") (fromUndefinable p.zIndexMode)
   , innerRef: orNullable p.ref forwarded
+  -- Upstream's `...rest`, which its wrapper `<div>` spreads. `JsFlowProps`
+  -- names every member upstream destructures bar `id`, which upstream sets on
+  -- the div after the rest, so it rides here with the value it would have had.
+  , wrapperAttributes: restOf p
   }
 
 -- | The thirteen `defaultEdgeOptions` members ps-flow's own record has no room

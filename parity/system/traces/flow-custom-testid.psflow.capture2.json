@@ -14,7 +14,7 @@
       "root": {
         "tag": "div",
         "attrs": {
-          "data-testid": "rf__wrapper",
+          "data-testid": "psflow-custom-flow",
           "class": "react-flow light",
           "role": "application",
           "style": "width: 100%; height: 100%; overflow: hidden; position: relative; z-index: 0;"
@@ -558,19 +558,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 1147.199999988079,
+            "timeStamp": 161.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 0,
-            "screenY": 0,
-            "clientX": 0,
-            "clientY": 0,
-            "pageX": 0,
-            "pageY": 0,
+            "screenX": 8,
+            "screenY": 8,
+            "clientX": 8,
+            "clientY": 8,
+            "pageX": 8,
+            "pageY": 8,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -625,19 +625,19 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 1147.199999988079,
+            "timeStamp": 161.0999999642372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 0,
-            "screenY": 0,
-            "clientX": 0,
-            "clientY": 0,
-            "pageX": 0,
-            "pageY": 0,
+            "screenX": 8,
+            "screenY": 8,
+            "clientX": 8,
+            "clientY": 8,
+            "pageX": 8,
+            "pageY": 8,
             "ctrlKey": false,
             "shiftKey": false,
             "altKey": false,
@@ -648,8 +648,8 @@
             "button": -1,
             "buttons": 0,
             "relatedTarget": null,
-            "movementX": 1,
-            "movementY": 1,
+            "movementX": 9,
+            "movementY": 9,
             "pointerId": 1,
             "width": 1,
             "height": 1,
@@ -660,6 +660,89 @@
             "twist": 0,
             "pointerType": "mouse",
             "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onMoveStart",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "x": 490,
+            "y": 123,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "x": 490,
+            "y": 123,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onPaneClick",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onClick",
+            "_targetInst": null,
+            "type": "click",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 167.69999998807907,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 1,
+            "screenX": 8,
+            "screenY": 8,
+            "clientX": 8,
+            "clientY": 8,
+            "pageX": 8,
+            "pageY": 8,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": null,
+            "movementX": 0,
+            "movementY": 0,
             "isDefaultPrevented": {
               "@ref": "function"
             },
@@ -1038,9 +1121,18 @@
         "index": 1,
         "action": "pointerDown",
         "target": "[data-testid=\"psflow-custom-flow\"]",
-        "resolved": false,
-        "box": null,
-        "dispatched": null
+        "resolved": true,
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "dispatched": {
+          "x": 8,
+          "y": 8,
+          "button": "left"
+        }
       },
       {
         "index": 2,
@@ -1049,8 +1141,8 @@
         "resolved": true,
         "box": null,
         "dispatched": {
-          "x": 0,
-          "y": 0,
+          "x": 8,
+          "y": 8,
           "button": "left"
         }
       }

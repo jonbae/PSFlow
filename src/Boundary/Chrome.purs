@@ -130,9 +130,10 @@ import Unsafe.Coerce (unsafeCoerce)
 
 -- | Upstream's `PanelProps` is `HTMLAttributes<HTMLDivElement> & { position }`,
 -- | and ps-flow models the five attributes its own component forwards. The
--- | rest of `HTMLAttributes` is a gap in the internals — this record cannot
--- | name what it does not know the shape of, so an unmodelled DOM attribute
--- | is dropped here as silently as it is on the PureScript surface.
+-- | rest of `HTMLAttributes` is a gap in the internals: ps-flow's `Panel` has
+-- | no rest field, as `BaseEdge` and `ReactFlow` do, for `Boundary.Rest` to
+-- | fill, so an unmodelled DOM attribute is dropped here as silently as it
+-- | is on the PureScript surface.
 type JsPanelProps =
   { position :: Undefinable String
   , className :: Undefinable String
@@ -381,9 +382,9 @@ miniMap =
 -- a consumer adds their own beside them with. Upstream's props are
 -- `ButtonHTMLAttributes<HTMLButtonElement>`, of which ps-flow models the six
 -- its component forwards. The rest is missing from the internals, exactly as
--- it is on `JsPanelProps` against `HTMLAttributes`: this record cannot name
--- what it does not know the shape of, so an unmodelled DOM attribute is
--- dropped here as silently as it is on the PureScript surface.
+-- it is on `JsPanelProps` against `HTMLAttributes`: the component has no rest
+-- field to fill, so an unmodelled DOM attribute is dropped here as silently
+-- as it is on the PureScript surface.
 -- ────────────────────────────────────────────────────────────────────────
 
 type JsControlButtonProps =

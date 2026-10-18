@@ -131,6 +131,10 @@ const pairs = [
     ps: { file: "src/React/Types/Component.purs", type: "ReactFlowProps" },
     js: { file: "src/Boundary/Flow.purs", type: "JsFlowProps" },
     renames: { innerRef: "ref" },
+    // Upstream's `<ReactFlow />` spreads every prop it doesn't destructure onto
+    // its wrapper `<div>`, the rest of `HTMLAttributes<HTMLDivElement>`.
+    // `Boundary.Flow` collects it with `Boundary.Rest.restOf`.
+    rest: "wrapperAttributes",
   },
   {
     what: "DefaultEdgeOptions",
