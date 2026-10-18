@@ -33731,7 +33731,7 @@ var background = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__
       className: className3,
       style: buildStyle(v.style)(v.bgColor)(v.color),
       "data-testid": "rf__background"
-    })([defs_({})([pattern_({
+    })([pattern_({
       id: patternIdResolved,
       x: patternX,
       y: patternY,
@@ -33739,7 +33739,7 @@ var background = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__
       height: scaledGapY,
       patternUnits: "userSpaceOnUse",
       patternTransform: patTransform
-    })([innerPattern])]), rect_({
+    })([innerPattern]), rect_({
       x: "0",
       y: "0",
       width: "100%",

@@ -412,32 +412,26 @@
             },
             "children": [
               {
-                "tag": "defs",
-                "attrs": {},
+                "tag": "pattern",
+                "attrs": {
+                  "id": "pattern-1",
+                  "x": "6.636202829010784",
+                  "y": "16.92794319904749",
+                  "width": "26.390158215457884",
+                  "height": "26.390158215457884",
+                  "patternUnits": "userSpaceOnUse",
+                  "patternTransform": "translate(-14.195079107728942,-14.195079107728942)"
+                },
                 "children": [
                   {
-                    "tag": "pattern",
+                    "tag": "circle",
                     "attrs": {
-                      "id": "pattern-1",
-                      "x": "6.636202829010784",
-                      "y": "16.92794319904749",
-                      "width": "26.390158215457884",
-                      "height": "26.390158215457884",
-                      "patternUnits": "userSpaceOnUse",
-                      "patternTransform": "translate(-14.195079107728942,-14.195079107728942)"
+                      "cx": "0.6597539553864471",
+                      "cy": "0.6597539553864471",
+                      "r": "0.6597539553864471",
+                      "class": "react-flow__background-pattern dots"
                     },
-                    "children": [
-                      {
-                        "tag": "circle",
-                        "attrs": {
-                          "cx": "0.6597539553864471",
-                          "cy": "0.6597539553864471",
-                          "r": "0.6597539553864471",
-                          "class": "react-flow__background-pattern dots"
-                        },
-                        "children": []
-                      }
-                    ]
+                    "children": []
                   }
                 ]
               },
@@ -538,7 +532,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 331.2000000476837,
+            "timeStamp": 330,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -605,7 +599,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 331.2000000476837,
+            "timeStamp": 330,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
