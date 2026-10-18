@@ -62,6 +62,7 @@ import Test.React.Component.AriaDescribedBy (runAriaDescribedByTests)
 import Test.React.Component.EdgeAriaLabel (runEdgeAriaLabelTests)
 import Test.React.Component.NodeInlineDimensions (runNodeInlineDimensionsTests)
 import Test.React.Store.UpdateNodePositions (runUpdateNodePositionsTests)
+import Test.React.Provider.BatchQueue (runBatchQueueTests)
 import Test.React.Additional.NodeToolbarPortal (runNodeToolbarPortalTests)
 import Test.React.Hook.NodeRenderOrder (runNodeRenderOrderTests)
 import Test.React.Component.HandleDataId (runHandleDataIdTests)
@@ -1122,6 +1123,7 @@ main = do
   runAriaDescribedByTests
   runNodeInlineDimensionsTests
   runUpdateNodePositionsTests
+  runBatchQueueTests
   runEdgeAriaLabelTests
   runNodeA11yDescriptionTests
   runMeasuredDimensionsTests

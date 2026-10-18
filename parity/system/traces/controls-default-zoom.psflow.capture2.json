@@ -603,57 +603,6 @@
         ]
       },
       {
-        "name": "onNodesChange",
-        "args": [
-          [
-            {
-              "type": "replace",
-              "id": "n1",
-              "item": {
-                "id": "n1",
-                "position": {
-                  "x": 0,
-                  "y": 0
-                },
-                "data": {
-                  "label": "n1"
-                },
-                "sourcePosition": "right",
-                "targetPosition": "left",
-                "width": 100,
-                "height": 40,
-                "measured": {
-                  "width": 100,
-                  "height": 40
-                }
-              }
-            },
-            {
-              "type": "replace",
-              "id": "n2",
-              "item": {
-                "id": "n2",
-                "position": {
-                  "x": 250,
-                  "y": 100
-                },
-                "data": {
-                  "label": "n2"
-                },
-                "sourcePosition": "right",
-                "targetPosition": "left",
-                "width": 100,
-                "height": 40,
-                "measured": {
-                  "width": 100,
-                  "height": 40
-                }
-              }
-            }
-          ]
-        ]
-      },
-      {
         "name": "onMoveStart",
         "args": [
           null,

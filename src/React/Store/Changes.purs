@@ -32,6 +32,7 @@ import React.Types.Edges (Edge)
 import React.Types.Nodes (Node)
 import System.Types.Edge (EdgeChange(..), EdgeLookup)
 import System.Types.Ids (NodeId)
+import Unsafe.Reference (unsafeRefEq)
 import System.Types.Node
   ( InternalNodeBase
   , NodeChange(..)
@@ -288,28 +289,37 @@ getEdgeSelectionChanges lookup selectedIds =
 
 -- | Diff between a fresh user-supplied node array and the store's
 -- | current lookup. Produces `add` / `remove` / `replace` changes.
+-- |
+-- | TS replaces an item only when it isn't the object the store holds:
+-- | `storeItem !== item`, where `storeItem` is the lookup's
+-- | `internals.userNode`. ps-flow's internal node doesn't keep the user
+-- | node, so the comparison is against the node with the same id in
+-- | `currentNodes`, the array the lookup was adopted from.
 getNodeElementsDiffChanges
   :: forall n
    . Maybe (Array (Node n))
   -> NodeLookup n
+  -> Array (Node n)
   -> Array (NodeChange n)
-getNodeElementsDiffChanges mItems lookup =
+getNodeElementsDiffChanges mItems lookup currentNodes =
   let
     items = case mItems of
       Just xs -> xs
       Nothing -> []
     itemsLookup :: Map NodeId (Node n)
     itemsLookup = Map.fromFoldable (map (\n -> Tuple n.id n) items)
+    userNodes :: Map NodeId (Node n)
+    userNodes = Map.fromFoldable (map (\n -> Tuple n.id n) currentNodes)
     forwardPass = foldl forwardStep { changes: [], index: 0 } items
     forwardStep acc item =
       let
-        storeItem :: Maybe (InternalNodeBase n)
-        storeItem = Map.lookup item.id lookup
-        change = case storeItem of
-          Just _ -> NodeReplaceChange { id: item.id, item }
-          Nothing -> NodeAddChange { item, index: Just acc.index }
+        change
+          | Map.member item.id lookup = case Map.lookup item.id userNodes of
+              Just stored | unsafeRefEq stored item -> []
+              _ -> [ NodeReplaceChange { id: item.id, item } ]
+          | otherwise = [ NodeAddChange { item, index: Just acc.index } ]
       in
-        { changes: Array.snoc acc.changes change, index: acc.index + 1 }
+        { changes: acc.changes <> change, index: acc.index + 1 }
     removes =
       foldl
         ( \acc (Tuple id _) ->
@@ -334,13 +344,16 @@ getEdgeElementsDiffChanges mItems lookup =
     itemsLookup :: Map String (Edge e)
     itemsLookup = Map.fromFoldable (map (\e -> Tuple e.id e) items)
     forwardPass = foldl forwardStep { changes: [], index: 0 } items
+    -- TS replaces an item only when it isn't the object the lookup holds.
     forwardStep acc item =
       let
         change = case Map.lookup item.id lookup of
-          Just _ -> EdgeReplaceChange { id: item.id, item }
-          Nothing -> EdgeAddChange { item, index: Just acc.index }
+          Just stored
+            | unsafeRefEq stored item -> []
+            | otherwise -> [ EdgeReplaceChange { id: item.id, item } ]
+          Nothing -> [ EdgeAddChange { item, index: Just acc.index } ]
       in
-        { changes: Array.snoc acc.changes change, index: acc.index + 1 }
+        { changes: acc.changes <> change, index: acc.index + 1 }
     removes =
       foldl
         ( \acc (Tuple id _) ->

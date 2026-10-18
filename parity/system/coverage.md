@@ -172,12 +172,12 @@ The witness is printed beside each one so a wrong witness can be read and disput
 | `FinalConnectionState` | callbacks | driven | `onConnectEnd` | `connect-drag-released-on-pane` +7 more |
 | `IsValidConnection` | callbacks | driven | `isValidConnection` | `click-connect-reverse-direction` +4 more |
 | `NodeAddChange` | callbacks | driven | `onNodesChange:add` | `uncontrolled-update-node` |
-| `NodeChange` | callbacks | driven | `onNodesChange` | `arrow-key-selected-node` +91 more |
+| `NodeChange` | callbacks | driven | `onNodesChange` | `arrow-key-selected-node` +90 more |
 | `NodeDimensionChange` | callbacks | driven | `onNodesChange:dimensions` | `arrow-key-selected-node` +87 more |
 | `NodeMouseHandler` | callbacks | driven | `onNodeClick, onNodeDoubleClick, onNodeContextMenu, onNodeMouseEnter, onNodeMouseMove, onNodeMouseLeave` | `arrow-key-selected-node` +33 more |
 | `NodePositionChange` | callbacks | driven | `onNodesChange:position` | `arrow-key-selected-node` +11 more |
 | `NodeRemoveChange` | callbacks | driven | `onNodesChange:remove` | `delete-key-removes-node-and-edges` +1 more |
-| `NodeReplaceChange` | callbacks | driven | `onNodesChange:replace` | `controls-default-zoom` +3 more |
+| `NodeReplaceChange` | callbacks | driven | `onNodesChange:replace` | `uncontrolled-update-node` |
 | `NodeSelectionChange` | callbacks | driven | `onNodesChange:select` | `arrow-key-selected-node` +23 more |
 | `OnBeforeDelete` | callbacks | driven | `onBeforeDelete` | `delete-key-removes-edge` +4 more |
 | `OnConnect` | callbacks | driven | `onConnect` | `click-connect-reverse-direction` +4 more |
@@ -193,7 +193,7 @@ The witness is printed beside each one so a wrong witness can be read and disput
 | `OnMoveEnd` | callbacks | driven | `onMoveEnd` | `background-custom-bgcolor` +84 more |
 | `OnMoveStart` | callbacks | driven | `onMoveStart` | `background-custom-bgcolor` +87 more |
 | `OnNodeDrag` | callbacks | driven | `onNodeDragStart, onNodeDrag, onNodeDragStop` | `arrow-key-selected-node` +20 more |
-| `OnNodesChange` | callbacks | driven | `onNodesChange` | `arrow-key-selected-node` +91 more |
+| `OnNodesChange` | callbacks | driven | `onNodesChange` | `arrow-key-selected-node` +90 more |
 | `OnNodesDelete` | callbacks | driven | `onNodesDelete` | `delete-key-removes-node-and-edges` +1 more |
 | `OnReconnect` | callbacks | hole | `onReconnect` | declared — no issue owns it |
 | `OnResize` | callbacks | hole | `onResize` | declared — no issue owns it |

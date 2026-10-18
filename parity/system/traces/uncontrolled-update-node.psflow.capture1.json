@@ -643,6 +643,79 @@
         "args": [
           [
             {
+              "type": "replace",
+              "id": "Node-1",
+              "item": {
+                "id": "Node-1",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "data": {
+                  "label": "updated"
+                },
+                "type": "input",
+                "measured": {
+                  "width": 150,
+                  "height": 37
+                }
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "type": "replace",
+              "id": "Node-2",
+              "item": {
+                "id": "Node-2",
+                "position": {
+                  "x": -100,
+                  "y": 100
+                },
+                "data": {
+                  "label": "data updated"
+                },
+                "type": "output",
+                "measured": {
+                  "width": 150,
+                  "height": 37
+                }
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "type": "add",
+              "item": {
+                "id": "added",
+                "position": {
+                  "x": 240,
+                  "y": 240
+                },
+                "data": {
+                  "label": "added"
+                }
+              },
+              "index": 4
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
               "type": "dimensions",
               "id": "added",
               "dimensions": {
