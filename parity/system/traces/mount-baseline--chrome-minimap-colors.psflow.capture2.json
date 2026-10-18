@@ -483,7 +483,7 @@
                     "tag": "path",
                     "attrs": {
                       "class": "react-flow__minimap-mask",
-                      "d": "M-277,-153.5h704v544h-704z M-245,-61.5h640v360h-640z",
+                      "d": "M-277,-153.5h704v544h-704z\n        M-245,-61.5h640v360h-640z",
                       "fill-rule": "evenodd",
                       "pointer-events": "none"
                     },

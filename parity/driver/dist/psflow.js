@@ -41403,8 +41403,8 @@ var selector3 = function(s) {
     height: s.height / s.transform.scale
   };
   var boundingRect = function() {
-    var $129 = isEmpty2(s.nodeLookup);
-    if ($129) {
+    var $130 = isEmpty2(s.nodeLookup);
+    if ($130) {
       return viewBB;
     }
     ;
@@ -41437,8 +41437,13 @@ var maybeInsert2 = function(k) {
         return insert2(k)(mv.value0)(obj);
       }
       ;
-      throw new Error("Failed pattern match at React.Additional.MiniMap (line 154, column 24 - line 156, column 34): " + [mv.constructor.name]);
+      throw new Error("Failed pattern match at React.Additional.MiniMap (line 172, column 24 - line 174, column 34): " + [mv.constructor.name]);
     };
+  };
+};
+var maskPath = function(v) {
+  return function(viewBB) {
+    return "M" + (showN3(v.x - v.offset) + ("," + (showN3(v.y - v.offset) + ("h" + (showN3(v.width + v.offset * 2) + ("v" + (showN3(v.height + v.offset * 2) + ("h" + (showN3(-(v.width + v.offset * 2)) + ("z\n        M" + (showN3(viewBB.x) + ("," + (showN3(viewBB.y) + ("h" + (showN3(viewBB.width) + ("v" + (showN3(viewBB.height) + ("h" + (showN3(-viewBB.width) + "z")))))))))))))))))));
   };
 };
 var eqUpdateDeps = /* @__PURE__ */ eqRec4(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons3({
@@ -41583,8 +41588,8 @@ var miniMap = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PUR
                   var userPanelClass = fromMaybe("")(v.className);
                   var userExtras = reactChildrenToArray(v.children);
                   var titleEl = function() {
-                    var $141 = ariaText === "";
-                    if ($141) {
+                    var $149 = ariaText === "";
+                    if ($149) {
                       return mempty2;
                     }
                     ;
@@ -41594,8 +41599,8 @@ var miniMap = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PUR
                   }();
                   var panelStyle = buildPanelStyle(v.style)(v.bgColor)(v.maskColor)(v.maskStrokeColor)(v.maskStrokeWidth)(maybeNodeColorString(v.nodeColor))(maybeNodeColorString(v.nodeStrokeColor))(v.nodeStrokeWidth)(viewScale);
                   var panelClassName = "react-flow__minimap" + function() {
-                    var $142 = userPanelClass === "";
-                    if ($142) {
+                    var $150 = userPanelClass === "";
+                    if ($150) {
                       return "";
                     }
                     ;
@@ -41625,15 +41630,15 @@ var miniMap = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PUR
                               return v.onClick.value0(e)(pos$prime)();
                             }
                             ;
-                            throw new Error("Failed pattern match at React.Additional.MiniMap (line 255, column 17 - line 259, column 59): " + [mSvg.constructor.name]);
+                            throw new Error("Failed pattern match at React.Additional.MiniMap (line 273, column 17 - line 277, column 59): " + [mSvg.constructor.name]);
                           }
                           ;
-                          throw new Error("Failed pattern match at React.Additional.MiniMap (line 251, column 13 - line 259, column 59): " + [mInst.constructor.name]);
+                          throw new Error("Failed pattern match at React.Additional.MiniMap (line 269, column 13 - line 277, column 59): " + [mInst.constructor.name]);
                         };
                       });
                     }
                     ;
-                    throw new Error("Failed pattern match at React.Additional.MiniMap (line 247, column 22 - line 259, column 59): " + [v.onClick.constructor.name]);
+                    throw new Error("Failed pattern match at React.Additional.MiniMap (line 265, column 22 - line 277, column 59): " + [v.onClick.constructor.name]);
                   }();
                   var onNodeClickHandler = function() {
                     if (v.onNodeClick instanceof Nothing) {
@@ -41654,13 +41659,13 @@ var miniMap = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PUR
                               return v.onNodeClick.value0(me)(v2.value0)();
                             }
                             ;
-                            throw new Error("Failed pattern match at React.Additional.MiniMap (line 266, column 13 - line 268, column 61): " + [v2.constructor.name]);
+                            throw new Error("Failed pattern match at React.Additional.MiniMap (line 284, column 13 - line 286, column 61): " + [v2.constructor.name]);
                           };
                         };
                       });
                     }
                     ;
-                    throw new Error("Failed pattern match at React.Additional.MiniMap (line 262, column 30 - line 268, column 61): " + [v.onNodeClick.constructor.name]);
+                    throw new Error("Failed pattern match at React.Additional.MiniMap (line 280, column 30 - line 286, column 61): " + [v.onNodeClick.constructor.name]);
                   }();
                   var nodesElement = element(miniMapNodes)({
                     nodeColor: v.nodeColor,
@@ -41671,10 +41676,15 @@ var miniMap = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PUR
                     nodeComponent: v.nodeComponent,
                     onClick: onNodeClickHandler
                   });
-                  var maskPath = "M" + (showN3(x - offset) + ("," + (showN3(y - offset) + ("h" + (showN3(width8 + offset * 2) + ("v" + (showN3(height8 + offset * 2) + ("h" + (showN3(-(width8 + offset * 2)) + ("z M" + (showN3(v1.viewBB.x) + ("," + (showN3(v1.viewBB.y) + ("h" + (showN3(v1.viewBB.width) + ("v" + (showN3(v1.viewBB.height) + ("h" + (showN3(-v1.viewBB.width) + "z")))))))))))))))))));
                   var maskRect = path_({
                     className: "react-flow__minimap-mask",
-                    d: maskPath,
+                    d: maskPath({
+                      x,
+                      y,
+                      width: width8,
+                      height: height8,
+                      offset
+                    })(v1.viewBB),
                     fillRule: "evenodd",
                     pointerEvents: "none"
                   })([]);
