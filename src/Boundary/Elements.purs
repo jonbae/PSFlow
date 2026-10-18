@@ -27,15 +27,15 @@
 -- |
 -- | ## Fields PureScript makes required and upstream leaves optional
 -- |
--- | Six Booleans — a node's `hidden`, `selected`, `dragging` and
--- | `expandParent`, an edge's `hidden` and `selected` — plus a node's
--- | `measured` record. An edge's `animated` was the seventh, and is a
--- | `Maybe Boolean` that crosses only when it's set. Inbound they default (`false`, and an empty
+-- | Five Booleans — a node's `hidden`, `selected` and `dragging`, an edge's
+-- | `hidden` and `selected` — plus a node's `measured` record. An edge's
+-- | `animated` and a node's `expandParent` were the other two, and are
+-- | `Maybe Boolean`s that cross only when they're set. Inbound they default (`false`, and an empty
 -- | measurement); outbound they are **emitted always**, so a JavaScript
 -- | consumer reading a node back sees `hidden: false` where upstream would
 -- | have no such key. That is a real divergence, it is recorded as a region in
 -- | `parity/boundary/regions.json`, and it is deliberately not fixed here:
--- | `Maybe`-ifying seven fields of the internals is churn ahead of the first
+-- | `Maybe`-ifying six fields of the internals is churn ahead of the first
 -- | green signal on the JS surface. The stale-region rule is what forces the
 -- | cleanup once the net's `props` and `dom` sections are green.
 -- |
@@ -518,7 +518,7 @@ nodeIn n =
   , parentId: map wrap (fromUndefinable n.parentId)
   , zIndex: map Int.round (fromUndefinable n.zIndex)
   , extent: map nodeExtentIn (fromUndefinable n.extent)
-  , expandParent: fromMaybe false (fromUndefinable n.expandParent)
+  , expandParent: fromUndefinable n.expandParent
   , ariaLabel: fromUndefinable n.ariaLabel
   , origin: map (nodeOriginIn "node.origin") (fromUndefinable n.origin)
   , handles: map (map nodeHandleIn) (fromUndefinable n.handles)
@@ -557,7 +557,7 @@ nodeOut n = pruneUndefined
   , parentId: toUndefinable (map unwrap n.parentId)
   , zIndex: toUndefinable (map Int.toNumber n.zIndex)
   , extent: toUndefinable (map nodeExtentOut n.extent)
-  , expandParent: toUndefinable (Just n.expandParent)
+  , expandParent: toUndefinable n.expandParent
   , ariaLabel: toUndefinable n.ariaLabel
   , origin: toUndefinable (map nodeOriginOut n.origin)
   , handles: toUndefinable (map (map nodeHandleOut) n.handles)
@@ -597,7 +597,7 @@ internalNodeOut n = pruneUndefined
   , parentId: toUndefinable (map unwrap n.parentId)
   , zIndex: toUndefinable (map Int.toNumber n.zIndex)
   , extent: toUndefinable (map nodeExtentOut n.extent)
-  , expandParent: toUndefinable (Just n.expandParent)
+  , expandParent: toUndefinable n.expandParent
   , ariaLabel: toUndefinable n.ariaLabel
   , origin: toUndefinable (map nodeOriginOut n.origin)
   , handles: toUndefinable (map (map nodeHandleOut) n.handles)

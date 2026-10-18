@@ -625,7 +625,6 @@
                 "dragging": false,
                 "width": 100,
                 "height": 40,
-                "expandParent": false,
                 "measured": {
                   "width": 100,
                   "height": 40
@@ -651,7 +650,6 @@
                 "dragging": false,
                 "width": 100,
                 "height": 40,
-                "expandParent": false,
                 "measured": {
                   "width": 100,
                   "height": 40
@@ -725,7 +723,6 @@
             "dragging": false,
             "width": 100,
             "height": 40,
-            "expandParent": false,
             "measured": {
               "width": 100,
               "height": 40
@@ -747,7 +744,6 @@
             "dragging": false,
             "width": 100,
             "height": 40,
-            "expandParent": false,
             "measured": {
               "width": 100,
               "height": 40
@@ -770,7 +766,6 @@
           "dragging": false,
           "width": 100,
           "height": 40,
-          "expandParent": false,
           "measured": {
             "width": 100,
             "height": 40
@@ -792,7 +787,6 @@
           "dragging": false,
           "width": 100,
           "height": 40,
-          "expandParent": false,
           "measured": {
             "width": 100,
             "height": 40
@@ -868,7 +862,6 @@
             "dragging": false,
             "width": 100,
             "height": 40,
-            "expandParent": false,
             "measured": {
               "width": 100,
               "height": 40
@@ -890,7 +883,6 @@
             "dragging": false,
             "width": 100,
             "height": 40,
-            "expandParent": false,
             "measured": {
               "width": 100,
               "height": 40
@@ -940,7 +932,6 @@
               "dragging": false,
               "width": 100,
               "height": 40,
-              "expandParent": false,
               "measured": {
                 "width": 100,
                 "height": 40
@@ -962,7 +953,6 @@
               "dragging": false,
               "width": 100,
               "height": 40,
-              "expandParent": false,
               "measured": {
                 "width": 100,
                 "height": 40

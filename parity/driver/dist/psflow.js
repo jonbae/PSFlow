@@ -30363,7 +30363,7 @@ var internalNodeOut = function(n) {
     parentId: toUndefinable(map7(unwrap2)(n.parentId)),
     zIndex: toUndefinable(map7(toNumber)(n.zIndex)),
     extent: toUndefinable(map7(nodeExtentOut)(n.extent)),
-    expandParent: toUndefinable(new Just(n.expandParent)),
+    expandParent: toUndefinable(n.expandParent),
     ariaLabel: toUndefinable(n.ariaLabel),
     origin: toUndefinable(map7(nodeOriginOut)(n.origin)),
     handles: toUndefinable(map7(map12(nodeHandleOut))(n.handles)),
@@ -30396,7 +30396,7 @@ var nodeOut = function(n) {
     parentId: toUndefinable(map7(unwrap2)(n.parentId)),
     zIndex: toUndefinable(map7(toNumber)(n.zIndex)),
     extent: toUndefinable(map7(nodeExtentOut)(n.extent)),
-    expandParent: toUndefinable(new Just(n.expandParent)),
+    expandParent: toUndefinable(n.expandParent),
     ariaLabel: toUndefinable(n.ariaLabel),
     origin: toUndefinable(map7(nodeOriginOut)(n.origin)),
     handles: toUndefinable(map7(map12(nodeHandleOut))(n.handles)),
@@ -30652,7 +30652,7 @@ var nodeIn = function(n) {
     parentId: map7(wrap2)(fromUndefinable(n.parentId)),
     zIndex: map7(round2)(fromUndefinable(n.zIndex)),
     extent: map7(nodeExtentIn)(fromUndefinable(n.extent)),
-    expandParent: fromMaybe(false)(fromUndefinable(n.expandParent)),
+    expandParent: fromUndefinable(n.expandParent),
     ariaLabel: fromUndefinable(n.ariaLabel),
     origin: map7(nodeOriginIn("node.origin"))(fromUndefinable(n.origin)),
     handles: map7(map12(nodeHandleIn))(fromUndefinable(n.handles)),
@@ -36617,7 +36617,7 @@ var calculateNodePosition = function(p) {
       throw new Error("Failed pattern match at System.Utils.Graph (line 425, column 20 - line 427, column 32): " + [v.value0.extent.constructor.name]);
     }();
     var extent = function() {
-      if (v.value0.extent instanceof Just && (v.value0.extent.value0 instanceof ParentExtent && !v.value0.expandParent)) {
+      if (v.value0.extent instanceof Just && (v.value0.extent.value0 instanceof ParentExtent && notEq3(v.value0.expandParent)(new Just(true)))) {
         if (parentNode instanceof Just) {
           if (parentNode.value0.measured.width instanceof Just && parentNode.value0.measured.height instanceof Just) {
             return new Just({
@@ -38654,6 +38654,7 @@ var eq24 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqInt));
 var eq32 = /* @__PURE__ */ eq(eqZIndexMode);
 var pure13 = /* @__PURE__ */ pure(applicativeEffect);
 var notEq1 = /* @__PURE__ */ notEq(/* @__PURE__ */ eqMaybe(eqNumber));
+var eq42 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var foldM5 = /* @__PURE__ */ foldM(foldableList)(monadEffect);
 var unwrap8 = /* @__PURE__ */ unwrap();
 var updateParentLookup = function(node) {
@@ -38756,8 +38757,8 @@ var panBy = function(delta) {
             }
             ;
             if (mPanZoom instanceof Just) {
-              var $94 = delta.x === 0 && delta.y === 0;
-              if ($94) {
+              var $96 = delta.x === 0 && delta.y === 0;
+              if ($96) {
                 return pure10(false);
               }
               ;
@@ -38805,8 +38806,8 @@ var insertHandleConnection = function(key2) {
       return {
         byKey: insert22(key2)(connection)(connections.byKey),
         order: function() {
-          var $99 = member5(key2)(connections.byKey);
-          if ($99) {
+          var $101 = member5(key2)(connections.byKey);
+          if ($101) {
             return connections.order;
           }
           ;
@@ -38833,16 +38834,16 @@ var stepExpansion = function(children3) {
           })(getNodeDimensions(v.value1.parent));
           var v1 = fromMaybe(defaultOrigin)(v.value1.parent.origin);
           var yChange = function() {
-            var $106 = v.value1.expandedRect.y < v.value1.parent.internals.positionAbsolute.y;
-            if ($106) {
+            var $108 = v.value1.expandedRect.y < v.value1.parent.internals.positionAbsolute.y;
+            if ($108) {
               return round(abs(v.value1.parent.internals.positionAbsolute.y - v.value1.expandedRect.y));
             }
             ;
             return 0;
           }();
           var xChange = function() {
-            var $107 = v.value1.expandedRect.x < v.value1.parent.internals.positionAbsolute.x;
-            if ($107) {
+            var $109 = v.value1.expandedRect.x < v.value1.parent.internals.positionAbsolute.x;
+            if ($109) {
               return round(abs(v.value1.parent.internals.positionAbsolute.x - v.value1.expandedRect.x));
             }
             ;
@@ -38875,16 +38876,16 @@ var stepExpansion = function(children3) {
                 id: parentToNode(v.value0),
                 dimensions: new Just({
                   width: newWidth + function() {
-                    var $110 = xChange !== 0;
-                    if ($110) {
+                    var $112 = xChange !== 0;
+                    if ($112) {
                       return v1.ox * xChange - widthChange;
                     }
                     ;
                     return 0;
                   }(),
                   height: newHeight + function() {
-                    var $111 = yChange !== 0;
-                    if ($111) {
+                    var $113 = yChange !== 0;
+                    if ($113) {
                       return v1.oy * yChange - heightChange;
                     }
                     ;
@@ -38910,10 +38911,10 @@ var stepExpansion = function(children3) {
               ;
               if (v2 instanceof Just) {
                 return filterMap(function(kid) {
-                  var $114 = any2(function(c) {
+                  var $116 = any2(function(c) {
                     return eq13(c.id)(kid.id);
                   })(children3);
-                  if ($114) {
+                  if ($116) {
                     return Nothing.value;
                   }
                   ;
@@ -39001,8 +39002,8 @@ var calculateZ = function(node) {
         return 0;
       }();
       var bonus = function() {
-        var $124 = isManualZIndexMode(zMode);
-        if ($124) {
+        var $126 = isManualZIndexMode(zMode);
+        if ($126) {
           return 0;
         }
         ;
@@ -39061,8 +39062,8 @@ var calculateChildXYZ = function(child) {
               x: absoluteFinal.x,
               y: absoluteFinal.y,
               z: function() {
-                var $130 = parent2.internals.z >= childZ;
-                if ($130) {
+                var $132 = parent2.internals.z >= childZ;
+                if ($132) {
                   return parent2.internals.z + 1;
                 }
                 ;
@@ -39168,8 +39169,8 @@ var updateChildNodePure = function(node) {
                 };
               }();
               var selZ = function() {
-                var $142 = options2.elevateNodesOnSelect && !isManualZIndexMode(options2.zIndexMode);
-                if ($142) {
+                var $144 = options2.elevateNodesOnSelect && !isManualZIndexMode(options2.zIndexMode);
+                if ($144) {
                   return selectedNodeZ;
                 }
                 ;
@@ -39178,8 +39179,8 @@ var updateChildNodePure = function(node) {
               var xyz = calculateChildXYZ(node)(v1.parentNode2)(options2.nodeOrigin)(options2.nodeExtent)(selZ)(options2.zIndexMode);
               var positionChanged = xyz.x !== node.internals.positionAbsolute.x || xyz.y !== node.internals.positionAbsolute.y;
               var updatedNode = function() {
-                var $143 = positionChanged || xyz.z !== node.internals.z;
-                if ($143) {
+                var $145 = positionChanged || xyz.z !== node.internals.z;
+                if ($145) {
                   return {
                     ariaLabel: node.ariaLabel,
                     className: node.className,
@@ -39312,8 +39313,8 @@ var processUpdate = function(update) {
                 var dims = getDimensions(update.nodeElement)();
                 var dimensionChanged = notEq1(v.value0.measured.width)(new Just(dims.width)) || notEq1(v.value0.measured.height)(new Just(dims.height));
                 var shouldUpdate = dims.width > 0 && (dims.height > 0 && (dimensionChanged || (isNothing(v.value0.internals.handleBounds) || update.force)));
-                var $151 = !shouldUpdate;
-                if ($151) {
+                var $153 = !shouldUpdate;
+                if ($153) {
                   return acc;
                 }
                 ;
@@ -39404,7 +39405,7 @@ var processUpdate = function(update) {
                 };
                 var nodeLookup1 = insert1(v.value0.id)(newNode)(acc.nodeLookup);
                 var extraExpand = function() {
-                  if (v.value0.parentId instanceof Just && (dimensionChanged && v.value0.expandParent)) {
+                  if (v.value0.parentId instanceof Just && (dimensionChanged && eq42(v.value0.expandParent)(new Just(true)))) {
                     return [{
                       id: v.value0.id,
                       parentId: v.value0.parentId.value0,
@@ -39510,8 +39511,8 @@ var updateNodeInternals = function(updates) {
                       };
                     })(initial)(values(updates))();
                     var finalChanges = function() {
-                      var $170 = length(result.parentExpandChildren) > 0;
-                      if ($170) {
+                      var $172 = length(result.parentExpandChildren) > 0;
+                      if ($172) {
                         return append2(result.changes)(handleExpandParent(result.parentExpandChildren)(result.nodeLookup)(result.parentLookup)(origin2));
                       }
                       ;
@@ -39542,8 +39543,8 @@ var adoptUserNodes = function(nodes3) {
     return function(_prevParent) {
       return function(options2) {
         var selZ = function() {
-          var $176 = options2.elevateNodesOnSelect && !isManualZIndexMode(options2.zIndexMode);
-          if ($176) {
+          var $178 = options2.elevateNodesOnSelect && !isManualZIndexMode(options2.zIndexMode);
+          if ($178) {
             return selectedNodeZ;
           }
           ;
@@ -39651,8 +39652,8 @@ var adoptUserNodes = function(nodes3) {
             };
             var st2 = function() {
               var measuredOk = isJust(internalNode.measured.width) && isJust(internalNode.measured.height);
-              var $185 = !measuredOk && !internalNode.hidden;
-              if ($185) {
+              var $187 = !measuredOk && !internalNode.hidden;
+              if ($187) {
                 return {
                   nodeLookup: st1.nodeLookup,
                   parentLookup: st1.parentLookup,
@@ -53196,7 +53197,7 @@ var placeholderNode = function(nodeId) {
     parentId: Nothing.value,
     zIndex: Nothing.value,
     extent: Nothing.value,
-    expandParent: false,
+    expandParent: Nothing.value,
     ariaLabel: Nothing.value,
     origin: Nothing.value,
     handles: Nothing.value,
@@ -63670,7 +63671,7 @@ var eqRowCons52 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE
   reflectSymbol: function() {
     return "bounds";
   }
-})(/* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqRec11(/* @__PURE__ */ eqRowCons42(heightIsSymbol2)(eqMaybe12)))))))()(initialWidthIsSymbol)(eqMaybe12))()(initialHeightIsSymbol)(eqMaybe12))()(idIsSymbol2)(eqNodeId))()(hiddenIsSymbol)(eqBoolean))()(heightIsSymbol2)(eqMaybe12))()(handlesIsSymbol)(eqMaybe62))()(extentIsSymbol)(eqMaybe72))()(expandParentIsSymbol)(eqBoolean))()(draggingIsSymbol)(eqBoolean))()(draggableIsSymbol)(eqMaybe42))()(dragHandleIsSymbol)(eqMaybe52))()(deletableIsSymbol)(eqMaybe42))()(dataIsSymbol);
+})(/* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqRec11(/* @__PURE__ */ eqRowCons42(heightIsSymbol2)(eqMaybe12)))))))()(initialWidthIsSymbol)(eqMaybe12))()(initialHeightIsSymbol)(eqMaybe12))()(idIsSymbol2)(eqNodeId))()(hiddenIsSymbol)(eqBoolean))()(heightIsSymbol2)(eqMaybe12))()(handlesIsSymbol)(eqMaybe62))()(extentIsSymbol)(eqMaybe72))()(expandParentIsSymbol)(eqMaybe42))()(draggingIsSymbol)(eqBoolean))()(draggableIsSymbol)(eqMaybe42))()(dragHandleIsSymbol)(eqMaybe52))()(deletableIsSymbol)(eqMaybe42))()(dataIsSymbol);
 var connectableIsSymbol = {
   reflectSymbol: function() {
     return "connectable";
@@ -63686,7 +63687,7 @@ var ariaLabelIsSymbol = {
     return "ariaLabel";
   }
 };
-var eqRowCons62 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons32(initialWidthIsSymbol)(eqMaybe12))()(initialHeightIsSymbol)(eqMaybe12))()(idIsSymbol2)(eqNodeId))()(hiddenIsSymbol)(eqBoolean))()(heightIsSymbol2)(eqMaybe12))()(handlesIsSymbol)(eqMaybe62))()(extentIsSymbol)(eqMaybe72))()(expandParentIsSymbol)(eqBoolean))()(draggingIsSymbol)(eqBoolean))()(draggableIsSymbol)(eqMaybe42))()(dragHandleIsSymbol)(eqMaybe52))()(deletableIsSymbol)(eqMaybe42))()(dataIsSymbol);
+var eqRowCons62 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons32(initialWidthIsSymbol)(eqMaybe12))()(initialHeightIsSymbol)(eqMaybe12))()(idIsSymbol2)(eqNodeId))()(hiddenIsSymbol)(eqBoolean))()(heightIsSymbol2)(eqMaybe12))()(handlesIsSymbol)(eqMaybe62))()(extentIsSymbol)(eqMaybe72))()(expandParentIsSymbol)(eqMaybe42))()(draggingIsSymbol)(eqBoolean))()(draggableIsSymbol)(eqMaybe42))()(dragHandleIsSymbol)(eqMaybe52))()(deletableIsSymbol)(eqMaybe42))()(dataIsSymbol);
 var eqMaybe82 = /* @__PURE__ */ eqMaybe(eqEdgeMarkerType);
 var eqRowCons72 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons1({
   reflectSymbol: function() {
