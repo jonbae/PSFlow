@@ -33,11 +33,11 @@ import System.Types.Ids (NodeId)
 -- | `edgeTypes` lookup map it indexes into — *not* because `type` is unusable
 -- | as a label: PureScript accepts it (`React.Types.Edges.EdgeProps` declares
 -- | `type :: String`). Realigning this field with upstream behind a marshalling
--- | layer is ticket 072. `selected` has a clear `false` default and is a plain
--- | `Boolean`. `animated`, `hidden`, `deletable`, and `selectable` are
--- | `Maybe Boolean`, because absence means something an explicit `false`
--- | doesn't: it inherits from `defaultEdgeOptions`, which upstream spreads
--- | under the edge, and it's a key a consumer reads back as absent.
+-- | layer is ticket 072. `animated`, `hidden`, `selected`, `deletable`, and
+-- | `selectable` are `Maybe Boolean`, because absence means something an
+-- | explicit `false` doesn't: it's a key a consumer reads back as absent, and
+-- | all but `selected` inherit from `defaultEdgeOptions` when they're absent,
+-- | because upstream spreads it under the edge.
 -- |
 -- | `label` carries the string form PSFlow's built-in edge components already
 -- | render. `className` (rendered on the edge `<g>`) and `style` (rendered on the
@@ -58,7 +58,7 @@ type EdgeBase edgeData =
   , deletable :: Maybe Boolean
   , selectable :: Maybe Boolean
   , data :: Maybe edgeData
-  , selected :: Boolean
+  , selected :: Maybe Boolean
   , markerStart :: Maybe EdgeMarkerType
   , markerEnd :: Maybe EdgeMarkerType
   , zIndex :: Maybe Int

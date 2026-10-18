@@ -471,7 +471,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 143.80000001192093,
+            "timeStamp": 177.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -538,7 +538,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 143.80000001192093,
+            "timeStamp": 177.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -617,7 +617,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 153.10000002384186,
+            "timeStamp": 184.69999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -807,21 +807,18 @@
           {
             "id": "first-edge",
             "source": "1",
-            "target": "2",
-            "selected": false
+            "target": "2"
           },
           {
             "id": "second-edge",
             "source": "1",
-            "target": "3",
-            "selected": false
+            "target": "3"
           }
         ],
         "getEdge": {
           "id": "first-edge",
           "source": "1",
-          "target": "2",
-          "selected": false
+          "target": "2"
         },
         "getIntersectingNodes": [
           {
@@ -975,14 +972,12 @@
             {
               "id": "first-edge",
               "source": "1",
-              "target": "2",
-              "selected": false
+              "target": "2"
             },
             {
               "id": "second-edge",
               "source": "1",
-              "target": "3",
-              "selected": false
+              "target": "3"
             }
           ],
           "viewport": {

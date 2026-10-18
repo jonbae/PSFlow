@@ -1061,40 +1061,35 @@
             "source": "up-1",
             "target": "hub",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "selected": false
+            "targetHandle": "in"
           },
           {
             "id": "up-2-hub",
             "source": "up-2",
             "target": "hub",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "selected": false
+            "targetHandle": "in"
           },
           {
             "id": "hub-down-1",
             "source": "hub",
             "target": "down-1",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "selected": false
+            "targetHandle": "in"
           },
           {
             "id": "hub-down-2",
             "source": "hub",
             "target": "down-2",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "selected": false
+            "targetHandle": "in"
           },
           {
             "id": "hub-down-3",
             "source": "hub",
             "target": "down-3",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "selected": false
+            "targetHandle": "in"
           }
         ],
         "getEdge": {
@@ -1102,8 +1097,7 @@
           "source": "up-1",
           "target": "hub",
           "sourceHandle": "out",
-          "targetHandle": "in",
-          "selected": false
+          "targetHandle": "in"
         },
         "getIntersectingNodes": [
           {
@@ -1399,40 +1393,35 @@
               "source": "up-1",
               "target": "hub",
               "sourceHandle": "out",
-              "targetHandle": "in",
-              "selected": false
+              "targetHandle": "in"
             },
             {
               "id": "up-2-hub",
               "source": "up-2",
               "target": "hub",
               "sourceHandle": "out",
-              "targetHandle": "in",
-              "selected": false
+              "targetHandle": "in"
             },
             {
               "id": "hub-down-1",
               "source": "hub",
               "target": "down-1",
               "sourceHandle": "out",
-              "targetHandle": "in",
-              "selected": false
+              "targetHandle": "in"
             },
             {
               "id": "hub-down-2",
               "source": "hub",
               "target": "down-2",
               "sourceHandle": "out",
-              "targetHandle": "in",
-              "selected": false
+              "targetHandle": "in"
             },
             {
               "id": "hub-down-3",
               "source": "hub",
               "target": "down-3",
               "sourceHandle": "out",
-              "targetHandle": "in",
-              "selected": false
+              "targetHandle": "in"
             }
           ],
           "viewport": {

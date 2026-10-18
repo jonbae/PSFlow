@@ -12,108 +12,108 @@ claimed by a region — never by loosening what the net looks at.
 
 | scenario | verdict | failure classes | differences |
 |---|---|---|---|
-| `mount-baseline--edges-general` | **failed** | unclaimed-difference | 275 |
-| `mount-baseline--node-toolbar-general` | **failed** | unclaimed-difference | 164 |
-| `mount-baseline--nodes-general` | **failed** | unclaimed-difference | 130 |
-| `mount-baseline--pane-general` | **failed** | unclaimed-difference | 59 |
-| `mount-baseline--pane-non-defaults` | **failed** | unclaimed-difference | 44 |
-| `mount-baseline--chrome-background` | **failed** | unclaimed-difference | 59 |
-| `mount-baseline--chrome-controls` | **failed** | unclaimed-difference | 57 |
-| `mount-baseline--chrome-minimap-colors` | **failed** | unclaimed-difference | 58 |
-| `mount-baseline--chrome-minimap-hidden-nodes` | **failed** | unclaimed-difference | 27 |
-| `mount-baseline--chrome-panels` | **failed** | unclaimed-difference | 57 |
+| `mount-baseline--edges-general` | **failed** | unclaimed-difference | 250 |
+| `mount-baseline--node-toolbar-general` | **failed** | unclaimed-difference | 161 |
+| `mount-baseline--nodes-general` | **failed** | unclaimed-difference | 125 |
+| `mount-baseline--pane-general` | **failed** | unclaimed-difference | 54 |
+| `mount-baseline--pane-non-defaults` | **failed** | unclaimed-difference | 39 |
+| `mount-baseline--chrome-background` | **failed** | unclaimed-difference | 54 |
+| `mount-baseline--chrome-controls` | **failed** | unclaimed-difference | 52 |
+| `mount-baseline--chrome-minimap-colors` | **failed** | unclaimed-difference | 53 |
+| `mount-baseline--chrome-minimap-hidden-nodes` | **failed** | unclaimed-difference | 24 |
+| `mount-baseline--chrome-panels` | **failed** | unclaimed-difference | 52 |
 | `mount-baseline--edges-base-edge-path` | **failed** | driving-divergence, unclaimed-difference | 67 |
-| `mount-baseline--fitview-uncontrolled` | **failed** | unclaimed-difference | 57 |
-| `mount-baseline--flow-chrome-defaults` | **failed** | unclaimed-difference | 33 |
-| `mount-baseline--flow-custom-testid` | **failed** | unclaimed-difference | 58 |
-| `mount-baseline--flow-display-none` | **failed** | unclaimed-difference | 57 |
-| `mount-baseline--flow-limits-change` | **failed** | unclaimed-difference | 56 |
-| `mount-baseline--flow-not-selectable` | **failed** | unclaimed-difference | 51 |
-| `mount-baseline--flow-props-change` | **failed** | unclaimed-difference | 57 |
-| `mount-baseline--nodes-autopan` | **failed** | unclaimed-difference | 44 |
-| `mount-baseline--nodes-connections` | **failed** | unclaimed-difference | 125 |
-| `mount-baseline--nodes-expand-parent` | **failed** | unclaimed-difference | 82 |
-| `mount-baseline--nodes-no-select-on-drag` | **failed** | unclaimed-difference | 57 |
-| `mount-baseline--nodes-nowheel` | **failed** | unclaimed-difference | 65 |
+| `mount-baseline--fitview-uncontrolled` | **failed** | unclaimed-difference | 52 |
+| `mount-baseline--flow-chrome-defaults` | **failed** | unclaimed-difference | 30 |
+| `mount-baseline--flow-custom-testid` | **failed** | unclaimed-difference | 53 |
+| `mount-baseline--flow-display-none` | **failed** | unclaimed-difference | 52 |
+| `mount-baseline--flow-limits-change` | **failed** | unclaimed-difference | 51 |
+| `mount-baseline--flow-not-selectable` | **failed** | unclaimed-difference | 49 |
+| `mount-baseline--flow-props-change` | **failed** | unclaimed-difference | 52 |
+| `mount-baseline--nodes-autopan` | **failed** | unclaimed-difference | 39 |
+| `mount-baseline--nodes-connections` | **failed** | unclaimed-difference | 114 |
+| `mount-baseline--nodes-expand-parent` | **failed** | unclaimed-difference | 79 |
+| `mount-baseline--nodes-no-select-on-drag` | **failed** | unclaimed-difference | 52 |
+| `mount-baseline--nodes-nowheel` | **failed** | unclaimed-difference | 62 |
 | `mount-baseline--nodes-props-record` | **failed** | unclaimed-difference | 27 |
-| `mount-baseline--nodes-tall` | **failed** | unclaimed-difference | 56 |
-| `mount-baseline--nodes-unmeasured` | **failed** | unclaimed-difference | 34 |
-| `mount-baseline--viewport-controlled` | **failed** | self-inconsistent, unclaimed-difference | 58 |
-| `mount-baseline--viewport-helpers` | **failed** | unclaimed-difference | 77 |
-| `mount-baseline--viewport-pan-on-scroll` | **failed** | unclaimed-difference | 56 |
+| `mount-baseline--nodes-tall` | **failed** | unclaimed-difference | 49 |
+| `mount-baseline--nodes-unmeasured` | **failed** | unclaimed-difference | 31 |
+| `mount-baseline--viewport-controlled` | **failed** | unclaimed-difference | 52 |
+| `mount-baseline--viewport-helpers` | **failed** | unclaimed-difference | 70 |
+| `mount-baseline--viewport-pan-on-scroll` | **failed** | unclaimed-difference | 51 |
 | `mount-baseline--examples-color-mode` | **failed** | unclaimed-difference | 9 |
-| `click-selects-edge` | **failed** | driving-divergence, unclaimed-difference | 285 |
-| `multi-select-edges-with-modifier` | **failed** | driving-divergence, unclaimed-difference | 296 |
-| `click-unselectable-edge` | **failed** | unclaimed-difference | 278 |
-| `delete-key-removes-edge` | **failed** | driving-divergence, unclaimed-difference | 286 |
-| `delete-key-spares-undeletable-edge` | **failed** | driving-divergence, unclaimed-difference | 287 |
-| `click-inside-interaction-width` | **failed** | driving-divergence, unclaimed-difference | 278 |
-| `click-selects-node` | **failed** | unclaimed-difference | 141 |
+| `click-selects-edge` | **failed** | driving-divergence, unclaimed-difference | 260 |
+| `multi-select-edges-with-modifier` | **failed** | driving-divergence, unclaimed-difference | 270 |
+| `click-unselectable-edge` | **failed** | unclaimed-difference | 250 |
+| `delete-key-removes-edge` | **failed** | driving-divergence, unclaimed-difference | 260 |
+| `delete-key-spares-undeletable-edge` | **failed** | driving-divergence, unclaimed-difference | 261 |
+| `click-inside-interaction-width` | **failed** | driving-divergence, unclaimed-difference | 252 |
+| `click-selects-node` | **failed** | unclaimed-difference | 136 |
 | `shift-drag-selects-nodes` | **failed** | unclaimed-difference | 127 |
-| `click-unselectable-node` | **failed** | unclaimed-difference | 147 |
-| `drag-moves-node` | **failed** | unclaimed-difference | 161 |
-| `drag-does-not-move-undraggable-node` | **failed** | unclaimed-difference | 151 |
-| `drag-by-custom-drag-handle` | **failed** | unclaimed-difference | 169 |
-| `delete-key-removes-node-and-edges` | **failed** | unclaimed-difference | 135 |
-| `delete-key-spares-undeletable-node` | **failed** | unclaimed-difference | 144 |
-| `connect-source-handle-to-target-handle` | **failed** | unclaimed-difference | 213 |
-| `connect-output-to-output-handle` | **failed** | unclaimed-difference | 200 |
-| `connect-input-to-input-handle` | **failed** | unclaimed-difference | 205 |
-| `connect-to-unconnectable-handle` | **failed** | unclaimed-difference | 197 |
-| `drag-pans-the-pane` | **failed** | unclaimed-difference | 59 |
-| `wheel-zooms-the-pane` | **failed** | unclaimed-difference | 59 |
-| `wheel-zooms-out-to-min` | **failed** | unclaimed-difference | 45 |
-| `wheel-zooms-in-to-max` | **failed** | unclaimed-difference | 45 |
-| `wheel-pans-with-panonscroll` | **failed** | unclaimed-difference | 56 |
-| `click-reveals-default-toolbar` | **failed** | unclaimed-difference | 170 |
+| `click-unselectable-node` | **failed** | unclaimed-difference | 142 |
+| `drag-moves-node` | **failed** | self-inconsistent, unclaimed-difference | 271 |
+| `drag-does-not-move-undraggable-node` | **failed** | unclaimed-difference | 146 |
+| `drag-by-custom-drag-handle` | **failed** | unclaimed-difference | 164 |
+| `delete-key-removes-node-and-edges` | **failed** | unclaimed-difference | 134 |
+| `delete-key-spares-undeletable-node` | **failed** | unclaimed-difference | 139 |
+| `connect-source-handle-to-target-handle` | **failed** | unclaimed-difference | 203 |
+| `connect-output-to-output-handle` | **failed** | unclaimed-difference | 195 |
+| `connect-input-to-input-handle` | **failed** | unclaimed-difference | 197 |
+| `connect-to-unconnectable-handle` | **failed** | unclaimed-difference | 189 |
+| `drag-pans-the-pane` | **failed** | unclaimed-difference | 54 |
+| `wheel-zooms-the-pane` | **failed** | unclaimed-difference | 54 |
+| `wheel-zooms-out-to-min` | **failed** | unclaimed-difference | 40 |
+| `wheel-zooms-in-to-max` | **failed** | unclaimed-difference | 40 |
+| `wheel-pans-with-panonscroll` | **failed** | unclaimed-difference | 51 |
+| `click-reveals-default-toolbar` | **failed** | unclaimed-difference | 167 |
 | `select-dark-color-mode` | **failed** | unclaimed-difference | 9 |
-| `drag-node-release` | **failed** | unclaimed-difference | 208 |
-| `drag-node-escape-mid-gesture` | **failed** | unclaimed-difference | 161 |
-| `drag-node-autopan` | **failed** | self-inconsistent, unclaimed-difference | 291 |
-| `drag-node-no-select-on-drag` | **failed** | unclaimed-difference | 131 |
-| `drag-child-expand-parent` | **failed** | driving-divergence, unclaimed-difference | 165 |
-| `drag-unmeasured-node` | **failed** | unclaimed-difference | 61 |
-| `selection-box-from-node` | **failed** | unclaimed-difference | 142 |
-| `selection-box-then-click-node` | **failed** | unclaimed-difference | 169 |
-| `selection-box-mid-gesture` | **failed** | unclaimed-difference | 57 |
-| `selection-box-touch` | **failed** | unclaimed-difference | 151 |
-| `arrow-key-selected-node` | **failed** | unclaimed-difference | 98 |
-| `keyboard-focus-node` | **failed** | unclaimed-difference | 53 |
-| `connect-handle-to-handle` | **failed** | unclaimed-difference | 276 |
-| `connect-then-keyboard-move` | **failed** | unclaimed-difference | 188 |
-| `connect-second-touch-point` | **failed** | unclaimed-difference | 141 |
-| `probe-node-connections` | **failed** | unclaimed-difference | 203 |
-| `viewport-helpers-with-options` | **failed** | unclaimed-difference | 69 |
-| `pan-gesture-complete` | **failed** | unclaimed-difference | 59 |
-| `fitview-onnodeschange-variants` | **failed** | unclaimed-difference | 77 |
-| `uncontrolled-update-node` | **failed** | unclaimed-difference | 76 |
-| `flow-props-change-after-mount` | **failed** | unclaimed-difference | 79 |
-| `mount-in-display-none` | **failed** | unclaimed-difference | 58 |
-| `minimap-all-nodes-hidden` | **failed** | unclaimed-difference | 27 |
-| `minimap-custom-mask-colors` | **failed** | unclaimed-difference | 66 |
-| `controls-horizontal` | **failed** | unclaimed-difference | 58 |
-| `panel-center-positions` | **failed** | unclaimed-difference | 57 |
-| `background-custom-bgcolor` | **failed** | unclaimed-difference | 59 |
-| `flow-custom-testid` | **failed** | driving-divergence, unclaimed-difference | 80 |
+| `drag-node-release` | **failed** | unclaimed-difference | 203 |
+| `drag-node-escape-mid-gesture` | **failed** | unclaimed-difference | 156 |
+| `drag-node-autopan` | **failed** | self-inconsistent, unclaimed-difference | 293 |
+| `drag-node-no-select-on-drag` | **failed** | unclaimed-difference | 126 |
+| `drag-child-expand-parent` | **failed** | driving-divergence, unclaimed-difference | 162 |
+| `drag-unmeasured-node` | **failed** | unclaimed-difference | 58 |
+| `selection-box-from-node` | **failed** | unclaimed-difference | 137 |
+| `selection-box-then-click-node` | **failed** | unclaimed-difference | 164 |
+| `selection-box-mid-gesture` | **failed** | unclaimed-difference | 52 |
+| `selection-box-touch` | **failed** | unclaimed-difference | 146 |
+| `arrow-key-selected-node` | **failed** | unclaimed-difference | 91 |
+| `keyboard-focus-node` | **failed** | unclaimed-difference | 46 |
+| `connect-handle-to-handle` | **failed** | unclaimed-difference | 264 |
+| `connect-then-keyboard-move` | **failed** | unclaimed-difference | 181 |
+| `connect-second-touch-point` | **failed** | unclaimed-difference | 136 |
+| `probe-node-connections` | **failed** | unclaimed-difference | 190 |
+| `viewport-helpers-with-options` | **failed** | unclaimed-difference | 60 |
+| `pan-gesture-complete` | **failed** | unclaimed-difference | 54 |
+| `fitview-onnodeschange-variants` | **failed** | unclaimed-difference | 72 |
+| `uncontrolled-update-node` | **failed** | unclaimed-difference | 69 |
+| `flow-props-change-after-mount` | **failed** | unclaimed-difference | 74 |
+| `mount-in-display-none` | **failed** | unclaimed-difference | 53 |
+| `minimap-all-nodes-hidden` | **failed** | unclaimed-difference | 24 |
+| `minimap-custom-mask-colors` | **failed** | unclaimed-difference | 61 |
+| `controls-horizontal` | **failed** | unclaimed-difference | 53 |
+| `panel-center-positions` | **failed** | unclaimed-difference | 52 |
+| `background-custom-bgcolor` | **failed** | unclaimed-difference | 54 |
+| `flow-custom-testid` | **failed** | driving-divergence, unclaimed-difference | 75 |
 | `custom-edge-baseedge-path` | **failed** | driving-divergence, unclaimed-difference | 92 |
-| `pinch-over-nowheel-node` | **failed** | driving-divergence, unclaimed-difference | 159 |
-| `minimap-default-click` | **failed** | unclaimed-difference | 33 |
-| `controls-default-zoom` | **failed** | unclaimed-difference | 34 |
-| `wheel-zoom-from-identity-viewport` | **failed** | unclaimed-difference | 43 |
-| `pane-drag-from-identity-viewport` | **failed** | unclaimed-difference | 33 |
-| `drag-node-reports-changes` | **failed** | self-inconsistent, unclaimed-difference | 234 |
-| `click-connect-reverse-direction` | **failed** | unclaimed-difference | 82 |
-| `connect-drag-holding-source` | **failed** | unclaimed-difference | 76 |
-| `connect-drag-released-on-pane` | **failed** | unclaimed-difference | 84 |
+| `pinch-over-nowheel-node` | **failed** | driving-divergence, unclaimed-difference | 156 |
+| `minimap-default-click` | **failed** | unclaimed-difference | 30 |
+| `controls-default-zoom` | **failed** | unclaimed-difference | 31 |
+| `wheel-zoom-from-identity-viewport` | **failed** | unclaimed-difference | 40 |
+| `pane-drag-from-identity-viewport` | **failed** | unclaimed-difference | 30 |
+| `drag-node-reports-changes` | **failed** | self-inconsistent, unclaimed-difference | 231 |
+| `click-connect-reverse-direction` | **failed** | unclaimed-difference | 77 |
+| `connect-drag-holding-source` | **failed** | unclaimed-difference | 70 |
+| `connect-drag-released-on-pane` | **failed** | unclaimed-difference | 78 |
 | `node-props-record-parented` | **failed** | unclaimed-difference | 45 |
-| `wheel-zooms-to-changed-limits` | **failed** | unclaimed-difference | 58 |
-| `drag-pans-into-changed-extent` | **failed** | unclaimed-difference | 56 |
-| `pan-after-controlled-viewport-change` | **failed** | unclaimed-difference | 57 |
-| `ctrl-wheel-pinches-with-panonscroll` | **failed** | unclaimed-difference | 70 |
-| `pane-click-keeps-selection-when-not-selectable` | **failed** | unclaimed-difference | 51 |
-| `click-selects-node--probe-flow-node` | **failed** | unclaimed-difference | 160 |
-| `wheel-zooms-the-pane--probe-flow-node` | **failed** | unclaimed-difference | 84 |
-| `mount-baseline--edges-general--probe-edge` | **failed** | unclaimed-difference | 14 |
+| `wheel-zooms-to-changed-limits` | **failed** | unclaimed-difference | 53 |
+| `drag-pans-into-changed-extent` | **failed** | unclaimed-difference | 51 |
+| `pan-after-controlled-viewport-change` | **failed** | unclaimed-difference | 52 |
+| `ctrl-wheel-pinches-with-panonscroll` | **failed** | unclaimed-difference | 65 |
+| `pane-click-keeps-selection-when-not-selectable` | **failed** | unclaimed-difference | 49 |
+| `click-selects-node--probe-flow-node` | **failed** | unclaimed-difference | 153 |
+| `wheel-zooms-the-pane--probe-flow-node` | **failed** | unclaimed-difference | 77 |
+| `mount-baseline--edges-general--probe-edge` | **failed** | unclaimed-difference | 12 |
 | `connect-source-handle-to-target-handle--probe-connection-line` | **failed** | unclaimed-difference | 26 |
 
 Every trace behind this report is on disk under `parity/system/traces` — four per scenario, two sides captured
@@ -147,7 +147,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 275 unclaimed difference(s).
+**Failed:** 250 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -274,7 +274,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/13/dimensions/height` | differs | 50 | 37 |
 | `callbacks/4/args/0/13/resizing` | right only | — | false |
 
-### api (162)
+### api (137)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -331,19 +331,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdges/3/selected` | right only | — | false |
-| `api/queries/getEdges/4/selected` | right only | — | false |
-| `api/queries/getEdges/5/selected` | right only | — | false |
-| `api/queries/getEdges/6/selected` | right only | — | false |
-| `api/queries/getEdges/7/selected` | right only | — | false |
-| `api/queries/getEdges/8/selected` | right only | — | false |
-| `api/queries/getEdges/9/selected` | right only | — | false |
-| `api/queries/getEdges/10/selected` | right only | — | false |
-| `api/queries/getEdges/11/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -428,18 +415,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/13/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/13/selected` | right only | — | false |
 | `api/queries/toObject/nodes/13/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/selected` | right only | — | false |
-| `api/queries/toObject/edges/3/selected` | right only | — | false |
-| `api/queries/toObject/edges/4/selected` | right only | — | false |
-| `api/queries/toObject/edges/5/selected` | right only | — | false |
-| `api/queries/toObject/edges/6/selected` | right only | — | false |
-| `api/queries/toObject/edges/7/selected` | right only | — | false |
-| `api/queries/toObject/edges/8/selected` | right only | — | false |
-| `api/queries/toObject/edges/9/selected` | right only | — | false |
-| `api/queries/toObject/edges/10/selected` | right only | — | false |
-| `api/queries/toObject/edges/11/selected` | right only | — | false |
 
 
 ---
@@ -470,7 +445,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 164 unclaimed difference(s).
+**Failed:** 161 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -515,7 +490,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/12/id` | differs | node-end-left | node-start-top |
 | `callbacks/4/args/0/12/resizing` | right only | — | false |
 
-### api (133)
+### api (130)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -571,8 +546,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -651,7 +624,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/12/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/12/selected` | right only | — | false |
 | `api/queries/toObject/nodes/12/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
 
 
 ---
@@ -682,7 +654,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 130 unclaimed difference(s).
+**Failed:** 125 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -723,7 +695,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/8/id` | differs | notDeletable | notSelectable |
 | `callbacks/4/args/0/8/resizing` | right only | — | false |
 
-### api (103)
+### api (98)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -767,9 +739,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -828,8 +797,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
 ---
@@ -860,7 +827,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 59 unclaimed difference(s).
+**Failed:** 54 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -890,7 +857,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 
-### api (43)
+### api (38)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -914,9 +881,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -935,8 +899,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
 ---
@@ -967,7 +929,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 44 unclaimed difference(s).
+**Failed:** 39 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -979,7 +941,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/1/resizing` | right only | — | false |
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 
-### api (41)
+### api (36)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -1001,9 +963,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -1022,8 +981,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
 ---
@@ -1054,7 +1011,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 59 unclaimed difference(s).
+**Failed:** 54 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1077,7 +1034,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (50)
+### api (45)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -1102,9 +1059,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -1129,8 +1083,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
 ---
@@ -1161,7 +1113,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 57 unclaimed difference(s).
+**Failed:** 52 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1182,7 +1134,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (50)
+### api (45)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -1207,9 +1159,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -1234,8 +1183,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
 ---
@@ -1266,7 +1213,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 58 unclaimed difference(s).
+**Failed:** 53 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1288,7 +1235,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (50)
+### api (45)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -1313,9 +1260,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -1340,8 +1284,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
 ---
@@ -1372,7 +1314,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 27 unclaimed difference(s).
+**Failed:** 24 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1382,7 +1324,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `dom/root/children/div[1]/children/svg[0]/children/path[0]/attrs/d` | differs | M-64,-184h1408v1088h-1408z⏎        M0,0h1280v720h-1280z | M-64,-184h1408v1088h-1408z M0,0h1280v720h-1280z |
 
-### api (26)
+### api (23)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -1397,8 +1339,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","hidden":true} | — |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
@@ -1411,7 +1351,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
 
 
 ---
@@ -1442,7 +1381,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 57 unclaimed difference(s).
+**Failed:** 52 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1463,7 +1402,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (50)
+### api (45)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -1488,9 +1427,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -1515,8 +1451,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
 ---
@@ -1646,8 +1580,8 @@ a real divergence is exactly what would be hiding down there.
 | `console/2` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/3` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/4` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:59602/parity/driver/dist/… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:59602/parity/driver/dist/… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:62603/parity/driver/dist/… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:62603/parity/driver/dist/… |
 | `console/7` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 
 
@@ -1679,7 +1613,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 57 unclaimed difference(s).
+**Failed:** 52 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1700,7 +1634,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (50)
+### api (45)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -1725,9 +1659,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -1752,8 +1683,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
 ---
@@ -1784,7 +1713,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 33 unclaimed difference(s).
+**Failed:** 30 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1796,7 +1725,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-11)"},… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","pat… |
 
-### api (30)
+### api (27)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -1815,8 +1744,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -1829,7 +1756,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
 
 
 ---
@@ -1860,7 +1786,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 58 unclaimed difference(s).
+**Failed:** 53 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1882,7 +1808,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (50)
+### api (45)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -1907,9 +1833,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -1934,8 +1857,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
 ---
@@ -1966,7 +1887,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 57 unclaimed difference(s).
+**Failed:** 52 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1987,7 +1908,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (50)
+### api (45)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2012,9 +1933,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -2039,8 +1957,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
 ---
@@ -2071,7 +1987,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 56 unclaimed difference(s).
+**Failed:** 51 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2091,7 +2007,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 | `callbacks/1/args/0/3/resizing` | right only | — | false |
 
-### api (50)
+### api (45)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2116,9 +2032,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -2143,8 +2056,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
 ---
@@ -2175,7 +2086,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 51 unclaimed difference(s).
+**Failed:** 49 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2198,7 +2109,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (42)
+### api (40)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2220,7 +2131,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","selected":true,"measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
@@ -2243,7 +2153,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
 ---
@@ -2274,7 +2183,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 57 unclaimed difference(s).
+**Failed:** 52 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2295,7 +2204,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (50)
+### api (45)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2320,9 +2229,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -2347,8 +2253,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
 ---
@@ -2379,7 +2283,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 44 unclaimed difference(s).
+**Failed:** 39 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2391,7 +2295,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/1/resizing` | right only | — | false |
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 
-### api (41)
+### api (36)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2413,9 +2317,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -2434,8 +2335,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
 ---
@@ -2466,7 +2365,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 125 unclaimed difference(s).
+**Failed:** 114 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2529,7 +2428,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/5/dimensions/width` | differs | 49 | 29 |
 | `callbacks/4/args/0/5/resizing` | right only | — | false |
 
-### api (76)
+### api (65)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2562,12 +2461,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdges/3/selected` | right only | — | false |
-| `api/queries/getEdges/4/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -2604,11 +2497,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/selected` | right only | — | false |
-| `api/queries/toObject/edges/3/selected` | right only | — | false |
-| `api/queries/toObject/edges/4/selected` | right only | — | false |
 
 
 ---
@@ -2639,7 +2527,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 82 unclaimed difference(s).
+**Failed:** 79 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2668,7 +2556,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/3` | right only | — | {"type":"dimensions","id":"parent","dimensions":{"width":190,"height":77},"resizing":false,"setAttributes":true} |
 | `callbacks/5/args/1/y` | differs | 140 | 283 |
 
-### api (67)
+### api (64)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2705,8 +2593,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/dragging` | right only | — | false |
 | `api/queries/getInternalNode/width` | right only | — | 190 |
 | `api/queries/getInternalNode/height` | right only | — | 77 |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/measured/width` | differs | 320 | 190 |
 | `api/queries/getIntersectingNodes/0/measured/height` | differs | 220 | 77 |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
@@ -2734,7 +2620,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
 | `api/queries/toObject/viewport/y` | differs | 140 | 283 |
 | `api/queries/getViewport/y` | differs | 140 | 283 |
 | `api/queries/screenToFlowPosition/y` | differs | -70 | -141.5 |
@@ -2769,7 +2654,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 57 unclaimed difference(s).
+**Failed:** 52 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2790,7 +2675,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (50)
+### api (45)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2815,9 +2700,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -2842,8 +2724,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
 ---
@@ -2874,7 +2754,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 65 unclaimed difference(s).
+**Failed:** 62 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2904,7 +2784,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 | `callbacks/5/args/1/y` | differs | 54.68852459016392 | 324.6983606557377 |
 
-### api (49)
+### api (46)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -2933,8 +2813,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/measured/width` | differs | 400 | 150 |
 | `api/queries/getIntersectingNodes/0/measured/height` | differs | 320 | 37 |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
@@ -2952,7 +2830,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
 | `api/queries/toObject/viewport/y` | differs | 54.68852459016392 | 324.6983606557377 |
 | `api/queries/getViewport/y` | differs | 54.68852459016392 | 324.6983606557377 |
 | `api/queries/screenToFlowPosition/y` | differs | -28.659793814432984 | -170.159793814433 |
@@ -3052,7 +2929,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 56 unclaimed difference(s).
+**Failed:** 49 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3065,7 +2942,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 | `callbacks/1/args/0/3/resizing` | right only | — | false |
 
-### api (52)
+### api (45)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -3090,10 +2967,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -3118,9 +2991,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/selected` | right only | — | false |
 
 
 ---
@@ -3151,7 +3021,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 34 unclaimed difference(s).
+**Failed:** 31 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3166,7 +3036,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/0/resizing` | right only | — | false |
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 
-### api (28)
+### api (25)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -3183,8 +3053,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","selected":true,"measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
@@ -3197,14 +3065,13 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
 
 
 ---
 
 # System parity run — mount-baseline--viewport-controlled
 
-**Failed:** self-inconsistent, unclaimed-difference.
+**Failed:** unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -3217,18 +3084,8 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 
 | side | captures | verdict | differences |
 |---|---|---|---|
-| upstream | 1, 2 | **disagrees with itself** | 1 |
+| upstream | 1, 2 | reproduced | 0 |
 | psflow | 1, 2 | reproduced | 0 |
-
-### upstream disagrees with itself
-
-| path | kind | capture 1 | capture 2 |
-|---|---|---|---|
-| `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onMoveStart#1","onMove#1","onMoveEnd#1","onNodesChange#1"] |
-
-**upstream did not reproduce.** The comparison below ran anyway —
-capture-everything applies to a failed run as much as to a passing one — but a difference it reports
-cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -3238,7 +3095,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 57 unclaimed difference(s).
+**Failed:** 52 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3259,7 +3116,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/3/args/0/2/resizing` | right only | — | false |
 | `callbacks/3/args/0/3/resizing` | right only | — | false |
 
-### api (50)
+### api (45)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -3284,9 +3141,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -3311,8 +3165,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
 ---
@@ -3343,7 +3195,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 77 unclaimed difference(s).
+**Failed:** 70 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3380,7 +3232,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (54)
+### api (47)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -3407,10 +3259,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -3435,9 +3283,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/selected` | right only | — | false |
 
 
 ---
@@ -3468,7 +3313,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 56 unclaimed difference(s).
+**Failed:** 51 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3488,7 +3333,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 | `callbacks/1/args/0/3/resizing` | right only | — | false |
 
-### api (50)
+### api (45)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -3513,9 +3358,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -3540,8 +3382,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
 ---
@@ -3619,7 +3459,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 4 driving divergence(s), 281 unclaimed difference(s).
+**Failed:** 4 driving divergence(s), 256 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -3638,6 +3478,339 @@ a real divergence is exactly what would be hiding down there.
 | `driving/1/box/height` | differs | 57.16571807861328 | 57.16572570800781 |
 | `driving/1/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
 | `driving/2/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
+
+### dom (73) — consequence of the driving divergence
+
+| path | kind | upstream | psflow |
+|---|---|---|---|
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 -24.99998142209219,68.49999588228614 -24.99998142209219,96.99999692174447 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 -24.99998142209219,68.49999588228614 -24.99998142209219,96.99999692174447 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[0]/attrs/cx` | differs | 75 | 75.00001857790781 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[0]/attrs/cy` | differs | 50 | 49.99999484282782 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[1]/attrs/cy` | differs | 87 | 86.99999692174447 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 174.99995344894003,68.49999588228614 174.99995344894003,96.99999692174447 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 174.99995344894003,68.49999588228614 174.99995344894003,96.99999692174447 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[0]/attrs/cx` | differs | 75 | 75.00001857790781 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[0]/attrs/cy` | differs | 50 | 49.99999484282782 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[1]/attrs/cy` | differs | 87 | 86.99999692174447 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/path[0]/attrs/d` | differs | M175,140 C175,168.5 175,168.5 175,197 | M174.99995344894003,139.99998670170686 C174.99995344894003,168.49999181172566 174.99995344894003,168.49999181172566 174.99995344894003,196.99999692174447 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/path[1]/attrs/d` | differs | M175,140 C175,168.5 175,168.5 175,197 | M174.99995344894003,139.99998670170686 C174.99995344894003,168.49999181172566 174.99995344894003,168.49999181172566 174.99995344894003,196.99999692174447 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/g[0]/attrs/transform` | differs | translate(156.50956535339355 163.16463375091553) | translate(156.5095188023336 163.1646255626412) |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[0]/attrs/cy` | differs | 150 | 149.99998670170686 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[1]/attrs/cy` | differs | 187 | 186.99999692174447 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/path[0]/attrs/d` | differs | M-25,240 C-25,268.5 -25,268.5 -25,297 | M-24.99998142209219,239.99999484282782 C-24.99998142209219,268.49999588228616 -24.99998142209219,268.49999588228616 -24.99998142209219,296.99999692174447 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/path[1]/attrs/d` | differs | M-25,240 C-25,268.5 -25,268.5 -25,297 | M-24.99998142209219,239.99999484282782 C-24.99998142209219,268.49999588228616 -24.99998142209219,268.49999588228616 -24.99998142209219,296.99999692174447 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/g[0]/attrs/transform` | differs | translate(-53.741695404052734 263.1646337509155) | translate(-53.741676826144925 263.1646296332017) |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[0]/attrs/cy` | differs | 250 | 249.99999484282782 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[1]/attrs/cy` | differs | 287 | 286.99999692174447 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/path[0]/attrs/d` | differs | M175,240 C175,268.5 175,268.5 175,297 | M174.99995344894003,239.99999484282782 C174.99995344894003,268.49999588228616 174.99995344894003,268.49999588228616 174.99995344894003,296.99999692174447 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/path[1]/attrs/d` | differs | M175,240 C175,268.5 175,268.5 175,297 | M174.99995344894003,239.99999484282782 C174.99995344894003,268.49999588228616 174.99995344894003,268.49999588228616 174.99995344894003,296.99999692174447 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/g[0]/attrs/transform` | differs | translate(147.92308235168457 263.1646337509155) | translate(147.9230358006246 263.1646296332017) |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[0]/attrs/cy` | differs | 250 | 249.99999484282782 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[1]/attrs/cy` | differs | 287 | 286.99999692174447 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/path[0]/attrs/d` | differs | M-25,340 C-25,368.5 -25,368.5 -25,397 | M-24.99998142209219,340.00001112506976 C-24.99998142209219,368.5000040234071 -24.99998142209219,368.5000040234071 -24.99998142209219,396.99999692174447 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/path[1]/attrs/d` | differs | M-25,340 C-25,368.5 -25,368.5 -25,397 | M-24.99998142209219,340.00001112506976 C-24.99998142209219,368.5000040234071 -24.99998142209219,368.5000040234071 -24.99998142209219,396.99999692174447 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/g[0]/attrs/transform` | differs | translate(-40.691965103149414 363.1646337509155) | translate(-40.691946525241605 363.1646377743226) |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[0]/attrs/cy` | differs | 350 | 350.00001112506976 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[1]/attrs/cy` | differs | 387 | 386.99999692174447 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/path[0]/attrs/d` | differs | M175,340 C175,368.5 175,368.5 175,397 | M174.99995344894003,340.00001112506976 C174.99995344894003,368.5000040234071 174.99995344894003,368.5000040234071 174.99995344894003,396.99999692174447 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/path[1]/attrs/d` | differs | M175,340 C175,368.5 175,368.5 175,397 | M174.99995344894003,340.00001112506976 C174.99995344894003,368.5000040234071 174.99995344894003,368.5000040234071 174.99995344894003,396.99999692174447 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/g[0]/attrs/transform` | differs | translate(155.91675186157227 363.1646337509155) | translate(155.9167053105123 363.1646377743226) |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[0]/attrs/cy` | differs | 350 | 350.00001112506976 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[1]/attrs/cy` | differs | 387 | 386.99999692174447 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/path[0]/attrs/d` | differs | M-25,440 C-25,468.5 -25,468.5 -25,497 | M-24.99998142209219,439.9999785605859 C-24.99998142209219,468.5000040234071 -24.99998142209219,468.5000040234071 -24.99998142209219,497.00002948622836 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/path[1]/attrs/d` | differs | M-25,440 C-25,468.5 -25,468.5 -25,497 | M-24.99998142209219,439.9999785605859 C-24.99998142209219,468.5000040234071 -24.99998142209219,468.5000040234071 -24.99998142209219,497.00002948622836 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/g[0]/attrs/transform` | differs | translate(-59.59632873535156 463.1646337509155) | translate(-59.59631015744375 463.1646377743226) |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[0]/attrs/cy` | differs | 450 | 449.9999785605859 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[1]/attrs/cy` | differs | 487 | 487.00002948622836 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/path[0]/attrs/d` | differs | M175,440 C175,468.5 175,468.5 175,497 | M174.99995344894003,439.9999785605859 C174.99995344894003,468.5000040234071 174.99995344894003,468.5000040234071 174.99995344894003,497.00002948622836 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/path[1]/attrs/d` | differs | M175,440 C175,468.5 175,468.5 175,497 | M174.99995344894003,439.9999785605859 C174.99995344894003,468.5000040234071 174.99995344894003,468.5000040234071 174.99995344894003,497.00002948622836 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/g[0]/attrs/transform` | differs | translate(158.17678451538086 463.1646337509155) | translate(158.1767379643209 463.1646377743226) |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[0]/attrs/cy` | differs | 450 | 449.9999785605859 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[1]/attrs/cy` | differs | 487 | 487.00002948622836 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/path[0]/attrs/d` | differs | M175,540 C175,578.5 135,578.5 135,617 | M174.99995344894003,540.0000111250697 C174.99995344894003,578.5000203056491 134.99998898330483,578.5000203056491 134.99998898330483,617.0000294862283 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/path[1]/attrs/d` | differs | M175,540 C175,578.5 135,578.5 135,617 | M174.99995344894003,540.0000111250697 C174.99995344894003,578.5000203056491 134.99998898330483,578.5000203056491 134.99998898330483,617.0000294862283 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[0]/attrs/cy` | differs | 550 | 550.0000111250697 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[1]/attrs/cx` | differs | 135 | 134.99998898330483 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/path[0]/attrs/d` | differs | M135,673 C135,719.7707173346743 265,570.2292826653257 265,617 | M134.99998898330483,673.0000136093491 C134.99998898330483,719.7707243139066 265.0000541122726,570.2293187816708 265.0000541122726,617.0000294862283 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/path[1]/attrs/d` | differs | M135,673 C135,719.7707173346743 265,570.2292826653257 265,617 | M134.99998898330483,673.0000136093491 C134.99998898330483,719.7707243139066 265.0000541122726,570.2293187816708 265.0000541122726,617.0000294862283 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[0]/attrs/cx` | differs | 135 | 134.99998898330483 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[0]/attrs/cy` | differs | 683 | 683.0000136093491 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cx` | differs | 265 | 265.0000541122726 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
+
+### callbacks (46) — consequence of the driving divergence
+
+| path | kind | upstream | psflow |
+|---|---|---|---|
+| `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… |
+| `callbacks/4/args/0/0/resizing` | right only | — | false |
+| `callbacks/4/args/0/1/id` | differs | 2 | 10 |
+| `callbacks/4/args/0/1/resizing` | right only | — | false |
+| `callbacks/4/args/0/2/id` | differs | 3 | 11 |
+| `callbacks/4/args/0/2/resizing` | right only | — | false |
+| `callbacks/4/args/0/3/id` | differs | 4 | 12 |
+| `callbacks/4/args/0/3/dimensions/width` | differs | 150 | 200 |
+| `callbacks/4/args/0/3/dimensions/height` | differs | 37 | 100 |
+| `callbacks/4/args/0/3/resizing` | right only | — | false |
+| `callbacks/4/args/0/4/id` | differs | 5 | 12-a |
+| `callbacks/4/args/0/4/dimensions/width` | differs | 150 | 50 |
+| `callbacks/4/args/0/4/dimensions/height` | differs | 37 | 50 |
+| `callbacks/4/args/0/4/resizing` | right only | — | false |
+| `callbacks/4/args/0/5/id` | differs | 6 | 12-b |
+| `callbacks/4/args/0/5/dimensions/width` | differs | 150 | 50 |
+| `callbacks/4/args/0/5/dimensions/height` | differs | 37 | 50 |
+| `callbacks/4/args/0/5/resizing` | right only | — | false |
+| `callbacks/4/args/0/6/id` | differs | 7 | 2 |
+| `callbacks/4/args/0/6/resizing` | right only | — | false |
+| `callbacks/4/args/0/7/id` | differs | 8 | 3 |
+| `callbacks/4/args/0/7/resizing` | right only | — | false |
+| `callbacks/4/args/0/8/id` | differs | 9 | 4 |
+| `callbacks/4/args/0/8/resizing` | right only | — | false |
+| `callbacks/4/args/0/9/id` | differs | 10 | 5 |
+| `callbacks/4/args/0/9/resizing` | right only | — | false |
+| `callbacks/4/args/0/10/id` | differs | 11 | 6 |
+| `callbacks/4/args/0/10/resizing` | right only | — | false |
+| `callbacks/4/args/0/11/id` | differs | 12 | 7 |
+| `callbacks/4/args/0/11/dimensions/width` | differs | 200 | 150 |
+| `callbacks/4/args/0/11/dimensions/height` | differs | 100 | 37 |
+| `callbacks/4/args/0/11/resizing` | right only | — | false |
+| `callbacks/4/args/0/12/id` | differs | 12-a | 8 |
+| `callbacks/4/args/0/12/dimensions/width` | differs | 50 | 150 |
+| `callbacks/4/args/0/12/dimensions/height` | differs | 50 | 37 |
+| `callbacks/4/args/0/12/resizing` | right only | — | false |
+| `callbacks/4/args/0/13/id` | differs | 12-b | 9 |
+| `callbacks/4/args/0/13/dimensions/width` | differs | 50 | 150 |
+| `callbacks/4/args/0/13/dimensions/height` | differs | 50 | 37 |
+| `callbacks/4/args/0/13/resizing` | right only | — | false |
+| `callbacks/6/args/0/screenY` | differs | 96.19429016113281 | 96.19428253173828 |
+| `callbacks/6/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
+| `callbacks/6/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
+| `callbacks/8/args/0/screenY` | differs | 96.19429016113281 | 96.19428253173828 |
+| `callbacks/8/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
+| `callbacks/8/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
+
+### api (137) — consequence of the driving divergence
+
+| path | kind | upstream | psflow |
+|---|---|---|---|
+| `api/queries/getNodes/0/hidden` | right only | — | false |
+| `api/queries/getNodes/0/selected` | right only | — | false |
+| `api/queries/getNodes/0/dragging` | right only | — | false |
+| `api/queries/getNodes/1/hidden` | right only | — | false |
+| `api/queries/getNodes/1/selected` | right only | — | false |
+| `api/queries/getNodes/1/dragging` | right only | — | false |
+| `api/queries/getNodes/2/hidden` | right only | — | false |
+| `api/queries/getNodes/2/selected` | right only | — | false |
+| `api/queries/getNodes/2/dragging` | right only | — | false |
+| `api/queries/getNodes/3/hidden` | right only | — | false |
+| `api/queries/getNodes/3/selected` | right only | — | false |
+| `api/queries/getNodes/3/dragging` | right only | — | false |
+| `api/queries/getNodes/4/hidden` | right only | — | false |
+| `api/queries/getNodes/4/selected` | right only | — | false |
+| `api/queries/getNodes/4/dragging` | right only | — | false |
+| `api/queries/getNodes/5/hidden` | right only | — | false |
+| `api/queries/getNodes/5/selected` | right only | — | false |
+| `api/queries/getNodes/5/dragging` | right only | — | false |
+| `api/queries/getNodes/6/hidden` | right only | — | false |
+| `api/queries/getNodes/6/selected` | right only | — | false |
+| `api/queries/getNodes/6/dragging` | right only | — | false |
+| `api/queries/getNodes/7/hidden` | right only | — | false |
+| `api/queries/getNodes/7/selected` | right only | — | false |
+| `api/queries/getNodes/7/dragging` | right only | — | false |
+| `api/queries/getNodes/8/hidden` | right only | — | false |
+| `api/queries/getNodes/8/selected` | right only | — | false |
+| `api/queries/getNodes/8/dragging` | right only | — | false |
+| `api/queries/getNodes/9/hidden` | right only | — | false |
+| `api/queries/getNodes/9/selected` | right only | — | false |
+| `api/queries/getNodes/9/dragging` | right only | — | false |
+| `api/queries/getNodes/10/hidden` | right only | — | false |
+| `api/queries/getNodes/10/selected` | right only | — | false |
+| `api/queries/getNodes/10/dragging` | right only | — | false |
+| `api/queries/getNodes/11/hidden` | right only | — | false |
+| `api/queries/getNodes/11/selected` | right only | — | false |
+| `api/queries/getNodes/11/dragging` | right only | — | false |
+| `api/queries/getNodes/12/hidden` | right only | — | false |
+| `api/queries/getNodes/12/selected` | right only | — | false |
+| `api/queries/getNodes/12/dragging` | right only | — | false |
+| `api/queries/getNodes/13/hidden` | right only | — | false |
+| `api/queries/getNodes/13/selected` | right only | — | false |
+| `api/queries/getNodes/13/dragging` | right only | — | false |
+| `api/queries/getNode/hidden` | right only | — | false |
+| `api/queries/getNode/selected` | right only | — | false |
+| `api/queries/getNode/dragging` | right only | — | false |
+| `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
+| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00001857790781 |
+| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999994842827817 |
+| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
+| `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
+| `api/queries/getInternalNode/hidden` | right only | — | false |
+| `api/queries/getInternalNode/selected` | right only | — | false |
+| `api/queries/getInternalNode/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/9/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/10/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/10/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/10/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/11/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/11/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/11/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/12/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/12/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/12/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/13/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/13/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/13/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/0/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/0/selected` | right only | — | false |
+| `api/queries/toObject/nodes/0/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/1/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/1/selected` | right only | — | false |
+| `api/queries/toObject/nodes/1/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/2/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/2/selected` | right only | — | false |
+| `api/queries/toObject/nodes/2/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/3/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/3/selected` | right only | — | false |
+| `api/queries/toObject/nodes/3/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/4/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/4/selected` | right only | — | false |
+| `api/queries/toObject/nodes/4/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/5/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/5/selected` | right only | — | false |
+| `api/queries/toObject/nodes/5/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/6/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/6/selected` | right only | — | false |
+| `api/queries/toObject/nodes/6/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/7/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/7/selected` | right only | — | false |
+| `api/queries/toObject/nodes/7/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/8/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/8/selected` | right only | — | false |
+| `api/queries/toObject/nodes/8/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/9/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/9/selected` | right only | — | false |
+| `api/queries/toObject/nodes/9/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/10/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/10/selected` | right only | — | false |
+| `api/queries/toObject/nodes/10/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/11/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/11/selected` | right only | — | false |
+| `api/queries/toObject/nodes/11/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/12/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/12/selected` | right only | — | false |
+| `api/queries/toObject/nodes/12/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/13/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/13/selected` | right only | — | false |
+| `api/queries/toObject/nodes/13/dragging` | right only | — | false |
+
+## Normalization
+
+10 field(s) deleted by name and therefore **unobserved** — not passing:
+
+- `callbacks/**/timeStamp` (5) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+
+
+---
+
+# System parity run — multi-select-edges-with-modifier
+
+**Failed:** driving-divergence, unclaimed-difference.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
+## Self-consistency
+
+Each side is captured twice and compared against itself **before** the sides are compared at all: a
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
+
+| side | captures | verdict | differences |
+|---|---|---|---|
+| upstream | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | reproduced | 0 |
+
+---
+
+# Comparison report — multi-select-edges-with-modifier
+
+upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
+
+**Failed:** 11 driving divergence(s), 259 unclaimed difference(s).
+
+**The inputs differed.** The driving log records what was done *to* each side — the target, whether
+it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
+own render, so the pointer follows a divergence: two sides that place a node five pixels apart both
+drag successfully while the two runs were not one experiment. Until the log agrees, every section
+below it is a **consequence of the driving divergence**. None of them is suppressed —
+a real divergence is exactly what would be hiding down there.
+
+## Unclaimed differences
+
+### driving (11)
+
+| path | kind | upstream | psflow |
+|---|---|---|---|
+| `driving/1/box/y` | differs | 67.6114273071289 | 67.61141967773438 |
+| `driving/1/box/height` | differs | 57.16571807861328 | 57.16572570800781 |
+| `driving/1/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
+| `driving/2/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
+| `driving/4/box/y` | differs | 67.6114273071289 | 67.61141967773438 |
+| `driving/4/box/width` | differs | 113.394287109375 | 113.39422607421875 |
+| `driving/4/box/height` | differs | 57.16571807861328 | 57.16572570800781 |
+| `driving/4/dispatched/x` | differs | 663.4285888671875 | 663.4285583496094 |
+| `driving/4/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
+| `driving/5/dispatched/x` | differs | 663.4285888671875 | 663.4285583496094 |
+| `driving/5/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
 
 ### dom (73) — consequence of the driving divergence
 
@@ -3764,378 +3937,14 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/6/args/0/screenY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/6/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/6/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/8/args/0/screenY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/8/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/8/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/9/args/1/selected` | right only | — | false |
-| `callbacks/11/args/1/selected` | right only | — | false |
-
-### api (159) — consequence of the driving divergence
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `api/queries/getNodes/0/hidden` | right only | — | false |
-| `api/queries/getNodes/0/selected` | right only | — | false |
-| `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/1/hidden` | right only | — | false |
-| `api/queries/getNodes/1/selected` | right only | — | false |
-| `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/2/hidden` | right only | — | false |
-| `api/queries/getNodes/2/selected` | right only | — | false |
-| `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/3/hidden` | right only | — | false |
-| `api/queries/getNodes/3/selected` | right only | — | false |
-| `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/4/hidden` | right only | — | false |
-| `api/queries/getNodes/4/selected` | right only | — | false |
-| `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/5/hidden` | right only | — | false |
-| `api/queries/getNodes/5/selected` | right only | — | false |
-| `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/6/hidden` | right only | — | false |
-| `api/queries/getNodes/6/selected` | right only | — | false |
-| `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/7/hidden` | right only | — | false |
-| `api/queries/getNodes/7/selected` | right only | — | false |
-| `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/8/hidden` | right only | — | false |
-| `api/queries/getNodes/8/selected` | right only | — | false |
-| `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodes/9/hidden` | right only | — | false |
-| `api/queries/getNodes/9/selected` | right only | — | false |
-| `api/queries/getNodes/9/dragging` | right only | — | false |
-| `api/queries/getNodes/10/hidden` | right only | — | false |
-| `api/queries/getNodes/10/selected` | right only | — | false |
-| `api/queries/getNodes/10/dragging` | right only | — | false |
-| `api/queries/getNodes/11/hidden` | right only | — | false |
-| `api/queries/getNodes/11/selected` | right only | — | false |
-| `api/queries/getNodes/11/dragging` | right only | — | false |
-| `api/queries/getNodes/12/hidden` | right only | — | false |
-| `api/queries/getNodes/12/selected` | right only | — | false |
-| `api/queries/getNodes/12/dragging` | right only | — | false |
-| `api/queries/getNodes/13/hidden` | right only | — | false |
-| `api/queries/getNodes/13/selected` | right only | — | false |
-| `api/queries/getNodes/13/dragging` | right only | — | false |
-| `api/queries/getNode/hidden` | right only | — | false |
-| `api/queries/getNode/selected` | right only | — | false |
-| `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00001857790781 |
-| `api/queries/getInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 31.999994842827817 |
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
-| `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
-| `api/queries/getInternalNode/hidden` | right only | — | false |
-| `api/queries/getInternalNode/selected` | right only | — | false |
-| `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdges/3/selected` | right only | — | false |
-| `api/queries/getEdges/4/selected` | right only | — | false |
-| `api/queries/getEdges/5/selected` | right only | — | false |
-| `api/queries/getEdges/6/selected` | right only | — | false |
-| `api/queries/getEdges/7/selected` | right only | — | false |
-| `api/queries/getEdges/8/selected` | right only | — | false |
-| `api/queries/getEdges/9/selected` | right only | — | false |
-| `api/queries/getEdges/10/selected` | right only | — | false |
-| `api/queries/getEdges/11/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/9/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/10/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/10/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/10/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/11/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/11/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/11/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/12/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/12/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/12/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/13/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/13/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/13/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/0/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/0/selected` | right only | — | false |
-| `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/1/selected` | right only | — | false |
-| `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/2/selected` | right only | — | false |
-| `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/3/selected` | right only | — | false |
-| `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/4/selected` | right only | — | false |
-| `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/5/selected` | right only | — | false |
-| `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/6/selected` | right only | — | false |
-| `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/7/selected` | right only | — | false |
-| `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/8/selected` | right only | — | false |
-| `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/9/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/9/selected` | right only | — | false |
-| `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/10/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/10/selected` | right only | — | false |
-| `api/queries/toObject/nodes/10/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/11/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/11/selected` | right only | — | false |
-| `api/queries/toObject/nodes/11/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/12/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/12/selected` | right only | — | false |
-| `api/queries/toObject/nodes/12/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/13/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/13/selected` | right only | — | false |
-| `api/queries/toObject/nodes/13/dragging` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/selected` | right only | — | false |
-| `api/queries/toObject/edges/3/selected` | right only | — | false |
-| `api/queries/toObject/edges/4/selected` | right only | — | false |
-| `api/queries/toObject/edges/5/selected` | right only | — | false |
-| `api/queries/toObject/edges/6/selected` | right only | — | false |
-| `api/queries/toObject/edges/7/selected` | right only | — | false |
-| `api/queries/toObject/edges/8/selected` | right only | — | false |
-| `api/queries/toObject/edges/9/selected` | right only | — | false |
-| `api/queries/toObject/edges/10/selected` | right only | — | false |
-| `api/queries/toObject/edges/11/selected` | right only | — | false |
-
-## Normalization
-
-10 field(s) deleted by name and therefore **unobserved** — not passing:
-
-- `callbacks/**/timeStamp` (5) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
-
-
----
-
-# System parity run — multi-select-edges-with-modifier
-
-**Failed:** driving-divergence, unclaimed-difference.
-
-Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
-
-## Self-consistency
-
-Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
-takes part with no tolerance applied. Probe variants compare only their declared observation level, so
-probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
-
-| side | captures | verdict | differences |
-|---|---|---|---|
-| upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | reproduced | 0 |
-
----
-
-# Comparison report — multi-select-edges-with-modifier
-
-upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
-
-Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
-
-**Failed:** 11 driving divergence(s), 285 unclaimed difference(s).
-
-**The inputs differed.** The driving log records what was done *to* each side — the target, whether
-it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
-own render, so the pointer follows a divergence: two sides that place a node five pixels apart both
-drag successfully while the two runs were not one experiment. Until the log agrees, every section
-below it is a **consequence of the driving divergence**. None of them is suppressed —
-a real divergence is exactly what would be hiding down there.
-
-## Unclaimed differences
-
-### driving (11)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `driving/1/box/y` | differs | 67.6114273071289 | 67.61141967773438 |
-| `driving/1/box/height` | differs | 57.16571807861328 | 57.16572570800781 |
-| `driving/1/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
-| `driving/2/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
-| `driving/4/box/y` | differs | 67.6114273071289 | 67.61141967773438 |
-| `driving/4/box/width` | differs | 113.394287109375 | 113.39422607421875 |
-| `driving/4/box/height` | differs | 57.16571807861328 | 57.16572570800781 |
-| `driving/4/dispatched/x` | differs | 663.4285888671875 | 663.4285583496094 |
-| `driving/4/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
-| `driving/5/dispatched/x` | differs | 663.4285888671875 | 663.4285583496094 |
-| `driving/5/dispatched/y` | differs | 96.19428634643555 | 96.19428253173828 |
-
-### dom (73) — consequence of the driving divergence
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 -24.99998142209219,68.49999588228614 -24.99998142209219,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 -24.99998142209219,68.49999588228614 -24.99998142209219,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[0]/attrs/cx` | differs | 75 | 75.00001857790781 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[0]/attrs/cy` | differs | 50 | 49.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/edge-with-class/children/circle[1]/attrs/cy` | differs | 87 | 86.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 174.99995344894003,68.49999588228614 174.99995344894003,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M75.00001857790781,39.99999484282782 C75.00001857790781,68.49999588228614 174.99995344894003,68.49999588228614 174.99995344894003,96.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[0]/attrs/cx` | differs | 75 | 75.00001857790781 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[0]/attrs/cy` | differs | 50 | 49.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/edge-with-style/children/circle[1]/attrs/cy` | differs | 87 | 86.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/path[0]/attrs/d` | differs | M175,140 C175,168.5 175,168.5 175,197 | M174.99995344894003,139.99998670170686 C174.99995344894003,168.49999181172566 174.99995344894003,168.49999181172566 174.99995344894003,196.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/path[1]/attrs/d` | differs | M175,140 C175,168.5 175,168.5 175,197 | M174.99995344894003,139.99998670170686 C174.99995344894003,168.49999181172566 174.99995344894003,168.49999181172566 174.99995344894003,196.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/g[0]/attrs/transform` | differs | translate(156.50956535339355 163.16463375091553) | translate(156.5095188023336 163.1646255626412) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[0]/attrs/cy` | differs | 150 | 149.99998670170686 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/animated-edge/children/circle[1]/attrs/cy` | differs | 187 | 186.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/path[0]/attrs/d` | differs | M-25,240 C-25,268.5 -25,268.5 -25,297 | M-24.99998142209219,239.99999484282782 C-24.99998142209219,268.49999588228616 -24.99998142209219,268.49999588228616 -24.99998142209219,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/path[1]/attrs/d` | differs | M-25,240 C-25,268.5 -25,268.5 -25,297 | M-24.99998142209219,239.99999484282782 C-24.99998142209219,268.49999588228616 -24.99998142209219,268.49999588228616 -24.99998142209219,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/g[0]/attrs/transform` | differs | translate(-53.741695404052734 263.1646337509155) | translate(-53.741676826144925 263.1646296332017) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[0]/attrs/cy` | differs | 250 | 249.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[4]/children/not-selectable-edge/children/circle[1]/attrs/cy` | differs | 287 | 286.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/path[0]/attrs/d` | differs | M175,240 C175,268.5 175,268.5 175,297 | M174.99995344894003,239.99999484282782 C174.99995344894003,268.49999588228616 174.99995344894003,268.49999588228616 174.99995344894003,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/path[1]/attrs/d` | differs | M175,240 C175,268.5 175,268.5 175,297 | M174.99995344894003,239.99999484282782 C174.99995344894003,268.49999588228616 174.99995344894003,268.49999588228616 174.99995344894003,296.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/g[0]/attrs/transform` | differs | translate(147.92308235168457 263.1646337509155) | translate(147.9230358006246 263.1646296332017) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[0]/attrs/cy` | differs | 250 | 249.99999484282782 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[5]/children/not-deletable/children/circle[1]/attrs/cy` | differs | 287 | 286.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/path[0]/attrs/d` | differs | M-25,340 C-25,368.5 -25,368.5 -25,397 | M-24.99998142209219,340.00001112506976 C-24.99998142209219,368.5000040234071 -24.99998142209219,368.5000040234071 -24.99998142209219,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/path[1]/attrs/d` | differs | M-25,340 C-25,368.5 -25,368.5 -25,397 | M-24.99998142209219,340.00001112506976 C-24.99998142209219,368.5000040234071 -24.99998142209219,368.5000040234071 -24.99998142209219,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/g[0]/attrs/transform` | differs | translate(-40.691965103149414 363.1646337509155) | translate(-40.691946525241605 363.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[0]/attrs/cy` | differs | 350 | 350.00001112506976 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[6]/children/z-index/children/circle[1]/attrs/cy` | differs | 387 | 386.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/path[0]/attrs/d` | differs | M175,340 C175,368.5 175,368.5 175,397 | M174.99995344894003,340.00001112506976 C174.99995344894003,368.5000040234071 174.99995344894003,368.5000040234071 174.99995344894003,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/path[1]/attrs/d` | differs | M175,340 C175,368.5 175,368.5 175,397 | M174.99995344894003,340.00001112506976 C174.99995344894003,368.5000040234071 174.99995344894003,368.5000040234071 174.99995344894003,396.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/g[0]/attrs/transform` | differs | translate(155.91675186157227 363.1646337509155) | translate(155.9167053105123 363.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[0]/attrs/cy` | differs | 350 | 350.00001112506976 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[7]/children/aria-label/children/circle[1]/attrs/cy` | differs | 387 | 386.99999692174447 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/path[0]/attrs/d` | differs | M-25,440 C-25,468.5 -25,468.5 -25,497 | M-24.99998142209219,439.9999785605859 C-24.99998142209219,468.5000040234071 -24.99998142209219,468.5000040234071 -24.99998142209219,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/path[1]/attrs/d` | differs | M-25,440 C-25,468.5 -25,468.5 -25,497 | M-24.99998142209219,439.9999785605859 C-24.99998142209219,468.5000040234071 -24.99998142209219,468.5000040234071 -24.99998142209219,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/g[0]/attrs/transform` | differs | translate(-59.59632873535156 463.1646337509155) | translate(-59.59631015744375 463.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[0]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[0]/attrs/cy` | differs | 450 | 449.9999785605859 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[1]/attrs/cx` | differs | -25 | -24.99998142209219 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[8]/children/interaction-width/children/circle[1]/attrs/cy` | differs | 487 | 487.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/path[0]/attrs/d` | differs | M175,440 C175,468.5 175,468.5 175,497 | M174.99995344894003,439.9999785605859 C174.99995344894003,468.5000040234071 174.99995344894003,468.5000040234071 174.99995344894003,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/path[1]/attrs/d` | differs | M175,440 C175,468.5 175,468.5 175,497 | M174.99995344894003,439.9999785605859 C174.99995344894003,468.5000040234071 174.99995344894003,468.5000040234071 174.99995344894003,497.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/g[0]/attrs/transform` | differs | translate(158.17678451538086 463.1646337509155) | translate(158.1767379643209 463.1646377743226) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[0]/attrs/cy` | differs | 450 | 449.9999785605859 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[1]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[9]/children/markers/children/circle[1]/attrs/cy` | differs | 487 | 487.00002948622836 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/path[0]/attrs/d` | differs | M175,540 C175,578.5 135,578.5 135,617 | M174.99995344894003,540.0000111250697 C174.99995344894003,578.5000203056491 134.99998898330483,578.5000203056491 134.99998898330483,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/path[1]/attrs/d` | differs | M175,540 C175,578.5 135,578.5 135,617 | M174.99995344894003,540.0000111250697 C174.99995344894003,578.5000203056491 134.99998898330483,578.5000203056491 134.99998898330483,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[0]/attrs/cx` | differs | 175 | 174.99995344894003 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[0]/attrs/cy` | differs | 550 | 550.0000111250697 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[1]/attrs/cx` | differs | 135 | 134.99998898330483 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/path[0]/attrs/d` | differs | M135,673 C135,719.7707173346743 265,570.2292826653257 265,617 | M134.99998898330483,673.0000136093491 C134.99998898330483,719.7707243139066 265.0000541122726,570.2293187816708 265.0000541122726,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/path[1]/attrs/d` | differs | M135,673 C135,719.7707173346743 265,570.2292826653257 265,617 | M134.99998898330483,673.0000136093491 C134.99998898330483,719.7707243139066 265.0000541122726,570.2293187816708 265.0000541122726,617.0000294862283 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[0]/attrs/cx` | differs | 135 | 134.99998898330483 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[0]/attrs/cy` | differs | 683 | 683.0000136093491 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cx` | differs | 265 | 265.0000541122726 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
-
-### callbacks (55) — consequence of the driving divergence
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… |
-| `callbacks/4/args/0/0/resizing` | right only | — | false |
-| `callbacks/4/args/0/1/id` | differs | 2 | 10 |
-| `callbacks/4/args/0/1/resizing` | right only | — | false |
-| `callbacks/4/args/0/2/id` | differs | 3 | 11 |
-| `callbacks/4/args/0/2/resizing` | right only | — | false |
-| `callbacks/4/args/0/3/id` | differs | 4 | 12 |
-| `callbacks/4/args/0/3/dimensions/width` | differs | 150 | 200 |
-| `callbacks/4/args/0/3/dimensions/height` | differs | 37 | 100 |
-| `callbacks/4/args/0/3/resizing` | right only | — | false |
-| `callbacks/4/args/0/4/id` | differs | 5 | 12-a |
-| `callbacks/4/args/0/4/dimensions/width` | differs | 150 | 50 |
-| `callbacks/4/args/0/4/dimensions/height` | differs | 37 | 50 |
-| `callbacks/4/args/0/4/resizing` | right only | — | false |
-| `callbacks/4/args/0/5/id` | differs | 6 | 12-b |
-| `callbacks/4/args/0/5/dimensions/width` | differs | 150 | 50 |
-| `callbacks/4/args/0/5/dimensions/height` | differs | 37 | 50 |
-| `callbacks/4/args/0/5/resizing` | right only | — | false |
-| `callbacks/4/args/0/6/id` | differs | 7 | 2 |
-| `callbacks/4/args/0/6/resizing` | right only | — | false |
-| `callbacks/4/args/0/7/id` | differs | 8 | 3 |
-| `callbacks/4/args/0/7/resizing` | right only | — | false |
-| `callbacks/4/args/0/8/id` | differs | 9 | 4 |
-| `callbacks/4/args/0/8/resizing` | right only | — | false |
-| `callbacks/4/args/0/9/id` | differs | 10 | 5 |
-| `callbacks/4/args/0/9/resizing` | right only | — | false |
-| `callbacks/4/args/0/10/id` | differs | 11 | 6 |
-| `callbacks/4/args/0/10/resizing` | right only | — | false |
-| `callbacks/4/args/0/11/id` | differs | 12 | 7 |
-| `callbacks/4/args/0/11/dimensions/width` | differs | 200 | 150 |
-| `callbacks/4/args/0/11/dimensions/height` | differs | 100 | 37 |
-| `callbacks/4/args/0/11/resizing` | right only | — | false |
-| `callbacks/4/args/0/12/id` | differs | 12-a | 8 |
-| `callbacks/4/args/0/12/dimensions/width` | differs | 50 | 150 |
-| `callbacks/4/args/0/12/dimensions/height` | differs | 50 | 37 |
-| `callbacks/4/args/0/12/resizing` | right only | — | false |
-| `callbacks/4/args/0/13/id` | differs | 12-b | 9 |
-| `callbacks/4/args/0/13/dimensions/width` | differs | 50 | 150 |
-| `callbacks/4/args/0/13/dimensions/height` | differs | 50 | 37 |
-| `callbacks/4/args/0/13/resizing` | right only | — | false |
-| `callbacks/6/args/0/screenY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/6/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/6/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/7/args/1/selected` | right only | — | false |
-| `callbacks/8/args/0/screenY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/8/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/8/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/9/args/1/selected` | right only | — | false |
-| `callbacks/11/args/1/selected` | right only | — | false |
-| `callbacks/14/args/1/selected` | right only | — | false |
 | `callbacks/15/args/0/screenY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/15/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/15/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/16/args/1/selected` | right only | — | false |
-| `callbacks/18/args/1/selected` | right only | — | false |
 
-### api (157) — consequence of the driving divergence
+### api (137) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -4192,16 +4001,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdges/3/selected` | right only | — | false |
-| `api/queries/getEdges/4/selected` | right only | — | false |
-| `api/queries/getEdges/5/selected` | right only | — | false |
-| `api/queries/getEdges/6/selected` | right only | — | false |
-| `api/queries/getEdges/7/selected` | right only | — | false |
-| `api/queries/getEdges/8/selected` | right only | — | false |
-| `api/queries/getEdges/9/selected` | right only | — | false |
-| `api/queries/getEdges/10/selected` | right only | — | false |
-| `api/queries/getEdges/11/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -4286,16 +4085,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/toObject/nodes/13/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/13/selected` | right only | — | false |
 | `api/queries/toObject/nodes/13/dragging` | right only | — | false |
-| `api/queries/toObject/edges/2/selected` | right only | — | false |
-| `api/queries/toObject/edges/3/selected` | right only | — | false |
-| `api/queries/toObject/edges/4/selected` | right only | — | false |
-| `api/queries/toObject/edges/5/selected` | right only | — | false |
-| `api/queries/toObject/edges/6/selected` | right only | — | false |
-| `api/queries/toObject/edges/7/selected` | right only | — | false |
-| `api/queries/toObject/edges/8/selected` | right only | — | false |
-| `api/queries/toObject/edges/9/selected` | right only | — | false |
-| `api/queries/toObject/edges/10/selected` | right only | — | false |
-| `api/queries/toObject/edges/11/selected` | right only | — | false |
 
 ## Normalization
 
@@ -4332,7 +4121,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 278 unclaimed difference(s).
+**Failed:** 250 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -4414,7 +4203,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cx` | differs | 265 | 265.0000541122726 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
 
-### callbacks (43)
+### callbacks (40)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -4458,11 +4247,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/13/dimensions/width` | differs | 50 | 150 |
 | `callbacks/4/args/0/13/dimensions/height` | differs | 50 | 37 |
 | `callbacks/4/args/0/13/resizing` | right only | — | false |
-| `callbacks/7/args/1/selected` | right only | — | false |
-| `callbacks/9/args/1/selected` | right only | — | false |
-| `callbacks/10/args/1/selected` | right only | — | false |
 
-### api (162)
+### api (137)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -4519,19 +4305,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdges/3/selected` | right only | — | false |
-| `api/queries/getEdges/4/selected` | right only | — | false |
-| `api/queries/getEdges/5/selected` | right only | — | false |
-| `api/queries/getEdges/6/selected` | right only | — | false |
-| `api/queries/getEdges/7/selected` | right only | — | false |
-| `api/queries/getEdges/8/selected` | right only | — | false |
-| `api/queries/getEdges/9/selected` | right only | — | false |
-| `api/queries/getEdges/10/selected` | right only | — | false |
-| `api/queries/getEdges/11/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -4616,18 +4389,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/13/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/13/selected` | right only | — | false |
 | `api/queries/toObject/nodes/13/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/selected` | right only | — | false |
-| `api/queries/toObject/edges/3/selected` | right only | — | false |
-| `api/queries/toObject/edges/4/selected` | right only | — | false |
-| `api/queries/toObject/edges/5/selected` | right only | — | false |
-| `api/queries/toObject/edges/6/selected` | right only | — | false |
-| `api/queries/toObject/edges/7/selected` | right only | — | false |
-| `api/queries/toObject/edges/8/selected` | right only | — | false |
-| `api/queries/toObject/edges/9/selected` | right only | — | false |
-| `api/queries/toObject/edges/10/selected` | right only | — | false |
-| `api/queries/toObject/edges/11/selected` | right only | — | false |
 
 ## Normalization
 
@@ -4664,7 +4425,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 4 driving divergence(s), 282 unclaimed difference(s).
+**Failed:** 4 driving divergence(s), 256 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -4756,7 +4517,7 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge-2/children/circle[1]/attrs/cx` | differs | 265 | 265.0000541122726 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[10]/children/subflow-edge-2/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
 
-### callbacks (55) — consequence of the driving divergence
+### callbacks (52) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -4806,17 +4567,14 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/6/args/0/screenY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/6/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/6/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/8/args/0/screenY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/8/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/8/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
-| `callbacks/9/args/1/selected` | right only | — | false |
-| `callbacks/11/args/1/selected` | right only | — | false |
 | `callbacks/18/args/0/screenY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/18/args/0/clientY` | differs | 96.19429016113281 | 96.19428253173828 |
 | `callbacks/18/args/0/pageY` | differs | 96.19429016113281 | 96.19428253173828 |
 
-### api (160) — consequence of the driving divergence
+### api (137) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -4873,18 +4631,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdges/3/selected` | right only | — | false |
-| `api/queries/getEdges/4/selected` | right only | — | false |
-| `api/queries/getEdges/5/selected` | right only | — | false |
-| `api/queries/getEdges/6/selected` | right only | — | false |
-| `api/queries/getEdges/7/selected` | right only | — | false |
-| `api/queries/getEdges/8/selected` | right only | — | false |
-| `api/queries/getEdges/9/selected` | right only | — | false |
-| `api/queries/getEdges/10/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -4969,17 +4715,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/toObject/nodes/13/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/13/selected` | right only | — | false |
 | `api/queries/toObject/nodes/13/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/selected` | right only | — | false |
-| `api/queries/toObject/edges/3/selected` | right only | — | false |
-| `api/queries/toObject/edges/4/selected` | right only | — | false |
-| `api/queries/toObject/edges/5/selected` | right only | — | false |
-| `api/queries/toObject/edges/6/selected` | right only | — | false |
-| `api/queries/toObject/edges/7/selected` | right only | — | false |
-| `api/queries/toObject/edges/8/selected` | right only | — | false |
-| `api/queries/toObject/edges/9/selected` | right only | — | false |
-| `api/queries/toObject/edges/10/selected` | right only | — | false |
 
 ## Normalization
 
@@ -5016,7 +4751,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 4 driving divergence(s), 283 unclaimed difference(s).
+**Failed:** 4 driving divergence(s), 257 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -5114,7 +4849,7 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cx` | differs | 265 | 265.0000541122726 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
 
-### callbacks (50) — consequence of the driving divergence
+### callbacks (47) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -5162,14 +4897,11 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/6/args/0/screenX` | differs | 710.2857055664062 | 710.28564453125 |
 | `callbacks/6/args/0/clientX` | differs | 710.2857055664062 | 710.28564453125 |
 | `callbacks/6/args/0/pageX` | differs | 710.2857055664062 | 710.28564453125 |
-| `callbacks/7/args/1/selected` | right only | — | false |
 | `callbacks/8/args/0/screenX` | differs | 710.2857055664062 | 710.28564453125 |
 | `callbacks/8/args/0/clientX` | differs | 710.2857055664062 | 710.28564453125 |
 | `callbacks/8/args/0/pageX` | differs | 710.2857055664062 | 710.28564453125 |
-| `callbacks/9/args/1/selected` | right only | — | false |
-| `callbacks/11/args/1/selected` | right only | — | false |
 
-### api (160) — consequence of the driving divergence
+### api (137) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -5226,18 +4958,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdges/3/selected` | right only | — | false |
-| `api/queries/getEdges/4/selected` | right only | — | false |
-| `api/queries/getEdges/6/selected` | right only | — | false |
-| `api/queries/getEdges/7/selected` | right only | — | false |
-| `api/queries/getEdges/8/selected` | right only | — | false |
-| `api/queries/getEdges/9/selected` | right only | — | false |
-| `api/queries/getEdges/10/selected` | right only | — | false |
-| `api/queries/getEdges/11/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -5322,17 +5042,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/toObject/nodes/13/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/13/selected` | right only | — | false |
 | `api/queries/toObject/nodes/13/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/selected` | right only | — | false |
-| `api/queries/toObject/edges/3/selected` | right only | — | false |
-| `api/queries/toObject/edges/4/selected` | right only | — | false |
-| `api/queries/toObject/edges/6/selected` | right only | — | false |
-| `api/queries/toObject/edges/7/selected` | right only | — | false |
-| `api/queries/toObject/edges/8/selected` | right only | — | false |
-| `api/queries/toObject/edges/9/selected` | right only | — | false |
-| `api/queries/toObject/edges/10/selected` | right only | — | false |
-| `api/queries/toObject/edges/11/selected` | right only | — | false |
 
 ## Normalization
 
@@ -5369,7 +5078,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 2 driving divergence(s), 276 unclaimed difference(s).
+**Failed:** 2 driving divergence(s), 250 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -5465,7 +5174,7 @@ a real divergence is exactly what would be hiding down there.
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cx` | differs | 265 | 265.0000541122726 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[11]/children/subflow-edge-2/children/circle[1]/attrs/cy` | differs | 607 | 607.0000294862283 |
 
-### callbacks (43) — consequence of the driving divergence
+### callbacks (40) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -5509,11 +5218,8 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/4/args/0/13/dimensions/width` | differs | 50 | 150 |
 | `callbacks/4/args/0/13/dimensions/height` | differs | 50 | 37 |
 | `callbacks/4/args/0/13/resizing` | right only | — | false |
-| `callbacks/7/args/1/selected` | right only | — | false |
-| `callbacks/9/args/1/selected` | right only | — | false |
-| `callbacks/11/args/1/selected` | right only | — | false |
 
-### api (160) — consequence of the driving divergence
+### api (137) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -5570,18 +5276,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdges/3/selected` | right only | — | false |
-| `api/queries/getEdges/4/selected` | right only | — | false |
-| `api/queries/getEdges/5/selected` | right only | — | false |
-| `api/queries/getEdges/6/selected` | right only | — | false |
-| `api/queries/getEdges/7/selected` | right only | — | false |
-| `api/queries/getEdges/9/selected` | right only | — | false |
-| `api/queries/getEdges/10/selected` | right only | — | false |
-| `api/queries/getEdges/11/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -5666,17 +5360,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/toObject/nodes/13/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/13/selected` | right only | — | false |
 | `api/queries/toObject/nodes/13/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/selected` | right only | — | false |
-| `api/queries/toObject/edges/3/selected` | right only | — | false |
-| `api/queries/toObject/edges/4/selected` | right only | — | false |
-| `api/queries/toObject/edges/5/selected` | right only | — | false |
-| `api/queries/toObject/edges/6/selected` | right only | — | false |
-| `api/queries/toObject/edges/7/selected` | right only | — | false |
-| `api/queries/toObject/edges/9/selected` | right only | — | false |
-| `api/queries/toObject/edges/10/selected` | right only | — | false |
-| `api/queries/toObject/edges/11/selected` | right only | — | false |
 
 ## Normalization
 
@@ -5713,7 +5396,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 141 unclaimed difference(s).
+**Failed:** 136 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -5770,7 +5453,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/14/args/1/hidden` | right only | — | false |
 | `callbacks/14/args/1/dragging` | right only | — | false |
 
-### api (98)
+### api (93)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -5811,9 +5494,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
@@ -5870,8 +5550,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -6089,7 +5767,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 147 unclaimed difference(s).
+**Failed:** 142 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -6147,7 +5825,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/12/args/1/selected` | right only | — | false |
 | `callbacks/12/args/1/dragging` | right only | — | false |
 
-### api (103)
+### api (98)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -6191,9 +5869,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -6252,8 +5927,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -6266,7 +5939,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 # System parity run — drag-moves-node
 
-**Failed:** unclaimed-difference.
+**Failed:** self-inconsistent, unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -6280,7 +5953,77 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | **disagrees with itself** | 61 |
+
+### psflow disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `callbacks/21` | left only | {"name":"onEdgeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… | — |
+| `callbacks/25` | left only | {"name":"onEdgeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
+| `callbacks/30` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
+| `callbacks/37` | left only | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… | — |
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
+| `callbacks/18/args/0/target/@ref` | differs | path | rect |
+| `callbacks/18/args/0/screenX` | differs | 654 | 734 |
+| `callbacks/18/args/0/screenY` | differs | 91 | 171 |
+| `callbacks/18/args/0/clientX` | differs | 654 | 734 |
+| `callbacks/18/args/0/clientY` | differs | 91 | 171 |
+| `callbacks/18/args/0/pageX` | differs | 654 | 734 |
+| `callbacks/18/args/0/pageY` | differs | 91 | 171 |
+| `callbacks/19/args/0/screenX` | differs | 654 | 734 |
+| `callbacks/19/args/0/screenY` | differs | 91 | 171 |
+| `callbacks/19/args/0/clientX` | differs | 654 | 734 |
+| `callbacks/19/args/0/clientY` | differs | 91 | 171 |
+| `callbacks/19/args/0/pageX` | differs | 654 | 734 |
+| `callbacks/19/args/0/pageY` | differs | 91 | 171 |
+| `callbacks/19/args/0/relatedTarget/@ref` | differs | path | rect |
+| `callbacks/19/args/1/id` | differs | Node-1 | Node-3 |
+| `callbacks/19/args/1/position/x` | differs | 38.841463414634134 | 100 |
+| `callbacks/19/args/1/position/y` | differs | 38.84146341463415 | 100 |
+| `callbacks/19/args/1/data/label` | differs | Node-1 | Node-3 |
+| `callbacks/19/args/1/type` | left only | input | — |
+| `callbacks/19/args/1/selected` | differs | true | false |
+| `callbacks/19/args/1/dragging` | differs | true | false |
+| `callbacks/19/args/1/className` | left only | playwright-test-class-123 | — |
+| `callbacks/19/args/1/style` | left only | {"backgroundColor":"red"} | — |
+| `callbacks/20/args/0/screenX` | differs | 694 | 774 |
+| `callbacks/20/args/0/screenY` | differs | 131 | 211 |
+| `callbacks/20/args/0/clientX` | differs | 694 | 774 |
+| `callbacks/20/args/0/clientY` | differs | 131 | 211 |
+| `callbacks/20/args/0/pageX` | differs | 694 | 774 |
+| `callbacks/20/args/0/pageY` | differs | 131 | 211 |
+| `callbacks/20/args/0/relatedTarget/@ref` | differs | rect | DIV |
+| `callbacks/20/args/1/id` | differs | Node-1 | Node-3 |
+| `callbacks/20/args/1/position/x` | differs | 38.841463414634134 | 100 |
+| `callbacks/20/args/1/position/y` | differs | 38.84146341463415 | 100 |
+| `callbacks/20/args/1/data/label` | differs | Node-1 | Node-3 |
+| `callbacks/20/args/1/type` | left only | input | — |
+| `callbacks/20/args/1/selected` | differs | true | false |
+| `callbacks/20/args/1/dragging` | differs | true | false |
+| `callbacks/20/args/1/className` | left only | playwright-test-class-123 | — |
+| `callbacks/20/args/1/style` | left only | {"backgroundColor":"red"} | — |
+| `callbacks/26/args/0/screenX` | differs | 734 | 814 |
+| `callbacks/26/args/0/screenY` | differs | 171 | 251 |
+| `callbacks/26/args/0/clientX` | differs | 734 | 814 |
+| `callbacks/26/args/0/clientY` | differs | 171 | 251 |
+| `callbacks/26/args/0/pageX` | differs | 734 | 814 |
+| `callbacks/26/args/0/pageY` | differs | 171 | 251 |
+| `callbacks/26/args/0/buttons` | differs | 1 | 0 |
+| `callbacks/26/args/0/relatedTarget/@ref` | differs | rect | DIV |
+| `callbacks/26/args/1/id` | differs | Node-3 | Node-1 |
+| `callbacks/26/args/1/position/x` | differs | 100 | 194.2073170731707 |
+| `callbacks/26/args/1/position/y` | differs | 100 | 194.2073170731707 |
+| `callbacks/26/args/1/data/label` | differs | Node-3 | Node-1 |
+| `callbacks/26/args/1/selected` | differs | false | true |
+| `callbacks/26/args/1/dragging` | differs | false | true |
+| `callbacks/26/args/1/type` | right only | — | input |
+| `callbacks/26/args/1/className` | right only | — | playwright-test-class-123 |
+| `callbacks/26/args/1/style` | right only | — | {"backgroundColor":"red"} |
+
+**psflow did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -6290,7 +6033,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 161 unclaimed difference(s).
+**Failed:** 210 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -6313,10 +6056,14 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 
-### callbacks (54)
+### callbacks (108)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
+| `callbacks/21` | right only | — | {"name":"onEdgeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
+| `callbacks/25` | right only | — | {"name":"onEdgeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… |
+| `callbacks/30` | right only | — | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… |
+| `callbacks/37` | right only | — | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 | `callbacks/4/args/0/0/resizing` | right only | — | false |
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
@@ -6344,35 +6091,85 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/12/args/0/nodes/0/dragging` | right only | — | false |
 | `callbacks/13/args/1/hidden` | right only | — | false |
 | `callbacks/13/args/1/dragging` | right only | — | false |
-| `callbacks/14/args/1/selected` | right only | — | false |
 | `callbacks/16/args/0/0/positionAbsolute` | right only | — | {"x":38.841463414634134,"y":38.84146341463415} |
 | `callbacks/17/args/1/hidden` | right only | — | false |
 | `callbacks/17/args/2/0/hidden` | right only | — | false |
 | `callbacks/19/args/0/0/positionAbsolute` | right only | — | {"x":77.68292682926827,"y":77.68292682926828} |
 | `callbacks/20/args/1/hidden` | right only | — | false |
 | `callbacks/20/args/2/0/hidden` | right only | — | false |
-| `callbacks/21/args/1/selected` | right only | — | false |
+| `callbacks/21/args/0/target/@ref` | differs | rect | path |
+| `callbacks/21/args/0/screenX` | differs | 734 | 654 |
+| `callbacks/21/args/0/screenY` | differs | 171 | 91 |
+| `callbacks/21/args/0/clientX` | differs | 734 | 654 |
+| `callbacks/21/args/0/clientY` | differs | 171 | 91 |
+| `callbacks/21/args/0/pageX` | differs | 734 | 654 |
+| `callbacks/21/args/0/pageY` | differs | 171 | 91 |
+| `callbacks/22/args/0/screenX` | differs | 734 | 654 |
+| `callbacks/22/args/0/screenY` | differs | 171 | 91 |
+| `callbacks/22/args/0/clientX` | differs | 734 | 654 |
+| `callbacks/22/args/0/clientY` | differs | 171 | 91 |
+| `callbacks/22/args/0/pageX` | differs | 734 | 654 |
+| `callbacks/22/args/0/pageY` | differs | 171 | 91 |
+| `callbacks/22/args/0/relatedTarget/@ref` | differs | rect | path |
+| `callbacks/22/args/1/id` | differs | Node-3 | Node-1 |
+| `callbacks/22/args/1/data/label` | differs | Node-3 | Node-1 |
+| `callbacks/22/args/1/position/x` | differs | 100 | 38.841463414634134 |
+| `callbacks/22/args/1/position/y` | differs | 100 | 38.84146341463415 |
+| `callbacks/22/args/1/type` | right only | — | input |
 | `callbacks/22/args/1/hidden` | right only | — | false |
-| `callbacks/22/args/1/selected` | right only | — | false |
-| `callbacks/22/args/1/dragging` | right only | — | false |
+| `callbacks/22/args/1/selected` | right only | — | true |
+| `callbacks/22/args/1/dragging` | right only | — | true |
+| `callbacks/22/args/1/className` | right only | — | playwright-test-class-123 |
+| `callbacks/22/args/1/style` | right only | — | {"backgroundColor":"red"} |
 | `callbacks/24/args/0/0/positionAbsolute` | right only | — | {"x":116.52439024390242,"y":116.52439024390243} |
 | `callbacks/25/args/1/hidden` | right only | — | false |
 | `callbacks/25/args/2/0/hidden` | right only | — | false |
+| `callbacks/26/args/0/screenX` | differs | 774 | 694 |
+| `callbacks/26/args/0/screenY` | differs | 211 | 131 |
+| `callbacks/26/args/0/clientX` | differs | 774 | 694 |
+| `callbacks/26/args/0/clientY` | differs | 211 | 131 |
+| `callbacks/26/args/0/pageX` | differs | 774 | 694 |
+| `callbacks/26/args/0/pageY` | differs | 211 | 131 |
+| `callbacks/26/args/0/relatedTarget/@ref` | differs | DIV | rect |
+| `callbacks/26/args/1/id` | differs | Node-3 | Node-1 |
+| `callbacks/26/args/1/data/label` | differs | Node-3 | Node-1 |
+| `callbacks/26/args/1/position/x` | differs | 100 | 38.841463414634134 |
+| `callbacks/26/args/1/position/y` | differs | 100 | 38.84146341463415 |
+| `callbacks/26/args/1/type` | right only | — | input |
 | `callbacks/26/args/1/hidden` | right only | — | false |
-| `callbacks/26/args/1/selected` | right only | — | false |
-| `callbacks/26/args/1/dragging` | right only | — | false |
+| `callbacks/26/args/1/selected` | right only | — | true |
+| `callbacks/26/args/1/dragging` | right only | — | true |
+| `callbacks/26/args/1/className` | right only | — | playwright-test-class-123 |
+| `callbacks/26/args/1/style` | right only | — | {"backgroundColor":"red"} |
 | `callbacks/28/args/0/0/positionAbsolute` | right only | — | {"x":155.36585365853657,"y":155.3658536585366} |
 | `callbacks/29/args/1/hidden` | right only | — | false |
 | `callbacks/29/args/2/0/hidden` | right only | — | false |
 | `callbacks/31/args/0/0/positionAbsolute` | right only | — | {"x":194.2073170731707,"y":194.2073170731707} |
 | `callbacks/32/args/1/hidden` | right only | — | false |
 | `callbacks/32/args/2/0/hidden` | right only | — | false |
+| `callbacks/33/args/0/screenX` | differs | 814 | 734 |
+| `callbacks/33/args/0/screenY` | differs | 251 | 171 |
+| `callbacks/33/args/0/clientX` | differs | 814 | 734 |
+| `callbacks/33/args/0/clientY` | differs | 251 | 171 |
+| `callbacks/33/args/0/pageX` | differs | 814 | 734 |
+| `callbacks/33/args/0/pageY` | differs | 251 | 171 |
+| `callbacks/33/args/0/buttons` | differs | 0 | 1 |
+| `callbacks/33/args/0/relatedTarget/@ref` | differs | DIV | rect |
+| `callbacks/33/args/1/id` | differs | Node-1 | Node-3 |
+| `callbacks/33/args/1/data/label` | differs | Node-1 | Node-3 |
+| `callbacks/33/args/1/position/x` | differs | 194.2073170731707 | 100 |
+| `callbacks/33/args/1/position/y` | differs | 194.2073170731707 | 100 |
+| `callbacks/33/args/1/type` | left only | input | — |
+| `callbacks/33/args/1/className` | left only | playwright-test-class-123 | — |
+| `callbacks/33/args/1/style` | left only | {"backgroundColor":"red"} | — |
+| `callbacks/33/args/1/selected` | differs | true | false |
+| `callbacks/33/args/1/dragging` | differs | true | false |
 | `callbacks/33/args/1/hidden` | right only | — | false |
 | `callbacks/34/args/0/0/positionAbsolute` | right only | — | {"x":194.2073170731707,"y":194.2073170731707} |
 | `callbacks/35/args/1/hidden` | right only | — | false |
 | `callbacks/35/args/2/0/hidden` | right only | — | false |
 
-### api (93)
+### api (88)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -6410,9 +6207,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":194.2073170731707,"y":194.2073170731707},"type":"input","className":"playwright-test-class-123","style… | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
@@ -6467,14 +6261,12 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
-30 field(s) deleted by name and therefore **unobserved** — not passing:
+34 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (15) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (21) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -6505,7 +6297,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 151 unclaimed difference(s).
+**Failed:** 146 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -6567,7 +6359,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/27/args/1/selected` | right only | — | false |
 | `callbacks/27/args/1/dragging` | right only | — | false |
 
-### api (103)
+### api (98)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -6611,9 +6403,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -6672,8 +6461,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -6710,7 +6497,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 169 unclaimed difference(s).
+**Failed:** 164 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -6796,7 +6583,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/42/args/1/hidden` | right only | — | false |
 | `callbacks/42/args/2/0/hidden` | right only | — | false |
 
-### api (97)
+### api (92)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -6838,9 +6625,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -6895,8 +6679,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -6933,7 +6715,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 135 unclaimed difference(s).
+**Failed:** 134 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -6946,205 +6728,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/17` | left only | {"name":"onEdgesChange","args":[[{"id":"1-2","type":"remove"},{"id":"1-3","type":"remove"}]]} | — |
 | `callbacks/18` | left only | {"name":"onNodesDelete","args":[[{"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","styl… | — |
 | `callbacks/20` | left only | {"name":"onDelete","args":[{"nodes":[{"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","… | — |
-| `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
-| `callbacks/4/args/0/0/resizing` | right only | — | false |
-| `callbacks/4/args/0/1/resizing` | right only | — | false |
-| `callbacks/4/args/0/2/resizing` | right only | — | false |
-| `callbacks/4/args/0/3/resizing` | right only | — | false |
-| `callbacks/4/args/0/4/resizing` | right only | — | false |
-| `callbacks/4/args/0/5/resizing` | right only | — | false |
-| `callbacks/4/args/0/6/id` | differs | notDraggable | notDeletable |
-| `callbacks/4/args/0/6/resizing` | right only | — | false |
-| `callbacks/4/args/0/7/id` | differs | notSelectable | notDraggable |
-| `callbacks/4/args/0/7/resizing` | right only | — | false |
-| `callbacks/4/args/0/8/id` | differs | notDeletable | notSelectable |
-| `callbacks/4/args/0/8/resizing` | right only | — | false |
-| `callbacks/7/args/1/hidden` | right only | — | false |
-| `callbacks/7/args/1/selected` | right only | — | false |
-| `callbacks/7/args/1/dragging` | right only | — | false |
-| `callbacks/9/args/1/hidden` | right only | — | false |
-| `callbacks/9/args/1/selected` | right only | — | false |
-| `callbacks/9/args/1/dragging` | right only | — | false |
-| `callbacks/11/args/1/hidden` | right only | — | false |
-| `callbacks/11/args/1/selected` | right only | — | false |
-| `callbacks/11/args/2/0/hidden` | right only | — | false |
-| `callbacks/11/args/2/0/selected` | right only | — | false |
-| `callbacks/12/args/0/nodes/0/hidden` | right only | — | false |
-| `callbacks/12/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/13/args/1/hidden` | right only | — | false |
-| `callbacks/13/args/2/0/hidden` | right only | — | false |
-| `callbacks/14/args/1/hidden` | right only | — | false |
-| `callbacks/14/args/1/dragging` | right only | — | false |
-
-### api (101)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `api/queries/getNodes/0/hidden` | right only | — | false |
-| `api/queries/getNodes/0/selected` | right only | — | false |
-| `api/queries/getNodes/0/dragging` | right only | — | false |
-| `api/queries/getNodes/1/hidden` | right only | — | false |
-| `api/queries/getNodes/1/selected` | right only | — | false |
-| `api/queries/getNodes/1/dragging` | right only | — | false |
-| `api/queries/getNodes/2/hidden` | right only | — | false |
-| `api/queries/getNodes/2/selected` | right only | — | false |
-| `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodes/3/hidden` | right only | — | false |
-| `api/queries/getNodes/3/selected` | right only | — | false |
-| `api/queries/getNodes/3/dragging` | right only | — | false |
-| `api/queries/getNodes/4/hidden` | right only | — | false |
-| `api/queries/getNodes/4/selected` | right only | — | false |
-| `api/queries/getNodes/4/dragging` | right only | — | false |
-| `api/queries/getNodes/5/hidden` | right only | — | false |
-| `api/queries/getNodes/5/selected` | right only | — | false |
-| `api/queries/getNodes/5/dragging` | right only | — | false |
-| `api/queries/getNodes/6/hidden` | right only | — | false |
-| `api/queries/getNodes/6/selected` | right only | — | false |
-| `api/queries/getNodes/6/dragging` | right only | — | false |
-| `api/queries/getNodes/7/hidden` | right only | — | false |
-| `api/queries/getNodes/7/selected` | right only | — | false |
-| `api/queries/getNodes/7/dragging` | right only | — | false |
-| `api/queries/getNodes/8/selected` | right only | — | false |
-| `api/queries/getNodes/8/dragging` | right only | — | false |
-| `api/queries/getNode/hidden` | right only | — | false |
-| `api/queries/getNode/selected` | right only | — | false |
-| `api/queries/getNode/dragging` | right only | — | false |
-| `api/queries/getInternalNode/internals/handleBounds/source` | differs | null | [] |
-| `api/queries/getInternalNode/internals/handleBounds/target/0/id` | differs | null | {"@undefined":true} |
-| `api/queries/getInternalNode/internals/handleBounds/target/0/x` | differs | 71 | 70.99981241215175 |
-| `api/queries/getInternalNode/internals/handleBounds/target/0/y` | differs | -3 | -2.9999879000053404 |
-| `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-2","type":"output","data":{"label":"Node-2"},"position":{"x":-100,"y":100},"measured":{"width":150,"height":37}} | — |
-| `api/queries/getInternalNode/hidden` | right only | — | false |
-| `api/queries/getInternalNode/selected` | right only | — | false |
-| `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0` | right only | — | {"id":"1-2","type":"default","source":"Node-1","target":"Node-2","selected":false,"label":"edge"} |
-| `api/queries/getEdges/1` | right only | — | {"id":"1-3","type":"default","source":"Node-1","target":"Node-3","selected":false,"label":"edge"} |
-| `api/queries/getEdge/@undefined` | left only | true | — |
-| `api/queries/getEdge/id` | right only | — | 1-2 |
-| `api/queries/getEdge/type` | right only | — | default |
-| `api/queries/getEdge/source` | right only | — | Node-1 |
-| `api/queries/getEdge/target` | right only | — | Node-2 |
-| `api/queries/getEdge/selected` | right only | — | false |
-| `api/queries/getEdge/label` | right only | — | edge |
-| `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
-| `api/queries/getNodeConnections/0` | right only | — | {"edgeId":"1-2","source":"Node-1","target":"Node-2","sourceHandle":null,"targetHandle":null} |
-| `api/queries/toObject/nodes/0/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/0/selected` | right only | — | false |
-| `api/queries/toObject/nodes/0/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/1/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/1/selected` | right only | — | false |
-| `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/2/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/2/selected` | right only | — | false |
-| `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/3/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/3/selected` | right only | — | false |
-| `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/4/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/4/selected` | right only | — | false |
-| `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/5/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/5/selected` | right only | — | false |
-| `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/6/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/6/selected` | right only | — | false |
-| `api/queries/toObject/nodes/6/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/7/hidden` | right only | — | false |
-| `api/queries/toObject/nodes/7/selected` | right only | — | false |
-| `api/queries/toObject/nodes/7/dragging` | right only | — | false |
-| `api/queries/toObject/nodes/8/selected` | right only | — | false |
-| `api/queries/toObject/nodes/8/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0` | right only | — | {"id":"1-2","type":"default","source":"Node-1","target":"Node-2","selected":false,"label":"edge"} |
-| `api/queries/toObject/edges/1` | right only | — | {"id":"1-3","type":"default","source":"Node-1","target":"Node-3","selected":false,"label":"edge"} |
-
-## Normalization
-
-12 field(s) deleted by name and therefore **unobserved** — not passing:
-
-- `callbacks/**/timeStamp` (7) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
-
-
----
-
-# System parity run — delete-key-spares-undeletable-node
-
-**Failed:** unclaimed-difference.
-
-Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
-
-## Self-consistency
-
-Each side is captured twice and compared against itself **before** the sides are compared at all: a
-recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
-takes part with no tolerance applied. Probe variants compare only their declared observation level, so
-probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
-
-| side | captures | verdict | differences |
-|---|---|---|---|
-| upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | reproduced | 0 |
-
----
-
-# Comparison report — delete-key-spares-undeletable-node
-
-upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
-
-Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
-
-**Failed:** 144 unclaimed difference(s).
-
-## Unclaimed differences
-
-### dom (14)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.35898494720459 63.15929889678955) | translate(15.358797359356345 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cx` | differs | -25 | -25.000187587848245 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.35898494720459 63.15929889678955) | translate(115.35879735935634 63.159263873421395) |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
-
-### callbacks (30)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `callbacks/15` | left only | {"name":"onBeforeDelete","args":[{"nodes":[],"edges":[]}]} | — |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 | `callbacks/4/args/0/0/resizing` | right only | — | false |
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
@@ -7203,6 +6786,204 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getNodes/7/hidden` | right only | — | false |
 | `api/queries/getNodes/7/selected` | right only | — | false |
 | `api/queries/getNodes/7/dragging` | right only | — | false |
+| `api/queries/getNodes/8/selected` | right only | — | false |
+| `api/queries/getNodes/8/dragging` | right only | — | false |
+| `api/queries/getNode/hidden` | right only | — | false |
+| `api/queries/getNode/selected` | right only | — | false |
+| `api/queries/getNode/dragging` | right only | — | false |
+| `api/queries/getInternalNode/internals/handleBounds/source` | differs | null | [] |
+| `api/queries/getInternalNode/internals/handleBounds/target/0/id` | differs | null | {"@undefined":true} |
+| `api/queries/getInternalNode/internals/handleBounds/target/0/x` | differs | 71 | 70.99981241215175 |
+| `api/queries/getInternalNode/internals/handleBounds/target/0/y` | differs | -3 | -2.9999879000053404 |
+| `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-2","type":"output","data":{"label":"Node-2"},"position":{"x":-100,"y":100},"measured":{"width":150,"height":37}} | — |
+| `api/queries/getInternalNode/hidden` | right only | — | false |
+| `api/queries/getInternalNode/selected` | right only | — | false |
+| `api/queries/getInternalNode/dragging` | right only | — | false |
+| `api/queries/getEdges/0` | right only | — | {"id":"1-2","type":"default","source":"Node-1","target":"Node-2","label":"edge"} |
+| `api/queries/getEdges/1` | right only | — | {"id":"1-3","type":"default","source":"Node-1","target":"Node-3","label":"edge"} |
+| `api/queries/getEdge/@undefined` | left only | true | — |
+| `api/queries/getEdge/id` | right only | — | 1-2 |
+| `api/queries/getEdge/type` | right only | — | default |
+| `api/queries/getEdge/source` | right only | — | Node-1 |
+| `api/queries/getEdge/target` | right only | — | Node-2 |
+| `api/queries/getEdge/label` | right only | — | edge |
+| `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/1/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/3/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/3/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/3/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/4/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/4/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/4/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/5/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/5/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/5/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/6/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/6/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/6/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/7/hidden` | right only | — | false |
+| `api/queries/getIntersectingNodes/7/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/7/dragging` | right only | — | false |
+| `api/queries/getIntersectingNodes/8/selected` | right only | — | false |
+| `api/queries/getIntersectingNodes/8/dragging` | right only | — | false |
+| `api/queries/getNodeConnections/0` | right only | — | {"edgeId":"1-2","source":"Node-1","target":"Node-2","sourceHandle":null,"targetHandle":null} |
+| `api/queries/toObject/nodes/0/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/0/selected` | right only | — | false |
+| `api/queries/toObject/nodes/0/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/1/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/1/selected` | right only | — | false |
+| `api/queries/toObject/nodes/1/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/2/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/2/selected` | right only | — | false |
+| `api/queries/toObject/nodes/2/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/3/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/3/selected` | right only | — | false |
+| `api/queries/toObject/nodes/3/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/4/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/4/selected` | right only | — | false |
+| `api/queries/toObject/nodes/4/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/5/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/5/selected` | right only | — | false |
+| `api/queries/toObject/nodes/5/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/6/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/6/selected` | right only | — | false |
+| `api/queries/toObject/nodes/6/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/7/hidden` | right only | — | false |
+| `api/queries/toObject/nodes/7/selected` | right only | — | false |
+| `api/queries/toObject/nodes/7/dragging` | right only | — | false |
+| `api/queries/toObject/nodes/8/selected` | right only | — | false |
+| `api/queries/toObject/nodes/8/dragging` | right only | — | false |
+| `api/queries/toObject/edges/0` | right only | — | {"id":"1-2","type":"default","source":"Node-1","target":"Node-2","label":"edge"} |
+| `api/queries/toObject/edges/1` | right only | — | {"id":"1-3","type":"default","source":"Node-1","target":"Node-3","label":"edge"} |
+
+## Normalization
+
+12 field(s) deleted by name and therefore **unobserved** — not passing:
+
+- `callbacks/**/timeStamp` (7) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+
+
+---
+
+# System parity run — delete-key-spares-undeletable-node
+
+**Failed:** unclaimed-difference.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
+## Self-consistency
+
+Each side is captured twice and compared against itself **before** the sides are compared at all: a
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
+
+| side | captures | verdict | differences |
+|---|---|---|---|
+| upstream | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | reproduced | 0 |
+
+---
+
+# Comparison report — delete-key-spares-undeletable-node
+
+upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
+
+**Failed:** 139 unclaimed difference(s).
+
+## Unclaimed differences
+
+### dom (14)
+
+| path | kind | upstream | psflow |
+|---|---|---|---|
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 -25,68.5 -25,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 -25.000187587848245,68.49996497663184 -25.000187587848245,97.00001209999466 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/g[0]/attrs/transform` | differs | translate(15.35898494720459 63.15929889678955) | translate(15.358797359356345 63.159263873421395) |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cx` | differs | -25 | -25.000187587848245 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M75,40 C75,68.5 175,68.5 175,97 | M74.99981241215175,39.99991785326901 C74.99981241215175,68.49996497663184 174.99981241215175,68.49996497663184 174.99981241215175,97.00001209999466 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/g[0]/attrs/transform` | differs | translate(115.35898494720459 63.15929889678955) | translate(115.35879735935634 63.159263873421395) |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | 75 | 74.99981241215175 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | 50 | 49.99991785326901 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
+
+### callbacks (30)
+
+| path | kind | upstream | psflow |
+|---|---|---|---|
+| `callbacks/15` | left only | {"name":"onBeforeDelete","args":[{"nodes":[],"edges":[]}]} | — |
+| `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onNodesChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
+| `callbacks/4/args/0/0/resizing` | right only | — | false |
+| `callbacks/4/args/0/1/resizing` | right only | — | false |
+| `callbacks/4/args/0/2/resizing` | right only | — | false |
+| `callbacks/4/args/0/3/resizing` | right only | — | false |
+| `callbacks/4/args/0/4/resizing` | right only | — | false |
+| `callbacks/4/args/0/5/resizing` | right only | — | false |
+| `callbacks/4/args/0/6/id` | differs | notDraggable | notDeletable |
+| `callbacks/4/args/0/6/resizing` | right only | — | false |
+| `callbacks/4/args/0/7/id` | differs | notSelectable | notDraggable |
+| `callbacks/4/args/0/7/resizing` | right only | — | false |
+| `callbacks/4/args/0/8/id` | differs | notDeletable | notSelectable |
+| `callbacks/4/args/0/8/resizing` | right only | — | false |
+| `callbacks/7/args/1/hidden` | right only | — | false |
+| `callbacks/7/args/1/selected` | right only | — | false |
+| `callbacks/7/args/1/dragging` | right only | — | false |
+| `callbacks/9/args/1/hidden` | right only | — | false |
+| `callbacks/9/args/1/selected` | right only | — | false |
+| `callbacks/9/args/1/dragging` | right only | — | false |
+| `callbacks/11/args/1/hidden` | right only | — | false |
+| `callbacks/11/args/1/selected` | right only | — | false |
+| `callbacks/11/args/2/0/hidden` | right only | — | false |
+| `callbacks/11/args/2/0/selected` | right only | — | false |
+| `callbacks/12/args/0/nodes/0/hidden` | right only | — | false |
+| `callbacks/12/args/0/nodes/0/dragging` | right only | — | false |
+| `callbacks/13/args/1/hidden` | right only | — | false |
+| `callbacks/13/args/2/0/hidden` | right only | — | false |
+| `callbacks/14/args/1/hidden` | right only | — | false |
+| `callbacks/14/args/1/dragging` | right only | — | false |
+
+### api (95)
+
+| path | kind | upstream | psflow |
+|---|---|---|---|
+| `api/queries/getNodes/0/hidden` | right only | — | false |
+| `api/queries/getNodes/0/selected` | right only | — | false |
+| `api/queries/getNodes/0/dragging` | right only | — | false |
+| `api/queries/getNodes/1/hidden` | right only | — | false |
+| `api/queries/getNodes/1/selected` | right only | — | false |
+| `api/queries/getNodes/1/dragging` | right only | — | false |
+| `api/queries/getNodes/2/hidden` | right only | — | false |
+| `api/queries/getNodes/2/selected` | right only | — | false |
+| `api/queries/getNodes/2/dragging` | right only | — | false |
+| `api/queries/getNodes/3/hidden` | right only | — | false |
+| `api/queries/getNodes/3/selected` | right only | — | false |
+| `api/queries/getNodes/3/dragging` | right only | — | false |
+| `api/queries/getNodes/4/hidden` | right only | — | false |
+| `api/queries/getNodes/4/selected` | right only | — | false |
+| `api/queries/getNodes/4/dragging` | right only | — | false |
+| `api/queries/getNodes/5/hidden` | right only | — | false |
+| `api/queries/getNodes/5/selected` | right only | — | false |
+| `api/queries/getNodes/5/dragging` | right only | — | false |
+| `api/queries/getNodes/6/hidden` | right only | — | false |
+| `api/queries/getNodes/6/selected` | right only | — | false |
+| `api/queries/getNodes/6/dragging` | right only | — | false |
+| `api/queries/getNodes/7/hidden` | right only | — | false |
+| `api/queries/getNodes/7/selected` | right only | — | false |
+| `api/queries/getNodes/7/dragging` | right only | — | false |
 | `api/queries/getNodes/8/hidden` | right only | — | false |
 | `api/queries/getNodes/8/dragging` | right only | — | false |
 | `api/queries/getNodes/9/selected` | right only | — | false |
@@ -7218,9 +6999,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -7277,8 +7055,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -7315,7 +7091,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 213 unclaimed difference(s).
+**Failed:** 203 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -7344,7 +7120,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/xy-edge__Node-1-Node-4/children/circle[1]/attrs/cx` | differs | 75 | 74.99981241215175 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[2]/children/xy-edge__Node-1-Node-4/children/circle[1]/attrs/cy` | differs | 187 | 187.00001209999465 |
 
-### callbacks (88)
+### callbacks (85)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -7370,8 +7146,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/10/args/1/hidden` | right only | — | false |
 | `callbacks/10/args/1/selected` | right only | — | false |
 | `callbacks/10/args/1/dragging` | right only | — | false |
-| `callbacks/11/args/1/selected` | right only | — | false |
-| `callbacks/13/args/1/selected` | right only | — | false |
 | `callbacks/14/args/0/@class` | differs | MouseEvent | SyntheticBaseEvent |
 | `callbacks/14/args/0/_reactName` | right only | — | onMouseDown |
 | `callbacks/14/args/0/_targetInst` | right only | — | null |
@@ -7403,7 +7177,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/14/args/0/movementY` | right only | — | 0 |
 | `callbacks/14/args/0/isDefaultPrevented` | right only | — | {"@ref":"function"} |
 | `callbacks/14/args/0/isPropagationStopped` | right only | — | {"@ref":"function"} |
-| `callbacks/15/args/1/selected` | right only | — | false |
 | `callbacks/16/args/1/hidden` | right only | — | false |
 | `callbacks/16/args/1/selected` | right only | — | false |
 | `callbacks/16/args/1/dragging` | right only | — | false |
@@ -7437,7 +7210,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/21/args/1/toNode/selected` | right only | — | false |
 | `callbacks/21/args/1/toNode/dragging` | right only | — | false |
 
-### api (105)
+### api (98)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -7481,10 +7254,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -7543,9 +7312,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/selected` | right only | — | false |
 
 ## Normalization
 
@@ -7582,7 +7348,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 200 unclaimed difference(s).
+**Failed:** 195 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -7693,7 +7459,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/17/args/1/selected` | right only | — | false |
 | `callbacks/17/args/1/dragging` | right only | — | false |
 
-### api (103)
+### api (98)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -7737,9 +7503,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -7798,8 +7561,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -7836,7 +7597,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 205 unclaimed difference(s).
+**Failed:** 197 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -7859,7 +7620,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 
-### callbacks (88)
+### callbacks (85)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -7885,8 +7646,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/10/args/1/hidden` | right only | — | false |
 | `callbacks/10/args/1/selected` | right only | — | false |
 | `callbacks/10/args/1/dragging` | right only | — | false |
-| `callbacks/11/args/1/selected` | right only | — | false |
-| `callbacks/13/args/1/selected` | right only | — | false |
 | `callbacks/14/args/0/@class` | differs | MouseEvent | SyntheticBaseEvent |
 | `callbacks/14/args/0/_reactName` | right only | — | onMouseDown |
 | `callbacks/14/args/0/_targetInst` | right only | — | null |
@@ -7918,7 +7677,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/14/args/0/movementY` | right only | — | 0 |
 | `callbacks/14/args/0/isDefaultPrevented` | right only | — | {"@ref":"function"} |
 | `callbacks/14/args/0/isPropagationStopped` | right only | — | {"@ref":"function"} |
-| `callbacks/15/args/1/selected` | right only | — | false |
 | `callbacks/16/args/1/hidden` | right only | — | false |
 | `callbacks/16/args/1/selected` | right only | — | false |
 | `callbacks/16/args/1/dragging` | right only | — | false |
@@ -7952,7 +7710,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/19/args/1/toNode/selected` | right only | — | false |
 | `callbacks/19/args/1/toNode/dragging` | right only | — | false |
 
-### api (103)
+### api (98)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -7996,9 +7754,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -8057,8 +7812,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -8095,7 +7848,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 197 unclaimed difference(s).
+**Failed:** 189 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -8118,7 +7871,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cx` | differs | 175 | 174.99981241215175 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 
-### callbacks (80)
+### callbacks (77)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -8144,8 +7897,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/10/args/1/hidden` | right only | — | false |
 | `callbacks/10/args/1/selected` | right only | — | false |
 | `callbacks/10/args/1/dragging` | right only | — | false |
-| `callbacks/11/args/1/selected` | right only | — | false |
-| `callbacks/13/args/1/selected` | right only | — | false |
 | `callbacks/14/args/0/@class` | differs | MouseEvent | SyntheticBaseEvent |
 | `callbacks/14/args/0/_reactName` | right only | — | onMouseDown |
 | `callbacks/14/args/0/_targetInst` | right only | — | null |
@@ -8177,7 +7928,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/14/args/0/movementY` | right only | — | 0 |
 | `callbacks/14/args/0/isDefaultPrevented` | right only | — | {"@ref":"function"} |
 | `callbacks/14/args/0/isPropagationStopped` | right only | — | {"@ref":"function"} |
-| `callbacks/15/args/1/selected` | right only | — | false |
 | `callbacks/17/args/1/from/x` | differs | 75 | 74.99981241215175 |
 | `callbacks/17/args/1/from/y` | differs | 36 | 35.99991785326901 |
 | `callbacks/17/args/1/fromHandle/id` | differs | null | {"@undefined":true} |
@@ -8203,7 +7953,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/17/args/1/toNode/selected` | right only | — | false |
 | `callbacks/17/args/1/toNode/dragging` | right only | — | false |
 
-### api (103)
+### api (98)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -8247,9 +7997,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -8308,8 +8055,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -8346,7 +8091,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 59 unclaimed difference(s).
+**Failed:** 54 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -8376,7 +8121,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 
-### api (43)
+### api (38)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -8400,9 +8145,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -8421,8 +8163,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -8459,7 +8199,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 59 unclaimed difference(s).
+**Failed:** 54 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -8489,7 +8229,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 
-### api (43)
+### api (38)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -8513,9 +8253,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -8534,8 +8271,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -8572,7 +8307,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 45 unclaimed difference(s).
+**Failed:** 40 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -8585,7 +8320,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 
-### api (41)
+### api (36)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -8607,9 +8342,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -8628,8 +8360,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -8666,7 +8396,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 45 unclaimed difference(s).
+**Failed:** 40 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -8679,7 +8409,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 
-### api (41)
+### api (36)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -8701,9 +8431,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -8722,8 +8449,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -8760,7 +8485,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 56 unclaimed difference(s).
+**Failed:** 51 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -8787,7 +8512,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/1/resizing` | right only | — | false |
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 
-### api (43)
+### api (38)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -8811,9 +8536,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -8832,8 +8554,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -8870,7 +8590,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 170 unclaimed difference(s).
+**Failed:** 167 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -8926,7 +8646,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/12/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/12/args/0/nodes/0/dragging` | right only | — | false |
 
-### api (128)
+### api (125)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -8979,8 +8699,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"default-node","type":"ToolbarNode","data":{"label":"toolbar top","toolbarPosition":"top"},"position":{"x":0,"y":-200},"className":"react-flow__node-defa… | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
@@ -9057,7 +8775,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/12/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/12/selected` | right only | — | false |
 | `api/queries/toObject/nodes/12/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
 
 ## Normalization
 
@@ -9141,7 +8858,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 208 unclaimed difference(s).
+**Failed:** 203 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -9265,7 +8982,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/58/args/1/hidden` | right only | — | false |
 | `callbacks/58/args/2/0/hidden` | right only | — | false |
 
-### api (98)
+### api (93)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -9304,9 +9021,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":58.26219512195121,"y":38.84146341463414},"type":"input","className":"playwright-test-class-123","style… | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/position/x` | differs | -100 | 16.524390243902417 |
 | `api/queries/getIntersectingNodes/1/position/y` | differs | 100 | 177.6829268292683 |
@@ -9365,8 +9079,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -9403,7 +9115,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 161 unclaimed difference(s).
+**Failed:** 156 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -9485,7 +9197,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/25/args/1/hidden` | right only | — | false |
 | `callbacks/25/args/2/0/hidden` | right only | — | false |
 
-### api (93)
+### api (88)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -9523,9 +9235,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":174.78658536585363,"y":116.52439024390243},"type":"input","className":"playwright-test-class-123","sty… | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
@@ -9580,8 +9289,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -9608,113 +9315,127 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 101 |
+| psflow | 1, 2 | **disagrees with itself** | 115 |
 
 ### psflow disagrees with itself
 
 | path | kind | capture 1 | capture 2 |
 |---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(2000px, 2000px) scale(1); | transform: translate(1720px, 1940px) scale(1); |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M-2065,-2253 C-2065,-1078 -25,-1078 -25,97 | M-1715,-1913 C-1715,-908 -25,-908 -25,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M-2065,-2253 C-2065,-1078 -25,-1078 -25,97 | M-1715,-1913 C-1715,-908 -25,-908 -25,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | -2065 | -1715 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | -2243 | -1903 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M-2065,-2253 C-2065,-1078 175,-1078 175,97 | M-1715,-1913 C-1715,-908 175,-908 175,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M-2065,-2253 C-2065,-1078 175,-1078 175,97 | M-1715,-1913 C-1715,-908 175,-908 175,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | -2065 | -1715 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | -2243 | -1903 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(-2140px, -2293px); visibility: visible; z-index: 1000; | pointer-events: all; transform: translate(-1790px, -1953px); visibility: visible; z-index: 1000; |
-| `callbacks/57` | left only | {"name":"onMoveStart","args":[null,{"x":1720,"y":1930,"zoom":1}]} | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(2000px, 2000px) scale(1); | transform: translate(1380px, 1600px) scale(1); |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M-2055,-2263 C-2055,-1083 -25,-1083 -25,97 | M-1375,-1573 C-1375,-738 -25,-738 -25,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M-2055,-2263 C-2055,-1083 -25,-1083 -25,97 | M-1375,-1573 C-1375,-738 -25,-738 -25,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | -2055 | -1375 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | -2253 | -1563 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M-2055,-2263 C-2055,-1083 175,-1083 175,97 | M-1375,-1573 C-1375,-738 175,-738 175,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M-2055,-2263 C-2055,-1083 175,-1083 175,97 | M-1375,-1573 C-1375,-738 175,-738 175,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | -2055 | -1375 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | -2253 | -1563 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(-2130px, -2303px); visibility: visible; z-index: 1000; | pointer-events: all; transform: translate(-1450px, -1613px); visibility: visible; z-index: 1000; |
+| `callbacks/48` | left only | {"name":"onMoveStart","args":[null,{"x":1370,"y":1590,"zoom":1}]} | — |
+| `callbacks/49` | left only | {"name":"onViewportChange","args":[{"x":1710,"y":1940,"zoom":1}]} | — |
+| `callbacks/50` | left only | {"name":"onMove","args":[null,{"x":1710,"y":1940,"zoom":1}]} | — |
+| `callbacks/51` | left only | {"name":"onMoveEnd","args":[null,{"x":1710,"y":1940,"zoom":1}]} | — |
+| `callbacks/56` | left only | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-1780,"y":-1953},"data":{"label":"Node-1"},"type":"input",… | — |
+| `callbacks/57` | left only | {"name":"onMoveStart","args":[null,{"x":1710,"y":1940,"zoom":1}]} | — |
 | `callbacks/58` | left only | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} | — |
 | `callbacks/59` | left only | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
 | `callbacks/60` | left only | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/62` | left only | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2140,"y":-2293},"data":{"label":"Node-1"},"type":"input",… | — |
+| `callbacks/61` | left only | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2130,"y":-2303},"positionAbsolute":{"x":-2130,"y":-2303},"dragging":true}]]} | — |
+| `callbacks/62` | left only | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2130,"y":-2303},"data":{"label":"Node-1"},"type":"input",… | — |
 | `callbacks/63` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
-| `callbacks/64` | left only | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2140,"y":-2293},"positionAbsolute":{"x":-2140,"y":-2293},"dragging":false}]]} | — |
+| `callbacks/64` | left only | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2130,"y":-2303},"positionAbsolute":{"x":-2130,"y":-2303},"dragging":false}]]} | — |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
-| `callbacks/28/args/0/screenX` | differs | 5 | 6 |
-| `callbacks/28/args/0/clientX` | differs | 5 | 6 |
-| `callbacks/28/args/0/pageX` | differs | 5 | 6 |
+| `callbacks/23/args/0/x` | differs | 680 | 690 |
+| `callbacks/24/args/1/x` | differs | 680 | 690 |
+| `callbacks/25/args/1/x` | differs | 680 | 690 |
+| `callbacks/26/args/0/0/position/x` | differs | -749 | -410 |
+| `callbacks/26/args/0/0/position/y` | differs | -692 | -572 |
+| `callbacks/26/args/0/0/positionAbsolute/x` | differs | -749 | -410 |
+| `callbacks/26/args/0/0/positionAbsolute/y` | differs | -692 | -572 |
+| `callbacks/27/args/1/position/x` | differs | -749 | -410 |
+| `callbacks/27/args/1/position/y` | differs | -692 | -572 |
+| `callbacks/27/args/2/0/position/x` | differs | -749 | -410 |
+| `callbacks/27/args/2/0/position/y` | differs | -692 | -572 |
 | `callbacks/28/args/1/position/x` | differs | -749 | -409 |
 | `callbacks/28/args/1/position/y` | differs | -692 | -352 |
-| `callbacks/38/args/0/screenX` | differs | 5 | 6 |
-| `callbacks/38/args/0/screenY` | differs | 6 | 5 |
-| `callbacks/38/args/0/clientX` | differs | 5 | 6 |
-| `callbacks/38/args/0/clientY` | differs | 6 | 5 |
-| `callbacks/38/args/0/pageX` | differs | 5 | 6 |
-| `callbacks/38/args/0/pageY` | differs | 6 | 5 |
-| `callbacks/40/args/0/x` | differs | 1380 | 1370 |
-| `callbacks/40/args/0/y` | differs | 1580 | 1590 |
-| `callbacks/41/args/1/x` | differs | 1380 | 1370 |
-| `callbacks/41/args/1/y` | differs | 1580 | 1590 |
-| `callbacks/42/args/1/x` | differs | 1380 | 1370 |
-| `callbacks/42/args/1/y` | differs | 1580 | 1590 |
-| `callbacks/43/args/0/0/position/x` | differs | -1450 | -1099 |
-| `callbacks/43/args/0/0/position/y` | differs | -1592 | -1253 |
-| `callbacks/43/args/0/0/positionAbsolute/x` | differs | -1450 | -1099 |
-| `callbacks/43/args/0/0/positionAbsolute/y` | differs | -1592 | -1253 |
-| `callbacks/44/args/1/position/x` | differs | -1450 | -1099 |
-| `callbacks/44/args/1/position/y` | differs | -1592 | -1253 |
-| `callbacks/44/args/2/0/position/x` | differs | -1450 | -1099 |
-| `callbacks/44/args/2/0/position/y` | differs | -1592 | -1253 |
-| `callbacks/46/args/0/0/position/x` | differs | -1449 | -1439 |
-| `callbacks/46/args/0/0/position/y` | differs | -1593 | -1603 |
-| `callbacks/46/args/0/0/positionAbsolute/x` | differs | -1449 | -1439 |
-| `callbacks/46/args/0/0/positionAbsolute/y` | differs | -1593 | -1603 |
-| `callbacks/47/args/1/position/x` | differs | -1449 | -1439 |
-| `callbacks/47/args/1/position/y` | differs | -1593 | -1603 |
-| `callbacks/47/args/2/0/position/x` | differs | -1449 | -1439 |
-| `callbacks/47/args/2/0/position/y` | differs | -1593 | -1603 |
-| `callbacks/48/args/1/x` | differs | 1380 | 1370 |
-| `callbacks/48/args/1/y` | differs | 1580 | 1590 |
-| `callbacks/49/args/0/y` | differs | 1930 | 1940 |
-| `callbacks/50/args/1/y` | differs | 1930 | 1940 |
-| `callbacks/51/args/1/y` | differs | 1930 | 1940 |
-| `callbacks/52/args/0/0/position/x` | differs | -1789 | -1440 |
-| `callbacks/52/args/0/0/position/y` | differs | -1943 | -1603 |
-| `callbacks/52/args/0/0/positionAbsolute/x` | differs | -1789 | -1440 |
-| `callbacks/52/args/0/0/positionAbsolute/y` | differs | -1943 | -1603 |
-| `callbacks/53/args/1/position/x` | differs | -1789 | -1440 |
-| `callbacks/53/args/1/position/y` | differs | -1943 | -1603 |
-| `callbacks/53/args/2/0/position/x` | differs | -1789 | -1440 |
-| `callbacks/53/args/2/0/position/y` | differs | -1943 | -1603 |
-| `callbacks/55/args/0/0/position/y` | differs | -1943 | -1953 |
-| `callbacks/55/args/0/0/positionAbsolute/y` | differs | -1943 | -1953 |
-| `callbacks/56/args/1/position/y` | differs | -1943 | -1953 |
-| `callbacks/56/args/2/0/position/y` | differs | -1943 | -1953 |
-| `callbacks/61/args/0/0/position/x` | differs | -2140 | -1790 |
-| `callbacks/61/args/0/0/position/y` | differs | -2293 | -1953 |
-| `callbacks/61/args/0/0/positionAbsolute/x` | differs | -2140 | -1790 |
-| `callbacks/61/args/0/0/positionAbsolute/y` | differs | -2293 | -1953 |
-| `callbacks/61/args/0/0/dragging` | differs | true | false |
-| `callbacks/65/args/1/position/x` | differs | -2140 | -1790 |
-| `callbacks/65/args/1/position/y` | differs | -2293 | -1953 |
-| `callbacks/65/args/2/0/position/x` | differs | -2140 | -1790 |
-| `callbacks/65/args/2/0/position/y` | differs | -2293 | -1953 |
-| `api/queries/getNodes/0/position/x` | differs | -2140 | -1790 |
-| `api/queries/getNodes/0/position/y` | differs | -2293 | -1953 |
-| `api/queries/getNode/position/x` | differs | -2140 | -1790 |
-| `api/queries/getNode/position/y` | differs | -2293 | -1953 |
-| `api/queries/getInternalNode/position/x` | differs | -2140 | -1790 |
-| `api/queries/getInternalNode/position/y` | differs | -2293 | -1953 |
-| `api/queries/getInternalNode/internals/positionAbsolute/x` | differs | -2140 | -1790 |
-| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | -2293 | -1953 |
-| `api/queries/getIntersectingNodes/0/position/x` | differs | -2140 | -1790 |
-| `api/queries/getIntersectingNodes/0/position/y` | differs | -2293 | -1953 |
-| `api/queries/getNodesBounds/x` | differs | -2140 | -1790 |
-| `api/queries/getNodesBounds/y` | differs | -2293 | -1953 |
-| `api/queries/getNodesBounds/width` | differs | 2390 | 2040 |
-| `api/queries/getNodesBounds/height` | differs | 2430 | 2090 |
-| `api/queries/toObject/nodes/0/position/x` | differs | -2140 | -1790 |
-| `api/queries/toObject/nodes/0/position/y` | differs | -2293 | -1953 |
-| `api/queries/toObject/viewport/x` | differs | 2000 | 1720 |
-| `api/queries/toObject/viewport/y` | differs | 2000 | 1940 |
-| `api/queries/getViewport/x` | differs | 2000 | 1720 |
-| `api/queries/getViewport/y` | differs | 2000 | 1940 |
-| `api/queries/screenToFlowPosition/x` | differs | -2000 | -1720 |
-| `api/queries/screenToFlowPosition/y` | differs | -2000 | -1940 |
-| `api/queries/flowToScreenPosition/x` | differs | 2000 | 1720 |
-| `api/queries/flowToScreenPosition/y` | differs | 2000 | 1940 |
+| `callbacks/30/args/0/0/position/x` | differs | -750 | -760 |
+| `callbacks/30/args/0/0/positionAbsolute/x` | differs | -750 | -760 |
+| `callbacks/31/args/1/position/x` | differs | -750 | -760 |
+| `callbacks/31/args/2/0/position/x` | differs | -750 | -760 |
+| `callbacks/32/args/1/x` | differs | 680 | 690 |
+| `callbacks/33/args/0/y` | differs | 1240 | 1250 |
+| `callbacks/34/args/1/y` | differs | 1240 | 1250 |
+| `callbacks/35/args/1/y` | differs | 1240 | 1250 |
+| `callbacks/36/args/0/0/position/x` | differs | -1100 | -759 |
+| `callbacks/36/args/0/0/position/y` | differs | -1252 | -913 |
+| `callbacks/36/args/0/0/positionAbsolute/x` | differs | -1100 | -759 |
+| `callbacks/36/args/0/0/positionAbsolute/y` | differs | -1252 | -913 |
+| `callbacks/37/args/1/position/x` | differs | -1100 | -759 |
+| `callbacks/37/args/1/position/y` | differs | -1252 | -913 |
+| `callbacks/37/args/2/0/position/x` | differs | -1100 | -759 |
+| `callbacks/37/args/2/0/position/y` | differs | -1252 | -913 |
+| `callbacks/38/args/1/position/x` | differs | -1100 | -760 |
+| `callbacks/38/args/1/position/y` | differs | -1252 | -912 |
+| `callbacks/40/args/0/0/position/y` | differs | -1253 | -1263 |
+| `callbacks/40/args/0/0/positionAbsolute/y` | differs | -1253 | -1263 |
+| `callbacks/41/args/1/position/y` | differs | -1253 | -1263 |
+| `callbacks/41/args/2/0/position/y` | differs | -1253 | -1263 |
+| `callbacks/42/args/1/y` | differs | 1240 | 1250 |
+| `callbacks/43/args/0/x` | differs | 1370 | 1380 |
+| `callbacks/43/args/0/y` | differs | 1590 | 1600 |
+| `callbacks/44/args/1/x` | differs | 1370 | 1380 |
+| `callbacks/44/args/1/y` | differs | 1590 | 1600 |
+| `callbacks/45/args/1/x` | differs | 1370 | 1380 |
+| `callbacks/45/args/1/y` | differs | 1590 | 1600 |
+| `callbacks/46/args/0/0/position/x` | differs | -1439 | -1100 |
+| `callbacks/46/args/0/0/position/y` | differs | -1603 | -1263 |
+| `callbacks/46/args/0/0/positionAbsolute/x` | differs | -1439 | -1100 |
+| `callbacks/46/args/0/0/positionAbsolute/y` | differs | -1603 | -1263 |
+| `callbacks/47/args/1/position/x` | differs | -1439 | -1100 |
+| `callbacks/47/args/1/position/y` | differs | -1603 | -1263 |
+| `callbacks/47/args/2/0/position/x` | differs | -1439 | -1100 |
+| `callbacks/47/args/2/0/position/y` | differs | -1603 | -1263 |
+| `callbacks/52/args/0/0/position/x` | differs | -1779 | -1450 |
+| `callbacks/52/args/0/0/position/y` | differs | -1953 | -1613 |
+| `callbacks/52/args/0/0/positionAbsolute/x` | differs | -1779 | -1450 |
+| `callbacks/52/args/0/0/positionAbsolute/y` | differs | -1953 | -1613 |
+| `callbacks/53/args/1/position/x` | differs | -1779 | -1450 |
+| `callbacks/53/args/1/position/y` | differs | -1953 | -1613 |
+| `callbacks/53/args/2/0/position/x` | differs | -1779 | -1450 |
+| `callbacks/53/args/2/0/position/y` | differs | -1953 | -1613 |
+| `callbacks/55/args/0/0/position/x` | differs | -1780 | -1450 |
+| `callbacks/55/args/0/0/position/y` | differs | -1953 | -1613 |
+| `callbacks/55/args/0/0/positionAbsolute/x` | differs | -1780 | -1450 |
+| `callbacks/55/args/0/0/positionAbsolute/y` | differs | -1953 | -1613 |
+| `callbacks/55/args/0/0/dragging` | differs | true | false |
+| `callbacks/65/args/1/position/x` | differs | -2130 | -1450 |
+| `callbacks/65/args/1/position/y` | differs | -2303 | -1613 |
+| `callbacks/65/args/2/0/position/x` | differs | -2130 | -1450 |
+| `callbacks/65/args/2/0/position/y` | differs | -2303 | -1613 |
+| `api/queries/getNodes/0/position/x` | differs | -2130 | -1450 |
+| `api/queries/getNodes/0/position/y` | differs | -2303 | -1613 |
+| `api/queries/getNode/position/x` | differs | -2130 | -1450 |
+| `api/queries/getNode/position/y` | differs | -2303 | -1613 |
+| `api/queries/getInternalNode/position/x` | differs | -2130 | -1450 |
+| `api/queries/getInternalNode/position/y` | differs | -2303 | -1613 |
+| `api/queries/getInternalNode/internals/positionAbsolute/x` | differs | -2130 | -1450 |
+| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | -2303 | -1613 |
+| `api/queries/getIntersectingNodes/0/position/x` | differs | -2130 | -1450 |
+| `api/queries/getIntersectingNodes/0/position/y` | differs | -2303 | -1613 |
+| `api/queries/getNodesBounds/x` | differs | -2130 | -1450 |
+| `api/queries/getNodesBounds/y` | differs | -2303 | -1613 |
+| `api/queries/getNodesBounds/width` | differs | 2380 | 1700 |
+| `api/queries/getNodesBounds/height` | differs | 2440 | 1750 |
+| `api/queries/toObject/nodes/0/position/x` | differs | -2130 | -1450 |
+| `api/queries/toObject/nodes/0/position/y` | differs | -2303 | -1613 |
+| `api/queries/toObject/viewport/x` | differs | 2000 | 1380 |
+| `api/queries/toObject/viewport/y` | differs | 2000 | 1600 |
+| `api/queries/getViewport/x` | differs | 2000 | 1380 |
+| `api/queries/getViewport/y` | differs | 2000 | 1600 |
+| `api/queries/screenToFlowPosition/x` | differs | -2000 | -1380 |
+| `api/queries/screenToFlowPosition/y` | differs | -2000 | -1600 |
+| `api/queries/flowToScreenPosition/x` | differs | 2000 | 1380 |
+| `api/queries/flowToScreenPosition/y` | differs | 2000 | 1600 |
 
 **psflow did not reproduce.** The comparison below ran anyway —
 capture-everything applies to a failed run as much as to a passing one — but a difference it reports
@@ -9728,7 +9449,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 190 unclaimed difference(s).
+**Failed:** 178 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -9737,34 +9458,34 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(1380px, 1600px) scale(1); | transform: translate(2000px, 2000px) scale(1); |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M-1375,-1573 C-1375,-738 -25,-738 -25,97 | M-2065,-2253 C-2065,-1078 -25,-1078 -25,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M-1375,-1573 C-1375,-738 -25,-738 -25,97 | M-2065,-2253 C-2065,-1078 -25,-1078 -25,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | -1375 | -2065 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | -1563 | -2243 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M-1375,-1573 C-1375,-738 175,-738 175,97 | M-2065,-2253 C-2065,-1078 175,-1078 175,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M-1375,-1573 C-1375,-738 175,-738 175,97 | M-2065,-2253 C-2065,-1078 175,-1078 175,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | -1375 | -2065 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | -1563 | -2243 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(-1450px, -1613px); visibility: visible; z-index: 1000; | pointer-events: all; transform: translate(-2140px, -2293px); visibility: visible; z-index: 1000; |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M-1375,-1573 C-1375,-738 -25,-738 -25,97 | M-2055,-2263 C-2055,-1083 -25,-1083 -25,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M-1375,-1573 C-1375,-738 -25,-738 -25,97 | M-2055,-2263 C-2055,-1083 -25,-1083 -25,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | -1375 | -2055 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | -1563 | -2253 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M-1375,-1573 C-1375,-738 175,-738 175,97 | M-2055,-2263 C-2055,-1083 175,-1083 175,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M-1375,-1573 C-1375,-738 175,-738 175,97 | M-2055,-2263 C-2055,-1083 175,-1083 175,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | -1375 | -2055 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | -1563 | -2253 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(-1450px, -1613px); visibility: visible; z-index: 1000; | pointer-events: all; transform: translate(-2130px, -2303px); visibility: visible; z-index: 1000; |
 
-### callbacks (125)
+### callbacks (118)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/42` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1380,"y":1580,"zoom":1}]} |
-| `callbacks/48` | right only | — | {"name":"onMoveStart","args":[null,{"x":1380,"y":1580,"zoom":1}]} |
-| `callbacks/49` | right only | — | {"name":"onViewportChange","args":[{"x":1720,"y":1930,"zoom":1}]} |
-| `callbacks/50` | right only | — | {"name":"onMove","args":[null,{"x":1720,"y":1930,"zoom":1}]} |
-| `callbacks/51` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1720,"y":1930,"zoom":1}]} |
-| `callbacks/56` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-1790,"y":-1943},"data":{"label":"Node-1"},"type":"input",… |
-| `callbacks/57` | right only | — | {"name":"onMoveStart","args":[null,{"x":1720,"y":1930,"zoom":1}]} |
+| `callbacks/45` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1370,"y":1590,"zoom":1}]} |
+| `callbacks/48` | right only | — | {"name":"onMoveStart","args":[null,{"x":1370,"y":1590,"zoom":1}]} |
+| `callbacks/49` | right only | — | {"name":"onViewportChange","args":[{"x":1710,"y":1940,"zoom":1}]} |
+| `callbacks/50` | right only | — | {"name":"onMove","args":[null,{"x":1710,"y":1940,"zoom":1}]} |
+| `callbacks/51` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1710,"y":1940,"zoom":1}]} |
+| `callbacks/56` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-1780,"y":-1953},"data":{"label":"Node-1"},"type":"input",… |
+| `callbacks/57` | right only | — | {"name":"onMoveStart","args":[null,{"x":1710,"y":1940,"zoom":1}]} |
 | `callbacks/58` | right only | — | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} |
 | `callbacks/59` | right only | — | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
 | `callbacks/60` | right only | — | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/61` | right only | — | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2140,"y":-2293},"positionAbsolute":{"x":-2140,"y":-2293},"dragging":true}]]} |
-| `callbacks/62` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2140,"y":-2293},"data":{"label":"Node-1"},"type":"input",… |
+| `callbacks/61` | right only | — | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2130,"y":-2303},"positionAbsolute":{"x":-2130,"y":-2303},"dragging":true}]]} |
+| `callbacks/62` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2130,"y":-2303},"data":{"label":"Node-1"},"type":"input",… |
 | `callbacks/63` | right only | — | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… |
-| `callbacks/64` | right only | — | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2140,"y":-2293},"positionAbsolute":{"x":-2140,"y":-2293},"dragging":false}]]} |
+| `callbacks/64` | right only | — | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2130,"y":-2303},"positionAbsolute":{"x":-2130,"y":-2303},"dragging":false}]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
 | `callbacks/1/args/0/0/resizing` | right only | — | false |
 | `callbacks/1/args/0/1/resizing` | right only | — | false |
@@ -9811,12 +9532,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/29/args/2/0/hidden` | right only | — | false |
 | `callbacks/30/args/1/x` | differs | 690 | 340 |
 | `callbacks/30/args/1/y` | differs | 900 | 560 |
-| `callbacks/31/args/0/screenX` | differs | 6 | 5 |
-| `callbacks/31/args/0/screenY` | differs | 5 | 6 |
-| `callbacks/31/args/0/clientX` | differs | 6 | 5 |
-| `callbacks/31/args/0/clientY` | differs | 5 | 6 |
-| `callbacks/31/args/0/pageX` | differs | 6 | 5 |
-| `callbacks/31/args/0/pageY` | differs | 5 | 6 |
 | `callbacks/31/args/1/position/x` | differs | -760 | -1100 |
 | `callbacks/31/args/1/position/y` | differs | -912 | -1252 |
 | `callbacks/31/args/1/hidden` | right only | — | false |
@@ -9832,57 +9547,56 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/35/args/1/x` | differs | 690 | 680 |
 | `callbacks/36/args/0/y` | differs | 1250 | 1240 |
 | `callbacks/37/args/1/y` | differs | 1250 | 1240 |
-| `callbacks/38/args/0/0/position/x` | differs | -1099 | -1450 |
-| `callbacks/38/args/0/0/position/y` | differs | -1263 | -1592 |
-| `callbacks/38/args/0/0/positionAbsolute` | right only | — | {"x":-1450,"y":-1592} |
-| `callbacks/39/args/1/position/x` | differs | -1099 | -1450 |
-| `callbacks/39/args/1/position/y` | differs | -1263 | -1592 |
+| `callbacks/38/args/0/0/position/y` | differs | -1263 | -1253 |
+| `callbacks/38/args/0/0/positionAbsolute` | right only | — | {"x":-1099,"y":-1253} |
+| `callbacks/39/args/1/position/y` | differs | -1263 | -1253 |
 | `callbacks/39/args/1/hidden` | right only | — | false |
-| `callbacks/39/args/2/0/position/x` | differs | -1099 | -1450 |
-| `callbacks/39/args/2/0/position/y` | differs | -1263 | -1592 |
+| `callbacks/39/args/2/0/position/y` | differs | -1263 | -1253 |
 | `callbacks/39/args/2/0/hidden` | right only | — | false |
 | `callbacks/40/args/1/x` | differs | 1030 | 680 |
 | `callbacks/40/args/1/y` | differs | 1250 | 900 |
-| `callbacks/42/args/0/0/position/x` | differs | -1100 | -1449 |
-| `callbacks/42/args/0/0/position/y` | differs | -1263 | -1593 |
-| `callbacks/42/args/0/0/positionAbsolute` | right only | — | {"x":-1449,"y":-1593} |
-| `callbacks/43/args/1/position/x` | differs | -1100 | -1449 |
-| `callbacks/43/args/1/position/y` | differs | -1263 | -1593 |
+| `callbacks/42/args/0/0/position/x` | differs | -1100 | -1439 |
+| `callbacks/42/args/0/0/position/y` | differs | -1263 | -1603 |
+| `callbacks/42/args/0/0/positionAbsolute` | right only | — | {"x":-1439,"y":-1603} |
+| `callbacks/43/args/1/position/x` | differs | -1100 | -1439 |
+| `callbacks/43/args/1/position/y` | differs | -1263 | -1603 |
 | `callbacks/43/args/1/hidden` | right only | — | false |
-| `callbacks/43/args/2/0/position/x` | differs | -1100 | -1449 |
-| `callbacks/43/args/2/0/position/y` | differs | -1263 | -1593 |
+| `callbacks/43/args/2/0/position/x` | differs | -1100 | -1439 |
+| `callbacks/43/args/2/0/position/y` | differs | -1263 | -1603 |
 | `callbacks/43/args/2/0/hidden` | right only | — | false |
 | `callbacks/44/args/1/y` | differs | 1250 | 1240 |
-| `callbacks/45/args/0/y` | differs | 1600 | 1580 |
-| `callbacks/46/args/1/y` | differs | 1600 | 1580 |
-| `callbacks/47/args/0/0/position/x` | differs | -1450 | -1789 |
-| `callbacks/47/args/0/0/position/y` | differs | -1613 | -1943 |
-| `callbacks/47/args/0/0/positionAbsolute` | right only | — | {"x":-1789,"y":-1943} |
-| `callbacks/48/args/1/position/x` | differs | -1450 | -1789 |
-| `callbacks/48/args/1/position/y` | differs | -1613 | -1943 |
+| `callbacks/45/args/0/x` | differs | 1380 | 1370 |
+| `callbacks/45/args/0/y` | differs | 1600 | 1590 |
+| `callbacks/46/args/1/x` | differs | 1380 | 1370 |
+| `callbacks/46/args/1/y` | differs | 1600 | 1590 |
+| `callbacks/47/args/0/0/position/x` | differs | -1450 | -1779 |
+| `callbacks/47/args/0/0/position/y` | differs | -1613 | -1953 |
+| `callbacks/47/args/0/0/positionAbsolute` | right only | — | {"x":-1779,"y":-1953} |
+| `callbacks/48/args/1/position/x` | differs | -1450 | -1779 |
+| `callbacks/48/args/1/position/y` | differs | -1613 | -1953 |
 | `callbacks/48/args/1/hidden` | right only | — | false |
-| `callbacks/48/args/2/0/position/x` | differs | -1450 | -1789 |
-| `callbacks/48/args/2/0/position/y` | differs | -1613 | -1943 |
+| `callbacks/48/args/2/0/position/x` | differs | -1450 | -1779 |
+| `callbacks/48/args/2/0/position/y` | differs | -1613 | -1953 |
 | `callbacks/48/args/2/0/hidden` | right only | — | false |
 | `callbacks/49/args/1/x` | differs | 1380 | 1030 |
 | `callbacks/49/args/1/y` | differs | 1600 | 1240 |
-| `callbacks/50/args/0/0/position/x` | differs | -1450 | -1790 |
-| `callbacks/50/args/0/0/position/y` | differs | -1613 | -1943 |
+| `callbacks/50/args/0/0/position/x` | differs | -1450 | -1780 |
+| `callbacks/50/args/0/0/position/y` | differs | -1613 | -1953 |
 | `callbacks/50/args/0/0/dragging` | differs | false | true |
-| `callbacks/50/args/0/0/positionAbsolute` | right only | — | {"x":-1790,"y":-1943} |
-| `callbacks/51/args/1/position/x` | differs | -1450 | -2140 |
-| `callbacks/51/args/1/position/y` | differs | -1613 | -2293 |
+| `callbacks/50/args/0/0/positionAbsolute` | right only | — | {"x":-1780,"y":-1953} |
+| `callbacks/51/args/1/position/x` | differs | -1450 | -2130 |
+| `callbacks/51/args/1/position/y` | differs | -1613 | -2303 |
 | `callbacks/51/args/1/hidden` | right only | — | false |
-| `callbacks/51/args/2/0/position/x` | differs | -1450 | -2140 |
-| `callbacks/51/args/2/0/position/y` | differs | -1613 | -2293 |
+| `callbacks/51/args/2/0/position/x` | differs | -1450 | -2130 |
+| `callbacks/51/args/2/0/position/y` | differs | -1613 | -2303 |
 | `callbacks/51/args/2/0/hidden` | right only | — | false |
 
-### api (55)
+### api (50)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getNodes/0/position/x` | differs | -1450 | -2140 |
-| `api/queries/getNodes/0/position/y` | differs | -1613 | -2293 |
+| `api/queries/getNodes/0/position/x` | differs | -1450 | -2130 |
+| `api/queries/getNodes/0/position/y` | differs | -1613 | -2303 |
 | `api/queries/getNodes/0/hidden` | right only | — | false |
 | `api/queries/getNodes/1/hidden` | right only | — | false |
 | `api/queries/getNodes/1/selected` | right only | — | false |
@@ -9890,22 +9604,19 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getNodes/2/hidden` | right only | — | false |
 | `api/queries/getNodes/2/selected` | right only | — | false |
 | `api/queries/getNodes/2/dragging` | right only | — | false |
-| `api/queries/getNode/position/x` | differs | -1450 | -2140 |
-| `api/queries/getNode/position/y` | differs | -1613 | -2293 |
+| `api/queries/getNode/position/x` | differs | -1450 | -2130 |
+| `api/queries/getNode/position/y` | differs | -1613 | -2303 |
 | `api/queries/getNode/hidden` | right only | — | false |
-| `api/queries/getInternalNode/position/x` | differs | -1450 | -2140 |
-| `api/queries/getInternalNode/position/y` | differs | -1613 | -2293 |
-| `api/queries/getInternalNode/internals/positionAbsolute/x` | differs | -1450 | -2140 |
-| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | -1613 | -2293 |
+| `api/queries/getInternalNode/position/x` | differs | -1450 | -2130 |
+| `api/queries/getInternalNode/position/y` | differs | -1613 | -2303 |
+| `api/queries/getInternalNode/internals/positionAbsolute/x` | differs | -1450 | -2130 |
+| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | -1613 | -2303 |
 | `api/queries/getInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":-1450,"y":-1613},"type":"input","measured":{"width":150,"height":37},"selected":true,"dragging":false} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
-| `api/queries/getIntersectingNodes/0/position/x` | differs | -1450 | -2140 |
-| `api/queries/getIntersectingNodes/0/position/y` | differs | -1613 | -2293 |
+| `api/queries/getIntersectingNodes/0/position/x` | differs | -1450 | -2130 |
+| `api/queries/getIntersectingNodes/0/position/y` | differs | -1613 | -2303 |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
@@ -9913,12 +9624,12 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getIntersectingNodes/2/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/2/dragging` | right only | — | false |
-| `api/queries/getNodesBounds/x` | differs | -1450 | -2140 |
-| `api/queries/getNodesBounds/y` | differs | -1613 | -2293 |
-| `api/queries/getNodesBounds/width` | differs | 1700 | 2390 |
-| `api/queries/getNodesBounds/height` | differs | 1750 | 2430 |
-| `api/queries/toObject/nodes/0/position/x` | differs | -1450 | -2140 |
-| `api/queries/toObject/nodes/0/position/y` | differs | -1613 | -2293 |
+| `api/queries/getNodesBounds/x` | differs | -1450 | -2130 |
+| `api/queries/getNodesBounds/y` | differs | -1613 | -2303 |
+| `api/queries/getNodesBounds/width` | differs | 1700 | 2380 |
+| `api/queries/getNodesBounds/height` | differs | 1750 | 2440 |
+| `api/queries/toObject/nodes/0/position/x` | differs | -1450 | -2130 |
+| `api/queries/toObject/nodes/0/position/y` | differs | -1613 | -2303 |
 | `api/queries/toObject/nodes/0/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
@@ -9926,8 +9637,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 | `api/queries/toObject/viewport/x` | differs | 1380 | 2000 |
 | `api/queries/toObject/viewport/y` | differs | 1600 | 2000 |
 | `api/queries/getViewport/x` | differs | 1380 | 2000 |
@@ -9972,7 +9681,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 131 unclaimed difference(s).
+**Failed:** 126 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -10075,7 +9784,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/49/args/2/0/hidden` | right only | — | false |
 | `callbacks/49/args/2/0/selected` | right only | — | false |
 
-### api (42)
+### api (37)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -10096,9 +9805,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":60,"y":40},"type":"input","measured":{"width":150,"height":37},"dragging":false} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
@@ -10119,8 +9825,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -10157,7 +9861,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 11 driving divergence(s), 154 unclaimed difference(s).
+**Failed:** 11 driving divergence(s), 151 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -10287,7 +9991,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/38/args/1/hidden` | right only | — | false |
 | `callbacks/38/args/2/0/hidden` | right only | — | false |
 
-### api (61) — consequence of the driving divergence
+### api (58) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -10322,8 +10026,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/measured/width` | differs | 330 | 190 |
 | `api/queries/getIntersectingNodes/0/measured/height` | differs | 220 | 77 |
 | `api/queries/getIntersectingNodes/0/width` | differs | 330 | 190 |
@@ -10347,7 +10049,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
 | `api/queries/toObject/viewport/y` | differs | 140 | 283 |
 | `api/queries/getViewport/y` | differs | 140 | 283 |
 | `api/queries/screenToFlowPosition/y` | differs | -70 | -141.5 |
@@ -10388,7 +10089,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 61 unclaimed difference(s).
+**Failed:** 58 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -10438,7 +10139,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/32/args/1/hidden` | right only | — | false |
 | `callbacks/32/args/2/0/hidden` | right only | — | false |
 
-### api (20)
+### api (17)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -10451,8 +10152,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":50,"y":30},"type":"input","selected":true,"measured":{"width":150,"height":37},"dragging":false} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
@@ -10461,7 +10160,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
 
 ## Normalization
 
@@ -10498,7 +10196,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 142 unclaimed difference(s).
+**Failed:** 137 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -10551,7 +10249,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/11/args/1/selected` | right only | — | false |
 | `callbacks/11/args/1/dragging` | right only | — | false |
 
-### api (103)
+### api (98)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -10595,9 +10293,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -10656,8 +10351,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -10694,7 +10387,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 169 unclaimed difference(s).
+**Failed:** 164 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -10780,7 +10473,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/22/args/1/hidden` | right only | — | false |
 | `callbacks/22/args/1/dragging` | right only | — | false |
 
-### api (97)
+### api (92)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -10822,9 +10515,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -10879,8 +10569,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -10917,7 +10605,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 57 unclaimed difference(s).
+**Failed:** 52 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -10938,7 +10626,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (50)
+### api (45)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -10963,9 +10651,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -10990,8 +10675,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -11028,7 +10711,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 151 unclaimed difference(s).
+**Failed:** 146 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -11086,7 +10769,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/8/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/8/args/0/nodes/0/dragging` | right only | — | false |
 
-### api (107)
+### api (102)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -11131,9 +10814,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -11195,8 +10875,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -11233,7 +10911,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 98 unclaimed difference(s).
+**Failed:** 91 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -11288,7 +10966,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/16/args/0/0/position/y` | differs | 20 | 4 |
 | `callbacks/16/args/0/0/positionAbsolute` | right only | — | {"x":1,"y":4} |
 
-### api (57)
+### api (50)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -11315,10 +10993,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":10,"y":20},"type":"input","measured":{"width":150,"height":37},"selected":true,"dragging":false} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/position/x` | differs | 10 | 2 |
 | `api/queries/getIntersectingNodes/0/position/y` | differs | 20 | 4 |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
@@ -11346,9 +11020,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/selected` | right only | — | false |
 
 ## Normalization
 
@@ -11385,7 +11056,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 53 unclaimed difference(s).
+**Failed:** 46 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -11400,7 +11071,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/3/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/3/args/0/nodes/0/dragging` | right only | — | false |
 
-### api (47)
+### api (40)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -11422,10 +11093,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37},"selected":true} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
@@ -11448,9 +11115,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/selected` | right only | — | false |
 
 
 ---
@@ -11481,7 +11145,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 276 unclaimed difference(s).
+**Failed:** 264 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -11516,7 +11180,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/xy-edge__Node-3-Node-2/children/circle[1]/attrs/cx` | differs | -25 | -25.000187587848245 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[3]/children/xy-edge__Node-3-Node-2/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 
-### callbacks (143)
+### callbacks (140)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -11542,8 +11206,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/10/args/1/hidden` | right only | — | false |
 | `callbacks/10/args/1/selected` | right only | — | false |
 | `callbacks/10/args/1/dragging` | right only | — | false |
-| `callbacks/11/args/1/selected` | right only | — | false |
-| `callbacks/13/args/1/selected` | right only | — | false |
 | `callbacks/14/args/0/@class` | differs | MouseEvent | SyntheticBaseEvent |
 | `callbacks/14/args/0/_reactName` | right only | — | onMouseDown |
 | `callbacks/14/args/0/_targetInst` | right only | — | null |
@@ -11575,7 +11237,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/14/args/0/movementY` | right only | — | 0 |
 | `callbacks/14/args/0/isDefaultPrevented` | right only | — | {"@ref":"function"} |
 | `callbacks/14/args/0/isPropagationStopped` | right only | — | {"@ref":"function"} |
-| `callbacks/15/args/1/selected` | right only | — | false |
 | `callbacks/16/args/1/hidden` | right only | — | false |
 | `callbacks/16/args/1/selected` | right only | — | false |
 | `callbacks/16/args/1/dragging` | right only | — | false |
@@ -11664,7 +11325,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/35/args/1/selected` | right only | — | false |
 | `callbacks/35/args/1/dragging` | right only | — | false |
 
-### api (107)
+### api (98)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -11708,11 +11369,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdges/3/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -11771,10 +11427,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/selected` | right only | — | false |
-| `api/queries/toObject/edges/3/selected` | right only | — | false |
 
 ## Normalization
 
@@ -11811,7 +11463,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 188 unclaimed difference(s).
+**Failed:** 181 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -11835,7 +11487,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[1]/attrs/cy` | differs | 87 | 87.00001209999466 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/g[0]/children/path[0]/attrs/d` | differs | M75,36 C75,45.67454268292683 94.17378048780492,45.67454268292683 94.17378048780492,55.349085365853654 | M74.99981241215175,35.99991785326901 C74.99981241215175,62.499958926634505 634,62.499958926634505 634,89 |
 
-### callbacks (73)
+### callbacks (71)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -11879,8 +11531,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/19/args/1/hidden` | right only | — | false |
 | `callbacks/19/args/1/selected` | right only | — | false |
 | `callbacks/19/args/1/dragging` | right only | — | false |
-| `callbacks/20/args/1/selected` | right only | — | false |
-| `callbacks/22/args/1/selected` | right only | — | false |
 | `callbacks/23/args/0/@class` | differs | MouseEvent | SyntheticBaseEvent |
 | `callbacks/23/args/0/_reactName` | right only | — | onMouseDown |
 | `callbacks/23/args/0/_targetInst` | right only | — | null |
@@ -11913,7 +11563,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/23/args/0/isDefaultPrevented` | right only | — | {"@ref":"function"} |
 | `callbacks/23/args/0/isPropagationStopped` | right only | — | {"@ref":"function"} |
 
-### api (100)
+### api (95)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -11956,9 +11606,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -12015,8 +11662,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -12053,7 +11698,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 141 unclaimed difference(s).
+**Failed:** 136 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -12107,7 +11752,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/12/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/12/args/0/nodes/0/dragging` | right only | — | false |
 
-### api (100)
+### api (95)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -12150,9 +11795,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -12209,8 +11851,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ### console (1)
 
@@ -12253,7 +11893,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 203 unclaimed difference(s).
+**Failed:** 190 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -12392,7 +12032,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/18/args/1/toNode/selected` | right only | — | false |
 | `callbacks/18/args/1/toNode/dragging` | right only | — | false |
 
-### api (78)
+### api (65)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -12425,13 +12065,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdges/3/selected` | right only | — | false |
-| `api/queries/getEdges/4/selected` | right only | — | false |
-| `api/queries/getEdges/5/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -12468,12 +12101,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/5/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/5/selected` | right only | — | false |
 | `api/queries/toObject/nodes/5/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/selected` | right only | — | false |
-| `api/queries/toObject/edges/3/selected` | right only | — | false |
-| `api/queries/toObject/edges/4/selected` | right only | — | false |
-| `api/queries/toObject/edges/5/selected` | right only | — | false |
 
 ## Normalization
 
@@ -12510,11 +12137,11 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 69 unclaimed difference(s).
+**Failed:** 60 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### callbacks (24)
+### callbacks (21)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -12527,8 +12154,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/34/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/34/args/0/nodes/0/selected` | right only | — | false |
 | `callbacks/34/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/34/args/0/edges/0/selected` | right only | — | false |
-| `callbacks/35/args/0/0/selected` | right only | — | false |
 | `callbacks/37/args/0/0/hidden` | right only | — | false |
 | `callbacks/37/args/0/0/selected` | right only | — | false |
 | `callbacks/37/args/0/0/dragging` | right only | — | false |
@@ -12541,9 +12166,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/39/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/39/args/0/nodes/0/selected` | right only | — | false |
 | `callbacks/39/args/0/nodes/0/dragging` | right only | — | false |
-| `callbacks/39/args/0/edges/0/selected` | right only | — | false |
 
-### api (45)
+### api (39)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -12565,9 +12189,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -12586,12 +12207,9 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 | `api/calls/7/result/deletedNodes/0/hidden` | right only | — | false |
 | `api/calls/7/result/deletedNodes/0/selected` | right only | — | false |
 | `api/calls/7/result/deletedNodes/0/dragging` | right only | — | false |
-| `api/calls/7/result/deletedEdges/0/selected` | right only | — | false |
 
 
 ---
@@ -12622,7 +12240,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 59 unclaimed difference(s).
+**Failed:** 54 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -12652,7 +12270,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/1/resizing` | right only | — | false |
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 
-### api (43)
+### api (38)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -12676,9 +12294,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -12697,8 +12312,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -12735,7 +12348,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 77 unclaimed difference(s).
+**Failed:** 72 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -12786,7 +12399,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/33/args/1/hidden` | right only | — | false |
 | `callbacks/33/args/2/0/hidden` | right only | — | false |
 
-### api (40)
+### api (35)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -12805,9 +12418,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":80,"y":60},"type":"input","measured":{"width":150,"height":37},"selected":true,"dragging":false} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
@@ -12828,8 +12438,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -12866,7 +12474,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 76 unclaimed difference(s).
+**Failed:** 69 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -12895,7 +12503,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/6/args/0/0/dimensions` | right only | — | {"width":150,"height":37} |
 | `callbacks/6/args/0/0/resizing` | right only | — | false |
 
-### api (61)
+### api (54)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -12923,10 +12531,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdges/2/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -12957,9 +12561,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/4/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/4/selected` | right only | — | false |
 | `api/queries/toObject/nodes/4/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
-| `api/queries/toObject/edges/2/selected` | right only | — | false |
 
 
 ---
@@ -12990,7 +12591,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 79 unclaimed difference(s).
+**Failed:** 74 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -13038,7 +12639,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/22/args/1/selected` | right only | — | false |
 | `callbacks/22/args/1/dragging` | right only | — | false |
 
-### api (45)
+### api (40)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -13060,9 +12661,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37},"selected":true} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
@@ -13085,8 +12683,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -13123,7 +12719,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 58 unclaimed difference(s).
+**Failed:** 53 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -13145,7 +12741,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (50)
+### api (45)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -13170,9 +12766,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -13197,8 +12790,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
 ---
@@ -13229,7 +12820,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 27 unclaimed difference(s).
+**Failed:** 24 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -13239,7 +12830,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `dom/root/children/div[1]/children/svg[0]/children/path[0]/attrs/d` | differs | M-59.09584999560087,-169.90056873735244h1300.1086999032193v1004.6294499252149h-1300.1086999032193z⏎        M98.0830000879826,55.17168754949017h1083.83399982403… | M-59.09584999560087,-169.90056873735244h1300.1086999032193v1004.6294499252149h-1300.1086999032193z M98.0830000879826,55.17168754949017h1083.833999824035v609.65… |
 
-### api (26)
+### api (23)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -13254,8 +12845,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","hidden":true} | — |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/selected` | right only | — | false |
@@ -13268,7 +12857,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
 
 
 ---
@@ -13299,7 +12887,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 66 unclaimed difference(s).
+**Failed:** 61 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -13334,7 +12922,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/14/args/1/hidden` | right only | — | false |
 | `callbacks/14/args/1/dragging` | right only | — | false |
 
-### api (45)
+### api (40)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -13356,9 +12944,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37},"selected":true} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
@@ -13381,8 +12966,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -13419,7 +13002,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 58 unclaimed difference(s).
+**Failed:** 53 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -13441,7 +13024,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (50)
+### api (45)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -13466,9 +13049,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -13493,8 +13073,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
 ---
@@ -13525,7 +13103,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 57 unclaimed difference(s).
+**Failed:** 52 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -13546,7 +13124,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (50)
+### api (45)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -13571,9 +13149,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -13598,8 +13173,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 
 ---
@@ -13630,7 +13203,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 59 unclaimed difference(s).
+**Failed:** 54 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -13653,7 +13226,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (50)
+### api (45)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -13678,9 +13251,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -13705,8 +13275,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -13743,7 +13311,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 5 driving divergence(s), 75 unclaimed difference(s).
+**Failed:** 5 driving divergence(s), 70 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -13799,7 +13367,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/7/args/0/movementX` | differs | 9 | 1 |
 | `callbacks/7/args/0/movementY` | differs | 9 | 1 |
 
-### api (50) — consequence of the driving divergence
+### api (45) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -13824,9 +13392,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -13851,8 +13416,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -14013,8 +13576,8 @@ a real divergence is exactly what would be hiding down there.
 | `console/2` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/3` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 | `console/4` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:59602/parity/driver/dist/… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:59602/parity/driver/dist/… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:62603/parity/driver/dist/… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <PathAttributeEdge> component:\n\n    at PathAttributeEdge (http://127.0.0.1:62603/parity/driver/dist/… |
 | `console/7` | right only | — | {"level":"pageerror","text":"Failed pattern match at System.Utils.Edges.SmoothStep (line 39, column 19 - line 43, column 34): String"} |
 
 ## Normalization
@@ -14052,7 +13615,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 50 driving divergence(s), 109 unclaimed difference(s).
+**Failed:** 50 driving divergence(s), 106 unclaimed difference(s).
 
 **The inputs differed.** The driving log records what was done *to* each side — the target, whether
 it resolved, the box it resolved to — and it does not agree. Selectors resolve against each side's
@@ -14188,7 +13751,7 @@ a real divergence is exactly what would be hiding down there.
 | `callbacks/17/args/0/clientX` | differs | 589.6393432617188 | 351.11474609375 |
 | `callbacks/17/args/0/pageX` | differs | 589.6393432617188 | 351.11474609375 |
 
-### api (49) — consequence of the driving divergence
+### api (46) — consequence of the driving divergence
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -14217,8 +13780,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/measured/width` | differs | 400 | 150 |
 | `api/queries/getIntersectingNodes/0/measured/height` | differs | 320 | 37 |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
@@ -14236,7 +13797,6 @@ a real divergence is exactly what would be hiding down there.
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
 | `api/queries/toObject/viewport/y` | differs | 54.68852459016392 | 324.6983606557377 |
 | `api/queries/getViewport/y` | differs | 54.68852459016392 | 324.6983606557377 |
 | `api/queries/screenToFlowPosition/y` | differs | -28.659793814432984 | -170.159793814433 |
@@ -14277,7 +13837,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 33 unclaimed difference(s).
+**Failed:** 30 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -14289,7 +13849,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-11)"},… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","pat… |
 
-### api (30)
+### api (27)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -14308,8 +13868,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -14322,7 +13880,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
 
 
 ---
@@ -14353,7 +13910,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 34 unclaimed difference(s).
+**Failed:** 31 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -14371,7 +13928,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks/9` | right only | — | {"name":"onNodesChange","args":[[{"type":"replace","id":"n1","item":{"id":"n1","position":{"x":0,"y":0},"data":{"label":"n1"},"sourcePosition":"right","targetP… |
 
-### api (30)
+### api (27)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -14390,8 +13947,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -14404,7 +13959,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
 
 
 ---
@@ -14435,7 +13989,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 43 unclaimed difference(s).
+**Failed:** 40 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -14453,7 +14007,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"-19.7539553864471","y":"-9.462215016410383","width":"26.390158215457884","height":"26.390158215457884","pattern… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"6.636202829010784","y":"16.92794319904749","width":"26.390158215457884","h… |
 
-### api (34)
+### api (31)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -14476,8 +14030,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -14490,7 +14042,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
 
 ## Normalization
 
@@ -14527,7 +14078,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 33 unclaimed difference(s).
+**Failed:** 30 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -14539,7 +14090,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"10","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-11)"}… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"10","width":"20","height":"20","patternUnits":"userSpaceOnUse","pa… |
 
-### api (30)
+### api (27)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -14558,8 +14109,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -14572,7 +14121,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
 
 ## Normalization
 
@@ -14707,7 +14255,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 145 unclaimed difference(s).
+**Failed:** 142 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -14834,7 +14382,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/52/args/2/0/position/y` | differs | 31.875 | 30 |
 | `callbacks/52/args/2/0/hidden` | right only | — | false |
 
-### api (32)
+### api (29)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -14851,8 +14399,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/internals/handleBounds/target/0/id` | differs | null | {"@undefined":true} |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"n1","data":{"label":"n1"},"position":{"x":45,"y":31.875},"sourcePosition":"right","targetPosition":"left","width":100,"height":40,"measured":{"width":10… | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/position/y` | differs | 31.875 | 30 |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
@@ -14865,7 +14411,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
 | `api/queries/toObject/viewport/y` | differs | 13.125 | 15 |
 | `api/queries/getViewport/y` | differs | 13.125 | 15 |
 | `api/queries/screenToFlowPosition/y` | differs | -13.125 | -15 |
@@ -14906,7 +14451,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 82 unclaimed difference(s).
+**Failed:** 77 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -14978,7 +14523,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/18/args/0/nodes/0/hidden` | right only | — | false |
 | `callbacks/18/args/0/nodes/0/dragging` | right only | — | false |
 
-### api (24)
+### api (19)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -14993,9 +14538,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"n1","data":{"label":"n1"},"position":{"x":0,"y":0},"sourcePosition":"right","targetPosition":"left","width":100,"height":40,"measured":{"width":100,"hei… | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
@@ -15004,8 +14546,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/0/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -15042,7 +14582,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 76 unclaimed difference(s).
+**Failed:** 70 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -15054,7 +14594,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-11)"},… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","pat… |
 
-### callbacks (43)
+### callbacks (40)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -15067,8 +14607,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/5/args/1/hidden` | right only | — | false |
 | `callbacks/5/args/1/selected` | right only | — | false |
 | `callbacks/5/args/1/dragging` | right only | — | false |
-| `callbacks/6/args/1/selected` | right only | — | false |
-| `callbacks/8/args/1/selected` | right only | — | false |
 | `callbacks/9/args/0/@class` | differs | MouseEvent | SyntheticBaseEvent |
 | `callbacks/9/args/0/_reactName` | right only | — | onMouseDown |
 | `callbacks/9/args/0/_targetInst` | right only | — | null |
@@ -15100,9 +14638,8 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/9/args/0/movementY` | right only | — | 0 |
 | `callbacks/9/args/0/isDefaultPrevented` | right only | — | {"@ref":"function"} |
 | `callbacks/9/args/0/isPropagationStopped` | right only | — | {"@ref":"function"} |
-| `callbacks/11/args/1/selected` | right only | — | false |
 
-### api (30)
+### api (27)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -15121,8 +14658,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -15135,7 +14670,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
 
 ## Normalization
 
@@ -15172,7 +14706,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 84 unclaimed difference(s).
+**Failed:** 78 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -15184,7 +14718,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/svg[0]/children/pattern-1` | left only | {"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","patternTransform":"translate(-11,-11)"},… | — |
 | `dom/root/children/svg[0]/children/defs[0]` | right only | — | {"tag":"defs","attrs":{},"children":[{"tag":"pattern","attrs":{"id":"pattern-1","x":"0","y":"0","width":"20","height":"20","patternUnits":"userSpaceOnUse","pat… |
 
-### callbacks (51)
+### callbacks (48)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -15197,8 +14731,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/5/args/1/hidden` | right only | — | false |
 | `callbacks/5/args/1/selected` | right only | — | false |
 | `callbacks/5/args/1/dragging` | right only | — | false |
-| `callbacks/6/args/1/selected` | right only | — | false |
-| `callbacks/8/args/1/selected` | right only | — | false |
 | `callbacks/9/args/0/@class` | differs | MouseEvent | SyntheticBaseEvent |
 | `callbacks/9/args/0/_reactName` | right only | — | onMouseDown |
 | `callbacks/9/args/0/_targetInst` | right only | — | null |
@@ -15230,7 +14762,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/9/args/0/movementY` | right only | — | 0 |
 | `callbacks/9/args/0/isDefaultPrevented` | right only | — | {"@ref":"function"} |
 | `callbacks/9/args/0/isPropagationStopped` | right only | — | {"@ref":"function"} |
-| `callbacks/11/args/1/selected` | right only | — | false |
 | `callbacks/12/args/1/fromHandle/id` | differs | null | {"@undefined":true} |
 | `callbacks/12/args/1/fromNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `callbacks/12/args/1/fromNode/internals/handleBounds/target/0/id` | differs | null | {"@undefined":true} |
@@ -15240,7 +14771,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/12/args/1/fromNode/dragging` | right only | — | false |
 | `callbacks/12/args/1/toPosition` | differs | null | left |
 
-### api (30)
+### api (27)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -15259,8 +14790,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -15273,7 +14802,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/1/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/1/selected` | right only | — | false |
 | `api/queries/toObject/nodes/1/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
 
 ## Normalization
 
@@ -15404,7 +14932,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 58 unclaimed difference(s).
+**Failed:** 53 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -15425,7 +14953,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (51)
+### api (46)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -15450,9 +14978,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -15477,8 +15002,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 | `api/queries/screenToFlowPosition/x` | differs | {"@number":"-0"} | 0 |
 
 ## Normalization
@@ -15516,7 +15039,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 56 unclaimed difference(s).
+**Failed:** 51 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -15536,7 +15059,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 | `callbacks/1/args/0/3/resizing` | right only | — | false |
 
-### api (50)
+### api (45)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -15561,9 +15084,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -15588,8 +15108,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -15626,7 +15144,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 57 unclaimed difference(s).
+**Failed:** 52 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -15647,7 +15165,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/3/args/0/2/resizing` | right only | — | false |
 | `callbacks/3/args/0/3/resizing` | right only | — | false |
 
-### api (50)
+### api (45)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -15672,9 +15190,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -15699,8 +15214,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -15737,7 +15250,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 70 unclaimed difference(s).
+**Failed:** 65 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -15769,7 +15282,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/1/args/0/2/resizing` | right only | — | false |
 | `callbacks/1/args/0/3/resizing` | right only | — | false |
 
-### api (52)
+### api (47)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -15796,9 +15309,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -15823,8 +15333,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -15861,7 +15369,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 51 unclaimed difference(s).
+**Failed:** 49 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -15884,7 +15392,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/4/args/0/2/resizing` | right only | — | false |
 | `callbacks/4/args/0/3/resizing` | right only | — | false |
 
-### api (42)
+### api (40)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -15906,7 +15414,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","selected":true,"measured":{"width":150,"height":37}} | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
@@ -15929,7 +15436,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/toObject/nodes/3/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/3/selected` | right only | — | false |
 | `api/queries/toObject/nodes/3/dragging` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ## Normalization
 
@@ -15966,7 +15472,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 160 unclaimed difference(s).
+**Failed:** 153 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -15977,13 +15483,11 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `callbacks/1` | right only | — | {"name":"useOnSelectionChange","args":[{"nodes":[{"id":"Node-1","position":{"x":0,"y":0},"data":{"label":"Node-1"},"type":"input","hidden":false,"selected":tru… |
 | `callbacks/0/args/0/nodes/0` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
-### hooks (47)
+### hooks (45)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `hooks/flow-probe/useConnection/inProgress` | left only | false | — |
-| `hooks/flow-probe/useEdges/0/selected` | right only | — | false |
-| `hooks/flow-probe/useEdges/1/selected` | right only | — | false |
 | `hooks/flow-probe/useInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `hooks/flow-probe/useInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00008481768275 |
 | `hooks/flow-probe/useInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 32.000038931396325 |
@@ -16029,7 +15533,7 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `hooks/flow-probe/useStoreApi/subscribe` | left only | {"@ref":"function"} | — |
 | `hooks/flow-probe/useStoreApi/error` | right only | — | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
 
-### api (99)
+### api (94)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -16071,9 +15575,6 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
 | `api/queries/getIntersectingNodes/1/hidden` | right only | — | false |
@@ -16130,8 +15631,6 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `api/queries/toObject/nodes/8/dragging` | right only | — | false |
 | `api/queries/toObject/nodes/9/selected` | right only | — | false |
 | `api/queries/toObject/nodes/9/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ### props (2)
 
@@ -16152,8 +15651,8 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `console/3/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
 | `console/4/level` | differs | warning | pageerror |
 | `console/4/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:59602/parity/driver/dist/psflow.js:65094:… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:59602/parity/driver/dist/psflow.js:65094:… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:62603/parity/driver/dist/psflow.js:65108:… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:62603/parity/driver/dist/psflow.js:65108:… |
 
 
 ---
@@ -16184,17 +15683,15 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 84 unclaimed difference(s).
+**Failed:** 77 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### hooks (29)
+### hooks (27)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `hooks/flow-probe/useConnection/inProgress` | left only | false | — |
-| `hooks/flow-probe/useEdges/0/selected` | right only | — | false |
-| `hooks/flow-probe/useEdges/1/selected` | right only | — | false |
 | `hooks/flow-probe/useInternalNode/internals/handleBounds/source/0/id` | differs | null | {"@undefined":true} |
 | `hooks/flow-probe/useInternalNode/internals/handleBounds/source/0/x` | differs | 71 | 71.00003679426798 |
 | `hooks/flow-probe/useInternalNode/internals/handleBounds/source/0/y` | differs | 32 | 32.0000232488172 |
@@ -16222,7 +15719,7 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `hooks/flow-probe/useStoreApi/subscribe` | left only | {"@ref":"function"} | — |
 | `hooks/flow-probe/useStoreApi/error` | right only | — | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
 
-### api (44)
+### api (39)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -16247,9 +15744,6 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `api/queries/getInternalNode/hidden` | right only | — | false |
 | `api/queries/getInternalNode/selected` | right only | — | false |
 | `api/queries/getInternalNode/dragging` | right only | — | false |
-| `api/queries/getEdges/0/selected` | right only | — | false |
-| `api/queries/getEdges/1/selected` | right only | — | false |
-| `api/queries/getEdge/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/hidden` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/selected` | right only | — | false |
 | `api/queries/getIntersectingNodes/0/dragging` | right only | — | false |
@@ -16268,8 +15762,6 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `api/queries/toObject/nodes/2/hidden` | right only | — | false |
 | `api/queries/toObject/nodes/2/selected` | right only | — | false |
 | `api/queries/toObject/nodes/2/dragging` | right only | — | false |
-| `api/queries/toObject/edges/0/selected` | right only | — | false |
-| `api/queries/toObject/edges/1/selected` | right only | — | false |
 
 ### props (2)
 
@@ -16289,8 +15781,8 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `console/3/level` | differs | warning | pageerror |
 | `console/3/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
 | `console/4` | right only | — | {"level":"pageerror","text":"ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScri… |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:59602/parity/driver/dist/psflow.js:65094:… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:59602/parity/driver/dist/psflow.js:65094:… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:62603/parity/driver/dist/psflow.js:65108:… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:62603/parity/driver/dist/psflow.js:65108:… |
 
 
 ---
@@ -16321,22 +15813,20 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `props`, `console`.
 
-**Failed:** 14 unclaimed difference(s).
+**Failed:** 12 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### props (14)
+### props (12)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `props/edge-component-props/selected` | differs | {"@undefined":true} | false |
 | `props/edge-component-props/selectable` | differs | true | {"@undefined":true} |
 | `props/edge-component-props/deletable` | differs | true | {"@undefined":true} |
 | `props/edge-component-props/sourceX` | differs | 75 | 75.00001857790781 |
 | `props/edge-component-props/sourceY` | differs | 40 | 39.99999484282782 |
 | `props/edge-component-props/targetX` | differs | -25 | -24.99998142209219 |
 | `props/edge-component-props/targetY` | differs | 97 | 96.99999692174447 |
-| `props/edge-props/selected` | differs | {"@undefined":true} | false |
 | `props/edge-props/selectable` | differs | true | {"@undefined":true} |
 | `props/edge-props/deletable` | differs | true | {"@undefined":true} |
 | `props/edge-props/sourceX` | differs | 75 | 75.00001857790781 |

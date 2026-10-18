@@ -255,7 +255,7 @@ connectionToEdge mDefaults conn =
   , deletable: _.deletable =<< mDefaults
   , selectable: _.selectable =<< mDefaults
   , data: _.data =<< mDefaults
-  , selected: false
+  , selected: Nothing
   , markerStart: Nothing
   , markerEnd: Nothing
   , zIndex: _.zIndex =<< mDefaults

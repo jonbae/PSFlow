@@ -143,7 +143,7 @@ type EdgeProps e =
   , animated :: Maybe Boolean
   , data :: Maybe e
   , style :: Maybe Style
-  , selected :: Boolean
+  , selected :: Maybe Boolean
   , source :: String
   , target :: String
   , selectable :: Maybe Boolean

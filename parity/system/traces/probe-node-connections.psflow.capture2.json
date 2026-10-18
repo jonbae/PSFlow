@@ -962,7 +962,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 185.69999998807907,
+            "timeStamp": 187.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1031,7 +1031,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 185.69999998807907,
+            "timeStamp": 187.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1106,7 +1106,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 185.69999998807907,
+            "timeStamp": 187.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1171,7 +1171,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 185.69999998807907,
+            "timeStamp": 187.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1246,7 +1246,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 207.80000001192093,
+            "timeStamp": 208.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1321,7 +1321,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 207.80000001192093,
+            "timeStamp": 208.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1384,7 +1384,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 199.30000001192093,
+            "timeStamp": 200.19999998807907,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1446,7 +1446,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 227.39999997615814,
+            "timeStamp": 226.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1521,7 +1521,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 227.39999997615814,
+            "timeStamp": 226.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1586,7 +1586,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 227.39999997615814,
+            "timeStamp": 226.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1997,48 +1997,42 @@
             "source": "up-1",
             "target": "hub",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "selected": false
+            "targetHandle": "in"
           },
           {
             "id": "up-2-hub",
             "source": "up-2",
             "target": "hub",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "selected": false
+            "targetHandle": "in"
           },
           {
             "id": "hub-down-1",
             "source": "hub",
             "target": "down-1",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "selected": false
+            "targetHandle": "in"
           },
           {
             "id": "hub-down-2",
             "source": "hub",
             "target": "down-2",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "selected": false
+            "targetHandle": "in"
           },
           {
             "id": "hub-down-3",
             "source": "hub",
             "target": "down-3",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "selected": false
+            "targetHandle": "in"
           },
           {
             "id": "xy-edge__down-1out-hubin",
             "source": "down-1",
             "target": "hub",
             "sourceHandle": "out",
-            "targetHandle": "in",
-            "selected": false
+            "targetHandle": "in"
           }
         ],
         "getEdge": {
@@ -2046,8 +2040,7 @@
           "source": "up-1",
           "target": "hub",
           "sourceHandle": "out",
-          "targetHandle": "in",
-          "selected": false
+          "targetHandle": "in"
         },
         "getIntersectingNodes": [
           {
@@ -2350,48 +2343,42 @@
               "source": "up-1",
               "target": "hub",
               "sourceHandle": "out",
-              "targetHandle": "in",
-              "selected": false
+              "targetHandle": "in"
             },
             {
               "id": "up-2-hub",
               "source": "up-2",
               "target": "hub",
               "sourceHandle": "out",
-              "targetHandle": "in",
-              "selected": false
+              "targetHandle": "in"
             },
             {
               "id": "hub-down-1",
               "source": "hub",
               "target": "down-1",
               "sourceHandle": "out",
-              "targetHandle": "in",
-              "selected": false
+              "targetHandle": "in"
             },
             {
               "id": "hub-down-2",
               "source": "hub",
               "target": "down-2",
               "sourceHandle": "out",
-              "targetHandle": "in",
-              "selected": false
+              "targetHandle": "in"
             },
             {
               "id": "hub-down-3",
               "source": "hub",
               "target": "down-3",
               "sourceHandle": "out",
-              "targetHandle": "in",
-              "selected": false
+              "targetHandle": "in"
             },
             {
               "id": "xy-edge__down-1out-hubin",
               "source": "down-1",
               "target": "hub",
               "sourceHandle": "out",
-              "targetHandle": "in",
-              "selected": false
+              "targetHandle": "in"
             }
           ],
           "viewport": {

@@ -27,15 +27,15 @@
 -- |
 -- | ## Fields PureScript makes required and upstream leaves optional
 -- |
--- | Four Booleans — a node's `hidden`, `selected` and `dragging`, and an
--- | edge's `selected` — plus a node's `measured` record. An edge's `animated`
--- | and `hidden` and a node's `expandParent` were the other three, and are
--- | `Maybe Boolean`s that cross only when they're set. Inbound they default (`false`, and an empty
+-- | Three Booleans — a node's `hidden`, `selected` and `dragging` — plus a
+-- | node's `measured` record. An edge's `animated`, `hidden`, and `selected`
+-- | and a node's `expandParent` were the other four, and are `Maybe Boolean`s
+-- | that cross only when they're set. Inbound they default (`false`, and an empty
 -- | measurement); outbound they are **emitted always**, so a JavaScript
 -- | consumer reading a node back sees `hidden: false` where upstream would
 -- | have no such key. That is a real divergence, it is recorded as a region in
 -- | `parity/boundary/regions.json`, and it is deliberately not fixed here:
--- | `Maybe`-ifying five fields of the internals is churn ahead of the first
+-- | `Maybe`-ifying four fields of the internals is churn ahead of the first
 -- | green signal on the JS surface. The stale-region rule is what forces the
 -- | cleanup once the net's `props` and `dom` sections are green.
 -- |
@@ -748,7 +748,7 @@ edgeIn e =
   , deletable: fromUndefinable e.deletable
   , selectable: fromUndefinable e.selectable
   , data: fromUndefinable e.data
-  , selected: fromMaybe false (fromUndefinable e.selected)
+  , selected: fromUndefinable e.selected
   , markerStart: map (markerIn "edge.markerStart") (fromUndefinable e.markerStart)
   , markerEnd: map (markerIn "edge.markerEnd") (fromUndefinable e.markerEnd)
   , zIndex: map Int.round (fromUndefinable e.zIndex)
@@ -777,7 +777,7 @@ edgeOut e = pruneUndefined
   , deletable: toUndefinable e.deletable
   , selectable: toUndefinable e.selectable
   , data: toUndefinable (map unsafeToForeign e.data)
-  , selected: toUndefinable (Just e.selected)
+  , selected: toUndefinable e.selected
   , markerStart: toUndefinable (map markerOut e.markerStart)
   , markerEnd: toUndefinable (map markerOut e.markerEnd)
   , zIndex: toUndefinable (map Int.toNumber e.zIndex)

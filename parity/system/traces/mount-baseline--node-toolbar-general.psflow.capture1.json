@@ -1613,15 +1613,13 @@
           {
             "id": "first-edge",
             "source": "default-node",
-            "target": "node-start-top",
-            "selected": false
+            "target": "node-start-top"
           }
         ],
         "getEdge": {
           "id": "first-edge",
           "source": "default-node",
-          "target": "node-start-top",
-          "selected": false
+          "target": "node-start-top"
         },
         "getIntersectingNodes": [
           {
@@ -2225,8 +2223,7 @@
             {
               "id": "first-edge",
               "source": "default-node",
-              "target": "node-start-top",
-              "selected": false
+              "target": "node-start-top"
             }
           ],
           "viewport": {

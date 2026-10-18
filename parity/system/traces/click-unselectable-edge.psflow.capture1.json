@@ -1873,7 +1873,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 365.5,
+            "timeStamp": 363.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1942,7 +1942,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 365.5,
+            "timeStamp": 363.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1981,7 +1981,6 @@
             "source": "4",
             "target": "6",
             "selectable": false,
-            "selected": false,
             "label": "not-selectable"
           }
         ]
@@ -2007,7 +2006,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 365.5,
+            "timeStamp": 363.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2072,7 +2071,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 365.5,
+            "timeStamp": 363.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2109,7 +2108,6 @@
             "source": "4",
             "target": "6",
             "selectable": false,
-            "selected": false,
             "label": "not-selectable"
           }
         ]
@@ -2135,7 +2133,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 374.60000002384186,
+            "timeStamp": 375.80000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2172,7 +2170,6 @@
             "source": "4",
             "target": "6",
             "selectable": false,
-            "selected": false,
             "label": "not-selectable"
           }
         ]
@@ -2495,14 +2492,12 @@
             "id": "edge-with-class",
             "source": "1",
             "target": "2",
-            "selected": false,
             "className": "edge-class-test"
           },
           {
             "id": "edge-with-style",
             "source": "1",
             "target": "3",
-            "selected": false,
             "style": {
               "stroke": "red"
             }
@@ -2512,7 +2507,6 @@
             "source": "2",
             "target": "4",
             "hidden": true,
-            "selected": false,
             "label": "hidden"
           },
           {
@@ -2520,7 +2514,6 @@
             "source": "3",
             "target": "5",
             "animated": true,
-            "selected": false,
             "label": "animated"
           },
           {
@@ -2528,7 +2521,6 @@
             "source": "4",
             "target": "6",
             "selectable": false,
-            "selected": false,
             "label": "not-selectable"
           },
           {
@@ -2536,14 +2528,12 @@
             "source": "5",
             "target": "7",
             "deletable": false,
-            "selected": false,
             "label": "not-deletable"
           },
           {
             "id": "z-index",
             "source": "6",
             "target": "8",
-            "selected": false,
             "zIndex": 3141592,
             "label": "z-index"
           },
@@ -2551,7 +2541,6 @@
             "id": "aria-label",
             "source": "7",
             "target": "9",
-            "selected": false,
             "label": "aria-label",
             "ariaLabel": "aria-label-test"
           },
@@ -2559,7 +2548,6 @@
             "id": "interaction-width",
             "source": "8",
             "target": "10",
-            "selected": false,
             "label": "interaction-width",
             "interactionWidth": 42
           },
@@ -2567,7 +2555,6 @@
             "id": "markers",
             "source": "9",
             "target": "11",
-            "selected": false,
             "markerStart": {
               "type": "arrowclosed"
             },
@@ -2579,21 +2566,18 @@
           {
             "id": "subflow-edge",
             "source": "11",
-            "target": "12-a",
-            "selected": false
+            "target": "12-a"
           },
           {
             "id": "subflow-edge-2",
             "source": "12-a",
-            "target": "12-b",
-            "selected": false
+            "target": "12-b"
           }
         ],
         "getEdge": {
           "id": "edge-with-class",
           "source": "1",
           "target": "2",
-          "selected": false,
           "className": "edge-class-test"
         },
         "getIntersectingNodes": [
@@ -3139,14 +3123,12 @@
               "id": "edge-with-class",
               "source": "1",
               "target": "2",
-              "selected": false,
               "className": "edge-class-test"
             },
             {
               "id": "edge-with-style",
               "source": "1",
               "target": "3",
-              "selected": false,
               "style": {
                 "stroke": "red"
               }
@@ -3156,7 +3138,6 @@
               "source": "2",
               "target": "4",
               "hidden": true,
-              "selected": false,
               "label": "hidden"
             },
             {
@@ -3164,7 +3145,6 @@
               "source": "3",
               "target": "5",
               "animated": true,
-              "selected": false,
               "label": "animated"
             },
             {
@@ -3172,7 +3152,6 @@
               "source": "4",
               "target": "6",
               "selectable": false,
-              "selected": false,
               "label": "not-selectable"
             },
             {
@@ -3180,14 +3159,12 @@
               "source": "5",
               "target": "7",
               "deletable": false,
-              "selected": false,
               "label": "not-deletable"
             },
             {
               "id": "z-index",
               "source": "6",
               "target": "8",
-              "selected": false,
               "zIndex": 3141592,
               "label": "z-index"
             },
@@ -3195,7 +3172,6 @@
               "id": "aria-label",
               "source": "7",
               "target": "9",
-              "selected": false,
               "label": "aria-label",
               "ariaLabel": "aria-label-test"
             },
@@ -3203,7 +3179,6 @@
               "id": "interaction-width",
               "source": "8",
               "target": "10",
-              "selected": false,
               "label": "interaction-width",
               "interactionWidth": 42
             },
@@ -3211,7 +3186,6 @@
               "id": "markers",
               "source": "9",
               "target": "11",
-              "selected": false,
               "markerStart": {
                 "type": "arrowclosed"
               },
@@ -3223,14 +3197,12 @@
             {
               "id": "subflow-edge",
               "source": "11",
-              "target": "12-a",
-              "selected": false
+              "target": "12-a"
             },
             {
               "id": "subflow-edge-2",
               "source": "12-a",
-              "target": "12-b",
-              "selected": false
+              "target": "12-b"
             }
           ],
           "viewport": {

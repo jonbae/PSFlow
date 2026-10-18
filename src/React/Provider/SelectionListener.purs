@@ -40,7 +40,7 @@ selectIds s =
       (\n -> if n.selected then Just (unwrap n.id) else Nothing)
       (Array.fromFoldable (Map.values s.nodeLookup))
   , edges: Array.mapMaybe
-      (\e -> if e.selected then Just e.id else Nothing)
+      (\e -> if e.selected == Just true then Just e.id else Nothing)
       (Array.fromFoldable (Map.values s.edgeLookup))
   }
 
@@ -59,7 +59,7 @@ selectionListenerInner =
         -- the userNode hop and keeps the types as `Node n` / `Edge e`.
         let
           selectedNodes = Array.filter (\n -> n.selected) s.nodes
-          selectedEdges = Array.filter (\e -> e.selected) s.edges
+          selectedEdges = Array.filter (\e -> e.selected == Just true) s.edges
           params = { nodes: selectedNodes, edges: selectedEdges }
         case props.onSelectionChange of
           Just cb -> cb params

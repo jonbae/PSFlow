@@ -690,27 +690,23 @@
           {
             "id": "first-edge",
             "source": "1",
-            "target": "2",
-            "selected": false
+            "target": "2"
           },
           {
             "id": "second-edge",
             "source": "1",
-            "target": "3",
-            "selected": false
+            "target": "3"
           },
           {
             "id": "third-edge",
             "source": "2",
-            "target": "4",
-            "selected": false
+            "target": "4"
           }
         ],
         "getEdge": {
           "id": "first-edge",
           "source": "1",
-          "target": "2",
-          "selected": false
+          "target": "2"
         },
         "getIntersectingNodes": [
           {
@@ -900,20 +896,17 @@
             {
               "id": "first-edge",
               "source": "1",
-              "target": "2",
-              "selected": false
+              "target": "2"
             },
             {
               "id": "second-edge",
               "source": "1",
-              "target": "3",
-              "selected": false
+              "target": "3"
             },
             {
               "id": "third-edge",
               "source": "2",
-              "target": "4",
-              "selected": false
+              "target": "4"
             }
           ],
           "viewport": {

@@ -511,7 +511,7 @@ type JsEdgeProps =
   , animated :: Undefinable Boolean
   , data :: Undefinable Foreign
   , style :: Undefinable Foreign
-  , selected :: Boolean
+  , selected :: Undefinable Boolean
   , source :: String
   , target :: String
   , selectable :: Undefinable Boolean
@@ -543,7 +543,7 @@ edgePropsOut p =
   , animated: toUndefinable p.animated
   , data: toUndefinable p.data
   , style: toUndefinable (map fromCssStyle p.style)
-  , selected: p.selected
+  , selected: toUndefinable p.selected
   , source: p.source
   , target: p.target
   , selectable: toUndefinable p.selectable
