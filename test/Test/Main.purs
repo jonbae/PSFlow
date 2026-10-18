@@ -74,6 +74,7 @@ import Test.React.Additional.BackgroundPattern (runBackgroundPatternTests)
 import Test.System.Utils.MeasurementOrder (runMeasurementOrderTests)
 import Test.React.Hook.DeleteKey (runDeleteKeyTests)
 import Test.React.HandleNativeEvent (runHandleNativeEventTests)
+import Test.React.Hook.DragRebind (runDragRebindTests)
 import Test.React.Additional.NodeToolbarPortal (runNodeToolbarPortalTests)
 import Test.React.Hook.NodeRenderOrder (runNodeRenderOrderTests)
 import Test.React.Component.HandleDataId (runHandleDataIdTests)
@@ -1146,6 +1147,7 @@ main = do
   runMeasurementOrderTests
   runDeleteKeyTests
   runHandleNativeEventTests
+  runDragRebindTests
   runEdgeAriaLabelTests
   runNodeA11yDescriptionTests
   runMeasuredDimensionsTests
