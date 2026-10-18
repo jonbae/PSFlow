@@ -556,7 +556,7 @@ type OracleNodeChange =
   , dragging :: Nullable Boolean
   , dimensions :: Nullable Dimensions
   , setAttributes :: Nullable String
-  , resizing :: Boolean
+  , resizing :: Nullable Boolean
   , item :: Nullable OracleChangeNode
   , index :: Nullable Int
   }

@@ -640,7 +640,7 @@ stepExpansion children parentLookup defaultOrigin changes (Tuple parentId rec) =
                           else 0.0
                         )
                 }
-            , resizing: false
+            , resizing: Nothing
             , setAttributes: Just { width: true, height: true }
             }
         ]
@@ -829,7 +829,7 @@ processUpdate update acc zoom origin extent zMode =
                 [ NodeDimensionChange
                     { id: node.id
                     , dimensions: Just dims
-                    , resizing: false
+                    , resizing: Nothing
                     , setAttributes: Nothing
                     }
                 ]

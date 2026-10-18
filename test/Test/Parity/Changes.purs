@@ -92,7 +92,7 @@ emptyNodeChange =
   , dragging: toNullable (Nothing :: Maybe Boolean)
   , dimensions: toNullable (Nothing :: Maybe Dimensions)
   , setAttributes: toNullable (Nothing :: Maybe String)
-  , resizing: false
+  , resizing: toNullable (Nothing :: Maybe Boolean)
   , item: toNullable (Nothing :: Maybe OracleChangeNode)
   , index: toNullable (Nothing :: Maybe Int)
   }
@@ -115,7 +115,7 @@ toOracleNodeChange = case _ of
     , id = unwrap c.id
     , dimensions = toNullable c.dimensions
     , setAttributes = Oracle.setAttributesArg c.setAttributes
-    , resizing = c.resizing
+    , resizing = toNullable c.resizing
     }
   NodeRemoveChange c -> emptyNodeChange { tag = "remove", id = unwrap c.id }
   NodeReplaceChange c -> emptyNodeChange
@@ -267,7 +267,7 @@ genNodeChange nodes = do
       width <- Int.toNumber <$> chooseInt 0 300
       height <- Int.toNumber <$> chooseInt 0 300
       setAttributes <- genSetAttributes
-      resizing <- coin
+      resizing <- genMaybeBoolean
       pure
         ( NodeDimensionChange
             { id: NodeId id
@@ -350,7 +350,7 @@ renderNodeChange c = case c.tag of
     "dimensions(" <> c.id <> ", "
       <> show (map (\d -> show d.width <> "x" <> show d.height) (toMaybe c.dimensions))
       <> ", setAttributes=" <> show (toMaybe c.setAttributes)
-      <> ", resizing=" <> show c.resizing <> ")"
+      <> ", resizing=" <> show (toMaybe c.resizing) <> ")"
   "remove" -> "remove(" <> c.id <> ")"
   "replace" -> "replace(" <> c.id <> ", " <> show (map renderNode (toMaybe c.item)) <> ")"
   "add" ->

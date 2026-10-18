@@ -463,8 +463,7 @@
               "dimensions": {
                 "width": 150,
                 "height": 37
-              },
-              "resizing": false
+              }
             },
             {
               "type": "dimensions",
@@ -472,8 +471,7 @@
               "dimensions": {
                 "width": 150,
                 "height": 37
-              },
-              "resizing": false
+              }
             },
             {
               "type": "dimensions",
@@ -481,8 +479,7 @@
               "dimensions": {
                 "width": 150,
                 "height": 37
-              },
-              "resizing": false
+              }
             },
             {
               "type": "dimensions",
@@ -490,8 +487,7 @@
               "dimensions": {
                 "width": 150,
                 "height": 37
-              },
-              "resizing": false
+              }
             }
           ]
         ]
@@ -519,7 +515,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 351.10000002384186,
+            "timeStamp": 302.7000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -586,7 +582,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 351.10000002384186,
+            "timeStamp": 302.7000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -665,7 +661,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 370,
+            "timeStamp": 320.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -756,7 +752,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 386.5,
+            "timeStamp": 336.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

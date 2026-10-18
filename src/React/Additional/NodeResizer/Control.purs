@@ -187,7 +187,7 @@ buildChanges store nid change childChanges resizeDirection = do
           [ NodeDimensionChange
               { id: nid
               , dimensions: Just { width: w, height: h }
-              , resizing: true
+              , resizing: Just true
               , setAttributes: setAttrs
               }
           ]
@@ -272,7 +272,7 @@ nodeResizeControl =
                                 { id: NodeId nid
                                 , dimensions: Just
                                     { width: final.width, height: final.height }
-                                , resizing: false
+                                , resizing: Just false
                                 , setAttributes: Nothing
                                 }
                           store.dispatch (TriggerNodeChanges [ dimChange ])

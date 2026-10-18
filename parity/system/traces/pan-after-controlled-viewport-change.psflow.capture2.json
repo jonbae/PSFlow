@@ -502,8 +502,7 @@
               "dimensions": {
                 "width": 150,
                 "height": 37
-              },
-              "resizing": false
+              }
             },
             {
               "type": "dimensions",
@@ -511,8 +510,7 @@
               "dimensions": {
                 "width": 150,
                 "height": 37
-              },
-              "resizing": false
+              }
             },
             {
               "type": "dimensions",
@@ -520,8 +518,7 @@
               "dimensions": {
                 "width": 150,
                 "height": 37
-              },
-              "resizing": false
+              }
             },
             {
               "type": "dimensions",
@@ -529,8 +526,7 @@
               "dimensions": {
                 "width": 150,
                 "height": 37
-              },
-              "resizing": false
+              }
             }
           ]
         ]
@@ -597,7 +593,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 185.80000001192093,
+            "timeStamp": 182.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -664,7 +660,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 185.80000001192093,
+            "timeStamp": 182.30000001192093,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -743,7 +739,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 203.80000001192093,
+            "timeStamp": 204.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -832,7 +828,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 220.60000002384186,
+            "timeStamp": 218.9000000357628,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

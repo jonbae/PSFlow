@@ -230,7 +230,10 @@ data NodeChange nodeData
   = NodeDimensionChange
       { id :: NodeId
       , dimensions :: Maybe Dimensions
-      , resizing :: Boolean
+      -- | Upstream's is optional: `NodeResizeControl`'s dimension changes
+      -- | carry it, and `updateNodeInternals`' and `handleExpandParent`'s
+      -- | don't.
+      , resizing :: Maybe Boolean
       , setAttributes :: SetAttributesMode
       }
   | NodePositionChange
