@@ -64,7 +64,8 @@ import Prelude
 import Control.Alt ((<|>))
 import Data.Maybe (Maybe(..), fromMaybe)
 import Effect.Unsafe (unsafePerformEffect)
-import Foreign (Foreign)
+import Foreign (Foreign, unsafeToForeign)
+import Foreign.Object (empty, singleton, union) as Object
 import React.Basic (JSX, ReactComponent, element)
 import React.Basic.Hooks (reactChildrenFromArray, reactChildrenToArray, reactComponentWithChildren)
 import React.Basic.Hooks as React
@@ -78,11 +79,12 @@ import React.Container.InitValues
   , seededStoreProps
   ) as Init
 import React.Container.Wrapper (wrapper)
-import React.FFI.DOM (div_, scrollResetHandler)
+import React.FFI.DOM (div_, scrollResetHandler, spreadUnder)
 import React.Hook.ColorModeClass (useColorModeClass)
 import React.Provider.SelectionListener (selectionListener)
 import React.Provider.StoreUpdater (storeUpdater)
 import React.Types.Component (ReactFlowProps)
+import React.Types.Edges (Style)
 import System.Types.Connection
   ( ColorModeClass(..)
   , KeyCode(..)
@@ -105,13 +107,13 @@ wrapperStyle = (unsafeCoerce :: forall r. Record r -> Foreign)
   , zIndex: 0
   }
 
-mergeStyle :: Maybe Foreign -> Foreign
+mergeStyle :: Maybe Style -> Foreign
 mergeStyle = case _ of
   Just userStyle -> mergeStyleImpl userStyle wrapperStyle
   Nothing -> wrapperStyle
 
 -- | FFI: shallow-merge two style objects (TS `{ ...style, ...wrapperStyle }`).
-foreign import mergeStyleImpl :: Foreign -> Foreign -> Foreign
+foreign import mergeStyleImpl :: Style -> Foreign -> Foreign
 
 -- | Map `Maybe ColorModeClass` back to its className string. `Nothing`
 -- | (system mode while the media query hasn't resolved) renders no
@@ -209,7 +211,7 @@ reactFlow =
         disableKeyboardA11y = fromMaybe false props.disableKeyboardA11y
         autoPanOnSelection = fromMaybe true props.autoPanOnSelection
 
-        outerClass = buildOuterClass (colorModeClass colorModeCls) Nothing
+        outerClass = buildOuterClass (colorModeClass colorModeCls) props.className
 
         graphViewEl :: JSX
         graphViewEl = element graphView
@@ -379,15 +381,22 @@ reactFlow =
           }
 
         wrapperOnScroll = scrollResetHandler (fromMaybe (pure unit) props.onScroll)
+        -- Upstream's `<div data-testid="rf__wrapper" {...rest} onScroll …>`:
+        -- the rest replaces the test id, and the attributes set after it
+        -- replace the rest.
+        wrapperAttributes =
+          Object.union (fromMaybe Object.empty props.wrapperAttributes)
+            (Object.singleton "data-testid" (unsafeToForeign "rf__wrapper"))
       pure $
         div_
-          { "data-testid": "rf__wrapper"
-          , style: mergeStyle Nothing
-          , className: outerClass
-          , role: "application"
-          -- Straight through, `null` included: React reads a null ref as no
-          -- ref, which is exactly what the caller who passed none meant.
-          , ref: props.innerRef
-          , onScroll: wrapperOnScroll
-          }
+          ( spreadUnder (Just wrapperAttributes)
+              { style: mergeStyle props.style
+              , className: outerClass
+              , role: "application"
+              -- Straight through, `null` included: React reads a null ref as no
+              -- ref, which is exactly what the caller who passed none meant.
+              , ref: props.innerRef
+              , onScroll: wrapperOnScroll
+              }
+          )
           [ wrapperEl ]

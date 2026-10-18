@@ -40,10 +40,11 @@
 -- | predicate never reads it.
 -- |
 -- | Neither record names upstream's `HTMLAttributes<HTMLDivElement>`, which
--- | both components spread onto their div. That is a gap in the internals
--- | rather than something a converter could close, and it is the same gap
--- | `Boundary.Chrome`'s `JsPanelProps` records: an unmodelled DOM attribute is
--- | dropped here as silently as it is on the PureScript surface.
+-- | both components spread onto their div. That is a gap in the internals,
+-- | and it is the same gap `Boundary.Chrome`'s `JsPanelProps` records: neither
+-- | component has a rest field for `Boundary.Rest` to fill, so an unmodelled
+-- | DOM attribute is dropped here as silently as it is on the PureScript
+-- | surface.
 module Boundary.NodeChrome
   ( JsHandleProps
   , JsNodeToolbarProps

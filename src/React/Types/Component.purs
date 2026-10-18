@@ -166,6 +166,13 @@ type ReactFlowProps n e =
   , onMove :: Maybe OnMove
   , onMoveStart :: Maybe OnMoveStart
   , onMoveEnd :: Maybe OnMoveEnd
+  -- Outer wrapper attributes. Upstream inherits `className` and `style`
+  -- from `HTMLAttributes<HTMLDivElement>` and destructures them: the class
+  -- joins `react-flow` and the color-mode class, and the style sits under
+  -- the wrapper's own sizing. PureScript declares them to expose them at
+  -- all, as it does `onScroll`.
+  , className :: Maybe String
+  , style :: Maybe Style
   -- Outer wrapper handlers (whole `<div className="react-flow">`)
   -- The wrapper installs a `scrollTo(0,0)` reset so browser tab-focus
   -- doesn't scroll the flow into view; `onScroll` is the user's
@@ -276,6 +283,13 @@ type ReactFlowProps n e =
   -- | `Nullable` and not `Maybe`: the value is React's, goes straight back to
   -- | React unread, and `forwardRef` hands `null` when the caller passed none.
   , innerRef :: Nullable Foreign
+  -- | The rest of upstream's `HTMLAttributes<HTMLDivElement>`, which
+  -- | `<ReactFlow />` spreads onto its wrapper `<div>` after `data-testid`
+  -- | and before the attributes it sets itself (xyflow/xyflow#4844). So a
+  -- | consumer's `data-testid` replaces `rf__wrapper`, and `id`, `aria-*`,
+  -- | `data-*`, or a DOM handler such as `onClick` reach the div, under their
+  -- | React prop names.
+  , wrapperAttributes :: Maybe (Object Foreign)
   }
 
 -- The remaining records are scaffolded with the fields the upstream
