@@ -52,7 +52,7 @@ nodeAt id at =
   , targetPosition: Nothing
   , hidden: Nothing
   , selected: true
-  , dragging: false
+  , dragging: Nothing
   , draggable: Just true
   , selectable: Nothing
   , connectable: Nothing

@@ -416,7 +416,6 @@
               "label": "parent"
             },
             "selected": false,
-            "dragging": false,
             "width": 190,
             "height": 77,
             "measured": {
@@ -439,7 +438,6 @@
               "label": "child"
             },
             "selected": false,
-            "dragging": false,
             "parentId": "parent",
             "expandParent": true,
             "measured": {
@@ -457,7 +455,6 @@
               "label": "outside"
             },
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -474,7 +471,6 @@
             "label": "parent"
           },
           "selected": false,
-          "dragging": false,
           "width": 190,
           "height": 77,
           "measured": {
@@ -497,7 +493,6 @@
             "label": "parent"
           },
           "selected": false,
-          "dragging": false,
           "width": 190,
           "height": 77,
           "measured": {
@@ -570,7 +565,6 @@
               "label": "parent"
             },
             "selected": false,
-            "dragging": false,
             "width": 190,
             "height": 77,
             "measured": {
@@ -593,7 +587,6 @@
               "label": "child"
             },
             "selected": false,
-            "dragging": false,
             "parentId": "parent",
             "expandParent": true,
             "measured": {
@@ -611,7 +604,6 @@
               "label": "outside"
             },
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -639,7 +631,6 @@
                 "label": "parent"
               },
               "selected": false,
-              "dragging": false,
               "width": 190,
               "height": 77,
               "measured": {
@@ -662,7 +653,6 @@
                 "label": "child"
               },
               "selected": false,
-              "dragging": false,
               "parentId": "parent",
               "expandParent": true,
               "measured": {
@@ -680,7 +670,6 @@
                 "label": "outside"
               },
               "selected": false,
-              "dragging": false,
               "measured": {
                 "width": 150,
                 "height": 37

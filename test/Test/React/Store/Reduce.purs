@@ -42,7 +42,7 @@ sampleNode =
   , targetPosition: Nothing
   , hidden: Nothing
   , selected: true
-  , dragging: false
+  , dragging: Nothing
   , draggable: Nothing
   , selectable: Nothing
   , connectable: Nothing
@@ -105,7 +105,7 @@ freshNode =
   , targetPosition: Nothing
   , hidden: Nothing
   , selected: false
-  , dragging: false
+  , dragging: Nothing
   , draggable: Nothing
   , selectable: Nothing
   , connectable: Nothing

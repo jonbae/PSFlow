@@ -282,7 +282,7 @@ reduceUpdateNodePositions state items dragging =
               { id: item.id
               , position: Just item.position
               , positionAbsolute: Just item.internals.positionAbsolute
-              , dragging
+              , dragging: Just dragging
               }
         )
         items

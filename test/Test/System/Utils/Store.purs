@@ -55,7 +55,7 @@ mkNode r =
   , targetPosition: Nothing
   , hidden: Nothing
   , selected: r.selected
-  , dragging: false
+  , dragging: Nothing
   , draggable: Nothing
   , selectable: Nothing
   , connectable: Nothing

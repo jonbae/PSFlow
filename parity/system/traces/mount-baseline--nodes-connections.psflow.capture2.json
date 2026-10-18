@@ -888,7 +888,6 @@
             },
             "type": "connections",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 24,
               "height": 18
@@ -905,7 +904,6 @@
             },
             "type": "connections",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 29,
               "height": 18
@@ -922,7 +920,6 @@
             },
             "type": "connections",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 29,
               "height": 18
@@ -939,7 +936,6 @@
             },
             "type": "connections",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -956,7 +952,6 @@
             },
             "type": "connections",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -973,7 +968,6 @@
             },
             "type": "connections",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -991,7 +985,6 @@
           },
           "type": "connections",
           "selected": false,
-          "dragging": false,
           "measured": {
             "width": 24,
             "height": 18
@@ -1008,7 +1001,6 @@
           },
           "type": "connections",
           "selected": false,
-          "dragging": false,
           "measured": {
             "width": 24,
             "height": 18
@@ -1103,7 +1095,6 @@
             },
             "type": "connections",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 24,
               "height": 18
@@ -1120,7 +1111,6 @@
             },
             "type": "connections",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 29,
               "height": 18
@@ -1137,7 +1127,6 @@
             },
             "type": "connections",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 29,
               "height": 18
@@ -1154,7 +1143,6 @@
             },
             "type": "connections",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -1171,7 +1159,6 @@
             },
             "type": "connections",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -1188,7 +1175,6 @@
             },
             "type": "connections",
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 49,
               "height": 18
@@ -1275,7 +1261,6 @@
               },
               "type": "connections",
               "selected": false,
-              "dragging": false,
               "measured": {
                 "width": 24,
                 "height": 18
@@ -1292,7 +1277,6 @@
               },
               "type": "connections",
               "selected": false,
-              "dragging": false,
               "measured": {
                 "width": 29,
                 "height": 18
@@ -1309,7 +1293,6 @@
               },
               "type": "connections",
               "selected": false,
-              "dragging": false,
               "measured": {
                 "width": 29,
                 "height": 18
@@ -1326,7 +1309,6 @@
               },
               "type": "connections",
               "selected": false,
-              "dragging": false,
               "measured": {
                 "width": 49,
                 "height": 18
@@ -1343,7 +1325,6 @@
               },
               "type": "connections",
               "selected": false,
-              "dragging": false,
               "measured": {
                 "width": 49,
                 "height": 18
@@ -1360,7 +1341,6 @@
               },
               "type": "connections",
               "selected": false,
-              "dragging": false,
               "measured": {
                 "width": 49,
                 "height": 18

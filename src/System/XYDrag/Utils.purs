@@ -117,7 +117,7 @@ getDragItems order lookup nodesDraggable mousePos mNodeId =
           { width: fromMaybe 0.0 node.measured.width
           , height: fromMaybe 0.0 node.measured.height
           }
-      , dragging: false
+      , dragging: Nothing
       }
 
     -- A repeated id keeps its first position, as a second `set` on a JS
@@ -154,7 +154,7 @@ getEventHandlerParams mNodeId dragItems lookup dragging =
       , targetPosition: internal.targetPosition
       , hidden: internal.hidden
       , selected: internal.selected
-      , dragging
+      , dragging: Just dragging
       , draggable: internal.draggable
       , selectable: internal.selectable
       , connectable: internal.connectable

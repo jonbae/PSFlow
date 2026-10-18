@@ -532,7 +532,6 @@
             "sourcePosition": "right",
             "targetPosition": "left",
             "selected": false,
-            "dragging": false,
             "width": 100,
             "height": 40,
             "measured": {
@@ -552,7 +551,6 @@
             "sourcePosition": "right",
             "targetPosition": "left",
             "selected": false,
-            "dragging": false,
             "width": 100,
             "height": 40,
             "measured": {
@@ -573,7 +571,6 @@
           "sourcePosition": "right",
           "targetPosition": "left",
           "selected": false,
-          "dragging": false,
           "width": 100,
           "height": 40,
           "measured": {
@@ -593,7 +590,6 @@
           "sourcePosition": "right",
           "targetPosition": "left",
           "selected": false,
-          "dragging": false,
           "width": 100,
           "height": 40,
           "measured": {
@@ -663,7 +659,6 @@
             "sourcePosition": "right",
             "targetPosition": "left",
             "selected": false,
-            "dragging": false,
             "width": 100,
             "height": 40,
             "measured": {
@@ -683,7 +678,6 @@
             "sourcePosition": "right",
             "targetPosition": "left",
             "selected": false,
-            "dragging": false,
             "width": 100,
             "height": 40,
             "measured": {
@@ -731,7 +725,6 @@
               "sourcePosition": "right",
               "targetPosition": "left",
               "selected": false,
-              "dragging": false,
               "width": 100,
               "height": 40,
               "measured": {
@@ -751,7 +744,6 @@
               "sourcePosition": "right",
               "targetPosition": "left",
               "selected": false,
-              "dragging": false,
               "width": 100,
               "height": 40,
               "measured": {

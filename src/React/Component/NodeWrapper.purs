@@ -141,7 +141,7 @@ placeholderNode nodeId =
   , targetPosition: Nothing
   , hidden: Just true
   , selected: false
-  , dragging: false
+  , dragging: Nothing
   , draggable: Nothing
   , selectable: Nothing
   , connectable: Nothing

@@ -53,7 +53,7 @@ useMoveSelectedNodes = map mkMover useStoreApi
                 , parentId: n.parentId
                 , origin: n.origin
                 , expandParent: n.expandParent
-                , dragging: false
+                , dragging: Nothing
                 }
           )
           selected

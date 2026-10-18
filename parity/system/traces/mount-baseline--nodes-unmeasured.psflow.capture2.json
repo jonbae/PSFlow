@@ -274,8 +274,7 @@
                   "label": "Node-1"
                 },
                 "type": "input",
-                "selected": true,
-                "dragging": false
+                "selected": true
               },
               {
                 "id": "unmeasured",
@@ -287,8 +286,7 @@
                   "label": "unmeasured"
                 },
                 "hidden": true,
-                "selected": true,
-                "dragging": false
+                "selected": true
               }
             ],
             "edges": []
@@ -379,7 +377,6 @@
             },
             "type": "input",
             "selected": true,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -395,7 +392,6 @@
               "label": "Node-2"
             },
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -411,8 +407,7 @@
               "label": "unmeasured"
             },
             "hidden": true,
-            "selected": true,
-            "dragging": false
+            "selected": true
           }
         ],
         "getNode": {
@@ -426,7 +421,6 @@
           },
           "type": "input",
           "selected": true,
-          "dragging": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -443,7 +437,6 @@
           },
           "type": "input",
           "selected": true,
-          "dragging": false,
           "measured": {
             "width": 150,
             "height": 37
@@ -497,7 +490,6 @@
             },
             "type": "input",
             "selected": true,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -513,7 +505,6 @@
               "label": "Node-2"
             },
             "selected": false,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
@@ -529,8 +520,7 @@
               "label": "unmeasured"
             },
             "hidden": true,
-            "selected": true,
-            "dragging": false
+            "selected": true
           }
         ],
         "isNodeIntersecting": true,
@@ -571,7 +561,6 @@
               },
               "type": "input",
               "selected": true,
-              "dragging": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -587,7 +576,6 @@
                 "label": "Node-2"
               },
               "selected": false,
-              "dragging": false,
               "measured": {
                 "width": 150,
                 "height": 37
@@ -603,8 +591,7 @@
                 "label": "unmeasured"
               },
               "hidden": true,
-              "selected": true,
-              "dragging": false
+              "selected": true
             }
           ],
           "edges": [

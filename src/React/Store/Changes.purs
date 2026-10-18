@@ -102,7 +102,10 @@ applySingleNodeChange c node = case c of
         Just p -> node { position = p }
         Nothing -> node
     in
-      withPos { dragging = dragging }
+      -- TS `if (typeof change.dragging !== 'undefined')`.
+      case dragging of
+        Just _ -> withPos { dragging = dragging }
+        Nothing -> withPos
   NodeDimensionChange { dimensions, setAttributes } ->
     case dimensions of
       Nothing -> node
