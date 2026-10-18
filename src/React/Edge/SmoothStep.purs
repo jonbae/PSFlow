@@ -66,6 +66,7 @@ mkSmoothStepEdge cfg =
           , markerStart: props.markerStart
           , interactionWidth: props.interactionWidth
           , className: Nothing
+          , pathAttributes: Nothing
           }
 
 smoothStepEdge :: ReactComponent SmoothStepEdgeProps

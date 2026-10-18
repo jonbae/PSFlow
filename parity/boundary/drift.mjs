@@ -15,9 +15,10 @@
 // So this compares the two type declarations' label sets directly. There is no
 // recorded baseline to re-bless: both sides are read live from source, and the
 // gate fails on the field that appears in one and not the other. The only
-// hand-written data is the rename and refusal tables, and both are themselves
-// checked — an entry naming a field that no longer exists, or a refusal whose
-// PureScript counterpart has since appeared, fails as stale.
+// hand-written data is the rename and refusal tables and the rest fields, and
+// all three are themselves checked — an entry naming a field that no longer
+// exists, or a refusal whose PureScript counterpart has since appeared, fails
+// as stale.
 //
 // `NodeChange` and `EdgeChange` are handled separately, because their JS shape
 // is a flattened discriminated union rather than one record's mirror. Their
@@ -26,8 +27,8 @@
 // extended.
 //
 // The run ends with a falsification probe. A green differential result proves
-// nothing until it has been shown it can go red, and this one has seven
-// failure classes to demonstrate, so it demonstrates all seven on every run.
+// nothing until it has been shown it can go red, and this one has nine
+// failure classes to demonstrate, so it demonstrates all nine on every run.
 //
 // Usage: node parity/boundary/drift.mjs
 
@@ -329,6 +330,12 @@ const pairs = [
     ps: { file: "src/React/Types/Edges.purs", type: "BaseEdgeProps" },
     js: { file: "src/Boundary/Edges.purs", type: "JsBaseEdgeProps" },
     renames: {},
+    // Upstream's `<BaseEdge />` spreads every prop it doesn't destructure onto
+    // its path, and `SVGAttributes<SVGPathElement>` is too wide to name. So
+    // the JS record names the members ps-flow models, and this PureScript
+    // field holds the rest, which `Boundary.Edges.pathAttributesIn` collects
+    // from the props object. It is the one field with no JS label of its own.
+    rest: "pathAttributes",
   },
   {
     what: "StraightEdgeProps",
@@ -557,7 +564,7 @@ const pairs = [
 
 // Pure, so the falsification probe below can hand it perturbed field lists
 // without touching a file.
-export function compare({ psType, jsType, psFields, jsFields, renames, refused = [] }) {
+export function compare({ psType, jsType, psFields, jsFields, renames, refused = [], rest }) {
   const psSet = new Set(psFields);
   const jsSet = new Set(jsFields);
   const refusedSet = new Set(refused);
@@ -594,12 +601,27 @@ export function compare({ psType, jsType, psFields, jsFields, renames, refused =
     }
   }
 
+  // A rest field holds the props the JS record doesn't name, so it is the one
+  // PureScript field with no JS label. It must still exist on the PureScript
+  // side, and the JS record must not name it: a JS field by that name would
+  // be an ordinary one, converted like any other, and the entry would hide it.
+  if (rest !== undefined) {
+    if (!psSet.has(rest)) {
+      problems.push(`stale rest: \`${rest}\` names a field ${psType} no longer has`);
+    }
+    if (jsSet.has(rest)) {
+      problems.push(
+        `stale rest: \`${rest}\` is a field of ${jsType} — convert it as a field instead`
+      );
+    }
+  }
+
   const crossed = (name) => renames[name] ?? name;
   const psCrossed = new Set(psFields.map(crossed));
   const reverse = new Map(Object.entries(renames).map(([ps, js]) => [js, ps]));
 
   for (const name of psFields) {
-    if (!jsSet.has(crossed(name))) {
+    if (name !== rest && !jsSet.has(crossed(name))) {
       problems.push(`${psType}.${name} has no field in ${jsType} — it is dropped on the way out`);
     }
   }
@@ -624,6 +646,7 @@ function pairInput(pair) {
     jsFields: recordFields(join(repoRoot, pair.js.file), pair.js.type),
     renames: pair.renames,
     refused: pair.refused ?? [],
+    rest: pair.rest,
   };
 }
 
@@ -702,12 +725,13 @@ function unionInput(union) {
 
 // ── The falsification probe ─────────────────────────────────────────────
 //
-// Three failure classes, three perturbations, checked against the real field
+// Nine failure classes, nine perturbations, checked against the real field
 // lists so the probe cannot pass on a shape the gate never sees.
 
 function falsify(inputs, unionInputs) {
   const base = inputs[0];
   const optionsPair = inputs.find((i) => i.refused.length > 0);
+  const restPair = inputs.find((i) => i.rest !== undefined);
   const union = unionInputs[0];
   const firstVariant = Object.keys(union.variants)[0];
 
@@ -737,6 +761,15 @@ function falsify(inputs, unionInputs) {
         }),
     ],
     [
+      "a rest field the PureScript record no longer has",
+      () =>
+        compare({ ...restPair, psFields: restPair.psFields.filter((f) => f !== restPair.rest) }),
+    ],
+    [
+      "a rest field the JS record names",
+      () => compare({ ...restPair, jsFields: [...restPair.jsFields, restPair.rest] }),
+    ],
+    [
       "a field added to a change variant and not to its JS union",
       () =>
         compareUnion({
@@ -759,7 +792,11 @@ function falsify(inputs, unionInputs) {
     }
   }
 
-  if (compare(base).length !== 0 || compareUnion(union).length !== 0) {
+  if (
+    compare(base).length !== 0 ||
+    compare(restPair).length !== 0 ||
+    compareUnion(union).length !== 0
+  ) {
     fail("falsification probe failed — the unperturbed baseline is not green");
   }
 }
@@ -784,10 +821,13 @@ const report = (what, problems, summary) => {
 
 pairs.forEach((pair, i) => {
   const refused = inputs[i].refused.length;
+  const rest = inputs[i].rest;
   report(
     pair.what,
     compare(inputs[i]),
-    `${inputs[i].psFields.length} fields` + (refused ? `, ${refused} refused` : "")
+    `${inputs[i].psFields.length} fields` +
+      (refused ? `, ${refused} refused` : "") +
+      (rest ? `, rest in \`${rest}\`` : "")
   );
 });
 
@@ -814,4 +854,4 @@ falsify(inputs, unionInputs);
 
 console.log("boundary drift: every crossed record agrees, field for field.");
 console.log(rows.join("\n"));
-console.log("\n  ✓ falsification probe — the check goes red on all seven failure classes.");
+console.log("\n  ✓ falsification probe — the check goes red on all nine failure classes.");

@@ -5,7 +5,9 @@
 -- | Renders an SVG `<path>` for the visible stroke, an invisible
 -- | interaction `<path>` with `stroke-opacity=0` and a wide
 -- | `interactionWidth` for hit-testing, and (when `label` is present and
--- | `labelX`/`labelY` are supplied) an `<EdgeText>` group.
+-- | `labelX`/`labelY` are supplied) an `<EdgeText>` group. The visible path
+-- | also carries `pathAttributes`, spread underneath the attributes this
+-- | component sets, as upstream spreads the props it doesn't destructure.
 -- |
 -- | Wrapped in `memo` so identical-prop re-renders are skipped, matching
 -- | TS.
@@ -20,7 +22,7 @@ import Effect.Unsafe (unsafePerformEffect)
 import React.Basic (JSX, ReactComponent, element)
 import React.Basic.Hooks (memo, reactComponent)
 import React.Edge.Text (edgeText)
-import React.FFI.DOM (opt, path_)
+import React.FFI.DOM (opt, path_, spreadUnder)
 import React.Types.Edges (BaseEdgeProps)
 
 baseEdge :: ReactComponent BaseEdgeProps
@@ -33,14 +35,16 @@ baseEdge = unsafePerformEffect $ memo $ reactComponent "BaseEdge" \(props :: Bas
         Nothing -> "react-flow__edge-path"
       mainPath :: JSX
       mainPath = path_
-        { id: opt props.id
-        , d: props.path
-        , fill: "none"
-        , style: opt props.style
-        , className: pathClass
-        , markerStart: opt props.markerStart
-        , markerEnd: opt props.markerEnd
-        }
+        ( spreadUnder props.pathAttributes
+            { id: opt props.id
+            , d: props.path
+            , fill: "none"
+            , style: opt props.style
+            , className: pathClass
+            , markerStart: opt props.markerStart
+            , markerEnd: opt props.markerEnd
+            }
+        )
         []
       interactionPath :: JSX
       interactionPath

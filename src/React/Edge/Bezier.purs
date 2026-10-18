@@ -52,6 +52,7 @@ mkBezierEdge cfg =
           , markerStart: props.markerStart
           , interactionWidth: props.interactionWidth
           , className: Nothing
+          , pathAttributes: Nothing
           }
   where
   name = if cfg.isInternal then "BezierEdgeInternal" else "BezierEdge"
