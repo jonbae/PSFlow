@@ -409,7 +409,7 @@ onEnd params upd ev = do
       let
         mouseEv = foreignAsMouseEvent src
         eventArgs = getEventHandlerParams upd.nodeId s0.dragItems
-          store.nodeLookup
+          store.nodes
           false
       liftEffect do
         for_ eventArgs.currentNode \cn -> do
@@ -504,9 +504,9 @@ startDrag params upd ev = do
   when (Array.length items > 0) do
     let
       -- Upstream reports each item's `internals.userNode`, which the
-      -- selection above doesn't touch. ps-flow's internal node has no
-      -- `userNode`, and the snapshot's still holds the user's `selected`.
-      eventArgs = getEventHandlerParams upd.nodeId items store.nodeLookup true
+      -- selection above reaches only when the flow applies it to its own
+      -- nodes, as an uncontrolled one does at once.
+      eventArgs = getEventHandlerParams upd.nodeId items latest.nodes true
       mouseEv = foreignAsMouseEvent src
     liftEffect do
       for_ eventArgs.currentNode \cn -> do
@@ -691,7 +691,7 @@ updateNodes params mNodeId pos = do
     liftEffect $ traverse_
       ( \ev -> do
           let
-            eventArgs = getEventHandlerParams mNodeId s2.dragItems store.nodeLookup true
+            eventArgs = getEventHandlerParams mNodeId s2.dragItems store.nodes true
           for_ eventArgs.currentNode \cn -> do
             for_ params.onDrag \cb -> cb ev s2.dragItems cn eventArgs.allNodes
             for_ store.onNodeDrag \cb -> cb ev cn eventArgs.allNodes
