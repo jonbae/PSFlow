@@ -20,9 +20,7 @@ module Test.System.Utils.MeasuredDimensions
 import Prelude
 
 import Data.Array (findMap) as Array
-import Data.Map as Map
 import Data.Maybe (Maybe(..))
-import Data.Tuple (Tuple(..))
 import Effect (Effect)
 import Effect.Class.Console (log)
 import Partial.Unsafe (unsafeCrashWith)
@@ -96,11 +94,9 @@ measure nodes measured = do
   let
     state = initialState
       ((defaultInitialStateOptions :: InitialStateOptions Unit Unit) { nodes = Just nodes })
-    updates = Map.fromFoldable
-      ( map
-          (\id -> Tuple (NodeId id) { id: NodeId id, nodeElement: fakeNodeElement 50.0 25.0, force: false })
-          measured
-      )
+    updates = map
+      (\id -> { id: NodeId id, nodeElement: fakeNodeElement 50.0 25.0, force: false })
+      measured
   result <- withFakeWindowImpl
     ( updateNodeInternals updates state.nodeLookup state.parentLookup (Just fakeFlowRoot)
         state.nodeOrigin

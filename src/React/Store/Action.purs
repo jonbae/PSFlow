@@ -14,7 +14,6 @@ module React.Store.Action
   ) where
 
 
-import Data.Map (Map)
 import Data.Maybe (Maybe)
 import React.Types.Edges (Edge)
 import React.Types.General
@@ -70,7 +69,11 @@ data Action n e
   = SetNodes (Array (Node n))
   | SetEdges (Array (Edge e))
   | SetDefaultNodesAndEdges (Maybe (Array (Node n))) (Maybe (Array (Edge e)))
-  | UpdateNodeInternals (Map NodeId InternalNodeUpdate) { triggerFitView :: Boolean }
+  -- In insertion order, as upstream's `Map<string, InternalNodeUpdate>`
+  -- iterates: the order the observer reported the nodes, or the ids a
+  -- `useUpdateNodeInternals` caller passed. `System.Utils.Store.setUpdate`
+  -- builds one.
+  | UpdateNodeInternals (Array InternalNodeUpdate) { triggerFitView :: Boolean }
   | MergeNodeInternalsResult (NodeInternalsResult n)
   | UpdateNodePositions (Array NodeDragItem) Boolean
   | TriggerNodeChanges (Array (NodeChange n))
@@ -123,7 +126,7 @@ data Effect_ n e
   | FireOnConnectEnd (FinalConnectionState (InternalNode n))
   -- Side-effecting system calls the shell must perform.
   | RunDomUpdateNodeInternals
-      (Map NodeId InternalNodeUpdate)
+      (Array InternalNodeUpdate)
       { triggerFitView :: Boolean }
   | RunSetCenter Number Number SetCenterOptions
   -- Zoom and pan limits, pushed onto the live pan-zoom instance. The

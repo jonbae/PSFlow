@@ -22,7 +22,6 @@ module React.Hook.NodeObserver
 import Prelude
 
 import Data.Foldable (for_)
-import Data.Map (singleton) as Map
 import Data.Maybe (Maybe(..), isJust)
 import Data.Newtype (class Newtype)
 import Data.Nullable (Nullable, toMaybe, toNullable)
@@ -124,7 +123,7 @@ useNodeObserver { node, nodeType, hasDimensions, resizeObserver } = coerceHook R
         writeRef prevTargetPosition node.targetPosition
         store.dispatch
           ( UpdateNodeInternals
-              (Map.singleton node.id { id: node.id, nodeElement: current, force: true })
+              [ { id: node.id, nodeElement: current, force: true } ]
               { triggerFitView: false }
           )
     pure (pure unit)

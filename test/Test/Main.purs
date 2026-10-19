@@ -71,6 +71,7 @@ import Test.Boundary.BaseEdgeAttributes (runBaseEdgeAttributesTests)
 import Test.Boundary.FlowWrapperAttributes (runFlowWrapperAttributesTests)
 import Test.React.Additional.MiniMapMask (runMiniMapMaskTests)
 import Test.React.Additional.BackgroundPattern (runBackgroundPatternTests)
+import Test.System.Utils.MeasurementOrder (runMeasurementOrderTests)
 import Test.React.Additional.NodeToolbarPortal (runNodeToolbarPortalTests)
 import Test.React.Hook.NodeRenderOrder (runNodeRenderOrderTests)
 import Test.React.Component.HandleDataId (runHandleDataIdTests)
@@ -1140,6 +1141,7 @@ main = do
   runFlowWrapperAttributesTests
   runMiniMapMaskTests
   runBackgroundPatternTests
+  runMeasurementOrderTests
   runEdgeAriaLabelTests
   runNodeA11yDescriptionTests
   runMeasuredDimensionsTests
