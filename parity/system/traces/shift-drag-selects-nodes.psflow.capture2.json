@@ -565,7 +565,8 @@
                         "tag": "div",
                         "attrs": {
                           "class": "react-flow__nodesselection-rect",
-                          "tabindex": "-1"
+                          "tabindex": "-1",
+                          "style": "width: 350px; height: 137px;"
                         },
                         "children": []
                       }
@@ -779,7 +780,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 190.60000002384186,
+            "timeStamp": 189.69999992847443,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1019,7 +1020,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 209.60000002384186,
+            "timeStamp": 208.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

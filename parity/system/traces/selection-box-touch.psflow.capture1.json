@@ -566,7 +566,7 @@
                         "attrs": {
                           "class": "react-flow__nodesselection-rect",
                           "tabindex": "-1",
-                          "style": "touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+                          "style": "width: 150px; height: 37px; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
                         },
                         "children": []
                       }
@@ -876,7 +876,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 333.2000000476837,
+            "timeStamp": 358.59999990463257,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1116,7 +1116,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 402.2000000476837,
+            "timeStamp": 435.7999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1183,7 +1183,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 402.2000000476837,
+            "timeStamp": 435.7999999523163,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

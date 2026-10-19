@@ -49702,7 +49702,7 @@ var selectSlice3 = function(s) {
   return {
     width: rect.width,
     height: rect.height,
-    hasBounds: isNumericN(rect.width) && (isNumericN(rect.height) && (rect.width > 0 && rect.height > 0)),
+    hasBounds: isNumericN(rect.width) && isNumericN(rect.height),
     transformString,
     userSelectionActive: s.userSelectionActive
   };
@@ -49747,8 +49747,8 @@ var nodesSelection = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/*
                   return function __do3() {
                     preventDefault(toEvent2(ke))();
                     return moveSelectedNodes(v1.value0)(function() {
-                      var $61 = shiftKey2(ke);
-                      if ($61) {
+                      var $60 = shiftKey2(ke);
+                      if ($60) {
                         return 4;
                       }
                       ;
@@ -49761,7 +49761,7 @@ var nodesSelection = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/*
                   return pure49(unit);
                 }
                 ;
-                throw new Error("Failed pattern match at React.Component.NodesSelection (line 210, column 31 - line 214, column 31): " + [v1.constructor.name]);
+                throw new Error("Failed pattern match at React.Component.NodesSelection (line 208, column 31 - line 212, column 31): " + [v1.constructor.name]);
               };
               var onKeyDownEventHandler = handler(syntheticEvent)(function(se) {
                 return onKeyDownHandler(se);
@@ -49778,8 +49778,8 @@ var nodesSelection = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/*
                 });
               });
               return pure120(function() {
-                var $63 = !shouldRender;
-                if ($63) {
+                var $62 = !shouldRender;
+                if ($62) {
                   return mempty14;
                 }
                 ;
@@ -49792,13 +49792,13 @@ var nodesSelection = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/*
                   ref: nodeRef,
                   className: "react-flow__nodesselection-rect",
                   onContextMenu: onContextMenuHandler,
-                  tabIndex: function() {
+                  tabIndex: toNullable(function() {
                     if (v.disableKeyboardA11y) {
-                      return 0;
+                      return Nothing.value;
                     }
                     ;
-                    return -1 | 0;
-                  }(),
+                    return new Just(-1 | 0);
+                  }()),
                   onKeyDown: function() {
                     if (v.disableKeyboardA11y) {
                       return handler_(pure49(unit));
@@ -49807,8 +49807,8 @@ var nodesSelection = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/*
                     return onKeyDownEventHandler;
                   }(),
                   style: toForeignStyle6({
-                    width: showN11(slice3.width),
-                    height: showN11(slice3.height)
+                    width: slice3.width,
+                    height: slice3.height
                   })
                 })([])]);
               }());
