@@ -44010,9 +44010,381 @@ var joinWith = function(s) {
   };
 };
 
+// output/React.Hook.Selectors/index.js
+var unwrap11 = /* @__PURE__ */ unwrap();
+var eqRec5 = /* @__PURE__ */ eqRec();
+var eqRowCons4 = /* @__PURE__ */ eqRowCons(eqRowNil)();
+var yIsSymbol2 = {
+  reflectSymbol: function() {
+    return "y";
+  }
+};
+var xIsSymbol2 = {
+  reflectSymbol: function() {
+    return "x";
+  }
+};
+var eqMaybe5 = /* @__PURE__ */ eqMaybe(eqBoolean);
+var eq11 = /* @__PURE__ */ eq(eqMaybe5);
+var foldl6 = /* @__PURE__ */ foldl(foldableList);
+var useStore8 = /* @__PURE__ */ useStore(eqBoolean);
+var nub4 = /* @__PURE__ */ nub(ordNodeId);
+var lookup9 = /* @__PURE__ */ lookup2(ordNodeId);
+var append6 = /* @__PURE__ */ append(semigroupArray);
+var eqMaybe1 = /* @__PURE__ */ eqMaybe(eqInt);
+var eqRowCons1 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons4({
+  reflectSymbol: function() {
+    return "zIndex";
+  }
+})(eqMaybe1))();
+var widthIsSymbol2 = {
+  reflectSymbol: function() {
+    return "width";
+  }
+};
+var eqMaybe22 = /* @__PURE__ */ eqMaybe(eqNumber);
+var eqMaybe32 = /* @__PURE__ */ eqMaybe(eqPosition);
+var styleIsSymbol = {
+  reflectSymbol: function() {
+    return "style";
+  }
+};
+var eqMaybe42 = /* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqObject(eqString));
+var selectedIsSymbol = {
+  reflectSymbol: function() {
+    return "selected";
+  }
+};
+var selectableIsSymbol = {
+  reflectSymbol: function() {
+    return "selectable";
+  }
+};
+var positionIsSymbol2 = {
+  reflectSymbol: function() {
+    return "position";
+  }
+};
+var eqRowCons22 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons4(yIsSymbol2)(eqNumber))()(xIsSymbol2)(eqNumber);
+var eqRec12 = /* @__PURE__ */ eqRec5(eqRowCons22);
+var eqMaybe52 = /* @__PURE__ */ eqMaybe(eqString);
+var heightIsSymbol2 = {
+  reflectSymbol: function() {
+    return "height";
+  }
+};
+var eqRowCons32 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons1(widthIsSymbol2)(eqMaybe22))()({
+  reflectSymbol: function() {
+    return "targetPosition";
+  }
+})(eqMaybe32))()(styleIsSymbol)(eqMaybe42))()({
+  reflectSymbol: function() {
+    return "sourcePosition";
+  }
+})(eqMaybe32))()(selectedIsSymbol)(eqMaybe5))()(selectableIsSymbol)(eqMaybe5))()(positionIsSymbol2)(eqRec12))()({
+  reflectSymbol: function() {
+    return "parentId";
+  }
+})(/* @__PURE__ */ eqMaybe(eqParentId)))()({
+  reflectSymbol: function() {
+    return "origin";
+  }
+})(/* @__PURE__ */ eqMaybe(eqNodeOrigin)))()({
+  reflectSymbol: function() {
+    return "nodeType";
+  }
+})(eqMaybe52))()({
+  reflectSymbol: function() {
+    return "measured";
+  }
+})(/* @__PURE__ */ eqRec5(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons4(widthIsSymbol2)(eqMaybe22))()(heightIsSymbol2)(eqMaybe22))))();
+var targetIsSymbol = {
+  reflectSymbol: function() {
+    return "target";
+  }
+};
+var sourceIsSymbol = {
+  reflectSymbol: function() {
+    return "source";
+  }
+};
+var eqRowCons42 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowCons22)()(widthIsSymbol2)(eqMaybe22))();
+var initialWidthIsSymbol = {
+  reflectSymbol: function() {
+    return "initialWidth";
+  }
+};
+var initialHeightIsSymbol = {
+  reflectSymbol: function() {
+    return "initialHeight";
+  }
+};
+var idIsSymbol2 = {
+  reflectSymbol: function() {
+    return "id";
+  }
+};
+var hiddenIsSymbol = {
+  reflectSymbol: function() {
+    return "hidden";
+  }
+};
+var handlesIsSymbol = {
+  reflectSymbol: function() {
+    return "handles";
+  }
+};
+var eqMaybe6 = /* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqArray(/* @__PURE__ */ eqRec5(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons42(positionIsSymbol2)(eqPosition))()(idIsSymbol2)(eqHandleIdField))()(heightIsSymbol2)(eqMaybe22))()({
+  reflectSymbol: function() {
+    return "handleType";
+  }
+})(eqHandleType))));
+var extentIsSymbol = {
+  reflectSymbol: function() {
+    return "extent";
+  }
+};
+var eqMaybe7 = /* @__PURE__ */ eqMaybe(eqNodeExtent);
+var expandParentIsSymbol = {
+  reflectSymbol: function() {
+    return "expandParent";
+  }
+};
+var draggingIsSymbol = {
+  reflectSymbol: function() {
+    return "dragging";
+  }
+};
+var draggableIsSymbol = {
+  reflectSymbol: function() {
+    return "draggable";
+  }
+};
+var dragHandleIsSymbol = {
+  reflectSymbol: function() {
+    return "dragHandle";
+  }
+};
+var deletableIsSymbol = {
+  reflectSymbol: function() {
+    return "deletable";
+  }
+};
+var dataIsSymbol = {
+  reflectSymbol: function() {
+    return "data";
+  }
+};
+var eqRowCons5 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons32({
+  reflectSymbol: function() {
+    return "internals";
+  }
+})(/* @__PURE__ */ eqRec5(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons4({
+  reflectSymbol: function() {
+    return "z";
+  }
+})(eqNumber))()({
+  reflectSymbol: function() {
+    return "rootParentIndex";
+  }
+})(eqMaybe1))()({
+  reflectSymbol: function() {
+    return "positionAbsolute";
+  }
+})(eqRec12))()({
+  reflectSymbol: function() {
+    return "handleBounds";
+  }
+})(/* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqRec5(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons4(targetIsSymbol)(/* @__PURE__ */ eqArray(eqTargetHandle)))()(sourceIsSymbol)(/* @__PURE__ */ eqArray(eqSourceHandle))))))()({
+  reflectSymbol: function() {
+    return "bounds";
+  }
+})(/* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqRec5(/* @__PURE__ */ eqRowCons42(heightIsSymbol2)(eqMaybe22)))))))()(initialWidthIsSymbol)(eqMaybe22))()(initialHeightIsSymbol)(eqMaybe22))()(idIsSymbol2)(eqNodeId))()(hiddenIsSymbol)(eqMaybe5))()(heightIsSymbol2)(eqMaybe22))()(handlesIsSymbol)(eqMaybe6))()(extentIsSymbol)(eqMaybe7))()(expandParentIsSymbol)(eqMaybe5))()(draggingIsSymbol)(eqMaybe5))()(draggableIsSymbol)(eqMaybe5))()(dragHandleIsSymbol)(eqMaybe52))()(deletableIsSymbol)(eqMaybe5))()(dataIsSymbol);
+var connectableIsSymbol = {
+  reflectSymbol: function() {
+    return "connectable";
+  }
+};
+var classNameIsSymbol = {
+  reflectSymbol: function() {
+    return "className";
+  }
+};
+var ariaLabelIsSymbol = {
+  reflectSymbol: function() {
+    return "ariaLabel";
+  }
+};
+var eqRowCons6 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons32(initialWidthIsSymbol)(eqMaybe22))()(initialHeightIsSymbol)(eqMaybe22))()(idIsSymbol2)(eqNodeId))()(hiddenIsSymbol)(eqMaybe5))()(heightIsSymbol2)(eqMaybe22))()(handlesIsSymbol)(eqMaybe6))()(extentIsSymbol)(eqMaybe7))()(expandParentIsSymbol)(eqMaybe5))()(draggingIsSymbol)(eqMaybe5))()(draggableIsSymbol)(eqMaybe5))()(dragHandleIsSymbol)(eqMaybe52))()(deletableIsSymbol)(eqMaybe5))()(dataIsSymbol);
+var eqMaybe8 = /* @__PURE__ */ eqMaybe(eqEdgeMarkerType);
+var eqRowCons7 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons1({
+  reflectSymbol: function() {
+    return "targetHandle";
+  }
+})(eqMaybe52))()(targetIsSymbol)(eqNodeId))()(styleIsSymbol)(eqMaybe42))()({
+  reflectSymbol: function() {
+    return "sourceHandle";
+  }
+})(eqMaybe52))()(sourceIsSymbol)(eqNodeId))()(selectedIsSymbol)(eqMaybe5))()(selectableIsSymbol)(eqMaybe5))()({
+  reflectSymbol: function() {
+    return "markerStart";
+  }
+})(eqMaybe8))()({
+  reflectSymbol: function() {
+    return "markerEnd";
+  }
+})(eqMaybe8))()({
+  reflectSymbol: function() {
+    return "label";
+  }
+})(eqMaybe52))()({
+  reflectSymbol: function() {
+    return "interactionWidth";
+  }
+})(eqMaybe22))()(idIsSymbol2)(eqString))()(hiddenIsSymbol)(eqMaybe5))()({
+  reflectSymbol: function() {
+    return "edgeType";
+  }
+})(eqMaybe52))()(deletableIsSymbol)(eqMaybe5))()(dataIsSymbol);
+var eqMaybe9 = /* @__PURE__ */ eqMaybe(eqEdgeAriaLabel);
+var animatedIsSymbol = {
+  reflectSymbol: function() {
+    return "animated";
+  }
+};
+var useViewport = /* @__PURE__ */ function() {
+  var selectViewport = function(s) {
+    var t = unwrap11(s.transform);
+    return {
+      x: t.tx,
+      y: t.ty,
+      zoom: t.scale
+    };
+  };
+  return useStore(eqRec5(eqRowCons(eqRowCons(eqRowCons4({
+    reflectSymbol: function() {
+      return "zoom";
+    }
+  })(eqNumber))()(yIsSymbol2)(eqNumber))()(xIsSymbol2)(eqNumber)))(selectViewport);
+}();
+var useNodesInitialized = function(opts) {
+  var selectInitialized = function(s) {
+    var step2 = function(acc) {
+      return function(n) {
+        var $456 = eq11(n.hidden)(new Just(true)) && !opts.includeHiddenNodes;
+        if ($456) {
+          return acc;
+        }
+        ;
+        if (acc.broken) {
+          return acc;
+        }
+        ;
+        if (n.internals.handleBounds instanceof Nothing) {
+          return {
+            initialised: false,
+            broken: true
+          };
+        }
+        ;
+        if (n.internals.handleBounds instanceof Just) {
+          return {
+            initialised: true,
+            broken: false
+          };
+        }
+        ;
+        throw new Error("Failed pattern match at React.Hook.Selectors (line 197, column 14 - line 199, column 57): " + [n.internals.handleBounds.constructor.name]);
+      };
+    };
+    var nodes3 = values(s.nodeLookup);
+    var result = foldl6(step2)({
+      initialised: false,
+      broken: false
+    })(nodes3);
+    return length(s.nodes) > 0 && result.initialised;
+  };
+  return useStore8(selectInitialized);
+};
+var useNodesData = function(dictEq) {
+  var useStore111 = useStore(eqArray(eqRec5(eqRowCons(eqRowCons(eqRowCons(eqRowCons5(dictEq))()(connectableIsSymbol)(eqMaybe5))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))));
+  return function(ids) {
+    var uniqueIds = nub4(ids);
+    var selectNodesData = function(s) {
+      return foldl2(function(acc) {
+        return function(i) {
+          var v = lookup9(i)(s.nodeLookup);
+          if (v instanceof Just) {
+            return append6(acc)([v.value0]);
+          }
+          ;
+          if (v instanceof Nothing) {
+            return acc;
+          }
+          ;
+          throw new Error("Failed pattern match at React.Hook.Selectors (line 154, column 19 - line 156, column 25): " + [v.constructor.name]);
+        };
+      })([])(uniqueIds);
+    };
+    return useStore111(selectNodesData);
+  };
+};
+var useNodes = function(dictEq) {
+  var selectNodes2 = function(s) {
+    return s.nodes;
+  };
+  return useStore(eqArray(eqRec5(eqRowCons(eqRowCons(eqRowCons(eqRowCons6(dictEq))()(connectableIsSymbol)(eqMaybe5))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))))(selectNodes2);
+};
+var useInternalNode = function(dictEq) {
+  var useStore111 = useStore(eqMaybe(eqRec5(eqRowCons(eqRowCons(eqRowCons(eqRowCons5(dictEq))()(connectableIsSymbol)(eqMaybe5))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))));
+  return function(nodeId) {
+    var selectOne = function(s) {
+      return lookup9(nodeId)(s.nodeLookup);
+    };
+    return useStore111(selectOne);
+  };
+};
+var useEdges = function(dictEq) {
+  var selectEdges = function(s) {
+    return s.edges;
+  };
+  return useStore(eqArray(eqRec5(eqRowCons(eqRowCons(eqRowCons(eqRowCons7(eqMaybe(dictEq)))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe9))()(animatedIsSymbol)(eqMaybe5))))(selectEdges);
+};
+var selectConnection = function(s) {
+  if (s.connection instanceof ConnectionInProgress) {
+    return new ConnectionInProgress({
+      isValid: s.connection.value0.isValid,
+      from: s.connection.value0.from,
+      fromHandle: s.connection.value0.fromHandle,
+      fromPosition: s.connection.value0.fromPosition,
+      fromNode: s.connection.value0.fromNode,
+      toHandle: s.connection.value0.toHandle,
+      toPosition: s.connection.value0.toPosition,
+      toNode: s.connection.value0.toNode,
+      pointer: s.connection.value0.pointer,
+      to: pointToRendererPoint(s.connection.value0.to)(s.transform)(Nothing.value)
+    });
+  }
+  ;
+  if (s.connection instanceof NoConnection) {
+    return NoConnection.value;
+  }
+  ;
+  throw new Error("Failed pattern match at React.Hook.Selectors (line 134, column 22 - line 136, column 31): " + [s.connection.constructor.name]);
+};
+var useConnectionWith = function(dictEq) {
+  var useStore111 = useStore(dictEq);
+  return function(selector4) {
+    var selectConn = function(s) {
+      return selector4(selectConnection(s));
+    };
+    return useStore111(selectConn);
+  };
+};
+
 // output/React.Component.ConnectionLine/index.js
 var bind19 = /* @__PURE__ */ bind4(ixBindRender);
-var useStore8 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
+var useStore9 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "width";
   }
@@ -44053,11 +44425,12 @@ var statusClassName = function(v) {
     return "";
   }
   ;
-  throw new Error("Failed pattern match at React.Component.ConnectionLine (line 132, column 19 - line 135, column 16): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Component.ConnectionLine (line 133, column 19 - line 136, column 16): " + [v.constructor.name]);
 };
 var showN9 = toString;
 var selectSlice = function(s) {
-  if (s.connection instanceof NoConnection) {
+  var v = selectConnection(s);
+  if (v instanceof NoConnection) {
     return {
       nodesConnectable: s.nodesConnectable,
       width: s.width,
@@ -44068,18 +44441,18 @@ var selectSlice = function(s) {
     };
   }
   ;
-  if (s.connection instanceof ConnectionInProgress) {
+  if (v instanceof ConnectionInProgress) {
     return {
       nodesConnectable: s.nodesConnectable,
       width: s.width,
       height: s.height,
       inProgress: true,
-      isValid: s.connection.value0.isValid,
-      dataRef: new Just(s.connection.value0)
+      isValid: v.value0.isValid,
+      dataRef: new Just(v.value0)
     };
   }
   ;
-  throw new Error("Failed pattern match at React.Component.ConnectionLine (line 97, column 17 - line 113, column 6): " + [s.connection.constructor.name]);
+  throw new Error("Failed pattern match at React.Component.ConnectionLine (line 98, column 17 - line 114, column 6): " + [v.constructor.name]);
 };
 var mkPath = function(lineType) {
   return function(p) {
@@ -44157,16 +44530,16 @@ var mkPath = function(lineType) {
       }));
     }
     ;
-    throw new Error("Failed pattern match at React.Component.ConnectionLine (line 147, column 21 - line 201, column 8): " + [lineType.constructor.name]);
+    throw new Error("Failed pattern match at React.Component.ConnectionLine (line 148, column 21 - line 202, column 8): " + [lineType.constructor.name]);
   };
 };
 var joinSpace = /* @__PURE__ */ function() {
-  var $74 = joinWith(" ");
-  var $75 = filter(function(v) {
+  var $75 = joinWith(" ");
+  var $76 = filter(function(v) {
     return v !== "";
   });
-  return function($76) {
-    return $74($75($76));
+  return function($77) {
+    return $75($76($77));
   };
 }();
 var emptyForeign = /* @__PURE__ */ toForeignStyle4({});
@@ -44179,7 +44552,7 @@ var styleOrEmpty = function(v) {
     return v.value0;
   }
   ;
-  throw new Error("Failed pattern match at React.Component.ConnectionLine (line 71, column 16 - line 73, column 40): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Component.ConnectionLine (line 72, column 16 - line 74, column 40): " + [v.constructor.name]);
 };
 var connectionStatusOf = function(v) {
   if (v instanceof Nothing) {
@@ -44194,15 +44567,15 @@ var connectionStatusOf = function(v) {
     return new Just(ConnectionInvalid.value);
   }
   ;
-  throw new Error("Failed pattern match at React.Component.ConnectionLine (line 126, column 22 - line 129, column 39): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Component.ConnectionLine (line 127, column 22 - line 130, column 39): " + [v.constructor.name]);
 };
 var connectionLine = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("ConnectionLine")(function(v) {
-  return bind19(useStore8(selectSlice))(function(slice3) {
+  return bind19(useStore9(selectSlice))(function(slice3) {
     var lineType = fromMaybe(BezierLine.value)(v.connectionLineType);
     var gate = slice3.width > 0 && (slice3.nodesConnectable && slice3.inProgress);
     return pure33(function() {
-      var $69 = !gate;
-      if ($69) {
+      var $70 = !gate;
+      if ($70) {
         return mempty6;
       }
       ;
@@ -44249,7 +44622,7 @@ var connectionLine = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/*
             })([]);
           }
           ;
-          throw new Error("Failed pattern match at React.Component.ConnectionLine (line 231, column 27 - line 266, column 25): " + [v.connectionLineComponent.constructor.name]);
+          throw new Error("Failed pattern match at React.Component.ConnectionLine (line 232, column 27 - line 267, column 25): " + [v.connectionLineComponent.constructor.name]);
         }();
         var gClass = joinSpace(["react-flow__connection", statusClassName(status2)]);
         return svg_2({
@@ -44262,7 +44635,7 @@ var connectionLine = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/*
         })([innerBody])]);
       }
       ;
-      throw new Error("Failed pattern match at React.Component.ConnectionLine (line 221, column 14 - line 274, column 59): " + [slice3.dataRef.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.ConnectionLine (line 222, column 14 - line 275, column 59): " + [slice3.dataRef.constructor.name]);
     }());
   });
 })));
@@ -44543,7 +44916,7 @@ var cancelAnimationFrame = function(v) {
 
 // output/System.Utils.Edges.Positions/index.js
 var map33 = /* @__PURE__ */ map(functorArray);
-var eq11 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqString));
+var eq15 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqString));
 var bind21 = /* @__PURE__ */ bind(bindMaybe);
 var pure35 = /* @__PURE__ */ pure(applicativeMaybe);
 var nodeHandleToHandle = function(h) {
@@ -44704,7 +45077,7 @@ var getHandle = function(bounds) {
     ;
     if (handleId instanceof Just) {
       return find2(function(h) {
-        return eq11(handleIdString(h.id))(new Just(handleId.value0));
+        return eq15(handleIdString(h.id))(new Just(handleId.value0));
       })(bounds);
     }
     ;
@@ -44801,12 +45174,12 @@ var classListContains2 = (element2) => (cls) => () => {
 
 // output/System.XYHandle.Utils/index.js
 var fromFoldable8 = /* @__PURE__ */ fromFoldable(foldableList);
-var append6 = /* @__PURE__ */ append(semigroupArray);
+var append7 = /* @__PURE__ */ append(semigroupArray);
 var pure36 = /* @__PURE__ */ pure(applicativeEffect);
-var lookup9 = /* @__PURE__ */ lookup2(ordNodeId);
+var lookup10 = /* @__PURE__ */ lookup2(ordNodeId);
 var map34 = /* @__PURE__ */ map(functorArray);
-var eq15 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqString));
-var eq16 = /* @__PURE__ */ eq(eqNodeId);
+var eq16 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqString));
+var eq17 = /* @__PURE__ */ eq(eqNodeId);
 var eq25 = /* @__PURE__ */ eq(eqHandleType);
 var eq34 = /* @__PURE__ */ eq(eqHandleIdField);
 var min6 = /* @__PURE__ */ min(ordNumber);
@@ -44827,7 +45200,7 @@ var nodesWithinDistance = function(position3) {
         return function(node) {
           var $25 = getOverlappingArea(rect)(nodeToRect(new Right(node))(zeroOrigin)) > 0;
           if ($25) {
-            return append6(acc)([node]);
+            return append7(acc)([node]);
           }
           ;
           return acc;
@@ -44895,7 +45268,7 @@ var getHandle2 = function(nodeId) {
       return function(lookup113) {
         return function(mode) {
           return function(withAbsolutePosition) {
-            var v = lookup9(nodeId)(lookup113);
+            var v = lookup10(nodeId)(lookup113);
             if (v instanceof Nothing) {
               return Nothing.value;
             }
@@ -44924,7 +45297,7 @@ var getHandle2 = function(nodeId) {
                 ;
                 if (mode instanceof Loose) {
                   if (v.value0.internals.handleBounds instanceof Just) {
-                    return append6(map34(unSourceHandle)(v.value0.internals.handleBounds.value0.source))(map34(unTargetHandle)(v.value0.internals.handleBounds.value0.target));
+                    return append7(map34(unSourceHandle)(v.value0.internals.handleBounds.value0.source))(map34(unTargetHandle)(v.value0.internals.handleBounds.value0.target));
                   }
                   ;
                   if (v.value0.internals.handleBounds instanceof Nothing) {
@@ -44939,7 +45312,7 @@ var getHandle2 = function(nodeId) {
               var match = function() {
                 if (handleId instanceof Just) {
                   return find2(function(h) {
-                    return eq15(handleIdString(h.id))(new Just(handleId.value0));
+                    return eq16(handleIdString(h.id))(new Just(handleId.value0));
                   })(handles);
                 }
                 ;
@@ -45001,7 +45374,7 @@ var getClosestHandle = function(position3) {
           throw new Error("Failed pattern match at System.XYHandle.Utils (line 159, column 20 - line 161, column 23): " + [fromHandle.handleType.constructor.name]);
         }();
         var isFromHandle = function(h) {
-          return eq16(fromHandle.nodeId)(h.nodeId) && (eq25(fromHandle.handleType)(h.handleType) && eq34(fromHandle.id)(h.id));
+          return eq17(fromHandle.nodeId)(h.nodeId) && (eq25(fromHandle.handleType)(h.handleType) && eq34(fromHandle.id)(h.id));
         };
         var closeNodes = nodesWithinDistance(position3)(lookup113)(connectionRadius + additionalDistance);
         var pairs = function() {
@@ -45028,7 +45401,7 @@ var getClosestHandle = function(position3) {
               ;
               throw new Error("Failed pattern match at System.XYHandle.Utils (line 110, column 17 - line 112, column 26): " + [node.internals.handleBounds.constructor.name]);
             }();
-            return map34(Tuple.create(node))(append6(src9)(tgt));
+            return map34(Tuple.create(node))(append7(src9)(tgt));
           };
           return concat(map34(handlesOf)(closeNodes));
         }();
@@ -45048,7 +45421,7 @@ var getClosestHandle = function(position3) {
               return acc;
             }
             ;
-            return append6(acc)([{
+            return append7(acc)([{
               handle: {
                 handleType: v2.value1.handleType,
                 height: v2.value1.height,
@@ -45072,7 +45445,7 @@ var getClosestHandle = function(position3) {
           return function(r) {
             var $56 = r.distance === minDistance;
             if ($56) {
-              return append6(acc)([r.handle]);
+              return append7(acc)([r.handle]);
             }
             ;
             return acc;
@@ -45106,11 +45479,11 @@ var getClosestHandle = function(position3) {
 // output/System.XYHandle/index.js
 var discard6 = /* @__PURE__ */ discard(discardUnit);
 var pure37 = /* @__PURE__ */ pure(applicativeEffect);
-var unwrap11 = /* @__PURE__ */ unwrap();
+var unwrap12 = /* @__PURE__ */ unwrap();
 var map35 = /* @__PURE__ */ map(functorEffect);
 var notEq5 = /* @__PURE__ */ notEq(eqNodeId);
 var notEq13 = /* @__PURE__ */ notEq(/* @__PURE__ */ eqMaybe(eqString));
-var eq17 = /* @__PURE__ */ eq(eqHandleType);
+var eq18 = /* @__PURE__ */ eq(eqHandleType);
 var applicativeStateT2 = /* @__PURE__ */ applicativeStateT(monadEffect);
 var when5 = /* @__PURE__ */ when(applicativeStateT2);
 var bindStateT2 = /* @__PURE__ */ bindStateT(monadEffect);
@@ -45123,7 +45496,7 @@ var bind25 = /* @__PURE__ */ bind(bindAff);
 var pure114 = /* @__PURE__ */ pure(applicativeAff);
 var modify_3 = /* @__PURE__ */ modify_2(monadStateStateT2);
 var unless2 = /* @__PURE__ */ unless(applicativeStateT2);
-var lookup10 = /* @__PURE__ */ lookup2(ordNodeId);
+var lookup11 = /* @__PURE__ */ lookup2(ordNodeId);
 var for_7 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var when1 = /* @__PURE__ */ when(applicativeEffect);
 var unless1 = /* @__PURE__ */ unless(applicativeEffect);
@@ -45192,7 +45565,7 @@ var handleSelector = function(lib) {
         ;
         throw new Error("Failed pattern match at System.XYHandle (line 604, column 19 - line 606, column 23): " + [v.constructor.name]);
       };
-      return "." + (lib + ('-flow__handle[data-id="' + (fromMaybe("")(flowId) + ("-" + (unwrap11(h.nodeId) + ("-" + (idTag(h.id) + ("-" + (handleTypeTag(h.handleType) + '"]')))))))));
+      return "." + (lib + ('-flow__handle[data-id="' + (fromMaybe("")(flowId) + ("-" + (unwrap12(h.nodeId) + ("-" + (idTag(h.id) + ("-" + (handleTypeTag(h.handleType) + '"]')))))))));
     };
   };
 };
@@ -45313,7 +45686,7 @@ var isValidHandle = function(event) {
             throw new Error("Failed pattern match at System.XYHandle (line 567, column 22 - line 570, column 63): " + [p.connectionMode.constructor.name]);
           }();
           var mTo = getHandle2(mNid.value0)(mHandleType.value0)(mHid)(p.nodeLookup)(p.connectionMode)(true);
-          var isTarget = eq17(p.fromType)(Target.value);
+          var isTarget = eq18(p.fromType)(Target.value);
           var isConnectableNow = connectable && connectableEnd;
           var preIsValid = isConnectableNow && modeOk;
           var connection = {
@@ -45486,7 +45859,7 @@ var onPointerDown = function(event) {
             handleType: hType.value0,
             position: mFromInternal.value0.position
           };
-          var mFromInternalNode = lookup10(params.nodeId)(params.nodeLookup);
+          var mFromInternalNode = lookup11(params.nodeId)(params.nodeLookup);
           if (mFromInternalNode instanceof Nothing) {
             return unit;
           }
@@ -45611,7 +45984,7 @@ var onPointerDown = function(event) {
                 }();
                 var nextToNode = function() {
                   if (result.toHandle instanceof Just) {
-                    return lookup10(result.toHandle.value0.nodeId)(params.nodeLookup);
+                    return lookup11(result.toHandle.value0.nodeId)(params.nodeLookup);
                   }
                   ;
                   if (result.toHandle instanceof Nothing) {
@@ -45630,7 +46003,7 @@ var onPointerDown = function(event) {
                   ;
                   return curPos;
                 }();
-                var fromInternalNode$prime = lookup10(params.nodeId)(params.nodeLookup);
+                var fromInternalNode$prime = lookup11(params.nodeId)(params.nodeLookup);
                 var fresh = function() {
                   if (fromInternalNode$prime instanceof Just) {
                     return getHandlePosition(fromInternalNode$prime.value0)(new Just(fromHandle))(PosLeft.value)(true);
@@ -45787,11 +46160,11 @@ var map36 = /* @__PURE__ */ map(functorMaybe);
 var bind26 = /* @__PURE__ */ bind4(ixBindRender);
 var when6 = /* @__PURE__ */ when(applicativeEffect);
 var pure38 = /* @__PURE__ */ pure(applicativeEffect);
-var eq18 = /* @__PURE__ */ eq(eqHandleType);
+var eq19 = /* @__PURE__ */ eq(eqHandleType);
 var for_8 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var map112 = /* @__PURE__ */ map(functorEffect);
 var pure115 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
-var append7 = /* @__PURE__ */ append(semigroupJSX);
+var append8 = /* @__PURE__ */ append(semigroupJSX);
 var mempty7 = /* @__PURE__ */ mempty(monoidJSX);
 var syntheticToMouse = unsafeCoerce2;
 var extractFromHandle = function(v) {
@@ -45870,7 +46243,7 @@ var edgeUpdateAnchors = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reac
               domNode: state3.domNode,
               handleId: oppositeHandle.id,
               nodeId: oppositeHandle.nodeId,
-              isTarget: eq18(oppositeHandle.handleType)(Target.value),
+              isTarget: eq19(oppositeHandle.handleType)(Target.value),
               nodeLookup: state3.nodeLookup,
               lib: state3.lib,
               flowId: new Just(state3.rfId),
@@ -45963,7 +46336,7 @@ var edgeUpdateAnchors = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reac
         });
       });
     };
-    return pure115(append7(function() {
+    return pure115(append8(function() {
       if (showSource) {
         return element(edgeAnchor)({
           position: v.sourcePosition,
@@ -46174,16 +46547,16 @@ var toEvent2 = unsafeCoerce2;
 var fromEvent = /* @__PURE__ */ unsafeReadProtoTagged("KeyboardEvent");
 
 // output/React.Component.EdgeWrapper/index.js
-var lookup11 = /* @__PURE__ */ lookup2(ordString);
-var lookup13 = /* @__PURE__ */ lookup2(ordNodeId);
-var eq19 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
-var unwrap12 = /* @__PURE__ */ unwrap();
+var lookup13 = /* @__PURE__ */ lookup2(ordString);
+var lookup14 = /* @__PURE__ */ lookup2(ordNodeId);
+var eq20 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var unwrap13 = /* @__PURE__ */ unwrap();
 var pure39 = /* @__PURE__ */ pure(applicativeEffect);
 var for_9 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var bind27 = /* @__PURE__ */ bind4(ixBindRender);
-var eqRec5 = /* @__PURE__ */ eqRec();
-var eqRowCons4 = /* @__PURE__ */ eqRowCons(eqRowNil)();
-var useStore9 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec5(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons4({
+var eqRec6 = /* @__PURE__ */ eqRec();
+var eqRowCons8 = /* @__PURE__ */ eqRowCons(eqRowNil)();
+var useStore10 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec6(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons8({
   reflectSymbol: function() {
     return "edge";
   }
@@ -46192,9 +46565,9 @@ var useStore9 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec5(/* @__PURE__ */ 
     return "defaultEdgeOptions";
   }
 })(eqUnsafeReference)));
-var eqMaybe5 = /* @__PURE__ */ eqMaybe(eqNumber);
-var eqMaybe1 = /* @__PURE__ */ eqMaybe(eqPosition);
-var useStore12 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec5(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons4({
+var eqMaybe10 = /* @__PURE__ */ eqMaybe(eqNumber);
+var eqMaybe12 = /* @__PURE__ */ eqMaybe(eqPosition);
+var useStore12 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec6(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons8({
   reflectSymbol: function() {
     return "zIndex";
   }
@@ -46202,27 +46575,27 @@ var useStore12 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec5(/* @__PURE__ */
   reflectSymbol: function() {
     return "targetY";
   }
-})(eqMaybe5))()({
+})(eqMaybe10))()({
   reflectSymbol: function() {
     return "targetX";
   }
-})(eqMaybe5))()({
+})(eqMaybe10))()({
   reflectSymbol: function() {
     return "targetPosition";
   }
-})(eqMaybe1))()({
+})(eqMaybe12))()({
   reflectSymbol: function() {
     return "sourceY";
   }
-})(eqMaybe5))()({
+})(eqMaybe10))()({
   reflectSymbol: function() {
     return "sourceX";
   }
-})(eqMaybe5))()({
+})(eqMaybe10))()({
   reflectSymbol: function() {
     return "sourcePosition";
   }
-})(eqMaybe1)));
+})(eqMaybe12)));
 var bind111 = /* @__PURE__ */ bind(bindEffect);
 var when7 = /* @__PURE__ */ when(applicativeEffect);
 var elem4 = /* @__PURE__ */ elem2(eqString);
@@ -46230,17 +46603,17 @@ var pure116 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty8 = /* @__PURE__ */ mempty(monoidJSX);
 var selectEdgePosition = function(edgeId) {
   return function(state3) {
-    var v = lookup11(edgeId)(state3.edgeLookup);
+    var v = lookup13(edgeId)(state3.edgeLookup);
     if (v instanceof Nothing) {
       return nullPosition;
     }
     ;
     if (v instanceof Just) {
-      var v1 = lookup13(v.value0.target)(state3.nodeLookup);
-      var v2 = lookup13(v.value0.source)(state3.nodeLookup);
+      var v1 = lookup14(v.value0.target)(state3.nodeLookup);
+      var v2 = lookup14(v.value0.source)(state3.nodeLookup);
       if (v2 instanceof Just && v1 instanceof Just) {
         var z = getElevatedEdgeZIndex({
-          selected: eq19(v.value0.selected)(new Just(true)),
+          selected: eq20(v.value0.selected)(new Just(true)),
           zIndex: fromMaybe(0)(v.value0.zIndex),
           sourceNode: v2.value0,
           targetNode: v1.value0,
@@ -46323,7 +46696,7 @@ var placeholderEdge = function(edgeId) {
 var selectEdgeSlice = function(edgeId) {
   return function(state3) {
     return {
-      edge: fromMaybe(placeholderEdge(edgeId))(lookup11(edgeId)(state3.edgeLookup)),
+      edge: fromMaybe(placeholderEdge(edgeId))(lookup13(edgeId)(state3.edgeLookup)),
       defaultEdgeOptions: state3.defaultEdgeOptions
     };
   };
@@ -46345,8 +46718,8 @@ var mkEdgeProps = function(edge) {
                       data: edge.data,
                       style: edge.style,
                       selected: edge.selected,
-                      source: unwrap12(edge.source),
-                      target: unwrap12(edge.target),
+                      source: unwrap13(edge.source),
+                      target: unwrap13(edge.target),
                       selectable: new Just(isSelectable),
                       deletable: new Just(fromMaybe(true)(edge.deletable)),
                       sourceX: sx,
@@ -46533,7 +46906,7 @@ var applyDefaults = function(v) {
   };
 };
 var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("EdgeWrapper")(function(v) {
-  return bind27(useStore9(selectEdgeSlice(v.id)))(function(slice3) {
+  return bind27(useStore10(selectEdgeSlice(v.id)))(function(slice3) {
     var edge = applyDefaults(slice3.defaultEdgeOptions)(slice3.edge);
     var edgeTypeInit = fromMaybe("default")(edge.edgeType);
     var resolved = unsafePerformEffect(resolveEdgeComponent(v.edgeTypes)(v.onError)(edgeTypeInit));
@@ -46595,7 +46968,7 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                 ;
                 throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 353, column 27 - line 355, column 84): " + [v.onReconnect.constructor.name]);
               }();
-              var hide = eq19(edge.hidden)(new Just(true)) || (isNothing(positionSlice.sourceX) || (isNothing(positionSlice.sourceY) || (isNothing(positionSlice.targetX) || isNothing(positionSlice.targetY))));
+              var hide = eq20(edge.hidden)(new Just(true)) || (isNothing(positionSlice.sourceX) || (isNothing(positionSlice.sourceY) || (isNothing(positionSlice.targetX) || isNothing(positionSlice.targetY))));
               var blurEdge = bind111(readRef(edgeRef))(function() {
                 var $164 = flip(for_9)(blurElement);
                 return function($165) {
@@ -46695,7 +47068,7 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                         nodesSelectionActive: false
                       };
                     }))();
-                    var $134 = eq19(edge.selected)(new Just(true)) && state3.multiSelectionActive;
+                    var $134 = eq20(edge.selected)(new Just(true)) && state3.multiSelectionActive;
                     if ($134) {
                       store.dispatch(new UnselectNodesAndEdges({
                         nodes: Nothing.value,
@@ -46786,7 +47159,7 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                       return new Just(edge.ariaLabel.value0.value0);
                     }
                     ;
-                    return new Just("Edge from " + (unwrap12(edge.source) + (" to " + unwrap12(edge.target))));
+                    return new Just("Edge from " + (unwrap13(edge.source) + (" to " + unwrap13(edge.target))));
                   }()),
                   "aria-describedby": opt(function() {
                     if (v.edgesFocusable) {
@@ -46954,7 +47327,7 @@ var markerSymbol = function(v) {
 
 // output/React.Container.MarkerDefinitions/index.js
 var bind28 = /* @__PURE__ */ bind4(ixBindRender);
-var useStore10 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
+var useStore11 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "edges";
   }
@@ -46990,7 +47363,7 @@ var markerElement = function(m) {
   })]);
 };
 var markerDefinitions = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("MarkerDefinitions")(function(v) {
-  return bind28(useStore10(selectSlice2))(function(slice3) {
+  return bind28(useStore11(selectSlice2))(function(slice3) {
     var markers = createMarkerIds(slice3.edges)({
       id: v.rfId,
       defaultColor: v.defaultColor,
@@ -47013,7 +47386,7 @@ var markerDefinitions = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo
 
 // output/React.Hook.VisibleIds.Pure/index.js
 var map39 = /* @__PURE__ */ map(functorArray);
-var lookup14 = /* @__PURE__ */ lookup2(ordNodeId);
+var lookup15 = /* @__PURE__ */ lookup2(ordNodeId);
 var selectVisibleNodeIds = function(onlyRenderVisible) {
   return function(s) {
     var nodes3 = orderedInternalNodes(s.nodes)(s.nodeLookup);
@@ -47039,8 +47412,8 @@ var selectVisibleNodeIds = function(onlyRenderVisible) {
 var selectVisibleEdgeIds = function(onlyRenderVisible) {
   return function(s) {
     var keep = function(edge) {
-      var v = lookup14(edge.target)(s.nodeLookup);
-      var v1 = lookup14(edge.source)(s.nodeLookup);
+      var v = lookup15(edge.target)(s.nodeLookup);
+      var v1 = lookup15(edge.source)(s.nodeLookup);
       if (v1 instanceof Just && v instanceof Just) {
         var $13 = isEdgeVisible({
           sourceNode: v1.value0,
@@ -47075,18 +47448,18 @@ var selectVisibleEdgeIds = function(onlyRenderVisible) {
 };
 
 // output/React.Hook.VisibleIds/index.js
-var useStore11 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqArray(eqNodeId));
-var useStore13 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqArray(eqString));
+var useStore13 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqArray(eqNodeId));
+var useStore14 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqArray(eqString));
 var useVisibleNodeIds = function(onlyRenderVisible) {
-  return useStore11(selectVisibleNodeIds(onlyRenderVisible));
+  return useStore13(selectVisibleNodeIds(onlyRenderVisible));
 };
 var useVisibleEdgeIds = function(onlyRenderVisible) {
-  return useStore13(selectVisibleEdgeIds(onlyRenderVisible));
+  return useStore14(selectVisibleEdgeIds(onlyRenderVisible));
 };
 
 // output/React.Container.EdgeRenderer/index.js
 var bind29 = /* @__PURE__ */ bind4(ixBindRender);
-var useStore14 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
+var useStore15 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "onError";
   }
@@ -47109,7 +47482,7 @@ var useStore14 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ *
 })(eqConnectionMode)));
 var map40 = /* @__PURE__ */ map(functorArray);
 var pure41 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
-var append8 = /* @__PURE__ */ append(semigroupArray);
+var append9 = /* @__PURE__ */ append(semigroupArray);
 var selectFlags = function(s) {
   return {
     edgesFocusable: s.edgesFocusable,
@@ -47120,7 +47493,7 @@ var selectFlags = function(s) {
   };
 };
 var edgeRenderer = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("EdgeRenderer")(function(v) {
-  return bind29(useStore14(selectFlags))(function(flags) {
+  return bind29(useStore15(selectFlags))(function(flags) {
     return bind29(useVisibleEdgeIds(v.onlyRenderVisibleElements))(function(edgeIds) {
       var edgeChildren = map40(function(edgeId) {
         return keyed(edgeId)(element(edgeWrapper)({
@@ -47147,7 +47520,7 @@ var edgeRenderer = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @
       })(edgeIds);
       return pure41(div_({
         className: "react-flow__edges"
-      })(append8([element(markerDefinitions)({
+      })(append9([element(markerDefinitions)({
         defaultColor: v.defaultMarkerColor,
         rfId: new Just(v.rfId)
       })])(edgeChildren)));
@@ -47163,9 +47536,9 @@ var focusWithoutScrollImpl = (mEl) => () => {
 };
 
 // output/Control.Monad.Except/index.js
-var unwrap13 = /* @__PURE__ */ unwrap();
+var unwrap14 = /* @__PURE__ */ unwrap();
 var runExcept = function($3) {
-  return unwrap13(runExceptT($3));
+  return unwrap14(runExceptT($3));
 };
 
 // output/Foreign.Index/foreign.js
@@ -47264,12 +47637,12 @@ var useNodeId = /* @__PURE__ */ useContext(nodeIdContext);
 
 // output/React.Handle/index.js
 var eq110 = /* @__PURE__ */ eq(eqNodeId);
-var eqMaybe6 = /* @__PURE__ */ eqMaybe(eqString);
-var eq26 = /* @__PURE__ */ eq(eqMaybe6);
+var eqMaybe11 = /* @__PURE__ */ eqMaybe(eqString);
+var eq26 = /* @__PURE__ */ eq(eqMaybe11);
 var eq35 = /* @__PURE__ */ eq(eqHandleType);
 var notEq6 = /* @__PURE__ */ notEq(eqHandleType);
 var notEq14 = /* @__PURE__ */ notEq(eqNodeId);
-var notEq23 = /* @__PURE__ */ notEq(eqMaybe6);
+var notEq23 = /* @__PURE__ */ notEq(eqMaybe11);
 var eq44 = /* @__PURE__ */ eq(eqHandleIdField);
 var notEq32 = /* @__PURE__ */ notEq(eqHandleIdField);
 var eq52 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
@@ -47279,9 +47652,9 @@ var when8 = /* @__PURE__ */ when(applicativeEffect);
 var pure42 = /* @__PURE__ */ pure(applicativeEffect);
 var for_10 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var bind112 = /* @__PURE__ */ bind4(ixBindRender);
-var eqRec6 = /* @__PURE__ */ eqRec();
-var eqRowCons5 = /* @__PURE__ */ eqRowCons(eqRowNil)();
-var useStore15 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec6(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons5({
+var eqRec7 = /* @__PURE__ */ eqRec();
+var eqRowCons9 = /* @__PURE__ */ eqRowCons(eqRowNil)();
+var useStore16 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec7(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons9({
   reflectSymbol: function() {
     return "rfId";
   }
@@ -47294,7 +47667,7 @@ var useStore15 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec6(/* @__PURE__ */
     return "connectOnClick";
   }
 })(eqBoolean)));
-var useStore16 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec6(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons5({
+var useStore17 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec7(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons9({
   reflectSymbol: function() {
     return "valid";
   }
@@ -47702,7 +48075,7 @@ var buildClassName = function(p) {
   }()]);
 };
 var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("Handle")(function(v) {
-  return bind112(useStore15(selectHandleSlice))(function(slice3) {
+  return bind112(useStore16(selectHandleSlice))(function(slice3) {
     return bind112(useStoreApi)(function(store) {
       return bind112(useNodeId)(function(nodeIdM) {
         var nodeIdStr = function() {
@@ -47723,7 +48096,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
           ;
           return v.id;
         }();
-        return bind112(useStore16(selectConnectingFlags(nodeIdStr)(handleId)(v.handleType)))(function(flags) {
+        return bind112(useStore17(selectConnectingFlags(nodeIdStr)(handleId)(v.handleType)))(function(flags) {
           var isTarget = function() {
             if (v.handleType instanceof Target) {
               return true;
@@ -48106,7 +48479,7 @@ var ix2 = /* @__PURE__ */ ix(/* @__PURE__ */ indexableForeign(monadIdentity))(/*
 var readString2 = /* @__PURE__ */ readString(monadIdentity);
 var pure43 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty10 = /* @__PURE__ */ mempty(monoidJSX);
-var append9 = /* @__PURE__ */ append(semigroupJSX);
+var append10 = /* @__PURE__ */ append(semigroupJSX);
 var readLabel = function(f) {
   return hush(runExcept(bind30(ix2(f)("label"))(readString2)));
 };
@@ -48126,7 +48499,7 @@ var defaultNode = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompo
       ;
       throw new Error("Failed pattern match at React.Node.Default (line 40, column 15 - line 42, column 26): " + [v1.constructor.name]);
     }();
-    return append9(element(handle)({
+    return append10(element(handle)({
       handleType: Target.value,
       position: targetPos,
       id: Nothing.value,
@@ -48138,7 +48511,7 @@ var defaultNode = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompo
       className: Nothing.value,
       style: Nothing.value,
       innerRef: nullImpl
-    }))(append9(label4)(element(handle)({
+    }))(append10(label4)(element(handle)({
       handleType: Source.value,
       position: sourcePos,
       id: Nothing.value,
@@ -48167,7 +48540,7 @@ var ix3 = /* @__PURE__ */ ix(/* @__PURE__ */ indexableForeign(monadIdentity))(/*
 var readString3 = /* @__PURE__ */ readString(monadIdentity);
 var pure45 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty12 = /* @__PURE__ */ mempty(monoidJSX);
-var append10 = /* @__PURE__ */ append(semigroupJSX);
+var append11 = /* @__PURE__ */ append(semigroupJSX);
 var readLabel2 = function(f) {
   return hush(runExcept(bind31(ix3(f)("label"))(readString3)));
 };
@@ -48186,7 +48559,7 @@ var inputNode = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
       ;
       throw new Error("Failed pattern match at React.Node.Input (line 36, column 15 - line 38, column 26): " + [v1.constructor.name]);
     }();
-    return append10(label4)(element(handle)({
+    return append11(label4)(element(handle)({
       handleType: Source.value,
       position: sourcePos,
       id: Nothing.value,
@@ -48208,7 +48581,7 @@ var ix4 = /* @__PURE__ */ ix(/* @__PURE__ */ indexableForeign(monadIdentity))(/*
 var readString4 = /* @__PURE__ */ readString(monadIdentity);
 var pure46 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty13 = /* @__PURE__ */ mempty(monoidJSX);
-var append11 = /* @__PURE__ */ append(semigroupJSX);
+var append18 = /* @__PURE__ */ append(semigroupJSX);
 var readLabel3 = function(f) {
   return hush(runExcept(bind32(ix4(f)("label"))(readString4)));
 };
@@ -48227,7 +48600,7 @@ var outputNode = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompon
       ;
       throw new Error("Failed pattern match at React.Node.Output (line 36, column 15 - line 38, column 26): " + [v1.constructor.name]);
     }();
-    return append11(element(handle)({
+    return append18(element(handle)({
       handleType: Target.value,
       position: targetPos,
       id: Nothing.value,
@@ -48344,8 +48717,8 @@ var hasSelectorImpl = (target5) => (selector4) => (domNode) => () => {
 
 // output/System.XYDrag.Utils/index.js
 var member7 = /* @__PURE__ */ member3(ordParentId);
-var lookup15 = /* @__PURE__ */ lookup2(ordNodeId);
-var eq20 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var lookup16 = /* @__PURE__ */ lookup2(ordNodeId);
+var eq21 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var insert8 = /* @__PURE__ */ insert5(ordParentId);
 var fromFoldable9 = /* @__PURE__ */ fromFoldable4(ordNodeId)(foldableArray);
 var map42 = /* @__PURE__ */ map(functorArray);
@@ -48353,7 +48726,7 @@ var mapFlipped3 = /* @__PURE__ */ mapFlipped(functorMaybe);
 var bind34 = /* @__PURE__ */ bind(bindMaybe);
 var eq111 = /* @__PURE__ */ eq(eqNodeId);
 var eq27 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqNodeId));
-var nub4 = /* @__PURE__ */ nub(ordNodeId);
+var nub5 = /* @__PURE__ */ nub(ordNodeId);
 var isParentSelected = function(node) {
   return function(lookup113) {
     var go2 = function($copy_v) {
@@ -48374,14 +48747,14 @@ var isParentSelected = function(node) {
             }
             ;
             if (otherwise) {
-              var v2 = lookup15(parentToNode(v1.value0))(lookup113);
+              var v2 = lookup16(parentToNode(v1.value0))(lookup113);
               if (v2 instanceof Nothing) {
                 $tco_done = true;
                 return false;
               }
               ;
               if (v2 instanceof Just) {
-                var $30 = eq20(v2.value0.selected)(new Just(true));
+                var $30 = eq21(v2.value0.selected)(new Just(true));
                 if ($30) {
                   $tco_done = true;
                   return true;
@@ -48419,7 +48792,7 @@ var getEventHandlerParams = function(mNodeId) {
           return new Tuple(n.id, n);
         })(userNodes));
         var allNodes = mapMaybe(function(item) {
-          return mapFlipped3(lookup15(item.id)(users))(function(v) {
+          return mapFlipped3(lookup16(item.id)(users))(function(v) {
             return {
               ariaLabel: v.ariaLabel,
               className: v.className,
@@ -48454,7 +48827,7 @@ var getEventHandlerParams = function(mNodeId) {
         })(dragItems);
         var currentNode = function() {
           var v = bind34(mNodeId)(function(nid) {
-            return lookup15(nid)(users);
+            return lookup16(nid)(users);
           });
           if (v instanceof Nothing) {
             return head(allNodes);
@@ -48546,7 +48919,7 @@ var getDragItems = function(order) {
             throw new Error("Failed pattern match at System.XYDrag.Utils (line 93, column 30 - line 95, column 51): " + [node.parentId.constructor.name]);
           };
           var isTarget = function(node) {
-            return eq20(node.selected)(new Just(true)) || eq27(mNodeId)(new Just(node.id));
+            return eq21(node.selected)(new Just(true)) || eq27(mNodeId)(new Just(node.id));
           };
           var isDraggable = function(node) {
             if (node.draggable instanceof Just) {
@@ -48564,7 +48937,7 @@ var getDragItems = function(order) {
           };
           var step2 = function(acc) {
             return function(id3) {
-              var v = lookup15(id3)(lookup113);
+              var v = lookup16(id3)(lookup113);
               if (v instanceof Just && keep(v.value0)) {
                 return snoc(acc)(toItem(v.value0));
               }
@@ -48572,7 +48945,7 @@ var getDragItems = function(order) {
               return acc;
             };
           };
-          return foldl2(step2)([])(nub4(order));
+          return foldl2(step2)([])(nub5(order));
         };
       };
     };
@@ -48614,7 +48987,7 @@ var discard12 = /* @__PURE__ */ discard7(bindStateT3);
 var monadStateStateT3 = /* @__PURE__ */ monadStateStateT(monadEffect);
 var modify_4 = /* @__PURE__ */ modify_2(monadStateStateT3);
 var get6 = /* @__PURE__ */ get2(monadStateStateT3);
-var lookup16 = /* @__PURE__ */ lookup2(ordNodeId);
+var lookup17 = /* @__PURE__ */ lookup2(ordNodeId);
 var map43 = /* @__PURE__ */ map(functorArray);
 var for_11 = /* @__PURE__ */ for_(applicativeEffect);
 var for_1 = /* @__PURE__ */ for_11(foldableArray);
@@ -48626,7 +48999,7 @@ var when12 = /* @__PURE__ */ when(applicativeEffect);
 var pure47 = /* @__PURE__ */ pure(applicativeEffect);
 var unsafeReadTagged2 = /* @__PURE__ */ unsafeReadTagged(monadIdentity);
 var unless3 = /* @__PURE__ */ unless(applicativeStateT3);
-var eq21 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var eq28 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var map114 = /* @__PURE__ */ map(functorEffect);
 var pure118 = /* @__PURE__ */ pure(applicativeStateT3);
 var bind210 = /* @__PURE__ */ bind(bindAff);
@@ -48664,7 +49037,7 @@ var updateNodes = function(params) {
               return Nothing.value;
             }();
             var step2 = function(dragItem) {
-              var v = lookup16(dragItem.id)(store.nodeLookup);
+              var v = lookup17(dragItem.id)(store.nodeLookup);
               if (v instanceof Nothing) {
                 return {
                   item: dragItem,
@@ -48944,9 +49317,9 @@ var startDrag = function(params) {
             return discard12(liftEffect8(function() {
               if (upd.nodeId instanceof Just && deselectFirst) {
                 var alreadySelected = function() {
-                  var v = lookup16(upd.nodeId.value0)(store.nodeLookup);
+                  var v = lookup17(upd.nodeId.value0)(store.nodeLookup);
                   if (v instanceof Just) {
-                    return eq21(v.value0.selected)(new Just(true));
+                    return eq28(v.value0.selected)(new Just(true));
                   }
                   ;
                   if (v instanceof Nothing) {
@@ -49276,7 +49649,7 @@ var onDragHandler = function(params) {
                   return bind35(liftEffect8(isMultiTouchSourceEvent(src9)))(function(multi) {
                     var deletedDuringDrag = function() {
                       if (upd.nodeId instanceof Just) {
-                        return isNothing(lookup16(upd.nodeId.value0)(store.nodeLookup));
+                        return isNothing(lookup17(upd.nodeId.value0)(store.nodeLookup));
                       }
                       ;
                       if (upd.nodeId instanceof Nothing) {
@@ -49408,7 +49781,7 @@ var pure48 = /* @__PURE__ */ pure(applicativeEffect);
 var coerceHook3 = /* @__PURE__ */ coerceHook();
 var bind113 = /* @__PURE__ */ bind4(ixBindRender);
 var discard13 = /* @__PURE__ */ discard2(ixBindRender);
-var eqMaybe7 = /* @__PURE__ */ eqMaybe(eqString);
+var eqMaybe13 = /* @__PURE__ */ eqMaybe(eqString);
 var useEffect4 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "nodeRef";
@@ -49425,7 +49798,7 @@ var useEffect4 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqRec()(/* @__PURE__ 
   reflectSymbol: function() {
     return "noDragClassName";
   }
-})(eqMaybe7))()({
+})(eqMaybe13))()({
   reflectSymbol: function() {
     return "isSelectable";
   }
@@ -49433,7 +49806,7 @@ var useEffect4 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqRec()(/* @__PURE__ 
   reflectSymbol: function() {
     return "handleSelector";
   }
-})(eqMaybe7))()({
+})(eqMaybe13))()({
   reflectSymbol: function() {
     return "disabled";
   }
@@ -49557,9 +49930,9 @@ var useDrag = function(opts) {
 };
 
 // output/React.Hook.MoveSelectedNodes/index.js
-var eq28 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var eq29 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var map45 = /* @__PURE__ */ map(functorArray);
-var lookup17 = /* @__PURE__ */ lookup2(ordNodeId);
+var lookup18 = /* @__PURE__ */ lookup2(ordNodeId);
 var useMoveSelectedNodes = /* @__PURE__ */ function() {
   var mkMover = function(store) {
     return function(delta) {
@@ -49567,7 +49940,7 @@ var useMoveSelectedNodes = /* @__PURE__ */ function() {
         return function __do3() {
           var st = store.getState();
           var selected2 = filter(function(n) {
-            return eq28(n.selected)(new Just(true));
+            return eq29(n.selected)(new Just(true));
           })(st.nodes);
           var dragItems = map45(function(n) {
             var newPos = {
@@ -49575,7 +49948,7 @@ var useMoveSelectedNodes = /* @__PURE__ */ function() {
               y: n.position.y + delta.y * factor
             };
             var absolute = function() {
-              var v = lookup17(n.id)(st.nodeLookup);
+              var v = lookup18(n.id)(st.nodeLookup);
               if (v instanceof Just) {
                 return v.value0.internals.positionAbsolute;
               }
@@ -49618,10 +49991,10 @@ var useMoveSelectedNodes = /* @__PURE__ */ function() {
 // output/React.Component.NodesSelection/index.js
 var pure49 = /* @__PURE__ */ pure(applicativeEffect);
 var map46 = /* @__PURE__ */ map(functorMaybe);
-var unwrap14 = /* @__PURE__ */ unwrap();
-var eq29 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var unwrap15 = /* @__PURE__ */ unwrap();
+var eq30 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var bind114 = /* @__PURE__ */ bind4(ixBindRender);
-var useStore17 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
+var useStore18 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "width";
   }
@@ -49645,7 +50018,7 @@ var useStore17 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ *
 var discard8 = /* @__PURE__ */ discard2(ixBindRender);
 var useEffect5 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var unless4 = /* @__PURE__ */ unless(applicativeEffect);
-var lookup18 = /* @__PURE__ */ lookup2(ordString);
+var lookup19 = /* @__PURE__ */ lookup2(ordString);
 var for_13 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var pure120 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty14 = /* @__PURE__ */ mempty(monoidJSX);
@@ -49694,9 +50067,9 @@ var isNumericN = function(n) {
   return !isNaNImpl(n) && isFiniteImpl(n);
 };
 var selectSlice3 = function(s) {
-  var t = unwrap14(s.transform);
+  var t = unwrap15(s.transform);
   var rect = getInternalNodesBounds(s.nodeLookup)(new Just(function(n) {
-    return eq29(n.selected)(new Just(true));
+    return eq30(n.selected)(new Just(true));
   }));
   var transformString = "translate(" + (showN11(t.tx) + ("px," + (showN11(t.ty) + ("px)" + (" scale(" + (showN11(t.scale) + (")" + (" translate(" + (showN11(rect.x) + ("px," + (showN11(rect.y) + "px)")))))))))));
   return {
@@ -49708,7 +50081,7 @@ var selectSlice3 = function(s) {
   };
 };
 var nodesSelection = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("NodesSelection")(function(v) {
-  return bind114(useStore17(selectSlice3))(function(slice3) {
+  return bind114(useStore18(selectSlice3))(function(slice3) {
     return bind114(useStoreApi)(function(store) {
       return bind114(useRef(toNullable(Nothing.value)))(function(nodeRef) {
         return bind114(useMoveSelectedNodes)(function(moveSelectedNodes) {
@@ -49742,7 +50115,7 @@ var nodesSelection = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/*
                 return "";
               }();
               var onKeyDownHandler = function(ke) {
-                var v1 = lookup18(key(ke))(arrowKeyDiffs);
+                var v1 = lookup19(key(ke))(arrowKeyDiffs);
                 if (v1 instanceof Just) {
                   return function __do3() {
                     preventDefault(toEvent2(ke))();
@@ -49771,7 +50144,7 @@ var nodesSelection = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/*
                   return function __do3() {
                     var st = store.getState();
                     var selected2 = filter(function(n) {
-                      return eq29(n.selected)(new Just(true));
+                      return eq30(n.selected)(new Just(true));
                     })(st.nodes);
                     return cb(se)(selected2)();
                   };
@@ -49845,13 +50218,13 @@ var eventIsPrimaryImpl = (event) => () => !!event.isPrimary;
 
 // output/React.Component.UserSelection/index.js
 var bind36 = /* @__PURE__ */ bind4(ixBindRender);
-var eqRec7 = /* @__PURE__ */ eqRec();
-var eqRowCons6 = /* @__PURE__ */ eqRowCons(eqRowNil)();
-var useStore18 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec7(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons6({
+var eqRec8 = /* @__PURE__ */ eqRec();
+var eqRowCons10 = /* @__PURE__ */ eqRowCons(eqRowNil)();
+var useStore19 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec8(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons10({
   reflectSymbol: function() {
     return "rect";
   }
-})(/* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqRec7(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons6({
+})(/* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqRec8(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons10({
   reflectSymbol: function() {
     return "y";
   }
@@ -49891,7 +50264,7 @@ var selectSlice4 = function(s) {
   };
 };
 var userSelection = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("UserSelection")(function(v) {
-  return bind36(useStore18(selectSlice4))(function(slice3) {
+  return bind36(useStore19(selectSlice4))(function(slice3) {
     return pure50(function() {
       if (slice3.active && slice3.rect instanceof Just) {
         return div_({
@@ -50012,26 +50385,26 @@ var autoPanLoop3 = function(env) {
 };
 
 // output/React.Store.Changes/index.js
-var lookup19 = /* @__PURE__ */ lookup2(ordNodeId);
+var lookup20 = /* @__PURE__ */ lookup2(ordNodeId);
 var insert9 = /* @__PURE__ */ insert4(ordNodeId);
-var foldl6 = /* @__PURE__ */ foldl(foldableArray);
+var foldl7 = /* @__PURE__ */ foldl(foldableArray);
 var lookup110 = /* @__PURE__ */ lookup2(ordString);
 var insert12 = /* @__PURE__ */ insert4(ordString);
 var max10 = /* @__PURE__ */ max(ordInt);
 var min7 = /* @__PURE__ */ min(ordInt);
 var toUnfoldable8 = /* @__PURE__ */ toUnfoldable5(unfoldableArray);
-var eq30 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var eq31 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var map47 = /* @__PURE__ */ map(functorArray);
 var fromFoldable10 = /* @__PURE__ */ fromFoldable4(ordNodeId)(foldableArray);
 var member8 = /* @__PURE__ */ member2(ordNodeId);
-var append18 = /* @__PURE__ */ append(semigroupArray);
+var append19 = /* @__PURE__ */ append(semigroupArray);
 var fromFoldable12 = /* @__PURE__ */ fromFoldable4(ordString)(foldableArray);
 var member12 = /* @__PURE__ */ member2(ordString);
 var partitionNodeChanges = /* @__PURE__ */ function() {
   var appendChange = function(id3) {
     return function(c) {
       return function(m) {
-        var v = lookup19(id3)(m);
+        var v = lookup20(id3)(m);
         if (v instanceof Nothing) {
           return insert9(id3)([c])(m);
         }
@@ -50091,7 +50464,7 @@ var partitionNodeChanges = /* @__PURE__ */ function() {
       throw new Error("Failed pattern match at React.Store.Changes (line 66, column 16 - line 72, column 76): " + [c.constructor.name]);
     };
   };
-  return foldl6(step2)({
+  return foldl7(step2)({
     byId: empty5,
     adds: []
   });
@@ -50146,7 +50519,7 @@ var partitionEdgeChanges = /* @__PURE__ */ function() {
       throw new Error("Failed pattern match at React.Store.Changes (line 81, column 16 - line 85, column 76): " + [c.constructor.name]);
     };
   };
-  return foldl6(step2)({
+  return foldl7(step2)({
     byId: empty5,
     adds: []
   });
@@ -50220,7 +50593,7 @@ var getSelectionChangesGeneric = function(dictOrd) {
               };
             };
             var pairs = toUnfoldable8(items);
-            return foldl6(step2)({
+            return foldl7(step2)({
               changes: [],
               items
             })(pairs);
@@ -50236,7 +50609,7 @@ var getNodeSelectionChanges = function(lookup210) {
   return function(selectedIds) {
     return function(mutate2) {
       var r = getSelectionChangesGeneric1(function(v) {
-        return eq30(v)(new Just(true));
+        return eq31(v)(new Just(true));
       })(Just.create)(lookup210)(selectedIds)(mutate2);
       var changes = map47(function(p) {
         return new NodeSelectionChange({
@@ -50271,7 +50644,7 @@ var getNodeElementsDiffChanges = function(mItems) {
       var itemsLookup = fromFoldable10(map47(function(n) {
         return new Tuple(n.id, n);
       })(items));
-      var removes = foldl6(function(acc) {
+      var removes = foldl7(function(acc) {
         return function(v) {
           var $99 = member8(v.value0)(itemsLookup);
           if ($99) {
@@ -50287,7 +50660,7 @@ var getNodeElementsDiffChanges = function(mItems) {
         return function(item) {
           var change = function() {
             if (member8(item.id)(lookup210)) {
-              var v = lookup19(item.id)(userNodes);
+              var v = lookup20(item.id)(userNodes);
               if (v instanceof Just && unsafeRefEq(v.value0)(item)) {
                 return [];
               }
@@ -50308,23 +50681,23 @@ var getNodeElementsDiffChanges = function(mItems) {
             throw new Error("Failed pattern match at React.Store.Changes (line 316, column 9 - line 320, column 74): ");
           }();
           return {
-            changes: append18(acc.changes)(change),
+            changes: append19(acc.changes)(change),
             index: acc.index + 1 | 0
           };
         };
       };
-      var forwardPass = foldl6(forwardStep)({
+      var forwardPass = foldl7(forwardStep)({
         changes: [],
         index: 0
       })(items);
-      return append18(forwardPass.changes)(removes);
+      return append19(forwardPass.changes)(removes);
     };
   };
 };
 var getEdgeSelectionChanges = function(lookup210) {
   return function(selectedIds) {
     var r = getSelectionChangesGeneric2(function(v) {
-      return eq30(v)(new Just(true));
+      return eq31(v)(new Just(true));
     })(Just.create)(lookup210)(selectedIds)(false);
     var changes = map47(function(p) {
       return new EdgeSelectionChange({
@@ -50353,7 +50726,7 @@ var getEdgeElementsDiffChanges = function(mItems) {
     var itemsLookup = fromFoldable12(map47(function(e) {
       return new Tuple(e.id, e);
     })(items));
-    var removes = foldl6(function(acc) {
+    var removes = foldl7(function(acc) {
       return function(v) {
         var $107 = member12(v.value0)(itemsLookup);
         if ($107) {
@@ -50393,16 +50766,16 @@ var getEdgeElementsDiffChanges = function(mItems) {
           throw new Error("Failed pattern match at React.Store.Changes (line 350, column 18 - line 354, column 71): " + [v.constructor.name]);
         }();
         return {
-          changes: append18(acc.changes)(change),
+          changes: append19(acc.changes)(change),
           index: acc.index + 1 | 0
         };
       };
     };
-    var forwardPass = foldl6(forwardStep)({
+    var forwardPass = foldl7(forwardStep)({
       changes: [],
       index: 0
     })(items);
-    return append18(forwardPass.changes)(removes);
+    return append19(forwardPass.changes)(removes);
   };
 };
 var applySingleNodeChange = function(c) {
@@ -50707,7 +51080,7 @@ var applyChangesForNode = function(node) {
         return new Just(v.value0.head.value0.item);
       }
       ;
-      return new Just(foldl6(function(curr) {
+      return new Just(foldl7(function(curr) {
         return function(c) {
           return applySingleNodeChange(c)(curr);
         };
@@ -50729,9 +51102,9 @@ var applyNodeChanges = function(changes) {
       };
     };
     var buckets = partitionNodeChanges(changes);
-    var afterUpdates = foldl6(function(acc) {
+    var afterUpdates = foldl7(function(acc) {
       return function(node) {
-        var v = lookup19(node.id)(buckets.byId);
+        var v = lookup20(node.id)(buckets.byId);
         if (v instanceof Nothing) {
           return snoc(acc)(node);
         }
@@ -50752,7 +51125,7 @@ var applyNodeChanges = function(changes) {
         throw new Error("Failed pattern match at React.Store.Changes (line 171, column 24 - line 175, column 53): " + [v.constructor.name]);
       };
     })([])(nodes3);
-    return foldl6(applyNodeAdd)(afterUpdates)(buckets.adds);
+    return foldl7(applyNodeAdd)(afterUpdates)(buckets.adds);
   };
 };
 var applyChangesForEdge = function(edge) {
@@ -50771,7 +51144,7 @@ var applyChangesForEdge = function(edge) {
         return new Just(v.value0.head.value0.item);
       }
       ;
-      return new Just(foldl6(function(curr) {
+      return new Just(foldl7(function(curr) {
         return function(c) {
           return applySingleEdgeChange(c)(curr);
         };
@@ -50793,7 +51166,7 @@ var applyEdgeChanges = function(changes) {
       };
     };
     var buckets = partitionEdgeChanges(changes);
-    var afterUpdates = foldl6(function(acc) {
+    var afterUpdates = foldl7(function(acc) {
       return function(edge) {
         var v = lookup110(edge.id)(buckets.byId);
         if (v instanceof Nothing) {
@@ -50816,24 +51189,24 @@ var applyEdgeChanges = function(changes) {
         throw new Error("Failed pattern match at React.Store.Changes (line 193, column 24 - line 197, column 53): " + [v.constructor.name]);
       };
     })([])(edges2);
-    return foldl6(applyEdgeAdd)(afterUpdates)(buckets.adds);
+    return foldl7(applyEdgeAdd)(afterUpdates)(buckets.adds);
   };
 };
 
 // output/React.Container.Pane/index.js
 var when11 = /* @__PURE__ */ when(applicativeEffect);
-var lookup20 = /* @__PURE__ */ lookup2(ordString);
+var lookup21 = /* @__PURE__ */ lookup2(ordString);
 var insert10 = /* @__PURE__ */ insert5(ordString);
 var bind116 = /* @__PURE__ */ bind(bindMaybe);
-var unwrap15 = /* @__PURE__ */ unwrap();
-var foldl7 = /* @__PURE__ */ foldl(foldableList);
+var unwrap16 = /* @__PURE__ */ unwrap();
+var foldl8 = /* @__PURE__ */ foldl(foldableList);
 var foldl13 = /* @__PURE__ */ foldl(foldableArray);
 var toUnfoldable9 = /* @__PURE__ */ toUnfoldable6(unfoldableArray);
 var pure51 = /* @__PURE__ */ pure(applicativeEffect);
 var bind211 = /* @__PURE__ */ bind4(ixBindRender);
-var eqRec8 = /* @__PURE__ */ eqRec();
-var eqRowCons7 = /* @__PURE__ */ eqRowCons(eqRowNil)();
-var useStore19 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec8(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons7({
+var eqRec9 = /* @__PURE__ */ eqRec();
+var eqRowCons11 = /* @__PURE__ */ eqRowCons(eqRowNil)();
+var useStore20 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec9(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons11({
   reflectSymbol: function() {
     return "userSelectionActive";
   }
@@ -50862,7 +51235,7 @@ var fromFoldable11 = /* @__PURE__ */ fromFoldable5(foldableArray)(ordNodeId);
 var map116 = /* @__PURE__ */ map(functorArray);
 var areSetsEqual2 = /* @__PURE__ */ areSetsEqual(eqNodeId);
 var areSetsEqual1 = /* @__PURE__ */ areSetsEqual(eqString);
-var notEq7 = /* @__PURE__ */ notEq(/* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqRec8(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons7({
+var notEq7 = /* @__PURE__ */ notEq(/* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqRec9(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons11({
   reflectSymbol: function() {
     return "y";
   }
@@ -50888,7 +51261,7 @@ var notEq7 = /* @__PURE__ */ notEq(/* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqRec
   }
 })(eqNumber))));
 var discard15 = /* @__PURE__ */ discard2(ixBindRender);
-var append19 = /* @__PURE__ */ append(semigroupArray);
+var append20 = /* @__PURE__ */ append(semigroupArray);
 var pure121 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var wrapMouseHandler = function(containerRef) {
   return function(h) {
@@ -51024,7 +51397,7 @@ var collectIncidentEdgeIds = function(state3) {
     var addEdgeIfSelectable = function(dflt) {
       return function(acc) {
         return function(conn) {
-          var v = lookup20(conn.edgeId)(state3.edgeLookup);
+          var v = lookup21(conn.edgeId)(state3.edgeLookup);
           if (v instanceof Nothing) {
             return acc;
           }
@@ -51047,13 +51420,13 @@ var collectIncidentEdgeIds = function(state3) {
     }));
     var addEdgesForNode = function(acc) {
       return function(nodeId) {
-        var v = lookup20(unwrap15(nodeId))(state3.connectionLookup);
+        var v = lookup21(unwrap16(nodeId))(state3.connectionLookup);
         if (v instanceof Nothing) {
           return acc;
         }
         ;
         if (v instanceof Just) {
-          return foldl7(addEdgeIfSelectable(edgesSelectableDefault))(acc)(values(v.value0.byKey));
+          return foldl8(addEdgeIfSelectable(edgesSelectableDefault))(acc)(values(v.value0.byKey));
         }
         ;
         throw new Error("Failed pattern match at React.Container.Pane (line 138, column 34 - line 140, column 108): " + [v.constructor.name]);
@@ -51090,7 +51463,7 @@ var abs3 = function(n) {
   return n;
 };
 var pane = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponentWithChildren()()("Pane")(function(v) {
-  return bind211(useStore19(selectSlice5))(function(slice3) {
+  return bind211(useStore20(selectSlice5))(function(slice3) {
     return bind211(useStoreApi)(function(store) {
       return bind211(useRef(toNullable(Nothing.value)))(function(container2) {
         return bind211(useRef(toNullable(Nothing.value)))(function(containerBoundsRef) {
@@ -51879,7 +52252,7 @@ var pane = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__
                           dragging: slice3.dragging,
                           isSelecting: v.isSelecting
                         });
-                        var allChildren = append19(userChildren)([element(userSelection)({
+                        var allChildren = append20(userChildren)([element(userSelection)({
                           ignored: Nothing.value
                         })]);
                         return pure121(div_({
@@ -53194,7 +53567,7 @@ var eqZoomPaneSlice = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PU
     return "connectionInProgress";
   }
 })(eqBoolean));
-var useStore20 = /* @__PURE__ */ useStore(eqZoomPaneSlice);
+var useStore21 = /* @__PURE__ */ useStore(eqZoomPaneSlice);
 var asUpdateDeps = function(p) {
   return function(s) {
     return function(t) {
@@ -53208,7 +53581,7 @@ var asUpdateDeps = function(p) {
 };
 var zoomPane = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponentWithChildren()()("ZoomPane")(function(v) {
   return bind39(useStoreApi)(function(store) {
-    return bind39(useStore20(selectSlice6))(function(slice3) {
+    return bind39(useStore21(selectSlice6))(function(slice3) {
       return bind39(useKeyPress(v.zoomActivationKeyCode)(Nothing.value))(function(zoomActivationKeyPressed) {
         return bind39(useRef(toNullable(Nothing.value)))(function(paneRef) {
           return bind39(useRef(Nothing.value))(function(panZoomRef) {
@@ -53622,7 +53995,7 @@ var zoomPane = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PU
 })));
 
 // output/React.Hook.GlobalKeyHandler/index.js
-var eq31 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var eq36 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var $$void9 = /* @__PURE__ */ $$void(functorAff);
 var map51 = /* @__PURE__ */ map(functorArray);
 var coerceHook6 = /* @__PURE__ */ coerceHook();
@@ -53634,7 +54007,7 @@ var pure58 = /* @__PURE__ */ pure(applicativeEffect);
 var deleteSelectedElements = function(store) {
   return function(deleteElements) {
     var selected2 = function(item) {
-      return eq31(item.selected)(new Just(true));
+      return eq36(item.selected)(new Just(true));
     };
     return function __do3() {
       var s = store.getState();
@@ -53844,7 +54217,7 @@ var useGlobalKeyHandler = function(opts) {
 
 // output/React.Container.FlowRenderer/index.js
 var bind40 = /* @__PURE__ */ bind4(ixBindRender);
-var useStore21 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
+var useStore22 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "userSelectionActive";
   }
@@ -53854,7 +54227,7 @@ var useStore21 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ *
   }
 })(eqBoolean)));
 var discard17 = /* @__PURE__ */ discard2(ixBindRender);
-var append20 = /* @__PURE__ */ append(semigroupArray);
+var append21 = /* @__PURE__ */ append(semigroupArray);
 var pure59 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var selectSlice7 = function(s) {
   return {
@@ -53879,7 +54252,7 @@ var escalatePan = function(pressed) {
   };
 };
 var flowRenderer = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponentWithChildren()()("FlowRenderer")(function(v) {
-  return bind40(useStore21(selectSlice7))(function(slice3) {
+  return bind40(useStore22(selectSlice7))(function(slice3) {
     return bind40(useKeyPress(v.selectionKeyCode)(Nothing.value))(function(selectionKeyPressed) {
       return bind40(useKeyPress(v.panActivationKeyCode)(Nothing.value))(function(panActivationKeyPressed) {
         var panOnScroll = panActivationKeyPressed || v.panOnScroll;
@@ -53909,7 +54282,7 @@ var flowRenderer = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @
             ;
             return [];
           }();
-          var paneChildren = append20(userChildren)(selectionOverlay);
+          var paneChildren = append21(userChildren)(selectionOverlay);
           return pure59(element(zoomPane)({
             children: reactChildrenFromArray([element(pane)({
               children: reactChildrenFromArray(paneChildren),
@@ -53967,16 +54340,16 @@ var joinSpace3 = (xs) => xs.filter((s) => s !== "").join(" ");
 var coerceHook7 = /* @__PURE__ */ coerceHook();
 var bind41 = /* @__PURE__ */ bind4(ixBindRender);
 var discard18 = /* @__PURE__ */ discard2(ixBindRender);
-var eqMaybe8 = /* @__PURE__ */ eqMaybe(eqBoolean);
-var useEffect10 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqTuple(eqBoolean)(eqMaybe8));
+var eqMaybe14 = /* @__PURE__ */ eqMaybe(eqBoolean);
+var useEffect10 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqTuple(eqBoolean)(eqMaybe14));
 var map52 = /* @__PURE__ */ map(functorEffect);
 var for_17 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var when17 = /* @__PURE__ */ when(applicativeEffect);
-var notEq9 = /* @__PURE__ */ notEq(eqMaybe8);
+var notEq9 = /* @__PURE__ */ notEq(eqMaybe14);
 var pure60 = /* @__PURE__ */ pure(applicativeEffect);
-var eqMaybe12 = /* @__PURE__ */ eqMaybe(eqPosition);
-var useEffect12 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqTuple(eqNodeId)(/* @__PURE__ */ eqTuple(eqString)(/* @__PURE__ */ eqTuple(eqMaybe12)(eqMaybe12))));
-var notEq24 = /* @__PURE__ */ notEq(eqMaybe12);
+var eqMaybe15 = /* @__PURE__ */ eqMaybe(eqPosition);
+var useEffect12 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqTuple(eqNodeId)(/* @__PURE__ */ eqTuple(eqString)(/* @__PURE__ */ eqTuple(eqMaybe15)(eqMaybe15))));
+var notEq24 = /* @__PURE__ */ notEq(eqMaybe15);
 var pure124 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var useNodeObserver = function(v) {
   return coerceHook7(bind41(useStoreApi)(function(store) {
@@ -54065,21 +54438,21 @@ var useNodeObserver = function(v) {
 };
 
 // output/React.Node.Util/index.js
-var lookup21 = /* @__PURE__ */ lookup2(ordNodeId);
-var unwrap16 = /* @__PURE__ */ unwrap();
-var eqMaybe9 = /* @__PURE__ */ eqMaybe(eqBoolean);
-var notEq10 = /* @__PURE__ */ notEq(eqMaybe9);
-var eq36 = /* @__PURE__ */ eq(eqMaybe9);
+var lookup23 = /* @__PURE__ */ lookup2(ordNodeId);
+var unwrap17 = /* @__PURE__ */ unwrap();
+var eqMaybe16 = /* @__PURE__ */ eqMaybe(eqBoolean);
+var notEq10 = /* @__PURE__ */ notEq(eqMaybe16);
+var eq37 = /* @__PURE__ */ eq(eqMaybe16);
 var $$void10 = /* @__PURE__ */ $$void(functorEffect);
 var map53 = /* @__PURE__ */ map(functorEffect);
 var for_18 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var handleNodeClick = function(args) {
   return function __do3() {
     var state3 = args.store.getState();
-    var v = lookup21(args.id)(state3.nodeLookup);
+    var v = lookup23(args.id)(state3.nodeLookup);
     if (v instanceof Nothing) {
       if (state3.onError instanceof Just) {
-        return state3.onError.value0("012")(errorMessage(new E012(unwrap16(args.id))))();
+        return state3.onError.value0("012")(errorMessage(new E012(unwrap17(args.id))))();
       }
       ;
       if (state3.onError instanceof Nothing) {
@@ -54095,7 +54468,7 @@ var handleNodeClick = function(args) {
         return args.store.dispatch(new AddSelectedNodes([args.id]))();
       }
       ;
-      var $21 = args.unselect || eq36(v.value0.selected)(new Just(true)) && state3.multiSelectionActive;
+      var $21 = args.unselect || eq37(v.value0.selected)(new Just(true)) && state3.multiSelectionActive;
       if ($21) {
         args.store.dispatch(new UnselectNodesAndEdges({
           nodes: new Just([v.value0]),
@@ -54117,14 +54490,14 @@ var handleNodeClick = function(args) {
 };
 
 // output/React.Component.NodeWrapper/index.js
-var lookup23 = /* @__PURE__ */ lookup2(ordNodeId);
+var lookup24 = /* @__PURE__ */ lookup2(ordNodeId);
 var lookup111 = /* @__PURE__ */ lookup2(ordParentId);
 var pure61 = /* @__PURE__ */ pure(applicativeEffect);
 var for_19 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
-var unwrap17 = /* @__PURE__ */ unwrap();
+var unwrap18 = /* @__PURE__ */ unwrap();
 var map54 = /* @__PURE__ */ map(functorMaybe);
 var bind118 = /* @__PURE__ */ bind4(ixBindRender);
-var useStore22 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
+var useStore23 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "node";
   }
@@ -54133,10 +54506,10 @@ var useStore22 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ *
     return "isParent";
   }
 })(eqBoolean)));
-var eq37 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var eq38 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var unless6 = /* @__PURE__ */ unless(applicativeEffect);
 var elem9 = /* @__PURE__ */ elem2(eqString);
-var lookup24 = /* @__PURE__ */ lookup2(ordString);
+var lookup25 = /* @__PURE__ */ lookup2(ordString);
 var when18 = /* @__PURE__ */ when(applicativeEffect);
 var pure125 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty16 = /* @__PURE__ */ mempty(monoidJSX);
@@ -54192,7 +54565,7 @@ var placeholderNode = function(nodeId) {
 var selectNodeSlice = function(nodeId) {
   return function(state3) {
     return {
-      node: fromMaybe(placeholderNode(nodeId))(lookup23(nodeId)(state3.nodeLookup)),
+      node: fromMaybe(placeholderNode(nodeId))(lookup24(nodeId)(state3.nodeLookup)),
       isParent: function() {
         var v = lookup111(nodeToParent(nodeId))(state3.parentLookup);
         if (v instanceof Just) {
@@ -54278,14 +54651,14 @@ var mkNodeProps = function(node) {
         return function(connectable) {
           return function(dragging) {
             return {
-              id: unwrap17(node.id),
+              id: unwrap18(node.id),
               data: node.data,
               width: node.width,
               height: node.height,
               sourcePosition: node.sourcePosition,
               targetPosition: node.targetPosition,
               dragHandle: node.dragHandle,
-              parentId: map54(unwrap17)(node.parentId),
+              parentId: map54(unwrap18)(node.parentId),
               type: nodeType,
               dragging,
               zIndex: node.internals.z,
@@ -54383,7 +54756,7 @@ var buildNodeClassName = function(p) {
   }()]);
 };
 var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("NodeWrapper")(function(v) {
-  return bind118(useStore22(selectNodeSlice(v.id)))(function(slice3) {
+  return bind118(useStore23(selectNodeSlice(v.id)))(function(slice3) {
     var nodeTypeInit = fromMaybe("default")(slice3.node.nodeType);
     var resolved = unsafePerformEffect(resolveNodeComponent(v.nodeTypes)(v.onError)(nodeTypeInit));
     var isSelectable = function() {
@@ -54429,7 +54802,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
       }))(function(nodeRef) {
         return bind118(useDrag({
           wrapperRef: nodeRef,
-          disabled: eq37(slice3.node.hidden)(new Just(true)) || !isDraggable,
+          disabled: eq38(slice3.node.hidden)(new Just(true)) || !isDraggable,
           nodeId: new Just(v.id),
           noDragClassName: new Just(v.noDragClassName),
           handleSelector: slice3.node.dragHandle,
@@ -54465,8 +54838,8 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                     });
                   }
                   ;
-                  var v1 = lookup24(k)(arrowKeyDiffs);
-                  if (v1 instanceof Just && (isDraggable && eq37(slice3.node.selected)(new Just(true)))) {
+                  var v1 = lookup25(k)(arrowKeyDiffs);
+                  if (v1 instanceof Just && (isDraggable && eq38(slice3.node.selected)(new Just(true)))) {
                     return function __do4() {
                       preventDefault(toEvent2(ke))();
                       return moveSelectedNodes(v1.value0)(function() {
@@ -54581,7 +54954,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
             });
             var mergedStyle = mergeStyles(mergeStyles(baseStyle)(fromMaybe(emptyForeign2)(map54(unsafeToForeign)(slice3.node.style))))(dimStyle);
             return pure125(function() {
-              var $85 = eq37(slice3.node.hidden)(new Just(true));
+              var $85 = eq38(slice3.node.hidden)(new Just(true));
               if ($85) {
                 return mempty16;
               }
@@ -54594,7 +54967,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                   isDraggable,
                   isSelectable,
                   isParent: slice3.isParent,
-                  selected: eq37(slice3.node.selected)(new Just(true)),
+                  selected: eq38(slice3.node.selected)(new Just(true)),
                   dragging
                 }),
                 ref: nodeRef,
@@ -54689,7 +55062,7 @@ var bind119 = /* @__PURE__ */ bind4(ixBindRender);
 var useMemo4 = /* @__PURE__ */ useMemo(eqUnit);
 var discard19 = /* @__PURE__ */ discard2(ixBindRender);
 var pure126 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
-var useStore23 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
+var useStore24 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "onError";
   }
@@ -54711,7 +55084,7 @@ var useStore23 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ *
   }
 })(eqBoolean)));
 var map56 = /* @__PURE__ */ map(functorArray);
-var unwrap18 = /* @__PURE__ */ unwrap();
+var unwrap19 = /* @__PURE__ */ unwrap();
 var toForeignStyle11 = unsafeCoerce2;
 var selectFlags2 = function(s) {
   return {
@@ -54767,11 +55140,11 @@ var containerStyle2 = /* @__PURE__ */ toForeignStyle11({
   left: 0
 });
 var nodeRenderer = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("NodeRenderer")(function(v) {
-  return bind119(useStore23(selectFlags2))(function(flags) {
+  return bind119(useStore24(selectFlags2))(function(flags) {
     return bind119(useVisibleNodeIds(v.onlyRenderVisibleElements))(function(nodeIds) {
       return bind119(useResizeObserver)(function(observer) {
         var children3 = map56(function(nodeId) {
-          var nodeIdStr = unwrap18(nodeId);
+          var nodeIdStr = unwrap19(nodeId);
           return keyed(nodeIdStr)(element(nodeWrapper)({
             id: nodeIdStr,
             nodeTypes: v.nodeTypes,
@@ -54806,7 +55179,7 @@ var nodeRenderer = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @
 
 // output/React.Container.Viewport/index.js
 var bind42 = /* @__PURE__ */ bind4(ixBindRender);
-var useStore24 = /* @__PURE__ */ useStore(eqTransform);
+var useStore25 = /* @__PURE__ */ useStore(eqTransform);
 var pure63 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var viewportTransform = function(v) {
   return "translate(" + (toString(v.tx) + ("px," + (toString(v.ty) + ("px) scale(" + (toString(v.scale) + ")")))));
@@ -54816,7 +55189,7 @@ var selectTransform = function(v) {
   return v.transform;
 };
 var viewport = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponentWithChildren()()("Viewport")(function(v) {
-  return bind42(useStore24(selectTransform))(function(transform2) {
+  return bind42(useStore25(selectTransform))(function(transform2) {
     var styleObj = toForeignStyle12({
       transform: viewportTransform(transform2)
     });
@@ -55045,7 +55418,7 @@ var useStylesLoadedWarning = /* @__PURE__ */ coerceHook()(/* @__PURE__ */ bind45
 var for_20 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var coerceHook10 = /* @__PURE__ */ coerceHook();
 var bind46 = /* @__PURE__ */ bind4(ixBindRender);
-var useStore25 = /* @__PURE__ */ useStore(eqUnsafeReference);
+var useStore26 = /* @__PURE__ */ useStore(eqUnsafeReference);
 var useEffect14 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqTuple(/* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "zoom";
@@ -55163,7 +55536,7 @@ var runViewportSync = function(sync) {
 };
 var useViewportSync = function(mViewport) {
   return coerceHook10(bind46(useStoreApi)(function(store) {
-    return bind46(useStore25(function(s) {
+    return bind46(useStore26(function(s) {
       return s.panZoom;
     }))(function(v) {
       return useEffect14(new Tuple(mViewport, v))(function __do3() {
@@ -55333,7 +55706,7 @@ var useIsomorphicLayoutEffect = function(dictEq) {
 };
 
 // output/React.Provider.Batch/index.js
-var foldl8 = /* @__PURE__ */ foldl(foldableList);
+var foldl9 = /* @__PURE__ */ foldl(foldableList);
 var bind47 = /* @__PURE__ */ bind4(ixBindRender);
 var when23 = /* @__PURE__ */ when(applicativeEffect);
 var useMemo5 = /* @__PURE__ */ useMemo(eqUnit);
@@ -55346,7 +55719,7 @@ var pure69 = /* @__PURE__ */ pure(applicativeEffect);
 var pure127 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var planNodeQueue = function(s) {
   return function(nextNodes) {
-    var changes = foldl8(function(cs) {
+    var changes = foldl9(function(cs) {
       return function(middleware) {
         return middleware(cs);
       };
@@ -55667,18 +56040,18 @@ var inPlace = (f) => (s) => Object.assign(s, f(s));
 var ordMiddlewareKey = ordInt;
 
 // output/React.Store.Reduce/index.js
-var append21 = /* @__PURE__ */ append(semigroupArray);
+var append22 = /* @__PURE__ */ append(semigroupArray);
 var map60 = /* @__PURE__ */ map(functorArray);
 var fromFoldable13 = /* @__PURE__ */ fromFoldable5(foldableArray);
 var fromFoldable14 = /* @__PURE__ */ fromFoldable13(ordString);
 var fromFoldable23 = /* @__PURE__ */ fromFoldable13(ordNodeId);
 var toUnfoldable10 = /* @__PURE__ */ toUnfoldable5(unfoldableArray);
-var eq38 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var eq39 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var update2 = /* @__PURE__ */ update(ordNodeId);
-var lookup25 = /* @__PURE__ */ lookup2(ordNodeId);
+var lookup26 = /* @__PURE__ */ lookup2(ordNodeId);
 var eq113 = /* @__PURE__ */ eq(eqNodeId);
 var max14 = /* @__PURE__ */ max(ordNumber);
-var foldl9 = /* @__PURE__ */ foldl(foldableList);
+var foldl10 = /* @__PURE__ */ foldl(foldableList);
 var insert11 = /* @__PURE__ */ insert4(ordMiddlewareKey);
 var $$delete5 = /* @__PURE__ */ $$delete4(ordMiddlewareKey);
 var reduceTriggerEdgeChanges = function(state3) {
@@ -56599,7 +56972,7 @@ var reduceSetDefaults = function(state3) {
               zIndexMode: res.state.zIndexMode,
               hasDefaultEdges: true
             },
-            effects: append21(afterNodes.effects)(res.effects)
+            effects: append22(afterNodes.effects)(res.effects)
           };
         }
         ;
@@ -56758,7 +57131,7 @@ var reduceAddSelectedEdges = function(state3) {
       var afterNodes = reduceTriggerNodeChanges(afterEdges.state)(nodeRes.changes);
       return {
         state: afterNodes.state,
-        effects: append21(afterEdges.effects)(afterNodes.effects)
+        effects: append22(afterEdges.effects)(afterNodes.effects)
       };
     }
     ;
@@ -56883,7 +57256,7 @@ var reduceAddSelectedNodes = function(state3) {
       var afterEdges = reduceTriggerEdgeChanges(afterNodes.state)(edgeRes.changes);
       return {
         state: afterEdges.state,
-        effects: append21(afterNodes.effects)(afterEdges.effects)
+        effects: append22(afterNodes.effects)(afterEdges.effects)
       };
     }
     ;
@@ -57109,7 +57482,7 @@ var reduceMergeNodeInternals = function(state3) {
       }();
       return {
         state: afterChanges.state,
-        effects: append21(fit)(afterChanges.effects)
+        effects: append22(fit)(afterChanges.effects)
       };
     }
     ;
@@ -57127,7 +57500,7 @@ var reduceResetSelectedElements = function(state3) {
   if (otherwise) {
     var nodePairs = toUnfoldable10(state3.nodeLookup);
     var nodeChanges = mapMaybe(function(v) {
-      var $83 = eq38(v.value1.selected)(new Just(true));
+      var $83 = eq39(v.value1.selected)(new Just(true));
       if ($83) {
         return new Just(new NodeSelectionChange({
           id: v.value1.id,
@@ -57139,7 +57512,7 @@ var reduceResetSelectedElements = function(state3) {
     })(nodePairs);
     var edgePairs = toUnfoldable10(state3.edgeLookup);
     var edgeChanges = mapMaybe(function(v) {
-      var $87 = eq38(v.value1.selected)(new Just(true));
+      var $87 = eq39(v.value1.selected)(new Just(true));
       if ($87) {
         return new Just(new EdgeSelectionChange({
           id: v.value1.id,
@@ -57153,7 +57526,7 @@ var reduceResetSelectedElements = function(state3) {
     var afterEdges = reduceTriggerEdgeChanges(afterNodes.state)(edgeChanges);
     return {
       state: afterEdges.state,
-      effects: append21(afterNodes.effects)(afterEdges.effects)
+      effects: append22(afterNodes.effects)(afterEdges.effects)
     };
   }
   ;
@@ -57184,7 +57557,7 @@ var reduceUnselectNodesAndEdges = function(state3) {
       throw new Error("Failed pattern match at React.Store.Reduce (line 488, column 19 - line 490, column 29): " + [params.edges.constructor.name]);
     }();
     var nodesToUnselect = filter(function(n) {
-      return eq38(n.selected)(new Just(true));
+      return eq39(n.selected)(new Just(true));
     })(targetNodes);
     var s1 = inPlace(function(v) {
       return {
@@ -57323,13 +57696,13 @@ var reduceUnselectNodesAndEdges = function(state3) {
         selected: false
       });
     })(filter(function(e) {
-      return eq38(e.selected)(new Just(true));
+      return eq39(e.selected)(new Just(true));
     })(targetEdges));
     var afterNodes = reduceTriggerNodeChanges(s1)(nodeChanges);
     var afterEdges = reduceTriggerEdgeChanges(afterNodes.state)(edgeChanges);
     return {
       state: afterEdges.state,
-      effects: append21(afterNodes.effects)(afterEdges.effects)
+      effects: append22(afterNodes.effects)(afterEdges.effects)
     };
   };
 };
@@ -57338,9 +57711,9 @@ var reduceUpdateNodePositions = function(state3) {
     return function(dragging) {
       var step2 = function(acc) {
         return function(item) {
-          var mNode = lookup25(item.id)(state3.nodeLookup);
+          var mNode = lookup26(item.id)(state3.nodeLookup);
           var expandParentOf = function() {
-            if (mNode instanceof Just && eq38(mNode.value0.expandParent)(new Just(true))) {
+            if (mNode instanceof Just && eq39(mNode.value0.expandParent)(new Just(true))) {
               return mNode.value0.parentId;
             }
             ;
@@ -57405,7 +57778,7 @@ var reduceUpdateNodePositions = function(state3) {
           });
           return {
             changes: snoc(acc.changes)(change),
-            parentExpandChildren: append21(acc.parentExpandChildren)(expandChild),
+            parentExpandChildren: append22(acc.parentExpandChildren)(expandChild),
             connection
           };
         };
@@ -57423,11 +57796,11 @@ var reduceUpdateNodePositions = function(state3) {
         ;
         return handleExpandParent(stepped.parentExpandChildren)(state3.nodeLookup)(state3.parentLookup)(state3.nodeOrigin);
       }();
-      var changes = foldl9(function(cs) {
+      var changes = foldl10(function(cs) {
         return function(middleware) {
           return middleware(cs);
         };
-      })(append21(stepped.changes)(expandChanges))(values(state3.onNodesChangeMiddlewareMap));
+      })(append22(stepped.changes)(expandChanges))(values(state3.onNodesChangeMiddlewareMap));
       return reduceTriggerNodeChanges({
         rfId: state3.rfId,
         width: state3.width,
@@ -58647,7 +59020,7 @@ var map61 = /* @__PURE__ */ map(functorMaybe);
 var pure128 = /* @__PURE__ */ pure(applicativeAff);
 var bind120 = /* @__PURE__ */ bind(bindAff);
 var unless7 = /* @__PURE__ */ unless(applicativeEffect);
-var append22 = /* @__PURE__ */ append(semigroupArray);
+var append23 = /* @__PURE__ */ append(semigroupArray);
 var traverse_3 = /* @__PURE__ */ traverse_(applicativeEffect)(foldableArray);
 var errorCodeName = function(v) {
   return "";
@@ -58844,7 +59217,7 @@ var createStore = function(opts) {
           };
         };
         modify_(function(xs) {
-          return append22(xs)([{
+          return append23(xs)([{
             onUpdate,
             key: key2
           }]);
@@ -58875,7 +59248,7 @@ var createStore = function(opts) {
               };
             };
             modify_(function(xs) {
-              return append22(xs)([{
+              return append23(xs)([{
                 onUpdate,
                 key: key2
               }]);
@@ -59051,9 +59424,9 @@ var useColorModeClass = function(mode) {
 };
 
 // output/React.Provider.SelectionListener/index.js
-var eq39 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var eq40 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var bind51 = /* @__PURE__ */ bind(bindMaybe);
-var lookup26 = /* @__PURE__ */ lookup2(ordNodeId);
+var lookup27 = /* @__PURE__ */ lookup2(ordNodeId);
 var lookup112 = /* @__PURE__ */ lookup2(ordString);
 var eq114 = /* @__PURE__ */ eq(/* @__PURE__ */ eqArray(eqNodeId));
 var map62 = /* @__PURE__ */ map(functorArray);
@@ -59066,16 +59439,16 @@ var pure74 = /* @__PURE__ */ pure(applicativeEffect);
 var for_24 = /* @__PURE__ */ for_(applicativeEffect)(foldableArray);
 var pure130 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty17 = /* @__PURE__ */ mempty(monoidJSX);
-var useStore26 = /* @__PURE__ */ useStore(eqBoolean);
+var useStore27 = /* @__PURE__ */ useStore(eqBoolean);
 var selectSelected = function(s) {
   return {
     nodes: filter(function(n) {
-      return eq39(bind51(lookup26(n.id)(s.nodeLookup))(function(v) {
+      return eq40(bind51(lookup27(n.id)(s.nodeLookup))(function(v) {
         return v.selected;
       }))(new Just(true));
     })(s.nodes),
     edges: filter(function(e) {
-      return eq39(bind51(lookup112(e.id)(s.edgeLookup))(function(v) {
+      return eq40(bind51(lookup112(e.id)(s.edgeLookup))(function(v) {
         return v.selected;
       }))(new Just(true));
     })(s.edges)
@@ -59124,7 +59497,7 @@ var selectionListenerInner = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */
   });
 }));
 var selectionListener = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent10("SelectionListener")(function(v) {
-  return bind121(useStore26(function($50) {
+  return bind121(useStore27(function($50) {
     return !$$null(function(v1) {
       return v1.onSelectionChangeHandlers;
     }($50));
@@ -63952,7 +64325,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
 var bind53 = /* @__PURE__ */ bind4(ixBindRender);
 var alt7 = /* @__PURE__ */ alt(altMaybe);
 var pure76 = /* @__PURE__ */ pure(applicativeEffect);
-var append23 = /* @__PURE__ */ append(semigroupArray);
+var append24 = /* @__PURE__ */ append(semigroupArray);
 var pure132 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var wrapperStyle = {
   width: "100%",
@@ -64165,7 +64538,7 @@ var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
       onPaneContextMenu: v.onPaneContextMenu,
       onPaneScroll: v.onPaneScroll
     });
-    var innerChildren = append23([storeUpdaterEl, graphViewEl])(append23(reactChildrenToArray(v.children))([element(selectionListener)({
+    var innerChildren = append24([storeUpdaterEl, graphViewEl])(append24(reactChildrenToArray(v.children))([element(selectionListener)({
       onSelectionChange: v.onSelectionChange
     }), element(attribution)({
       proOptions: v.proOptions,
@@ -65023,12 +65396,12 @@ var reactFlow2 = /* @__PURE__ */ forwardNullableRef("ReactFlow")(function(v) {
 var mkTriple = (first, second, third) => [first, second, third];
 
 // output/React.Hook.HandleConnections/index.js
-var eqMaybe10 = /* @__PURE__ */ eqMaybe(eqString);
-var eqRec9 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
+var eqMaybe17 = /* @__PURE__ */ eqMaybe(eqString);
+var eqRec10 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "targetHandle";
   }
-})(eqMaybe10))()({
+})(eqMaybe17))()({
   reflectSymbol: function() {
     return "target";
   }
@@ -65036,7 +65409,7 @@ var eqRec9 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ e
   reflectSymbol: function() {
     return "sourceHandle";
   }
-})(eqMaybe10))()({
+})(eqMaybe17))()({
   reflectSymbol: function() {
     return "source";
   }
@@ -65045,12 +65418,12 @@ var eqRec9 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ e
     return "edgeId";
   }
 })(eqString));
-var eq40 = /* @__PURE__ */ eq(eqRec9);
+var eq41 = /* @__PURE__ */ eq(eqRec10);
 var coerceHook13 = /* @__PURE__ */ coerceHook();
 var bind55 = /* @__PURE__ */ bind4(ixBindRender);
 var alt8 = /* @__PURE__ */ alt(altMaybe);
-var useStore27 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqArray(eqRec9));
-var lookup27 = /* @__PURE__ */ lookup2(ordString);
+var useStore28 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqArray(eqRec10));
+var lookup28 = /* @__PURE__ */ lookup2(ordString);
 var discard26 = /* @__PURE__ */ discard2(ixBindRender);
 var useEffect18 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var when24 = /* @__PURE__ */ when(applicativeEffect);
@@ -65068,7 +65441,7 @@ var toConnection = function(c) {
 };
 var notIn = function(xs) {
   return function(x) {
-    return !any2(eq40(x))(xs);
+    return !any2(eq41(x))(xs);
   };
 };
 var handleTypeName2 = function(v) {
@@ -65103,8 +65476,8 @@ var useHandleConnections = function(params) {
   return coerceHook13(bind55(useNodeId)(function(mContextId) {
     var currentNodeId = fromMaybe("")(alt8(params.nodeId)(mContextId));
     var key2 = handleLookupKey(currentNodeId)(params.handleType)(params.id);
-    return bind55(useStore27(function(s) {
-      var v = lookup27(key2)(s.connectionLookup);
+    return bind55(useStore28(function(s) {
+      var v = lookup28(key2)(s.connectionLookup);
       if (v instanceof Nothing) {
         return [];
       }
@@ -65194,12 +65567,12 @@ var useOnNodesChangeMiddleware = function(fn) {
 };
 
 // output/React.Hook.NodeConnections/index.js
-var eqMaybe11 = /* @__PURE__ */ eqMaybe(eqString);
-var eqRec10 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
+var eqMaybe18 = /* @__PURE__ */ eqMaybe(eqString);
+var eqRec11 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "targetHandle";
   }
-})(eqMaybe11))()({
+})(eqMaybe18))()({
   reflectSymbol: function() {
     return "target";
   }
@@ -65207,7 +65580,7 @@ var eqRec10 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ 
   reflectSymbol: function() {
     return "sourceHandle";
   }
-})(eqMaybe11))()({
+})(eqMaybe18))()({
   reflectSymbol: function() {
     return "source";
   }
@@ -65216,12 +65589,12 @@ var eqRec10 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ 
     return "edgeId";
   }
 })(eqString));
-var eq41 = /* @__PURE__ */ eq(eqRec10);
+var eq45 = /* @__PURE__ */ eq(eqRec11);
 var coerceHook15 = /* @__PURE__ */ coerceHook();
 var bind57 = /* @__PURE__ */ bind4(ixBindRender);
 var alt9 = /* @__PURE__ */ alt(altMaybe);
-var useStore28 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqArray(eqRec10));
-var lookup28 = /* @__PURE__ */ lookup2(ordString);
+var useStore29 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqArray(eqRec11));
+var lookup29 = /* @__PURE__ */ lookup2(ordString);
 var discard27 = /* @__PURE__ */ discard2(ixBindRender);
 var useEffect20 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var when25 = /* @__PURE__ */ when(applicativeEffect);
@@ -65230,7 +65603,7 @@ var pure78 = /* @__PURE__ */ pure(applicativeEffect);
 var pure134 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var notIn2 = function(xs) {
   return function(x) {
-    return !any2(eq41(x))(xs);
+    return !any2(eq45(x))(xs);
   };
 };
 var handleTypeName3 = function(v) {
@@ -65284,8 +65657,8 @@ var useNodeConnections = function(params) {
       throw new Error("Failed pattern match at React.Hook.NodeConnections (line 85, column 21 - line 87, column 49): " + [v.constructor.name]);
     }();
     var key2 = nodeLookupKey(currentNodeId)(params.handleType)(params.handleId);
-    return bind57(useStore28(function(s) {
-      var v = lookup28(key2)(s.connectionLookup);
+    return bind57(useStore29(function(s) {
+      var v = lookup29(key2)(s.connectionLookup);
       if (v instanceof Nothing) {
         return [];
       }
@@ -65346,356 +65719,6 @@ var useNodesState = function(initialNodes2) {
       });
     });
   }));
-};
-
-// output/React.Hook.Selectors/index.js
-var unwrap19 = /* @__PURE__ */ unwrap();
-var eqRec11 = /* @__PURE__ */ eqRec();
-var eqRowCons8 = /* @__PURE__ */ eqRowCons(eqRowNil)();
-var yIsSymbol2 = {
-  reflectSymbol: function() {
-    return "y";
-  }
-};
-var xIsSymbol2 = {
-  reflectSymbol: function() {
-    return "x";
-  }
-};
-var eqMaybe13 = /* @__PURE__ */ eqMaybe(eqBoolean);
-var eq45 = /* @__PURE__ */ eq(eqMaybe13);
-var foldl10 = /* @__PURE__ */ foldl(foldableList);
-var useStore29 = /* @__PURE__ */ useStore(eqBoolean);
-var nub5 = /* @__PURE__ */ nub(ordNodeId);
-var lookup29 = /* @__PURE__ */ lookup2(ordNodeId);
-var append24 = /* @__PURE__ */ append(semigroupArray);
-var eqMaybe14 = /* @__PURE__ */ eqMaybe(eqInt);
-var eqRowCons1 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons8({
-  reflectSymbol: function() {
-    return "zIndex";
-  }
-})(eqMaybe14))();
-var widthIsSymbol2 = {
-  reflectSymbol: function() {
-    return "width";
-  }
-};
-var eqMaybe22 = /* @__PURE__ */ eqMaybe(eqNumber);
-var eqMaybe32 = /* @__PURE__ */ eqMaybe(eqPosition);
-var styleIsSymbol = {
-  reflectSymbol: function() {
-    return "style";
-  }
-};
-var eqMaybe42 = /* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqObject(eqString));
-var selectedIsSymbol = {
-  reflectSymbol: function() {
-    return "selected";
-  }
-};
-var selectableIsSymbol = {
-  reflectSymbol: function() {
-    return "selectable";
-  }
-};
-var positionIsSymbol2 = {
-  reflectSymbol: function() {
-    return "position";
-  }
-};
-var eqRowCons22 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons8(yIsSymbol2)(eqNumber))()(xIsSymbol2)(eqNumber);
-var eqRec12 = /* @__PURE__ */ eqRec11(eqRowCons22);
-var eqMaybe52 = /* @__PURE__ */ eqMaybe(eqString);
-var heightIsSymbol2 = {
-  reflectSymbol: function() {
-    return "height";
-  }
-};
-var eqRowCons32 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons1(widthIsSymbol2)(eqMaybe22))()({
-  reflectSymbol: function() {
-    return "targetPosition";
-  }
-})(eqMaybe32))()(styleIsSymbol)(eqMaybe42))()({
-  reflectSymbol: function() {
-    return "sourcePosition";
-  }
-})(eqMaybe32))()(selectedIsSymbol)(eqMaybe13))()(selectableIsSymbol)(eqMaybe13))()(positionIsSymbol2)(eqRec12))()({
-  reflectSymbol: function() {
-    return "parentId";
-  }
-})(/* @__PURE__ */ eqMaybe(eqParentId)))()({
-  reflectSymbol: function() {
-    return "origin";
-  }
-})(/* @__PURE__ */ eqMaybe(eqNodeOrigin)))()({
-  reflectSymbol: function() {
-    return "nodeType";
-  }
-})(eqMaybe52))()({
-  reflectSymbol: function() {
-    return "measured";
-  }
-})(/* @__PURE__ */ eqRec11(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons8(widthIsSymbol2)(eqMaybe22))()(heightIsSymbol2)(eqMaybe22))))();
-var targetIsSymbol = {
-  reflectSymbol: function() {
-    return "target";
-  }
-};
-var sourceIsSymbol = {
-  reflectSymbol: function() {
-    return "source";
-  }
-};
-var eqRowCons42 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowCons22)()(widthIsSymbol2)(eqMaybe22))();
-var initialWidthIsSymbol = {
-  reflectSymbol: function() {
-    return "initialWidth";
-  }
-};
-var initialHeightIsSymbol = {
-  reflectSymbol: function() {
-    return "initialHeight";
-  }
-};
-var idIsSymbol2 = {
-  reflectSymbol: function() {
-    return "id";
-  }
-};
-var hiddenIsSymbol = {
-  reflectSymbol: function() {
-    return "hidden";
-  }
-};
-var handlesIsSymbol = {
-  reflectSymbol: function() {
-    return "handles";
-  }
-};
-var eqMaybe62 = /* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqArray(/* @__PURE__ */ eqRec11(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons42(positionIsSymbol2)(eqPosition))()(idIsSymbol2)(eqHandleIdField))()(heightIsSymbol2)(eqMaybe22))()({
-  reflectSymbol: function() {
-    return "handleType";
-  }
-})(eqHandleType))));
-var extentIsSymbol = {
-  reflectSymbol: function() {
-    return "extent";
-  }
-};
-var eqMaybe72 = /* @__PURE__ */ eqMaybe(eqNodeExtent);
-var expandParentIsSymbol = {
-  reflectSymbol: function() {
-    return "expandParent";
-  }
-};
-var draggingIsSymbol = {
-  reflectSymbol: function() {
-    return "dragging";
-  }
-};
-var draggableIsSymbol = {
-  reflectSymbol: function() {
-    return "draggable";
-  }
-};
-var dragHandleIsSymbol = {
-  reflectSymbol: function() {
-    return "dragHandle";
-  }
-};
-var deletableIsSymbol = {
-  reflectSymbol: function() {
-    return "deletable";
-  }
-};
-var dataIsSymbol = {
-  reflectSymbol: function() {
-    return "data";
-  }
-};
-var eqRowCons52 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons32({
-  reflectSymbol: function() {
-    return "internals";
-  }
-})(/* @__PURE__ */ eqRec11(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons8({
-  reflectSymbol: function() {
-    return "z";
-  }
-})(eqNumber))()({
-  reflectSymbol: function() {
-    return "rootParentIndex";
-  }
-})(eqMaybe14))()({
-  reflectSymbol: function() {
-    return "positionAbsolute";
-  }
-})(eqRec12))()({
-  reflectSymbol: function() {
-    return "handleBounds";
-  }
-})(/* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqRec11(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons8(targetIsSymbol)(/* @__PURE__ */ eqArray(eqTargetHandle)))()(sourceIsSymbol)(/* @__PURE__ */ eqArray(eqSourceHandle))))))()({
-  reflectSymbol: function() {
-    return "bounds";
-  }
-})(/* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqRec11(/* @__PURE__ */ eqRowCons42(heightIsSymbol2)(eqMaybe22)))))))()(initialWidthIsSymbol)(eqMaybe22))()(initialHeightIsSymbol)(eqMaybe22))()(idIsSymbol2)(eqNodeId))()(hiddenIsSymbol)(eqMaybe13))()(heightIsSymbol2)(eqMaybe22))()(handlesIsSymbol)(eqMaybe62))()(extentIsSymbol)(eqMaybe72))()(expandParentIsSymbol)(eqMaybe13))()(draggingIsSymbol)(eqMaybe13))()(draggableIsSymbol)(eqMaybe13))()(dragHandleIsSymbol)(eqMaybe52))()(deletableIsSymbol)(eqMaybe13))()(dataIsSymbol);
-var connectableIsSymbol = {
-  reflectSymbol: function() {
-    return "connectable";
-  }
-};
-var classNameIsSymbol = {
-  reflectSymbol: function() {
-    return "className";
-  }
-};
-var ariaLabelIsSymbol = {
-  reflectSymbol: function() {
-    return "ariaLabel";
-  }
-};
-var eqRowCons62 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons32(initialWidthIsSymbol)(eqMaybe22))()(initialHeightIsSymbol)(eqMaybe22))()(idIsSymbol2)(eqNodeId))()(hiddenIsSymbol)(eqMaybe13))()(heightIsSymbol2)(eqMaybe22))()(handlesIsSymbol)(eqMaybe62))()(extentIsSymbol)(eqMaybe72))()(expandParentIsSymbol)(eqMaybe13))()(draggingIsSymbol)(eqMaybe13))()(draggableIsSymbol)(eqMaybe13))()(dragHandleIsSymbol)(eqMaybe52))()(deletableIsSymbol)(eqMaybe13))()(dataIsSymbol);
-var eqMaybe82 = /* @__PURE__ */ eqMaybe(eqEdgeMarkerType);
-var eqRowCons72 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons1({
-  reflectSymbol: function() {
-    return "targetHandle";
-  }
-})(eqMaybe52))()(targetIsSymbol)(eqNodeId))()(styleIsSymbol)(eqMaybe42))()({
-  reflectSymbol: function() {
-    return "sourceHandle";
-  }
-})(eqMaybe52))()(sourceIsSymbol)(eqNodeId))()(selectedIsSymbol)(eqMaybe13))()(selectableIsSymbol)(eqMaybe13))()({
-  reflectSymbol: function() {
-    return "markerStart";
-  }
-})(eqMaybe82))()({
-  reflectSymbol: function() {
-    return "markerEnd";
-  }
-})(eqMaybe82))()({
-  reflectSymbol: function() {
-    return "label";
-  }
-})(eqMaybe52))()({
-  reflectSymbol: function() {
-    return "interactionWidth";
-  }
-})(eqMaybe22))()(idIsSymbol2)(eqString))()(hiddenIsSymbol)(eqMaybe13))()({
-  reflectSymbol: function() {
-    return "edgeType";
-  }
-})(eqMaybe52))()(deletableIsSymbol)(eqMaybe13))()(dataIsSymbol);
-var eqMaybe92 = /* @__PURE__ */ eqMaybe(eqEdgeAriaLabel);
-var animatedIsSymbol = {
-  reflectSymbol: function() {
-    return "animated";
-  }
-};
-var useViewport = /* @__PURE__ */ function() {
-  var selectViewport = function(s) {
-    var t = unwrap19(s.transform);
-    return {
-      x: t.tx,
-      y: t.ty,
-      zoom: t.scale
-    };
-  };
-  return useStore(eqRec11(eqRowCons(eqRowCons(eqRowCons8({
-    reflectSymbol: function() {
-      return "zoom";
-    }
-  })(eqNumber))()(yIsSymbol2)(eqNumber))()(xIsSymbol2)(eqNumber)))(selectViewport);
-}();
-var useNodesInitialized = function(opts) {
-  var selectInitialized = function(s) {
-    var step2 = function(acc) {
-      return function(n) {
-        var $455 = eq45(n.hidden)(new Just(true)) && !opts.includeHiddenNodes;
-        if ($455) {
-          return acc;
-        }
-        ;
-        if (acc.broken) {
-          return acc;
-        }
-        ;
-        if (n.internals.handleBounds instanceof Nothing) {
-          return {
-            initialised: false,
-            broken: true
-          };
-        }
-        ;
-        if (n.internals.handleBounds instanceof Just) {
-          return {
-            initialised: true,
-            broken: false
-          };
-        }
-        ;
-        throw new Error("Failed pattern match at React.Hook.Selectors (line 185, column 14 - line 187, column 57): " + [n.internals.handleBounds.constructor.name]);
-      };
-    };
-    var nodes3 = values(s.nodeLookup);
-    var result = foldl10(step2)({
-      initialised: false,
-      broken: false
-    })(nodes3);
-    return length(s.nodes) > 0 && result.initialised;
-  };
-  return useStore29(selectInitialized);
-};
-var useNodesData = function(dictEq) {
-  var useStore111 = useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons52(dictEq))()(connectableIsSymbol)(eqMaybe13))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))));
-  return function(ids) {
-    var uniqueIds = nub5(ids);
-    var selectNodesData = function(s) {
-      return foldl2(function(acc) {
-        return function(i) {
-          var v = lookup29(i)(s.nodeLookup);
-          if (v instanceof Just) {
-            return append24(acc)([v.value0]);
-          }
-          ;
-          if (v instanceof Nothing) {
-            return acc;
-          }
-          ;
-          throw new Error("Failed pattern match at React.Hook.Selectors (line 142, column 19 - line 144, column 25): " + [v.constructor.name]);
-        };
-      })([])(uniqueIds);
-    };
-    return useStore111(selectNodesData);
-  };
-};
-var useNodes = function(dictEq) {
-  var selectNodes2 = function(s) {
-    return s.nodes;
-  };
-  return useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons62(dictEq))()(connectableIsSymbol)(eqMaybe13))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))))(selectNodes2);
-};
-var useInternalNode = function(dictEq) {
-  var useStore111 = useStore(eqMaybe(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons52(dictEq))()(connectableIsSymbol)(eqMaybe13))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))));
-  return function(nodeId) {
-    var selectOne = function(s) {
-      return lookup29(nodeId)(s.nodeLookup);
-    };
-    return useStore111(selectOne);
-  };
-};
-var useEdges = function(dictEq) {
-  var selectEdges = function(s) {
-    return s.edges;
-  };
-  return useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons72(eqMaybe(dictEq)))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe92))()(animatedIsSymbol)(eqMaybe13))))(selectEdges);
-};
-var useConnectionWith = function(dictEq) {
-  var useStore111 = useStore(dictEq);
-  return function(selector4) {
-    var selectConn = function(s) {
-      return selector4(s.connection);
-    };
-    return useStore111(selectConn);
-  };
 };
 
 // output/React.Hook.UpdateNodeInternals/foreign.js
