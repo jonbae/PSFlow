@@ -32742,7 +32742,7 @@ var connectionStateOut = function(v) {
       fromNode: notNull(internalNodeOut(v.value0.fromNode)),
       to: notNull(v.value0.to),
       toHandle: toNullable(map15(handleOut)(v.value0.toHandle)),
-      toPosition: notNull(positionOut(v.value0.toPosition)),
+      toPosition: toNullable(map15(positionOut)(v.value0.toPosition)),
       toNode: toNullable(map15(internalNodeOut)(v.value0.toNode)),
       pointer: notNull(v.value0.pointer)
     };
@@ -45169,7 +45169,7 @@ var handleSelector = function(lib) {
           return "undefined";
         }
         ;
-        throw new Error("Failed pattern match at System.XYHandle (line 598, column 11 - line 601, column 33): " + [v.constructor.name]);
+        throw new Error("Failed pattern match at System.XYHandle (line 607, column 11 - line 610, column 33): " + [v.constructor.name]);
       };
       var handleTypeTag = function(v) {
         if (v instanceof Source) {
@@ -45180,7 +45180,7 @@ var handleSelector = function(lib) {
           return "target";
         }
         ;
-        throw new Error("Failed pattern match at System.XYHandle (line 595, column 19 - line 597, column 23): " + [v.constructor.name]);
+        throw new Error("Failed pattern match at System.XYHandle (line 604, column 19 - line 606, column 23): " + [v.constructor.name]);
       };
       return "." + (lib + ('-flow__handle[data-id="' + (fromMaybe("")(flowId) + ("-" + (unwrap11(h.nodeId) + ("-" + (idTag(h.id) + ("-" + (handleTypeTag(h.handleType) + '"]')))))))));
     };
@@ -45190,6 +45190,27 @@ var getAttribute = function(el) {
   return function(name15) {
     return map35(toMaybe)(getAttributeImpl(el)(name15));
   };
+};
+var endConnection = function(prev) {
+  return new Just({
+    from: prev.from,
+    fromHandle: prev.fromHandle,
+    fromNode: prev.fromNode,
+    fromPosition: prev.fromPosition,
+    isValid: prev.isValid,
+    pointer: prev.pointer,
+    to: prev.to,
+    toHandle: prev.toHandle,
+    toNode: prev.toNode,
+    toPosition: function() {
+      var $58 = isJust(prev.toHandle);
+      if ($58) {
+        return new Just(prev.toPosition);
+      }
+      ;
+      return Nothing.value;
+    }()
+  });
 };
 var docTag = function(v) {
   if (v instanceof Left) {
@@ -45206,7 +45227,7 @@ var docTag = function(v) {
     };
   }
   ;
-  throw new Error("Failed pattern match at System.XYHandle (line 646, column 10 - line 648, column 56): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at System.XYHandle (line 655, column 10 - line 657, column 56): " + [v.constructor.name]);
 };
 var elementFromPointOnDoc = function(d) {
   return function(x) {
@@ -45232,7 +45253,7 @@ var isValidHandle = function(event) {
           return Nothing.value;
         }
         ;
-        throw new Error("Failed pattern match at System.XYHandle (line 517, column 21 - line 520, column 28): " + [p.handle.constructor.name]);
+        throw new Error("Failed pattern match at System.XYHandle (line 526, column 21 - line 529, column 28): " + [p.handle.constructor.name]);
       }();
       var pos = getEventPosition(event)(Nothing.value)();
       var mBelow = elementFromPointOnDoc(p.doc)(pos.x)(pos.y)();
@@ -45245,7 +45266,7 @@ var isValidHandle = function(event) {
           return false;
         }
         ;
-        throw new Error("Failed pattern match at System.XYHandle (line 524, column 25 - line 526, column 26): " + [mBelow.constructor.name]);
+        throw new Error("Failed pattern match at System.XYHandle (line 533, column 25 - line 535, column 26): " + [mBelow.constructor.name]);
       }();
       var handleToCheck = function() {
         if (mBelow instanceof Just && belowIsHandleClass) {
@@ -45279,7 +45300,7 @@ var isValidHandle = function(event) {
               return notEq5(mNid.value0)(p.fromNodeId) || notEq13(mHid)(p.fromHandleId);
             }
             ;
-            throw new Error("Failed pattern match at System.XYHandle (line 558, column 22 - line 561, column 63): " + [p.connectionMode.constructor.name]);
+            throw new Error("Failed pattern match at System.XYHandle (line 567, column 22 - line 570, column 63): " + [p.connectionMode.constructor.name]);
           }();
           var mTo = getHandle2(mNid.value0)(mHandleType.value0)(mHid)(p.nodeLookup)(p.connectionMode)(true);
           var isTarget = eq17(p.fromType)(Target.value);
@@ -45332,7 +45353,7 @@ var isValidHandle = function(event) {
         };
       }
       ;
-      throw new Error("Failed pattern match at System.XYHandle (line 533, column 3 - line 577, column 12): " + [handleToCheck.constructor.name]);
+      throw new Error("Failed pattern match at System.XYHandle (line 542, column 3 - line 586, column 12): " + [handleToCheck.constructor.name]);
     };
   };
 };
@@ -45355,16 +45376,16 @@ var autoPanStep = function(env) {
       }))))(function() {
         return bind110(liftEffect7(requestAnimationFrame(autoPanLoop(env)(stateRef))))(function(handle3) {
           return modify_3(function(v) {
-            var $78 = {};
-            for (var $79 in v) {
-              if ({}.hasOwnProperty.call(v, $79)) {
-                $78[$79] = v[$79];
+            var $80 = {};
+            for (var $81 in v) {
+              if ({}.hasOwnProperty.call(v, $81)) {
+                $80[$81] = v[$81];
               }
               ;
             }
             ;
-            $78.autoPanId = new Just(handle3);
-            return $78;
+            $80.autoPanId = new Just(handle3);
+            return $80;
           });
         });
       });
@@ -45381,31 +45402,31 @@ var trackPointer = function(env) {
     return function(position3) {
       return function(closestHandle) {
         return discard22(modify_3(function(v) {
-          var $81 = {};
-          for (var $82 in v) {
-            if ({}.hasOwnProperty.call(v, $82)) {
-              $81[$82] = v[$82];
+          var $83 = {};
+          for (var $84 in v) {
+            if ({}.hasOwnProperty.call(v, $84)) {
+              $83[$84] = v[$84];
             }
             ;
           }
           ;
-          $81.position = position3;
-          $81.closestHandle = closestHandle;
-          return $81;
+          $83.position = position3;
+          $83.closestHandle = closestHandle;
+          return $83;
         }))(function() {
           return bind110(get5)(function(s) {
             return unless2(s.autoPanStarted)(discard22(autoPanStep(env)(stateRef))(function() {
               return modify_3(function(v) {
-                var $84 = {};
-                for (var $85 in v) {
-                  if ({}.hasOwnProperty.call(v, $85)) {
-                    $84[$85] = v[$85];
+                var $86 = {};
+                for (var $87 in v) {
+                  if ({}.hasOwnProperty.call(v, $87)) {
+                    $86[$87] = v[$87];
                   }
                   ;
                 }
                 ;
-                $84.autoPanStarted = true;
-                return $84;
+                $86.autoPanStarted = true;
+                return $86;
               });
             }));
           });
@@ -45434,7 +45455,7 @@ var onPointerDown = function(event) {
           return Nothing.value;
         }
         ;
-        throw new Error("Failed pattern match at System.XYHandle (line 293, column 22 - line 295, column 28): " + [params.domNode.constructor.name]);
+        throw new Error("Failed pattern match at System.XYHandle (line 302, column 22 - line 304, column 28): " + [params.domNode.constructor.name]);
       }();
       var evPos = getEventPosition(event)(Nothing.value)();
       var hType = getHandleType(params.edgeUpdaterType)(new Just(params.handleDomNode))();
@@ -45478,16 +45499,16 @@ var onPointerDown = function(event) {
             };
             var previousConnection = $$new(initialConnection)();
             var startConnection = discard22(modify_3(function(v) {
-              var $93 = {};
-              for (var $94 in v) {
-                if ({}.hasOwnProperty.call(v, $94)) {
-                  $93[$94] = v[$94];
+              var $95 = {};
+              for (var $96 in v) {
+                if ({}.hasOwnProperty.call(v, $96)) {
+                  $95[$96] = v[$96];
                 }
                 ;
               }
               ;
-              $93.connectionStarted = true;
-              return $93;
+              $95.connectionStarted = true;
+              return $95;
             }))(function() {
               return bind110(liftEffect7(read(previousConnection)))(function(prev) {
                 return discard22(liftEffect7(params.updateConnection(new ConnectionInProgress(prev))))(function() {
@@ -45537,7 +45558,7 @@ var onPointerDown = function(event) {
                       return Nothing.value;
                     }
                     ;
-                    throw new Error("Failed pattern match at System.XYHandle (line 409, column 31 - line 415, column 43): " + [closest.constructor.name]);
+                    throw new Error("Failed pattern match at System.XYHandle (line 418, column 31 - line 424, column 43): " + [closest.constructor.name]);
                   }(),
                   connectionMode: params.connectionMode,
                   fromNodeId: params.nodeId,
@@ -45557,18 +45578,18 @@ var onPointerDown = function(event) {
                 })();
                 var validNow = isConnectionValid(isJust(closest))(result.isValid);
                 runOnRef(stateRef)(modify_3(function(v) {
-                  var $99 = {};
-                  for (var $100 in v) {
-                    if ({}.hasOwnProperty.call(v, $100)) {
-                      $99[$100] = v[$100];
+                  var $101 = {};
+                  for (var $102 in v) {
+                    if ({}.hasOwnProperty.call(v, $102)) {
+                      $101[$102] = v[$102];
                     }
                     ;
                   }
                   ;
-                  $99.resultHandleDomNode = result.handleDomNode;
-                  $99.connection = result.connection;
-                  $99.isValid = validNow;
-                  return $99;
+                  $101.resultHandleDomNode = result.handleDomNode;
+                  $101.connection = result.connection;
+                  $101.isValid = validNow;
+                  return $101;
                 }))();
                 var prev = read(previousConnection)();
                 var nextToPosition = function() {
@@ -45587,7 +45608,7 @@ var onPointerDown = function(event) {
                     return Nothing.value;
                   }
                   ;
-                  throw new Error("Failed pattern match at System.XYHandle (line 452, column 34 - line 454, column 41): " + [result.toHandle.constructor.name]);
+                  throw new Error("Failed pattern match at System.XYHandle (line 461, column 34 - line 463, column 41): " + [result.toHandle.constructor.name]);
                 }();
                 var nextTo = function() {
                   if (result.toHandle instanceof Just && (validNow instanceof Just && validNow.value0)) {
@@ -45609,7 +45630,7 @@ var onPointerDown = function(event) {
                     return prev.from;
                   }
                   ;
-                  throw new Error("Failed pattern match at System.XYHandle (line 439, column 29 - line 442, column 43): " + [fromInternalNode$prime.constructor.name]);
+                  throw new Error("Failed pattern match at System.XYHandle (line 448, column 29 - line 451, column 43): " + [fromInternalNode$prime.constructor.name]);
                 }();
                 var next = {
                   fromHandle: prev.fromHandle,
@@ -45641,7 +45662,7 @@ var onPointerDown = function(event) {
                     return pure37(unit);
                   }()))(function() {
                     return bind110(liftEffect7(read(previousConnection)))(function(prev) {
-                      var $$final = new Just(prev);
+                      var $$final = endConnection(prev);
                       return discard22(liftEffect7(for_7(params.onConnectEnd)(function(cb) {
                         return cb(ev)($$final);
                       })))(function() {
@@ -45654,20 +45675,20 @@ var onPointerDown = function(event) {
                     return discard22(liftEffect7(params.cancelConnection))(function() {
                       return discard22(liftEffect7(for_7(s.autoPanId)(cancelAnimationFrame)))(function() {
                         return discard22(modify_3(function(v) {
-                          var $118 = {};
-                          for (var $119 in v) {
-                            if ({}.hasOwnProperty.call(v, $119)) {
-                              $118[$119] = v[$119];
+                          var $120 = {};
+                          for (var $121 in v) {
+                            if ({}.hasOwnProperty.call(v, $121)) {
+                              $120[$121] = v[$121];
                             }
                             ;
                           }
                           ;
-                          $118.autoPanId = Nothing.value;
-                          $118.autoPanStarted = false;
-                          $118.isValid = Nothing.value;
-                          $118.connection = Nothing.value;
-                          $118.resultHandleDomNode = Nothing.value;
-                          return $118;
+                          $120.autoPanId = Nothing.value;
+                          $120.autoPanStarted = false;
+                          $120.isValid = Nothing.value;
+                          $120.connection = Nothing.value;
+                          $120.resultHandleDomNode = Nothing.value;
+                          return $120;
                         }))(function() {
                           return liftEffect7(removeDocListeners(doc)(onPointerMove)(onPointerUp));
                         });
@@ -45706,17 +45727,17 @@ var onPointerDown = function(event) {
                     return stepMove(ev)();
                   }
                   ;
-                  throw new Error("Failed pattern match at System.XYHandle (line 385, column 21 - line 387, column 44): " + [mFromHandleNow.constructor.name]);
+                  throw new Error("Failed pattern match at System.XYHandle (line 394, column 21 - line 396, column 44): " + [mFromHandleNow.constructor.name]);
                 })();
               };
             };
             return addDocListeners(doc)(onPointerMove)(onPointerUp)();
           }
           ;
-          throw new Error("Failed pattern match at System.XYHandle (line 317, column 11 - line 503, column 60): " + [mFromInternalNode.constructor.name]);
+          throw new Error("Failed pattern match at System.XYHandle (line 326, column 11 - line 512, column 60): " + [mFromInternalNode.constructor.name]);
         }
         ;
-        throw new Error("Failed pattern match at System.XYHandle (line 305, column 7 - line 503, column 60): " + [mFromInternal.constructor.name]);
+        throw new Error("Failed pattern match at System.XYHandle (line 314, column 7 - line 512, column 60): " + [mFromInternal.constructor.name]);
       }
       ;
       return unit;
@@ -47305,7 +47326,7 @@ var startsConnection = function(isConnectableStart) {
       return isConnectableStart;
     }
     ;
-    throw new Error("Failed pattern match at React.Handle (line 244, column 39 - line 246, column 32): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at React.Handle (line 246, column 39 - line 248, column 32): " + [v.constructor.name]);
   };
 };
 var selectHandleSlice = function(s) {
@@ -47329,7 +47350,7 @@ var selectConnectingFlags = function(nodeId) {
             return false;
           }
           ;
-          throw new Error("Failed pattern match at React.Handle (line 142, column 21 - line 146, column 21): " + [state3.connectionClickStartHandle.constructor.name]);
+          throw new Error("Failed pattern match at React.Handle (line 144, column 21 - line 148, column 21): " + [state3.connectionClickStartHandle.constructor.name]);
         }();
         if (state3.connection instanceof NoConnection) {
           return {
@@ -47346,14 +47367,14 @@ var selectConnectingFlags = function(nodeId) {
                   return notEq14(nodeId)(state3.connectionClickStartHandle.value0.nodeId) || notEq23(handleId)(state3.connectionClickStartHandle.value0.id);
                 }
                 ;
-                throw new Error("Failed pattern match at React.Handle (line 107, column 21 - line 109, column 67): " + [state3.connectionMode.constructor.name]);
+                throw new Error("Failed pattern match at React.Handle (line 109, column 21 - line 111, column 67): " + [state3.connectionMode.constructor.name]);
               }
               ;
               if (state3.connectionClickStartHandle instanceof Nothing) {
                 return false;
               }
               ;
-              throw new Error("Failed pattern match at React.Handle (line 106, column 30 - line 110, column 27): " + [state3.connectionClickStartHandle.constructor.name]);
+              throw new Error("Failed pattern match at React.Handle (line 108, column 30 - line 112, column 27): " + [state3.connectionClickStartHandle.constructor.name]);
             }(),
             connectionInProcess: false,
             clickConnectionInProcess,
@@ -47372,7 +47393,7 @@ var selectConnectingFlags = function(nodeId) {
               return false;
             }
             ;
-            throw new Error("Failed pattern match at React.Handle (line 124, column 21 - line 128, column 27): " + [state3.connection.value0.toHandle.constructor.name]);
+            throw new Error("Failed pattern match at React.Handle (line 126, column 21 - line 130, column 27): " + [state3.connection.value0.toHandle.constructor.name]);
           }();
           var fromMatches = eq110(state3.connection.value0.fromHandle.nodeId)(nodeId) && (eq44(state3.connection.value0.fromHandle.id)(ownId) && eq35(state3.connection.value0.fromHandle.handleType)(hType));
           return {
@@ -47388,7 +47409,7 @@ var selectConnectingFlags = function(nodeId) {
                 return notEq14(nodeId)(state3.connection.value0.fromHandle.nodeId) || notEq32(ownId)(state3.connection.value0.fromHandle.id);
               }
               ;
-              throw new Error("Failed pattern match at React.Handle (line 133, column 32 - line 136, column 42): " + [state3.connectionMode.constructor.name]);
+              throw new Error("Failed pattern match at React.Handle (line 135, column 32 - line 138, column 42): " + [state3.connectionMode.constructor.name]);
             }(),
             connectionInProcess: true,
             clickConnectionInProcess,
@@ -47396,7 +47417,7 @@ var selectConnectingFlags = function(nodeId) {
           };
         }
         ;
-        throw new Error("Failed pattern match at React.Handle (line 101, column 3 - line 140, column 10): " + [state3.connection.constructor.name]);
+        throw new Error("Failed pattern match at React.Handle (line 103, column 3 - line 142, column 10): " + [state3.connection.constructor.name]);
       };
     };
   };
@@ -47418,11 +47439,11 @@ var positionString = function(v) {
     return "bottom";
   }
   ;
-  throw new Error("Failed pattern match at React.Handle (line 151, column 18 - line 155, column 24): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Handle (line 153, column 18 - line 157, column 24): " + [v.constructor.name]);
 };
 var nativePointerEvent = function(se) {
-  var $122 = hasClientX(se.nativeEvent);
-  if ($122) {
+  var $125 = hasClientX(se.nativeEvent);
+  if ($125) {
     return new Left(se.nativeEvent);
   }
   ;
@@ -47473,7 +47494,7 @@ var joinNonEmpty = /* @__PURE__ */ function() {
           ;
         }
         ;
-        throw new Error("Failed pattern match at React.Handle (line 204, column 22 - line 209, column 57): " + [v.constructor.name]);
+        throw new Error("Failed pattern match at React.Handle (line 206, column 22 - line 211, column 57): " + [v.constructor.name]);
       }
       ;
       while (!$tco_done) {
@@ -47494,7 +47515,7 @@ var handleTypeString = function(v) {
     return "target";
   }
   ;
-  throw new Error("Failed pattern match at React.Handle (line 158, column 20 - line 160, column 21): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Handle (line 160, column 20 - line 162, column 21): " + [v.constructor.name]);
 };
 var extractFromHandle2 = function(v) {
   if (v instanceof NoConnection) {
@@ -47505,7 +47526,7 @@ var extractFromHandle2 = function(v) {
     return new Just(v.value0.fromHandle);
   }
   ;
-  throw new Error("Failed pattern match at React.Handle (line 254, column 21 - line 256, column 46): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Handle (line 256, column 21 - line 258, column 46): " + [v.constructor.name]);
 };
 var currentTargetElement2 = function(se) {
   return map41(unsafeCoerce2)(currentTarget(toEvent(syntheticToMouse2(se))));
@@ -47568,7 +47589,7 @@ var onConnectExtended = function(store) {
             return pure42(unit);
           }
           ;
-          throw new Error("Failed pattern match at React.Handle (line 318, column 5 - line 320, column 26): " + [v.constructor.name]);
+          throw new Error("Failed pattern match at React.Handle (line 320, column 5 - line 322, column 26): " + [v.constructor.name]);
         }())();
         for_10(state3.onConnect)(function(cb) {
           return cb(conn);
@@ -47580,10 +47601,34 @@ var onConnectExtended = function(store) {
     };
   };
 };
+var clickConnectEndState = function(v) {
+  if (v instanceof NoConnection) {
+    return Nothing.value;
+  }
+  ;
+  if (v instanceof ConnectionInProgress) {
+    return new Just({
+      from: v.value0.from,
+      fromHandle: v.value0.fromHandle,
+      fromNode: v.value0.fromNode,
+      fromPosition: v.value0.fromPosition,
+      isValid: v.value0.isValid,
+      pointer: v.value0.pointer,
+      to: v.value0.to,
+      toHandle: v.value0.toHandle,
+      toNode: v.value0.toNode,
+      toPosition: map41(function(v2) {
+        return v2.position;
+      })(v.value0.toHandle)
+    });
+  }
+  ;
+  throw new Error("Failed pattern match at React.Handle (line 337, column 24 - line 339, column 78): " + [v.constructor.name]);
+};
 var buildClassName = function(p) {
   var endSlotOk = function() {
-    var $136 = p.flags.connectionInProcess || p.flags.clickConnectionInProcess;
-    if ($136) {
+    var $141 = p.flags.connectionInProcess || p.flags.clickConnectionInProcess;
+    if ($141) {
       return p.isConnectableEnd;
     }
     ;
@@ -47659,7 +47704,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
             return unsafeThrow(errorMessage(E010.value));
           }
           ;
-          throw new Error("Failed pattern match at React.Handle (line 334, column 17 - line 336, column 49): " + [nodeIdM.constructor.name]);
+          throw new Error("Failed pattern match at React.Handle (line 347, column 17 - line 349, column 49): " + [nodeIdM.constructor.name]);
         }();
         var handleId = function() {
           if (v.id instanceof Just && v.id.value0 === "") {
@@ -47678,7 +47723,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
               return false;
             }
             ;
-            throw new Error("Failed pattern match at React.Handle (line 348, column 16 - line 350, column 22): " + [v.handleType.constructor.name]);
+            throw new Error("Failed pattern match at React.Handle (line 361, column 16 - line 363, column 22): " + [v.handleType.constructor.name]);
           }();
           var isConnectableStart = fromMaybe(true)(v.isConnectableStart);
           var onClick = handler(syntheticEvent)(function(se) {
@@ -47822,10 +47867,10 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                             };
                           }
                           ;
-                          throw new Error("Failed pattern match at React.Handle (line 453, column 30 - line 455, column 42): " + [state3.isValidConnection.constructor.name]);
+                          throw new Error("Failed pattern match at React.Handle (line 466, column 30 - line 468, column 42): " + [state3.isValidConnection.constructor.name]);
                         }
                         ;
-                        throw new Error("Failed pattern match at React.Handle (line 451, column 36 - line 455, column 42): " + [v.isValidConnection.constructor.name]);
+                        throw new Error("Failed pattern match at React.Handle (line 464, column 36 - line 468, column 42): " + [v.isValidConnection.constructor.name]);
                       }(),
                       doc: host3,
                       lib: state3.lib,
@@ -47839,19 +47884,8 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                       ;
                       return unit;
                     })();
-                    var finalState = function() {
-                      if (state3.connection instanceof NoConnection) {
-                        return Nothing.value;
-                      }
-                      ;
-                      if (state3.connection instanceof ConnectionInProgress) {
-                        return new Just(state3.connection.value0);
-                      }
-                      ;
-                      throw new Error("Failed pattern match at React.Handle (line 469, column 28 - line 471, column 49): " + [state3.connection.constructor.name]);
-                    }();
                     for_10(state3.onClickConnectEnd)(function(cb) {
-                      return cb(new Left(me))(finalState);
+                      return cb(new Left(me))(clickConnectEndState(state3.connection));
                     })();
                     return store.dispatch(new PatchState(function(v1) {
                       return {
@@ -47945,7 +47979,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                   };
                 }
                 ;
-                throw new Error("Failed pattern match at React.Handle (line 421, column 9 - line 474, column 74): " + [state3.connectionClickStartHandle.constructor.name]);
+                throw new Error("Failed pattern match at React.Handle (line 434, column 9 - line 479, column 74): " + [state3.connectionClickStartHandle.constructor.name]);
               }())();
             };
           });
@@ -47995,10 +48029,10 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                         };
                       }
                       ;
-                      throw new Error("Failed pattern match at React.Handle (line 398, column 28 - line 400, column 40): " + [state3.isValidConnection.constructor.name]);
+                      throw new Error("Failed pattern match at React.Handle (line 411, column 28 - line 413, column 40): " + [state3.isValidConnection.constructor.name]);
                     }
                     ;
-                    throw new Error("Failed pattern match at React.Handle (line 396, column 34 - line 400, column 40): " + [v.isValidConnection.constructor.name]);
+                    throw new Error("Failed pattern match at React.Handle (line 409, column 34 - line 413, column 40): " + [v.isValidConnection.constructor.name]);
                   }(),
                   onReconnectEnd: Nothing.value,
                   getTransform: map113(function(v2) {
@@ -48014,7 +48048,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                 })();
               }
               ;
-              throw new Error("Failed pattern match at React.Handle (line 376, column 9 - line 409, column 14): " + [v1.constructor.name]);
+              throw new Error("Failed pattern match at React.Handle (line 389, column 9 - line 422, column 14): " + [v1.constructor.name]);
             });
           });
           var isConnectableEnd = fromMaybe(true)(v.isConnectableEnd);
@@ -65641,18 +65675,29 @@ var useStore30 = function(v, v1) {
 var useStoreApi2 = /* @__PURE__ */ $$throw(/* @__PURE__ */ storeRefusal("useStoreApi"));
 var runHook = unsafeCoerce2;
 var useConnection = /* @__PURE__ */ function() {
-  var stateOut = function($36) {
+  var stateOut = function($37) {
     return connectionStateOut(function(v) {
       if (v instanceof NoConnection) {
         return Nothing.value;
       }
       ;
       if (v instanceof ConnectionInProgress) {
-        return new Just(v.value0);
+        return new Just({
+          from: v.value0.from,
+          fromHandle: v.value0.fromHandle,
+          fromNode: v.value0.fromNode,
+          fromPosition: v.value0.fromPosition,
+          isValid: v.value0.isValid,
+          pointer: v.value0.pointer,
+          to: v.value0.to,
+          toHandle: v.value0.toHandle,
+          toNode: v.value0.toNode,
+          toPosition: new Just(v.value0.toPosition)
+        });
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Hooks (line 420, column 37 - line 422, column 55): " + [v.constructor.name]);
-    }($36));
+      throw new Error("Failed pattern match at Boundary.Hooks (line 420, column 37 - line 424, column 99): " + [v.constructor.name]);
+    }($37));
   };
   return function(selector4) {
     var project = function() {
@@ -65671,22 +65716,22 @@ var useConnection = /* @__PURE__ */ function() {
       ;
       throw new Error("Failed pattern match at Boundary.Hooks (line 413, column 15 - line 415, column 69): " + [v.constructor.name]);
     }();
-    return map64(unwrap21)(runHook(useConnectionWith2(function($37) {
-      return UnsafeReference(project(stateOut($37)));
+    return map64(unwrap21)(runHook(useConnectionWith2(function($38) {
+      return UnsafeReference(project(stateOut($38)));
     })))();
   };
 }();
 var useEdges2 = /* @__PURE__ */ map64(/* @__PURE__ */ function() {
-  var $38 = map118(edgeOut);
-  return function($39) {
-    return $38(transparent($39));
+  var $39 = map118(edgeOut);
+  return function($40) {
+    return $39(transparent($40));
   };
 }())(/* @__PURE__ */ runHook(/* @__PURE__ */ useEdges(eqUnsafeReference)));
 var useInternalNode2 = function(id3) {
   return map64(function() {
-    var $40 = map210(internalNodeOut);
-    return function($41) {
-      return toUndefinable($40(transparent($41)));
+    var $41 = map210(internalNodeOut);
+    return function($42) {
+      return toUndefinable($41(transparent($42)));
     };
   }())(runHook(useInternalNode1(wrap7(id3))))();
 };
@@ -65699,9 +65744,9 @@ var useKeyPress2 = function(keyCode, options2) {
 };
 var useNodeId2 = /* @__PURE__ */ map64(toNullable)(/* @__PURE__ */ runHook(useNodeId));
 var useNodes2 = /* @__PURE__ */ map64(/* @__PURE__ */ function() {
-  var $42 = map118(nodeOut);
-  return function($43) {
-    return $42(transparent($43));
+  var $43 = map118(nodeOut);
+  return function($44) {
+    return $43(transparent($44));
   };
 }())(/* @__PURE__ */ runHook(/* @__PURE__ */ useNodes(eqUnsafeReference)));
 var useOnSelectionChange2 = function(options2) {
@@ -65729,7 +65774,7 @@ var readNodeId = function(field) {
       return unsafeThrow("ps-flow: `" + (field + ("` takes a node id or an array of them, got " + (typeName(raw) + "."))));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Hooks (line 590, column 24 - line 596, column 15): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Hooks (line 592, column 24 - line 598, column 15): " + [v.constructor.name]);
   };
 };
 var useUpdateNodeInternals2 = function __do2() {
@@ -65764,14 +65809,14 @@ var useNodesData2 = /* @__PURE__ */ function() {
   return function(ids) {
     var requested = oneOrMany(ids);
     var found = map64(transparent)(runHook(useNodesData1(map118(function() {
-      var $44 = readNodeId("useNodesData");
-      return function($45) {
-        return wrap7($44($45));
+      var $45 = readNodeId("useNodesData");
+      return function($46) {
+        return wrap7($45($46));
       };
     }())(requested))))();
     var picks = map118(nodeDataOut)(found);
-    var $35 = isJust(asArray(ids));
-    if ($35) {
+    var $36 = isJust(asArray(ids));
+    if ($36) {
       return unsafeToForeign(picks);
     }
     ;
@@ -65787,8 +65832,8 @@ var nodeConnectionsHandler = function(f) {
 };
 var member9 = function(bag) {
   return function(get7) {
-    return bind122(fromUndefinable(bag))(function($46) {
-      return fromUndefinable(get7($46));
+    return bind122(fromUndefinable(bag))(function($47) {
+      return fromUndefinable(get7($47));
     });
   };
 };
