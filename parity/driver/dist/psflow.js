@@ -25106,11 +25106,11 @@ var bottomNumber = Number.NEGATIVE_INFINITY;
 
 // output/Data.Ord/foreign.js
 var unsafeCompareImpl = function(lt) {
-  return function(eq48) {
+  return function(eq47) {
     return function(gt) {
       return function(x) {
         return function(y) {
-          return x < y ? lt : x === y ? eq48 : gt;
+          return x < y ? lt : x === y ? eq47 : gt;
         };
       };
     };
@@ -25486,7 +25486,7 @@ var fromJust = function() {
   };
 };
 var eqMaybe = function(dictEq) {
-  var eq48 = eq(dictEq);
+  var eq47 = eq(dictEq);
   return {
     eq: function(x) {
       return function(y) {
@@ -25495,7 +25495,7 @@ var eqMaybe = function(dictEq) {
         }
         ;
         if (x instanceof Just && y instanceof Just) {
-          return eq48(x.value0)(y.value0);
+          return eq47(x.value0)(y.value0);
         }
         ;
         return false;
@@ -26004,13 +26004,13 @@ var fst = function(v) {
   return v.value0;
 };
 var eqTuple = function(dictEq) {
-  var eq48 = eq(dictEq);
+  var eq47 = eq(dictEq);
   return function(dictEq1) {
     var eq114 = eq(dictEq1);
     return {
       eq: function(x) {
         return function(y) {
-          return eq48(x.value0)(y.value0) && eq114(x.value1)(y.value1);
+          return eq47(x.value0)(y.value0) && eq114(x.value1)(y.value1);
         };
       }
     };
@@ -29828,12 +29828,12 @@ var lookup = /* @__PURE__ */ function() {
   return runFn4(_lookup)(Nothing.value)(Just.create);
 }();
 var isSubmap = function(dictEq) {
-  var eq48 = eq(dictEq);
+  var eq47 = eq(dictEq);
   return function(m1) {
     return function(m2) {
       var f = function(k) {
         return function(v) {
-          return _lookup(false, eq48(v), k, m2);
+          return _lookup(false, eq47(v), k, m2);
         };
       };
       return all3(f)(m1);
@@ -32852,9 +32852,9 @@ function toString(num) {
 
 // output/React.Basic.Hooks/foreign.js
 var import_react2 = __toESM(require_react(), 1);
-var useEqCache = (eq48, a) => {
+var useEqCache = (eq47, a) => {
   const memoRef = import_react2.default.useRef(a);
-  if (memoRef.current !== a && !eq48(memoRef.current, a)) {
+  if (memoRef.current !== a && !eq47(memoRef.current, a)) {
     memoRef.current = a;
   }
   return memoRef.current;
@@ -32873,15 +32873,15 @@ function useState_(tuple, initialState2) {
   }
   return tuple(state3, setState.$$reactBasicHooks$$cachedSetState);
 }
-function useEffect_(eq48, deps, effect) {
-  const memoizedKey = useEqCache(eq48, deps);
+function useEffect_(eq47, deps, effect) {
+  const memoizedKey = useEqCache(eq47, deps);
   import_react2.default.useEffect(effect, [memoizedKey]);
 }
 function useEffectAlways_(effect) {
   return import_react2.default.useEffect(effect);
 }
-function useLayoutEffect_(eq48, deps, effect) {
-  const memoizedKey = useEqCache(eq48, deps);
+function useLayoutEffect_(eq47, deps, effect) {
+  const memoizedKey = useEqCache(eq47, deps);
   import_react2.default.useLayoutEffect(effect, [memoizedKey]);
 }
 var useRef_ = import_react2.default.useRef;
@@ -32892,8 +32892,8 @@ function writeRef_(ref, a) {
   ref.current = a;
 }
 var useContext_ = import_react2.default.useContext;
-function useMemo_(eq48, deps, computeA) {
-  const memoizedKey = useEqCache(eq48, deps);
+function useMemo_(eq47, deps, computeA) {
+  const memoizedKey = useEqCache(eq47, deps);
   return import_react2.default.useMemo(computeA, [memoizedKey]);
 }
 var useDebugValue_ = import_react2.default.useDebugValue;
@@ -33021,21 +33021,21 @@ var useRef = function(initialValue) {
   });
 };
 var useMemo = function(dictEq) {
-  var eq48 = eq(dictEq);
+  var eq47 = eq(dictEq);
   return function(deps) {
     return function(computeA) {
       return unsafeHook(function() {
-        return useMemo_(mkFn2(eq48), deps, computeA);
+        return useMemo_(mkFn2(eq47), deps, computeA);
       });
     };
   };
 };
 var useLayoutEffect = function(dictEq) {
-  var eq48 = eq(dictEq);
+  var eq47 = eq(dictEq);
   return function(deps) {
     return function(effect) {
       return unsafeHook(function() {
-        return useLayoutEffect_(mkFn2(eq48), deps, effect);
+        return useLayoutEffect_(mkFn2(eq47), deps, effect);
       });
     };
   };
@@ -33053,11 +33053,11 @@ var useEffectAlways = function(effect) {
   });
 };
 var useEffect = function(dictEq) {
-  var eq48 = eq(dictEq);
+  var eq47 = eq(dictEq);
   return function(deps) {
     return function(effect) {
       return unsafeHook(function() {
-        return useEffect_(mkFn2(eq48), deps, effect);
+        return useEffect_(mkFn2(eq47), deps, effect);
       });
     };
   };
@@ -33542,7 +33542,7 @@ var useStoreApi = /* @__PURE__ */ coerceHook2(/* @__PURE__ */ bind6(/* @__PURE__
   throw new Error("Failed pattern match at React.Hook.Store (line 83, column 3 - line 85, column 47): " + [mStore.constructor.name]);
 }));
 var useStore = function(dictEq) {
-  var eq48 = eq(dictEq);
+  var eq47 = eq(dictEq);
   return function(selector4) {
     return coerceHook2(bind6(useContext(storeContext))(function(mStore) {
       var store = function() {
@@ -33557,7 +33557,7 @@ var useStore = function(dictEq) {
         throw new Error("Failed pattern match at React.Hook.Store (line 106, column 13 - line 108, column 42): " + [mStore.constructor.name]);
       }();
       return unsafeHook(function() {
-        return useStoreImpl(store, selector4, eq48);
+        return useStoreImpl(store, selector4, eq47);
       });
     }));
   };
@@ -35030,11 +35030,11 @@ var insert5 = function(dictOrd) {
   };
 };
 var eqSet = function(dictEq) {
-  var eq48 = eq(eqMap(dictEq)(eqUnit));
+  var eq47 = eq(eqMap(dictEq)(eqUnit));
   return {
     eq: function(v) {
       return function(v1) {
-        return eq48(v)(v1);
+        return eq47(v)(v1);
       };
     }
   };
@@ -47089,6 +47089,9 @@ var indexString = function(dictMonad) {
   };
 };
 
+// output/React.Handle/foreign.js
+var hasClientX = (event) => "clientX" in event;
+
 // output/React.Context.NodeId/index.js
 var nodeIdContext = /* @__PURE__ */ function() {
   return unsafePerformEffect(createContext(Nothing.value));
@@ -47101,16 +47104,16 @@ var nodeIdProvider = function(value12) {
 var useNodeId = /* @__PURE__ */ useContext(nodeIdContext);
 
 // output/React.Handle/index.js
-var eq20 = /* @__PURE__ */ eq(eqNodeId);
+var eq110 = /* @__PURE__ */ eq(eqNodeId);
 var eqMaybe6 = /* @__PURE__ */ eqMaybe(eqString);
-var eq110 = /* @__PURE__ */ eq(eqMaybe6);
-var eq26 = /* @__PURE__ */ eq(eqHandleType);
+var eq26 = /* @__PURE__ */ eq(eqMaybe6);
+var eq35 = /* @__PURE__ */ eq(eqHandleType);
 var notEq6 = /* @__PURE__ */ notEq(eqHandleType);
 var notEq14 = /* @__PURE__ */ notEq(eqNodeId);
 var notEq23 = /* @__PURE__ */ notEq(eqMaybe6);
-var eq35 = /* @__PURE__ */ eq(eqHandleIdField);
+var eq44 = /* @__PURE__ */ eq(eqHandleIdField);
 var notEq32 = /* @__PURE__ */ notEq(eqHandleIdField);
-var eq44 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var eq52 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var map41 = /* @__PURE__ */ map(functorMaybe);
 var bindFlipped5 = /* @__PURE__ */ bindFlipped(bindMaybe);
 var when8 = /* @__PURE__ */ when(applicativeEffect);
@@ -47164,6 +47167,19 @@ var useStore16 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec6(/* @__PURE__ */
 var map113 = /* @__PURE__ */ map(functorEffect);
 var pure117 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var syntheticToMouse2 = unsafeCoerce2;
+var startsConnection = function(isConnectableStart) {
+  return function(v) {
+    if (v instanceof Left) {
+      return isConnectableStart && button(v.value0) === 0;
+    }
+    ;
+    if (v instanceof Right) {
+      return isConnectableStart;
+    }
+    ;
+    throw new Error("Failed pattern match at React.Handle (line 244, column 39 - line 246, column 32): " + [v.constructor.name]);
+  };
+};
 var selectHandleSlice = function(s) {
   return {
     connectOnClick: s.connectOnClick,
@@ -47178,14 +47194,14 @@ var selectConnectingFlags = function(nodeId) {
         var clickConnectionInProcess = isJust(state3.connectionClickStartHandle);
         var clickConnecting = function() {
           if (state3.connectionClickStartHandle instanceof Just) {
-            return eq20(state3.connectionClickStartHandle.value0.nodeId)(nodeId) && (eq110(state3.connectionClickStartHandle.value0.id)(handleId) && eq26(state3.connectionClickStartHandle.value0.handleType)(hType));
+            return eq110(state3.connectionClickStartHandle.value0.nodeId)(nodeId) && (eq26(state3.connectionClickStartHandle.value0.id)(handleId) && eq35(state3.connectionClickStartHandle.value0.handleType)(hType));
           }
           ;
           if (state3.connectionClickStartHandle instanceof Nothing) {
             return false;
           }
           ;
-          throw new Error("Failed pattern match at React.Handle (line 138, column 21 - line 142, column 21): " + [state3.connectionClickStartHandle.constructor.name]);
+          throw new Error("Failed pattern match at React.Handle (line 142, column 21 - line 146, column 21): " + [state3.connectionClickStartHandle.constructor.name]);
         }();
         if (state3.connection instanceof NoConnection) {
           return {
@@ -47202,14 +47218,14 @@ var selectConnectingFlags = function(nodeId) {
                   return notEq14(nodeId)(state3.connectionClickStartHandle.value0.nodeId) || notEq23(handleId)(state3.connectionClickStartHandle.value0.id);
                 }
                 ;
-                throw new Error("Failed pattern match at React.Handle (line 103, column 21 - line 105, column 67): " + [state3.connectionMode.constructor.name]);
+                throw new Error("Failed pattern match at React.Handle (line 107, column 21 - line 109, column 67): " + [state3.connectionMode.constructor.name]);
               }
               ;
               if (state3.connectionClickStartHandle instanceof Nothing) {
                 return false;
               }
               ;
-              throw new Error("Failed pattern match at React.Handle (line 102, column 30 - line 106, column 27): " + [state3.connectionClickStartHandle.constructor.name]);
+              throw new Error("Failed pattern match at React.Handle (line 106, column 30 - line 110, column 27): " + [state3.connectionClickStartHandle.constructor.name]);
             }(),
             connectionInProcess: false,
             clickConnectionInProcess,
@@ -47221,16 +47237,16 @@ var selectConnectingFlags = function(nodeId) {
           var ownId = maybe(HandleIdNull.value)(HandleIdSet.create)(handleId);
           var toMatches = function() {
             if (state3.connection.value0.toHandle instanceof Just) {
-              return eq20(state3.connection.value0.toHandle.value0.nodeId)(nodeId) && (eq35(state3.connection.value0.toHandle.value0.id)(ownId) && eq26(state3.connection.value0.toHandle.value0.handleType)(hType));
+              return eq110(state3.connection.value0.toHandle.value0.nodeId)(nodeId) && (eq44(state3.connection.value0.toHandle.value0.id)(ownId) && eq35(state3.connection.value0.toHandle.value0.handleType)(hType));
             }
             ;
             if (state3.connection.value0.toHandle instanceof Nothing) {
               return false;
             }
             ;
-            throw new Error("Failed pattern match at React.Handle (line 120, column 21 - line 124, column 27): " + [state3.connection.value0.toHandle.constructor.name]);
+            throw new Error("Failed pattern match at React.Handle (line 124, column 21 - line 128, column 27): " + [state3.connection.value0.toHandle.constructor.name]);
           }();
-          var fromMatches = eq20(state3.connection.value0.fromHandle.nodeId)(nodeId) && (eq35(state3.connection.value0.fromHandle.id)(ownId) && eq26(state3.connection.value0.fromHandle.handleType)(hType));
+          var fromMatches = eq110(state3.connection.value0.fromHandle.nodeId)(nodeId) && (eq44(state3.connection.value0.fromHandle.id)(ownId) && eq35(state3.connection.value0.fromHandle.handleType)(hType));
           return {
             connectingFrom: fromMatches,
             connectingTo: toMatches,
@@ -47244,15 +47260,15 @@ var selectConnectingFlags = function(nodeId) {
                 return notEq14(nodeId)(state3.connection.value0.fromHandle.nodeId) || notEq32(ownId)(state3.connection.value0.fromHandle.id);
               }
               ;
-              throw new Error("Failed pattern match at React.Handle (line 129, column 32 - line 132, column 42): " + [state3.connectionMode.constructor.name]);
+              throw new Error("Failed pattern match at React.Handle (line 133, column 32 - line 136, column 42): " + [state3.connectionMode.constructor.name]);
             }(),
             connectionInProcess: true,
             clickConnectionInProcess,
-            valid: toMatches && eq44(state3.connection.value0.isValid)(new Just(true))
+            valid: toMatches && eq52(state3.connection.value0.isValid)(new Just(true))
           };
         }
         ;
-        throw new Error("Failed pattern match at React.Handle (line 97, column 3 - line 136, column 10): " + [state3.connection.constructor.name]);
+        throw new Error("Failed pattern match at React.Handle (line 101, column 3 - line 140, column 10): " + [state3.connection.constructor.name]);
       };
     };
   };
@@ -47274,7 +47290,15 @@ var positionString = function(v) {
     return "bottom";
   }
   ;
-  throw new Error("Failed pattern match at React.Handle (line 147, column 18 - line 151, column 24): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Handle (line 151, column 18 - line 155, column 24): " + [v.constructor.name]);
+};
+var nativePointerEvent = function(se) {
+  var $122 = hasClientX(se.nativeEvent);
+  if ($122) {
+    return new Left(se.nativeEvent);
+  }
+  ;
+  return new Right(se.nativeEvent);
 };
 var liftValidConn = function(iv) {
   return function(conn) {
@@ -47321,7 +47345,7 @@ var joinNonEmpty = /* @__PURE__ */ function() {
           ;
         }
         ;
-        throw new Error("Failed pattern match at React.Handle (line 200, column 22 - line 205, column 57): " + [v.constructor.name]);
+        throw new Error("Failed pattern match at React.Handle (line 204, column 22 - line 209, column 57): " + [v.constructor.name]);
       }
       ;
       while (!$tco_done) {
@@ -47342,7 +47366,7 @@ var handleTypeString = function(v) {
     return "target";
   }
   ;
-  throw new Error("Failed pattern match at React.Handle (line 154, column 20 - line 156, column 21): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Handle (line 158, column 20 - line 160, column 21): " + [v.constructor.name]);
 };
 var extractFromHandle2 = function(v) {
   if (v instanceof NoConnection) {
@@ -47353,7 +47377,7 @@ var extractFromHandle2 = function(v) {
     return new Just(v.value0.fromHandle);
   }
   ;
-  throw new Error("Failed pattern match at React.Handle (line 222, column 21 - line 224, column 46): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Handle (line 254, column 21 - line 256, column 46): " + [v.constructor.name]);
 };
 var currentTargetElement2 = function(se) {
   return map41(unsafeCoerce2)(currentTarget(toEvent(syntheticToMouse2(se))));
@@ -47416,7 +47440,7 @@ var onConnectExtended = function(store) {
             return pure42(unit);
           }
           ;
-          throw new Error("Failed pattern match at React.Handle (line 286, column 5 - line 288, column 26): " + [v.constructor.name]);
+          throw new Error("Failed pattern match at React.Handle (line 318, column 5 - line 320, column 26): " + [v.constructor.name]);
         }())();
         for_10(state3.onConnect)(function(cb) {
           return cb(conn);
@@ -47430,8 +47454,8 @@ var onConnectExtended = function(store) {
 };
 var buildClassName = function(p) {
   var endSlotOk = function() {
-    var $131 = p.flags.connectionInProcess || p.flags.clickConnectionInProcess;
-    if ($131) {
+    var $136 = p.flags.connectionInProcess || p.flags.clickConnectionInProcess;
+    if ($136) {
       return p.isConnectableEnd;
     }
     ;
@@ -47507,7 +47531,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
             return unsafeThrow(errorMessage(E010.value));
           }
           ;
-          throw new Error("Failed pattern match at React.Handle (line 302, column 17 - line 304, column 49): " + [nodeIdM.constructor.name]);
+          throw new Error("Failed pattern match at React.Handle (line 334, column 17 - line 336, column 49): " + [nodeIdM.constructor.name]);
         }();
         var handleId = function() {
           if (v.id instanceof Just && v.id.value0 === "") {
@@ -47526,11 +47550,12 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
               return false;
             }
             ;
-            throw new Error("Failed pattern match at React.Handle (line 316, column 16 - line 318, column 22): " + [v.handleType.constructor.name]);
+            throw new Error("Failed pattern match at React.Handle (line 348, column 16 - line 350, column 22): " + [v.handleType.constructor.name]);
           }();
           var isConnectableStart = fromMaybe(true)(v.isConnectableStart);
           var onClick = handler(syntheticEvent)(function(se) {
             var me = syntheticToMouse2(se);
+            var event = nativePointerEvent(se);
             return function __do3() {
               var state3 = store.getState();
               var haveStart = isJust(state3.connectionClickStartHandle);
@@ -47538,7 +47563,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                 if (state3.connectionClickStartHandle instanceof Nothing) {
                   return function __do4() {
                     for_10(state3.onClickConnectStart)(function(cb) {
-                      return cb(new Left(me))({
+                      return cb(event)({
                         nodeId: new Just(nodeIdStr),
                         handleId,
                         handleType: new Just(v.handleType)
@@ -47643,7 +47668,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                 if (state3.connectionClickStartHandle instanceof Just) {
                   return function __do4() {
                     var host3 = getHostForElement(Nothing.value)();
-                    var result = xyHandle.isValid(new Left(me))({
+                    var result = xyHandle.isValid(event)({
                       handle: new Just({
                         nodeId: nodeIdStr,
                         id: maybe(HandleIdNull.value)(HandleIdSet.create)(handleId),
@@ -47669,10 +47694,10 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                             };
                           }
                           ;
-                          throw new Error("Failed pattern match at React.Handle (line 419, column 30 - line 421, column 42): " + [state3.isValidConnection.constructor.name]);
+                          throw new Error("Failed pattern match at React.Handle (line 453, column 30 - line 455, column 42): " + [state3.isValidConnection.constructor.name]);
                         }
                         ;
-                        throw new Error("Failed pattern match at React.Handle (line 417, column 36 - line 421, column 42): " + [v.isValidConnection.constructor.name]);
+                        throw new Error("Failed pattern match at React.Handle (line 451, column 36 - line 455, column 42): " + [v.isValidConnection.constructor.name]);
                       }(),
                       doc: host3,
                       lib: state3.lib,
@@ -47695,7 +47720,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                         return new Just(state3.connection.value0);
                       }
                       ;
-                      throw new Error("Failed pattern match at React.Handle (line 435, column 28 - line 437, column 49): " + [state3.connection.constructor.name]);
+                      throw new Error("Failed pattern match at React.Handle (line 469, column 28 - line 471, column 49): " + [state3.connection.constructor.name]);
                     }();
                     for_10(state3.onClickConnectEnd)(function(cb) {
                       return cb(new Left(me))(finalState);
@@ -47792,13 +47817,13 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                   };
                 }
                 ;
-                throw new Error("Failed pattern match at React.Handle (line 387, column 9 - line 440, column 74): " + [state3.connectionClickStartHandle.constructor.name]);
+                throw new Error("Failed pattern match at React.Handle (line 421, column 9 - line 474, column 74): " + [state3.connectionClickStartHandle.constructor.name]);
               }())();
             };
           });
           var onPointerDown2 = handler(syntheticEvent)(function(se) {
-            var me = syntheticToMouse2(se);
-            return when8(isConnectableStart && button(me) === 0)(function __do3() {
+            var event = nativePointerEvent(se);
+            return when8(startsConnection(isConnectableStart)(event))(function __do3() {
               var state3 = store.getState();
               var v1 = currentTargetElement2(se);
               if (v1 instanceof Nothing) {
@@ -47806,7 +47831,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
               }
               ;
               if (v1 instanceof Just) {
-                return xyHandle.onPointerDown(new Left(me))({
+                return xyHandle.onPointerDown(event)({
                   autoPanOnConnect: state3.autoPanOnConnect,
                   connectionMode: state3.connectionMode,
                   connectionRadius: state3.connectionRadius,
@@ -47842,10 +47867,10 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                         };
                       }
                       ;
-                      throw new Error("Failed pattern match at React.Handle (line 366, column 28 - line 368, column 40): " + [state3.isValidConnection.constructor.name]);
+                      throw new Error("Failed pattern match at React.Handle (line 398, column 28 - line 400, column 40): " + [state3.isValidConnection.constructor.name]);
                     }
                     ;
-                    throw new Error("Failed pattern match at React.Handle (line 364, column 34 - line 368, column 40): " + [v.isValidConnection.constructor.name]);
+                    throw new Error("Failed pattern match at React.Handle (line 396, column 34 - line 400, column 40): " + [v.isValidConnection.constructor.name]);
                   }(),
                   onReconnectEnd: Nothing.value,
                   getTransform: map113(function(v2) {
@@ -47861,7 +47886,7 @@ var handle = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE
                 })();
               }
               ;
-              throw new Error("Failed pattern match at React.Handle (line 344, column 9 - line 377, column 14): " + [v1.constructor.name]);
+              throw new Error("Failed pattern match at React.Handle (line 376, column 9 - line 409, column 14): " + [v1.constructor.name]);
             });
           });
           var isConnectableEnd = fromMaybe(true)(v.isConnectableEnd);
@@ -48148,7 +48173,7 @@ var hasSelectorImpl = (target5) => (selector4) => (domNode) => () => {
 // output/System.XYDrag.Utils/index.js
 var member7 = /* @__PURE__ */ member3(ordParentId);
 var lookup15 = /* @__PURE__ */ lookup2(ordNodeId);
-var eq21 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var eq20 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var insert8 = /* @__PURE__ */ insert5(ordParentId);
 var eq111 = /* @__PURE__ */ eq(eqNodeId);
 var eq27 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqNodeId));
@@ -48180,7 +48205,7 @@ var isParentSelected = function(node) {
               }
               ;
               if (v2 instanceof Just) {
-                var $24 = eq21(v2.value0.selected)(new Just(true));
+                var $24 = eq20(v2.value0.selected)(new Just(true));
                 if ($24) {
                   $tco_done = true;
                   return true;
@@ -48328,7 +48353,7 @@ var getDragItems = function(order) {
             throw new Error("Failed pattern match at System.XYDrag.Utils (line 91, column 30 - line 93, column 51): " + [node.parentId.constructor.name]);
           };
           var isTarget = function(node) {
-            return eq21(node.selected)(new Just(true)) || eq27(mNodeId)(new Just(node.id));
+            return eq20(node.selected)(new Just(true)) || eq27(mNodeId)(new Just(node.id));
           };
           var isDraggable = function(node) {
             if (node.draggable instanceof Just) {
@@ -48406,7 +48431,7 @@ var when12 = /* @__PURE__ */ when(applicativeEffect);
 var pure47 = /* @__PURE__ */ pure(applicativeEffect);
 var unsafeReadTagged2 = /* @__PURE__ */ unsafeReadTagged(monadIdentity);
 var unless3 = /* @__PURE__ */ unless(applicativeStateT3);
-var eq28 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var eq21 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var map114 = /* @__PURE__ */ map(functorEffect);
 var pure118 = /* @__PURE__ */ pure(applicativeStateT3);
 var bind210 = /* @__PURE__ */ bind(bindAff);
@@ -48715,7 +48740,7 @@ var startDrag = function(params) {
                 var alreadySelected = function() {
                   var v = lookup16(upd.nodeId.value0)(store.nodeLookup);
                   if (v instanceof Just) {
-                    return eq28(v.value0.selected)(new Just(true));
+                    return eq21(v.value0.selected)(new Just(true));
                   }
                   ;
                   if (v instanceof Nothing) {
@@ -49285,7 +49310,7 @@ var useDrag = function(opts) {
 };
 
 // output/React.Hook.MoveSelectedNodes/index.js
-var eq29 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var eq28 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var map44 = /* @__PURE__ */ map(functorArray);
 var lookup17 = /* @__PURE__ */ lookup2(ordNodeId);
 var useMoveSelectedNodes = /* @__PURE__ */ function() {
@@ -49295,7 +49320,7 @@ var useMoveSelectedNodes = /* @__PURE__ */ function() {
         return function __do3() {
           var st = store.getState();
           var selected2 = filter(function(n) {
-            return eq29(n.selected)(new Just(true));
+            return eq28(n.selected)(new Just(true));
           })(st.nodes);
           var dragItems = map44(function(n) {
             var newPos = {
@@ -49347,7 +49372,7 @@ var useMoveSelectedNodes = /* @__PURE__ */ function() {
 var pure49 = /* @__PURE__ */ pure(applicativeEffect);
 var map45 = /* @__PURE__ */ map(functorMaybe);
 var unwrap14 = /* @__PURE__ */ unwrap();
-var eq30 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var eq29 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var bind114 = /* @__PURE__ */ bind4(ixBindRender);
 var useStore17 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
@@ -49423,7 +49448,7 @@ var isNumericN = function(n) {
 var selectSlice3 = function(s) {
   var t = unwrap14(s.transform);
   var rect = getInternalNodesBounds(s.nodeLookup)(new Just(function(n) {
-    return eq30(n.selected)(new Just(true));
+    return eq29(n.selected)(new Just(true));
   }));
   var transformString = "translate(" + (showN11(t.tx) + ("px," + (showN11(t.ty) + ("px)" + (" scale(" + (showN11(t.scale) + (")" + (" translate(" + (showN11(rect.x) + ("px," + (showN11(rect.y) + "px)")))))))))));
   return {
@@ -49498,7 +49523,7 @@ var nodesSelection = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/*
                   return function __do3() {
                     var st = store.getState();
                     var selected2 = filter(function(n) {
-                      return eq30(n.selected)(new Just(true));
+                      return eq29(n.selected)(new Just(true));
                     })(st.nodes);
                     return cb(se)(selected2)();
                   };
@@ -49747,7 +49772,7 @@ var insert12 = /* @__PURE__ */ insert4(ordString);
 var max10 = /* @__PURE__ */ max(ordInt);
 var min7 = /* @__PURE__ */ min(ordInt);
 var toUnfoldable8 = /* @__PURE__ */ toUnfoldable5(unfoldableArray);
-var eq31 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var eq30 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var map46 = /* @__PURE__ */ map(functorArray);
 var fromFoldable9 = /* @__PURE__ */ fromFoldable4(ordNodeId)(foldableArray);
 var member8 = /* @__PURE__ */ member2(ordNodeId);
@@ -49963,7 +49988,7 @@ var getNodeSelectionChanges = function(lookup210) {
   return function(selectedIds) {
     return function(mutate2) {
       var r = getSelectionChangesGeneric1(function(v) {
-        return eq31(v)(new Just(true));
+        return eq30(v)(new Just(true));
       })(Just.create)(lookup210)(selectedIds)(mutate2);
       var changes = map46(function(p) {
         return new NodeSelectionChange({
@@ -50051,7 +50076,7 @@ var getNodeElementsDiffChanges = function(mItems) {
 var getEdgeSelectionChanges = function(lookup210) {
   return function(selectedIds) {
     var r = getSelectionChangesGeneric2(function(v) {
-      return eq31(v)(new Just(true));
+      return eq30(v)(new Just(true));
     })(Just.create)(lookup210)(selectedIds)(false);
     var changes = map46(function(p) {
       return new EdgeSelectionChange({
@@ -53253,7 +53278,7 @@ var zoomPane = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PU
 })));
 
 // output/React.Hook.GlobalKeyHandler/index.js
-var eq36 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var eq31 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var $$void9 = /* @__PURE__ */ $$void(functorAff);
 var map50 = /* @__PURE__ */ map(functorArray);
 var coerceHook6 = /* @__PURE__ */ coerceHook();
@@ -53265,7 +53290,7 @@ var pure58 = /* @__PURE__ */ pure(applicativeEffect);
 var deleteSelectedElements = function(store) {
   return function(deleteElements) {
     var selected2 = function(item) {
-      return eq36(item.selected)(new Just(true));
+      return eq31(item.selected)(new Just(true));
     };
     return function __do3() {
       var s = store.getState();
@@ -53700,7 +53725,7 @@ var lookup21 = /* @__PURE__ */ lookup2(ordNodeId);
 var unwrap16 = /* @__PURE__ */ unwrap();
 var eqMaybe8 = /* @__PURE__ */ eqMaybe(eqBoolean);
 var notEq10 = /* @__PURE__ */ notEq(eqMaybe8);
-var eq37 = /* @__PURE__ */ eq(eqMaybe8);
+var eq36 = /* @__PURE__ */ eq(eqMaybe8);
 var $$void10 = /* @__PURE__ */ $$void(functorEffect);
 var map52 = /* @__PURE__ */ map(functorEffect);
 var for_18 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
@@ -53726,7 +53751,7 @@ var handleNodeClick = function(args) {
         return args.store.dispatch(new AddSelectedNodes([args.id]))();
       }
       ;
-      var $21 = args.unselect || eq37(v.value0.selected)(new Just(true)) && state3.multiSelectionActive;
+      var $21 = args.unselect || eq36(v.value0.selected)(new Just(true)) && state3.multiSelectionActive;
       if ($21) {
         args.store.dispatch(new UnselectNodesAndEdges({
           nodes: new Just([v.value0]),
@@ -53764,7 +53789,7 @@ var useStore22 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ *
     return "isParent";
   }
 })(eqBoolean)));
-var eq38 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var eq37 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var unless6 = /* @__PURE__ */ unless(applicativeEffect);
 var elem9 = /* @__PURE__ */ elem2(eqString);
 var lookup24 = /* @__PURE__ */ lookup2(ordString);
@@ -54059,7 +54084,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
       }))(function(nodeRef) {
         return bind118(useDrag({
           wrapperRef: nodeRef,
-          disabled: eq38(slice3.node.hidden)(new Just(true)) || !isDraggable,
+          disabled: eq37(slice3.node.hidden)(new Just(true)) || !isDraggable,
           nodeId: new Just(v.id),
           noDragClassName: new Just(v.noDragClassName),
           handleSelector: slice3.node.dragHandle,
@@ -54096,7 +54121,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                   }
                   ;
                   var v1 = lookup24(k)(arrowKeyDiffs);
-                  if (v1 instanceof Just && (isDraggable && eq38(slice3.node.selected)(new Just(true)))) {
+                  if (v1 instanceof Just && (isDraggable && eq37(slice3.node.selected)(new Just(true)))) {
                     return function __do4() {
                       preventDefault(toEvent2(ke))();
                       return moveSelectedNodes(v1.value0)(function() {
@@ -54211,7 +54236,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
             });
             var mergedStyle = mergeStyles(mergeStyles(baseStyle)(fromMaybe(emptyForeign2)(map53(unsafeToForeign)(slice3.node.style))))(dimStyle);
             return pure125(function() {
-              var $85 = eq38(slice3.node.hidden)(new Just(true));
+              var $85 = eq37(slice3.node.hidden)(new Just(true));
               if ($85) {
                 return mempty16;
               }
@@ -54224,7 +54249,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                   isDraggable,
                   isSelectable,
                   isParent: slice3.isParent,
-                  selected: eq38(slice3.node.selected)(new Just(true)),
+                  selected: eq37(slice3.node.selected)(new Just(true)),
                   dragging
                 }),
                 ref: nodeRef,
@@ -55300,7 +55325,7 @@ var fromFoldable11 = /* @__PURE__ */ fromFoldable5(foldableArray);
 var fromFoldable13 = /* @__PURE__ */ fromFoldable11(ordString);
 var fromFoldable23 = /* @__PURE__ */ fromFoldable11(ordNodeId);
 var toUnfoldable10 = /* @__PURE__ */ toUnfoldable5(unfoldableArray);
-var eq39 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var eq38 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var lookup25 = /* @__PURE__ */ lookup2(ordNodeId);
 var eq113 = /* @__PURE__ */ eq(eqNodeId);
 var max14 = /* @__PURE__ */ max(ordNumber);
@@ -56749,7 +56774,7 @@ var reduceResetSelectedElements = function(state3) {
   if (otherwise) {
     var nodePairs = toUnfoldable10(state3.nodeLookup);
     var nodeChanges = mapMaybe(function(v) {
-      var $80 = eq39(v.value1.selected)(new Just(true));
+      var $80 = eq38(v.value1.selected)(new Just(true));
       if ($80) {
         return new Just(new NodeSelectionChange({
           id: v.value1.id,
@@ -56761,7 +56786,7 @@ var reduceResetSelectedElements = function(state3) {
     })(nodePairs);
     var edgePairs = toUnfoldable10(state3.edgeLookup);
     var edgeChanges = mapMaybe(function(v) {
-      var $84 = eq39(v.value1.selected)(new Just(true));
+      var $84 = eq38(v.value1.selected)(new Just(true));
       if ($84) {
         return new Just(new EdgeSelectionChange({
           id: v.value1.id,
@@ -56811,7 +56836,7 @@ var reduceUnselectNodesAndEdges = function(state3) {
         selected: false
       });
     })(filter(function(n) {
-      return eq39(n.selected)(new Just(true));
+      return eq38(n.selected)(new Just(true));
     })(targetNodes));
     var edgeChanges = map59(function(e) {
       return new EdgeSelectionChange({
@@ -56819,7 +56844,7 @@ var reduceUnselectNodesAndEdges = function(state3) {
         selected: false
       });
     })(filter(function(e) {
-      return eq39(e.selected)(new Just(true));
+      return eq38(e.selected)(new Just(true));
     })(targetEdges));
     var afterNodes = reduceTriggerNodeChanges(state3)(nodeChanges);
     var afterEdges = reduceTriggerEdgeChanges(afterNodes.state)(edgeChanges);
@@ -56836,7 +56861,7 @@ var reduceUpdateNodePositions = function(state3) {
         return function(item) {
           var mNode = lookup25(item.id)(state3.nodeLookup);
           var expandParentOf = function() {
-            if (mNode instanceof Just && eq39(mNode.value0.expandParent)(new Just(true))) {
+            if (mNode instanceof Just && eq38(mNode.value0.expandParent)(new Just(true))) {
               return mNode.value0.parentId;
             }
             ;
@@ -58344,7 +58369,7 @@ var createStore = function(opts) {
       };
     };
     var subscribe = function(dictEq) {
-      var eq48 = eq(dictEq);
+      var eq47 = eq(dictEq);
       return function(selector4) {
         return function(cb) {
           return function __do4() {
@@ -58355,7 +58380,7 @@ var createStore = function(opts) {
               return function(next) {
                 var prevV = selector4(prev);
                 var nextV = selector4(next);
-                var $54 = eq48(prevV)(nextV);
+                var $54 = eq47(prevV)(nextV);
                 if ($54) {
                   return pure70(unit);
                 }
@@ -58540,7 +58565,7 @@ var useColorModeClass = function(mode) {
 };
 
 // output/React.Provider.SelectionListener/index.js
-var eq40 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var eq39 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var unwrap19 = /* @__PURE__ */ unwrap();
 var fromFoldable14 = /* @__PURE__ */ fromFoldable(foldableList);
 var reactComponent10 = /* @__PURE__ */ reactComponent()()();
@@ -58565,7 +58590,7 @@ var useStore110 = /* @__PURE__ */ useStore(eqBoolean);
 var selectIds = function(s) {
   return {
     nodes: mapMaybe(function(n) {
-      var $40 = eq40(n.selected)(new Just(true));
+      var $40 = eq39(n.selected)(new Just(true));
       if ($40) {
         return new Just(unwrap19(n.id));
       }
@@ -58573,7 +58598,7 @@ var selectIds = function(s) {
       return Nothing.value;
     })(fromFoldable14(values(s.nodeLookup))),
     edges: mapMaybe(function(e) {
-      var $41 = eq40(e.selected)(new Just(true));
+      var $41 = eq39(e.selected)(new Just(true));
       if ($41) {
         return new Just(e.id);
       }
@@ -58588,10 +58613,10 @@ var selectionListenerInner = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */
       return discard24(useEffect16(selected2)(function __do3() {
         var s = store.getState();
         var selectedNodes = filter(function(n) {
-          return eq40(n.selected)(new Just(true));
+          return eq39(n.selected)(new Just(true));
         })(s.nodes);
         var selectedEdges = filter(function(e) {
-          return eq40(e.selected)(new Just(true));
+          return eq39(e.selected)(new Just(true));
         })(s.edges);
         var params = {
           nodes: selectedNodes,
@@ -64540,7 +64565,7 @@ var eqRec9 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ e
     return "edgeId";
   }
 })(eqString));
-var eq41 = /* @__PURE__ */ eq(eqRec9);
+var eq40 = /* @__PURE__ */ eq(eqRec9);
 var coerceHook13 = /* @__PURE__ */ coerceHook();
 var bind54 = /* @__PURE__ */ bind4(ixBindRender);
 var alt8 = /* @__PURE__ */ alt(altMaybe);
@@ -64563,7 +64588,7 @@ var toConnection = function(c) {
 };
 var notIn = function(xs) {
   return function(x) {
-    return !any2(eq41(x))(xs);
+    return !any2(eq40(x))(xs);
   };
 };
 var handleTypeName2 = function(v) {
@@ -64711,7 +64736,7 @@ var eqRec10 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ 
     return "edgeId";
   }
 })(eqString));
-var eq45 = /* @__PURE__ */ eq(eqRec10);
+var eq41 = /* @__PURE__ */ eq(eqRec10);
 var coerceHook15 = /* @__PURE__ */ coerceHook();
 var bind56 = /* @__PURE__ */ bind4(ixBindRender);
 var alt9 = /* @__PURE__ */ alt(altMaybe);
@@ -64725,7 +64750,7 @@ var pure78 = /* @__PURE__ */ pure(applicativeEffect);
 var pure134 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var notIn2 = function(xs) {
   return function(x) {
-    return !any2(eq45(x))(xs);
+    return !any2(eq41(x))(xs);
   };
 };
 var handleTypeName3 = function(v) {
@@ -64858,7 +64883,7 @@ var xIsSymbol2 = {
   }
 };
 var eqMaybe11 = /* @__PURE__ */ eqMaybe(eqBoolean);
-var eq46 = /* @__PURE__ */ eq(eqMaybe11);
+var eq45 = /* @__PURE__ */ eq(eqMaybe11);
 var foldl10 = /* @__PURE__ */ foldl(foldableList);
 var useStore29 = /* @__PURE__ */ useStore(eqBoolean);
 var nub5 = /* @__PURE__ */ nub(ordNodeId);
@@ -65104,7 +65129,7 @@ var useNodesInitialized = function(opts) {
   var selectInitialized = function(s) {
     var step2 = function(acc) {
       return function(n) {
-        var $455 = eq46(n.hidden)(new Just(true)) && !opts.includeHiddenNodes;
+        var $455 = eq45(n.hidden)(new Just(true)) && !opts.includeHiddenNodes;
         if ($455) {
           return acc;
         }
@@ -65568,7 +65593,7 @@ var nodeToolbarPortal = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reac
 var max15 = /* @__PURE__ */ max(ordNumber);
 var lookup29 = /* @__PURE__ */ lookup2(ordNodeId);
 var insert13 = /* @__PURE__ */ insert4(ordNodeId);
-var eq47 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var eq46 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var map65 = /* @__PURE__ */ map(functorArray);
 var eq310 = /* @__PURE__ */ eq(eqUnsafeReference);
 var bind59 = /* @__PURE__ */ bind4(ixBindRender);
@@ -65616,7 +65641,7 @@ var selectorFor = function(ids) {
       y: s.transform.ty,
       zoom: s.transform.scale,
       selectedNodesCount: length(filter(function(n) {
-        return eq47(n.selected)(new Just(true));
+        return eq46(n.selected)(new Just(true));
       })(s.nodes)),
       nodes: lookupNodes(ids)(s)
     };
@@ -65668,7 +65693,7 @@ var nodeToolbar = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompo
         if (v.isVisible instanceof Nothing) {
           return length(nodesArr) === 1 && (function() {
             if (nodesArr.length === 1) {
-              return eq47(nodesArr[0].selected)(new Just(true));
+              return eq46(nodesArr[0].selected)(new Just(true));
             }
             ;
             return false;

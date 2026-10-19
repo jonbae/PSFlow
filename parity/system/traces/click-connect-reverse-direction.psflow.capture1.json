@@ -599,7 +599,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 279,
+            "timeStamp": 261.6999999284744,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -668,7 +668,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 279,
+            "timeStamp": 261.6999999284744,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -743,7 +743,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 279,
+            "timeStamp": 261.6999999284744,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -808,7 +808,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 279,
+            "timeStamp": 261.6999999284744,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -864,54 +864,8 @@
         "name": "onClickConnectStart",
         "args": [
           {
-            "@class": "SyntheticBaseEvent",
-            "_reactName": "onClick",
-            "_targetInst": null,
-            "type": "click",
-            "nativeEvent": {
-              "@class": "PointerEvent",
-              "isTrusted": true
-            },
-            "target": {
-              "@ref": "DIV"
-            },
-            "currentTarget": {
-              "@ref": "DIV"
-            },
-            "eventPhase": 3,
-            "bubbles": true,
-            "cancelable": true,
-            "timeStamp": 287.39999997615814,
-            "defaultPrevented": false,
-            "isTrusted": true,
-            "view": {
-              "@ref": "Window"
-            },
-            "detail": 1,
-            "screenX": 349,
-            "screenY": 120,
-            "clientX": 349,
-            "clientY": 120,
-            "pageX": 349,
-            "pageY": 120,
-            "ctrlKey": false,
-            "shiftKey": false,
-            "altKey": false,
-            "metaKey": false,
-            "getModifierState": {
-              "@ref": "function"
-            },
-            "button": 0,
-            "buttons": 0,
-            "relatedTarget": null,
-            "movementX": 0,
-            "movementY": 0,
-            "isDefaultPrevented": {
-              "@ref": "function"
-            },
-            "isPropagationStopped": {
-              "@ref": "function"
-            }
+            "@class": "PointerEvent",
+            "isTrusted": true
           },
           {
             "nodeId": "n2",
@@ -953,7 +907,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 287.39999997615814,
+            "timeStamp": 270.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1057,7 +1011,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 309.89999997615814,
+            "timeStamp": 292.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1135,7 +1089,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 309.89999997615814,
+            "timeStamp": 292.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1210,7 +1164,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 309.89999997615814,
+            "timeStamp": 292.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1275,7 +1229,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 309.89999997615814,
+            "timeStamp": 292.10000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1370,7 +1324,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 317.39999997615814,
+            "timeStamp": 300.6999999284744,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1454,7 +1408,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 317.39999997615814,
+            "timeStamp": 300.6999999284744,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

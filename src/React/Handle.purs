@@ -17,6 +17,8 @@
 -- | `pure true` is a wrong answer four times over.
 module React.Handle
   ( handle
+  , nativePointerEvent
+  , startsConnection
   ) where
 
 import Prelude
@@ -28,6 +30,7 @@ import Data.Maybe (Maybe(..), fromMaybe, isJust, maybe)
 import Effect (Effect)
 import Effect.Exception.Unsafe (unsafeThrow)
 import Effect.Unsafe (unsafePerformEffect)
+import Foreign (Foreign)
 import React.Basic (ReactComponent)
 import React.Basic.Events (EventHandler, SyntheticEvent, handler, syntheticEvent)
 import React.Basic.Hooks (memo, reactComponent)
@@ -57,6 +60,7 @@ import System.Utils.Edges.General (addEdge, getEdgeId)
 import System.XYHandle (xyHandle)
 import Unsafe.Coerce (unsafeCoerce)
 import Web.DOM.Element (Element)
+import Web.TouchEvent.TouchEvent (TouchEvent)
 import Web.Event.Event (currentTarget) as Event
 import Web.UIEvent.MouseEvent (MouseEvent)
 import Web.UIEvent.MouseEvent (button, toEvent) as ME
@@ -210,8 +214,36 @@ joinNonEmpty = foldStrip ""
 -- a third caller appears.
 -- ---------------------------------------------------------------------------
 
+-- | The synthetic event, typed as the `MouseEvent` upstream casts it to
+-- | (`event as unknown as MouseEvent`) for `onClickConnectEnd`. Everything
+-- | else upstream's `<Handle />` hands on gets `nativePointerEvent`.
 syntheticToMouse :: SyntheticEvent -> MouseEvent
 syntheticToMouse = unsafeCoerce
+
+foreign import hasClientX :: Foreign -> Boolean
+
+-- | `event.nativeEvent`, the DOM event React's synthetic one wraps, which
+-- | upstream hands to `XYHandle.onPointerDown`, `XYHandle.isValid`, and
+-- | `onClickConnectStart`. It's split as upstream's `isMouseEvent` splits
+-- | it: an event with a `clientX` is a mouse event, and any other a touch
+-- | event.
+nativePointerEvent :: SyntheticEvent -> Either MouseEvent TouchEvent
+nativePointerEvent se =
+  let
+    native = (unsafeCoerce se :: { nativeEvent :: Foreign }).nativeEvent
+  in
+    if hasClientX native then Left (unsafeCoerce native) else Right (unsafeCoerce native)
+
+-- | Upstream's guard on a pointer down:
+-- |
+-- |     isConnectableStart && ((isMouseTriggered && event.button === 0) || !isMouseTriggered)
+-- |
+-- | A mouse starts a connection with its main button only, and a touch
+-- | always does.
+startsConnection :: Boolean -> Either MouseEvent TouchEvent -> Boolean
+startsConnection isConnectableStart = case _ of
+  Left me -> isConnectableStart && ME.button me == 0
+  Right _ -> isConnectableStart
 
 currentTargetElement :: SyntheticEvent -> Maybe Element
 currentTargetElement se =
@@ -338,12 +370,12 @@ handle = unsafePerformEffect $ memo $ reactComponent "Handle" \(props :: HandleP
 
     onPointerDown :: EventHandler
     onPointerDown = handler syntheticEvent \se -> do
-      let me = syntheticToMouse se
-      when (isConnectableStart && ME.button me == 0) do
+      let event = nativePointerEvent se
+      when (startsConnection isConnectableStart event) do
         state <- store.getState
         case currentTargetElement se of
           Nothing -> pure unit
-          Just el -> xyHandle.onPointerDown (Left me)
+          Just el -> xyHandle.onPointerDown event
             { autoPanOnConnect: state.autoPanOnConnect
             , connectionMode: state.connectionMode
             , connectionRadius: state.connectionRadius
@@ -378,7 +410,9 @@ handle = unsafePerformEffect $ memo $ reactComponent "Handle" \(props :: HandleP
 
     onClick :: EventHandler
     onClick = handler syntheticEvent \se -> do
-      let me = syntheticToMouse se
+      let
+        event = nativePointerEvent se
+        me = syntheticToMouse se
       state <- store.getState
       let
         canStart = isConnectableStart
@@ -386,7 +420,7 @@ handle = unsafePerformEffect $ memo $ reactComponent "Handle" \(props :: HandleP
       when (canStart || haveStart) do
         case state.connectionClickStartHandle of
           Nothing -> do
-            for_ state.onClickConnectStart \cb -> cb (Left me)
+            for_ state.onClickConnectStart \cb -> cb event
               { nodeId: Just nodeId
               , handleId
               , handleType: Just handleType
@@ -404,7 +438,7 @@ handle = unsafePerformEffect $ memo $ reactComponent "Handle" \(props :: HandleP
               )
           Just startHandle -> do
             host <- getHostForElement Nothing
-            result <- xyHandle.isValid (Left me)
+            result <- xyHandle.isValid event
               { handle: Just
                   { nodeId
                   , id: maybe HandleIdNull HandleIdSet handleId
