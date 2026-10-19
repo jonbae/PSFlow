@@ -382,7 +382,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 176.60000002384186,
+            "timeStamp": 143.40000009536743,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -451,7 +451,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 176.60000002384186,
+            "timeStamp": 143.40000009536743,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -524,7 +524,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 176.60000002384186,
+            "timeStamp": 143.40000009536743,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -589,7 +589,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 176.60000002384186,
+            "timeStamp": 143.40000009536743,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -718,7 +718,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 186.30000007152557,
+            "timeStamp": 152.40000009536743,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -760,6 +760,13 @@
               "@ref": "function"
             }
           }
+        ]
+      },
+      {
+        "name": "onError",
+        "args": [
+          "015",
+          "It seems that you are trying to drag a node that is not initialized. Please use onNodesChange as explained in the docs."
         ]
       },
       {
@@ -866,7 +873,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 207.10000002384186,
+            "timeStamp": 174.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -908,6 +915,13 @@
               "@ref": "function"
             }
           }
+        ]
+      },
+      {
+        "name": "onError",
+        "args": [
+          "015",
+          "It seems that you are trying to drag a node that is not initialized. Please use onNodesChange as explained in the docs."
         ]
       },
       {
@@ -1014,7 +1028,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 224.30000007152557,
+            "timeStamp": 190.20000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1056,6 +1070,13 @@
               "@ref": "function"
             }
           }
+        ]
+      },
+      {
+        "name": "onError",
+        "args": [
+          "015",
+          "It seems that you are trying to drag a node that is not initialized. Please use onNodesChange as explained in the docs."
         ]
       },
       {
@@ -1162,7 +1183,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 241.60000002384186,
+            "timeStamp": 207.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1204,6 +1225,13 @@
               "@ref": "function"
             }
           }
+        ]
+      },
+      {
+        "name": "onError",
+        "args": [
+          "015",
+          "It seems that you are trying to drag a node that is not initialized. Please use onNodesChange as explained in the docs."
         ]
       },
       {
@@ -1310,7 +1338,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 258.40000009536743,
+            "timeStamp": 224.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1352,6 +1380,13 @@
               "@ref": "function"
             }
           }
+        ]
+      },
+      {
+        "name": "onError",
+        "args": [
+          "015",
+          "It seems that you are trying to drag a node that is not initialized. Please use onNodesChange as explained in the docs."
         ]
       },
       {

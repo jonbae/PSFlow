@@ -26106,7 +26106,7 @@ var foldl = function(dict) {
 var intercalate = function(dictFoldable) {
   var foldl22 = foldl(dictFoldable);
   return function(dictMonoid) {
-    var append24 = append(dictMonoid.Semigroup0());
+    var append25 = append(dictMonoid.Semigroup0());
     var mempty21 = mempty(dictMonoid);
     return function(sep) {
       return function(xs) {
@@ -26121,7 +26121,7 @@ var intercalate = function(dictFoldable) {
             ;
             return {
               init: false,
-              acc: append24(v.acc)(append24(sep)(v1))
+              acc: append25(v.acc)(append25(sep)(v1))
             };
           };
         };
@@ -26184,12 +26184,12 @@ var foldableMaybe = {
 var foldMapDefaultR = function(dictFoldable) {
   var foldr22 = foldr(dictFoldable);
   return function(dictMonoid) {
-    var append24 = append(dictMonoid.Semigroup0());
+    var append25 = append(dictMonoid.Semigroup0());
     var mempty21 = mempty(dictMonoid);
     return function(f) {
       return foldr22(function(x) {
         return function(acc) {
-          return append24(f(x))(acc);
+          return append25(f(x))(acc);
         };
       })(mempty21);
     };
@@ -29527,11 +29527,11 @@ var foldableList = {
     return go2;
   },
   foldMap: function(dictMonoid) {
-    var append24 = append(dictMonoid.Semigroup0());
+    var append25 = append(dictMonoid.Semigroup0());
     var mempty21 = mempty(dictMonoid);
     return function(f) {
       return foldl(foldableList)(function(acc) {
-        var $286 = append24(acc);
+        var $286 = append25(acc);
         return function($287) {
           return $286(f($287));
         };
@@ -33447,7 +33447,7 @@ var errorMessage = function(v) {
         return "target";
       }
       ;
-      throw new Error("Failed pattern match at System.Constants (line 66, column 19 - line 68, column 27): " + [v.value0.constructor.name]);
+      throw new Error("Failed pattern match at System.Constants (line 89, column 19 - line 91, column 27): " + [v.value0.constructor.name]);
     }();
     var handleId = function() {
       if (v.value0 instanceof Source) {
@@ -33458,7 +33458,7 @@ var errorMessage = function(v) {
         return fromMaybe("")(v.value1.targetHandle);
       }
       ;
-      throw new Error("Failed pattern match at System.Constants (line 69, column 18 - line 71, column 49): " + [v.value0.constructor.name]);
+      throw new Error("Failed pattern match at System.Constants (line 92, column 18 - line 94, column 49): " + [v.value0.constructor.name]);
     }();
     return "Couldn't create edge for " + (handleStr + (' handle id: "' + (handleId + ('", edge id: ' + (v.value1.id + ".")))));
   }
@@ -33491,7 +33491,70 @@ var errorMessage = function(v) {
     return "It seems that you are trying to drag a node that is not initialized. Please use onNodesChange as explained in the docs.";
   }
   ;
-  throw new Error("Failed pattern match at System.Constants (line 49, column 16 - line 91, column 126): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at System.Constants (line 72, column 16 - line 114, column 126): " + [v.constructor.name]);
+};
+var errorId = function(v) {
+  if (v instanceof E001) {
+    return "001";
+  }
+  ;
+  if (v instanceof E002) {
+    return "002";
+  }
+  ;
+  if (v instanceof E003) {
+    return "003";
+  }
+  ;
+  if (v instanceof E004) {
+    return "004";
+  }
+  ;
+  if (v instanceof E005) {
+    return "005";
+  }
+  ;
+  if (v instanceof E006) {
+    return "006";
+  }
+  ;
+  if (v instanceof E007) {
+    return "007";
+  }
+  ;
+  if (v instanceof E008) {
+    return "008";
+  }
+  ;
+  if (v instanceof E009) {
+    return "009";
+  }
+  ;
+  if (v instanceof E010) {
+    return "010";
+  }
+  ;
+  if (v instanceof E011) {
+    return "011";
+  }
+  ;
+  if (v instanceof E012) {
+    return "012";
+  }
+  ;
+  if (v instanceof E013) {
+    return "013";
+  }
+  ;
+  if (v instanceof E014) {
+    return "014";
+  }
+  ;
+  if (v instanceof E015) {
+    return "015";
+  }
+  ;
+  throw new Error("Failed pattern match at System.Constants (line 54, column 11 - line 69, column 16): " + [v.constructor.name]);
 };
 var elementSelectionKeys = ["Enter", " ", "Escape"];
 var defaultAriaLabelConfig = {
@@ -36421,6 +36484,7 @@ var pure9 = /* @__PURE__ */ pure(applicativeAff);
 var bind9 = /* @__PURE__ */ bind(bindAff);
 var filter5 = /* @__PURE__ */ filter4(ordNodeId);
 var alt2 = /* @__PURE__ */ alt(altMaybe);
+var append3 = /* @__PURE__ */ append(semigroupArray);
 var orderedInternalNodes = function(nodes3) {
   return function(lookup112) {
     return mapMaybe(function(id3) {
@@ -36430,8 +36494,8 @@ var orderedInternalNodes = function(nodes3) {
     })(nodes3)));
   };
 };
-var isEdgeBase = function($106) {
-  return isEdgeBaseImpl($106);
+var isEdgeBase = function($112) {
+  return isEdgeBaseImpl($112);
 };
 var getNodesInside = function(nodes3) {
   return function(rect) {
@@ -36453,8 +36517,8 @@ var getNodesInside = function(nodes3) {
         var visible = function(node) {
           var selectable = fromMaybe(true)(node.selectable);
           var hidden2 = eq13(node.hidden)(new Just(true));
-          var $46 = opts.excludeNonSelectable && !selectable || hidden2;
-          if ($46) {
+          var $47 = opts.excludeNonSelectable && !selectable || hidden2;
+          if ($47) {
             return false;
           }
           ;
@@ -36471,7 +36535,7 @@ var getNodesInside = function(nodes3) {
               return 0;
             }
             ;
-            throw new Error("Failed pattern match at System.Utils.Graph (line 262, column 18 - line 264, column 27): " + [mDims.constructor.name]);
+            throw new Error("Failed pattern match at System.Utils.Graph (line 263, column 18 - line 265, column 27): " + [mDims.constructor.name]);
           }();
           return forceInitialRender || (partiallyVisible || (overlapping >= area || eq13(node.dragging)(new Just(true))));
         };
@@ -36505,21 +36569,21 @@ var getNodesBounds = function(nodes3) {
                 return new Left(node);
               }
               ;
-              throw new Error("Failed pattern match at System.Utils.Graph (line 167, column 28 - line 169, column 35): " + [v.constructor.name]);
+              throw new Error("Failed pattern match at System.Utils.Graph (line 168, column 28 - line 170, column 35): " + [v.constructor.name]);
             }
             ;
             if (mLookup instanceof Nothing) {
               return new Left(node);
             }
             ;
-            throw new Error("Failed pattern match at System.Utils.Graph (line 166, column 20 - line 170, column 33): " + [mLookup.constructor.name]);
+            throw new Error("Failed pattern match at System.Utils.Graph (line 167, column 20 - line 171, column 33): " + [mLookup.constructor.name]);
           }();
           return nodeToBox(source)(origin2);
         };
         return boxToRect(unwrap7(foldMap2(nodeBoundingBox)(nodes3)));
       }
       ;
-      throw new Error("Failed pattern match at System.Utils.Graph (line 154, column 1 - line 159, column 10): " + [nodes3.constructor.name, mLookup.constructor.name, origin2.constructor.name]);
+      throw new Error("Failed pattern match at System.Utils.Graph (line 155, column 1 - line 160, column 10): " + [nodes3.constructor.name, mLookup.constructor.name, origin2.constructor.name]);
     };
   };
 };
@@ -36535,11 +36599,11 @@ var getInternalNodesBounds = function(nodeLookup) {
         return mFilter.value0(node);
       }
       ;
-      throw new Error("Failed pattern match at System.Utils.Graph (line 186, column 17 - line 188, column 23): " + [mFilter.constructor.name]);
+      throw new Error("Failed pattern match at System.Utils.Graph (line 187, column 17 - line 189, column 23): " + [mFilter.constructor.name]);
     };
     var kept = filter(keep)(fromFoldable22(values(nodeLookup)));
-    var $58 = length(kept) === 0;
-    if ($58) {
+    var $59 = length(kept) === 0;
+    if ($59) {
       return {
         x: 0,
         y: 0,
@@ -36586,17 +36650,17 @@ var getElementsToRemove = function(p) {
                 return false;
               }
               ;
-              throw new Error("Failed pattern match at System.Utils.Graph (line 528, column 25 - line 532, column 31): " + [node.parentId.constructor.name]);
+              throw new Error("Failed pattern match at System.Utils.Graph (line 533, column 25 - line 537, column 31): " + [node.parentId.constructor.name]);
             }();
-            var $66 = isIncluded || parentHit;
-            if ($66) {
+            var $67 = isIncluded || parentHit;
+            if ($67) {
               return snoc(acc)(node);
             }
             ;
             return acc;
           }
           ;
-          throw new Error("Failed pattern match at System.Utils.Graph (line 523, column 5 - line 535, column 21): " + [acc.constructor.name, node.constructor.name]);
+          throw new Error("Failed pattern match at System.Utils.Graph (line 528, column 5 - line 540, column 21): " + [acc.constructor.name, node.constructor.name]);
         };
       };
       return foldl2(step2)([])(nodes3);
@@ -36615,10 +36679,10 @@ var getElementsToRemove = function(p) {
   var connectedEdges = getConnectedEdges(matchingNodes)(deletableEdges);
   var matchingEdges = foldl2(function(acc) {
     return function(edge) {
-      var $67 = member1(edge.id)(edgeIds) && !any2(function(e) {
+      var $68 = member1(edge.id)(edgeIds) && !any2(function(e) {
         return e.id === edge.id;
       })(acc);
-      if ($67) {
+      if ($68) {
         return snoc(acc)(edge);
       }
       ;
@@ -36656,12 +36720,12 @@ var getElementsToRemove = function(p) {
           return result.value0;
         }
         ;
-        throw new Error("Failed pattern match at System.Utils.Graph (line 516, column 12 - line 519, column 21): " + [result.constructor.name]);
+        throw new Error("Failed pattern match at System.Utils.Graph (line 521, column 12 - line 524, column 21): " + [result.constructor.name]);
       }());
     });
   }
   ;
-  throw new Error("Failed pattern match at System.Utils.Graph (line 512, column 3 - line 519, column 21): " + [p.onBeforeDelete.constructor.name]);
+  throw new Error("Failed pattern match at System.Utils.Graph (line 517, column 3 - line 524, column 21): " + [p.onBeforeDelete.constructor.name]);
 };
 var filterFitViewNodes = function(nodes3) {
   return function(opts) {
@@ -36676,7 +36740,7 @@ var filterFitViewNodes = function(nodes3) {
         return Nothing.value;
       }
       ;
-      throw new Error("Failed pattern match at System.Utils.Graph (line 365, column 17 - line 367, column 25): " + [opts.nodes.constructor.name]);
+      throw new Error("Failed pattern match at System.Utils.Graph (line 366, column 17 - line 368, column 25): " + [opts.nodes.constructor.name]);
     }();
     return filter5(function(n) {
       var visible = opts.includeHiddenNodes || notEq3(n.hidden)(new Just(true));
@@ -36689,7 +36753,7 @@ var filterFitViewNodes = function(nodes3) {
           return member4(n.id)(optionIds.value0);
         }
         ;
-        throw new Error("Failed pattern match at System.Utils.Graph (line 375, column 25 - line 377, column 46): " + [optionIds.constructor.name]);
+        throw new Error("Failed pattern match at System.Utils.Graph (line 376, column 25 - line 378, column 46): " + [optionIds.constructor.name]);
       }();
       var hasSize = isJust(n.measured.width) && isJust(n.measured.height);
       return hasSize && (visible && inOptions);
@@ -36715,8 +36779,8 @@ var fitViewport = function(params) {
   return function(mOptions) {
     var options2 = fromMaybe(defaultFitViewOptions)(mOptions);
     var nodesToFit = filterFitViewNodes(params.nodes)(options2);
-    var $78 = size2(nodesToFit) === 0;
-    if ($78) {
+    var $79 = size2(nodesToFit) === 0;
+    if ($79) {
       return pure9(true);
     }
     ;
@@ -36747,7 +36811,7 @@ var calculateNodePosition = function(p) {
         return Nothing.value;
       }
       ;
-      throw new Error("Failed pattern match at System.Utils.Graph (line 414, column 20 - line 416, column 27): " + [v.value0.parentId.constructor.name]);
+      throw new Error("Failed pattern match at System.Utils.Graph (line 412, column 20 - line 414, column 27): " + [v.value0.parentId.constructor.name]);
     }();
     var parentX = function() {
       if (parentNode instanceof Just) {
@@ -36758,7 +36822,7 @@ var calculateNodePosition = function(p) {
         return 0;
       }
       ;
-      throw new Error("Failed pattern match at System.Utils.Graph (line 417, column 17 - line 419, column 23): " + [parentNode.constructor.name]);
+      throw new Error("Failed pattern match at System.Utils.Graph (line 415, column 17 - line 417, column 23): " + [parentNode.constructor.name]);
     }();
     var parentY = function() {
       if (parentNode instanceof Just) {
@@ -36769,10 +36833,18 @@ var calculateNodePosition = function(p) {
         return 0;
       }
       ;
-      throw new Error("Failed pattern match at System.Utils.Graph (line 420, column 17 - line 422, column 23): " + [parentNode.constructor.name]);
+      throw new Error("Failed pattern match at System.Utils.Graph (line 418, column 17 - line 420, column 23): " + [parentNode.constructor.name]);
     }();
     var v1 = fromMaybe(p.nodeOrigin)(v.value0.origin);
     var width8 = fromMaybe(0)(v.value0.measured.width);
+    var unmeasured = isNothing(v.value0.measured.width) || isNothing(v.value0.measured.height);
+    var parentExtentWithoutParent = function() {
+      if (v.value0.extent instanceof Just && (v.value0.extent.value0 instanceof ParentExtent && parentNode instanceof Nothing)) {
+        return notEq3(v.value0.expandParent)(new Just(true));
+      }
+      ;
+      return false;
+    }();
     var height8 = fromMaybe(0)(v.value0.measured.height);
     var extentBase = function() {
       if (v.value0.extent instanceof Just) {
@@ -36783,7 +36855,7 @@ var calculateNodePosition = function(p) {
         return p.nodeExtent;
       }
       ;
-      throw new Error("Failed pattern match at System.Utils.Graph (line 425, column 20 - line 427, column 32): " + [v.value0.extent.constructor.name]);
+      throw new Error("Failed pattern match at System.Utils.Graph (line 423, column 20 - line 425, column 32): " + [v.value0.extent.constructor.name]);
     }();
     var extent = function() {
       if (v.value0.extent instanceof Just && (v.value0.extent.value0 instanceof ParentExtent && notEq3(v.value0.expandParent)(new Just(true)))) {
@@ -36804,7 +36876,7 @@ var calculateNodePosition = function(p) {
           return extentBase;
         }
         ;
-        throw new Error("Failed pattern match at System.Utils.Graph (line 431, column 11 - line 443, column 34): " + [parentNode.constructor.name]);
+        throw new Error("Failed pattern match at System.Utils.Graph (line 429, column 11 - line 441, column 34): " + [parentNode.constructor.name]);
       }
       ;
       if (parentNode instanceof Just && (v.value0.extent instanceof Just && v.value0.extent.value0 instanceof CoordExtent)) {
@@ -36830,18 +36902,31 @@ var calculateNodePosition = function(p) {
         return p.nextPosition;
       }
       ;
-      throw new Error("Failed pattern match at System.Utils.Graph (line 456, column 26 - line 460, column 34): " + [extent.constructor.name]);
+      throw new Error("Failed pattern match at System.Utils.Graph (line 454, column 26 - line 458, column 34): " + [extent.constructor.name]);
     }();
     return new Just({
       position: {
         x: positionAbsolute.x - parentX + width8 * v1.ox,
         y: positionAbsolute.y - parentY + height8 * v1.oy
       },
-      positionAbsolute
+      positionAbsolute,
+      errors: append3(function() {
+        if (parentExtentWithoutParent) {
+          return [E005.value];
+        }
+        ;
+        return [];
+      }())(function() {
+        if (unmeasured) {
+          return [E015.value];
+        }
+        ;
+        return [];
+      }())
     });
   }
   ;
-  throw new Error("Failed pattern match at System.Utils.Graph (line 410, column 27 - line 471, column 10): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at System.Utils.Graph (line 408, column 27 - line 476, column 10): " + [v.constructor.name]);
 };
 
 // node_modules/d3-color/src/define.js
@@ -38816,7 +38901,7 @@ var member5 = /* @__PURE__ */ member2(ordString);
 var lookup1 = /* @__PURE__ */ lookup2(ordString);
 var fromFoldable7 = /* @__PURE__ */ fromFoldable(foldableList);
 var max5 = /* @__PURE__ */ max(ordNumber);
-var append3 = /* @__PURE__ */ append(semigroupArray);
+var append4 = /* @__PURE__ */ append(semigroupArray);
 var lookup22 = /* @__PURE__ */ lookup2(ordNodeId);
 var toUnfoldable7 = /* @__PURE__ */ toUnfoldable5(unfoldableArray);
 var eqMaybe4 = /* @__PURE__ */ eqMaybe(eqBoolean);
@@ -39123,7 +39208,7 @@ var stepExpansion = function(children3) {
             ;
             return [];
           }();
-          return append3(changes)(append3(posChange)(append3(childPosChanges)(dimChange)));
+          return append4(changes)(append4(posChange)(append4(childPosChanges)(dimChange)));
         };
       };
     };
@@ -39645,8 +39730,8 @@ var processUpdate = function(update3) {
                 return {
                   nodeLookup: childResult.nodeLookup,
                   parentLookup: childResult.parentLookup,
-                  changes: append3(acc.changes)(extraChanges),
-                  parentExpandChildren: append3(acc.parentExpandChildren)(extraExpand),
+                  changes: append4(acc.changes)(extraChanges),
+                  parentExpandChildren: append4(acc.parentExpandChildren)(extraExpand),
                   updatedInternals: true
                 };
               };
@@ -39703,7 +39788,7 @@ var updateNodeInternals = function(updates) {
                     var finalChanges = function() {
                       var $176 = length(result.parentExpandChildren) > 0;
                       if ($176) {
-                        return append3(result.changes)(handleExpandParent(result.parentExpandChildren)(result.nodeLookup)(result.parentLookup)(origin2));
+                        return append4(result.changes)(handleExpandParent(result.parentExpandChildren)(result.nodeLookup)(result.parentLookup)(origin2));
                       }
                       ;
                       return result.changes;
@@ -40077,7 +40162,7 @@ var discard1 = /* @__PURE__ */ discard3(bindAff);
 var eq9 = /* @__PURE__ */ eq(eqNodeId);
 var lookup12 = /* @__PURE__ */ lookup2(ordString);
 var pure14 = /* @__PURE__ */ pure(applicativeAff);
-var append4 = /* @__PURE__ */ append(semigroupArray);
+var append5 = /* @__PURE__ */ append(semigroupArray);
 var when3 = /* @__PURE__ */ when(applicativeEffect);
 var for_3 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var map110 = /* @__PURE__ */ map(functorArray);
@@ -40432,7 +40517,7 @@ var mkGeneralHelpers = function(store) {
       },
       addNodes: function(newNodes) {
         return pushNodeQueue(batchContext2)(new QueueUpdate(coerceNodeFn(function(existing) {
-          return append4(existing)(newNodes);
+          return append5(existing)(newNodes);
         })));
       },
       getNode: function(id3) {
@@ -40458,7 +40543,7 @@ var mkGeneralHelpers = function(store) {
       },
       addEdges: function(newEdges) {
         return pushEdgeQueue(batchContext2)(new QueueUpdate(coerceEdgeFn(function(existing) {
-          return append4(existing)(newEdges);
+          return append5(existing)(newEdges);
         })));
       },
       getEdge: function(id3) {
@@ -44706,7 +44791,7 @@ var classListContains2 = (element2) => (cls) => () => {
 
 // output/System.XYHandle.Utils/index.js
 var fromFoldable8 = /* @__PURE__ */ fromFoldable(foldableList);
-var append5 = /* @__PURE__ */ append(semigroupArray);
+var append6 = /* @__PURE__ */ append(semigroupArray);
 var pure36 = /* @__PURE__ */ pure(applicativeEffect);
 var lookup9 = /* @__PURE__ */ lookup2(ordNodeId);
 var map34 = /* @__PURE__ */ map(functorArray);
@@ -44732,7 +44817,7 @@ var nodesWithinDistance = function(position3) {
         return function(node) {
           var $25 = getOverlappingArea(rect)(nodeToRect(new Right(node))(zeroOrigin)) > 0;
           if ($25) {
-            return append5(acc)([node]);
+            return append6(acc)([node]);
           }
           ;
           return acc;
@@ -44829,7 +44914,7 @@ var getHandle2 = function(nodeId) {
                 ;
                 if (mode instanceof Loose) {
                   if (v.value0.internals.handleBounds instanceof Just) {
-                    return append5(map34(unSourceHandle)(v.value0.internals.handleBounds.value0.source))(map34(unTargetHandle)(v.value0.internals.handleBounds.value0.target));
+                    return append6(map34(unSourceHandle)(v.value0.internals.handleBounds.value0.source))(map34(unTargetHandle)(v.value0.internals.handleBounds.value0.target));
                   }
                   ;
                   if (v.value0.internals.handleBounds instanceof Nothing) {
@@ -44933,7 +45018,7 @@ var getClosestHandle = function(position3) {
               ;
               throw new Error("Failed pattern match at System.XYHandle.Utils (line 110, column 17 - line 112, column 26): " + [node.internals.handleBounds.constructor.name]);
             }();
-            return map34(Tuple.create(node))(append5(src9)(tgt));
+            return map34(Tuple.create(node))(append6(src9)(tgt));
           };
           return concat(map34(handlesOf)(closeNodes));
         }();
@@ -44953,7 +45038,7 @@ var getClosestHandle = function(position3) {
               return acc;
             }
             ;
-            return append5(acc)([{
+            return append6(acc)([{
               handle: {
                 handleType: v2.value1.handleType,
                 height: v2.value1.height,
@@ -44977,7 +45062,7 @@ var getClosestHandle = function(position3) {
           return function(r) {
             var $56 = r.distance === minDistance;
             if ($56) {
-              return append5(acc)([r.handle]);
+              return append6(acc)([r.handle]);
             }
             ;
             return acc;
@@ -45675,7 +45760,7 @@ var eq18 = /* @__PURE__ */ eq(eqHandleType);
 var for_8 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var map112 = /* @__PURE__ */ map(functorEffect);
 var pure115 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
-var append6 = /* @__PURE__ */ append(semigroupJSX);
+var append7 = /* @__PURE__ */ append(semigroupJSX);
 var mempty7 = /* @__PURE__ */ mempty(monoidJSX);
 var syntheticToMouse = unsafeCoerce2;
 var extractFromHandle = function(v) {
@@ -45847,7 +45932,7 @@ var edgeUpdateAnchors = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reac
         });
       });
     };
-    return pure115(append6(function() {
+    return pure115(append7(function() {
       if (showSource) {
         return element(edgeAnchor)({
           position: v.sourcePosition,
@@ -46991,7 +47076,7 @@ var useStore14 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ *
 })(eqConnectionMode)));
 var map40 = /* @__PURE__ */ map(functorArray);
 var pure41 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
-var append7 = /* @__PURE__ */ append(semigroupArray);
+var append8 = /* @__PURE__ */ append(semigroupArray);
 var selectFlags = function(s) {
   return {
     edgesFocusable: s.edgesFocusable,
@@ -47029,7 +47114,7 @@ var edgeRenderer = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @
       })(edgeIds);
       return pure41(div_({
         className: "react-flow__edges"
-      })(append7([element(markerDefinitions)({
+      })(append8([element(markerDefinitions)({
         defaultColor: v.defaultMarkerColor,
         rfId: new Just(v.rfId)
       })])(edgeChildren)));
@@ -47975,7 +48060,7 @@ var ix2 = /* @__PURE__ */ ix(/* @__PURE__ */ indexableForeign(monadIdentity))(/*
 var readString2 = /* @__PURE__ */ readString(monadIdentity);
 var pure43 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty10 = /* @__PURE__ */ mempty(monoidJSX);
-var append8 = /* @__PURE__ */ append(semigroupJSX);
+var append9 = /* @__PURE__ */ append(semigroupJSX);
 var readLabel = function(f) {
   return hush(runExcept(bind30(ix2(f)("label"))(readString2)));
 };
@@ -47995,7 +48080,7 @@ var defaultNode = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompo
       ;
       throw new Error("Failed pattern match at React.Node.Default (line 40, column 15 - line 42, column 26): " + [v1.constructor.name]);
     }();
-    return append8(element(handle)({
+    return append9(element(handle)({
       handleType: Target.value,
       position: targetPos,
       id: Nothing.value,
@@ -48007,7 +48092,7 @@ var defaultNode = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompo
       className: Nothing.value,
       style: Nothing.value,
       innerRef: nullImpl
-    }))(append8(label4)(element(handle)({
+    }))(append9(label4)(element(handle)({
       handleType: Source.value,
       position: sourcePos,
       id: Nothing.value,
@@ -48036,7 +48121,7 @@ var ix3 = /* @__PURE__ */ ix(/* @__PURE__ */ indexableForeign(monadIdentity))(/*
 var readString3 = /* @__PURE__ */ readString(monadIdentity);
 var pure45 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty12 = /* @__PURE__ */ mempty(monoidJSX);
-var append9 = /* @__PURE__ */ append(semigroupJSX);
+var append10 = /* @__PURE__ */ append(semigroupJSX);
 var readLabel2 = function(f) {
   return hush(runExcept(bind31(ix3(f)("label"))(readString3)));
 };
@@ -48055,7 +48140,7 @@ var inputNode = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
       ;
       throw new Error("Failed pattern match at React.Node.Input (line 36, column 15 - line 38, column 26): " + [v1.constructor.name]);
     }();
-    return append9(label4)(element(handle)({
+    return append10(label4)(element(handle)({
       handleType: Source.value,
       position: sourcePos,
       id: Nothing.value,
@@ -48077,7 +48162,7 @@ var ix4 = /* @__PURE__ */ ix(/* @__PURE__ */ indexableForeign(monadIdentity))(/*
 var readString4 = /* @__PURE__ */ readString(monadIdentity);
 var pure46 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty13 = /* @__PURE__ */ mempty(monoidJSX);
-var append10 = /* @__PURE__ */ append(semigroupJSX);
+var append11 = /* @__PURE__ */ append(semigroupJSX);
 var readLabel3 = function(f) {
   return hush(runExcept(bind32(ix4(f)("label"))(readString4)));
 };
@@ -48096,7 +48181,7 @@ var outputNode = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompon
       ;
       throw new Error("Failed pattern match at React.Node.Output (line 36, column 15 - line 38, column 26): " + [v1.constructor.name]);
     }();
-    return append10(element(handle)({
+    return append11(element(handle)({
       handleType: Target.value,
       position: targetPos,
       id: Nothing.value,
@@ -48464,10 +48549,12 @@ var modify_4 = /* @__PURE__ */ modify_2(monadStateStateT3);
 var get6 = /* @__PURE__ */ get2(monadStateStateT3);
 var lookup16 = /* @__PURE__ */ lookup2(ordNodeId);
 var map42 = /* @__PURE__ */ map(functorArray);
+var for_11 = /* @__PURE__ */ for_(applicativeEffect);
+var for_1 = /* @__PURE__ */ for_11(foldableArray);
+var for_22 = /* @__PURE__ */ for_11(foldableMaybe);
 var applicativeStateT3 = /* @__PURE__ */ applicativeStateT(monadEffect);
 var when9 = /* @__PURE__ */ when(applicativeStateT3);
 var traverse_2 = /* @__PURE__ */ traverse_(applicativeEffect)(foldableMaybe);
-var for_11 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var when12 = /* @__PURE__ */ when(applicativeEffect);
 var pure47 = /* @__PURE__ */ pure(applicativeEffect);
 var unsafeReadTagged2 = /* @__PURE__ */ unsafeReadTagged(monadIdentity);
@@ -48485,25 +48572,25 @@ var updateNodes = function(params) {
     return function(pos) {
       return bind34(liftEffect8(params.getStoreItems))(function(store) {
         return discard12(modify_4(function(v) {
-          var $75 = {};
-          for (var $76 in v) {
-            if ({}.hasOwnProperty.call(v, $76)) {
-              $75[$76] = v[$76];
+          var $76 = {};
+          for (var $77 in v) {
+            if ({}.hasOwnProperty.call(v, $77)) {
+              $76[$77] = v[$77];
             }
             ;
           }
           ;
-          $75.lastPos = {
+          $76.lastPos = {
             x: new Just(pos.x),
             y: new Just(pos.y)
           };
-          return $75;
+          return $76;
         }))(function() {
           return bind34(get6)(function(s) {
             var isMultiDrag = length(s.dragItems) > 1;
             var multiSnap = function() {
-              var $78 = isMultiDrag && store.snapToGrid;
-              if ($78) {
+              var $79 = isMultiDrag && store.snapToGrid;
+              if ($79) {
                 return calculateSnapOffset(s.dragItems)(store.snapGrid)(pos.x)(pos.y);
               }
               ;
@@ -48514,7 +48601,8 @@ var updateNodes = function(params) {
               if (v instanceof Nothing) {
                 return {
                   item: dragItem,
-                  moved: false
+                  moved: false,
+                  errors: []
                 };
               }
               ;
@@ -48541,7 +48629,7 @@ var updateNodes = function(params) {
                     };
                   }
                   ;
-                  throw new Error("Failed pattern match at System.XYDrag (line 628, column 22 - line 643, column 18): " + [multiSnap.constructor.name]);
+                  throw new Error("Failed pattern match at System.XYDrag (line 634, column 22 - line 649, column 18): " + [multiSnap.constructor.name]);
                 }();
                 var v1 = calculateNodePosition({
                   nodeId: dragItem.id,
@@ -48553,7 +48641,8 @@ var updateNodes = function(params) {
                 if (v1 instanceof Nothing) {
                   return {
                     item: dragItem,
-                    moved: false
+                    moved: false,
+                    errors: []
                   };
                 }
                 ;
@@ -48573,68 +48662,77 @@ var updateNodes = function(params) {
                         positionAbsolute: v1.value0.positionAbsolute
                       }
                     },
-                    moved: v1.value0.position.x !== dragItem.position.x || v1.value0.position.y !== dragItem.position.y
+                    moved: v1.value0.position.x !== dragItem.position.x || v1.value0.position.y !== dragItem.position.y,
+                    errors: v1.value0.errors
                   };
                 }
                 ;
-                throw new Error("Failed pattern match at System.XYDrag (line 645, column 11 - line 668, column 16): " + [v1.constructor.name]);
+                throw new Error("Failed pattern match at System.XYDrag (line 651, column 11 - line 675, column 16): " + [v1.constructor.name]);
               }
               ;
-              throw new Error("Failed pattern match at System.XYDrag (line 624, column 21 - line 668, column 16): " + [v.constructor.name]);
+              throw new Error("Failed pattern match at System.XYDrag (line 630, column 21 - line 675, column 16): " + [v.constructor.name]);
             };
             var stepped = map42(step2)(s.dragItems);
             var hasChange = any2(function(v) {
               return v.moved;
             })(stepped);
-            return discard12(modify_4(function(v) {
-              var $86 = {};
-              for (var $87 in v) {
-                if ({}.hasOwnProperty.call(v, $87)) {
-                  $86[$87] = v[$87];
-                }
-                ;
-              }
-              ;
-              $86.dragItems = map42(function(v1) {
-                return v1.item;
-              })(stepped);
-              return $86;
-            }))(function() {
-              return when9(hasChange)(discard12(modify_4(function(v) {
-                var $89 = {};
-                for (var $90 in v) {
-                  if ({}.hasOwnProperty.call(v, $90)) {
-                    $89[$90] = v[$90];
+            return discard12(liftEffect8(for_1(stepped)(function(st) {
+              return for_1(st.errors)(function(e) {
+                return for_22(store.onError)(function(cb) {
+                  return cb(errorId(e))(errorMessage(e));
+                });
+              });
+            })))(function() {
+              return discard12(modify_4(function(v) {
+                var $87 = {};
+                for (var $88 in v) {
+                  if ({}.hasOwnProperty.call(v, $88)) {
+                    $87[$88] = v[$88];
                   }
                   ;
                 }
                 ;
-                $89.nodePositionsChanged = true;
-                return $89;
+                $87.dragItems = map42(function(v1) {
+                  return v1.item;
+                })(stepped);
+                return $87;
               }))(function() {
-                return bind34(get6)(function(s2) {
-                  return discard12(liftEffect8(store.updateNodePositions(s2.dragItems)(true)))(function() {
-                    return liftEffect8(traverse_2(function(ev) {
-                      var eventArgs = getEventHandlerParams(mNodeId)(s2.dragItems)(store.nodeLookup)(true);
-                      return function __do3() {
-                        for_11(eventArgs.currentNode)(function(cn) {
-                          return function __do4() {
-                            for_11(params.onDrag)(function(cb) {
-                              return cb(ev)(s2.dragItems)(cn)(eventArgs.allNodes);
-                            })();
-                            return for_11(store.onNodeDrag)(function(cb) {
-                              return cb(ev)(cn)(eventArgs.allNodes);
-                            })();
-                          };
-                        })();
-                        return when12(isNothing(mNodeId))(for_11(store.onSelectionDrag)(function(cb) {
-                          return cb(ev)(eventArgs.allNodes);
-                        }))();
-                      };
-                    })(s2.dragEvent));
+                return when9(hasChange)(discard12(modify_4(function(v) {
+                  var $90 = {};
+                  for (var $91 in v) {
+                    if ({}.hasOwnProperty.call(v, $91)) {
+                      $90[$91] = v[$91];
+                    }
+                    ;
+                  }
+                  ;
+                  $90.nodePositionsChanged = true;
+                  return $90;
+                }))(function() {
+                  return bind34(get6)(function(s2) {
+                    return discard12(liftEffect8(store.updateNodePositions(s2.dragItems)(true)))(function() {
+                      return liftEffect8(traverse_2(function(ev) {
+                        var eventArgs = getEventHandlerParams(mNodeId)(s2.dragItems)(store.nodeLookup)(true);
+                        return function __do3() {
+                          for_22(eventArgs.currentNode)(function(cn) {
+                            return function __do4() {
+                              for_22(params.onDrag)(function(cb) {
+                                return cb(ev)(s2.dragItems)(cn)(eventArgs.allNodes);
+                              })();
+                              return for_22(store.onNodeDrag)(function(cb) {
+                                return cb(ev)(cn)(eventArgs.allNodes);
+                              })();
+                            };
+                          })();
+                          return when12(isNothing(mNodeId))(for_22(store.onSelectionDrag)(function(cb) {
+                            return cb(ev)(eventArgs.allNodes);
+                          }))();
+                        };
+                      })(s2.dragEvent));
+                    });
                   });
-                });
-              }));
+                }));
+              });
             });
           });
         });
@@ -48683,7 +48781,7 @@ var foreignAsMouseEvent = function(f) {
     return f;
   }
   ;
-  throw new Error("Failed pattern match at System.XYDrag (line 244, column 25 - line 246, column 27): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at System.XYDrag (line 250, column 25 - line 252, column 27): " + [v.constructor.name]);
 };
 var foreignAsTouchOrMouse = function(f) {
   var v = runExcept(unsafeReadTagged2("TouchEvent")(f));
@@ -48695,57 +48793,57 @@ var foreignAsTouchOrMouse = function(f) {
     return new Left(foreignAsMouseEvent(f));
   }
   ;
-  throw new Error("Failed pattern match at System.XYDrag (line 249, column 27 - line 251, column 41): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at System.XYDrag (line 255, column 27 - line 257, column 41): " + [v.constructor.name]);
 };
 var onEnd = function(params) {
   return function(upd) {
     return function(ev) {
       return bind34(liftEffect8(dragSourceEvent(ev)))(function(src9) {
         return bind34(get6)(function(s0) {
-          return unless3(!s0.dragStarted || s0.abortDrag)(discard12(liftEffect8(for_11(s0.autoPanId)(cancelAnimationFrame)))(function() {
+          return unless3(!s0.dragStarted || s0.abortDrag)(discard12(liftEffect8(for_22(s0.autoPanId)(cancelAnimationFrame)))(function() {
             return discard12(modify_4(function(v) {
-              var $101 = {};
-              for (var $102 in v) {
-                if ({}.hasOwnProperty.call(v, $102)) {
-                  $101[$102] = v[$102];
+              var $102 = {};
+              for (var $103 in v) {
+                if ({}.hasOwnProperty.call(v, $103)) {
+                  $102[$103] = v[$103];
                 }
                 ;
               }
               ;
-              $101.autoPanStarted = false;
-              $101.dragStarted = false;
-              $101.autoPanId = Nothing.value;
-              return $101;
+              $102.autoPanStarted = false;
+              $102.dragStarted = false;
+              $102.autoPanId = Nothing.value;
+              return $102;
             }))(function() {
               return when9(length(s0.dragItems) > 0)(bind34(liftEffect8(params.getStoreItems))(function(store) {
                 return discard12(when9(s0.nodePositionsChanged)(discard12(liftEffect8(store.updateNodePositions(s0.dragItems)(false)))(function() {
                   return modify_4(function(v) {
-                    var $104 = {};
-                    for (var $105 in v) {
-                      if ({}.hasOwnProperty.call(v, $105)) {
-                        $104[$105] = v[$105];
+                    var $105 = {};
+                    for (var $106 in v) {
+                      if ({}.hasOwnProperty.call(v, $106)) {
+                        $105[$106] = v[$106];
                       }
                       ;
                     }
                     ;
-                    $104.nodePositionsChanged = false;
-                    return $104;
+                    $105.nodePositionsChanged = false;
+                    return $105;
                   });
                 })))(function() {
                   var mouseEv = foreignAsMouseEvent(src9);
                   var eventArgs = getEventHandlerParams(upd.nodeId)(s0.dragItems)(store.nodeLookup)(false);
                   return liftEffect8(function __do3() {
-                    for_11(eventArgs.currentNode)(function(cn) {
+                    for_22(eventArgs.currentNode)(function(cn) {
                       return function __do4() {
-                        for_11(params.onDragStop)(function(cb) {
+                        for_22(params.onDragStop)(function(cb) {
                           return cb(mouseEv)(s0.dragItems)(cn)(eventArgs.allNodes);
                         })();
-                        return for_11(store.onNodeDragStop)(function(cb) {
+                        return for_22(store.onNodeDragStop)(function(cb) {
                           return cb(mouseEv)(cn)(eventArgs.allNodes);
                         })();
                       };
                     })();
-                    return when12(isNothing(upd.nodeId))(for_11(store.onSelectionDragStop)(function(cb) {
+                    return when12(isNothing(upd.nodeId))(for_22(store.onSelectionDragStop)(function(cb) {
                       return cb(mouseEv)(eventArgs.allNodes);
                     }))();
                   });
@@ -48764,16 +48862,16 @@ var startDrag = function(params) {
       return bind34(liftEffect8(params.getStoreItems))(function(store) {
         return bind34(liftEffect8(dragSourceEvent(ev)))(function(src9) {
           return discard12(modify_4(function(v) {
-            var $107 = {};
-            for (var $108 in v) {
-              if ({}.hasOwnProperty.call(v, $108)) {
-                $107[$108] = v[$108];
+            var $108 = {};
+            for (var $109 in v) {
+              if ({}.hasOwnProperty.call(v, $109)) {
+                $108[$109] = v[$109];
               }
               ;
             }
             ;
-            $107.dragStarted = true;
-            return $107;
+            $108.dragStarted = true;
+            return $108;
           }))(function() {
             var deselectFirst = (!store.selectNodesOnDrag || !upd.isSelectable) && !store.multiSelectionActive;
             return discard12(liftEffect8(function() {
@@ -48788,7 +48886,7 @@ var startDrag = function(params) {
                     return false;
                   }
                   ;
-                  throw new Error("Failed pattern match at System.XYDrag (line 463, column 29 - line 465, column 29): " + [v.constructor.name]);
+                  throw new Error("Failed pattern match at System.XYDrag (line 469, column 29 - line 471, column 29): " + [v.constructor.name]);
                 }();
                 return when12(!alreadySelected)(store.unselectNodesAndEdges);
               }
@@ -48797,7 +48895,7 @@ var startDrag = function(params) {
             }()))(function() {
               return discard12(liftEffect8(function() {
                 if (upd.nodeId instanceof Just && (upd.isSelectable && store.selectNodesOnDrag)) {
-                  return for_11(params.onNodeMouseDown)(function(cb) {
+                  return for_22(params.onNodeMouseDown)(function(cb) {
                     return cb(upd.nodeId.value0);
                   });
                 }
@@ -48819,36 +48917,36 @@ var startDrag = function(params) {
                         y: pp.y
                       })(upd.nodeId);
                       return discard12(modify_4(function(v) {
-                        var $116 = {};
-                        for (var $117 in v) {
-                          if ({}.hasOwnProperty.call(v, $117)) {
-                            $116[$117] = v[$117];
+                        var $117 = {};
+                        for (var $118 in v) {
+                          if ({}.hasOwnProperty.call(v, $118)) {
+                            $117[$118] = v[$118];
                           }
                           ;
                         }
                         ;
-                        $116.lastPos = {
+                        $117.lastPos = {
                           x: new Just(pp.x),
                           y: new Just(pp.y)
                         };
-                        $116.dragItems = items;
-                        return $116;
+                        $117.dragItems = items;
+                        return $117;
                       }))(function() {
                         return when9(length(items) > 0)(function() {
                           var mouseEv = foreignAsMouseEvent(src9);
                           var eventArgs = getEventHandlerParams(upd.nodeId)(items)(store.nodeLookup)(true);
                           return liftEffect8(function __do3() {
-                            for_11(eventArgs.currentNode)(function(cn) {
+                            for_22(eventArgs.currentNode)(function(cn) {
                               return function __do4() {
-                                for_11(params.onDragStart)(function(cb) {
+                                for_22(params.onDragStart)(function(cb) {
                                   return cb(mouseEv)(items)(cn)(eventArgs.allNodes);
                                 })();
-                                return for_11(store.onNodeDragStart)(function(cb) {
+                                return for_22(store.onNodeDragStart)(function(cb) {
                                   return cb(mouseEv)(cn)(eventArgs.allNodes);
                                 })();
                               };
                             })();
-                            return when12(isNothing(upd.nodeId))(for_11(store.onSelectionDragStart)(function(cb) {
+                            return when12(isNothing(upd.nodeId))(for_22(store.onSelectionDragStart)(function(cb) {
                               return cb(mouseEv)(eventArgs.allNodes);
                             }))();
                           });
@@ -48879,22 +48977,22 @@ var onStart = function(params) {
               return pure47(Nothing.value);
             }
             ;
-            throw new Error("Failed pattern match at System.XYDrag (line 313, column 26 - line 315, column 28): " + [store.domNode.constructor.name]);
+            throw new Error("Failed pattern match at System.XYDrag (line 319, column 26 - line 321, column 28): " + [store.domNode.constructor.name]);
           }()))(function(bounds) {
             return discard12(modify_4(function(v) {
-              var $121 = {};
-              for (var $122 in v) {
-                if ({}.hasOwnProperty.call(v, $122)) {
-                  $121[$122] = v[$122];
+              var $122 = {};
+              for (var $123 in v) {
+                if ({}.hasOwnProperty.call(v, $123)) {
+                  $122[$123] = v[$123];
                 }
                 ;
               }
               ;
-              $121.containerBounds = bounds;
-              $121.abortDrag = false;
-              $121.nodePositionsChanged = false;
-              $121.dragEvent = new Just(foreignAsMouseEvent(src9));
-              return $121;
+              $122.containerBounds = bounds;
+              $122.abortDrag = false;
+              $122.nodePositionsChanged = false;
+              $122.dragEvent = new Just(foreignAsMouseEvent(src9));
+              return $122;
             }))(function() {
               return discard12(when9(store.nodeDragThreshold === 0)(startDrag(params)(upd)(ev)))(function() {
                 return bind34(liftEffect8(getPointerPosition(foreignAsTouchOrMouse(src9))({
@@ -48905,20 +49003,20 @@ var onStart = function(params) {
                 })))(function(pp) {
                   return bind34(liftEffect8(getEventPosition(foreignAsTouchOrMouse(src9))(bounds)))(function(mp) {
                     return modify_4(function(v) {
-                      var $124 = {};
-                      for (var $125 in v) {
-                        if ({}.hasOwnProperty.call(v, $125)) {
-                          $124[$125] = v[$125];
+                      var $125 = {};
+                      for (var $126 in v) {
+                        if ({}.hasOwnProperty.call(v, $126)) {
+                          $125[$126] = v[$126];
                         }
                         ;
                       }
                       ;
-                      $124.lastPos = {
+                      $125.lastPos = {
                         x: new Just(pp.x),
                         y: new Just(pp.y)
                       };
-                      $124.mousePosition = mp;
-                      return $124;
+                      $125.mousePosition = mp;
+                      return $125;
                     });
                   });
                 });
@@ -48947,7 +49045,7 @@ var filterPredicate = function(upd) {
           return !matches2;
         }
         ;
-        throw new Error("Failed pattern match at System.XYDrag (line 429, column 16 - line 434, column 25): " + [upd.noDragClassName.constructor.name]);
+        throw new Error("Failed pattern match at System.XYDrag (line 435, column 16 - line 440, column 25): " + [upd.noDragClassName.constructor.name]);
       }();
       var matchesHandle = function() {
         if (upd.handleSelector instanceof Nothing) {
@@ -48959,7 +49057,7 @@ var filterPredicate = function(upd) {
           return hasSelector(target5)(upd.handleSelector.value0)(upd.domNode)();
         }
         ;
-        throw new Error("Failed pattern match at System.XYDrag (line 435, column 20 - line 439, column 41): " + [upd.handleSelector.constructor.name]);
+        throw new Error("Failed pattern match at System.XYDrag (line 441, column 20 - line 445, column 41): " + [upd.handleSelector.constructor.name]);
       }();
       return btnZero && (notNoDrag && matchesHandle);
     };
@@ -48980,16 +49078,16 @@ var autoPanStep2 = function(params) {
       };
       var scheduleNextFrame = bind34(liftEffect8(requestAnimationFrame(autoPanLoop2(params)(mNodeId)(stateRef))))(function(handle3) {
         return modify_4(function(v) {
-          var $135 = {};
-          for (var $136 in v) {
-            if ({}.hasOwnProperty.call(v, $136)) {
-              $135[$136] = v[$136];
+          var $136 = {};
+          for (var $137 in v) {
+            if ({}.hasOwnProperty.call(v, $137)) {
+              $136[$137] = v[$137];
             }
             ;
           }
           ;
-          $135.autoPanId = new Just(handle3);
-          return $135;
+          $136.autoPanId = new Just(handle3);
+          return $136;
         });
       });
       return bind34(get6)(function(s) {
@@ -48999,21 +49097,21 @@ var autoPanStep2 = function(params) {
         ;
         if (s.containerBounds instanceof Just) {
           return bind34(liftEffect8(params.getStoreItems))(function(store) {
-            var $139 = !store.autoPanOnNodeDrag;
-            if ($139) {
-              return discard12(liftEffect8(for_11(s.autoPanId)(cancelAnimationFrame)))(function() {
+            var $140 = !store.autoPanOnNodeDrag;
+            if ($140) {
+              return discard12(liftEffect8(for_22(s.autoPanId)(cancelAnimationFrame)))(function() {
                 return modify_4(function(v) {
-                  var $140 = {};
-                  for (var $141 in v) {
-                    if ({}.hasOwnProperty.call(v, $141)) {
-                      $140[$141] = v[$141];
+                  var $141 = {};
+                  for (var $142 in v) {
+                    if ({}.hasOwnProperty.call(v, $142)) {
+                      $141[$142] = v[$142];
                     }
                     ;
                   }
                   ;
-                  $140.autoPanStarted = false;
-                  $140.autoPanId = Nothing.value;
-                  return $140;
+                  $141.autoPanStarted = false;
+                  $141.autoPanId = Nothing.value;
+                  return $141;
                 });
               });
             }
@@ -49023,23 +49121,23 @@ var autoPanStep2 = function(params) {
               width: s.containerBounds.value0.width,
               height: s.containerBounds.value0.height
             })(speed)(40);
-            var $144 = mv.x !== 0 || mv.y !== 0;
-            if ($144) {
+            var $145 = mv.x !== 0 || mv.y !== 0;
+            if ($145) {
               var newLp = {
                 x: new Just(fromMaybe(0)(s.lastPos.x) - mv.x / store.transform.scale),
                 y: new Just(fromMaybe(0)(s.lastPos.y) - mv.y / store.transform.scale)
               };
               return discard12(modify_4(function(v) {
-                var $145 = {};
-                for (var $146 in v) {
-                  if ({}.hasOwnProperty.call(v, $146)) {
-                    $145[$146] = v[$146];
+                var $146 = {};
+                for (var $147 in v) {
+                  if ({}.hasOwnProperty.call(v, $147)) {
+                    $146[$147] = v[$147];
                   }
                   ;
                 }
                 ;
-                $145.lastPos = newLp;
-                return $145;
+                $146.lastPos = newLp;
+                return $146;
               }))(function() {
                 return liftEffect8(launchAff_(bind210(store.panBy({
                   x: mv.x,
@@ -49056,7 +49154,7 @@ var autoPanStep2 = function(params) {
                         return pure118(unit);
                       }
                       ;
-                      throw new Error("Failed pattern match at System.XYDrag (line 589, column 17 - line 591, column 39): " + [v.constructor.name]);
+                      throw new Error("Failed pattern match at System.XYDrag (line 595, column 17 - line 597, column 39): " + [v.constructor.name]);
                     })))(function() {
                       return scheduleNextFrame;
                     })));
@@ -49069,7 +49167,7 @@ var autoPanStep2 = function(params) {
           });
         }
         ;
-        throw new Error("Failed pattern match at System.XYDrag (line 561, column 3 - line 593, column 31): " + [s.containerBounds.constructor.name]);
+        throw new Error("Failed pattern match at System.XYDrag (line 567, column 3 - line 599, column 31): " + [s.containerBounds.constructor.name]);
       });
     };
   };
@@ -49097,16 +49195,16 @@ var onDragHandler = function(params) {
                 containerBounds: s0.containerBounds
               })))(function(pp) {
                 return discard12(modify_4(function(v) {
-                  var $151 = {};
-                  for (var $152 in v) {
-                    if ({}.hasOwnProperty.call(v, $152)) {
-                      $151[$152] = v[$152];
+                  var $152 = {};
+                  for (var $153 in v) {
+                    if ({}.hasOwnProperty.call(v, $153)) {
+                      $152[$153] = v[$153];
                     }
                     ;
                   }
                   ;
-                  $151.dragEvent = new Just(foreignAsMouseEvent(src9));
-                  return $151;
+                  $152.dragEvent = new Just(foreignAsMouseEvent(src9));
+                  return $152;
                 }))(function() {
                   return bind34(liftEffect8(isMultiTouchSourceEvent(src9)))(function(multi) {
                     var deletedDuringDrag = function() {
@@ -49118,32 +49216,32 @@ var onDragHandler = function(params) {
                         return false;
                       }
                       ;
-                      throw new Error("Failed pattern match at System.XYDrag (line 356, column 25 - line 358, column 23): " + [upd.nodeId.constructor.name]);
+                      throw new Error("Failed pattern match at System.XYDrag (line 362, column 25 - line 364, column 23): " + [upd.nodeId.constructor.name]);
                     }();
                     return discard12(when9(multi || deletedDuringDrag)(modify_4(function(v) {
-                      var $156 = {};
-                      for (var $157 in v) {
-                        if ({}.hasOwnProperty.call(v, $157)) {
-                          $156[$157] = v[$157];
+                      var $157 = {};
+                      for (var $158 in v) {
+                        if ({}.hasOwnProperty.call(v, $158)) {
+                          $157[$158] = v[$158];
                         }
                         ;
                       }
                       ;
-                      $156.abortDrag = true;
-                      return $156;
+                      $157.abortDrag = true;
+                      return $157;
                     })))(function() {
                       return bind34(get6)(function(s1) {
                         return when9(!s1.abortDrag)(discard12(when9(!s1.autoPanStarted && (store.autoPanOnNodeDrag && s1.dragStarted))(discard12(modify_4(function(v) {
-                          var $159 = {};
-                          for (var $160 in v) {
-                            if ({}.hasOwnProperty.call(v, $160)) {
-                              $159[$160] = v[$160];
+                          var $160 = {};
+                          for (var $161 in v) {
+                            if ({}.hasOwnProperty.call(v, $161)) {
+                              $160[$161] = v[$161];
                             }
                             ;
                           }
                           ;
-                          $159.autoPanStarted = true;
-                          return $159;
+                          $160.autoPanStarted = true;
+                          return $160;
                         }))(function() {
                           return autoPanStep2(params)(upd.nodeId)(stateRef);
                         })))(function() {
@@ -49157,16 +49255,16 @@ var onDragHandler = function(params) {
                               var moved = notEq15(s2.lastPos.x)(new Just(pp.xSnapped)) || notEq15(s2.lastPos.y)(new Just(pp.ySnapped));
                               return when9(moved && (length(s2.dragItems) > 0 && s2.dragStarted))(bind34(liftEffect8(getEventPosition(foreignAsTouchOrMouse(src9))(s2.containerBounds)))(function(mp) {
                                 return discard12(modify_4(function(v) {
-                                  var $162 = {};
-                                  for (var $163 in v) {
-                                    if ({}.hasOwnProperty.call(v, $163)) {
-                                      $162[$163] = v[$163];
+                                  var $163 = {};
+                                  for (var $164 in v) {
+                                    if ({}.hasOwnProperty.call(v, $164)) {
+                                      $163[$164] = v[$164];
                                     }
                                     ;
                                   }
                                   ;
-                                  $162.mousePosition = mp;
-                                  return $162;
+                                  $163.mousePosition = mp;
+                                  return $163;
                                 }))(function() {
                                   return updateNodes(params)(upd.nodeId)({
                                     x: pp.x,
@@ -49227,7 +49325,7 @@ var createXYDrag = function(params) {
     };
     var destroy = function __do4() {
       var s = read(stateRef)();
-      return for_11(s.d3Selection)(function(sel) {
+      return for_22(s.d3Selection)(function(sel) {
         return d3SelectionOnNull(sel)(".drag");
       })();
     };
@@ -49520,7 +49618,8 @@ var mkDragStoreItems = function(store) {
           return store.dispatch(new UpdateNodePositions(items, dragging));
         };
       },
-      autoPanSpeed: new Just(s.autoPanSpeed)
+      autoPanSpeed: new Just(s.autoPanSpeed),
+      onError: s.onError
     };
   };
 };
@@ -49595,7 +49694,7 @@ var nodesSelection = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/*
                   return pure49(unit);
                 }
                 ;
-                throw new Error("Failed pattern match at React.Component.NodesSelection (line 209, column 31 - line 213, column 31): " + [v1.constructor.name]);
+                throw new Error("Failed pattern match at React.Component.NodesSelection (line 210, column 31 - line 214, column 31): " + [v1.constructor.name]);
               };
               var onKeyDownEventHandler = handler(syntheticEvent)(function(se) {
                 return onKeyDownHandler(se);
@@ -49858,7 +49957,7 @@ var eq30 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var map46 = /* @__PURE__ */ map(functorArray);
 var fromFoldable9 = /* @__PURE__ */ fromFoldable4(ordNodeId)(foldableArray);
 var member8 = /* @__PURE__ */ member2(ordNodeId);
-var append11 = /* @__PURE__ */ append(semigroupArray);
+var append18 = /* @__PURE__ */ append(semigroupArray);
 var fromFoldable12 = /* @__PURE__ */ fromFoldable4(ordString)(foldableArray);
 var member12 = /* @__PURE__ */ member2(ordString);
 var partitionNodeChanges = /* @__PURE__ */ function() {
@@ -50142,7 +50241,7 @@ var getNodeElementsDiffChanges = function(mItems) {
             throw new Error("Failed pattern match at React.Store.Changes (line 316, column 9 - line 320, column 74): ");
           }();
           return {
-            changes: append11(acc.changes)(change),
+            changes: append18(acc.changes)(change),
             index: acc.index + 1 | 0
           };
         };
@@ -50151,7 +50250,7 @@ var getNodeElementsDiffChanges = function(mItems) {
         changes: [],
         index: 0
       })(items);
-      return append11(forwardPass.changes)(removes);
+      return append18(forwardPass.changes)(removes);
     };
   };
 };
@@ -50227,7 +50326,7 @@ var getEdgeElementsDiffChanges = function(mItems) {
           throw new Error("Failed pattern match at React.Store.Changes (line 350, column 18 - line 354, column 71): " + [v.constructor.name]);
         }();
         return {
-          changes: append11(acc.changes)(change),
+          changes: append18(acc.changes)(change),
           index: acc.index + 1 | 0
         };
       };
@@ -50236,7 +50335,7 @@ var getEdgeElementsDiffChanges = function(mItems) {
       changes: [],
       index: 0
     })(items);
-    return append11(forwardPass.changes)(removes);
+    return append18(forwardPass.changes)(removes);
   };
 };
 var applySingleNodeChange = function(c) {
@@ -50722,7 +50821,7 @@ var notEq7 = /* @__PURE__ */ notEq(/* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqRec
   }
 })(eqNumber))));
 var discard15 = /* @__PURE__ */ discard2(ixBindRender);
-var append18 = /* @__PURE__ */ append(semigroupArray);
+var append19 = /* @__PURE__ */ append(semigroupArray);
 var pure121 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var wrapMouseHandler = function(containerRef) {
   return function(h) {
@@ -51617,7 +51716,7 @@ var pane = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__
                           dragging: slice3.dragging,
                           isSelecting: v.isSelecting
                         });
-                        var allChildren = append18(userChildren)([element(userSelection)({
+                        var allChildren = append19(userChildren)([element(userSelection)({
                           ignored: Nothing.value
                         })]);
                         return pure121(div_({
@@ -53592,7 +53691,7 @@ var useStore21 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ *
   }
 })(eqBoolean)));
 var discard17 = /* @__PURE__ */ discard2(ixBindRender);
-var append19 = /* @__PURE__ */ append(semigroupArray);
+var append20 = /* @__PURE__ */ append(semigroupArray);
 var pure59 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var selectSlice7 = function(s) {
   return {
@@ -53647,7 +53746,7 @@ var flowRenderer = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @
             ;
             return [];
           }();
-          var paneChildren = append19(userChildren)(selectionOverlay);
+          var paneChildren = append20(userChildren)(selectionOverlay);
           return pure59(element(zoomPane)({
             children: reactChildrenFromArray([element(pane)({
               children: reactChildrenFromArray(paneChildren),
@@ -54075,7 +54174,8 @@ var mkDragStoreItems2 = function(store) {
           return store.dispatch(new UpdateNodePositions(items, dragging));
         };
       },
-      autoPanSpeed: new Just(s.autoPanSpeed)
+      autoPanSpeed: new Just(s.autoPanSpeed),
+      onError: s.onError
     };
   };
 };
@@ -54132,7 +54232,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
         return v.elementsSelectable;
       }
       ;
-      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 322, column 24 - line 324, column 46): " + [slice3.node.selectable.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 323, column 24 - line 325, column 46): " + [slice3.node.selectable.constructor.name]);
     }();
     var isDraggable = function() {
       if (slice3.node.draggable instanceof Just) {
@@ -54143,7 +54243,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
         return v.nodesDraggable;
       }
       ;
-      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 319, column 23 - line 321, column 42): " + [slice3.node.draggable.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 320, column 23 - line 322, column 42): " + [slice3.node.draggable.constructor.name]);
     }();
     var isConnectable = function() {
       if (slice3.node.connectable instanceof Just) {
@@ -54154,7 +54254,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
         return v.nodesConnectable;
       }
       ;
-      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 325, column 25 - line 327, column 44): " + [slice3.node.connectable.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 326, column 25 - line 328, column 44): " + [slice3.node.connectable.constructor.name]);
     }();
     var hasDims = nodeHasDimensions(slice3.node);
     return bind118(useStoreApi)(function(store) {
@@ -54235,7 +54335,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                   return pure61(unit);
                 }
                 ;
-                throw new Error("Failed pattern match at React.Component.NodeWrapper (line 395, column 35 - line 397, column 31): " + [mCb.constructor.name]);
+                throw new Error("Failed pattern match at React.Component.NodeWrapper (line 396, column 35 - line 398, column 31): " + [mCb.constructor.name]);
               };
             };
             var onClickHandler = handler(syntheticEvent)(function(se) {
@@ -55401,7 +55501,7 @@ var defaultInitialStateOptions = /* @__PURE__ */ function() {
 var ordMiddlewareKey = ordInt;
 
 // output/React.Store.Reduce/index.js
-var append20 = /* @__PURE__ */ append(semigroupArray);
+var append21 = /* @__PURE__ */ append(semigroupArray);
 var map59 = /* @__PURE__ */ map(functorArray);
 var fromFoldable11 = /* @__PURE__ */ fromFoldable5(foldableArray);
 var fromFoldable13 = /* @__PURE__ */ fromFoldable11(ordString);
@@ -56333,7 +56433,7 @@ var reduceSetDefaults = function(state3) {
               zIndexMode: res.state.zIndexMode,
               hasDefaultEdges: true
             },
-            effects: append20(afterNodes.effects)(res.effects)
+            effects: append21(afterNodes.effects)(res.effects)
           };
         }
         ;
@@ -56490,7 +56590,7 @@ var reduceAddSelectedEdges = function(state3) {
       var afterNodes = reduceTriggerNodeChanges(afterEdges.state)(nodeRes.changes);
       return {
         state: afterNodes.state,
-        effects: append20(afterEdges.effects)(afterNodes.effects)
+        effects: append21(afterEdges.effects)(afterNodes.effects)
       };
     }
     ;
@@ -56613,7 +56713,7 @@ var reduceAddSelectedNodes = function(state3) {
       var afterEdges = reduceTriggerEdgeChanges(afterNodes.state)(edgeRes.changes);
       return {
         state: afterEdges.state,
-        effects: append20(afterNodes.effects)(afterEdges.effects)
+        effects: append21(afterNodes.effects)(afterEdges.effects)
       };
     }
     ;
@@ -56839,7 +56939,7 @@ var reduceMergeNodeInternals = function(state3) {
       }();
       return {
         state: afterChanges.state,
-        effects: append20(fit)(afterChanges.effects)
+        effects: append21(fit)(afterChanges.effects)
       };
     }
     ;
@@ -56883,7 +56983,7 @@ var reduceResetSelectedElements = function(state3) {
     var afterEdges = reduceTriggerEdgeChanges(afterNodes.state)(edgeChanges);
     return {
       state: afterEdges.state,
-      effects: append20(afterNodes.effects)(afterEdges.effects)
+      effects: append21(afterNodes.effects)(afterEdges.effects)
     };
   }
   ;
@@ -57057,7 +57157,7 @@ var reduceUnselectNodesAndEdges = function(state3) {
     var afterEdges = reduceTriggerEdgeChanges(afterNodes.state)(edgeChanges);
     return {
       state: afterEdges.state,
-      effects: append20(afterNodes.effects)(afterEdges.effects)
+      effects: append21(afterNodes.effects)(afterEdges.effects)
     };
   };
 };
@@ -57133,7 +57233,7 @@ var reduceUpdateNodePositions = function(state3) {
           });
           return {
             changes: snoc(acc.changes)(change),
-            parentExpandChildren: append20(acc.parentExpandChildren)(expandChild),
+            parentExpandChildren: append21(acc.parentExpandChildren)(expandChild),
             connection
           };
         };
@@ -57155,7 +57255,7 @@ var reduceUpdateNodePositions = function(state3) {
         return function(middleware) {
           return middleware(cs);
         };
-      })(append20(stepped.changes)(expandChanges))(values(state3.onNodesChangeMiddlewareMap));
+      })(append21(stepped.changes)(expandChanges))(values(state3.onNodesChangeMiddlewareMap));
       return reduceTriggerNodeChanges({
         rfId: state3.rfId,
         width: state3.width,
@@ -58362,13 +58462,13 @@ var reduce = function(state3) {
 };
 
 // output/React.Store.Shell/index.js
-var for_22 = /* @__PURE__ */ for_(applicativeEffect)(foldableArray);
+var for_23 = /* @__PURE__ */ for_(applicativeEffect)(foldableArray);
 var pure70 = /* @__PURE__ */ pure(applicativeEffect);
 var map60 = /* @__PURE__ */ map(functorMaybe);
 var pure128 = /* @__PURE__ */ pure(applicativeAff);
 var bind120 = /* @__PURE__ */ bind(bindAff);
 var unless7 = /* @__PURE__ */ unless(applicativeEffect);
-var append21 = /* @__PURE__ */ append(semigroupArray);
+var append22 = /* @__PURE__ */ append(semigroupArray);
 var traverse_3 = /* @__PURE__ */ traverse_(applicativeEffect)(foldableArray);
 var errorCodeName = function(v) {
   return "";
@@ -58383,7 +58483,7 @@ var createStore = function(opts) {
       return function(next) {
         return function __do4() {
           var subs = read(subsRef)();
-          return for_22(subs)(function(sub2) {
+          return for_23(subs)(function(sub2) {
             return sub2.onUpdate(prev)(next);
           })();
         };
@@ -58424,7 +58524,7 @@ var createStore = function(opts) {
         if (eff instanceof FireOnSelectionChange) {
           return function __do4() {
             var s = read(stateRef)();
-            return for_22(s.onSelectionChangeHandlers)(function(cb) {
+            return for_23(s.onSelectionChangeHandlers)(function(cb) {
               return cb(eff.value0);
             })();
           };
@@ -58565,7 +58665,7 @@ var createStore = function(opts) {
           };
         };
         modify_(function(xs) {
-          return append21(xs)([{
+          return append22(xs)([{
             onUpdate,
             key: key2
           }]);
@@ -58596,7 +58696,7 @@ var createStore = function(opts) {
               };
             };
             modify_(function(xs) {
-              return append21(xs)([{
+              return append22(xs)([{
                 onUpdate,
                 key: key2
               }]);
@@ -58790,7 +58890,7 @@ var useStore26 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ *
 var discard24 = /* @__PURE__ */ discard2(ixBindRender);
 var useEffect16 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var pure74 = /* @__PURE__ */ pure(applicativeEffect);
-var for_23 = /* @__PURE__ */ for_(applicativeEffect)(foldableArray);
+var for_24 = /* @__PURE__ */ for_(applicativeEffect)(foldableArray);
 var pure130 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty17 = /* @__PURE__ */ mempty(monoidJSX);
 var useStore110 = /* @__PURE__ */ useStore(eqBoolean);
@@ -58840,7 +58940,7 @@ var selectionListenerInner = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */
           ;
           throw new Error("Failed pattern match at React.Provider.SelectionListener (line 64, column 9 - line 66, column 31): " + [v.onSelectionChange.constructor.name]);
         })();
-        for_23(s.onSelectionChangeHandlers)(function(fn) {
+        for_24(s.onSelectionChangeHandlers)(function(fn) {
           return fn(params);
         })();
         return pure74(unit);
@@ -58917,7 +59017,7 @@ var bind51 = /* @__PURE__ */ bind4(ixBindRender);
 var discard25 = /* @__PURE__ */ discard2(ixBindRender);
 var pure75 = /* @__PURE__ */ pure(applicativeEffect);
 var useEffect17 = /* @__PURE__ */ useEffect(eqTrackedProp);
-var for_24 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
+var for_25 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var pure131 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty18 = /* @__PURE__ */ mempty(monoidJSX);
 var effectOnJustFrom = function(seed) {
@@ -58929,7 +59029,7 @@ var effectOnJustFrom = function(seed) {
             return useEffect17(mValue)(function __do3() {
               var prev = readRef(previous)();
               writeRef(previous)(mValue)();
-              for_24(dispatchable(prev)(mValue))(function($72) {
+              for_25(dispatchable(prev)(mValue))(function($72) {
                 return dispatch2(mkAction($72));
               })();
               return pure75(unit);
@@ -63679,7 +63779,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
 var bind52 = /* @__PURE__ */ bind4(ixBindRender);
 var alt7 = /* @__PURE__ */ alt(altMaybe);
 var pure76 = /* @__PURE__ */ pure(applicativeEffect);
-var append22 = /* @__PURE__ */ append(semigroupArray);
+var append23 = /* @__PURE__ */ append(semigroupArray);
 var pure132 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var wrapperStyle = {
   width: "100%",
@@ -63892,7 +63992,7 @@ var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
       onPaneContextMenu: v.onPaneContextMenu,
       onPaneScroll: v.onPaneScroll
     });
-    var innerChildren = append22([storeUpdaterEl, graphViewEl])(append22(reactChildrenToArray(v.children))([element(selectionListener)({
+    var innerChildren = append23([storeUpdaterEl, graphViewEl])(append23(reactChildrenToArray(v.children))([element(selectionListener)({
       onSelectionChange: v.onSelectionChange
     }), element(attribution)({
       proOptions: v.proOptions,
@@ -64781,7 +64881,7 @@ var lookup26 = /* @__PURE__ */ lookup2(ordString);
 var discard26 = /* @__PURE__ */ discard2(ixBindRender);
 var useEffect18 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var when24 = /* @__PURE__ */ when(applicativeEffect);
-var for_25 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
+var for_26 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var map62 = /* @__PURE__ */ map(functorArray);
 var pure77 = /* @__PURE__ */ pure(applicativeEffect);
 var pure133 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
@@ -64847,10 +64947,10 @@ var useHandleConnections = function(params) {
           var prev = readRef(prevRef)();
           var droppedConns = filter(notIn(connections))(prev);
           var addedConns = filter(notIn(prev))(connections);
-          when24(!$$null(droppedConns))(for_25(params.onDisconnect)(function(cb) {
+          when24(!$$null(droppedConns))(for_26(params.onDisconnect)(function(cb) {
             return cb(map62(toConnection)(droppedConns));
           }))();
-          when24(!$$null(addedConns))(for_25(params.onConnect)(function(cb) {
+          when24(!$$null(addedConns))(for_26(params.onConnect)(function(cb) {
             return cb(map62(toConnection)(addedConns));
           }))();
           writeRef(prevRef)(connections)();
@@ -64952,7 +65052,7 @@ var lookup27 = /* @__PURE__ */ lookup2(ordString);
 var discard27 = /* @__PURE__ */ discard2(ixBindRender);
 var useEffect20 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var when25 = /* @__PURE__ */ when(applicativeEffect);
-var for_26 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
+var for_27 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var pure78 = /* @__PURE__ */ pure(applicativeEffect);
 var pure134 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var notIn2 = function(xs) {
@@ -65028,10 +65128,10 @@ var useNodeConnections = function(params) {
           var prev = readRef(prevRef)();
           var droppedConns = filter(notIn2(connections))(prev);
           var addedConns = filter(notIn2(prev))(connections);
-          when25(!$$null(droppedConns))(for_26(params.onDisconnect)(function(cb) {
+          when25(!$$null(droppedConns))(for_27(params.onDisconnect)(function(cb) {
             return cb(droppedConns);
           }))();
-          when25(!$$null(addedConns))(for_26(params.onConnect)(function(cb) {
+          when25(!$$null(addedConns))(for_27(params.onConnect)(function(cb) {
             return cb(addedConns);
           }))();
           writeRef(prevRef)(connections)();
@@ -65095,7 +65195,7 @@ var foldl10 = /* @__PURE__ */ foldl(foldableList);
 var useStore29 = /* @__PURE__ */ useStore(eqBoolean);
 var nub5 = /* @__PURE__ */ nub(ordNodeId);
 var lookup28 = /* @__PURE__ */ lookup2(ordNodeId);
-var append23 = /* @__PURE__ */ append(semigroupArray);
+var append24 = /* @__PURE__ */ append(semigroupArray);
 var eqMaybe14 = /* @__PURE__ */ eqMaybe(eqInt);
 var eqRowCons1 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons8({
   reflectSymbol: function() {
@@ -65380,7 +65480,7 @@ var useNodesData = function(dictEq) {
         return function(i) {
           var v = lookup28(i)(s.nodeLookup);
           if (v instanceof Just) {
-            return append23(acc)([v.value0]);
+            return append24(acc)([v.value0]);
           }
           ;
           if (v instanceof Nothing) {
