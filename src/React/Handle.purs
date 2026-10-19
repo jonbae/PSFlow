@@ -17,6 +17,7 @@
 -- | `pure true` is a wrong answer four times over.
 module React.Handle
   ( handle
+  , clickConnectEndState
   , nativePointerEvent
   , startsConnection
   ) where
@@ -50,6 +51,7 @@ import System.Types.Connection
   ( Connection
   , ConnectionMode(..)
   , ConnectionState(..)
+  , FinalConnectionState
   )
 import System.Types.Edge (EdgeBase)
 import System.Types.Geometry (Position(..))
@@ -325,6 +327,17 @@ onConnectExtended store mPropOnConnect conn = do
 -- The component
 -- ---------------------------------------------------------------------------
 
+-- | The state the click handler hands `onClickConnectEnd`. TS:
+-- |
+-- |     connectionClone.toPosition = connectionClone.toHandle ? connectionClone.toHandle.position : null;
+-- |
+-- | `NoConnection`, the usual state between the two clicks, is upstream's
+-- | all-`null` record.
+clickConnectEndState :: forall node. ConnectionState node -> FinalConnectionState node
+clickConnectEndState = case _ of
+  NoConnection -> Nothing
+  ConnectionInProgress p -> Just p { toPosition = map _.position p.toHandle }
+
 handle :: ReactComponent HandleProps
 handle = unsafePerformEffect $ memo $ reactComponent "Handle" \(props :: HandleProps) -> React.do
   slice <- useStore selectHandleSlice
@@ -461,15 +474,7 @@ handle = unsafePerformEffect $ memo $ reactComponent "Handle" \(props :: HandleP
             case result.isValid, result.connection of
               true, Just conn -> onConnectExtended store props.onConnect conn
               _, _ -> pure unit
-            -- Fire onClickConnectEnd with the (now-final) connection state.
-            -- `FinalConnectionState` is `Maybe ConnectionInProgressData`, so
-            -- extract the in-progress payload (or `Nothing` if the click
-            -- happened with no active drag).
-            let
-              finalState = case state.connection of
-                NoConnection -> Nothing
-                ConnectionInProgress p -> Just p
-            for_ state.onClickConnectEnd \cb -> cb (Left me) finalState
+            for_ state.onClickConnectEnd \cb -> cb (Left me) (clickConnectEndState state.connection)
             store.dispatch
               ( PatchState (_ { connectionClickStartHandle = Nothing }) )
 

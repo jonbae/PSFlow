@@ -275,7 +275,7 @@ connectionStateOut = case _ of
     , fromNode: notNull (internalNodeOut c.fromNode)
     , to: notNull c.to
     , toHandle: toNullable (map handleOut c.toHandle)
-    , toPosition: notNull (positionOut c.toPosition)
+    , toPosition: toNullable (map positionOut c.toPosition)
     , toNode: toNullable (map internalNodeOut c.toNode)
     , pointer: notNull c.pointer
     }

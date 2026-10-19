@@ -360,4 +360,21 @@ derive instance eqConnectionState :: Eq node => Eq (ConnectionState node)
 noConnection :: forall node. ConnectionState node
 noConnection = NoConnection
 
-type FinalConnectionState node = Maybe (ConnectionInProgressData node)
+-- | Upstream's `FinalConnectionState`, the connection as `onConnectEnd`,
+-- | `onReconnectEnd`, and `onClickConnectEnd` receive it: `ConnectionState`
+-- | without `inProgress`. Its `toPosition` is `null` when the connection
+-- | ended on no handle, so it's a `Maybe` here, where
+-- | `ConnectionInProgressData`'s isn't. `Nothing` is upstream's all-`null`
+-- | record, for a click that ends no connection in progress.
+type FinalConnectionState node = Maybe
+  { isValid :: Maybe Boolean
+  , from :: XYPosition
+  , fromHandle :: Handle
+  , fromPosition :: Position
+  , fromNode :: node
+  , to :: XYPosition
+  , toHandle :: Maybe Handle
+  , toPosition :: Maybe Position
+  , toNode :: Maybe node
+  , pointer :: XYPosition
+  }
