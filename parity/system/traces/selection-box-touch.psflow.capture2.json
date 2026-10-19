@@ -876,7 +876,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 201.70000004768372,
+            "timeStamp": 185,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1005,6 +1005,34 @@
         ]
       },
       {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [
+              {
+                "id": "notConnectable",
+                "position": {
+                  "x": 116.52439024390243,
+                  "y": 387.3932926829268
+                },
+                "data": {
+                  "label": "notConnectable"
+                },
+                "type": "output",
+                "selected": false,
+                "dragging": true,
+                "connectable": false,
+                "measured": {
+                  "width": 150,
+                  "height": 37
+                }
+              }
+            ],
+            "edges": []
+          }
+        ]
+      },
+      {
         "name": "onNodesChange",
         "args": [
           [
@@ -1068,34 +1096,6 @@
         ]
       },
       {
-        "name": "onSelectionChange",
-        "args": [
-          {
-            "nodes": [
-              {
-                "id": "notConnectable",
-                "position": {
-                  "x": 213.6280487804878,
-                  "y": 455.36585365853654
-                },
-                "data": {
-                  "label": "notConnectable"
-                },
-                "type": "output",
-                "selected": true,
-                "dragging": true,
-                "connectable": false,
-                "measured": {
-                  "width": 150,
-                  "height": 37
-                }
-              }
-            ],
-            "edges": []
-          }
-        ]
-      },
-      {
         "name": "onSelectionEnd",
         "args": [
           {
@@ -1116,7 +1116,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 282.3000000715256,
+            "timeStamp": 267.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1183,7 +1183,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 282.3000000715256,
+            "timeStamp": 267.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
