@@ -1,6 +1,7 @@
 module System.Constants
   ( ErrorCode(..)
   , Error008Edge
+  , errorId
   , errorMessage
   , infiniteExtent
   , elementSelectionKeys
@@ -39,11 +40,33 @@ data ErrorCode
   | E014
   | E015
 
+derive instance eqErrorCode :: Eq ErrorCode
+
 type Error008Edge =
   { id :: String
   , sourceHandle :: Maybe String
   , targetHandle :: Maybe String
   }
+
+-- | The code upstream passes to `onError` before the message, as in
+-- | `onError?.('015', errorMessages['error015']())`.
+errorId :: ErrorCode -> String
+errorId = case _ of
+  E001 -> "001"
+  E002 -> "002"
+  E003 _ -> "003"
+  E004 -> "004"
+  E005 -> "005"
+  E006 -> "006"
+  E007 _ -> "007"
+  E008 _ _ -> "008"
+  E009 _ -> "009"
+  E010 -> "010"
+  E011 _ -> "011"
+  E012 _ -> "012"
+  E013 _ -> "013"
+  E014 -> "014"
+  E015 -> "015"
 
 errorMessage :: ErrorCode -> String
 errorMessage = case _ of
