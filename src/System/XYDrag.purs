@@ -27,6 +27,7 @@ module System.XYDrag
   , PanBy
   , UpdateNodePositions
   , createXYDrag
+  , startDrag
   , DragState
   , initialDragState
   , autoPanLoop
@@ -470,6 +471,12 @@ startDrag params upd ev = do
       for_ params.onNodeMouseDown \cb -> cb nid
     _ -> pure unit
 
+  -- Upstream's `nodeLookup` is the store's own `Map`, and the two calls
+  -- above change the selection in it in place: `addSelectedNodes` and
+  -- `unselectNodesAndEdges` set its nodes' `selected`. So its
+  -- `getDragItems` sees the selection this drag just made. `store` is a
+  -- snapshot from before the calls, so the lookup is read again.
+  latest <- liftEffect params.getStoreItems
   s <- get
   pp <- liftEffect $ getPointerPosition (foreignAsTouchOrMouse src)
     { transform: store.transform
@@ -479,7 +486,7 @@ startDrag params upd ev = do
     }
 
   let
-    items = getDragItems (map _.id store.nodes) store.nodeLookup
+    items = getDragItems (map _.id latest.nodes) latest.nodeLookup
       store.nodesDraggable
       { x: pp.x, y: pp.y }
       upd.nodeId
@@ -490,6 +497,9 @@ startDrag params upd ev = do
 
   when (Array.length items > 0) do
     let
+      -- Upstream reports each item's `internals.userNode`, which the
+      -- selection above doesn't touch. ps-flow's internal node has no
+      -- `userNode`, and the snapshot's still holds the user's `selected`.
       eventArgs = getEventHandlerParams upd.nodeId items store.nodeLookup true
       mouseEv = foreignAsMouseEvent src
     liftEffect do

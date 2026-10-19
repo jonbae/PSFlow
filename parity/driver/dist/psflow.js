@@ -12648,20 +12648,20 @@ var require_react_dom_development = __commonJS({
                 if (dependency.context === context) {
                   if (fiber.tag === ClassComponent) {
                     var lane = pickArbitraryLane(renderLanes2);
-                    var update = createUpdate(NoTimestamp, lane);
-                    update.tag = ForceUpdate;
+                    var update3 = createUpdate(NoTimestamp, lane);
+                    update3.tag = ForceUpdate;
                     var updateQueue = fiber.updateQueue;
                     if (updateQueue === null) ;
                     else {
                       var sharedQueue = updateQueue.shared;
                       var pending = sharedQueue.pending;
                       if (pending === null) {
-                        update.next = update;
+                        update3.next = update3;
                       } else {
-                        update.next = pending.next;
-                        pending.next = update;
+                        update3.next = pending.next;
+                        pending.next = update3;
                       }
-                      sharedQueue.pending = update;
+                      sharedQueue.pending = update3;
                     }
                   }
                   fiber.lanes = mergeLanes(fiber.lanes, renderLanes2);
@@ -12787,39 +12787,39 @@ var require_react_dom_development = __commonJS({
             concurrentQueues = null;
           }
         }
-        function enqueueConcurrentHookUpdate(fiber, queue, update, lane) {
+        function enqueueConcurrentHookUpdate(fiber, queue, update3, lane) {
           var interleaved = queue.interleaved;
           if (interleaved === null) {
-            update.next = update;
+            update3.next = update3;
             pushConcurrentUpdateQueue(queue);
           } else {
-            update.next = interleaved.next;
-            interleaved.next = update;
+            update3.next = interleaved.next;
+            interleaved.next = update3;
           }
-          queue.interleaved = update;
+          queue.interleaved = update3;
           return markUpdateLaneFromFiberToRoot(fiber, lane);
         }
-        function enqueueConcurrentHookUpdateAndEagerlyBailout(fiber, queue, update, lane) {
+        function enqueueConcurrentHookUpdateAndEagerlyBailout(fiber, queue, update3, lane) {
           var interleaved = queue.interleaved;
           if (interleaved === null) {
-            update.next = update;
+            update3.next = update3;
             pushConcurrentUpdateQueue(queue);
           } else {
-            update.next = interleaved.next;
-            interleaved.next = update;
+            update3.next = interleaved.next;
+            interleaved.next = update3;
           }
-          queue.interleaved = update;
+          queue.interleaved = update3;
         }
-        function enqueueConcurrentClassUpdate(fiber, queue, update, lane) {
+        function enqueueConcurrentClassUpdate(fiber, queue, update3, lane) {
           var interleaved = queue.interleaved;
           if (interleaved === null) {
-            update.next = update;
+            update3.next = update3;
             pushConcurrentUpdateQueue(queue);
           } else {
-            update.next = interleaved.next;
-            interleaved.next = update;
+            update3.next = interleaved.next;
+            interleaved.next = update3;
           }
-          queue.interleaved = update;
+          queue.interleaved = update3;
           return markUpdateLaneFromFiberToRoot(fiber, lane);
         }
         function enqueueConcurrentRenderForLane(fiber, lane) {
@@ -12901,7 +12901,7 @@ var require_react_dom_development = __commonJS({
           }
         }
         function createUpdate(eventTime, lane) {
-          var update = {
+          var update3 = {
             eventTime,
             lane,
             tag: UpdateState,
@@ -12909,9 +12909,9 @@ var require_react_dom_development = __commonJS({
             callback: null,
             next: null
           };
-          return update;
+          return update3;
         }
-        function enqueueUpdate(fiber, update, lane) {
+        function enqueueUpdate(fiber, update3, lane) {
           var updateQueue = fiber.updateQueue;
           if (updateQueue === null) {
             return null;
@@ -12926,15 +12926,15 @@ var require_react_dom_development = __commonJS({
           if (isUnsafeClassRenderPhaseUpdate()) {
             var pending = sharedQueue.pending;
             if (pending === null) {
-              update.next = update;
+              update3.next = update3;
             } else {
-              update.next = pending.next;
-              pending.next = update;
+              update3.next = pending.next;
+              pending.next = update3;
             }
-            sharedQueue.pending = update;
+            sharedQueue.pending = update3;
             return unsafe_markUpdateLaneFromFiberToRoot(fiber, lane);
           } else {
-            return enqueueConcurrentClassUpdate(fiber, sharedQueue, update, lane);
+            return enqueueConcurrentClassUpdate(fiber, sharedQueue, update3, lane);
           }
         }
         function entangleTransitions(root4, fiber, lane) {
@@ -12961,14 +12961,14 @@ var require_react_dom_development = __commonJS({
               var newLast = null;
               var firstBaseUpdate = queue.firstBaseUpdate;
               if (firstBaseUpdate !== null) {
-                var update = firstBaseUpdate;
+                var update3 = firstBaseUpdate;
                 do {
                   var clone = {
-                    eventTime: update.eventTime,
-                    lane: update.lane,
-                    tag: update.tag,
-                    payload: update.payload,
-                    callback: update.callback,
+                    eventTime: update3.eventTime,
+                    lane: update3.lane,
+                    tag: update3.tag,
+                    payload: update3.payload,
+                    callback: update3.callback,
                     next: null
                   };
                   if (newLast === null) {
@@ -12977,8 +12977,8 @@ var require_react_dom_development = __commonJS({
                     newLast.next = clone;
                     newLast = clone;
                   }
-                  update = update.next;
-                } while (update !== null);
+                  update3 = update3.next;
+                } while (update3 !== null);
                 if (newLast === null) {
                   newFirst = newLast = capturedUpdate;
                 } else {
@@ -13007,10 +13007,10 @@ var require_react_dom_development = __commonJS({
           }
           queue.lastBaseUpdate = capturedUpdate;
         }
-        function getStateFromUpdate(workInProgress2, queue, update, prevState, nextProps, instance) {
-          switch (update.tag) {
+        function getStateFromUpdate(workInProgress2, queue, update3, prevState, nextProps, instance) {
+          switch (update3.tag) {
             case ReplaceState: {
-              var payload = update.payload;
+              var payload = update3.payload;
               if (typeof payload === "function") {
                 {
                   enterDisallowedContextReadInDEV();
@@ -13036,7 +13036,7 @@ var require_react_dom_development = __commonJS({
             }
             // Intentional fallthrough
             case UpdateState: {
-              var _payload = update.payload;
+              var _payload = update3.payload;
               var partialState;
               if (typeof _payload === "function") {
                 {
@@ -13109,17 +13109,17 @@ var require_react_dom_development = __commonJS({
             var newBaseState = null;
             var newFirstBaseUpdate = null;
             var newLastBaseUpdate = null;
-            var update = firstBaseUpdate;
+            var update3 = firstBaseUpdate;
             do {
-              var updateLane = update.lane;
-              var updateEventTime = update.eventTime;
+              var updateLane = update3.lane;
+              var updateEventTime = update3.eventTime;
               if (!isSubsetOfLanes(renderLanes2, updateLane)) {
                 var clone = {
                   eventTime: updateEventTime,
                   lane: updateLane,
-                  tag: update.tag,
-                  payload: update.payload,
-                  callback: update.callback,
+                  tag: update3.tag,
+                  payload: update3.payload,
+                  callback: update3.callback,
                   next: null
                 };
                 if (newLastBaseUpdate === null) {
@@ -13137,29 +13137,29 @@ var require_react_dom_development = __commonJS({
                     // it. Using NoLane works because 0 is a subset of all bitmasks, so
                     // this will never be skipped by the check above.
                     lane: NoLane,
-                    tag: update.tag,
-                    payload: update.payload,
-                    callback: update.callback,
+                    tag: update3.tag,
+                    payload: update3.payload,
+                    callback: update3.callback,
                     next: null
                   };
                   newLastBaseUpdate = newLastBaseUpdate.next = _clone;
                 }
-                newState = getStateFromUpdate(workInProgress2, queue, update, newState, props, instance);
-                var callback2 = update.callback;
+                newState = getStateFromUpdate(workInProgress2, queue, update3, newState, props, instance);
+                var callback2 = update3.callback;
                 if (callback2 !== null && // If the update was already committed, we should not queue its
                 // callback again.
-                update.lane !== NoLane) {
+                update3.lane !== NoLane) {
                   workInProgress2.flags |= Callback;
                   var effects = queue.effects;
                   if (effects === null) {
-                    queue.effects = [update];
+                    queue.effects = [update3];
                   } else {
-                    effects.push(update);
+                    effects.push(update3);
                   }
                 }
               }
-              update = update.next;
-              if (update === null) {
+              update3 = update3.next;
+              if (update3 === null) {
                 pendingQueue = queue.shared.pending;
                 if (pendingQueue === null) {
                   break;
@@ -13167,7 +13167,7 @@ var require_react_dom_development = __commonJS({
                   var _lastPendingUpdate = pendingQueue;
                   var _firstPendingUpdate = _lastPendingUpdate.next;
                   _lastPendingUpdate.next = null;
-                  update = _firstPendingUpdate;
+                  update3 = _firstPendingUpdate;
                   queue.lastBaseUpdate = _lastPendingUpdate;
                   queue.shared.pending = null;
                 }
@@ -13710,15 +13710,15 @@ var require_react_dom_development = __commonJS({
             var newBaseState = null;
             var newBaseQueueFirst = null;
             var newBaseQueueLast = null;
-            var update = first;
+            var update3 = first;
             do {
-              var updateLane = update.lane;
+              var updateLane = update3.lane;
               if (!isSubsetOfLanes(renderLanes, updateLane)) {
                 var clone = {
                   lane: updateLane,
-                  action: update.action,
-                  hasEagerState: update.hasEagerState,
-                  eagerState: update.eagerState,
+                  action: update3.action,
+                  hasEagerState: update3.hasEagerState,
+                  eagerState: update3.eagerState,
                   next: null
                 };
                 if (newBaseQueueLast === null) {
@@ -13736,22 +13736,22 @@ var require_react_dom_development = __commonJS({
                     // it. Using NoLane works because 0 is a subset of all bitmasks, so
                     // this will never be skipped by the check above.
                     lane: NoLane,
-                    action: update.action,
-                    hasEagerState: update.hasEagerState,
-                    eagerState: update.eagerState,
+                    action: update3.action,
+                    hasEagerState: update3.hasEagerState,
+                    eagerState: update3.eagerState,
                     next: null
                   };
                   newBaseQueueLast = newBaseQueueLast.next = _clone;
                 }
-                if (update.hasEagerState) {
-                  newState = update.eagerState;
+                if (update3.hasEagerState) {
+                  newState = update3.eagerState;
                 } else {
-                  var action2 = update.action;
+                  var action2 = update3.action;
                   newState = reducer(newState, action2);
                 }
               }
-              update = update.next;
-            } while (update !== null && update !== first);
+              update3 = update3.next;
+            } while (update3 !== null && update3 !== first);
             if (newBaseQueueLast === null) {
               newBaseState = newState;
             } else {
@@ -13793,12 +13793,12 @@ var require_react_dom_development = __commonJS({
           if (lastRenderPhaseUpdate !== null) {
             queue.pending = null;
             var firstRenderPhaseUpdate = lastRenderPhaseUpdate.next;
-            var update = firstRenderPhaseUpdate;
+            var update3 = firstRenderPhaseUpdate;
             do {
-              var action2 = update.action;
+              var action2 = update3.action;
               newState = reducer(newState, action2);
-              update = update.next;
-            } while (update !== firstRenderPhaseUpdate);
+              update3 = update3.next;
+            } while (update3 !== firstRenderPhaseUpdate);
             if (!objectIs(newState, hook.memoizedState)) {
               markWorkInProgressReceivedUpdate();
             }
@@ -14291,7 +14291,7 @@ var require_react_dom_development = __commonJS({
             }
           }
           var lane = requestUpdateLane(fiber);
-          var update = {
+          var update3 = {
             lane,
             action: action2,
             hasEagerState: false,
@@ -14299,9 +14299,9 @@ var require_react_dom_development = __commonJS({
             next: null
           };
           if (isRenderPhaseUpdate(fiber)) {
-            enqueueRenderPhaseUpdate(queue, update);
+            enqueueRenderPhaseUpdate(queue, update3);
           } else {
-            var root4 = enqueueConcurrentHookUpdate(fiber, queue, update, lane);
+            var root4 = enqueueConcurrentHookUpdate(fiber, queue, update3, lane);
             if (root4 !== null) {
               var eventTime = requestEventTime();
               scheduleUpdateOnFiber(root4, fiber, lane, eventTime);
@@ -14317,7 +14317,7 @@ var require_react_dom_development = __commonJS({
             }
           }
           var lane = requestUpdateLane(fiber);
-          var update = {
+          var update3 = {
             lane,
             action: action2,
             hasEagerState: false,
@@ -14325,7 +14325,7 @@ var require_react_dom_development = __commonJS({
             next: null
           };
           if (isRenderPhaseUpdate(fiber)) {
-            enqueueRenderPhaseUpdate(queue, update);
+            enqueueRenderPhaseUpdate(queue, update3);
           } else {
             var alternate = fiber.alternate;
             if (fiber.lanes === NoLanes && (alternate === null || alternate.lanes === NoLanes)) {
@@ -14339,10 +14339,10 @@ var require_react_dom_development = __commonJS({
                 try {
                   var currentState = queue.lastRenderedState;
                   var eagerState = lastRenderedReducer(currentState, action2);
-                  update.hasEagerState = true;
-                  update.eagerState = eagerState;
+                  update3.hasEagerState = true;
+                  update3.eagerState = eagerState;
                   if (objectIs(eagerState, currentState)) {
-                    enqueueConcurrentHookUpdateAndEagerlyBailout(fiber, queue, update, lane);
+                    enqueueConcurrentHookUpdateAndEagerlyBailout(fiber, queue, update3, lane);
                     return;
                   }
                 } catch (error4) {
@@ -14353,7 +14353,7 @@ var require_react_dom_development = __commonJS({
                 }
               }
             }
-            var root4 = enqueueConcurrentHookUpdate(fiber, queue, update, lane);
+            var root4 = enqueueConcurrentHookUpdate(fiber, queue, update3, lane);
             if (root4 !== null) {
               var eventTime = requestEventTime();
               scheduleUpdateOnFiber(root4, fiber, lane, eventTime);
@@ -14366,16 +14366,16 @@ var require_react_dom_development = __commonJS({
           var alternate = fiber.alternate;
           return fiber === currentlyRenderingFiber$1 || alternate !== null && alternate === currentlyRenderingFiber$1;
         }
-        function enqueueRenderPhaseUpdate(queue, update) {
+        function enqueueRenderPhaseUpdate(queue, update3) {
           didScheduleRenderPhaseUpdateDuringThisPass = didScheduleRenderPhaseUpdate = true;
           var pending = queue.pending;
           if (pending === null) {
-            update.next = update;
+            update3.next = update3;
           } else {
-            update.next = pending.next;
-            pending.next = update;
+            update3.next = pending.next;
+            pending.next = update3;
           }
-          queue.pending = update;
+          queue.pending = update3;
         }
         function entangleTransitionUpdate(root4, queue, lane) {
           if (isTransitionLane(lane)) {
@@ -15410,15 +15410,15 @@ var require_react_dom_development = __commonJS({
             var fiber = get7(inst);
             var eventTime = requestEventTime();
             var lane = requestUpdateLane(fiber);
-            var update = createUpdate(eventTime, lane);
-            update.payload = payload;
+            var update3 = createUpdate(eventTime, lane);
+            update3.payload = payload;
             if (callback2 !== void 0 && callback2 !== null) {
               {
                 warnOnInvalidCallback(callback2, "setState");
               }
-              update.callback = callback2;
+              update3.callback = callback2;
             }
-            var root4 = enqueueUpdate(fiber, update, lane);
+            var root4 = enqueueUpdate(fiber, update3, lane);
             if (root4 !== null) {
               scheduleUpdateOnFiber(root4, fiber, lane, eventTime);
               entangleTransitions(root4, fiber, lane);
@@ -15431,16 +15431,16 @@ var require_react_dom_development = __commonJS({
             var fiber = get7(inst);
             var eventTime = requestEventTime();
             var lane = requestUpdateLane(fiber);
-            var update = createUpdate(eventTime, lane);
-            update.tag = ReplaceState;
-            update.payload = payload;
+            var update3 = createUpdate(eventTime, lane);
+            update3.tag = ReplaceState;
+            update3.payload = payload;
             if (callback2 !== void 0 && callback2 !== null) {
               {
                 warnOnInvalidCallback(callback2, "replaceState");
               }
-              update.callback = callback2;
+              update3.callback = callback2;
             }
-            var root4 = enqueueUpdate(fiber, update, lane);
+            var root4 = enqueueUpdate(fiber, update3, lane);
             if (root4 !== null) {
               scheduleUpdateOnFiber(root4, fiber, lane, eventTime);
               entangleTransitions(root4, fiber, lane);
@@ -15453,15 +15453,15 @@ var require_react_dom_development = __commonJS({
             var fiber = get7(inst);
             var eventTime = requestEventTime();
             var lane = requestUpdateLane(fiber);
-            var update = createUpdate(eventTime, lane);
-            update.tag = ForceUpdate;
+            var update3 = createUpdate(eventTime, lane);
+            update3.tag = ForceUpdate;
             if (callback2 !== void 0 && callback2 !== null) {
               {
                 warnOnInvalidCallback(callback2, "forceUpdate");
               }
-              update.callback = callback2;
+              update3.callback = callback2;
             }
-            var root4 = enqueueUpdate(fiber, update, lane);
+            var root4 = enqueueUpdate(fiber, update3, lane);
             if (root4 !== null) {
               scheduleUpdateOnFiber(root4, fiber, lane, eventTime);
               entangleTransitions(root4, fiber, lane);
@@ -15997,28 +15997,28 @@ var require_react_dom_development = __commonJS({
         }
         var PossiblyWeakMap$1 = typeof WeakMap === "function" ? WeakMap : Map;
         function createRootErrorUpdate(fiber, errorInfo, lane) {
-          var update = createUpdate(NoTimestamp, lane);
-          update.tag = CaptureUpdate;
-          update.payload = {
+          var update3 = createUpdate(NoTimestamp, lane);
+          update3.tag = CaptureUpdate;
+          update3.payload = {
             element: null
           };
           var error4 = errorInfo.value;
-          update.callback = function() {
+          update3.callback = function() {
             onUncaughtError(error4);
             logCapturedError(fiber, errorInfo);
           };
-          return update;
+          return update3;
         }
         function createClassErrorUpdate(fiber, errorInfo, lane) {
-          var update = createUpdate(NoTimestamp, lane);
-          update.tag = CaptureUpdate;
+          var update3 = createUpdate(NoTimestamp, lane);
+          update3.tag = CaptureUpdate;
           var getDerivedStateFromError = fiber.type.getDerivedStateFromError;
           if (typeof getDerivedStateFromError === "function") {
             var error$1 = errorInfo.value;
-            update.payload = function() {
+            update3.payload = function() {
               return getDerivedStateFromError(error$1);
             };
-            update.callback = function() {
+            update3.callback = function() {
               {
                 markFailedErrorBoundaryForHotReloading(fiber);
               }
@@ -16027,7 +16027,7 @@ var require_react_dom_development = __commonJS({
           }
           var inst = fiber.stateNode;
           if (inst !== null && typeof inst.componentDidCatch === "function") {
-            update.callback = function callback2() {
+            update3.callback = function callback2() {
               {
                 markFailedErrorBoundaryForHotReloading(fiber);
               }
@@ -16049,7 +16049,7 @@ var require_react_dom_development = __commonJS({
               }
             };
           }
-          return update;
+          return update3;
         }
         function attachPingListener(root4, wakeable, lanes) {
           var pingCache = root4.pingCache;
@@ -16123,9 +16123,9 @@ var require_react_dom_development = __commonJS({
                 if (currentSourceFiber === null) {
                   sourceFiber.tag = IncompleteClassComponent;
                 } else {
-                  var update = createUpdate(NoTimestamp, SyncLane);
-                  update.tag = ForceUpdate;
-                  enqueueUpdate(sourceFiber, update, SyncLane);
+                  var update3 = createUpdate(NoTimestamp, SyncLane);
+                  update3.tag = ForceUpdate;
+                  enqueueUpdate(sourceFiber, update3, SyncLane);
                 }
               }
               sourceFiber.lanes = mergeLanes(sourceFiber.lanes, SyncLane);
@@ -16193,8 +16193,8 @@ var require_react_dom_development = __commonJS({
                 workInProgress2.flags |= ShouldCapture;
                 var lane = pickArbitraryLane(rootRenderLanes);
                 workInProgress2.lanes = mergeLanes(workInProgress2.lanes, lane);
-                var update = createRootErrorUpdate(workInProgress2, _errorInfo, lane);
-                enqueueCapturedUpdate(workInProgress2, update);
+                var update3 = createRootErrorUpdate(workInProgress2, _errorInfo, lane);
+                enqueueCapturedUpdate(workInProgress2, update3);
                 return;
               }
               case ClassComponent:
@@ -16579,8 +16579,8 @@ var require_react_dom_development = __commonJS({
                 var error$1 = new Error("Simulated error coming from DevTools");
                 var lane = pickArbitraryLane(renderLanes2);
                 workInProgress2.lanes = mergeLanes(workInProgress2.lanes, lane);
-                var update = createClassErrorUpdate(workInProgress2, createCapturedValueAtFiber(error$1, workInProgress2), lane);
-                enqueueCapturedUpdate(workInProgress2, update);
+                var update3 = createClassErrorUpdate(workInProgress2, createCapturedValueAtFiber(error$1, workInProgress2), lane);
+                enqueueCapturedUpdate(workInProgress2, update3);
                 break;
               }
             }
@@ -21506,8 +21506,8 @@ var require_react_dom_development = __commonJS({
         var onUncaughtError = prepareToThrowUncaughtError;
         function captureCommitPhaseErrorOnRoot(rootFiber, sourceFiber, error4) {
           var errorInfo = createCapturedValueAtFiber(error4, sourceFiber);
-          var update = createRootErrorUpdate(rootFiber, errorInfo, SyncLane);
-          var root4 = enqueueUpdate(rootFiber, update, SyncLane);
+          var update3 = createRootErrorUpdate(rootFiber, errorInfo, SyncLane);
+          var root4 = enqueueUpdate(rootFiber, update3, SyncLane);
           var eventTime = requestEventTime();
           if (root4 !== null) {
             markRootUpdated(root4, SyncLane, eventTime);
@@ -21536,8 +21536,8 @@ var require_react_dom_development = __commonJS({
               var instance = fiber.stateNode;
               if (typeof ctor.getDerivedStateFromError === "function" || typeof instance.componentDidCatch === "function" && !isAlreadyFailedLegacyErrorBoundary(instance)) {
                 var errorInfo = createCapturedValueAtFiber(error$1, sourceFiber);
-                var update = createClassErrorUpdate(fiber, errorInfo, SyncLane);
-                var root4 = enqueueUpdate(fiber, update, SyncLane);
+                var update3 = createClassErrorUpdate(fiber, errorInfo, SyncLane);
+                var root4 = enqueueUpdate(fiber, update3, SyncLane);
                 var eventTime = requestEventTime();
                 if (root4 !== null) {
                   markRootUpdated(root4, SyncLane, eventTime);
@@ -21955,12 +21955,12 @@ var require_react_dom_development = __commonJS({
             failedBoundaries.add(fiber);
           }
         }
-        var scheduleRefresh = function(root4, update) {
+        var scheduleRefresh = function(root4, update3) {
           {
             if (resolveFamily === null) {
               return;
             }
-            var staleFamilies = update.staleFamilies, updatedFamilies = update.updatedFamilies;
+            var staleFamilies = update3.staleFamilies, updatedFamilies = update3.updatedFamilies;
             flushPassiveEffects();
             flushSync(function() {
               scheduleFibersWithFamiliesRecursively(root4.current, updatedFamilies, staleFamilies);
@@ -22696,9 +22696,9 @@ var require_react_dom_development = __commonJS({
           var current2 = root4.current;
           var eventTime = requestEventTime();
           var lane = requestUpdateLane(current2);
-          var update = createUpdate(eventTime, lane);
-          update.callback = callback2 !== void 0 && callback2 !== null ? callback2 : null;
-          enqueueUpdate(current2, update, lane);
+          var update3 = createUpdate(eventTime, lane);
+          update3.callback = callback2 !== void 0 && callback2 !== null ? callback2 : null;
+          enqueueUpdate(current2, update3, lane);
           scheduleInitialHydrationOnRoot(root4, lane, eventTime);
           return root4;
         }
@@ -22724,8 +22724,8 @@ var require_react_dom_development = __commonJS({
               error3("Render methods should be a pure function of props and state; triggering nested component updates from render is not allowed. If necessary, trigger nested updates in componentDidUpdate.\n\nCheck the render method of %s.", getComponentNameFromFiber(current) || "Unknown");
             }
           }
-          var update = createUpdate(eventTime, lane);
-          update.payload = {
+          var update3 = createUpdate(eventTime, lane);
+          update3.payload = {
             element: element2
           };
           callback2 = callback2 === void 0 ? null : callback2;
@@ -22735,9 +22735,9 @@ var require_react_dom_development = __commonJS({
                 error3("render(...): Expected the last optional `callback` argument to be a function. Instead received: %s.", callback2);
               }
             }
-            update.callback = callback2;
+            update3.callback = callback2;
           }
-          var root4 = enqueueUpdate(current$1, update, lane);
+          var root4 = enqueueUpdate(current$1, update3, lane);
           if (root4 !== null) {
             scheduleUpdateOnFiber(root4, current$1, lane, eventTime);
             entangleTransitions(root4, current$1, lane);
@@ -27962,8 +27962,8 @@ function filter_default(match) {
 }
 
 // node_modules/d3-selection/src/selection/sparse.js
-function sparse_default(update) {
-  return new Array(update.length);
+function sparse_default(update3) {
+  return new Array(update3.length);
 }
 
 // node_modules/d3-selection/src/selection/enter.js
@@ -28001,12 +28001,12 @@ function constant_default(x) {
 }
 
 // node_modules/d3-selection/src/selection/data.js
-function bindIndex(parent2, group4, enter, update, exit, data) {
+function bindIndex(parent2, group4, enter, update3, exit, data) {
   var i = 0, node, groupLength = group4.length, dataLength = data.length;
   for (; i < dataLength; ++i) {
     if (node = group4[i]) {
       node.__data__ = data[i];
-      update[i] = node;
+      update3[i] = node;
     } else {
       enter[i] = new EnterNode(parent2, data[i]);
     }
@@ -28017,7 +28017,7 @@ function bindIndex(parent2, group4, enter, update, exit, data) {
     }
   }
 }
-function bindKey(parent2, group4, enter, update, exit, data, key2) {
+function bindKey(parent2, group4, enter, update3, exit, data, key2) {
   var i, node, nodeByKeyValue = /* @__PURE__ */ new Map(), groupLength = group4.length, dataLength = data.length, keyValues = new Array(groupLength), keyValue;
   for (i = 0; i < groupLength; ++i) {
     if (node = group4[i]) {
@@ -28032,7 +28032,7 @@ function bindKey(parent2, group4, enter, update, exit, data, key2) {
   for (i = 0; i < dataLength; ++i) {
     keyValue = key2.call(parent2, data[i], i, data) + "";
     if (node = nodeByKeyValue.get(keyValue)) {
-      update[i] = node;
+      update3[i] = node;
       node.__data__ = data[i];
       nodeByKeyValue.delete(keyValue);
     } else {
@@ -28052,8 +28052,8 @@ function data_default(value12, key2) {
   if (!arguments.length) return Array.from(this, datum);
   var bind61 = key2 ? bindKey : bindIndex, parents = this._parents, groups = this._groups;
   if (typeof value12 !== "function") value12 = constant_default(value12);
-  for (var m = groups.length, update = new Array(m), enter = new Array(m), exit = new Array(m), j = 0; j < m; ++j) {
-    var parent2 = parents[j], group4 = groups[j], groupLength = group4.length, data = arraylike(value12.call(parent2, parent2 && parent2.__data__, j, parents)), dataLength = data.length, enterGroup = enter[j] = new Array(dataLength), updateGroup = update[j] = new Array(dataLength), exitGroup = exit[j] = new Array(groupLength);
+  for (var m = groups.length, update3 = new Array(m), enter = new Array(m), exit = new Array(m), j = 0; j < m; ++j) {
+    var parent2 = parents[j], group4 = groups[j], groupLength = group4.length, data = arraylike(value12.call(parent2, parent2 && parent2.__data__, j, parents)), dataLength = data.length, enterGroup = enter[j] = new Array(dataLength), updateGroup = update3[j] = new Array(dataLength), exitGroup = exit[j] = new Array(groupLength);
     bind61(parent2, group4, enterGroup, updateGroup, exitGroup, data, key2);
     for (var i0 = 0, i1 = 0, previous, next; i0 < dataLength; ++i0) {
       if (previous = enterGroup[i0]) {
@@ -28063,10 +28063,10 @@ function data_default(value12, key2) {
       }
     }
   }
-  update = new Selection(update, parents);
-  update._enter = enter;
-  update._exit = exit;
-  return update;
+  update3 = new Selection(update3, parents);
+  update3._enter = enter;
+  update3._exit = exit;
+  return update3;
 }
 function arraylike(data) {
   return typeof data === "object" && "length" in data ? data : Array.from(data);
@@ -28079,7 +28079,7 @@ function exit_default() {
 
 // node_modules/d3-selection/src/selection/join.js
 function join_default(onenter, onupdate, onexit) {
-  var enter = this.enter(), update = this, exit = this.exit();
+  var enter = this.enter(), update3 = this, exit = this.exit();
   if (typeof onenter === "function") {
     enter = onenter(enter);
     if (enter) enter = enter.selection();
@@ -28087,12 +28087,12 @@ function join_default(onenter, onupdate, onexit) {
     enter = enter.append(onenter + "");
   }
   if (onupdate != null) {
-    update = onupdate(update);
-    if (update) update = update.selection();
+    update3 = onupdate(update3);
+    if (update3) update3 = update3.selection();
   }
   if (onexit == null) exit.remove();
   else onexit(exit);
-  return enter && update ? enter.merge(update).order() : update;
+  return enter && update3 ? enter.merge(update3).order() : update3;
 }
 
 // node_modules/d3-selection/src/selection/merge.js
@@ -32134,15 +32134,15 @@ var map14 = /* @__PURE__ */ map(functorEffect);
 var map23 = /* @__PURE__ */ map(functorArray);
 var bind22 = /* @__PURE__ */ bind(bindAff);
 var pure1 = /* @__PURE__ */ pure(applicativeAff);
-var resolveUpdate = function(update) {
+var resolveUpdate = function(update3) {
   return function(current) {
-    var v = asFunction(update);
+    var v = asFunction(update3);
     if (v instanceof Just) {
       return v.value0(current);
     }
     ;
     if (v instanceof Nothing) {
-      return update;
+      return update3;
     }
     ;
     throw new Error("Failed pattern match at Boundary.Instance (line 519, column 32 - line 521, column 20): " + [v.constructor.name]);
@@ -32204,11 +32204,11 @@ var handleConnectionOut = function(c) {
 };
 var elementUpdater = function(outward) {
   return function(inward) {
-    return function(update) {
+    return function(update3) {
       return function(replace3) {
         return function(element2) {
           var current = outward(element2);
-          var next = resolveUpdate(update)(current);
+          var next = resolveUpdate(update3)(current);
           var $34 = replace3 && wholeElement(next);
           if ($34) {
             return inward(next);
@@ -32274,11 +32274,11 @@ var viewportHelperOptionsIn = function(field) {
 };
 var dataUpdater = function(outward) {
   return function(inward) {
-    return function(update) {
+    return function(update3) {
       return function(replace3) {
         return function(element2) {
           var current = outward(element2);
-          var nextData = resolveUpdate(update)(current);
+          var nextData = resolveUpdate(update3)(current);
           var merged = function() {
             if (replace3) {
               return nextData;
@@ -32425,17 +32425,17 @@ var instanceOut = function(i) {
     isNodeIntersecting: function(target5, area, partially) {
       return i.isNodeIntersecting(nodeOrIdOrRect("isNodeIntersecting")(target5))(area)(fromUndefinable(partially))();
     },
-    updateNode: function(id3, update, options2) {
-      return i.updateNode(id3)(elementUpdater(nodeOut)(nodeIn)(update)(replaceWanted(options2)))(updateOptionsIn(options2))();
+    updateNode: function(id3, update3, options2) {
+      return i.updateNode(id3)(elementUpdater(nodeOut)(nodeIn)(update3)(replaceWanted(options2)))(updateOptionsIn(options2))();
     },
-    updateNodeData: function(id3, update, options2) {
-      return i.updateNodeData(id3)(dataUpdater(nodeOut)(nodeIn)(update)(replaceWanted(options2)))(updateOptionsIn(options2))();
+    updateNodeData: function(id3, update3, options2) {
+      return i.updateNodeData(id3)(dataUpdater(nodeOut)(nodeIn)(update3)(replaceWanted(options2)))(updateOptionsIn(options2))();
     },
-    updateEdge: function(id3, update, options2) {
-      return i.updateEdge(id3)(elementUpdater(edgeOut)(edgeIn)(update)(replaceWanted(options2)))(updateOptionsIn(options2))();
+    updateEdge: function(id3, update3, options2) {
+      return i.updateEdge(id3)(elementUpdater(edgeOut)(edgeIn)(update3)(replaceWanted(options2)))(updateOptionsIn(options2))();
     },
-    updateEdgeData: function(id3, update, options2) {
-      return i.updateEdgeData(id3)(dataUpdater(edgeOut)(edgeIn)(update)(replaceWanted(options2)))(updateOptionsIn(options2))();
+    updateEdgeData: function(id3, update3, options2) {
+      return i.updateEdgeData(id3)(dataUpdater(edgeOut)(edgeIn)(update3)(replaceWanted(options2)))(updateOptionsIn(options2))();
     },
     getNodesBounds: function(refs) {
       return i.getNodesBounds(map23(nodeRefForBounds("getNodesBounds"))(refs))();
@@ -32869,7 +32869,7 @@ function useState_(tuple, initialState2) {
     typeof initialState2 === "function" ? () => initialState2 : initialState2
   );
   if (!setState.hasOwnProperty("$$reactBasicHooks$$cachedSetState")) {
-    setState.$$reactBasicHooks$$cachedSetState = (update) => () => setState(update);
+    setState.$$reactBasicHooks$$cachedSetState = (update3) => () => setState(update3);
   }
   return tuple(state3, setState.$$reactBasicHooks$$cachedSetState);
 }
@@ -34125,6 +34125,47 @@ var unsafeJoinNodes = function(v, v1) {
   }
   ;
   throw new Error("Failed pattern match at Data.Map.Internal (line 764, column 25 - line 768, column 38): " + [v.constructor.name, v1.constructor.name]);
+};
+var update = function(dictOrd) {
+  var compare3 = compare(dictOrd);
+  return function(f) {
+    return function(k) {
+      var go2 = function(v) {
+        if (v instanceof Leaf) {
+          return Leaf.value;
+        }
+        ;
+        if (v instanceof Node) {
+          var v1 = compare3(k)(v.value2);
+          if (v1 instanceof LT) {
+            return unsafeBalancedNode(v.value2, v.value3, go2(v.value4), v.value5);
+          }
+          ;
+          if (v1 instanceof GT) {
+            return unsafeBalancedNode(v.value2, v.value3, v.value4, go2(v.value5));
+          }
+          ;
+          if (v1 instanceof EQ) {
+            var v2 = f(v.value3);
+            if (v2 instanceof Nothing) {
+              return unsafeJoinNodes(v.value4, v.value5);
+            }
+            ;
+            if (v2 instanceof Just) {
+              return new Node(v.value0, v.value1, v.value2, v2.value0, v.value4, v.value5);
+            }
+            ;
+            throw new Error("Failed pattern match at Data.Map.Internal (line 531, column 11 - line 535, column 38): " + [v2.constructor.name]);
+          }
+          ;
+          throw new Error("Failed pattern match at Data.Map.Internal (line 527, column 7 - line 535, column 38): " + [v1.constructor.name]);
+        }
+        ;
+        throw new Error("Failed pattern match at Data.Map.Internal (line 524, column 8 - line 535, column 38): " + [v.constructor.name]);
+      };
+      return go2;
+    };
+  };
 };
 var member2 = function(dictOrd) {
   var compare3 = compare(dictOrd);
@@ -38813,17 +38854,17 @@ var updateParentLookup = function(node) {
     throw new Error("Failed pattern match at System.Utils.Store (line 201, column 40 - line 209, column 69): " + [node.parentId.constructor.name]);
   };
 };
-var setUpdate = function(update) {
+var setUpdate = function(update3) {
   return function(updates) {
     var v = findIndex(function(u) {
-      return eq8(u.id)(update.id);
+      return eq8(u.id)(update3.id);
     })(updates);
     if (v instanceof Just) {
-      return fromMaybe(updates)(updateAt(v.value0)(update)(updates));
+      return fromMaybe(updates)(updateAt(v.value0)(update3)(updates));
     }
     ;
     if (v instanceof Nothing) {
-      return snoc(updates)(update);
+      return snoc(updates)(update3);
     }
     ;
     throw new Error("Failed pattern match at System.Utils.Store (line 665, column 28 - line 667, column 39): " + [v.constructor.name]);
@@ -39398,13 +39439,13 @@ var updateChildNodePure = function(node) {
     };
   };
 };
-var processUpdate = function(update) {
+var processUpdate = function(update3) {
   return function(acc) {
     return function(zoom) {
       return function(origin2) {
         return function(extent) {
           return function(zMode) {
-            var v = lookup22(update.id)(acc.nodeLookup);
+            var v = lookup22(update3.id)(acc.nodeLookup);
             if (v instanceof Nothing) {
               return pure13(acc);
             }
@@ -39459,15 +39500,15 @@ var processUpdate = function(update) {
               }
               ;
               return function __do3() {
-                var dims = getDimensions(update.nodeElement)();
+                var dims = getDimensions(update3.nodeElement)();
                 var dimensionChanged = notEq1(v.value0.measured.width)(new Just(dims.width)) || notEq1(v.value0.measured.height)(new Just(dims.height));
-                var shouldUpdate = dims.width > 0 && (dims.height > 0 && (dimensionChanged || (isNothing(v.value0.internals.handleBounds) || update.force)));
+                var shouldUpdate = dims.width > 0 && (dims.height > 0 && (dimensionChanged || (isNothing(v.value0.internals.handleBounds) || update3.force)));
                 var $157 = !shouldUpdate;
                 if ($157) {
                   return acc;
                 }
                 ;
-                var nodeBounds = elementBoundingRect(update.nodeElement)();
+                var nodeBounds = elementBoundingRect(update3.nodeElement)();
                 var chosenExt = function() {
                   var v1 = isCoordinateExtent(v.value0.extent);
                   if (v1 instanceof Just) {
@@ -39507,8 +39548,8 @@ var processUpdate = function(update) {
                   ;
                   throw new Error("Failed pattern match at System.Utils.Store (line 791, column 23 - line 795, column 59): " + [chosenExt.constructor.name]);
                 }();
-                var sourceHandles = getHandleBounds(Source.value)(update.nodeElement)(nodeBounds)(zoom)(v.value0.id)();
-                var targetHandles = getHandleBounds(Target.value)(update.nodeElement)(nodeBounds)(zoom)(v.value0.id)();
+                var sourceHandles = getHandleBounds(Source.value)(update3.nodeElement)(nodeBounds)(zoom)(v.value0.id)();
+                var targetHandles = getHandleBounds(Target.value)(update3.nodeElement)(nodeBounds)(zoom)(v.value0.id)();
                 var newNode = {
                   ariaLabel: v.value0.ariaLabel,
                   className: v.value0.className,
@@ -41330,7 +41371,7 @@ var createXYMinimap = function(params) {
       x: 0,
       y: 0
     })();
-    var update = function(upd) {
+    var update3 = function(upd) {
       return function __do4() {
         var zoomBehavior = zoomCreate();
         setZoomOn("start")(panStartHandler(panStart))(zoomBehavior)();
@@ -41364,7 +41405,7 @@ var createXYMinimap = function(params) {
       return pure20(unit);
     }))(zoomCreate));
     return {
-      update,
+      update: update3,
       destroy,
       pointer
     };
@@ -48500,7 +48541,7 @@ var updateNodes = function(params) {
                     };
                   }
                   ;
-                  throw new Error("Failed pattern match at System.XYDrag (line 618, column 22 - line 633, column 18): " + [multiSnap.constructor.name]);
+                  throw new Error("Failed pattern match at System.XYDrag (line 628, column 22 - line 643, column 18): " + [multiSnap.constructor.name]);
                 }();
                 var v1 = calculateNodePosition({
                   nodeId: dragItem.id,
@@ -48536,10 +48577,10 @@ var updateNodes = function(params) {
                   };
                 }
                 ;
-                throw new Error("Failed pattern match at System.XYDrag (line 635, column 11 - line 658, column 16): " + [v1.constructor.name]);
+                throw new Error("Failed pattern match at System.XYDrag (line 645, column 11 - line 668, column 16): " + [v1.constructor.name]);
               }
               ;
-              throw new Error("Failed pattern match at System.XYDrag (line 614, column 21 - line 658, column 16): " + [v.constructor.name]);
+              throw new Error("Failed pattern match at System.XYDrag (line 624, column 21 - line 668, column 16): " + [v.constructor.name]);
             };
             var stepped = map42(step2)(s.dragItems);
             var hasChange = any2(function(v) {
@@ -48642,7 +48683,7 @@ var foreignAsMouseEvent = function(f) {
     return f;
   }
   ;
-  throw new Error("Failed pattern match at System.XYDrag (line 243, column 25 - line 245, column 27): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at System.XYDrag (line 244, column 25 - line 246, column 27): " + [v.constructor.name]);
 };
 var foreignAsTouchOrMouse = function(f) {
   var v = runExcept(unsafeReadTagged2("TouchEvent")(f));
@@ -48654,7 +48695,7 @@ var foreignAsTouchOrMouse = function(f) {
     return new Left(foreignAsMouseEvent(f));
   }
   ;
-  throw new Error("Failed pattern match at System.XYDrag (line 248, column 27 - line 250, column 41): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at System.XYDrag (line 249, column 27 - line 251, column 41): " + [v.constructor.name]);
 };
 var onEnd = function(params) {
   return function(upd) {
@@ -48747,7 +48788,7 @@ var startDrag = function(params) {
                     return false;
                   }
                   ;
-                  throw new Error("Failed pattern match at System.XYDrag (line 462, column 29 - line 464, column 29): " + [v.constructor.name]);
+                  throw new Error("Failed pattern match at System.XYDrag (line 463, column 29 - line 465, column 29): " + [v.constructor.name]);
                 }();
                 return when12(!alreadySelected)(store.unselectNodesAndEdges);
               }
@@ -48763,54 +48804,56 @@ var startDrag = function(params) {
                 ;
                 return pure47(unit);
               }()))(function() {
-                return bind34(get6)(function(s) {
-                  return bind34(liftEffect8(getPointerPosition(foreignAsTouchOrMouse(src9))({
-                    transform: store.transform,
-                    snapGrid: store.snapGrid,
-                    snapToGrid: store.snapToGrid,
-                    containerBounds: s.containerBounds
-                  })))(function(pp) {
-                    var items = getDragItems(map42(function(v) {
-                      return v.id;
-                    })(store.nodes))(store.nodeLookup)(store.nodesDraggable)({
-                      x: pp.x,
-                      y: pp.y
-                    })(upd.nodeId);
-                    return discard12(modify_4(function(v) {
-                      var $116 = {};
-                      for (var $117 in v) {
-                        if ({}.hasOwnProperty.call(v, $117)) {
-                          $116[$117] = v[$117];
+                return bind34(liftEffect8(params.getStoreItems))(function(latest) {
+                  return bind34(get6)(function(s) {
+                    return bind34(liftEffect8(getPointerPosition(foreignAsTouchOrMouse(src9))({
+                      transform: store.transform,
+                      snapGrid: store.snapGrid,
+                      snapToGrid: store.snapToGrid,
+                      containerBounds: s.containerBounds
+                    })))(function(pp) {
+                      var items = getDragItems(map42(function(v) {
+                        return v.id;
+                      })(latest.nodes))(latest.nodeLookup)(store.nodesDraggable)({
+                        x: pp.x,
+                        y: pp.y
+                      })(upd.nodeId);
+                      return discard12(modify_4(function(v) {
+                        var $116 = {};
+                        for (var $117 in v) {
+                          if ({}.hasOwnProperty.call(v, $117)) {
+                            $116[$117] = v[$117];
+                          }
+                          ;
                         }
                         ;
-                      }
-                      ;
-                      $116.lastPos = {
-                        x: new Just(pp.x),
-                        y: new Just(pp.y)
-                      };
-                      $116.dragItems = items;
-                      return $116;
-                    }))(function() {
-                      return when9(length(items) > 0)(function() {
-                        var mouseEv = foreignAsMouseEvent(src9);
-                        var eventArgs = getEventHandlerParams(upd.nodeId)(items)(store.nodeLookup)(true);
-                        return liftEffect8(function __do3() {
-                          for_11(eventArgs.currentNode)(function(cn) {
-                            return function __do4() {
-                              for_11(params.onDragStart)(function(cb) {
-                                return cb(mouseEv)(items)(cn)(eventArgs.allNodes);
-                              })();
-                              return for_11(store.onNodeDragStart)(function(cb) {
-                                return cb(mouseEv)(cn)(eventArgs.allNodes);
-                              })();
-                            };
-                          })();
-                          return when12(isNothing(upd.nodeId))(for_11(store.onSelectionDragStart)(function(cb) {
-                            return cb(mouseEv)(eventArgs.allNodes);
-                          }))();
-                        });
-                      }());
+                        $116.lastPos = {
+                          x: new Just(pp.x),
+                          y: new Just(pp.y)
+                        };
+                        $116.dragItems = items;
+                        return $116;
+                      }))(function() {
+                        return when9(length(items) > 0)(function() {
+                          var mouseEv = foreignAsMouseEvent(src9);
+                          var eventArgs = getEventHandlerParams(upd.nodeId)(items)(store.nodeLookup)(true);
+                          return liftEffect8(function __do3() {
+                            for_11(eventArgs.currentNode)(function(cn) {
+                              return function __do4() {
+                                for_11(params.onDragStart)(function(cb) {
+                                  return cb(mouseEv)(items)(cn)(eventArgs.allNodes);
+                                })();
+                                return for_11(store.onNodeDragStart)(function(cb) {
+                                  return cb(mouseEv)(cn)(eventArgs.allNodes);
+                                })();
+                              };
+                            })();
+                            return when12(isNothing(upd.nodeId))(for_11(store.onSelectionDragStart)(function(cb) {
+                              return cb(mouseEv)(eventArgs.allNodes);
+                            }))();
+                          });
+                        }());
+                      });
                     });
                   });
                 });
@@ -48836,7 +48879,7 @@ var onStart = function(params) {
               return pure47(Nothing.value);
             }
             ;
-            throw new Error("Failed pattern match at System.XYDrag (line 312, column 26 - line 314, column 28): " + [store.domNode.constructor.name]);
+            throw new Error("Failed pattern match at System.XYDrag (line 313, column 26 - line 315, column 28): " + [store.domNode.constructor.name]);
           }()))(function(bounds) {
             return discard12(modify_4(function(v) {
               var $121 = {};
@@ -48904,7 +48947,7 @@ var filterPredicate = function(upd) {
           return !matches2;
         }
         ;
-        throw new Error("Failed pattern match at System.XYDrag (line 428, column 16 - line 433, column 25): " + [upd.noDragClassName.constructor.name]);
+        throw new Error("Failed pattern match at System.XYDrag (line 429, column 16 - line 434, column 25): " + [upd.noDragClassName.constructor.name]);
       }();
       var matchesHandle = function() {
         if (upd.handleSelector instanceof Nothing) {
@@ -48916,7 +48959,7 @@ var filterPredicate = function(upd) {
           return hasSelector(target5)(upd.handleSelector.value0)(upd.domNode)();
         }
         ;
-        throw new Error("Failed pattern match at System.XYDrag (line 434, column 20 - line 438, column 41): " + [upd.handleSelector.constructor.name]);
+        throw new Error("Failed pattern match at System.XYDrag (line 435, column 20 - line 439, column 41): " + [upd.handleSelector.constructor.name]);
       }();
       return btnZero && (notNoDrag && matchesHandle);
     };
@@ -49013,7 +49056,7 @@ var autoPanStep2 = function(params) {
                         return pure118(unit);
                       }
                       ;
-                      throw new Error("Failed pattern match at System.XYDrag (line 579, column 17 - line 581, column 39): " + [v.constructor.name]);
+                      throw new Error("Failed pattern match at System.XYDrag (line 589, column 17 - line 591, column 39): " + [v.constructor.name]);
                     })))(function() {
                       return scheduleNextFrame;
                     })));
@@ -49026,7 +49069,7 @@ var autoPanStep2 = function(params) {
           });
         }
         ;
-        throw new Error("Failed pattern match at System.XYDrag (line 551, column 3 - line 583, column 31): " + [s.containerBounds.constructor.name]);
+        throw new Error("Failed pattern match at System.XYDrag (line 561, column 3 - line 593, column 31): " + [s.containerBounds.constructor.name]);
       });
     };
   };
@@ -49075,7 +49118,7 @@ var onDragHandler = function(params) {
                         return false;
                       }
                       ;
-                      throw new Error("Failed pattern match at System.XYDrag (line 355, column 25 - line 357, column 23): " + [upd.nodeId.constructor.name]);
+                      throw new Error("Failed pattern match at System.XYDrag (line 356, column 25 - line 358, column 23): " + [upd.nodeId.constructor.name]);
                     }();
                     return discard12(when9(multi || deletedDuringDrag)(modify_4(function(v) {
                       var $156 = {};
@@ -49149,7 +49192,7 @@ var onDragHandler = function(params) {
 var createXYDrag = function(params) {
   return function __do3() {
     var stateRef = $$new(initialDragState2)();
-    var update = function(upd) {
+    var update3 = function(upd) {
       return function __do4() {
         var sel = d3Select(upd.domNode)();
         modify_(function(v) {
@@ -49189,7 +49232,7 @@ var createXYDrag = function(params) {
       })();
     };
     return {
-      update,
+      update: update3,
       destroy
     };
   };
@@ -53898,7 +53941,7 @@ var selectNodeSlice = function(nodeId) {
           return false;
         }
         ;
-        throw new Error("Failed pattern match at React.Component.NodeWrapper (line 129, column 15 - line 131, column 23): " + [v.constructor.name]);
+        throw new Error("Failed pattern match at React.Component.NodeWrapper (line 130, column 15 - line 132, column 23): " + [v.constructor.name]);
       }()
     };
   };
@@ -53912,7 +53955,7 @@ var nodeTypesAsObject = function(v) {
     return v.value0;
   }
   ;
-  throw new Error("Failed pattern match at React.Component.NodeWrapper (line 176, column 21 - line 178, column 27): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Component.NodeWrapper (line 177, column 21 - line 179, column 27): " + [v.constructor.name]);
 };
 var resolveNodeComponent = function(mTypes) {
   return function(mOnError) {
@@ -53955,14 +53998,14 @@ var resolveNodeComponent = function(mTypes) {
               };
             }
             ;
-            throw new Error("Failed pattern match at React.Component.NodeWrapper (line 193, column 9 - line 197, column 69): " + [v2.constructor.name]);
+            throw new Error("Failed pattern match at React.Component.NodeWrapper (line 194, column 9 - line 198, column 69): " + [v2.constructor.name]);
           };
         }
         ;
-        throw new Error("Failed pattern match at React.Component.NodeWrapper (line 189, column 16 - line 197, column 69): " + [v1.constructor.name]);
+        throw new Error("Failed pattern match at React.Component.NodeWrapper (line 190, column 16 - line 198, column 69): " + [v1.constructor.name]);
       }
       ;
-      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 187, column 3 - line 197, column 69): " + [v.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 188, column 3 - line 198, column 69): " + [v.constructor.name]);
     };
   };
 };
@@ -54089,7 +54132,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
         return v.elementsSelectable;
       }
       ;
-      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 321, column 24 - line 323, column 46): " + [slice3.node.selectable.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 322, column 24 - line 324, column 46): " + [slice3.node.selectable.constructor.name]);
     }();
     var isDraggable = function() {
       if (slice3.node.draggable instanceof Just) {
@@ -54100,7 +54143,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
         return v.nodesDraggable;
       }
       ;
-      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 318, column 23 - line 320, column 42): " + [slice3.node.draggable.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 319, column 23 - line 321, column 42): " + [slice3.node.draggable.constructor.name]);
     }();
     var isConnectable = function() {
       if (slice3.node.connectable instanceof Just) {
@@ -54111,7 +54154,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
         return v.nodesConnectable;
       }
       ;
-      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 324, column 25 - line 326, column 44): " + [slice3.node.connectable.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 325, column 25 - line 327, column 44): " + [slice3.node.connectable.constructor.name]);
     }();
     var hasDims = nodeHasDimensions(slice3.node);
     return bind118(useStoreApi)(function(store) {
@@ -54192,7 +54235,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                   return pure61(unit);
                 }
                 ;
-                throw new Error("Failed pattern match at React.Component.NodeWrapper (line 394, column 35 - line 396, column 31): " + [mCb.constructor.name]);
+                throw new Error("Failed pattern match at React.Component.NodeWrapper (line 395, column 35 - line 397, column 31): " + [mCb.constructor.name]);
               };
             };
             var onClickHandler = handler(syntheticEvent)(function(se) {
@@ -55365,6 +55408,7 @@ var fromFoldable13 = /* @__PURE__ */ fromFoldable11(ordString);
 var fromFoldable23 = /* @__PURE__ */ fromFoldable11(ordNodeId);
 var toUnfoldable10 = /* @__PURE__ */ toUnfoldable5(unfoldableArray);
 var eq38 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var update2 = /* @__PURE__ */ update(ordNodeId);
 var lookup25 = /* @__PURE__ */ lookup2(ordNodeId);
 var eq113 = /* @__PURE__ */ eq(eqNodeId);
 var max14 = /* @__PURE__ */ max(ordNumber);
@@ -55779,8 +55823,8 @@ var reduceInstallViewportListeners = function(state3) {
 var clearIf = function(installed) {
   return function(current) {
     if (installed instanceof Just && current instanceof Just) {
-      var $55 = unsafeRefEq(installed.value0)(current.value0);
-      if ($55) {
+      var $58 = unsafeRefEq(installed.value0)(current.value0);
+      if ($58) {
         return Nothing.value;
       }
       ;
@@ -56344,8 +56388,8 @@ var reduceAddSelectedEdges = function(state3) {
     if (otherwise) {
       var selectedSet = fromFoldable13(ids);
       var nodeRes = function() {
-        var $69 = $$null(ids);
-        if ($69) {
+        var $72 = $$null(ids);
+        if ($72) {
           return {
             changes: [],
             items: state3.nodeLookup
@@ -56556,8 +56600,8 @@ var reduceAddSelectedNodes = function(state3) {
         nodeLookup: nodeRes.items
       };
       var edgeRes = function() {
-        var $72 = $$null(ids);
-        if ($72) {
+        var $75 = $$null(ids);
+        if ($75) {
           return {
             changes: []
           };
@@ -56783,8 +56827,8 @@ var reduceMergeNodeInternals = function(state3) {
         return [];
       }();
       var afterChanges = function() {
-        var $77 = $$null(r.changes);
-        if ($77) {
+        var $80 = $$null(r.changes);
+        if ($80) {
           return {
             state: s2,
             effects: []
@@ -56813,8 +56857,8 @@ var reduceResetSelectedElements = function(state3) {
   if (otherwise) {
     var nodePairs = toUnfoldable10(state3.nodeLookup);
     var nodeChanges = mapMaybe(function(v) {
-      var $80 = eq38(v.value1.selected)(new Just(true));
-      if ($80) {
+      var $83 = eq38(v.value1.selected)(new Just(true));
+      if ($83) {
         return new Just(new NodeSelectionChange({
           id: v.value1.id,
           selected: false
@@ -56825,8 +56869,8 @@ var reduceResetSelectedElements = function(state3) {
     })(nodePairs);
     var edgePairs = toUnfoldable10(state3.edgeLookup);
     var edgeChanges = mapMaybe(function(v) {
-      var $84 = eq38(v.value1.selected)(new Just(true));
-      if ($84) {
+      var $87 = eq38(v.value1.selected)(new Just(true));
+      if ($87) {
         return new Just(new EdgeSelectionChange({
           id: v.value1.id,
           selected: false
@@ -56843,7 +56887,7 @@ var reduceResetSelectedElements = function(state3) {
     };
   }
   ;
-  throw new Error("Failed pattern match at React.Store.Reduce (line 590, column 1 - line 593, column 22): " + [state3.constructor.name]);
+  throw new Error("Failed pattern match at React.Store.Reduce (line 601, column 1 - line 604, column 22): " + [state3.constructor.name]);
 };
 var reduceUnselectNodesAndEdges = function(state3) {
   return function(params) {
@@ -56869,14 +56913,138 @@ var reduceUnselectNodesAndEdges = function(state3) {
       ;
       throw new Error("Failed pattern match at React.Store.Reduce (line 483, column 19 - line 485, column 29): " + [params.edges.constructor.name]);
     }();
+    var nodesToUnselect = filter(function(n) {
+      return eq38(n.selected)(new Just(true));
+    })(targetNodes);
+    var s1 = {
+      ariaLabelConfig: state3.ariaLabelConfig,
+      ariaLiveMessage: state3.ariaLiveMessage,
+      autoPanOnConnect: state3.autoPanOnConnect,
+      autoPanOnNodeDrag: state3.autoPanOnNodeDrag,
+      autoPanOnNodeFocus: state3.autoPanOnNodeFocus,
+      autoPanSpeed: state3.autoPanSpeed,
+      connectOnClick: state3.connectOnClick,
+      connection: state3.connection,
+      connectionClickStartHandle: state3.connectionClickStartHandle,
+      connectionDragThreshold: state3.connectionDragThreshold,
+      connectionLookup: state3.connectionLookup,
+      connectionMode: state3.connectionMode,
+      connectionRadius: state3.connectionRadius,
+      debug: state3.debug,
+      defaultEdgeOptions: state3.defaultEdgeOptions,
+      domNode: state3.domNode,
+      edgeLookup: state3.edgeLookup,
+      edges: state3.edges,
+      edgesFocusable: state3.edgesFocusable,
+      edgesReconnectable: state3.edgesReconnectable,
+      elementsSelectable: state3.elementsSelectable,
+      elevateEdgesOnSelect: state3.elevateEdgesOnSelect,
+      elevateNodesOnSelect: state3.elevateNodesOnSelect,
+      fitViewOptions: state3.fitViewOptions,
+      fitViewQueued: state3.fitViewQueued,
+      fitViewResolver: state3.fitViewResolver,
+      hasDefaultEdges: state3.hasDefaultEdges,
+      hasDefaultNodes: state3.hasDefaultNodes,
+      height: state3.height,
+      isValidConnection: state3.isValidConnection,
+      lib: state3.lib,
+      maxZoom: state3.maxZoom,
+      minZoom: state3.minZoom,
+      multiSelectionActive: state3.multiSelectionActive,
+      noPanClassName: state3.noPanClassName,
+      nodeDragThreshold: state3.nodeDragThreshold,
+      nodeExtent: state3.nodeExtent,
+      nodeOrigin: state3.nodeOrigin,
+      nodes: state3.nodes,
+      nodesConnectable: state3.nodesConnectable,
+      nodesDraggable: state3.nodesDraggable,
+      nodesFocusable: state3.nodesFocusable,
+      nodesInitialized: state3.nodesInitialized,
+      nodesSelectionActive: state3.nodesSelectionActive,
+      onBeforeDelete: state3.onBeforeDelete,
+      onClickConnectEnd: state3.onClickConnectEnd,
+      onClickConnectStart: state3.onClickConnectStart,
+      onConnect: state3.onConnect,
+      onConnectEnd: state3.onConnectEnd,
+      onConnectStart: state3.onConnectStart,
+      onDelete: state3.onDelete,
+      onEdgesChange: state3.onEdgesChange,
+      onEdgesChangeMiddlewareMap: state3.onEdgesChangeMiddlewareMap,
+      onEdgesDelete: state3.onEdgesDelete,
+      onError: state3.onError,
+      onMove: state3.onMove,
+      onMoveEnd: state3.onMoveEnd,
+      onMoveStart: state3.onMoveStart,
+      onNodeDrag: state3.onNodeDrag,
+      onNodeDragStart: state3.onNodeDragStart,
+      onNodeDragStop: state3.onNodeDragStop,
+      onNodesChange: state3.onNodesChange,
+      onNodesChangeMiddlewareMap: state3.onNodesChangeMiddlewareMap,
+      onNodesDelete: state3.onNodesDelete,
+      onSelectionChangeHandlers: state3.onSelectionChangeHandlers,
+      onSelectionDrag: state3.onSelectionDrag,
+      onSelectionDragStart: state3.onSelectionDragStart,
+      onSelectionDragStop: state3.onSelectionDragStop,
+      onViewportChange: state3.onViewportChange,
+      onViewportChangeEnd: state3.onViewportChangeEnd,
+      onViewportChangeStart: state3.onViewportChangeStart,
+      panZoom: state3.panZoom,
+      paneDragging: state3.paneDragging,
+      parentLookup: state3.parentLookup,
+      rfId: state3.rfId,
+      selectNodesOnDrag: state3.selectNodesOnDrag,
+      snapGrid: state3.snapGrid,
+      snapToGrid: state3.snapToGrid,
+      transform: state3.transform,
+      translateExtent: state3.translateExtent,
+      userSelectionActive: state3.userSelectionActive,
+      userSelectionRect: state3.userSelectionRect,
+      width: state3.width,
+      zIndexMode: state3.zIndexMode,
+      nodeLookup: foldl2(function(lookup112) {
+        return function(n) {
+          return update2(function(internal) {
+            return new Just({
+              ariaLabel: internal.ariaLabel,
+              className: internal.className,
+              connectable: internal.connectable,
+              data: internal.data,
+              deletable: internal.deletable,
+              dragHandle: internal.dragHandle,
+              draggable: internal.draggable,
+              dragging: internal.dragging,
+              expandParent: internal.expandParent,
+              extent: internal.extent,
+              handles: internal.handles,
+              height: internal.height,
+              hidden: internal.hidden,
+              id: internal.id,
+              initialHeight: internal.initialHeight,
+              initialWidth: internal.initialWidth,
+              internals: internal.internals,
+              measured: internal.measured,
+              nodeType: internal.nodeType,
+              origin: internal.origin,
+              parentId: internal.parentId,
+              position: internal.position,
+              selectable: internal.selectable,
+              sourcePosition: internal.sourcePosition,
+              style: internal.style,
+              targetPosition: internal.targetPosition,
+              width: internal.width,
+              zIndex: internal.zIndex,
+              selected: new Just(false)
+            });
+          })(n.id)(lookup112);
+        };
+      })(state3.nodeLookup)(nodesToUnselect)
+    };
     var nodeChanges = map59(function(n) {
       return new NodeSelectionChange({
         id: n.id,
         selected: false
       });
-    })(filter(function(n) {
-      return eq38(n.selected)(new Just(true));
-    })(targetNodes));
+    })(nodesToUnselect);
     var edgeChanges = map59(function(e) {
       return new EdgeSelectionChange({
         id: e.id,
@@ -56885,7 +57053,7 @@ var reduceUnselectNodesAndEdges = function(state3) {
     })(filter(function(e) {
       return eq38(e.selected)(new Just(true));
     })(targetEdges));
-    var afterNodes = reduceTriggerNodeChanges(state3)(nodeChanges);
+    var afterNodes = reduceTriggerNodeChanges(s1)(nodeChanges);
     var afterEdges = reduceTriggerEdgeChanges(afterNodes.state)(edgeChanges);
     return {
       state: afterEdges.state,
@@ -56976,8 +57144,8 @@ var reduceUpdateNodePositions = function(state3) {
         connection: state3.connection
       })(items);
       var expandChanges = function() {
-        var $101 = $$null(stepped.parentExpandChildren);
-        if ($101) {
+        var $104 = $$null(stepped.parentExpandChildren);
+        if ($104) {
           return [];
         }
         ;
@@ -65463,9 +65631,9 @@ var readNodeId = function(field) {
   };
 };
 var useUpdateNodeInternals2 = function __do2() {
-  var update = runHook(useUpdateNodeInternals)();
+  var update3 = runHook(useUpdateNodeInternals)();
   return function(ids) {
-    return update(map118(readNodeId("useUpdateNodeInternals"))(oneOrMany(ids)))();
+    return update3(map118(readNodeId("useUpdateNodeInternals"))(oneOrMany(ids)))();
   };
 };
 var nodesTripleOut = function(bundle) {

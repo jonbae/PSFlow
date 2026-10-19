@@ -44,6 +44,7 @@
 -- |     in a form that's ready for this call site).
 module React.Component.NodeWrapper
   ( nodeWrapper
+  , mkDragStoreItems
   ) where
 
 import Prelude

@@ -484,14 +484,25 @@ reduceUnselectNodesAndEdges state params =
       Just es -> es
       Nothing -> state.edges
 
+    nodesToUnselect = Array.filter (\n -> n.selected == Just true) targetNodes
     nodeChanges = map
       (\n -> NodeSelectionChange { id: n.id, selected: false })
-      (Array.filter (\n -> n.selected == Just true) targetNodes)
+      nodesToUnselect
     edgeChanges = map
       (\e -> EdgeSelectionChange { id: e.id, selected: false })
       (Array.filter (\e -> e.selected == Just true) targetEdges)
 
-    afterNodes = reduceTriggerNodeChanges state nodeChanges
+    -- TS unselects each internal node before it sends the change, "to
+    -- prevent it to be selected while dragging the new node": a drag that
+    -- starts by unselecting reads the lookup for its drag items.
+    s1 = state
+      { nodeLookup = Array.foldl
+          (\lookup n -> Map.update (\internal -> Just internal { selected = Just false }) n.id lookup)
+          state.nodeLookup
+          nodesToUnselect
+      }
+
+    afterNodes = reduceTriggerNodeChanges s1 nodeChanges
     afterEdges = reduceTriggerEdgeChanges afterNodes.state edgeChanges
   in
     { state: afterEdges.state
