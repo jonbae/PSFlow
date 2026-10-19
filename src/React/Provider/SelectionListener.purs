@@ -44,10 +44,12 @@ instance eqSelected :: Eq (Selected n e) where
 -- | `internals.userNode`, and each selected edge in the edge lookup.
 -- |
 -- | A selection box or a click sets the internal node's `selected` in place,
--- | so this reports a controlled flow's nodes before its consumer applies
--- | the changes, as they were. ps-flow's internal node has no `userNode`,
--- | so the user's node is the one in `nodes`, which is also the lookup's
--- | order.
+-- | which notifies nobody, so this reads it at the next update that does. A
+-- | box's own `setState` follows at once, so a controlled flow reports the
+-- | boxed nodes as the consumer gave them. A click has none, so it reports
+-- | the node when the consumer's update lands, selected. ps-flow's internal
+-- | node has no `userNode`, so the user's node is the one in `nodes`, which
+-- | is also the lookup's order.
 selectSelected :: forall n e. ReactFlowState n e -> Selected n e
 selectSelected s = Selected
   { nodes: Array.filter

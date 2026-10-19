@@ -194,13 +194,14 @@ wrapMouseHandler containerRef h se = do
 -- |     triggerNodeChanges(changes);
 -- |
 -- | With `mutateItem`, `getSelectionChanges` sets `selected` on the lookup's
--- | internal nodes in place before the changes go out. So the store holds
--- | them selected while a controlled flow's consumer has yet to apply the
--- | changes, and `onSelectionChange` reports them then.
+-- | internal nodes in place before the changes go out, and notifies nobody.
+-- | The move's `setState` that follows is what `onSelectionChange`'s
+-- | selector hears, so in a controlled flow, it reports the nodes before the
+-- | consumer applies the changes.
 selectNodesInBox :: forall n e. Store n e -> NodeLookup n -> Set NodeId -> Effect Unit
 selectNodesInBox store nodeLookup ids = do
   let r = getNodeSelectionChanges nodeLookup ids true
-  store.dispatch (PatchState _ { nodeLookup = r.items })
+  store.dispatch (MutateState _ { nodeLookup = r.items })
   store.dispatch (TriggerNodeChanges r.changes)
 
 pane :: ReactComponent PaneProps
