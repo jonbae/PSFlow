@@ -27,7 +27,8 @@
 module React.Hook.Drag
   ( UseDragOptions
   , UseDragHook(..)
-  , DragDepsToken
+  , DragDeps
+  , dragDeps
   , DragBinding
   , bindDrag
   , useDrag
@@ -46,7 +47,6 @@ import React.Basic.Hooks (Hook, UnsafeReference(..), UseEffect, UseRef, UseState
 import React.Basic.Hooks as React
 import System.Types.Ids (NodeId)
 import System.XYDrag (DragStoreItems, DragUpdateParams, XYDragInstance, createXYDrag)
-import Unsafe.Coerce (unsafeCoerce)
 import Web.DOM.Element (Element)
 import Web.HTML.HTMLDivElement (HTMLDivElement, toElement)
 
@@ -81,17 +81,43 @@ type UseDragOptions nodeData edgeData =
 
 newtype UseDragHook hooks =
   UseDragHook
-    ( UseEffect (UnsafeReference DragDepsToken)
+    ( UseEffect DragDeps
         ( UseRef (Maybe XYDragInstance)
             ( UseState Boolean hooks
             )
         )
     )
 
--- | Phantom marker so `useEffect`'s `Eq deps` constraint has a single
--- | reference-equality target. The actual record is hidden behind
--- | `UnsafeReference` (JS reference equality).
-foreign import data DragDepsToken :: Type
+-- | What upstream's binding effect lists as its dependencies:
+-- |
+-- |     [noDragClassName, handleSelector, disabled, isSelectable, nodeRef, nodeId, nodeClickDistance]
+-- |
+-- | The effect rebinds d3-drag, and its cleanup first removes the
+-- | element's `.drag` listeners. A touch gesture's move and end listeners
+-- | are on the element, unlike a mouse gesture's, which d3-drag puts on
+-- | the window, so a rebind mid-gesture ends a touch drag. Keyed on the
+-- | options record, which is new every render, the effect rebound on every
+-- | render, and a touch drag ended at the first one.
+type DragDeps =
+  { noDragClassName :: Maybe String
+  , handleSelector :: Maybe String
+  , disabled :: Boolean
+  , isSelectable :: Boolean
+  , nodeRef :: UnsafeReference (Ref (Nullable HTMLDivElement))
+  , nodeId :: Maybe NodeId
+  , nodeClickDistance :: Number
+  }
+
+dragDeps :: forall nd ed. UseDragOptions nd ed -> DragDeps
+dragDeps opts =
+  { noDragClassName: opts.noDragClassName
+  , handleSelector: opts.handleSelector
+  , disabled: opts.disabled
+  , isSelectable: opts.isSelectable
+  , nodeRef: UnsafeReference opts.wrapperRef
+  , nodeId: opts.nodeId
+  , nodeClickDistance: opts.nodeClickDistance
+  }
 
 derive instance newtypeUseDragHook :: Newtype (UseDragHook hooks) _
 
@@ -102,7 +128,7 @@ useDrag
 useDrag opts = coerceHook React.do
   dragging /\ setDragging <- useState false
   controllerRef <- useRef (Nothing :: Maybe XYDragInstance)
-  useEffect (UnsafeReference (asDeps opts)) do
+  useEffect (dragDeps opts) do
     mDiv <- toMaybe <$> readRef opts.wrapperRef
     bindDrag
       { disabled: opts.disabled
@@ -177,11 +203,3 @@ bindDrag b = case b.domNode of
     controller.update (b.params domNode)
     pure b.release
   _ -> pure (pure unit)
-
--- | Erase the option record to the opaque phantom. The wrapped value
--- | is purely a JS reference for `UnsafeReference`'s equality check;
--- | the type-level marker is only there to keep the hook chain's
--- | `UseEffect` parameter monomorphic across `nodeData`/`edgeData`.
-asDeps :: forall nd ed. UseDragOptions nd ed -> DragDepsToken
-asDeps = unsafeCoerce
-

@@ -108,7 +108,7 @@ mouseFromEvt = case _ of
   _ -> Nothing
 
 -- | Phantom marker so `useEffect`'s `Eq` deps constraint has a single
--- | reference-equality target (same trick as `Drag.DragDepsToken`).
+-- | reference-equality target.
 foreign import data ZoomPaneDepsToken :: Type
 
 -- | Bundle the three deps into a record before erasing the type. A point-free
