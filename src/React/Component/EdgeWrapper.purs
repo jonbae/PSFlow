@@ -270,6 +270,7 @@ foreign import joinSpace :: Array String -> String
 mkEdgeProps
   :: forall e
    . Edge e
+  -> Boolean
   -> Number
   -> Number
   -> Number
@@ -279,7 +280,7 @@ mkEdgeProps
   -> Maybe String
   -> Maybe String
   -> EdgeProps Foreign
-mkEdgeProps edge sx sy tx ty sp tp mStart mEnd =
+mkEdgeProps edge isSelectable sx sy tx ty sp tp mStart mEnd =
   { id: edge.id
   , type: edge.edgeType
   , animated: edge.animated
@@ -291,8 +292,9 @@ mkEdgeProps edge sx sy tx ty sp tp mStart mEnd =
   , selected: edge.selected
   , source: unwrap edge.source
   , target: unwrap edge.target
-  , selectable: edge.selectable
-  , deletable: edge.deletable
+  -- TS: `selectable={isSelectable}` and `deletable={edge.deletable ?? true}`.
+  , selectable: Just isSelectable
+  , deletable: Just (fromMaybe true edge.deletable)
   , sourceX: sx
   , sourceY: sy
   , targetX: tx
@@ -478,7 +480,7 @@ edgeWrapper =
                         edgeBody =
                           if reconnecting then mempty
                           else element edgeComponent
-                            (mkEdgeProps edge sx sy tx ty sp tp markerStartUrl markerEndUrl)
+                            (mkEdgeProps edge isSelectable sx sy tx ty sp tp markerStartUrl markerEndUrl)
                         anchors :: JSX
                         anchors = case isReconnectable of
                           Just rh -> element edgeUpdateAnchors
