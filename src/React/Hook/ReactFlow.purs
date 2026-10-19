@@ -23,6 +23,7 @@ module React.Hook.ReactFlow
   ( UseReactFlow(..)
   , GeneralHelpers
   , useReactFlow
+  , mkGeneralHelpers
   ) where
 
 import Prelude

@@ -25083,12 +25083,12 @@ var defer = function(dict) {
 
 // output/Control.Monad/index.js
 var ap = function(dictMonad) {
-  var bind62 = bind(dictMonad.Bind1());
+  var bind61 = bind(dictMonad.Bind1());
   var pure83 = pure(dictMonad.Applicative0());
   return function(f) {
     return function(a) {
-      return bind62(f)(function(f$prime) {
-        return bind62(a)(function(a$prime) {
+      return bind61(f)(function(f$prime) {
+        return bind61(a)(function(a$prime) {
           return pure83(f$prime(a$prime));
         });
       });
@@ -26208,13 +26208,13 @@ var foldMap = function(dict) {
 var foldM = function(dictFoldable) {
   var foldl22 = foldl(dictFoldable);
   return function(dictMonad) {
-    var bind62 = bind(dictMonad.Bind1());
+    var bind61 = bind(dictMonad.Bind1());
     var pure83 = pure(dictMonad.Applicative0());
     return function(f) {
       return function(b0) {
         return foldl22(function(b) {
           return function(a) {
-            return bind62(b)(flip(f)(a));
+            return bind61(b)(flip(f)(a));
           };
         })(pure83(b0));
       };
@@ -28050,11 +28050,11 @@ function datum(node) {
 }
 function data_default(value12, key2) {
   if (!arguments.length) return Array.from(this, datum);
-  var bind62 = key2 ? bindKey : bindIndex, parents = this._parents, groups = this._groups;
+  var bind61 = key2 ? bindKey : bindIndex, parents = this._parents, groups = this._groups;
   if (typeof value12 !== "function") value12 = constant_default(value12);
   for (var m = groups.length, update = new Array(m), enter = new Array(m), exit = new Array(m), j = 0; j < m; ++j) {
     var parent2 = parents[j], group4 = groups[j], groupLength = group4.length, data = arraylike(value12.call(parent2, parent2 && parent2.__data__, j, parents)), dataLength = data.length, enterGroup = enter[j] = new Array(dataLength), updateGroup = update[j] = new Array(dataLength), exitGroup = exit[j] = new Array(groupLength);
-    bind62(parent2, group4, enterGroup, updateGroup, exitGroup, data, key2);
+    bind61(parent2, group4, enterGroup, updateGroup, exitGroup, data, key2);
     for (var i0 = 0, i1 = 0, previous, next; i0 < dataLength; ++i0) {
       if (previous = enterGroup[i0]) {
         if (i0 >= i1) i1 = i0 + 1;
@@ -29315,12 +29315,12 @@ var monadExceptT = function(dictMonad) {
   };
 };
 var bindExceptT = function(dictMonad) {
-  var bind62 = bind(dictMonad.Bind1());
+  var bind61 = bind(dictMonad.Bind1());
   var pure83 = pure(dictMonad.Applicative0());
   return {
     bind: function(v) {
       return function(k) {
-        return bind62(v)(either(function($193) {
+        return bind61(v)(either(function($193) {
           return pure83(Left.create($193));
         })(function(a) {
           var v1 = k(a);
@@ -29723,7 +29723,7 @@ function _mapWithKey(m0, f) {
   }
   return m;
 }
-function _foldM(bind62) {
+function _foldM(bind61) {
   return function(f) {
     return function(mz) {
       return function(m) {
@@ -29735,7 +29735,7 @@ function _foldM(bind62) {
         }
         for (var k in m) {
           if (hasOwnProperty.call(m, k)) {
-            acc = bind62(acc)(g(k));
+            acc = bind61(acc)(g(k));
           }
         }
         return acc;
@@ -29863,11 +29863,11 @@ var fromFoldable3 = function(dictFoldable) {
   };
 };
 var foldM4 = function(dictMonad) {
-  var bind122 = bind(dictMonad.Bind1());
+  var bind123 = bind(dictMonad.Bind1());
   var pure136 = pure(dictMonad.Applicative0());
   return function(f) {
     return function(z) {
-      return _foldM(bind122)(f)(pure136(z));
+      return _foldM(bind123)(f)(pure136(z));
     };
   };
 };
@@ -40058,7 +40058,7 @@ var toNodeIdOnly = function(v) {
     });
   }
   ;
-  throw new Error("Failed pattern match at React.Hook.ReactFlow (line 437, column 16 - line 439, column 31): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Hook.ReactFlow (line 438, column 16 - line 440, column 31): " + [v.constructor.name]);
 };
 var toIdOnly = function(v) {
   if (v instanceof Left) {
@@ -40073,7 +40073,7 @@ var toIdOnly = function(v) {
     });
   }
   ;
-  throw new Error("Failed pattern match at React.Hook.ReactFlow (line 425, column 12 - line 427, column 31): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Hook.ReactFlow (line 426, column 12 - line 428, column 31): " + [v.constructor.name]);
 };
 var stripInternals = unsafeCoerce2;
 var resolveBoundsRef = function(lookup210) {
@@ -40090,7 +40090,7 @@ var resolveBoundsRef = function(lookup210) {
       return map21(stripInternals)(lookup6(v.value0)(lookup210));
     }
     ;
-    throw new Error("Failed pattern match at React.Hook.ReactFlow (line 518, column 27 - line 521, column 59): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at React.Hook.ReactFlow (line 519, column 27 - line 522, column 59): " + [v.constructor.name]);
   };
 };
 var pushNodeQueue = function(ctx) {
@@ -40152,7 +40152,7 @@ var handleTypeName = function(v) {
     return "target";
   }
   ;
-  throw new Error("Failed pattern match at React.Hook.ReactFlow (line 532, column 1 - line 532, column 39): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Hook.ReactFlow (line 533, column 1 - line 533, column 39): " + [v.constructor.name]);
 };
 var getNodeRect = function(store) {
   return function(v) {
@@ -40172,7 +40172,7 @@ var getNodeRect = function(store) {
           return new Just(nodeToRect(new Right(v1.value0))(s.nodeOrigin));
         }
         ;
-        throw new Error("Failed pattern match at React.Hook.ReactFlow (line 487, column 12 - line 489, column 71): " + [v1.constructor.name]);
+        throw new Error("Failed pattern match at React.Hook.ReactFlow (line 488, column 12 - line 490, column 71): " + [v1.constructor.name]);
       };
     }
     ;
@@ -40192,7 +40192,7 @@ var getNodeRect = function(store) {
             return v.value0.position;
           }
           ;
-          throw new Error("Failed pattern match at React.Hook.ReactFlow (line 497, column 13 - line 502, column 30): " + [v.value0.parentId.constructor.name]);
+          throw new Error("Failed pattern match at React.Hook.ReactFlow (line 498, column 13 - line 503, column 30): " + [v.value0.parentId.constructor.name]);
         }();
         var rect = {
           x: pos.x,
@@ -40204,7 +40204,7 @@ var getNodeRect = function(store) {
       };
     }
     ;
-    throw new Error("Failed pattern match at React.Hook.ReactFlow (line 483, column 21 - line 509, column 21): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at React.Hook.ReactFlow (line 484, column 21 - line 510, column 21): " + [v.constructor.name]);
   };
 };
 var fitView = function(store) {
@@ -40220,7 +40220,7 @@ var fitView = function(store) {
             return empty6;
           }
           ;
-          throw new Error("Failed pattern match at React.Hook.ReactFlow (line 401, column 26 - line 403, column 26): " + [s.fitViewResolver.constructor.name]);
+          throw new Error("Failed pattern match at React.Hook.ReactFlow (line 402, column 26 - line 404, column 26): " + [s.fitViewResolver.constructor.name]);
         }()))(function(resolver) {
           return discard1(liftEffect5(store.dispatch(new PatchState(function(st) {
             return {
@@ -40336,7 +40336,7 @@ var excludesSelf = function(internal) {
       return false;
     }
     ;
-    throw new Error("Failed pattern match at React.Hook.ReactFlow (line 467, column 25 - line 470, column 21): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at React.Hook.ReactFlow (line 468, column 25 - line 471, column 21): " + [v.constructor.name]);
   };
 };
 var connectionsForKey = function(s) {
@@ -40350,7 +40350,7 @@ var connectionsForKey = function(s) {
       return handleConnectionsInOrder(v.value0);
     }
     ;
-    throw new Error("Failed pattern match at React.Hook.ReactFlow (line 388, column 27 - line 390, column 47): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at React.Hook.ReactFlow (line 389, column 27 - line 391, column 47): " + [v.constructor.name]);
   };
 };
 var coerceNodeFn = unsafeCoerce2;
@@ -40374,7 +40374,7 @@ var adaptOnBeforeDelete = function(f) {
           });
         }
         ;
-        throw new Error("Failed pattern match at React.Hook.ReactFlow (line 454, column 8 - line 461, column 10): " + [r.constructor.name]);
+        throw new Error("Failed pattern match at React.Hook.ReactFlow (line 455, column 8 - line 462, column 10): " + [r.constructor.name]);
       }());
     });
   };
@@ -40521,7 +40521,7 @@ var mkGeneralHelpers = function(store) {
                         return new Right(v.value0);
                       }
                       ;
-                      throw new Error("Failed pattern match at React.Hook.ReactFlow (line 291, column 27 - line 293, column 54): " + [mNodesOverride.constructor.name]);
+                      throw new Error("Failed pattern match at React.Hook.ReactFlow (line 292, column 27 - line 294, column 54): " + [mNodesOverride.constructor.name]);
                     }())(s.nodeOrigin);
                     var area = getOverlappingArea(curr)(mNodeRect.value0);
                     var partiallyVisible = partially && area > 0;
@@ -40532,7 +40532,7 @@ var mkGeneralHelpers = function(store) {
                     return false;
                   }
                   ;
-                  throw new Error("Failed pattern match at React.Hook.ReactFlow (line 284, column 15 - line 302, column 33): " + [v.constructor.name]);
+                  throw new Error("Failed pattern match at React.Hook.ReactFlow (line 285, column 15 - line 303, column 33): " + [v.constructor.name]);
                 };
                 var candidates = function() {
                   if (mNodesOverride instanceof Just) {
@@ -40543,12 +40543,12 @@ var mkGeneralHelpers = function(store) {
                     return s.nodes;
                   }
                   ;
-                  throw new Error("Failed pattern match at React.Hook.ReactFlow (line 277, column 26 - line 279, column 33): " + [mNodesOverride.constructor.name]);
+                  throw new Error("Failed pattern match at React.Hook.ReactFlow (line 278, column 26 - line 280, column 33): " + [mNodesOverride.constructor.name]);
                 }();
                 return filter(keep)(candidates);
               }
               ;
-              throw new Error("Failed pattern match at React.Hook.ReactFlow (line 268, column 7 - line 303, column 46): " + [mNodeRect.constructor.name]);
+              throw new Error("Failed pattern match at React.Hook.ReactFlow (line 269, column 7 - line 304, column 46): " + [mNodeRect.constructor.name]);
             };
           };
         };
@@ -40569,7 +40569,7 @@ var mkGeneralHelpers = function(store) {
                 return partiallyVisible || (overlapping >= area.width * area.height || overlapping >= mNodeRect.value0.width * mNodeRect.value0.height);
               }
               ;
-              throw new Error("Failed pattern match at React.Hook.ReactFlow (line 308, column 7 - line 319, column 16): " + [mNodeRect.constructor.name]);
+              throw new Error("Failed pattern match at React.Hook.ReactFlow (line 309, column 7 - line 320, column 16): " + [mNodeRect.constructor.name]);
             };
           };
         };
@@ -40657,7 +40657,7 @@ var mkGeneralHelpers = function(store) {
               return "";
             }
             ;
-            throw new Error("Failed pattern match at React.Hook.ReactFlow (line 367, column 61 - line 369, column 24): " + [v.id.constructor.name]);
+            throw new Error("Failed pattern match at React.Hook.ReactFlow (line 368, column 61 - line 370, column 24): " + [v.id.constructor.name]);
           }()));
           return connectionsForKey(s)(key2);
         };
@@ -40680,11 +40680,11 @@ var mkGeneralHelpers = function(store) {
                   return "";
                 }
                 ;
-                throw new Error("Failed pattern match at React.Hook.ReactFlow (line 377, column 58 - line 379, column 26): " + [v.handleId.constructor.name]);
+                throw new Error("Failed pattern match at React.Hook.ReactFlow (line 378, column 58 - line 380, column 26): " + [v.handleId.constructor.name]);
               }()));
             }
             ;
-            throw new Error("Failed pattern match at React.Hook.ReactFlow (line 375, column 15 - line 379, column 26): " + [v.handleType.constructor.name]);
+            throw new Error("Failed pattern match at React.Hook.ReactFlow (line 376, column 15 - line 380, column 26): " + [v.handleType.constructor.name]);
           }();
           return connectionsForKey(s)(key2);
         };
@@ -44272,11 +44272,11 @@ var runStateT = function(v) {
 };
 var monadTransStateT = {
   lift: function(dictMonad) {
-    var bind62 = bind(dictMonad.Bind1());
+    var bind61 = bind(dictMonad.Bind1());
     var pure83 = pure(dictMonad.Applicative0());
     return function(m) {
       return function(s) {
-        return bind62(m)(function(x) {
+        return bind61(m)(function(x) {
           return pure83(new Tuple(x, s));
         });
       };
@@ -44317,12 +44317,12 @@ var monadStateT = function(dictMonad) {
   };
 };
 var bindStateT = function(dictMonad) {
-  var bind62 = bind(dictMonad.Bind1());
+  var bind61 = bind(dictMonad.Bind1());
   return {
     bind: function(v) {
       return function(f) {
         return function(s) {
-          return bind62(v(s))(function(v1) {
+          return bind61(v(s))(function(v1) {
             var v3 = f(v1.value0);
             return v3(v1.value1);
           });
@@ -53253,156 +53253,220 @@ var zoomPane = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PU
 })));
 
 // output/React.Hook.GlobalKeyHandler/index.js
-var coerceHook6 = /* @__PURE__ */ coerceHook();
-var bind39 = /* @__PURE__ */ bind4(ixBindRender);
-var useEffect9 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
-  reflectSymbol: function() {
-    return "multi";
-  }
-})(eqBoolean))()({
-  reflectSymbol: function() {
-    return "delete";
-  }
-})(eqBoolean)));
-var eqMaybe7 = /* @__PURE__ */ eqMaybe(eqBoolean);
-var eq36 = /* @__PURE__ */ eq(eqMaybe7);
-var notEq9 = /* @__PURE__ */ notEq(eqMaybe7);
-var when16 = /* @__PURE__ */ when(applicativeEffect);
-var notEq16 = /* @__PURE__ */ notEq(/* @__PURE__ */ eqArray(eqNodeId));
+var eq36 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
+var $$void9 = /* @__PURE__ */ $$void(functorAff);
 var map50 = /* @__PURE__ */ map(functorArray);
-var notEq24 = /* @__PURE__ */ notEq(/* @__PURE__ */ eqArray(eqString));
+var coerceHook6 = /* @__PURE__ */ coerceHook();
+var bind117 = /* @__PURE__ */ bind4(ixBindRender);
+var discard16 = /* @__PURE__ */ discard2(ixBindRender);
+var useEffect9 = /* @__PURE__ */ useEffect(eqBoolean);
+var when16 = /* @__PURE__ */ when(applicativeEffect);
 var pure58 = /* @__PURE__ */ pure(applicativeEffect);
+var deleteSelectedElements = function(store) {
+  return function(deleteElements) {
+    var selected2 = function(item) {
+      return eq36(item.selected)(new Just(true));
+    };
+    return function __do3() {
+      var s = store.getState();
+      launchAff_($$void9(deleteElements({
+        nodes: new Just(map50(Right.create)(filter(selected2)(s.nodes))),
+        edges: new Just(map50(Right.create)(filter(selected2)(s.edges)))
+      })))();
+      return store.setState(function(st) {
+        return {
+          rfId: st.rfId,
+          width: st.width,
+          height: st.height,
+          transform: st.transform,
+          nodes: st.nodes,
+          nodesInitialized: st.nodesInitialized,
+          nodeLookup: st.nodeLookup,
+          parentLookup: st.parentLookup,
+          edges: st.edges,
+          edgeLookup: st.edgeLookup,
+          connectionLookup: st.connectionLookup,
+          onNodesChange: st.onNodesChange,
+          onEdgesChange: st.onEdgesChange,
+          hasDefaultNodes: st.hasDefaultNodes,
+          hasDefaultEdges: st.hasDefaultEdges,
+          domNode: st.domNode,
+          paneDragging: st.paneDragging,
+          noPanClassName: st.noPanClassName,
+          panZoom: st.panZoom,
+          minZoom: st.minZoom,
+          maxZoom: st.maxZoom,
+          translateExtent: st.translateExtent,
+          nodeExtent: st.nodeExtent,
+          nodeOrigin: st.nodeOrigin,
+          nodeDragThreshold: st.nodeDragThreshold,
+          connectionDragThreshold: st.connectionDragThreshold,
+          userSelectionActive: st.userSelectionActive,
+          userSelectionRect: st.userSelectionRect,
+          connection: st.connection,
+          connectionMode: st.connectionMode,
+          connectionClickStartHandle: st.connectionClickStartHandle,
+          snapToGrid: st.snapToGrid,
+          snapGrid: st.snapGrid,
+          nodesDraggable: st.nodesDraggable,
+          autoPanOnNodeFocus: st.autoPanOnNodeFocus,
+          nodesConnectable: st.nodesConnectable,
+          nodesFocusable: st.nodesFocusable,
+          edgesFocusable: st.edgesFocusable,
+          edgesReconnectable: st.edgesReconnectable,
+          elementsSelectable: st.elementsSelectable,
+          elevateNodesOnSelect: st.elevateNodesOnSelect,
+          elevateEdgesOnSelect: st.elevateEdgesOnSelect,
+          selectNodesOnDrag: st.selectNodesOnDrag,
+          multiSelectionActive: st.multiSelectionActive,
+          onNodeDragStart: st.onNodeDragStart,
+          onNodeDrag: st.onNodeDrag,
+          onNodeDragStop: st.onNodeDragStop,
+          onSelectionDragStart: st.onSelectionDragStart,
+          onSelectionDrag: st.onSelectionDrag,
+          onSelectionDragStop: st.onSelectionDragStop,
+          onMoveStart: st.onMoveStart,
+          onMove: st.onMove,
+          onMoveEnd: st.onMoveEnd,
+          onConnect: st.onConnect,
+          onConnectStart: st.onConnectStart,
+          onConnectEnd: st.onConnectEnd,
+          onClickConnectStart: st.onClickConnectStart,
+          onClickConnectEnd: st.onClickConnectEnd,
+          connectOnClick: st.connectOnClick,
+          defaultEdgeOptions: st.defaultEdgeOptions,
+          fitViewQueued: st.fitViewQueued,
+          fitViewOptions: st.fitViewOptions,
+          fitViewResolver: st.fitViewResolver,
+          onNodesDelete: st.onNodesDelete,
+          onEdgesDelete: st.onEdgesDelete,
+          onDelete: st.onDelete,
+          onError: st.onError,
+          onViewportChangeStart: st.onViewportChangeStart,
+          onViewportChange: st.onViewportChange,
+          onViewportChangeEnd: st.onViewportChangeEnd,
+          onBeforeDelete: st.onBeforeDelete,
+          onSelectionChangeHandlers: st.onSelectionChangeHandlers,
+          ariaLiveMessage: st.ariaLiveMessage,
+          autoPanOnConnect: st.autoPanOnConnect,
+          autoPanOnNodeDrag: st.autoPanOnNodeDrag,
+          autoPanSpeed: st.autoPanSpeed,
+          connectionRadius: st.connectionRadius,
+          isValidConnection: st.isValidConnection,
+          lib: st.lib,
+          debug: st.debug,
+          ariaLabelConfig: st.ariaLabelConfig,
+          zIndexMode: st.zIndexMode,
+          onNodesChangeMiddlewareMap: st.onNodesChangeMiddlewareMap,
+          onEdgesChangeMiddlewareMap: st.onEdgesChangeMiddlewareMap,
+          nodesSelectionActive: false
+        };
+      })();
+    };
+  };
+};
 var useGlobalKeyHandler = function(opts) {
-  return coerceHook6(bind39(useStoreApi)(function(store) {
-    return bind39(useKeyPress(opts.deleteKeyCode)(Nothing.value))(function(deletePressed) {
-      return bind39(useKeyPress(opts.multiSelectionKeyCode)(Nothing.value))(function(multiPressed) {
-        return useEffect9({
-          "delete": deletePressed,
-          multi: multiPressed
-        })(function __do3() {
-          store.dispatch(new PatchState(function(s) {
-            return {
-              rfId: s.rfId,
-              width: s.width,
-              height: s.height,
-              transform: s.transform,
-              nodes: s.nodes,
-              nodesInitialized: s.nodesInitialized,
-              nodeLookup: s.nodeLookup,
-              parentLookup: s.parentLookup,
-              edges: s.edges,
-              edgeLookup: s.edgeLookup,
-              connectionLookup: s.connectionLookup,
-              onNodesChange: s.onNodesChange,
-              onEdgesChange: s.onEdgesChange,
-              hasDefaultNodes: s.hasDefaultNodes,
-              hasDefaultEdges: s.hasDefaultEdges,
-              domNode: s.domNode,
-              paneDragging: s.paneDragging,
-              noPanClassName: s.noPanClassName,
-              panZoom: s.panZoom,
-              minZoom: s.minZoom,
-              maxZoom: s.maxZoom,
-              translateExtent: s.translateExtent,
-              nodeExtent: s.nodeExtent,
-              nodeOrigin: s.nodeOrigin,
-              nodeDragThreshold: s.nodeDragThreshold,
-              connectionDragThreshold: s.connectionDragThreshold,
-              nodesSelectionActive: s.nodesSelectionActive,
-              userSelectionActive: s.userSelectionActive,
-              userSelectionRect: s.userSelectionRect,
-              connection: s.connection,
-              connectionMode: s.connectionMode,
-              connectionClickStartHandle: s.connectionClickStartHandle,
-              snapToGrid: s.snapToGrid,
-              snapGrid: s.snapGrid,
-              nodesDraggable: s.nodesDraggable,
-              autoPanOnNodeFocus: s.autoPanOnNodeFocus,
-              nodesConnectable: s.nodesConnectable,
-              nodesFocusable: s.nodesFocusable,
-              edgesFocusable: s.edgesFocusable,
-              edgesReconnectable: s.edgesReconnectable,
-              elementsSelectable: s.elementsSelectable,
-              elevateNodesOnSelect: s.elevateNodesOnSelect,
-              elevateEdgesOnSelect: s.elevateEdgesOnSelect,
-              selectNodesOnDrag: s.selectNodesOnDrag,
-              onNodeDragStart: s.onNodeDragStart,
-              onNodeDrag: s.onNodeDrag,
-              onNodeDragStop: s.onNodeDragStop,
-              onSelectionDragStart: s.onSelectionDragStart,
-              onSelectionDrag: s.onSelectionDrag,
-              onSelectionDragStop: s.onSelectionDragStop,
-              onMoveStart: s.onMoveStart,
-              onMove: s.onMove,
-              onMoveEnd: s.onMoveEnd,
-              onConnect: s.onConnect,
-              onConnectStart: s.onConnectStart,
-              onConnectEnd: s.onConnectEnd,
-              onClickConnectStart: s.onClickConnectStart,
-              onClickConnectEnd: s.onClickConnectEnd,
-              connectOnClick: s.connectOnClick,
-              defaultEdgeOptions: s.defaultEdgeOptions,
-              fitViewQueued: s.fitViewQueued,
-              fitViewOptions: s.fitViewOptions,
-              fitViewResolver: s.fitViewResolver,
-              onNodesDelete: s.onNodesDelete,
-              onEdgesDelete: s.onEdgesDelete,
-              onDelete: s.onDelete,
-              onError: s.onError,
-              onViewportChangeStart: s.onViewportChangeStart,
-              onViewportChange: s.onViewportChange,
-              onViewportChangeEnd: s.onViewportChangeEnd,
-              onBeforeDelete: s.onBeforeDelete,
-              onSelectionChangeHandlers: s.onSelectionChangeHandlers,
-              ariaLiveMessage: s.ariaLiveMessage,
-              autoPanOnConnect: s.autoPanOnConnect,
-              autoPanOnNodeDrag: s.autoPanOnNodeDrag,
-              autoPanSpeed: s.autoPanSpeed,
-              connectionRadius: s.connectionRadius,
-              isValidConnection: s.isValidConnection,
-              lib: s.lib,
-              debug: s.debug,
-              ariaLabelConfig: s.ariaLabelConfig,
-              zIndexMode: s.zIndexMode,
-              onNodesChangeMiddlewareMap: s.onNodesChangeMiddlewareMap,
-              onEdgesChangeMiddlewareMap: s.onEdgesChangeMiddlewareMap,
-              multiSelectionActive: multiPressed
-            };
-          }))();
-          (function() {
-            if (deletePressed) {
-              var st = store.getState();
-              var selectedNodeIds = mapMaybe(function(n) {
-                var $31 = eq36(n.selected)(new Just(true)) && notEq9(n.deletable)(new Just(false));
-                if ($31) {
-                  return new Just(n.id);
-                }
-                ;
-                return Nothing.value;
-              })(st.nodes);
-              var selectedEdgeIds = mapMaybe(function(e) {
-                var $32 = eq36(e.selected)(new Just(true)) && notEq9(e.deletable)(new Just(false));
-                if ($32) {
-                  return new Just(e.id);
-                }
-                ;
-                return Nothing.value;
-              })(st.edges);
-              when16(notEq16(selectedNodeIds)([]))(store.dispatch(new TriggerNodeChanges(map50(function(i) {
-                return new NodeRemoveChange({
-                  id: i
-                });
-              })(selectedNodeIds))))();
-              return when16(notEq24(selectedEdgeIds)([]))(store.dispatch(new TriggerEdgeChanges(map50(function(i) {
-                return new EdgeRemoveChange({
-                  id: i
-                });
-              })(selectedEdgeIds))))();
-            }
-            ;
-            return unit;
-          })();
-          return pure58(unit);
+  return coerceHook6(bind117(useStoreApi)(function(store) {
+    return bind117(useReactFlow)(function(flow) {
+      return bind117(useKeyPress(opts.deleteKeyCode)(Nothing.value))(function(deletePressed) {
+        return bind117(useKeyPress(opts.multiSelectionKeyCode)(Nothing.value))(function(multiPressed) {
+          return discard16(useEffect9(deletePressed)(function __do3() {
+            when16(deletePressed)(deleteSelectedElements(store)(flow.deleteElements))();
+            return pure58(unit);
+          }))(function() {
+            return useEffect9(multiPressed)(function __do3() {
+              store.dispatch(new PatchState(function(s) {
+                return {
+                  rfId: s.rfId,
+                  width: s.width,
+                  height: s.height,
+                  transform: s.transform,
+                  nodes: s.nodes,
+                  nodesInitialized: s.nodesInitialized,
+                  nodeLookup: s.nodeLookup,
+                  parentLookup: s.parentLookup,
+                  edges: s.edges,
+                  edgeLookup: s.edgeLookup,
+                  connectionLookup: s.connectionLookup,
+                  onNodesChange: s.onNodesChange,
+                  onEdgesChange: s.onEdgesChange,
+                  hasDefaultNodes: s.hasDefaultNodes,
+                  hasDefaultEdges: s.hasDefaultEdges,
+                  domNode: s.domNode,
+                  paneDragging: s.paneDragging,
+                  noPanClassName: s.noPanClassName,
+                  panZoom: s.panZoom,
+                  minZoom: s.minZoom,
+                  maxZoom: s.maxZoom,
+                  translateExtent: s.translateExtent,
+                  nodeExtent: s.nodeExtent,
+                  nodeOrigin: s.nodeOrigin,
+                  nodeDragThreshold: s.nodeDragThreshold,
+                  connectionDragThreshold: s.connectionDragThreshold,
+                  nodesSelectionActive: s.nodesSelectionActive,
+                  userSelectionActive: s.userSelectionActive,
+                  userSelectionRect: s.userSelectionRect,
+                  connection: s.connection,
+                  connectionMode: s.connectionMode,
+                  connectionClickStartHandle: s.connectionClickStartHandle,
+                  snapToGrid: s.snapToGrid,
+                  snapGrid: s.snapGrid,
+                  nodesDraggable: s.nodesDraggable,
+                  autoPanOnNodeFocus: s.autoPanOnNodeFocus,
+                  nodesConnectable: s.nodesConnectable,
+                  nodesFocusable: s.nodesFocusable,
+                  edgesFocusable: s.edgesFocusable,
+                  edgesReconnectable: s.edgesReconnectable,
+                  elementsSelectable: s.elementsSelectable,
+                  elevateNodesOnSelect: s.elevateNodesOnSelect,
+                  elevateEdgesOnSelect: s.elevateEdgesOnSelect,
+                  selectNodesOnDrag: s.selectNodesOnDrag,
+                  onNodeDragStart: s.onNodeDragStart,
+                  onNodeDrag: s.onNodeDrag,
+                  onNodeDragStop: s.onNodeDragStop,
+                  onSelectionDragStart: s.onSelectionDragStart,
+                  onSelectionDrag: s.onSelectionDrag,
+                  onSelectionDragStop: s.onSelectionDragStop,
+                  onMoveStart: s.onMoveStart,
+                  onMove: s.onMove,
+                  onMoveEnd: s.onMoveEnd,
+                  onConnect: s.onConnect,
+                  onConnectStart: s.onConnectStart,
+                  onConnectEnd: s.onConnectEnd,
+                  onClickConnectStart: s.onClickConnectStart,
+                  onClickConnectEnd: s.onClickConnectEnd,
+                  connectOnClick: s.connectOnClick,
+                  defaultEdgeOptions: s.defaultEdgeOptions,
+                  fitViewQueued: s.fitViewQueued,
+                  fitViewOptions: s.fitViewOptions,
+                  fitViewResolver: s.fitViewResolver,
+                  onNodesDelete: s.onNodesDelete,
+                  onEdgesDelete: s.onEdgesDelete,
+                  onDelete: s.onDelete,
+                  onError: s.onError,
+                  onViewportChangeStart: s.onViewportChangeStart,
+                  onViewportChange: s.onViewportChange,
+                  onViewportChangeEnd: s.onViewportChangeEnd,
+                  onBeforeDelete: s.onBeforeDelete,
+                  onSelectionChangeHandlers: s.onSelectionChangeHandlers,
+                  ariaLiveMessage: s.ariaLiveMessage,
+                  autoPanOnConnect: s.autoPanOnConnect,
+                  autoPanOnNodeDrag: s.autoPanOnNodeDrag,
+                  autoPanSpeed: s.autoPanSpeed,
+                  connectionRadius: s.connectionRadius,
+                  isValidConnection: s.isValidConnection,
+                  lib: s.lib,
+                  debug: s.debug,
+                  ariaLabelConfig: s.ariaLabelConfig,
+                  zIndexMode: s.zIndexMode,
+                  onNodesChangeMiddlewareMap: s.onNodesChangeMiddlewareMap,
+                  onEdgesChangeMiddlewareMap: s.onEdgesChangeMiddlewareMap,
+                  multiSelectionActive: multiPressed
+                };
+              }))();
+              return pure58(unit);
+            });
+          });
         });
       });
     });
@@ -53410,7 +53474,7 @@ var useGlobalKeyHandler = function(opts) {
 };
 
 // output/React.Container.FlowRenderer/index.js
-var bind40 = /* @__PURE__ */ bind4(ixBindRender);
+var bind39 = /* @__PURE__ */ bind4(ixBindRender);
 var useStore21 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "userSelectionActive";
@@ -53420,7 +53484,7 @@ var useStore21 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ *
     return "nodesSelectionActive";
   }
 })(eqBoolean)));
-var discard16 = /* @__PURE__ */ discard2(ixBindRender);
+var discard17 = /* @__PURE__ */ discard2(ixBindRender);
 var append19 = /* @__PURE__ */ append(semigroupArray);
 var pure59 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var selectSlice7 = function(s) {
@@ -53446,9 +53510,9 @@ var escalatePan = function(pressed) {
   };
 };
 var flowRenderer = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponentWithChildren()()("FlowRenderer")(function(v) {
-  return bind40(useStore21(selectSlice7))(function(slice3) {
-    return bind40(useKeyPress(v.selectionKeyCode)(Nothing.value))(function(selectionKeyPressed) {
-      return bind40(useKeyPress(v.panActivationKeyCode)(Nothing.value))(function(panActivationKeyPressed) {
+  return bind39(useStore21(selectSlice7))(function(slice3) {
+    return bind39(useKeyPress(v.selectionKeyCode)(Nothing.value))(function(selectionKeyPressed) {
+      return bind39(useKeyPress(v.panActivationKeyCode)(Nothing.value))(function(panActivationKeyPressed) {
         var panOnScroll = panActivationKeyPressed || v.panOnScroll;
         var panOnDrag = escalatePan(panActivationKeyPressed)(v.panOnDrag);
         var selectionOnDragEff = v.selectionOnDrag && !isUnrestrictedPan(panOnDrag);
@@ -53460,7 +53524,7 @@ var flowRenderer = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @
           return panOnDrag;
         }();
         var isSelecting = selectionKeyPressed || (slice3.userSelectionActive || selectionOnDragEff);
-        return discard16(useGlobalKeyHandler({
+        return discard17(useGlobalKeyHandler({
           deleteKeyCode: v.deleteKeyCode,
           multiSelectionKeyCode: v.multiSelectionKeyCode
         }))(function() {
@@ -53532,28 +53596,28 @@ var joinSpace3 = (xs) => xs.filter((s) => s !== "").join(" ");
 
 // output/React.Hook.NodeObserver/index.js
 var coerceHook7 = /* @__PURE__ */ coerceHook();
-var bind41 = /* @__PURE__ */ bind4(ixBindRender);
-var discard17 = /* @__PURE__ */ discard2(ixBindRender);
-var eqMaybe8 = /* @__PURE__ */ eqMaybe(eqBoolean);
-var useEffect10 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqTuple(eqBoolean)(eqMaybe8));
+var bind40 = /* @__PURE__ */ bind4(ixBindRender);
+var discard18 = /* @__PURE__ */ discard2(ixBindRender);
+var eqMaybe7 = /* @__PURE__ */ eqMaybe(eqBoolean);
+var useEffect10 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqTuple(eqBoolean)(eqMaybe7));
 var map51 = /* @__PURE__ */ map(functorEffect);
 var for_17 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var when17 = /* @__PURE__ */ when(applicativeEffect);
-var notEq10 = /* @__PURE__ */ notEq(eqMaybe8);
+var notEq9 = /* @__PURE__ */ notEq(eqMaybe7);
 var pure60 = /* @__PURE__ */ pure(applicativeEffect);
 var eqMaybe12 = /* @__PURE__ */ eqMaybe(eqPosition);
 var useEffect12 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqTuple(eqNodeId)(/* @__PURE__ */ eqTuple(eqString)(/* @__PURE__ */ eqTuple(eqMaybe12)(eqMaybe12))));
-var notEq25 = /* @__PURE__ */ notEq(eqMaybe12);
+var notEq24 = /* @__PURE__ */ notEq(eqMaybe12);
 var pure124 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var useNodeObserver = function(v) {
-  return coerceHook7(bind41(useStoreApi)(function(store) {
-    return bind41(useRef(toNullable(Nothing.value)))(function(nodeRef) {
-      return bind41(useRef(toNullable(Nothing.value)))(function(observedNode) {
-        return bind41(useRef(v.node.sourcePosition))(function(prevSourcePosition) {
-          return bind41(useRef(v.node.targetPosition))(function(prevTargetPosition) {
-            return bind41(useRef(v.nodeType))(function(prevType) {
+  return coerceHook7(bind40(useStoreApi)(function(store) {
+    return bind40(useRef(toNullable(Nothing.value)))(function(nodeRef) {
+      return bind40(useRef(toNullable(Nothing.value)))(function(observedNode) {
+        return bind40(useRef(v.node.sourcePosition))(function(prevSourcePosition) {
+          return bind40(useRef(v.node.targetPosition))(function(prevTargetPosition) {
+            return bind40(useRef(v.nodeType))(function(prevType) {
               var isInitialized = v.hasDimensions && isJust(v.node.internals.handleBounds);
-              return discard17(useEffect10(new Tuple(isInitialized, v.node.hidden))(function __do3() {
+              return discard18(useEffect10(new Tuple(isInitialized, v.node.hidden))(function __do3() {
                 var mCurrent = map51(toMaybe)(readRef(nodeRef))();
                 var mObserved = map51(toMaybe)(readRef(observedNode))();
                 for_17(mCurrent)(function(current) {
@@ -53568,7 +53632,7 @@ var useNodeObserver = function(v) {
                     ;
                     throw new Error("Failed pattern match at React.Hook.NodeObserver (line 90, column 29 - line 92, column 27): " + [mObserved.constructor.name]);
                   }();
-                  return when17(notEq10(v.node.hidden)(new Just(true)) && (!isInitialized || !observedIsCurrent))(function __do4() {
+                  return when17(notEq9(v.node.hidden)(new Just(true)) && (!isInitialized || !observedIsCurrent))(function __do4() {
                     for_17(mObserved)(function(observed) {
                       return for_17(v.resizeObserver)(function(ro) {
                         return unobserve(ro)(toElement(observed));
@@ -53582,7 +53646,7 @@ var useNodeObserver = function(v) {
                 })();
                 return pure60(unit);
               }))(function() {
-                return discard17(useEffectOnce(pure60(function __do3() {
+                return discard18(useEffectOnce(pure60(function __do3() {
                   var mObserved = map51(toMaybe)(readRef(observedNode))();
                   return for_17(mObserved)(function(observed) {
                     return function __do4() {
@@ -53593,7 +53657,7 @@ var useNodeObserver = function(v) {
                     };
                   })();
                 })))(function() {
-                  return discard17(useEffect12(new Tuple(v.node.id, new Tuple(v.nodeType, new Tuple(v.node.sourcePosition, v.node.targetPosition))))(function __do3() {
+                  return discard18(useEffect12(new Tuple(v.node.id, new Tuple(v.nodeType, new Tuple(v.node.sourcePosition, v.node.targetPosition))))(function __do3() {
                     var mCurrent = map51(toMaybe)(readRef(nodeRef))();
                     for_17(mCurrent)(function(current) {
                       return function __do4() {
@@ -53601,8 +53665,8 @@ var useNodeObserver = function(v) {
                         var sourceBefore = readRef(prevSourcePosition)();
                         var targetBefore = readRef(prevTargetPosition)();
                         var typeChanged = typeBefore !== v.nodeType;
-                        var targetPosChanged = notEq25(targetBefore)(v.node.targetPosition);
-                        var sourcePosChanged = notEq25(sourceBefore)(v.node.sourcePosition);
+                        var targetPosChanged = notEq24(targetBefore)(v.node.targetPosition);
+                        var sourcePosChanged = notEq24(sourceBefore)(v.node.sourcePosition);
                         return when17(typeChanged || (sourcePosChanged || targetPosChanged))(function __do5() {
                           writeRef(prevType)(v.nodeType)();
                           writeRef(prevSourcePosition)(v.node.sourcePosition)();
@@ -53634,10 +53698,10 @@ var useNodeObserver = function(v) {
 // output/React.Node.Util/index.js
 var lookup21 = /* @__PURE__ */ lookup2(ordNodeId);
 var unwrap16 = /* @__PURE__ */ unwrap();
-var eqMaybe9 = /* @__PURE__ */ eqMaybe(eqBoolean);
-var notEq11 = /* @__PURE__ */ notEq(eqMaybe9);
-var eq37 = /* @__PURE__ */ eq(eqMaybe9);
-var $$void9 = /* @__PURE__ */ $$void(functorEffect);
+var eqMaybe8 = /* @__PURE__ */ eqMaybe(eqBoolean);
+var notEq10 = /* @__PURE__ */ notEq(eqMaybe8);
+var eq37 = /* @__PURE__ */ eq(eqMaybe8);
+var $$void10 = /* @__PURE__ */ $$void(functorEffect);
 var map52 = /* @__PURE__ */ map(functorEffect);
 var for_18 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var handleNodeClick = function(args) {
@@ -53657,7 +53721,7 @@ var handleNodeClick = function(args) {
     }
     ;
     if (v instanceof Just) {
-      var $20 = notEq11(v.value0.selected)(new Just(true));
+      var $20 = notEq10(v.value0.selected)(new Just(true));
       if ($20) {
         return args.store.dispatch(new AddSelectedNodes([args.id]))();
       }
@@ -53668,7 +53732,7 @@ var handleNodeClick = function(args) {
           nodes: new Just([v.value0]),
           edges: Nothing.value
         }))();
-        return $$void9(requestAnimationFrame(function __do4() {
+        return $$void10(requestAnimationFrame(function __do4() {
           var mDiv = map52(toMaybe)(readRef(args.nodeRef))();
           return for_18(mDiv)(function($23) {
             return blur(toHTMLElement($23));
@@ -53690,7 +53754,7 @@ var pure61 = /* @__PURE__ */ pure(applicativeEffect);
 var for_19 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var unwrap17 = /* @__PURE__ */ unwrap();
 var map53 = /* @__PURE__ */ map(functorMaybe);
-var bind117 = /* @__PURE__ */ bind4(ixBindRender);
+var bind118 = /* @__PURE__ */ bind4(ixBindRender);
 var useStore22 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "node";
@@ -53949,7 +54013,7 @@ var buildNodeClassName = function(p) {
   }()]);
 };
 var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("NodeWrapper")(function(v) {
-  return bind117(useStore22(selectNodeSlice(v.id)))(function(slice3) {
+  return bind118(useStore22(selectNodeSlice(v.id)))(function(slice3) {
     var nodeTypeInit = fromMaybe("default")(slice3.node.nodeType);
     var resolved = unsafePerformEffect(resolveNodeComponent(v.nodeTypes)(v.onError)(nodeTypeInit));
     var isSelectable = function() {
@@ -53986,14 +54050,14 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
       throw new Error("Failed pattern match at React.Component.NodeWrapper (line 324, column 25 - line 326, column 44): " + [slice3.node.connectable.constructor.name]);
     }();
     var hasDims = nodeHasDimensions(slice3.node);
-    return bind117(useStoreApi)(function(store) {
-      return bind117(useNodeObserver({
+    return bind118(useStoreApi)(function(store) {
+      return bind118(useNodeObserver({
         node: slice3.node,
         nodeType: resolved.nodeType,
         hasDimensions: hasDims,
         resizeObserver: v.resizeObserver
       }))(function(nodeRef) {
-        return bind117(useDrag({
+        return bind118(useDrag({
           wrapperRef: nodeRef,
           disabled: eq38(slice3.node.hidden)(new Just(true)) || !isDraggable,
           nodeId: new Just(v.id),
@@ -54014,7 +54078,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
             });
           })
         }))(function(dragging) {
-          return bind117(useMoveSelectedNodes)(function(moveSelectedNodes) {
+          return bind118(useMoveSelectedNodes)(function(moveSelectedNodes) {
             var onKeyDownHandler = function(ke) {
               return function __do3() {
                 var inputFocused = isInputDOMNode(ke)();
@@ -54251,9 +54315,9 @@ var getAttribute2 = function(attr) {
 var foldM6 = /* @__PURE__ */ foldM(foldableArray)(monadEffect);
 var pure62 = /* @__PURE__ */ pure(applicativeEffect);
 var when19 = /* @__PURE__ */ when(applicativeEffect);
-var bind118 = /* @__PURE__ */ bind4(ixBindRender);
+var bind119 = /* @__PURE__ */ bind4(ixBindRender);
 var useMemo4 = /* @__PURE__ */ useMemo(eqUnit);
-var discard18 = /* @__PURE__ */ discard2(ixBindRender);
+var discard19 = /* @__PURE__ */ discard2(ixBindRender);
 var pure126 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var useStore23 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
@@ -54316,11 +54380,11 @@ var mkSharedObserver = function(store) {
     };
   });
 };
-var useResizeObserver = /* @__PURE__ */ coerceHook()(/* @__PURE__ */ bind118(useStoreApi)(function(store) {
-  return bind118(useMemo4(unit)(function(v) {
+var useResizeObserver = /* @__PURE__ */ coerceHook()(/* @__PURE__ */ bind119(useStoreApi)(function(store) {
+  return bind119(useMemo4(unit)(function(v) {
     return unsafePerformEffect(mkSharedObserver(store));
   }))(function(observer) {
-    return discard18(useEffectOnce(pure62(disconnect(observer))))(function() {
+    return discard19(useEffectOnce(pure62(disconnect(observer))))(function() {
       return pure126(observer);
     });
   });
@@ -54333,9 +54397,9 @@ var containerStyle2 = /* @__PURE__ */ toForeignStyle11({
   left: 0
 });
 var nodeRenderer = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("NodeRenderer")(function(v) {
-  return bind118(useStore23(selectFlags2))(function(flags) {
-    return bind118(useVisibleNodeIds(v.onlyRenderVisibleElements))(function(nodeIds) {
-      return bind118(useResizeObserver)(function(observer) {
+  return bind119(useStore23(selectFlags2))(function(flags) {
+    return bind119(useVisibleNodeIds(v.onlyRenderVisibleElements))(function(nodeIds) {
+      return bind119(useResizeObserver)(function(observer) {
         var children3 = map55(function(nodeId) {
           var nodeIdStr = unwrap18(nodeId);
           return keyed(nodeIdStr)(element(nodeWrapper)({
@@ -54371,7 +54435,7 @@ var nodeRenderer = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @
 })));
 
 // output/React.Container.Viewport/index.js
-var bind42 = /* @__PURE__ */ bind4(ixBindRender);
+var bind41 = /* @__PURE__ */ bind4(ixBindRender);
 var useStore24 = /* @__PURE__ */ useStore(eqTransform);
 var pure63 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var viewportTransform = function(v) {
@@ -54382,7 +54446,7 @@ var selectTransform = function(v) {
   return v.transform;
 };
 var viewport = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponentWithChildren()()("Viewport")(function(v) {
-  return bind42(useStore24(selectTransform))(function(transform2) {
+  return bind41(useStore24(selectTransform))(function(transform2) {
     var styleObj = toForeignStyle12({
       transform: viewportTransform(transform2)
     });
@@ -54395,13 +54459,13 @@ var viewport = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PU
 
 // output/React.Hook.Listeners/index.js
 var coerceHook8 = /* @__PURE__ */ coerceHook();
-var bind43 = /* @__PURE__ */ bind4(ixBindRender);
+var bind42 = /* @__PURE__ */ bind4(ixBindRender);
 var useEffect11 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var when20 = /* @__PURE__ */ when(applicativeEffect);
 var pure64 = /* @__PURE__ */ pure(applicativeEffect);
 var useOnInitHandler = function(mOnInit) {
-  return coerceHook8(bind43(useReactFlow)(function(rfInstance) {
-    return bind43(useRef(false))(function(initRef) {
+  return coerceHook8(bind42(useReactFlow)(function(rfInstance) {
+    return bind42(useRef(false))(function(initRef) {
       return useEffect11(rfInstance.viewportInitialized)(function __do3() {
         var initialized = readRef(initRef)();
         when20(!initialized && rfInstance.viewportInitialized)(function() {
@@ -54424,7 +54488,7 @@ var useOnInitHandler = function(mOnInit) {
   }));
 };
 var useOnSelectionChange = function(opts) {
-  return coerceHook8(bind43(useStoreApi)(function(store) {
+  return coerceHook8(bind42(useStoreApi)(function(store) {
     return useEffect11(opts)(function() {
       if (opts.onChange instanceof Nothing) {
         return pure64(pure64(unit));
@@ -54442,7 +54506,7 @@ var useOnSelectionChange = function(opts) {
   }));
 };
 var useOnViewportChange = function(opts) {
-  return coerceHook8(bind43(useStoreApi)(function(store) {
+  return coerceHook8(bind42(useStoreApi)(function(store) {
     return useEffect11(opts)(function __do3() {
       store.dispatch(new InstallViewportListeners({
         onStart: opts.onStart,
@@ -54474,7 +54538,7 @@ var isDevelopment = typeof IS_DEV !== "undefined" ? IS_DEV : true;
 
 // output/React.Hook.NodeOrEdgeTypesWarning/index.js
 var coerceHook9 = /* @__PURE__ */ coerceHook();
-var bind44 = /* @__PURE__ */ bind4(ixBindRender);
+var bind43 = /* @__PURE__ */ bind4(ixBindRender);
 var useEffect13 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var when21 = /* @__PURE__ */ when(applicativeEffect);
 var pure65 = /* @__PURE__ */ pure(applicativeEffect);
@@ -54533,8 +54597,8 @@ var useNodeOrEdgeTypesWarning = function(mTypes) {
       ;
       throw new Error("Failed pattern match at React.Hook.NodeOrEdgeTypesWarning (line 67, column 15 - line 69, column 28): " + [mTypes.constructor.name]);
     }();
-    return bind44(useStoreApi)(function(store) {
-      return bind44(useRef(current))(function(typesRef) {
+    return bind43(useStoreApi)(function(store) {
+      return bind43(useRef(current))(function(typesRef) {
         return useEffect13(current)(function __do3() {
           when21(isDevelopment)(function __do4() {
             var s = store.getState();
@@ -54572,12 +54636,12 @@ var checkPaneZIndex = () => {
 };
 
 // output/React.Hook.StylesLoadedWarning/index.js
-var bind45 = /* @__PURE__ */ bind4(ixBindRender);
+var bind44 = /* @__PURE__ */ bind4(ixBindRender);
 var when22 = /* @__PURE__ */ when(applicativeEffect);
 var map56 = /* @__PURE__ */ map(functorEffect);
 var pure66 = /* @__PURE__ */ pure(applicativeEffect);
-var useStylesLoadedWarning = /* @__PURE__ */ coerceHook()(/* @__PURE__ */ bind45(useStoreApi)(function(store) {
-  return bind45(useRef(false))(function(checkedRef) {
+var useStylesLoadedWarning = /* @__PURE__ */ coerceHook()(/* @__PURE__ */ bind44(useStoreApi)(function(store) {
+  return bind44(useRef(false))(function(checkedRef) {
     return useEffectOnce(function __do3() {
       when22(isDevelopment)(function __do4() {
         var s = store.getState();
@@ -54610,7 +54674,7 @@ var useStylesLoadedWarning = /* @__PURE__ */ coerceHook()(/* @__PURE__ */ bind45
 // output/React.Hook.ViewportSync/index.js
 var for_20 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
 var coerceHook10 = /* @__PURE__ */ coerceHook();
-var bind46 = /* @__PURE__ */ bind4(ixBindRender);
+var bind45 = /* @__PURE__ */ bind4(ixBindRender);
 var useStore25 = /* @__PURE__ */ useStore(eqUnsafeReference);
 var useEffect14 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqTuple(/* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
@@ -54728,8 +54792,8 @@ var runViewportSync = function(sync) {
   };
 };
 var useViewportSync = function(mViewport) {
-  return coerceHook10(bind46(useStoreApi)(function(store) {
-    return bind46(useStore25(function(s) {
+  return coerceHook10(bind45(useStoreApi)(function(store) {
+    return bind45(useStore25(function(s) {
       return s.panZoom;
     }))(function(v) {
       return useEffect14(new Tuple(mViewport, v))(function __do3() {
@@ -54746,7 +54810,7 @@ var useViewportSync = function(mViewport) {
 };
 
 // output/React.Container.GraphView/index.js
-var discard19 = /* @__PURE__ */ discard2(ixBindRender);
+var discard20 = /* @__PURE__ */ discard2(ixBindRender);
 var map58 = /* @__PURE__ */ map(functorMaybe);
 var pure68 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var toForeign2 = unsafeCoerce2;
@@ -54764,11 +54828,11 @@ var paneScrollAdapter = function(v) {
   throw new Error("Failed pattern match at React.Container.GraphView (line 169, column 21 - line 171, column 38): " + [v.constructor.name]);
 };
 var graphView = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__PURE__ */ reactComponent()()()("GraphView")(function(v) {
-  return discard19(useNodeOrEdgeTypesWarning(map58(toForeign2)(v.nodeTypes)))(function() {
-    return discard19(useNodeOrEdgeTypesWarning(map58(toForeign2)(v.edgeTypes)))(function() {
-      return discard19(useStylesLoadedWarning)(function() {
-        return discard19(useOnInitHandler(v.onInit))(function() {
-          return discard19(useViewportSync(v.viewport))(function() {
+  return discard20(useNodeOrEdgeTypesWarning(map58(toForeign2)(v.nodeTypes)))(function() {
+    return discard20(useNodeOrEdgeTypesWarning(map58(toForeign2)(v.edgeTypes)))(function() {
+      return discard20(useStylesLoadedWarning)(function() {
+        return discard20(useOnInitHandler(v.onInit))(function() {
+          return discard20(useViewportSync(v.viewport))(function() {
             var viewportChildren = [element(edgeRenderer)({
               onlyRenderVisibleElements: v.onlyRenderVisibleElements,
               defaultMarkerColor: new Just(v.defaultMarkerColor),
@@ -54900,14 +54964,14 @@ var useIsomorphicLayoutEffect = function(dictEq) {
 
 // output/React.Provider.Batch/index.js
 var foldl8 = /* @__PURE__ */ foldl(foldableList);
-var bind47 = /* @__PURE__ */ bind4(ixBindRender);
+var bind46 = /* @__PURE__ */ bind4(ixBindRender);
 var when23 = /* @__PURE__ */ when(applicativeEffect);
 var useMemo5 = /* @__PURE__ */ useMemo(eqUnit);
-var discard20 = /* @__PURE__ */ discard2(ixBindRender);
+var discard21 = /* @__PURE__ */ discard2(ixBindRender);
 var useIsomorphicLayoutEffect2 = /* @__PURE__ */ useIsomorphicLayoutEffect(eqInt);
 var foldl14 = /* @__PURE__ */ foldl(foldableArray);
 var for_21 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
-var $$void10 = /* @__PURE__ */ $$void(functorEffect);
+var $$void11 = /* @__PURE__ */ $$void(functorEffect);
 var pure69 = /* @__PURE__ */ pure(applicativeEffect);
 var pure127 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var planNodeQueue = function(s) {
@@ -54968,8 +55032,8 @@ var applyQueueItem = function(current) {
   };
 };
 var batchProvider = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren()()("BatchProvider")(function(v) {
-  return bind47(useStoreApi)(function(store) {
-    return bind47(useState(0))(function(v1) {
+  return bind46(useStoreApi)(function(store) {
+    return bind46(useState(0))(function(v1) {
       var refitNodes = function __do3() {
         var now2 = store.getState();
         return when23(now2.fitViewQueued)(store.dispatch(new SetNodes(now2.nodes)))();
@@ -54977,13 +55041,13 @@ var batchProvider = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCom
       var bumpSerial = v1.value1(function(v2) {
         return v2 + 1 | 0;
       });
-      return bind47(useMemo5(unit)(function(v2) {
+      return bind46(useMemo5(unit)(function(v2) {
         return unsafePerformEffect(createQueue(bumpSerial));
       }))(function(nodeQueue) {
-        return bind47(useMemo5(unit)(function(v2) {
+        return bind46(useMemo5(unit)(function(v2) {
           return unsafePerformEffect(createQueue(bumpSerial));
         }))(function(edgeQueue) {
-          return discard20(useIsomorphicLayoutEffect2(v1.value0)(function __do3() {
+          return discard21(useIsomorphicLayoutEffect2(v1.value0)(function __do3() {
             var nodeItems = nodeQueue.get();
             var edgeItems = edgeQueue.get();
             when23(!$$null(nodeItems) || !$$null(edgeItems))(function __do4() {
@@ -55001,7 +55065,7 @@ var batchProvider = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCom
                       return v2(changes);
                     });
                   })();
-                  when23(plan.refitNextFrame)($$void10(requestAnimationFrame(refitNodes)))();
+                  when23(plan.refitNextFrame)($$void11(requestAnimationFrame(refitNodes)))();
                   return nodeQueue.reset();
                 };
               }())();
@@ -58070,7 +58134,7 @@ var for_22 = /* @__PURE__ */ for_(applicativeEffect)(foldableArray);
 var pure70 = /* @__PURE__ */ pure(applicativeEffect);
 var map60 = /* @__PURE__ */ map(functorMaybe);
 var pure128 = /* @__PURE__ */ pure(applicativeAff);
-var bind119 = /* @__PURE__ */ bind(bindAff);
+var bind120 = /* @__PURE__ */ bind(bindAff);
 var unless7 = /* @__PURE__ */ unless(applicativeEffect);
 var append21 = /* @__PURE__ */ append(semigroupArray);
 var traverse_3 = /* @__PURE__ */ traverse_(applicativeEffect)(foldableArray);
@@ -58224,7 +58288,7 @@ var createStore = function(opts) {
             }
             ;
             if (s.panZoom instanceof Just) {
-              return launchAff_(bind119(fitViewport({
+              return launchAff_(bind120(fitViewport({
                 nodes: s.nodeLookup,
                 width: s.width,
                 height: s.height,
@@ -58343,7 +58407,7 @@ var createStore = function(opts) {
 };
 
 // output/React.Provider/index.js
-var bind48 = /* @__PURE__ */ bind4(ixBindRender);
+var bind47 = /* @__PURE__ */ bind4(ixBindRender);
 var useMemo6 = /* @__PURE__ */ useMemo(eqUnit);
 var pure71 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var storeToOpaque = unsafeCoerce2;
@@ -58366,7 +58430,7 @@ var reactFlowProvider = /* @__PURE__ */ function() {
     };
   };
   return unsafePerformEffect(reactComponentWithChildren()()("ReactFlowProvider")(function(v) {
-    return bind48(useMemo6(unit)(function(v1) {
+    return bind47(useMemo6(unit)(function(v1) {
       return unsafePerformEffect(createStore(toInitOptions(v)));
     }))(function(store) {
       return pure71(storeProvider(new Just(storeToOpaque(store)))([element(batchProvider)({
@@ -58377,10 +58441,10 @@ var reactFlowProvider = /* @__PURE__ */ function() {
 }();
 
 // output/React.Container.Wrapper/index.js
-var bind49 = /* @__PURE__ */ bind4(ixBindRender);
+var bind48 = /* @__PURE__ */ bind4(ixBindRender);
 var pure72 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var wrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren()()("Wrapper")(function(v) {
-  return bind49(useContext(storeContext))(function(mStore) {
+  return bind48(useContext(storeContext))(function(mStore) {
     return pure72(function() {
       if (mStore instanceof Just) {
         return fragment(reactChildrenToArray(v.children));
@@ -58415,8 +58479,8 @@ var prefersDarkMode = () => {
 
 // output/React.Hook.ColorModeClass/index.js
 var coerceHook11 = /* @__PURE__ */ coerceHook();
-var bind50 = /* @__PURE__ */ bind4(ixBindRender);
-var discard21 = /* @__PURE__ */ discard2(ixBindRender);
+var bind49 = /* @__PURE__ */ bind4(ixBindRender);
+var discard23 = /* @__PURE__ */ discard2(ixBindRender);
 var useEffect15 = /* @__PURE__ */ useEffect(/* @__PURE__ */ eqMaybe(eqColorMode));
 var pure73 = /* @__PURE__ */ pure(applicativeEffect);
 var pure129 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
@@ -58432,8 +58496,8 @@ var useColorModeClass = function(mode) {
     ;
     return Nothing.value;
   };
-  return coerceHook11(bind50(useState(resolveStatic(mode)))(function(v) {
-    return discard21(useEffect15(mode)(function() {
+  return coerceHook11(bind49(useState(resolveStatic(mode)))(function(v) {
+    return discard23(useEffect15(mode)(function() {
       if (mode instanceof Just && mode.value0 instanceof LightMode) {
         return function __do3() {
           v.value1($$const(new Just(Light.value)))();
@@ -58480,7 +58544,7 @@ var eq40 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var unwrap19 = /* @__PURE__ */ unwrap();
 var fromFoldable14 = /* @__PURE__ */ fromFoldable(foldableList);
 var reactComponent10 = /* @__PURE__ */ reactComponent()()();
-var bind51 = /* @__PURE__ */ bind4(ixBindRender);
+var bind50 = /* @__PURE__ */ bind4(ixBindRender);
 var eqArray2 = /* @__PURE__ */ eqArray(eqString);
 var useStore26 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
@@ -58491,7 +58555,7 @@ var useStore26 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqRec()(/* @__PURE__ *
     return "edges";
   }
 })(eqArray2)));
-var discard23 = /* @__PURE__ */ discard2(ixBindRender);
+var discard24 = /* @__PURE__ */ discard2(ixBindRender);
 var useEffect16 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var pure74 = /* @__PURE__ */ pure(applicativeEffect);
 var for_23 = /* @__PURE__ */ for_(applicativeEffect)(foldableArray);
@@ -58519,9 +58583,9 @@ var selectIds = function(s) {
   };
 };
 var selectionListenerInner = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent10("SelectionListenerInner")(function(v) {
-  return bind51(useStoreApi)(function(store) {
-    return bind51(useStore26(selectIds))(function(selected2) {
-      return discard23(useEffect16(selected2)(function __do3() {
+  return bind50(useStoreApi)(function(store) {
+    return bind50(useStore26(selectIds))(function(selected2) {
+      return discard24(useEffect16(selected2)(function __do3() {
         var s = store.getState();
         var selectedNodes = filter(function(n) {
           return eq40(n.selected)(new Just(true));
@@ -58555,7 +58619,7 @@ var selectionListenerInner = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */
   });
 }));
 var selectionListener = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent10("SelectionListener")(function(v) {
-  return bind51(useStore110(function($47) {
+  return bind50(useStore110(function($47) {
     return !$$null(function(v1) {
       return v1.onSelectionChangeHandlers;
     }($47));
@@ -58598,10 +58662,10 @@ var eqTrackedProp = {
     };
   }
 };
-var notEq17 = /* @__PURE__ */ notEq(eqTrackedProp);
+var notEq11 = /* @__PURE__ */ notEq(eqTrackedProp);
 var changed = function(prev) {
   return function(next) {
-    return notEq17(prev)(next);
+    return notEq11(prev)(next);
   };
 };
 var dispatchable = function(previous) {
@@ -58617,8 +58681,8 @@ var dispatchable = function(previous) {
 
 // output/React.Provider.StoreUpdater/index.js
 var coerceHook12 = /* @__PURE__ */ coerceHook();
-var bind52 = /* @__PURE__ */ bind4(ixBindRender);
-var discard24 = /* @__PURE__ */ discard2(ixBindRender);
+var bind51 = /* @__PURE__ */ bind4(ixBindRender);
+var discard25 = /* @__PURE__ */ discard2(ixBindRender);
 var pure75 = /* @__PURE__ */ pure(applicativeEffect);
 var useEffect17 = /* @__PURE__ */ useEffect(eqTrackedProp);
 var for_24 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
@@ -58628,8 +58692,8 @@ var effectOnJustFrom = function(seed) {
   return function(dispatch2) {
     return function(mValue) {
       return function(mkAction) {
-        return coerceHook12(bind52(useRef(seed))(function(previous) {
-          return discard24(useEffectOnce(pure75(writeRef(previous)(seed))))(function() {
+        return coerceHook12(bind51(useRef(seed))(function(previous) {
+          return discard25(useEffectOnce(pure75(writeRef(previous)(seed))))(function() {
             return useEffect17(mValue)(function __do3() {
               var prev = readRef(previous)();
               writeRef(previous)(mValue)();
@@ -58665,18 +58729,18 @@ var effectOnJust = function(dispatch2) {
   };
 };
 var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponent()()()("StoreUpdater")(function(v) {
-  return bind52(useStoreApi)(function(store) {
-    return discard24(useEffectOnce(function __do3() {
+  return bind51(useStoreApi)(function(store) {
+    return discard25(useEffectOnce(function __do3() {
       store.dispatch(new SetDefaultNodesAndEdges(v.defaultNodes, v.defaultEdges))();
       return store.dispatch(Reset.value);
     }))(function() {
-      return discard24(effectOnJust(store.dispatch)(v.nodes)(SetNodes.create))(function() {
-        return discard24(effectOnJust(store.dispatch)(v.edges)(SetEdges.create))(function() {
-          return discard24(effectOnJustFrom(initPrevValues.minZoom)(store.dispatch)(v.minZoom)(SetMinZoom.create))(function() {
-            return discard24(effectOnJustFrom(initPrevValues.maxZoom)(store.dispatch)(v.maxZoom)(SetMaxZoom.create))(function() {
-              return discard24(effectOnJustFrom(initPrevValues.translateExtent)(store.dispatch)(v.translateExtent)(SetTranslateExtent.create))(function() {
-                return discard24(effectOnJust(store.dispatch)(v.nodeExtent)(SetNodeExtent.create))(function() {
-                  return discard24(effectOnJust(store.dispatch)(v.fitView)(function(v1) {
+      return discard25(effectOnJust(store.dispatch)(v.nodes)(SetNodes.create))(function() {
+        return discard25(effectOnJust(store.dispatch)(v.edges)(SetEdges.create))(function() {
+          return discard25(effectOnJustFrom(initPrevValues.minZoom)(store.dispatch)(v.minZoom)(SetMinZoom.create))(function() {
+            return discard25(effectOnJustFrom(initPrevValues.maxZoom)(store.dispatch)(v.maxZoom)(SetMaxZoom.create))(function() {
+              return discard25(effectOnJustFrom(initPrevValues.translateExtent)(store.dispatch)(v.translateExtent)(SetTranslateExtent.create))(function() {
+                return discard25(effectOnJust(store.dispatch)(v.nodeExtent)(SetNodeExtent.create))(function() {
+                  return discard25(effectOnJust(store.dispatch)(v.fitView)(function(v1) {
                     return new PatchState(function(s) {
                       return {
                         rfId: s.rfId,
@@ -58767,7 +58831,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                       };
                     });
                   }))(function() {
-                    return discard24(effectOnJust(store.dispatch)(v.fitViewOptions)(function(v1) {
+                    return discard25(effectOnJust(store.dispatch)(v.fitViewOptions)(function(v1) {
                       return new PatchState(function(s) {
                         return {
                           rfId: s.rfId,
@@ -58858,7 +58922,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                         };
                       });
                     }))(function() {
-                      return discard24(effectOnJust(store.dispatch)(v.ariaLabelConfig)(function(v1) {
+                      return discard25(effectOnJust(store.dispatch)(v.ariaLabelConfig)(function(v1) {
                         return new PatchState(function(s) {
                           return {
                             rfId: s.rfId,
@@ -58949,7 +59013,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                           };
                         });
                       }))(function() {
-                        return discard24(effectOnJust(store.dispatch)(v.onConnect)(function(v1) {
+                        return discard25(effectOnJust(store.dispatch)(v.onConnect)(function(v1) {
                           return new PatchState(function(s) {
                             return {
                               rfId: s.rfId,
@@ -59040,7 +59104,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                             };
                           });
                         }))(function() {
-                          return discard24(effectOnJust(store.dispatch)(v.onConnectStart)(function(v1) {
+                          return discard25(effectOnJust(store.dispatch)(v.onConnectStart)(function(v1) {
                             return new PatchState(function(s) {
                               return {
                                 rfId: s.rfId,
@@ -59131,7 +59195,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                               };
                             });
                           }))(function() {
-                            return discard24(effectOnJust(store.dispatch)(v.onConnectEnd)(function(v1) {
+                            return discard25(effectOnJust(store.dispatch)(v.onConnectEnd)(function(v1) {
                               return new PatchState(function(s) {
                                 return {
                                   rfId: s.rfId,
@@ -59222,7 +59286,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                 };
                               });
                             }))(function() {
-                              return discard24(effectOnJust(store.dispatch)(v.onClickConnectStart)(function(v1) {
+                              return discard25(effectOnJust(store.dispatch)(v.onClickConnectStart)(function(v1) {
                                 return new PatchState(function(s) {
                                   return {
                                     rfId: s.rfId,
@@ -59313,7 +59377,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                   };
                                 });
                               }))(function() {
-                                return discard24(effectOnJust(store.dispatch)(v.onClickConnectEnd)(function(v1) {
+                                return discard25(effectOnJust(store.dispatch)(v.onClickConnectEnd)(function(v1) {
                                   return new PatchState(function(s) {
                                     return {
                                       rfId: s.rfId,
@@ -59404,7 +59468,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                     };
                                   });
                                 }))(function() {
-                                  return discard24(effectOnJust(store.dispatch)(v.nodesDraggable)(function(v1) {
+                                  return discard25(effectOnJust(store.dispatch)(v.nodesDraggable)(function(v1) {
                                     return new PatchState(function(s) {
                                       return {
                                         rfId: s.rfId,
@@ -59495,7 +59559,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                       };
                                     });
                                   }))(function() {
-                                    return discard24(effectOnJust(store.dispatch)(v.autoPanOnNodeFocus)(function(v1) {
+                                    return discard25(effectOnJust(store.dispatch)(v.autoPanOnNodeFocus)(function(v1) {
                                       return new PatchState(function(s) {
                                         return {
                                           rfId: s.rfId,
@@ -59586,7 +59650,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                         };
                                       });
                                     }))(function() {
-                                      return discard24(effectOnJust(store.dispatch)(v.nodesConnectable)(function(v1) {
+                                      return discard25(effectOnJust(store.dispatch)(v.nodesConnectable)(function(v1) {
                                         return new PatchState(function(s) {
                                           return {
                                             rfId: s.rfId,
@@ -59677,7 +59741,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                           };
                                         });
                                       }))(function() {
-                                        return discard24(effectOnJust(store.dispatch)(v.nodesFocusable)(function(v1) {
+                                        return discard25(effectOnJust(store.dispatch)(v.nodesFocusable)(function(v1) {
                                           return new PatchState(function(s) {
                                             return {
                                               rfId: s.rfId,
@@ -59768,7 +59832,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                             };
                                           });
                                         }))(function() {
-                                          return discard24(effectOnJust(store.dispatch)(v.edgesFocusable)(function(v1) {
+                                          return discard25(effectOnJust(store.dispatch)(v.edgesFocusable)(function(v1) {
                                             return new PatchState(function(s) {
                                               return {
                                                 rfId: s.rfId,
@@ -59859,7 +59923,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                               };
                                             });
                                           }))(function() {
-                                            return discard24(effectOnJust(store.dispatch)(v.edgesReconnectable)(function(v1) {
+                                            return discard25(effectOnJust(store.dispatch)(v.edgesReconnectable)(function(v1) {
                                               return new PatchState(function(s) {
                                                 return {
                                                   rfId: s.rfId,
@@ -59950,7 +60014,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                 };
                                               });
                                             }))(function() {
-                                              return discard24(effectOnJust(store.dispatch)(v.elevateNodesOnSelect)(function(v1) {
+                                              return discard25(effectOnJust(store.dispatch)(v.elevateNodesOnSelect)(function(v1) {
                                                 return new PatchState(function(s) {
                                                   return {
                                                     rfId: s.rfId,
@@ -60041,7 +60105,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                   };
                                                 });
                                               }))(function() {
-                                                return discard24(effectOnJust(store.dispatch)(v.elevateEdgesOnSelect)(function(v1) {
+                                                return discard25(effectOnJust(store.dispatch)(v.elevateEdgesOnSelect)(function(v1) {
                                                   return new PatchState(function(s) {
                                                     return {
                                                       rfId: s.rfId,
@@ -60132,7 +60196,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                     };
                                                   });
                                                 }))(function() {
-                                                  return discard24(effectOnJust(store.dispatch)(v.onNodesChange)(function(v1) {
+                                                  return discard25(effectOnJust(store.dispatch)(v.onNodesChange)(function(v1) {
                                                     return new PatchState(function(s) {
                                                       return {
                                                         rfId: s.rfId,
@@ -60223,7 +60287,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                       };
                                                     });
                                                   }))(function() {
-                                                    return discard24(effectOnJust(store.dispatch)(v.onEdgesChange)(function(v1) {
+                                                    return discard25(effectOnJust(store.dispatch)(v.onEdgesChange)(function(v1) {
                                                       return new PatchState(function(s) {
                                                         return {
                                                           rfId: s.rfId,
@@ -60314,7 +60378,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                         };
                                                       });
                                                     }))(function() {
-                                                      return discard24(effectOnJustFrom(initPrevValues.elementsSelectable)(store.dispatch)(v.elementsSelectable)(function(v1) {
+                                                      return discard25(effectOnJustFrom(initPrevValues.elementsSelectable)(store.dispatch)(v.elementsSelectable)(function(v1) {
                                                         return new PatchState(function(s) {
                                                           return {
                                                             rfId: s.rfId,
@@ -60405,7 +60469,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                           };
                                                         });
                                                       }))(function() {
-                                                        return discard24(effectOnJust(store.dispatch)(v.connectionMode)(function(v1) {
+                                                        return discard25(effectOnJust(store.dispatch)(v.connectionMode)(function(v1) {
                                                           return new PatchState(function(s) {
                                                             return {
                                                               rfId: s.rfId,
@@ -60496,7 +60560,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                             };
                                                           });
                                                         }))(function() {
-                                                          return discard24(effectOnJust(store.dispatch)(v.snapGrid)(function(v1) {
+                                                          return discard25(effectOnJust(store.dispatch)(v.snapGrid)(function(v1) {
                                                             return new PatchState(function(s) {
                                                               return {
                                                                 rfId: s.rfId,
@@ -60587,7 +60651,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                               };
                                                             });
                                                           }))(function() {
-                                                            return discard24(effectOnJust(store.dispatch)(v.snapToGrid)(function(v1) {
+                                                            return discard25(effectOnJust(store.dispatch)(v.snapToGrid)(function(v1) {
                                                               return new PatchState(function(s) {
                                                                 return {
                                                                   rfId: s.rfId,
@@ -60678,7 +60742,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                 };
                                                               });
                                                             }))(function() {
-                                                              return discard24(effectOnJust(store.dispatch)(v.connectOnClick)(function(v1) {
+                                                              return discard25(effectOnJust(store.dispatch)(v.connectOnClick)(function(v1) {
                                                                 return new PatchState(function(s) {
                                                                   return {
                                                                     rfId: s.rfId,
@@ -60769,7 +60833,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                   };
                                                                 });
                                                               }))(function() {
-                                                                return discard24(effectOnJust(store.dispatch)(v.defaultEdgeOptions)(function(v1) {
+                                                                return discard25(effectOnJust(store.dispatch)(v.defaultEdgeOptions)(function(v1) {
                                                                   return new PatchState(function(s) {
                                                                     return {
                                                                       rfId: s.rfId,
@@ -60860,7 +60924,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                     };
                                                                   });
                                                                 }))(function() {
-                                                                  return discard24(effectOnJust(store.dispatch)(v.onNodesDelete)(function(v1) {
+                                                                  return discard25(effectOnJust(store.dispatch)(v.onNodesDelete)(function(v1) {
                                                                     return new PatchState(function(s) {
                                                                       return {
                                                                         rfId: s.rfId,
@@ -60951,7 +61015,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                       };
                                                                     });
                                                                   }))(function() {
-                                                                    return discard24(effectOnJust(store.dispatch)(v.onEdgesDelete)(function(v1) {
+                                                                    return discard25(effectOnJust(store.dispatch)(v.onEdgesDelete)(function(v1) {
                                                                       return new PatchState(function(s) {
                                                                         return {
                                                                           rfId: s.rfId,
@@ -61042,7 +61106,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                         };
                                                                       });
                                                                     }))(function() {
-                                                                      return discard24(effectOnJust(store.dispatch)(v.onDelete)(function(v1) {
+                                                                      return discard25(effectOnJust(store.dispatch)(v.onDelete)(function(v1) {
                                                                         return new PatchState(function(s) {
                                                                           return {
                                                                             rfId: s.rfId,
@@ -61133,7 +61197,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                           };
                                                                         });
                                                                       }))(function() {
-                                                                        return discard24(effectOnJust(store.dispatch)(v.onNodeDrag)(function(v1) {
+                                                                        return discard25(effectOnJust(store.dispatch)(v.onNodeDrag)(function(v1) {
                                                                           return new PatchState(function(s) {
                                                                             return {
                                                                               rfId: s.rfId,
@@ -61224,7 +61288,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                             };
                                                                           });
                                                                         }))(function() {
-                                                                          return discard24(effectOnJust(store.dispatch)(v.onNodeDragStart)(function(v1) {
+                                                                          return discard25(effectOnJust(store.dispatch)(v.onNodeDragStart)(function(v1) {
                                                                             return new PatchState(function(s) {
                                                                               return {
                                                                                 rfId: s.rfId,
@@ -61315,7 +61379,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                               };
                                                                             });
                                                                           }))(function() {
-                                                                            return discard24(effectOnJust(store.dispatch)(v.onNodeDragStop)(function(v1) {
+                                                                            return discard25(effectOnJust(store.dispatch)(v.onNodeDragStop)(function(v1) {
                                                                               return new PatchState(function(s) {
                                                                                 return {
                                                                                   rfId: s.rfId,
@@ -61406,7 +61470,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                 };
                                                                               });
                                                                             }))(function() {
-                                                                              return discard24(effectOnJust(store.dispatch)(v.onSelectionDrag)(function(v1) {
+                                                                              return discard25(effectOnJust(store.dispatch)(v.onSelectionDrag)(function(v1) {
                                                                                 return new PatchState(function(s) {
                                                                                   return {
                                                                                     rfId: s.rfId,
@@ -61497,7 +61561,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                   };
                                                                                 });
                                                                               }))(function() {
-                                                                                return discard24(effectOnJust(store.dispatch)(v.onSelectionDragStart)(function(v1) {
+                                                                                return discard25(effectOnJust(store.dispatch)(v.onSelectionDragStart)(function(v1) {
                                                                                   return new PatchState(function(s) {
                                                                                     return {
                                                                                       rfId: s.rfId,
@@ -61588,7 +61652,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                     };
                                                                                   });
                                                                                 }))(function() {
-                                                                                  return discard24(effectOnJust(store.dispatch)(v.onSelectionDragStop)(function(v1) {
+                                                                                  return discard25(effectOnJust(store.dispatch)(v.onSelectionDragStop)(function(v1) {
                                                                                     return new PatchState(function(s) {
                                                                                       return {
                                                                                         rfId: s.rfId,
@@ -61679,7 +61743,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                       };
                                                                                     });
                                                                                   }))(function() {
-                                                                                    return discard24(effectOnJust(store.dispatch)(v.onMoveStart)(function(v1) {
+                                                                                    return discard25(effectOnJust(store.dispatch)(v.onMoveStart)(function(v1) {
                                                                                       return new PatchState(function(s) {
                                                                                         return {
                                                                                           rfId: s.rfId,
@@ -61770,7 +61834,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                         };
                                                                                       });
                                                                                     }))(function() {
-                                                                                      return discard24(effectOnJust(store.dispatch)(v.onMove)(function(v1) {
+                                                                                      return discard25(effectOnJust(store.dispatch)(v.onMove)(function(v1) {
                                                                                         return new PatchState(function(s) {
                                                                                           return {
                                                                                             rfId: s.rfId,
@@ -61861,7 +61925,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                           };
                                                                                         });
                                                                                       }))(function() {
-                                                                                        return discard24(effectOnJust(store.dispatch)(v.onMoveEnd)(function(v1) {
+                                                                                        return discard25(effectOnJust(store.dispatch)(v.onMoveEnd)(function(v1) {
                                                                                           return new PatchState(function(s) {
                                                                                             return {
                                                                                               rfId: s.rfId,
@@ -61952,7 +62016,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                             };
                                                                                           });
                                                                                         }))(function() {
-                                                                                          return discard24(effectOnJustFrom(initPrevValues.noPanClassName)(store.dispatch)(v.noPanClassName)(function(v1) {
+                                                                                          return discard25(effectOnJustFrom(initPrevValues.noPanClassName)(store.dispatch)(v.noPanClassName)(function(v1) {
                                                                                             return new PatchState(function(s) {
                                                                                               return {
                                                                                                 rfId: s.rfId,
@@ -62043,7 +62107,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                               };
                                                                                             });
                                                                                           }))(function() {
-                                                                                            return discard24(effectOnJustFrom(initPrevValues.nodeOrigin)(store.dispatch)(v.nodeOrigin)(function(v1) {
+                                                                                            return discard25(effectOnJustFrom(initPrevValues.nodeOrigin)(store.dispatch)(v.nodeOrigin)(function(v1) {
                                                                                               return new PatchState(function(s) {
                                                                                                 return {
                                                                                                   rfId: s.rfId,
@@ -62134,7 +62198,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                 };
                                                                                               });
                                                                                             }))(function() {
-                                                                                              return discard24(effectOnJust(store.dispatch)(v.autoPanOnConnect)(function(v1) {
+                                                                                              return discard25(effectOnJust(store.dispatch)(v.autoPanOnConnect)(function(v1) {
                                                                                                 return new PatchState(function(s) {
                                                                                                   return {
                                                                                                     rfId: s.rfId,
@@ -62225,7 +62289,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                   };
                                                                                                 });
                                                                                               }))(function() {
-                                                                                                return discard24(effectOnJust(store.dispatch)(v.autoPanOnNodeDrag)(function(v1) {
+                                                                                                return discard25(effectOnJust(store.dispatch)(v.autoPanOnNodeDrag)(function(v1) {
                                                                                                   return new PatchState(function(s) {
                                                                                                     return {
                                                                                                       rfId: s.rfId,
@@ -62316,7 +62380,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                     };
                                                                                                   });
                                                                                                 }))(function() {
-                                                                                                  return discard24(effectOnJust(store.dispatch)(v.onError)(function(v1) {
+                                                                                                  return discard25(effectOnJust(store.dispatch)(v.onError)(function(v1) {
                                                                                                     return new PatchState(function(s) {
                                                                                                       return {
                                                                                                         rfId: s.rfId,
@@ -62407,7 +62471,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                       };
                                                                                                     });
                                                                                                   }))(function() {
-                                                                                                    return discard24(effectOnJust(store.dispatch)(v.connectionRadius)(function(v1) {
+                                                                                                    return discard25(effectOnJust(store.dispatch)(v.connectionRadius)(function(v1) {
                                                                                                       return new PatchState(function(s) {
                                                                                                         return {
                                                                                                           rfId: s.rfId,
@@ -62498,7 +62562,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                         };
                                                                                                       });
                                                                                                     }))(function() {
-                                                                                                      return discard24(effectOnJust(store.dispatch)(v.isValidConnection)(function(v1) {
+                                                                                                      return discard25(effectOnJust(store.dispatch)(v.isValidConnection)(function(v1) {
                                                                                                         return new PatchState(function(s) {
                                                                                                           return {
                                                                                                             rfId: s.rfId,
@@ -62589,7 +62653,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                           };
                                                                                                         });
                                                                                                       }))(function() {
-                                                                                                        return discard24(effectOnJust(store.dispatch)(v.selectNodesOnDrag)(function(v1) {
+                                                                                                        return discard25(effectOnJust(store.dispatch)(v.selectNodesOnDrag)(function(v1) {
                                                                                                           return new PatchState(function(s) {
                                                                                                             return {
                                                                                                               rfId: s.rfId,
@@ -62680,7 +62744,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                             };
                                                                                                           });
                                                                                                         }))(function() {
-                                                                                                          return discard24(effectOnJust(store.dispatch)(v.nodeDragThreshold)(function(v1) {
+                                                                                                          return discard25(effectOnJust(store.dispatch)(v.nodeDragThreshold)(function(v1) {
                                                                                                             return new PatchState(function(s) {
                                                                                                               return {
                                                                                                                 rfId: s.rfId,
@@ -62771,7 +62835,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                               };
                                                                                                             });
                                                                                                           }))(function() {
-                                                                                                            return discard24(effectOnJust(store.dispatch)(v.connectionDragThreshold)(function(v1) {
+                                                                                                            return discard25(effectOnJust(store.dispatch)(v.connectionDragThreshold)(function(v1) {
                                                                                                               return new PatchState(function(s) {
                                                                                                                 return {
                                                                                                                   rfId: s.rfId,
@@ -62862,7 +62926,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                                 };
                                                                                                               });
                                                                                                             }))(function() {
-                                                                                                              return discard24(effectOnJust(store.dispatch)(v.onBeforeDelete)(function(v1) {
+                                                                                                              return discard25(effectOnJust(store.dispatch)(v.onBeforeDelete)(function(v1) {
                                                                                                                 return new PatchState(function(s) {
                                                                                                                   return {
                                                                                                                     rfId: s.rfId,
@@ -62953,7 +63017,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                                   };
                                                                                                                 });
                                                                                                               }))(function() {
-                                                                                                                return discard24(effectOnJust(store.dispatch)(v.debug)(function(v1) {
+                                                                                                                return discard25(effectOnJust(store.dispatch)(v.debug)(function(v1) {
                                                                                                                   return new PatchState(function(s) {
                                                                                                                     return {
                                                                                                                       rfId: s.rfId,
@@ -63044,7 +63108,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                                     };
                                                                                                                   });
                                                                                                                 }))(function() {
-                                                                                                                  return discard24(effectOnJust(store.dispatch)(v.autoPanSpeed)(function(v1) {
+                                                                                                                  return discard25(effectOnJust(store.dispatch)(v.autoPanSpeed)(function(v1) {
                                                                                                                     return new PatchState(function(s) {
                                                                                                                       return {
                                                                                                                         rfId: s.rfId,
@@ -63135,7 +63199,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                                       };
                                                                                                                     });
                                                                                                                   }))(function() {
-                                                                                                                    return discard24(effectOnJust(store.dispatch)(v.zIndexMode)(function(v1) {
+                                                                                                                    return discard25(effectOnJust(store.dispatch)(v.zIndexMode)(function(v1) {
                                                                                                                       return new PatchState(function(s) {
                                                                                                                         return {
                                                                                                                           rfId: s.rfId,
@@ -63226,7 +63290,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
                                                                                                                         };
                                                                                                                       });
                                                                                                                     }))(function() {
-                                                                                                                      return discard24(effectOnJustFrom(initPrevValues.rfId)(store.dispatch)(new Just(v.rfId))(function(v1) {
+                                                                                                                      return discard25(effectOnJustFrom(initPrevValues.rfId)(store.dispatch)(new Just(v.rfId))(function(v1) {
                                                                                                                         return new PatchState(function(s) {
                                                                                                                           return {
                                                                                                                             width: s.width,
@@ -63380,7 +63444,7 @@ var storeUpdater = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComp
 }));
 
 // output/React.Container.ReactFlow/index.js
-var bind53 = /* @__PURE__ */ bind4(ixBindRender);
+var bind52 = /* @__PURE__ */ bind4(ixBindRender);
 var alt7 = /* @__PURE__ */ alt(altMaybe);
 var pure76 = /* @__PURE__ */ pure(applicativeEffect);
 var append22 = /* @__PURE__ */ append(semigroupArray);
@@ -63436,7 +63500,7 @@ var buildOuterClass = function(cmc) {
   };
 };
 var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren()()("ReactFlow")(function(v) {
-  return bind53(useColorModeClass(v.colorMode))(function(colorModeCls) {
+  return bind52(useColorModeClass(v.colorMode))(function(colorModeCls) {
     var zoomOnScroll = fromMaybe(true)(v.zoomOnScroll);
     var zoomOnPinch = fromMaybe(true)(v.zoomOnPinch);
     var zoomOnDoubleClick = fromMaybe(true)(v.zoomOnDoubleClick);
@@ -63634,7 +63698,7 @@ var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
 // output/Boundary.Flow/index.js
 var map61 = /* @__PURE__ */ map(functorArray);
 var map117 = /* @__PURE__ */ map(functorMaybe);
-var bind54 = /* @__PURE__ */ bind(bindMaybe);
+var bind53 = /* @__PURE__ */ bind(bindMaybe);
 var restOf3 = /* @__PURE__ */ restOf()(/* @__PURE__ */ rowLabelsCons({
   reflectSymbol: function() {
     return "ariaLabelConfig";
@@ -64289,7 +64353,7 @@ var convertEdgeOptions = function(o) {
     zIndex: map117(round2)(fromUndefinable(o.zIndex)),
     ariaLabel: edgeAriaLabelIn(o.ariaLabel),
     interactionWidth: fromUndefinable(o.interactionWidth),
-    reconnectable: bind54(fromUndefinable(o.reconnectable))(reconnectableIn)
+    reconnectable: bind53(fromUndefinable(o.reconnectable))(reconnectableIn)
   };
 };
 var defaultEdgeOptionsIn = function($429) {
@@ -64454,12 +64518,12 @@ var reactFlow2 = /* @__PURE__ */ forwardNullableRef("ReactFlow")(function(v) {
 var mkTriple = (first, second, third) => [first, second, third];
 
 // output/React.Hook.HandleConnections/index.js
-var eqMaybe10 = /* @__PURE__ */ eqMaybe(eqString);
+var eqMaybe9 = /* @__PURE__ */ eqMaybe(eqString);
 var eqRec9 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "targetHandle";
   }
-})(eqMaybe10))()({
+})(eqMaybe9))()({
   reflectSymbol: function() {
     return "target";
   }
@@ -64467,7 +64531,7 @@ var eqRec9 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ e
   reflectSymbol: function() {
     return "sourceHandle";
   }
-})(eqMaybe10))()({
+})(eqMaybe9))()({
   reflectSymbol: function() {
     return "source";
   }
@@ -64478,11 +64542,11 @@ var eqRec9 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ e
 })(eqString));
 var eq41 = /* @__PURE__ */ eq(eqRec9);
 var coerceHook13 = /* @__PURE__ */ coerceHook();
-var bind55 = /* @__PURE__ */ bind4(ixBindRender);
+var bind54 = /* @__PURE__ */ bind4(ixBindRender);
 var alt8 = /* @__PURE__ */ alt(altMaybe);
 var useStore27 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqArray(eqRec9));
 var lookup26 = /* @__PURE__ */ lookup2(ordString);
-var discard25 = /* @__PURE__ */ discard2(ixBindRender);
+var discard26 = /* @__PURE__ */ discard2(ixBindRender);
 var useEffect18 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var when24 = /* @__PURE__ */ when(applicativeEffect);
 var for_25 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
@@ -64531,10 +64595,10 @@ var handleLookupKey = function(nodeId) {
   };
 };
 var useHandleConnections = function(params) {
-  return coerceHook13(bind55(useNodeId)(function(mContextId) {
+  return coerceHook13(bind54(useNodeId)(function(mContextId) {
     var currentNodeId = fromMaybe("")(alt8(params.nodeId)(mContextId));
     var key2 = handleLookupKey(currentNodeId)(params.handleType)(params.id);
-    return bind55(useStore27(function(s) {
+    return bind54(useStore27(function(s) {
       var v = lookup26(key2)(s.connectionLookup);
       if (v instanceof Nothing) {
         return [];
@@ -64546,8 +64610,8 @@ var useHandleConnections = function(params) {
       ;
       throw new Error("Failed pattern match at React.Hook.HandleConnections (line 95, column 5 - line 97, column 51): " + [v.constructor.name]);
     }))(function(connections) {
-      return bind55(useRef([]))(function(prevRef) {
-        return discard25(useEffect18(connections)(function __do3() {
+      return bind54(useRef([]))(function(prevRef) {
+        return discard26(useEffect18(connections)(function __do3() {
           var prev = readRef(prevRef)();
           var droppedConns = filter(notIn(connections))(prev);
           var addedConns = filter(notIn(prev))(connections);
@@ -64569,11 +64633,11 @@ var useHandleConnections = function(params) {
 
 // output/React.Hook.Middleware/index.js
 var coerceHook14 = /* @__PURE__ */ coerceHook();
-var bind56 = /* @__PURE__ */ bind4(ixBindRender);
+var bind55 = /* @__PURE__ */ bind4(ixBindRender);
 var useEffect19 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var useOnEdgesChangeMiddleware = function(fn) {
-  return coerceHook14(bind56(useStoreApi)(function(store) {
-    return bind56(useRef(Nothing.value))(function(keyRef) {
+  return coerceHook14(bind55(useStoreApi)(function(store) {
+    return bind55(useRef(Nothing.value))(function(keyRef) {
       return useEffect19(fn)(function __do3() {
         var key2 = store.freshMiddlewareKey();
         writeRef(keyRef)(new Just(key2))();
@@ -64598,8 +64662,8 @@ var useOnEdgesChangeMiddleware = function(fn) {
   }));
 };
 var useOnNodesChangeMiddleware = function(fn) {
-  return coerceHook14(bind56(useStoreApi)(function(store) {
-    return bind56(useRef(Nothing.value))(function(keyRef) {
+  return coerceHook14(bind55(useStoreApi)(function(store) {
+    return bind55(useRef(Nothing.value))(function(keyRef) {
       return useEffect19(fn)(function __do3() {
         var key2 = store.freshMiddlewareKey();
         writeRef(keyRef)(new Just(key2))();
@@ -64625,12 +64689,12 @@ var useOnNodesChangeMiddleware = function(fn) {
 };
 
 // output/React.Hook.NodeConnections/index.js
-var eqMaybe11 = /* @__PURE__ */ eqMaybe(eqString);
+var eqMaybe10 = /* @__PURE__ */ eqMaybe(eqString);
 var eqRec10 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "targetHandle";
   }
-})(eqMaybe11))()({
+})(eqMaybe10))()({
   reflectSymbol: function() {
     return "target";
   }
@@ -64638,7 +64702,7 @@ var eqRec10 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ 
   reflectSymbol: function() {
     return "sourceHandle";
   }
-})(eqMaybe11))()({
+})(eqMaybe10))()({
   reflectSymbol: function() {
     return "source";
   }
@@ -64649,11 +64713,11 @@ var eqRec10 = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ 
 })(eqString));
 var eq45 = /* @__PURE__ */ eq(eqRec10);
 var coerceHook15 = /* @__PURE__ */ coerceHook();
-var bind57 = /* @__PURE__ */ bind4(ixBindRender);
+var bind56 = /* @__PURE__ */ bind4(ixBindRender);
 var alt9 = /* @__PURE__ */ alt(altMaybe);
 var useStore28 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqArray(eqRec10));
 var lookup27 = /* @__PURE__ */ lookup2(ordString);
-var discard26 = /* @__PURE__ */ discard2(ixBindRender);
+var discard27 = /* @__PURE__ */ discard2(ixBindRender);
 var useEffect20 = /* @__PURE__ */ useEffect(eqUnsafeReference);
 var when25 = /* @__PURE__ */ when(applicativeEffect);
 var for_26 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
@@ -64701,7 +64765,7 @@ var nodeLookupKey = function(nodeId) {
   };
 };
 var useNodeConnections = function(params) {
-  return coerceHook15(bind57(useNodeId)(function(mContextId) {
+  return coerceHook15(bind56(useNodeId)(function(mContextId) {
     var currentNodeId = function() {
       var v = alt9(params.nodeId)(mContextId);
       if (v instanceof Just) {
@@ -64715,7 +64779,7 @@ var useNodeConnections = function(params) {
       throw new Error("Failed pattern match at React.Hook.NodeConnections (line 85, column 21 - line 87, column 49): " + [v.constructor.name]);
     }();
     var key2 = nodeLookupKey(currentNodeId)(params.handleType)(params.handleId);
-    return bind57(useStore28(function(s) {
+    return bind56(useStore28(function(s) {
       var v = lookup27(key2)(s.connectionLookup);
       if (v instanceof Nothing) {
         return [];
@@ -64727,8 +64791,8 @@ var useNodeConnections = function(params) {
       ;
       throw new Error("Failed pattern match at React.Hook.NodeConnections (line 91, column 5 - line 93, column 51): " + [v.constructor.name]);
     }))(function(connections) {
-      return bind57(useRef([]))(function(prevRef) {
-        return discard26(useEffect20(connections)(function __do3() {
+      return bind56(useRef([]))(function(prevRef) {
+        return discard27(useEffect20(connections)(function __do3() {
           var prev = readRef(prevRef)();
           var droppedConns = filter(notIn2(connections))(prev);
           var addedConns = filter(notIn2(prev))(connections);
@@ -64750,11 +64814,11 @@ var useNodeConnections = function(params) {
 
 // output/React.Hook.NodesEdgesState/index.js
 var coerceHook16 = /* @__PURE__ */ coerceHook();
-var bind58 = /* @__PURE__ */ bind4(ixBindRender);
+var bind57 = /* @__PURE__ */ bind4(ixBindRender);
 var pure79 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var useEdgesState = function(initialEdges2) {
-  return coerceHook16(bind58(useState([]))(function() {
-    return bind58(useState(initialEdges2))(function(v) {
+  return coerceHook16(bind57(useState([]))(function() {
+    return bind57(useState(initialEdges2))(function(v) {
       return pure79({
         edges: v.value0,
         setEdges: v.value1,
@@ -64766,8 +64830,8 @@ var useEdgesState = function(initialEdges2) {
   }));
 };
 var useNodesState = function(initialNodes2) {
-  return coerceHook16(bind58(useState(initialNodes2))(function(v) {
-    return bind58(useState([]))(function() {
+  return coerceHook16(bind57(useState(initialNodes2))(function(v) {
+    return bind57(useState([]))(function() {
       return pure79({
         nodes: v.value0,
         setNodes: v.value1,
@@ -64793,19 +64857,19 @@ var xIsSymbol2 = {
     return "x";
   }
 };
-var eqMaybe13 = /* @__PURE__ */ eqMaybe(eqBoolean);
-var eq46 = /* @__PURE__ */ eq(eqMaybe13);
+var eqMaybe11 = /* @__PURE__ */ eqMaybe(eqBoolean);
+var eq46 = /* @__PURE__ */ eq(eqMaybe11);
 var foldl10 = /* @__PURE__ */ foldl(foldableList);
 var useStore29 = /* @__PURE__ */ useStore(eqBoolean);
 var nub5 = /* @__PURE__ */ nub(ordNodeId);
 var lookup28 = /* @__PURE__ */ lookup2(ordNodeId);
 var append23 = /* @__PURE__ */ append(semigroupArray);
-var eqMaybe14 = /* @__PURE__ */ eqMaybe(eqInt);
+var eqMaybe13 = /* @__PURE__ */ eqMaybe(eqInt);
 var eqRowCons1 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons8({
   reflectSymbol: function() {
     return "zIndex";
   }
-})(eqMaybe14))();
+})(eqMaybe13))();
 var widthIsSymbol2 = {
   reflectSymbol: function() {
     return "width";
@@ -64850,7 +64914,7 @@ var eqRowCons32 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE
   reflectSymbol: function() {
     return "sourcePosition";
   }
-})(eqMaybe32))()(selectedIsSymbol)(eqMaybe13))()(selectableIsSymbol)(eqMaybe13))()(positionIsSymbol2)(eqRec12))()({
+})(eqMaybe32))()(selectedIsSymbol)(eqMaybe11))()(selectableIsSymbol)(eqMaybe11))()(positionIsSymbol2)(eqRec12))()({
   reflectSymbol: function() {
     return "parentId";
   }
@@ -64956,7 +65020,7 @@ var eqRowCons52 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE
   reflectSymbol: function() {
     return "rootParentIndex";
   }
-})(eqMaybe14))()({
+})(eqMaybe13))()({
   reflectSymbol: function() {
     return "positionAbsolute";
   }
@@ -64968,7 +65032,7 @@ var eqRowCons52 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE
   reflectSymbol: function() {
     return "bounds";
   }
-})(/* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqRec11(/* @__PURE__ */ eqRowCons42(heightIsSymbol2)(eqMaybe22)))))))()(initialWidthIsSymbol)(eqMaybe22))()(initialHeightIsSymbol)(eqMaybe22))()(idIsSymbol2)(eqNodeId))()(hiddenIsSymbol)(eqMaybe13))()(heightIsSymbol2)(eqMaybe22))()(handlesIsSymbol)(eqMaybe62))()(extentIsSymbol)(eqMaybe72))()(expandParentIsSymbol)(eqMaybe13))()(draggingIsSymbol)(eqMaybe13))()(draggableIsSymbol)(eqMaybe13))()(dragHandleIsSymbol)(eqMaybe52))()(deletableIsSymbol)(eqMaybe13))()(dataIsSymbol);
+})(/* @__PURE__ */ eqMaybe(/* @__PURE__ */ eqRec11(/* @__PURE__ */ eqRowCons42(heightIsSymbol2)(eqMaybe22)))))))()(initialWidthIsSymbol)(eqMaybe22))()(initialHeightIsSymbol)(eqMaybe22))()(idIsSymbol2)(eqNodeId))()(hiddenIsSymbol)(eqMaybe11))()(heightIsSymbol2)(eqMaybe22))()(handlesIsSymbol)(eqMaybe62))()(extentIsSymbol)(eqMaybe72))()(expandParentIsSymbol)(eqMaybe11))()(draggingIsSymbol)(eqMaybe11))()(draggableIsSymbol)(eqMaybe11))()(dragHandleIsSymbol)(eqMaybe52))()(deletableIsSymbol)(eqMaybe11))()(dataIsSymbol);
 var connectableIsSymbol = {
   reflectSymbol: function() {
     return "connectable";
@@ -64984,7 +65048,7 @@ var ariaLabelIsSymbol = {
     return "ariaLabel";
   }
 };
-var eqRowCons62 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons32(initialWidthIsSymbol)(eqMaybe22))()(initialHeightIsSymbol)(eqMaybe22))()(idIsSymbol2)(eqNodeId))()(hiddenIsSymbol)(eqMaybe13))()(heightIsSymbol2)(eqMaybe22))()(handlesIsSymbol)(eqMaybe62))()(extentIsSymbol)(eqMaybe72))()(expandParentIsSymbol)(eqMaybe13))()(draggingIsSymbol)(eqMaybe13))()(draggableIsSymbol)(eqMaybe13))()(dragHandleIsSymbol)(eqMaybe52))()(deletableIsSymbol)(eqMaybe13))()(dataIsSymbol);
+var eqRowCons62 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons32(initialWidthIsSymbol)(eqMaybe22))()(initialHeightIsSymbol)(eqMaybe22))()(idIsSymbol2)(eqNodeId))()(hiddenIsSymbol)(eqMaybe11))()(heightIsSymbol2)(eqMaybe22))()(handlesIsSymbol)(eqMaybe62))()(extentIsSymbol)(eqMaybe72))()(expandParentIsSymbol)(eqMaybe11))()(draggingIsSymbol)(eqMaybe11))()(draggableIsSymbol)(eqMaybe11))()(dragHandleIsSymbol)(eqMaybe52))()(deletableIsSymbol)(eqMaybe11))()(dataIsSymbol);
 var eqMaybe82 = /* @__PURE__ */ eqMaybe(eqEdgeMarkerType);
 var eqRowCons72 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons1({
   reflectSymbol: function() {
@@ -64994,7 +65058,7 @@ var eqRowCons72 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE
   reflectSymbol: function() {
     return "sourceHandle";
   }
-})(eqMaybe52))()(sourceIsSymbol)(eqNodeId))()(selectedIsSymbol)(eqMaybe13))()(selectableIsSymbol)(eqMaybe13))()({
+})(eqMaybe52))()(sourceIsSymbol)(eqNodeId))()(selectedIsSymbol)(eqMaybe11))()(selectableIsSymbol)(eqMaybe11))()({
   reflectSymbol: function() {
     return "markerStart";
   }
@@ -65010,11 +65074,11 @@ var eqRowCons72 = /* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(/* @__PURE
   reflectSymbol: function() {
     return "interactionWidth";
   }
-})(eqMaybe22))()(idIsSymbol2)(eqString))()(hiddenIsSymbol)(eqMaybe13))()({
+})(eqMaybe22))()(idIsSymbol2)(eqString))()(hiddenIsSymbol)(eqMaybe11))()({
   reflectSymbol: function() {
     return "edgeType";
   }
-})(eqMaybe52))()(deletableIsSymbol)(eqMaybe13))()(dataIsSymbol);
+})(eqMaybe52))()(deletableIsSymbol)(eqMaybe11))()(dataIsSymbol);
 var eqMaybe92 = /* @__PURE__ */ eqMaybe(eqEdgeAriaLabel);
 var animatedIsSymbol = {
   reflectSymbol: function() {
@@ -65076,7 +65140,7 @@ var useNodesInitialized = function(opts) {
   return useStore29(selectInitialized);
 };
 var useNodesData = function(dictEq) {
-  var useStore111 = useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons52(dictEq))()(connectableIsSymbol)(eqMaybe13))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))));
+  var useStore111 = useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons52(dictEq))()(connectableIsSymbol)(eqMaybe11))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))));
   return function(ids) {
     var uniqueIds = nub5(ids);
     var selectNodesData = function(s) {
@@ -65102,10 +65166,10 @@ var useNodes = function(dictEq) {
   var selectNodes2 = function(s) {
     return s.nodes;
   };
-  return useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons62(dictEq))()(connectableIsSymbol)(eqMaybe13))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))))(selectNodes2);
+  return useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons62(dictEq))()(connectableIsSymbol)(eqMaybe11))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))))(selectNodes2);
 };
 var useInternalNode = function(dictEq) {
-  var useStore111 = useStore(eqMaybe(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons52(dictEq))()(connectableIsSymbol)(eqMaybe13))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))));
+  var useStore111 = useStore(eqMaybe(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons52(dictEq))()(connectableIsSymbol)(eqMaybe11))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe52))));
   return function(nodeId) {
     var selectOne = function(s) {
       return lookup28(nodeId)(s.nodeLookup);
@@ -65117,7 +65181,7 @@ var useEdges = function(dictEq) {
   var selectEdges = function(s) {
     return s.edges;
   };
-  return useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons72(eqMaybe(dictEq)))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe92))()(animatedIsSymbol)(eqMaybe13))))(selectEdges);
+  return useStore(eqArray(eqRec11(eqRowCons(eqRowCons(eqRowCons(eqRowCons72(eqMaybe(dictEq)))()(classNameIsSymbol)(eqMaybe52))()(ariaLabelIsSymbol)(eqMaybe92))()(animatedIsSymbol)(eqMaybe11))))(selectEdges);
 };
 var useConnectionWith = function(dictEq) {
   var useStore111 = useStore(dictEq);
@@ -65143,7 +65207,7 @@ var querySelectorNodeImpl = (host3) => (id3) => () => {
 var map63 = /* @__PURE__ */ map(functorEffect);
 var traverse2 = /* @__PURE__ */ traverse(traversableArray)(applicativeEffect);
 var foldl11 = /* @__PURE__ */ foldl(foldableArray);
-var bind120 = /* @__PURE__ */ bind4(ixBindRender);
+var bind121 = /* @__PURE__ */ bind4(ixBindRender);
 var useMemo7 = /* @__PURE__ */ useMemo(eqUnit);
 var pure135 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var Tuple2 = /* @__PURE__ */ function() {
@@ -65215,8 +65279,8 @@ var mkFn = function(store) {
     };
   };
 };
-var useUpdateNodeInternals = /* @__PURE__ */ coerceHook()(/* @__PURE__ */ bind120(useStoreApi)(function(store) {
-  return bind120(useMemo7(unit)(function(v) {
+var useUpdateNodeInternals = /* @__PURE__ */ coerceHook()(/* @__PURE__ */ bind121(useStoreApi)(function(store) {
+  return bind121(useMemo7(unit)(function(v) {
     return mkFn(store);
   }))(function(fn) {
     return pure135(fn);
@@ -65232,7 +65296,7 @@ var map210 = /* @__PURE__ */ map(functorMaybe);
 var useInternalNode1 = /* @__PURE__ */ useInternalNode(eqUnsafeReference);
 var wrap7 = /* @__PURE__ */ wrap();
 var useNodesData1 = /* @__PURE__ */ useNodesData(eqUnsafeReference);
-var bind121 = /* @__PURE__ */ bind(bindMaybe);
+var bind122 = /* @__PURE__ */ bind(bindMaybe);
 var transparent = unsafeCoerce2;
 var storeRefusal = function(name15) {
   return "ps-flow: `" + (name15 + "` has not crossed the JavaScript boundary \u2014 it hands over ps-flow's internal store state, which is a PureScript record and not upstream's object: `nodeLookup` is a `Data.Map` where upstream has a `Map`, `transform` is a newtype where upstream has `[x, y, zoom]`, and the other 83 fields are unconverted. It is refused rather than handed over raw so that the selectors which would silently answer `undefined` fail instead. `useReactFlow`, `useNodes`, `useEdges` and `useViewport` have crossed and reach most of the same state.");
@@ -65389,7 +65453,7 @@ var nodeConnectionsHandler = function(f) {
 };
 var member9 = function(bag) {
   return function(get7) {
-    return bind121(fromUndefinable(bag))(function($46) {
+    return bind122(fromUndefinable(bag))(function($46) {
       return fromUndefinable(get7($46));
     });
   };
@@ -65460,7 +65524,7 @@ var useHandleConnections2 = function(params) {
 };
 
 // output/React.Additional.NodeToolbar.Portal/index.js
-var bind59 = /* @__PURE__ */ bind4(ixBindRender);
+var bind58 = /* @__PURE__ */ bind4(ixBindRender);
 var useStore31 = /* @__PURE__ */ useStore(/* @__PURE__ */ eqMaybe(eqUnsafeReference));
 var pure80 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty19 = /* @__PURE__ */ mempty(monoidJSX);
@@ -65485,7 +65549,7 @@ var selectTarget = function(s) {
   throw new Error("Failed pattern match at React.Additional.NodeToolbar.Portal (line 27, column 18 - line 31, column 41): " + [s.domNode.constructor.name]);
 };
 var nodeToolbarPortal = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren()()("NodeToolbarPortal")(function(v) {
-  return bind59(useStore31(selectTarget))(function(mTarget) {
+  return bind58(useStore31(selectTarget))(function(mTarget) {
     return pure80(function() {
       if (mTarget instanceof Nothing) {
         return mempty19;
@@ -65507,7 +65571,7 @@ var insert13 = /* @__PURE__ */ insert4(ordNodeId);
 var eq47 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var map65 = /* @__PURE__ */ map(functorArray);
 var eq310 = /* @__PURE__ */ eq(eqUnsafeReference);
-var bind60 = /* @__PURE__ */ bind4(ixBindRender);
+var bind59 = /* @__PURE__ */ bind4(ixBindRender);
 var fromFoldable15 = /* @__PURE__ */ fromFoldable(foldableList);
 var pure81 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var mempty20 = /* @__PURE__ */ mempty(monoidJSX);
@@ -65592,9 +65656,9 @@ var eqTbSlice = {
 };
 var useStore32 = /* @__PURE__ */ useStore(eqTbSlice);
 var nodeToolbar = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren()()("NodeToolbar")(function(v) {
-  return bind60(useNodeId)(function(ctxId) {
+  return bind59(useNodeId)(function(ctxId) {
     var ids = idsFromProp(v.nodeId)(ctxId);
-    return bind60(useStore32(selectorFor(ids)))(function(v1) {
+    return bind59(useStore32(selectorFor(ids)))(function(v1) {
       var nodesArr = fromFoldable15(values(v1.nodes));
       var isActive = function() {
         if (v.isVisible instanceof Just) {
@@ -65738,7 +65802,7 @@ var withDefaultedOptions = (impl) => (first, second, options2 = void 0) => impl(
 // output/Boundary.Utils/index.js
 var show4 = /* @__PURE__ */ show(showString);
 var map67 = /* @__PURE__ */ map(functorArray);
-var bind61 = /* @__PURE__ */ bind(bindMaybe);
+var bind60 = /* @__PURE__ */ bind(bindMaybe);
 var reportAddEdgeError = function(onError) {
   return function(message2) {
     if (message2 === errorMessage(E006.value)) {
@@ -65791,7 +65855,7 @@ var addEdgeWithOptions = function(edgeParams) {
     return function(rawOptions) {
       var options2 = fromUndefinable(rawOptions);
       var generate = function() {
-        var v2 = bind61(options2)(function($24) {
+        var v2 = bind60(options2)(function($24) {
           return fromUndefinable(function(v1) {
             return v1.getEdgeId;
           }($24));
@@ -65820,7 +65884,7 @@ var addEdgeWithOptions = function(edgeParams) {
       if (v instanceof Left) {
         return unsafePerformEffect(function __do3() {
           (function() {
-            var v1 = bind61(options2)(function($26) {
+            var v1 = bind60(options2)(function($26) {
               return fromUndefinable(function(v2) {
                 return v2.onError;
               }($26));

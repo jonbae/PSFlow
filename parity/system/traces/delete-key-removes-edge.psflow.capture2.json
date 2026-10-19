@@ -1792,7 +1792,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 221.10000002384186,
+            "timeStamp": 204.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1861,7 +1861,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 221.10000002384186,
+            "timeStamp": 204.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1924,7 +1924,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 221.10000002384186,
+            "timeStamp": 204.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1989,7 +1989,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 221.10000002384186,
+            "timeStamp": 204.70000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2062,7 +2062,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 233.10000002384186,
+            "timeStamp": 217.20000004768372,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2120,6 +2120,37 @@
         ]
       },
       {
+        "name": "onBeforeDelete",
+        "args": [
+          {
+            "nodes": [],
+            "edges": [
+              {
+                "id": "edge-with-class",
+                "source": "1",
+                "target": "2",
+                "selected": true,
+                "className": "edge-class-test"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "onEdgesDelete",
+        "args": [
+          [
+            {
+              "id": "edge-with-class",
+              "source": "1",
+              "target": "2",
+              "selected": true,
+              "className": "edge-class-test"
+            }
+          ]
+        ]
+      },
+      {
         "name": "onEdgesChange",
         "args": [
           [
@@ -2128,6 +2159,23 @@
               "id": "edge-with-class"
             }
           ]
+        ]
+      },
+      {
+        "name": "onDelete",
+        "args": [
+          {
+            "nodes": [],
+            "edges": [
+              {
+                "id": "edge-with-class",
+                "source": "1",
+                "target": "2",
+                "selected": true,
+                "className": "edge-class-test"
+              }
+            ]
+          }
         ]
       },
       {
@@ -2162,7 +2210,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 306.2000000476837,
+            "timeStamp": 273.90000009536743,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
