@@ -46,10 +46,21 @@ type HandleNodeClickArgs n e =
   , nodeRef :: Ref (Nullable HTMLDivElement)
   }
 
--- | Mirrors TS `handleNodeClick`. Reads the store, then either selects
--- | the node (if not yet selected) or unselects it (if `unselect` is
--- | true, or if multi-select is active and the node is already
--- | selected).
+-- | Mirrors TS `handleNodeClick`. Reads the store, ends a nodes
+-- | selection, then either selects the node (if not yet selected) or
+-- | unselects it (if `unselect` is true, or if multi-select is active and
+-- | the node is already selected).
+-- |
+-- | **The nodes selection.** TS's `store.setState({ nodesSelectionActive:
+-- | false })` comes first, for any node it finds, so a click after a
+-- | selection box hides the box's rectangle. It comes before the
+-- | selection, too, which writes into the store in place and notifies
+-- | nobody: after it, the `setState` would be what tells `useStore` of the
+-- | selection.
+-- |
+-- | **The edges.** TS unselects with `edges: []`, so unselecting a node
+-- | leaves the selected edges alone. `Nothing` would be every edge in the
+-- | store.
 -- |
 -- | **The blur.** Unselecting a node leaves the browser's focus on its
 -- | `<div>`, so the node keeps its focus ring and the next keystroke
@@ -81,11 +92,12 @@ handleNodeClick args = do
       -- from the internal one (which would require duplicating
       -- positionAbsolute/measured fields).
       let asNode = (unsafeCoerce node) :: Node n
+      args.store.dispatch (PatchState _ { nodesSelectionActive = false })
       if asNode.selected /= Just true then
         args.store.dispatch (AddSelectedNodes [ args.id ])
       else if args.unselect || (asNode.selected == Just true && state.multiSelectionActive) then do
         args.store.dispatch
-          (UnselectNodesAndEdges { nodes: Just [ asNode ], edges: Nothing })
+          (UnselectNodesAndEdges { nodes: Just [ asNode ], edges: Just [] })
         void $ requestAnimationFrame do
           mDiv <- toMaybe <$> readRef args.nodeRef
           for_ mDiv (blur <<< toHTMLElement)
