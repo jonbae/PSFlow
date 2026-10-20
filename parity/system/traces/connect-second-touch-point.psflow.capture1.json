@@ -266,7 +266,7 @@
                               {
                                 "tag": "path",
                                 "attrs": {
-                                  "d": "M75,36 C75,92.53689575195312 674.2543334960938,92.53689575195312 674.2543334960938,149.07379150390625",
+                                  "d": "M75,36 C75,74.8414673688935 133.2622110320301,74.8414673688935 133.2622110320301,113.68293473778701",
                                   "fill": "none",
                                   "class": "react-flow__connection-path"
                                 },
@@ -791,7 +791,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 285,
+            "timeStamp": 280.89999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -858,7 +858,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 298.09999990463257,
+            "timeStamp": 290.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -939,7 +939,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 331,
+            "timeStamp": 328.8000000715256,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1084,7 +1084,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 360.6999999284744,
+            "timeStamp": 363,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1149,7 +1149,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 360.6999999284744,
+            "timeStamp": 363,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

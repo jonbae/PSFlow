@@ -41,6 +41,7 @@ import React.Basic (JSX, ReactComponent)
 import React.Basic.Hooks (UnsafeReference(..), memo, reactComponent)
 import React.Basic.Hooks as React
 import React.FFI.DOM (g_, path_)
+import React.Hook.Selectors (selectConnection)
 import React.Hook.Store (useStore)
 import React.Types.Component (ConnectionLineProps)
 import React.Types.Edges (ConnectionStatus(..), Style)
@@ -94,7 +95,7 @@ type ConnectionLineSlice n =
   }
 
 selectSlice :: forall n e. ReactFlowState n e -> ConnectionLineSlice n
-selectSlice s = case s.connection of
+selectSlice s = case selectConnection s of
   NoConnection ->
     { nodesConnectable: s.nodesConnectable
     , width: s.width

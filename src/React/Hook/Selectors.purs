@@ -31,6 +31,7 @@ module React.Hook.Selectors
   , useViewport
   , useConnection
   , useConnectionWith
+  , selectConnection
   , useNodesData
   , useInternalNode
   , useNodesInitialized
@@ -49,9 +50,10 @@ import React.Hook.Store (UseStore, useStore)
 import React.Types.Edges (Edge)
 import React.Types.Nodes (InternalNode, Node)
 import React.Types.Store (ReactFlowState)
-import System.Types.Connection (ConnectionState, Viewport)
+import System.Types.Connection (ConnectionState(..), Viewport)
 import System.Types.Ids (NodeId)
 import System.Types.Node (InternalNodeBase)
+import System.Utils.General (pointToRendererPoint)
 
 -- | Mirrors the TS `UseNodesInitializedOptions = { includeHiddenNodes?: boolean }`.
 -- | TS optional becomes a `Boolean` with a default of `false` chosen at
@@ -95,7 +97,8 @@ useViewport = useStore selectViewport
     in
       { x: t.tx, y: t.ty, zoom: t.scale }
 
--- | The full `ConnectionState` (TS no-arg `useConnection()`). Re-renders
+-- | The full `ConnectionState`, through `selectConnection` (TS no-arg
+-- | `useConnection()`). Re-renders
 -- | only when the connection state changes — typically driven by drag
 -- | events while the user is wiring an edge.
 useConnection
@@ -105,10 +108,6 @@ useConnection
        (UseStore (ConnectionState (InternalNodeBase n)))
        (ConnectionState (InternalNodeBase n))
 useConnection = useStore selectConnection
-  where
-  selectConnection
-    :: ReactFlowState n Unit -> ConnectionState (InternalNodeBase n)
-  selectConnection s = s.connection
 
 -- | Selector form of `useConnection` (TS `useConnection(selector, eq?)`).
 -- | Use when you want only a slice of the connection state to avoid
@@ -121,7 +120,20 @@ useConnectionWith
 useConnectionWith selector = useStore selectConn
   where
   selectConn :: ReactFlowState n Unit -> a
-  selectConn s = selector s.connection
+  selectConn s = selector (selectConnection s)
+
+-- | TS's `storeSelector`: the store's connection, with `to` in the flow's
+-- | coordinates while it's in progress.
+-- |
+-- | `XYHandle` keeps `to` where the pointer is in the container, as TS's
+-- | does, and this converts it with the transform the store holds now. So
+-- | the line's end follows the pointer when the viewport moves under it,
+-- | and the connection line and `useConnection` read the same point.
+-- | `pointer` stays in the container's coordinates, as TS's does.
+selectConnection :: forall n e. ReactFlowState n e -> ConnectionState (InternalNodeBase n)
+selectConnection s = case s.connection of
+  ConnectionInProgress d -> ConnectionInProgress d { to = pointToRendererPoint d.to s.transform Nothing }
+  NoConnection -> NoConnection
 
 -- | Look up many nodes by id at once. Duplicate ids in the input are
 -- | de-duplicated before the lookup so a caller can safely pass an
