@@ -28,6 +28,7 @@ module System.XYDrag
   , UpdateNodePositions
   , createXYDrag
   , startDrag
+  , updateNodes
   , DragState
   , initialDragState
   , autoPanLoop
@@ -75,6 +76,7 @@ import System.FFI.D3Selection
   , d3SelectionOnNull
   )
 import System.FFI.Microtask (awaitMicrotask)
+import System.Constants (ErrorCode, errorId, errorMessage)
 import System.Types.Edge (EdgeBase)
 import System.Types.Geometry
   ( CoordinateExtent
@@ -88,6 +90,7 @@ import System.Types.Node
   ( NodeBase
   , NodeDragItem
   , NodeLookup
+  , OnError
   )
 import System.Utils.Dom
   ( DOMRect
@@ -168,6 +171,9 @@ type DragStoreItems nodeData edgeData =
   , onSelectionDragStop :: Maybe (OnSelectionDrag nodeData)
   , updateNodePositions :: UpdateNodePositions
   , autoPanSpeed :: Maybe Number
+  -- | Upstream's `getStoreItems()` hands `calculateNodePosition` the
+  -- | store's `onError`.
+  , onError :: Maybe OnError
   }
 
 type XYDragParams nodeData edgeData =
@@ -620,9 +626,9 @@ updateNodes params mNodeId pos = do
 
     -- One iteration: compute the next position with `calculateNodePosition`,
     -- and record whether the node moved.
-    step :: NodeDragItem -> { item :: NodeDragItem, moved :: Boolean }
+    step :: NodeDragItem -> { item :: NodeDragItem, moved :: Boolean, errors :: Array ErrorCode }
     step dragItem = case Map.lookup dragItem.id store.nodeLookup of
-      Nothing -> { item: dragItem, moved: false }
+      Nothing -> { item: dragItem, moved: false, errors: [] }
       Just _ ->
         let
           stepNext = case multiSnap of
@@ -651,7 +657,7 @@ updateNodes params mNodeId pos = do
               , nodeExtent: Just store.nodeExtent
               }
             of
-            Nothing -> { item: dragItem, moved: false }
+            Nothing -> { item: dragItem, moved: false, errors: [] }
             -- Persist the computed coordinates back into the drag item (TS
             -- mutates `dragItem.position` / `dragItem.internals.positionAbsolute`);
             -- the live store dispatch below and the drag-end commit read from
@@ -665,10 +671,16 @@ updateNodes params mNodeId pos = do
               , moved:
                   (r.position.x /= dragItem.position.x)
                     || (r.position.y /= dragItem.position.y)
+              , errors: r.errors
               }
 
     stepped = map step items
     hasChange = Array.any _.moved stepped
+
+  -- Upstream's loop raises each item's errors from `calculateNodePosition`
+  -- as it goes, before it updates any position.
+  liftEffect $ for_ stepped \st -> for_ st.errors \e ->
+    for_ store.onError \cb -> cb (errorId e) (errorMessage e)
 
   modify_ _ { dragItems = map _.item stepped }
 

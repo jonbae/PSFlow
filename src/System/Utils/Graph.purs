@@ -43,6 +43,7 @@ import Data.Set (fromFoldable, member) as Set
 import Effect.Aff (Aff)
 import Foreign (Foreign)
 import Unsafe.Coerce (unsafeCoerce)
+import System.Constants (ErrorCode(..))
 import System.Types.Connection
   ( InterpolateMode
   , Padding(..)
@@ -394,19 +395,16 @@ type CalculateNodePositionParams n =
 -- | non-null assertion `nodeLookup.get(nodeId)!`; we make the partiality
 -- | observable instead of crashing.
 -- |
--- | Divergence note: the TS function calls `onError?.('005', …)` when a
--- | `extent: 'parent'` node has no parent, and `onError?.('015', …)` when
--- | the node has no measured width/height. Both are non-fatal — TS falls
--- | through to default extents and `?? 0` defaults respectively. The PS
--- | port uses the same fallback paths and leaves warning emission to the
--- | caller's `Effect` boundary (mirrors the design documented on
--- | `getEdgePosition`). Construct an `ErrorCode` from
--- | `System.Constants` at the call seam if you want parity with the TS
--- | warning surface.
+-- | The TS function calls `onError?.('005', …)` when an `extent: 'parent'`
+-- | node has no parent, and `onError?.('015', …)` when the node has no
+-- | measured width or height. Both are non-fatal: TS falls through to the
+-- | default extent and to `?? 0`. This function stays pure and returns the
+-- | codes in `errors`, in the order TS raises them, for the caller to pass
+-- | to `onError`, as `System.XYDrag` does.
 calculateNodePosition
   :: forall n
    . CalculateNodePositionParams n
-  -> Maybe { position :: XYPosition, positionAbsolute :: XYPosition }
+  -> Maybe { position :: XYPosition, positionAbsolute :: XYPosition, errors :: Array ErrorCode }
 calculateNodePosition p = case Map.lookup p.nodeId p.nodeLookup of
   Nothing -> Nothing
   Just node ->
@@ -461,6 +459,11 @@ calculateNodePosition p = case Map.lookup p.nodeId p.nodeLookup of
 
       width = fromMaybe 0.0 node.measured.width
       height = fromMaybe 0.0 node.measured.height
+
+      parentExtentWithoutParent = case node.extent, parentNode of
+        Just ParentExtent, Nothing -> node.expandParent /= Just true
+        _, _ -> false
+      unmeasured = isNothing node.measured.width || isNothing node.measured.height
     in
       Just
         { position:
@@ -468,6 +471,8 @@ calculateNodePosition p = case Map.lookup p.nodeId p.nodeLookup of
             , y: positionAbsolute.y - parentY + height * origin.oy
             }
         , positionAbsolute
+        , errors: (if parentExtentWithoutParent then [ E005 ] else [])
+            <> (if unmeasured then [ E015 ] else [])
         }
 
 -- Element removal ----------------------------------------------------------

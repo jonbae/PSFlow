@@ -238,6 +238,7 @@ mkDragStoreItems store = do
         store.dispatch
 (UpdateNodePositions items dragging)
     , autoPanSpeed: Just s.autoPanSpeed
+    , onError: s.onError
     }
 
 -- ----------------------------------------------------------------------------

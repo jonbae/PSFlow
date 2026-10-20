@@ -210,6 +210,7 @@ paramsWith nodeLookup rec panBy =
       , onSelectionDragStop: Nothing
       , updateNodePositions: \items _ -> Ref.write (Just items) rec.moved
       , autoPanSpeed: Nothing
+      , onError: Nothing
       }
   , onDragStart: Nothing
   , onDrag: Nothing
