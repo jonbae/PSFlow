@@ -425,7 +425,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 278.3000000715256,
+            "timeStamp": 311.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -494,7 +494,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 278.3000000715256,
+            "timeStamp": 311.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -566,7 +566,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 278.3000000715256,
+            "timeStamp": 311.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -631,7 +631,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 278.3000000715256,
+            "timeStamp": 311.39999997615814,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -782,7 +782,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 306.60000002384186,
+            "timeStamp": 339.60000002384186,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1161,18 +1161,18 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 348,
+            "timeStamp": 381.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 6,
+            "screenX": 5,
             "screenY": 6,
-            "clientX": 6,
+            "clientX": 5,
             "clientY": 6,
-            "pageX": 6,
+            "pageX": 5,
             "pageY": 6,
             "ctrlKey": false,
             "shiftKey": false,
@@ -1215,110 +1215,6 @@
         ]
       },
       {
-        "name": "onMoveStart",
-        "args": [
-          null,
-          {
-            "x": 680,
-            "y": 900,
-            "zoom": 1
-          }
-        ]
-      },
-      {
-        "name": "onViewportChange",
-        "args": [
-          {
-            "x": 1020,
-            "y": 1240,
-            "zoom": 1
-          }
-        ]
-      },
-      {
-        "name": "onMove",
-        "args": [
-          null,
-          {
-            "x": 1020,
-            "y": 1240,
-            "zoom": 1
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 1020,
-            "y": 1240,
-            "zoom": 1
-          }
-        ]
-      },
-      {
-        "name": "onNodesChange",
-        "args": [
-          [
-            {
-              "type": "position",
-              "id": "Node-1",
-              "position": {
-                "x": -1089,
-                "y": -1032
-              },
-              "dragging": true
-            }
-          ]
-        ]
-      },
-      {
-        "name": "onNodeDrag",
-        "args": [
-          {
-            "@class": "MouseEvent",
-            "isTrusted": true
-          },
-          {
-            "id": "Node-1",
-            "position": {
-              "x": -1089,
-              "y": -1032
-            },
-            "data": {
-              "label": "Node-1"
-            },
-            "type": "input",
-            "selected": true,
-            "dragging": true,
-            "measured": {
-              "width": 150,
-              "height": 37
-            }
-          },
-          [
-            {
-              "id": "Node-1",
-              "position": {
-                "x": -1089,
-                "y": -1032
-              },
-              "data": {
-                "label": "Node-1"
-              },
-              "type": "input",
-              "selected": true,
-              "dragging": true,
-              "measured": {
-                "width": 150,
-                "height": 37
-              }
-            }
-          ]
-        ]
-      },
-      {
         "name": "onPaneMouseMove",
         "args": [
           {
@@ -1339,7 +1235,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 351,
+            "timeStamp": 381.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1391,8 +1287,8 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": -1090,
-                "y": -1252
+                "x": -750,
+                "y": -912
               },
               "dragging": true
             }
@@ -1409,8 +1305,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": -1090,
-              "y": -1252
+              "x": -750,
+              "y": -912
             },
             "data": {
               "label": "Node-1"
@@ -1427,8 +1323,8 @@
             {
               "id": "Node-1",
               "position": {
-                "x": -1090,
-                "y": -1252
+                "x": -750,
+                "y": -912
               },
               "data": {
                 "label": "Node-1"
@@ -1449,8 +1345,8 @@
         "args": [
           null,
           {
-            "x": 1020,
-            "y": 1240,
+            "x": 680,
+            "y": 900,
             "zoom": 1
           }
         ]
@@ -1459,8 +1355,8 @@
         "name": "onViewportChange",
         "args": [
           {
-            "x": 1370,
-            "y": 1580,
+            "x": 1030,
+            "y": 1240,
             "zoom": 1
           }
         ]
@@ -1470,8 +1366,8 @@
         "args": [
           null,
           {
-            "x": 1370,
-            "y": 1580,
+            "x": 1030,
+            "y": 1240,
             "zoom": 1
           }
         ]
@@ -1481,8 +1377,8 @@
         "args": [
           null,
           {
-            "x": 1370,
-            "y": 1580,
+            "x": 1030,
+            "y": 1240,
             "zoom": 1
           }
         ]
@@ -1495,8 +1391,8 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": -1440,
-                "y": -1592
+                "x": -1100,
+                "y": -1252
               },
               "dragging": true
             }
@@ -1513,8 +1409,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": -1440,
-              "y": -1592
+              "x": -1100,
+              "y": -1252
             },
             "data": {
               "label": "Node-1"
@@ -1531,8 +1427,8 @@
             {
               "id": "Node-1",
               "position": {
-                "x": -1440,
-                "y": -1592
+                "x": -1100,
+                "y": -1252
               },
               "data": {
                 "label": "Node-1"
@@ -1571,7 +1467,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 382.7000000476837,
+            "timeStamp": 399.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1608,8 +1504,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": -1440,
-              "y": -1592
+              "x": -1100,
+              "y": -1252
             },
             "data": {
               "label": "Node-1"
@@ -1629,8 +1525,8 @@
         "args": [
           null,
           {
-            "x": 1370,
-            "y": 1580,
+            "x": 1030,
+            "y": 1240,
             "zoom": 1
           }
         ]
@@ -1639,8 +1535,8 @@
         "name": "onViewportChange",
         "args": [
           {
-            "x": 1720,
-            "y": 1920,
+            "x": 1380,
+            "y": 1580,
             "zoom": 1
           }
         ]
@@ -1650,8 +1546,8 @@
         "args": [
           null,
           {
-            "x": 1720,
-            "y": 1920,
+            "x": 1380,
+            "y": 1580,
             "zoom": 1
           }
         ]
@@ -1661,8 +1557,8 @@
         "args": [
           null,
           {
-            "x": 1720,
-            "y": 1920,
+            "x": 1380,
+            "y": 1580,
             "zoom": 1
           }
         ]
@@ -1675,8 +1571,8 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": -1790,
-                "y": -1932
+                "x": -1450,
+                "y": -1592
               },
               "dragging": true
             }
@@ -1693,8 +1589,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": -1790,
-              "y": -1932
+              "x": -1450,
+              "y": -1592
             },
             "data": {
               "label": "Node-1"
@@ -1711,8 +1607,8 @@
             {
               "id": "Node-1",
               "position": {
-                "x": -1790,
-                "y": -1932
+                "x": -1450,
+                "y": -1592
               },
               "data": {
                 "label": "Node-1"
@@ -1749,7 +1645,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 385.5,
+            "timeStamp": 402,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1801,8 +1697,112 @@
               "type": "position",
               "id": "Node-1",
               "position": {
+                "x": -1449,
+                "y": -1593
+              },
+              "dragging": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeDrag",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": -1449,
+              "y": -1593
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "selected": true,
+            "dragging": true,
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          [
+            {
+              "id": "Node-1",
+              "position": {
+                "x": -1449,
+                "y": -1593
+              },
+              "data": {
+                "label": "Node-1"
+              },
+              "type": "input",
+              "selected": true,
+              "dragging": true,
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": 1380,
+            "y": 1580,
+            "zoom": 1
+          }
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 1720,
+            "y": 1930,
+            "zoom": 1
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
+          {
+            "x": 1720,
+            "y": 1930,
+            "zoom": 1
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 1720,
+            "y": 1930,
+            "zoom": 1
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "type": "position",
+              "id": "Node-1",
+              "position": {
                 "x": -1789,
-                "y": -1933
+                "y": -1943
               },
               "dragging": true
             }
@@ -1820,7 +1820,7 @@
             "id": "Node-1",
             "position": {
               "x": -1789,
-              "y": -1933
+              "y": -1943
             },
             "data": {
               "label": "Node-1"
@@ -1838,7 +1838,7 @@
               "id": "Node-1",
               "position": {
                 "x": -1789,
-                "y": -1933
+                "y": -1943
               },
               "data": {
                 "label": "Node-1"
@@ -1860,7 +1860,7 @@
           null,
           {
             "x": 1720,
-            "y": 1920,
+            "y": 1930,
             "zoom": 1
           }
         ]
@@ -1906,7 +1906,7 @@
               "id": "Node-1",
               "position": {
                 "x": -2129,
-                "y": -2283
+                "y": -2293
               },
               "dragging": true
             }
@@ -1924,7 +1924,7 @@
             "id": "Node-1",
             "position": {
               "x": -2129,
-              "y": -2283
+              "y": -2293
             },
             "data": {
               "label": "Node-1"
@@ -1942,7 +1942,7 @@
               "id": "Node-1",
               "position": {
                 "x": -2129,
-                "y": -2283
+                "y": -2293
               },
               "data": {
                 "label": "Node-1"
@@ -1981,18 +1981,18 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 415.10000002384186,
+            "timeStamp": 433,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
               "@ref": "Window"
             },
             "detail": 0,
-            "screenX": 6,
+            "screenX": 5,
             "screenY": 5,
-            "clientX": 6,
+            "clientX": 5,
             "clientY": 5,
-            "pageX": 6,
+            "pageX": 5,
             "pageY": 5,
             "ctrlKey": false,
             "shiftKey": false,
@@ -2019,7 +2019,7 @@
             "id": "Node-1",
             "position": {
               "x": -2129,
-              "y": -2283
+              "y": -2293
             },
             "data": {
               "label": "Node-1"
@@ -2031,49 +2031,6 @@
               "width": 150,
               "height": 37
             }
-          }
-        ]
-      },
-      {
-        "name": "onMoveStart",
-        "args": [
-          null,
-          {
-            "x": 2000,
-            "y": 2000,
-            "zoom": 1
-          }
-        ]
-      },
-      {
-        "name": "onViewportChange",
-        "args": [
-          {
-            "x": 2000,
-            "y": 2000,
-            "zoom": 1
-          }
-        ]
-      },
-      {
-        "name": "onMove",
-        "args": [
-          null,
-          {
-            "x": 2000,
-            "y": 2000,
-            "zoom": 1
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 2000,
-            "y": 2000,
-            "zoom": 1
           }
         ]
       },
@@ -2098,7 +2055,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 417.10000002384186,
+            "timeStamp": 433,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2269,7 +2226,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 442.5,
+            "timeStamp": 459.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

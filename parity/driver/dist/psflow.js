@@ -35162,15 +35162,7 @@ var min4 = /* @__PURE__ */ min(ordNumber);
 var any3 = /* @__PURE__ */ any(foldableArray)(heytingAlgebraBoolean);
 var oneOf2 = /* @__PURE__ */ oneOf(foldableArray)(plusMaybe);
 var lookup3 = /* @__PURE__ */ lookup2(ordNodeId);
-var roundHalfUp = function(n) {
-  var f = floor(n);
-  var $30 = n - f >= 0.5;
-  if ($30) {
-    return f + 1;
-  }
-  ;
-  return f;
-};
+var roundHalfUp = round;
 var snapPosition = function(position3) {
   return function(v) {
     return {
@@ -35210,7 +35202,7 @@ var pointToRendererPoint = function(p) {
         return pos;
       }
       ;
-      throw new Error("Failed pattern match at System.Utils.General (line 247, column 5 - line 249, column 21): " + [mGrid.constructor.name]);
+      throw new Error("Failed pattern match at System.Utils.General (line 240, column 5 - line 242, column 21): " + [mGrid.constructor.name]);
     };
   };
 };
@@ -35228,7 +35220,7 @@ var parsePadding = function(pv) {
       return floor(viewport2 * pv.value0 * 0.01);
     }
     ;
-    throw new Error("Failed pattern match at System.Utils.General (line 290, column 28 - line 293, column 57): " + [pv.constructor.name]);
+    throw new Error("Failed pattern match at System.Utils.General (line 283, column 28 - line 286, column 57): " + [pv.constructor.name]);
   };
 };
 var parsePaddings = function(padding) {
@@ -35263,10 +35255,10 @@ var parsePaddings = function(padding) {
                 return 0;
               }
               ;
-              throw new Error("Failed pattern match at System.Utils.General (line 323, column 22 - line 325, column 27): " + [padding.value0.y.constructor.name]);
+              throw new Error("Failed pattern match at System.Utils.General (line 316, column 22 - line 318, column 27): " + [padding.value0.y.constructor.name]);
             }
             ;
-            throw new Error("Failed pattern match at System.Utils.General (line 321, column 9 - line 325, column 27): " + [side.constructor.name]);
+            throw new Error("Failed pattern match at System.Utils.General (line 314, column 9 - line 318, column 27): " + [side.constructor.name]);
           };
         };
         var top3 = pickV(padding.value0.top)(height8);
@@ -35285,10 +35277,10 @@ var parsePaddings = function(padding) {
                 return 0;
               }
               ;
-              throw new Error("Failed pattern match at System.Utils.General (line 329, column 22 - line 331, column 27): " + [padding.value0.x.constructor.name]);
+              throw new Error("Failed pattern match at System.Utils.General (line 322, column 22 - line 324, column 27): " + [padding.value0.x.constructor.name]);
             }
             ;
-            throw new Error("Failed pattern match at System.Utils.General (line 327, column 9 - line 331, column 27): " + [side.constructor.name]);
+            throw new Error("Failed pattern match at System.Utils.General (line 320, column 9 - line 324, column 27): " + [side.constructor.name]);
           };
         };
         var right = pickH(padding.value0.right)(width8);
@@ -35304,7 +35296,7 @@ var parsePaddings = function(padding) {
         };
       }
       ;
-      throw new Error("Failed pattern match at System.Utils.General (line 305, column 38 - line 337, column 69): " + [padding.constructor.name]);
+      throw new Error("Failed pattern match at System.Utils.General (line 298, column 38 - line 330, column 69): " + [padding.constructor.name]);
     };
   };
 };
@@ -35432,7 +35424,7 @@ var evaluateAbsolutePosition = function(position3) {
             };
           }
           ;
-          throw new Error("Failed pattern match at System.Utils.General (line 419, column 3 - line 429, column 10): " + [v.constructor.name]);
+          throw new Error("Failed pattern match at System.Utils.General (line 412, column 3 - line 422, column 10): " + [v.constructor.name]);
         };
       };
     };
@@ -49069,7 +49061,7 @@ var updateNodes = function(params) {
                     };
                   }
                   ;
-                  throw new Error("Failed pattern match at System.XYDrag (line 634, column 22 - line 649, column 18): " + [multiSnap.constructor.name]);
+                  throw new Error("Failed pattern match at System.XYDrag (line 633, column 22 - line 648, column 18): " + [multiSnap.constructor.name]);
                 }();
                 var v1 = calculateNodePosition({
                   nodeId: dragItem.id,
@@ -49107,10 +49099,10 @@ var updateNodes = function(params) {
                   };
                 }
                 ;
-                throw new Error("Failed pattern match at System.XYDrag (line 651, column 11 - line 675, column 16): " + [v1.constructor.name]);
+                throw new Error("Failed pattern match at System.XYDrag (line 650, column 11 - line 674, column 16): " + [v1.constructor.name]);
               }
               ;
-              throw new Error("Failed pattern match at System.XYDrag (line 630, column 21 - line 675, column 16): " + [v.constructor.name]);
+              throw new Error("Failed pattern match at System.XYDrag (line 629, column 21 - line 674, column 16): " + [v.constructor.name]);
             };
             var stepped = map43(step2)(s.dragItems);
             var hasChange = any2(function(v) {
@@ -49326,7 +49318,7 @@ var startDrag = function(params) {
                     return false;
                   }
                   ;
-                  throw new Error("Failed pattern match at System.XYDrag (line 469, column 29 - line 471, column 29): " + [v.constructor.name]);
+                  throw new Error("Failed pattern match at System.XYDrag (line 468, column 29 - line 470, column 29): " + [v.constructor.name]);
                 }();
                 return when12(!alreadySelected)(store.unselectNodesAndEdges);
               }
@@ -49417,7 +49409,7 @@ var onStart = function(params) {
               return pure47(Nothing.value);
             }
             ;
-            throw new Error("Failed pattern match at System.XYDrag (line 319, column 26 - line 321, column 28): " + [store.domNode.constructor.name]);
+            throw new Error("Failed pattern match at System.XYDrag (line 318, column 26 - line 320, column 28): " + [store.domNode.constructor.name]);
           }()))(function(bounds) {
             return discard12(modify_4(function(v) {
               var $122 = {};
@@ -49485,7 +49477,7 @@ var filterPredicate = function(upd) {
           return !matches2;
         }
         ;
-        throw new Error("Failed pattern match at System.XYDrag (line 435, column 16 - line 440, column 25): " + [upd.noDragClassName.constructor.name]);
+        throw new Error("Failed pattern match at System.XYDrag (line 434, column 16 - line 439, column 25): " + [upd.noDragClassName.constructor.name]);
       }();
       var matchesHandle = function() {
         if (upd.handleSelector instanceof Nothing) {
@@ -49497,7 +49489,7 @@ var filterPredicate = function(upd) {
           return hasSelector(target5)(upd.handleSelector.value0)(upd.domNode)();
         }
         ;
-        throw new Error("Failed pattern match at System.XYDrag (line 441, column 20 - line 445, column 41): " + [upd.handleSelector.constructor.name]);
+        throw new Error("Failed pattern match at System.XYDrag (line 440, column 20 - line 444, column 41): " + [upd.handleSelector.constructor.name]);
       }();
       return btnZero && (notNoDrag && matchesHandle);
     };
@@ -49594,7 +49586,7 @@ var autoPanStep2 = function(params) {
                         return pure118(unit);
                       }
                       ;
-                      throw new Error("Failed pattern match at System.XYDrag (line 595, column 17 - line 597, column 39): " + [v.constructor.name]);
+                      throw new Error("Failed pattern match at System.XYDrag (line 594, column 17 - line 596, column 39): " + [v.constructor.name]);
                     })))(function() {
                       return scheduleNextFrame;
                     })));
@@ -49607,7 +49599,7 @@ var autoPanStep2 = function(params) {
           });
         }
         ;
-        throw new Error("Failed pattern match at System.XYDrag (line 567, column 3 - line 599, column 31): " + [s.containerBounds.constructor.name]);
+        throw new Error("Failed pattern match at System.XYDrag (line 566, column 3 - line 598, column 31): " + [s.containerBounds.constructor.name]);
       });
     };
   };
@@ -49656,7 +49648,7 @@ var onDragHandler = function(params) {
                         return false;
                       }
                       ;
-                      throw new Error("Failed pattern match at System.XYDrag (line 362, column 25 - line 364, column 23): " + [upd.nodeId.constructor.name]);
+                      throw new Error("Failed pattern match at System.XYDrag (line 361, column 25 - line 363, column 23): " + [upd.nodeId.constructor.name]);
                     }();
                     return discard12(when9(multi || deletedDuringDrag)(modify_4(function(v) {
                       var $157 = {};
