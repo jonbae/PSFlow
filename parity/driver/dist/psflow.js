@@ -46298,43 +46298,45 @@ var selectEdgeSlice = function(edgeId) {
   };
 };
 var mkEdgeProps = function(edge) {
-  return function(sx) {
-    return function(sy) {
-      return function(tx) {
-        return function(ty) {
-          return function(sp) {
-            return function(tp) {
-              return function(mStart) {
-                return function(mEnd) {
-                  return {
-                    id: edge.id,
-                    type: edge.edgeType,
-                    animated: edge.animated,
-                    data: edge.data,
-                    style: edge.style,
-                    selected: edge.selected,
-                    source: unwrap12(edge.source),
-                    target: unwrap12(edge.target),
-                    selectable: edge.selectable,
-                    deletable: edge.deletable,
-                    sourceX: sx,
-                    sourceY: sy,
-                    targetX: tx,
-                    targetY: ty,
-                    sourcePosition: sp,
-                    targetPosition: tp,
-                    label: edge.label,
-                    labelStyle: Nothing.value,
-                    labelShowBg: Nothing.value,
-                    labelBgStyle: Nothing.value,
-                    labelBgPadding: Nothing.value,
-                    labelBgBorderRadius: Nothing.value,
-                    sourceHandleId: edge.sourceHandle,
-                    targetHandleId: edge.targetHandle,
-                    markerStart: mStart,
-                    markerEnd: mEnd,
-                    pathOptions: Nothing.value,
-                    interactionWidth: edge.interactionWidth
+  return function(isSelectable) {
+    return function(sx) {
+      return function(sy) {
+        return function(tx) {
+          return function(ty) {
+            return function(sp) {
+              return function(tp) {
+                return function(mStart) {
+                  return function(mEnd) {
+                    return {
+                      id: edge.id,
+                      type: edge.edgeType,
+                      animated: edge.animated,
+                      data: edge.data,
+                      style: edge.style,
+                      selected: edge.selected,
+                      source: unwrap12(edge.source),
+                      target: unwrap12(edge.target),
+                      selectable: new Just(isSelectable),
+                      deletable: new Just(fromMaybe(true)(edge.deletable)),
+                      sourceX: sx,
+                      sourceY: sy,
+                      targetX: tx,
+                      targetY: ty,
+                      sourcePosition: sp,
+                      targetPosition: tp,
+                      label: edge.label,
+                      labelStyle: Nothing.value,
+                      labelShowBg: Nothing.value,
+                      labelBgStyle: Nothing.value,
+                      labelBgPadding: Nothing.value,
+                      labelBgBorderRadius: Nothing.value,
+                      sourceHandleId: edge.sourceHandle,
+                      targetHandleId: edge.targetHandle,
+                      markerStart: mStart,
+                      markerEnd: mEnd,
+                      pathOptions: Nothing.value,
+                      interactionWidth: edge.interactionWidth
+                    };
                   };
                 };
               };
@@ -46361,7 +46363,7 @@ var fireEdgeHandler = function(mCb) {
         return pure39(unit);
       }
       ;
-      throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 513, column 31 - line 515, column 23): " + [mCb.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 515, column 31 - line 517, column 23): " + [mCb.constructor.name]);
     };
   };
 };
@@ -46533,7 +46535,7 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                   return Nothing.value;
                 }
                 ;
-                throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 361, column 26 - line 363, column 29): " + [edge.markerStart.constructor.name]);
+                throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 363, column 26 - line 365, column 29): " + [edge.markerStart.constructor.name]);
               }();
               var markerEndUrl = function() {
                 if (edge.markerEnd instanceof Just) {
@@ -46544,7 +46546,7 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                   return Nothing.value;
                 }
                 ;
-                throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 364, column 24 - line 366, column 29): " + [edge.markerEnd.constructor.name]);
+                throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 366, column 24 - line 368, column 29): " + [edge.markerEnd.constructor.name]);
               }();
               var isSelectable = fromMaybe(false)(edge.selectable) || v.elementsSelectable && isNothing(edge.selectable);
               var isReconnectable = function() {
@@ -46560,7 +46562,7 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                   return Nothing.value;
                 }
                 ;
-                throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 351, column 27 - line 353, column 84): " + [v.onReconnect.constructor.name]);
+                throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 353, column 27 - line 355, column 84): " + [v.onReconnect.constructor.name]);
               }();
               var hide = eq19(edge.hidden)(new Just(true)) || (isNothing(positionSlice.sourceX) || (isNothing(positionSlice.sourceY) || (isNothing(positionSlice.targetX) || isNothing(positionSlice.targetY))));
               var blurEdge = bind111(readRef(edgeRef))(function() {
@@ -46769,7 +46771,7 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                         return mempty8;
                       }
                       ;
-                      return element(resolved.component)(mkEdgeProps(edge)(positionSlice.sourceX.value0)(positionSlice.sourceY.value0)(positionSlice.targetX.value0)(positionSlice.targetY.value0)(positionSlice.sourcePosition.value0)(positionSlice.targetPosition.value0)(markerStartUrl)(markerEndUrl));
+                      return element(resolved.component)(mkEdgeProps(edge)(isSelectable)(positionSlice.sourceX.value0)(positionSlice.sourceY.value0)(positionSlice.targetX.value0)(positionSlice.targetY.value0)(positionSlice.sourcePosition.value0)(positionSlice.targetPosition.value0)(markerStartUrl)(markerEndUrl));
                     }();
                     var anchors = function() {
                       if (isReconnectable instanceof Just) {
@@ -46799,7 +46801,7 @@ var edgeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                         return mempty8;
                       }
                       ;
-                      throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 483, column 35 - line 500, column 44): " + [isReconnectable.constructor.name]);
+                      throw new Error("Failed pattern match at React.Component.EdgeWrapper (line 485, column 35 - line 502, column 44): " + [isReconnectable.constructor.name]);
                     }();
                     return [edgeBody, anchors];
                   }

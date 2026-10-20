@@ -165,7 +165,7 @@ The witness is printed beside each one so a wrong witness can be read and disput
 | `Connection` | callbacks | driven | `onConnect` | `click-connect-reverse-direction` +4 more |
 | `EdgeAddChange` | callbacks | hole | `onEdgesChange:add` | declared — no issue owns it |
 | `EdgeChange` | callbacks | driven | `onEdgesChange` | `click-inside-interaction-width` +8 more |
-| `EdgeMouseHandler` | callbacks | driven | `onEdgeClick, onEdgeDoubleClick, onEdgeContextMenu, onEdgeMouseEnter, onEdgeMouseMove, onEdgeMouseLeave` | `click-inside-interaction-width` +16 more |
+| `EdgeMouseHandler` | callbacks | driven | `onEdgeClick, onEdgeDoubleClick, onEdgeContextMenu, onEdgeMouseEnter, onEdgeMouseMove, onEdgeMouseLeave` | `click-inside-interaction-width` +17 more |
 | `EdgeRemoveChange` | callbacks | driven | `onEdgesChange:remove` | `delete-key-removes-edge` +2 more |
 | `EdgeReplaceChange` | callbacks | hole | `onEdgesChange:replace` | declared — no issue owns it |
 | `EdgeSelectionChange` | callbacks | driven | `onEdgesChange:select` | `click-inside-interaction-width` +6 more |

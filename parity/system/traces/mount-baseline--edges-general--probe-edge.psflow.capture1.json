@@ -2758,12 +2758,8 @@
         },
         "source": "1",
         "target": "2",
-        "selectable": {
-          "@undefined": true
-        },
-        "deletable": {
-          "@undefined": true
-        },
+        "selectable": true,
+        "deletable": true,
         "sourceX": 75,
         "sourceY": 40,
         "targetX": -25,
@@ -2824,12 +2820,8 @@
         },
         "source": "1",
         "target": "2",
-        "selectable": {
-          "@undefined": true
-        },
-        "deletable": {
-          "@undefined": true
-        },
+        "selectable": true,
+        "deletable": true,
         "sourceX": 75,
         "sourceY": 40,
         "targetX": -25,
