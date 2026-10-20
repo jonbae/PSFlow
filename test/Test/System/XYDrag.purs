@@ -54,6 +54,7 @@ import System.Types.Ids (NodeId(..))
 import System.Types.Node (InternalNodeBase, NodeDragItem, NodeLookup)
 import System.XYDrag (DragState, PanBy, XYDragParams, autoPanLoop, initialDragState)
 import System.XYDrag.Utils (getDragItems)
+import Unsafe.Coerce (unsafeCoerce)
 import Web.UIEvent.MouseEvent (MouseEvent)
 
 type FrameClock =
@@ -186,7 +187,10 @@ type Recorded =
 paramsWith :: NodeLookup Unit -> Recorded -> PanBy -> XYDragParams Unit Unit
 paramsWith nodeLookup rec panBy =
   { getStoreItems: pure
-      { nodes: []
+      -- The user's nodes the lookup was adopted from, narrowed as
+      -- `React.Hook.ReactFlow`'s `stripInternals` does: the drag callbacks
+      -- report these, as upstream's report `internals.userNode`.
+      { nodes: map unsafeCoerce (Array.fromFoldable (Map.values nodeLookup))
       , nodeLookup
       , edges: []
       , nodeExtent: infiniteExtent

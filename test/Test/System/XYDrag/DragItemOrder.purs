@@ -26,6 +26,7 @@ module Test.System.XYDrag.DragItemOrder
 
 import Prelude
 
+import Data.Array (fromFoldable) as Array
 import Data.Map as Map
 import Data.Maybe (Maybe(..))
 import Data.Tuple (Tuple(..))
@@ -34,8 +35,9 @@ import Effect.Class.Console (log)
 import Partial.Unsafe (unsafeCrashWith)
 import System.Types.Geometry (XYPosition, mkSnapGrid)
 import System.Types.Ids (NodeId(..))
-import System.Types.Node (InternalNodeBase, NodeLookup)
+import System.Types.Node (InternalNodeBase, NodeBase, NodeLookup)
 import System.XYDrag.Utils (calculateSnapOffset, getDragItems, getEventHandlerParams)
+import Unsafe.Coerce (unsafeCoerce)
 
 assert :: String -> Boolean -> Effect Unit
 assert label cond =
@@ -94,6 +96,11 @@ lookup = Map.fromFoldable
   , Tuple idB (nodeAt idB { x: 4.0, y: 0.0 })
   ]
 
+-- | The user's nodes the lookup was adopted from: the same objects without
+-- | `internals`, narrowed as `React.Hook.ReactFlow`'s `stripInternals` does.
+userNodes :: Array (NodeBase Unit)
+userNodes = map unsafeCoerce (Array.fromFoldable (Map.values lookup))
+
 -- | The `nodes` array the lookup was adopted from: `b` first.
 nodesOrder :: Array NodeId
 nodesOrder = [ idB, idA ]
@@ -117,7 +124,7 @@ runDragItemOrderTests = do
   assert "a multi-node drag snaps the first node in the nodes array, not the grabbed one"
     (offset == Just { x: 3.0, y: 0.0 })
 
-  let selection = getEventHandlerParams Nothing items lookup true
+  let selection = getEventHandlerParams Nothing items userNodes true
   assert "a selection drag reports the first node in the nodes array as current"
     (map _.id selection.currentNode == Just idB)
   assert "a selection drag lists its nodes in the nodes array's order"

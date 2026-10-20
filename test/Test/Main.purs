@@ -2,7 +2,7 @@ module Test.Main where
 
 import Prelude
 
-import Data.Array (any, length) as Array
+import Data.Array (any, fromFoldable, length) as Array
 import Data.Array.NonEmpty as NEA
 import Data.Map as Map
 import Data.Maybe (Maybe(..))
@@ -23,6 +23,7 @@ import System.Utils.Edges.General (addEdge, getEdgeId)
 import System.Utils.Edges.Straight (getStraightPath)
 import System.Utils.General as G
 import System.Utils.Graph (calculateNodePosition, getIncomers, getNodesBounds, getOutgoers, isEdgeBase, isNodeBase)
+import Unsafe.Coerce (unsafeCoerce)
 import System.Utils.Marker (getMarkerId)
 import System.Utils.ShallowNodeData (NodeSummary, shallowNodeData, shallowNodeDataSingle)
 import System.Utils.Store (isManualZIndexMode)
@@ -79,6 +80,7 @@ import Test.React.Hook.DragRebind (runDragRebindTests)
 import Test.System.FinalConnectionState (runFinalConnectionStateTests)
 import Test.System.XYDrag.DragErrors (runDragErrorsTests)
 import Test.System.XYDrag.DragSelection (runDragSelectionTests)
+import Test.System.XYDrag.DragUserNodes (runDragUserNodesTests)
 import Test.React.Additional.NodeToolbarPortal (runNodeToolbarPortalTests)
 import Test.React.Hook.NodeRenderOrder (runNodeRenderOrderTests)
 import Test.React.Component.HandleDataId (runHandleDataIdTests)
@@ -796,9 +798,12 @@ main = do
       Map.fromFoldable
         [ Tuple (NodeId "s") selectedNode, Tuple (NodeId "d") draggableNode ]
         :: NodeLookup Unit
-    paramsHead = XYDrag.getEventHandlerParams Nothing items2 lookup2 true
+    -- The user's nodes the lookup was adopted from: the same objects without
+    -- `internals`, narrowed as `React.Hook.ReactFlow`'s `stripInternals` does.
+    users2 = map (\n -> (unsafeCoerce n :: NodeBase Unit)) (Array.fromFoldable (Map.values lookup2))
+    paramsHead = XYDrag.getEventHandlerParams Nothing items2 users2 true
     paramsTargeted =
-      XYDrag.getEventHandlerParams (Just (NodeId "d")) items2 lookup2 true
+      XYDrag.getEventHandlerParams (Just (NodeId "d")) items2 users2 true
   assert "getEventHandlerParams Nothing returns first item as current"
     ( case paramsHead.currentNode of
         Just n -> n.id == NodeId "s" || n.id == NodeId "d" -- map order isn't fixed
@@ -1156,6 +1161,7 @@ main = do
   runDragErrorsTests
   runEdgeComponentPropsTests
   runFinalConnectionStateTests
+  runDragUserNodesTests
   runEdgeAriaLabelTests
   runNodeA11yDescriptionTests
   runMeasuredDimensionsTests

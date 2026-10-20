@@ -14,9 +14,11 @@ module System.XYDrag.Utils
 
 import Prelude
 
-import Data.Array (find, foldl, head, nub, snoc) as Array
-import Data.Map (lookup) as Map
-import Data.Maybe (Maybe(..), fromMaybe)
+import Data.Array (find, foldl, head, mapMaybe, nub, snoc) as Array
+import Data.Map (Map)
+import Data.Map (fromFoldable, lookup) as Map
+import Data.Maybe (Maybe(..), fromMaybe, maybe)
+import Data.Tuple (Tuple(..))
 import Data.Set (Set)
 import Data.Set (empty, insert, member) as Set
 import Effect (Effect)
@@ -133,6 +135,11 @@ getDragItems order lookup nodesDraggable mousePos mNodeId =
 -- | drag-item nodes. The TS source returns a 2-tuple; the labelled record
 -- | here makes call sites self-documenting.
 -- |
+-- | TS spreads each item's `internals.userNode`: the node object from the
+-- | store's last `setNodes`, which a selection or a measurement changes
+-- | only when the flow applies it to its nodes. ps-flow's internal node has
+-- | no `userNode`, so this reads the store's `userNodes` instead, by id.
+-- |
 -- | The TS `dragging` parameter defaults to `true`; PS callers must supply it.
 -- | Both yielded forms (current and all) get their `position` and `dragging`
 -- | rewritten to mirror the TS spread.
@@ -140,59 +147,28 @@ getEventHandlerParams
   :: forall n
    . Maybe NodeId
   -> Array NodeDragItem
-  -> NodeLookup n
+  -> Array (NodeBase n)
   -> Boolean
   -> { currentNode :: Maybe (NodeBase n), allNodes :: Array (NodeBase n) }
-getEventHandlerParams mNodeId dragItems lookup dragging =
+getEventHandlerParams mNodeId dragItems userNodes dragging =
   let
-    overlay :: InternalNodeBase n -> NodeDragItem -> NodeBase n
-    overlay internal item =
-      { id: internal.id
-      , position: item.position
-      , data: internal.data
-      , sourcePosition: internal.sourcePosition
-      , targetPosition: internal.targetPosition
-      , hidden: internal.hidden
-      , selected: internal.selected
-      , dragging: Just dragging
-      , draggable: internal.draggable
-      , selectable: internal.selectable
-      , connectable: internal.connectable
-      , deletable: internal.deletable
-      , dragHandle: internal.dragHandle
-      , width: internal.width
-      , height: internal.height
-      , initialWidth: internal.initialWidth
-      , initialHeight: internal.initialHeight
-      , parentId: internal.parentId
-      , zIndex: internal.zIndex
-      , extent: internal.extent
-      , expandParent: internal.expandParent
-      , ariaLabel: internal.ariaLabel
-      , origin: internal.origin
-      , handles: internal.handles
-      , measured: internal.measured
-      , nodeType: internal.nodeType
-      , className: internal.className
-      , style: internal.style
-      }
+    -- A repeated id keeps its last node, as `adoptUserNodes`' `set` does.
+    users :: Map NodeId (NodeBase n)
+    users = Map.fromFoldable (map (\n -> Tuple n.id n) userNodes)
 
     allNodes :: Array (NodeBase n)
-    allNodes = Array.foldl
-      ( \acc item ->
-          case Map.lookup item.id lookup of
-            Just internal -> Array.snoc acc (overlay internal item)
-            Nothing -> acc
-      )
-      []
+    allNodes = Array.mapMaybe
+      (\item -> Map.lookup item.id users <#> _ { position = item.position, dragging = Just dragging })
       dragItems
 
+    -- TS: `position: dragItems.get(nodeId)?.position || node.position`.
     currentNode :: Maybe (NodeBase n)
-    currentNode = case mNodeId of
+    currentNode = case mNodeId >>= \nid -> Map.lookup nid users of
       Nothing -> Array.head allNodes
-      Just nid -> case Map.lookup nid lookup, Array.find (\i -> i.id == nid) dragItems of
-        Just internal, Just item -> Just (overlay internal item)
-        _, _ -> Array.head allNodes
+      Just node -> Just node
+        { position = maybe node.position _.position (Array.find (\i -> i.id == node.id) dragItems)
+        , dragging = Just dragging
+        }
   in
     { currentNode, allNodes }
 
