@@ -65,6 +65,8 @@ type NodeInternalsResult n =
 -- |     and `React.Hook.Middleware`. The atomicity and ref-equality
 -- |     clear logic for these lives in `React.Store.Reduce`.
 -- |   * `PatchState` — escape hatch for `useStoreApi().setState(fn)`.
+-- |   * `MutateState` — upstream's in-place writes into the state, which
+-- |     notify nobody. See `React.Store.InPlace`.
 data Action n e
   = SetNodes (Array (Node n))
   | SetEdges (Array (Edge e))
@@ -113,6 +115,7 @@ data Action n e
   | AddOnEdgesChangeMiddleware MiddlewareKey (Array (EdgeChange e) -> Array (EdgeChange e))
   | RemoveOnEdgesChangeMiddleware MiddlewareKey
   | PatchState (ReactFlowState n e -> ReactFlowState n e)
+  | MutateState (ReactFlowState n e -> ReactFlowState n e)
 
 -- | Effect descriptors. The reducer emits these as data; the shell
 -- | interprets them when it interprets each dispatch.

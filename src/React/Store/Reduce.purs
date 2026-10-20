@@ -24,6 +24,7 @@ import React.Store.Action
   , Effect_(..)
   , NodeInternalsResult
   )
+import React.Store.InPlace (inPlace)
 import Unsafe.Reference (unsafeRefEq)
 import React.Store.Changes
   ( applyEdgeChanges
@@ -145,6 +146,7 @@ reduce state = case _ of
     , effects: []
     }
   PatchState f -> { state: f state, effects: [] }
+  MutateState f -> { state: inPlace f state, effects: [] }
 
 -- SetNodes ---------------------------------------------------------------
 
@@ -430,7 +432,10 @@ reduceAddSelectedNodes state ids
         edgeRes =
           if Array.null ids then { changes: [] }
           else getEdgeSelectionChanges state.edgeLookup Set.empty
-        s1 = state { nodeLookup = nodeRes.items }
+        -- TS's `getSelectionChanges(..., true)` selects the internal nodes
+        -- in place, so a controlled flow's store notifies nobody until the
+        -- consumer's nodes come back.
+        s1 = inPlace (_ { nodeLookup = nodeRes.items }) state
         afterNodes = reduceTriggerNodeChanges s1 nodeRes.changes
         afterEdges = reduceTriggerEdgeChanges afterNodes.state edgeRes.changes
       in
@@ -460,7 +465,7 @@ reduceAddSelectedEdges state ids
         nodeRes =
           if Array.null ids then { changes: [], items: state.nodeLookup }
           else getNodeSelectionChanges state.nodeLookup Set.empty true
-        s1 = state { nodeLookup = nodeRes.items }
+        s1 = inPlace (_ { nodeLookup = nodeRes.items }) state
         afterEdges = reduceTriggerEdgeChanges s1 edgeRes.changes
         afterNodes = reduceTriggerNodeChanges afterEdges.state nodeRes.changes
       in
@@ -494,13 +499,17 @@ reduceUnselectNodesAndEdges state params =
 
     -- TS unselects each internal node before it sends the change, "to
     -- prevent it to be selected while dragging the new node": a drag that
-    -- starts by unselecting reads the lookup for its drag items.
-    s1 = state
-      { nodeLookup = Array.foldl
-          (\lookup n -> Map.update (\internal -> Just internal { selected = Just false }) n.id lookup)
-          state.nodeLookup
-          nodesToUnselect
-      }
+    -- starts by unselecting reads the lookup for its drag items. It does so
+    -- in place, so the store notifies nobody of it.
+    s1 = inPlace
+      ( _
+          { nodeLookup = Array.foldl
+              (\lookup n -> Map.update (\internal -> Just internal { selected = Just false }) n.id lookup)
+              state.nodeLookup
+              nodesToUnselect
+          }
+      )
+      state
 
     afterNodes = reduceTriggerNodeChanges s1 nodeChanges
     afterEdges = reduceTriggerEdgeChanges afterNodes.state edgeChanges

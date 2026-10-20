@@ -31,6 +31,7 @@
 -- |     `WheelEvent` before calling `onPaneScroll`.
 module React.Container.Pane
   ( pane
+  , selectNodesInBox
   , module React.Container.Pane.Internal
   , module React.Types.Component
   ) where
@@ -58,6 +59,7 @@ import React.Component.UserSelection (userSelection)
 import React.Container.Pane.Internal (autoPanLoop, buildPaneClass, paneIsDraggable)
 import React.FFI.DOM (div_)
 import React.Hook.Store (UseStoreApi, useStore, useStoreApi)
+import React.Store.Shell (Store)
 import React.Store.Action (Action(..))
 import React.Store.Changes (getEdgeSelectionChanges, getNodeSelectionChanges)
 import React.Store.PanBy (panBy) as StorePanBy
@@ -66,6 +68,7 @@ import React.Types.Store (ReactFlowState)
 import System.FFI.AnimationFrame (RafHandle, cancelAnimationFrame, requestAnimationFrame)
 import System.Types.Connection (ConnectionState(..), SelectionMode(..))
 import System.Types.Ids (NodeId)
+import System.Types.Node (NodeLookup)
 import System.Types.PanZoom (PanOnDrag(..))
 import System.Utils.Dom (DOMRect, elementBoundingRect, getEventPosition)
 import System.Utils.General (areSetsEqual, pointToRendererPoint, rendererPointToPoint)
@@ -185,6 +188,22 @@ wrapMouseHandler containerRef h se = do
 -- The component
 -- ----------------------------------------------------------------------------
 
+-- | What a selection box's move does with the nodes it holds now. TS:
+-- |
+-- |     const changes = getSelectionChanges(nodeLookup, selectedNodeIds.current, true);
+-- |     triggerNodeChanges(changes);
+-- |
+-- | With `mutateItem`, `getSelectionChanges` sets `selected` on the lookup's
+-- | internal nodes in place before the changes go out, and notifies nobody.
+-- | The move's `setState` that follows is what `onSelectionChange`'s
+-- | selector hears, so in a controlled flow, it reports the nodes before the
+-- | consumer applies the changes.
+selectNodesInBox :: forall n e. Store n e -> NodeLookup n -> Set NodeId -> Effect Unit
+selectNodesInBox store nodeLookup ids = do
+  let r = getNodeSelectionChanges nodeLookup ids true
+  store.dispatch (MutateState _ { nodeLookup = r.items })
+  store.dispatch (TriggerNodeChanges r.changes)
+
 pane :: ReactComponent PaneProps
 pane =
   unsafePerformEffect $ memo $ reactComponentWithChildren "Pane"
@@ -249,8 +268,7 @@ pane =
               prevEdgeIds <- readRef selectedEdgeIdsRef
 
               when (not (areSetsEqual prevNodeIds nextNodeIds)) do
-                let r = getNodeSelectionChanges st.nodeLookup nextNodeIds false
-                store.dispatch (TriggerNodeChanges r.changes)
+                selectNodesInBox store st.nodeLookup nextNodeIds
 
               when (not (areSetsEqual prevEdgeIds nextEdgeIds)) do
                 let r = getEdgeSelectionChanges st.edgeLookup nextEdgeIds
