@@ -77,7 +77,7 @@ claimed by a region — never by loosening what the net looks at.
 | `selection-box-then-click-node` | **failed** | unclaimed-difference | 3 |
 | `selection-box-mid-gesture` | **failed** | unclaimed-difference | 3 |
 | `selection-box-touch` | **failed** | unclaimed-difference | 3 |
-| `arrow-key-selected-node` | **failed** | self-inconsistent, unclaimed-difference | 34 |
+| `arrow-key-selected-node` | **failed** | self-inconsistent, unclaimed-difference | 7 |
 | `keyboard-focus-node` | **failed** | unclaimed-difference | 2 |
 | `connect-handle-to-handle` | **failed** | unclaimed-difference | 7 |
 | `connect-then-keyboard-move` | **failed** | unclaimed-difference | 3 |
@@ -108,7 +108,7 @@ claimed by a region — never by loosening what the net looks at.
 | `node-props-record-parented` | **failed** | unclaimed-difference | 4 |
 | `wheel-zooms-to-changed-limits` | **failed** | unclaimed-difference | 3 |
 | `drag-pans-into-changed-extent` | **failed** | unclaimed-difference | 2 |
-| `pan-after-controlled-viewport-change` | **failed** | self-inconsistent, unclaimed-difference | 3 |
+| `pan-after-controlled-viewport-change` | **failed** | unclaimed-difference | 3 |
 | `ctrl-wheel-pinches-with-panonscroll` | **failed** | unclaimed-difference | 2 |
 | `pane-click-keeps-selection-when-not-selectable` | **failed** | unclaimed-difference | 3 |
 | `click-selects-node--probe-flow-node` | **failed** | unclaimed-difference | 29 |
@@ -3512,7 +3512,7 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | path | kind | capture 1 | capture 2 |
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
-| `callbacks/16/args/1/position/x` | differs | 5 | 0 |
+| `callbacks/17/args/1/position/x` | differs | 10 | 0 |
 
 **upstream did not reproduce.** The comparison below ran anyway —
 capture-everything applies to a failed run as much as to a passing one — but a difference it reports
@@ -3526,62 +3526,35 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 32 unclaimed difference(s).
+**Failed:** 5 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### dom (6)
+### dom (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M85,60 C85,228.5 75,228.5 75,397 | M77,44 C77,220.5 75,220.5 75,397 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M85,60 C85,228.5 75,228.5 75,397 | M77,44 C77,220.5 75,220.5 75,397 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | 85 | 77 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | 70 | 54 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(10px, 20px); visibility: visible; z-index: 1000; | pointer-events: all; transform: translate(2px, 4px); visibility: visible; z-index: 1000; |
 | `dom/root/children/react-flow__aria-live-1/text` | left only | Moved selected node right. New position, x: 5, y: 20 | — |
 
-### callbacks (9)
+### callbacks (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/16` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
-| `callbacks/11/args/0/0/position/y` | differs | 5 | 1 |
-| `callbacks/12/args/0/0/position/y` | differs | 10 | 2 |
-| `callbacks/13/args/0/0/position/y` | differs | 15 | 3 |
-| `callbacks/14/args/0/0/position/y` | differs | 20 | 4 |
-| `callbacks/15/args/0/0/position/x` | differs | 5 | 1 |
-| `callbacks/15/args/0/0/position/y` | differs | 20 | 4 |
-| `callbacks/17/args/0/0/position/x` | differs | 10 | 2 |
-| `callbacks/17/args/0/0/position/y` | differs | 20 | 4 |
+| `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
+| `callbacks/17/args/1/position/x` | differs | 10 | 0 |
 
-### api (17)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getNodes/0/position/x` | differs | 10 | 2 |
-| `api/queries/getNodes/0/position/y` | differs | 20 | 4 |
-| `api/queries/getNode/position/x` | differs | 10 | 2 |
-| `api/queries/getNode/position/y` | differs | 20 | 4 |
-| `api/queries/getInternalNode/position/x` | differs | 10 | 2 |
-| `api/queries/getInternalNode/position/y` | differs | 20 | 4 |
-| `api/queries/getInternalNode/internals/positionAbsolute/x` | differs | 10 | 2 |
-| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | 20 | 4 |
 | `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":10,"y":20},"type":"input","measured":{"width":150,"height":37},"selected":true,"dragging":false} | — |
-| `api/queries/getIntersectingNodes/0/position/x` | differs | 10 | 2 |
-| `api/queries/getIntersectingNodes/0/position/y` | differs | 20 | 4 |
-| `api/queries/getNodesBounds/y` | differs | 20 | 4 |
-| `api/queries/getNodesBounds/width` | differs | 160 | 152 |
-| `api/queries/getNodesBounds/height` | differs | 1217 | 1233 |
-| `api/queries/toObject/nodes/0/position/x` | differs | 10 | 2 |
-| `api/queries/toObject/nodes/0/position/y` | differs | 20 | 4 |
 
 ## Normalization
 
-11 field(s) deleted by name and therefore **unobserved** — not passing:
+12 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (6) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (7) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -5223,7 +5196,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 # System parity run — pan-after-controlled-viewport-change
 
-**Failed:** self-inconsistent, unclaimed-difference.
+**Failed:** unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -5236,18 +5209,8 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 
 | side | captures | verdict | differences |
 |---|---|---|---|
-| upstream | 1, 2 | **disagrees with itself** | 1 |
+| upstream | 1, 2 | reproduced | 0 |
 | psflow | 1, 2 | reproduced | 0 |
-
-### upstream disagrees with itself
-
-| path | kind | capture 1 | capture 2 |
-|---|---|---|---|
-| `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onMove#1","onMoveEnd#1","onNodesChange#1","onMoveStart#2","onMove#2","onMoveEnd#2","onPaneMouseEnter#1","onPaneMouseMov… | ["onSelectionChange#1","onMoveStart#1","onMove#1","onMoveEnd#1","onNodesChange#1","onMoveStart#2","onMove#2","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveEn… |
-
-**upstream did not reproduce.** The comparison below ran anyway —
-capture-everything applies to a failed run as much as to a passing one — but a difference it reports
-cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -5257,9 +5220,15 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 2 unclaimed difference(s).
+**Failed:** 3 unclaimed difference(s).
 
 ## Unclaimed differences
+
+### callbacks (1)
+
+| path | kind | upstream | psflow |
+|---|---|---|---|
+| `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onMove#1","onNodesChange#1","onMoveEnd#1","onMoveStart#2","onMove#2","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveEn… | ["onSelectionChange#1","onMoveStart#1","onMove#1","onMoveEnd#1","onNodesChange#1","onMoveStart#2","onMove#2","onMoveEnd#2","onPaneMouseEnter#1","onPaneMouseMov… |
 
 ### api (2)
 
@@ -5272,7 +5241,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 8 field(s) deleted by name and therefore **unobserved** — not passing:
 
-- `callbacks/**/timeStamp` (4) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+- `callbacks/**/timeStamp` (5) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
 
 
 ---
@@ -5456,8 +5425,8 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `console/3/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
 | `console/4/level` | differs | warning | pageerror |
 | `console/4/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:60085/parity/driver/dist/psflow.js:67074:… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:60085/parity/driver/dist/psflow.js:67074:… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:64866/parity/driver/dist/psflow.js:67252:… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:64866/parity/driver/dist/psflow.js:67252:… |
 
 
 ---
@@ -5535,8 +5504,8 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `console/3/level` | differs | warning | pageerror |
 | `console/3/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
 | `console/4` | right only | — | {"level":"pageerror","text":"ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScri… |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:60085/parity/driver/dist/psflow.js:67074:… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:60085/parity/driver/dist/psflow.js:67074:… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:64866/parity/driver/dist/psflow.js:67252:… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:64866/parity/driver/dist/psflow.js:67252:… |
 
 
 ---

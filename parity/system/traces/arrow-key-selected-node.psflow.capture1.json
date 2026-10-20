@@ -69,7 +69,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M77,44 C77,220.5 75,220.5 75,397",
+                                      "d": "M85,60 C85,228.5 75,228.5 75,397",
                                       "fill": "none",
                                       "class": "react-flow__edge-path"
                                     },
@@ -78,7 +78,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M77,44 C77,220.5 75,220.5 75,397",
+                                      "d": "M85,60 C85,228.5 75,228.5 75,397",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -90,8 +90,8 @@
                                     "tag": "circle",
                                     "attrs": {
                                       "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
-                                      "cx": "77",
-                                      "cy": "54",
+                                      "cx": "85",
+                                      "cy": "70",
                                       "r": "10",
                                       "stroke": "transparent",
                                       "fill": "transparent"
@@ -274,7 +274,7 @@
                               "role": "group",
                               "aria-roledescription": "node",
                               "aria-describedby": "react-flow__node-desc-1",
-                              "style": "z-index: 1000; transform: translate(2px, 4px); pointer-events: all; visibility: visible;"
+                              "style": "z-index: 1000; transform: translate(10px, 20px); pointer-events: all; visibility: visible;"
                             },
                             "text": "Node-1",
                             "children": [
@@ -526,7 +526,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 262.5,
+            "timeStamp": 261.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -595,7 +595,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 262.5,
+            "timeStamp": 261.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -667,7 +667,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 262.5,
+            "timeStamp": 261.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -732,7 +732,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 262.5,
+            "timeStamp": 261.2000000476837,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -928,7 +928,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 286,
+            "timeStamp": 284.3000000715256,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -987,7 +987,7 @@
               "id": "Node-1",
               "position": {
                 "x": 0,
-                "y": 1
+                "y": 5
               },
               "dragging": false
             }
@@ -1003,7 +1003,7 @@
               "id": "Node-1",
               "position": {
                 "x": 0,
-                "y": 2
+                "y": 10
               },
               "dragging": false
             }
@@ -1019,7 +1019,7 @@
               "id": "Node-1",
               "position": {
                 "x": 0,
-                "y": 3
+                "y": 15
               },
               "dragging": false
             }
@@ -1035,7 +1035,99 @@
               "id": "Node-1",
               "position": {
                 "x": 0,
-                "y": 4
+                "y": 20
+              },
+              "dragging": false
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeMouseLeave",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseLeave",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseleave",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 337,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 75,
+            "screenY": 18,
+            "clientX": 75,
+            "clientY": 18,
+            "pageX": 75,
+            "pageY": 18,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": {
+              "@ref": "DIV"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 0,
+              "y": 20
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "selected": true,
+            "dragging": false,
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "type": "position",
+              "id": "Node-1",
+              "position": {
+                "x": 5,
+                "y": 20
               },
               "dragging": false
             }
@@ -1050,24 +1142,8 @@
               "type": "position",
               "id": "Node-1",
               "position": {
-                "x": 1,
-                "y": 4
-              },
-              "dragging": false
-            }
-          ]
-        ]
-      },
-      {
-        "name": "onNodesChange",
-        "args": [
-          [
-            {
-              "type": "position",
-              "id": "Node-1",
-              "position": {
-                "x": 2,
-                "y": 4
+                "x": 10,
+                "y": 20
               },
               "dragging": false
             }
@@ -1082,8 +1158,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": 2,
-              "y": 4
+              "x": 10,
+              "y": 20
             },
             "data": {
               "label": "Node-1"
@@ -1143,8 +1219,8 @@
         "getNode": {
           "id": "Node-1",
           "position": {
-            "x": 2,
-            "y": 4
+            "x": 10,
+            "y": 20
           },
           "data": {
             "label": "Node-1"
@@ -1160,8 +1236,8 @@
         "getInternalNode": {
           "id": "Node-1",
           "position": {
-            "x": 2,
-            "y": 4
+            "x": 10,
+            "y": 20
           },
           "data": {
             "label": "Node-1"
@@ -1175,8 +1251,8 @@
           },
           "internals": {
             "positionAbsolute": {
-              "x": 2,
-              "y": 4
+              "x": 10,
+              "y": 20
             },
             "z": 1000,
             "handleBounds": {
@@ -1222,8 +1298,8 @@
           {
             "id": "Node-1",
             "position": {
-              "x": 2,
-              "y": 4
+              "x": 10,
+              "y": 20
             },
             "data": {
               "label": "Node-1"
@@ -1283,9 +1359,9 @@
         "isNodeIntersecting": true,
         "getNodesBounds": {
           "x": 0,
-          "y": 4,
-          "width": 152,
-          "height": 1233
+          "y": 20,
+          "width": 160,
+          "height": 1217
         },
         "getHandleConnections": [
           {
@@ -1310,8 +1386,8 @@
             {
               "id": "Node-1",
               "position": {
-                "x": 2,
-                "y": 4
+                "x": 10,
+                "y": 20
               },
               "data": {
                 "label": "Node-1"
