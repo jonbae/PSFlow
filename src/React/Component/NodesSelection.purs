@@ -9,8 +9,8 @@
 -- |      currently selected nodes via `useStore`. The selector calls
 -- |      `getInternalNodesBounds` filtered to `node.selected = true`.
 -- |   2. Hide (`mempty`) when a user lasso is active or the bounds
--- |      are degenerate (zero width/height, or non-finite from an
--- |      empty selection).
+-- |      aren't finite numbers. An empty selection's bounds are 0 by 0,
+-- |      which renders, as upstream's `width !== null` does.
 -- |   3. Mount `useDrag` with `nodeId = Nothing` so the XYDrag
 -- |      controller takes the selection-drag branch (its `isNothing
 -- |      nodeId` predicate gates `onSelectionDrag*` callbacks).
@@ -105,8 +105,6 @@ selectSlice s =
     { width: rect.width
     , height: rect.height
     , hasBounds: isNumericN rect.width && isNumericN rect.height
-        && rect.width > 0.0
-        && rect.height > 0.0
     , transformString
     , userSelectionActive: s.userSelectionActive
     }
@@ -228,13 +226,17 @@ nodesSelection =
                 { ref: nodeRef
                 , className: "react-flow__nodesselection-rect"
                 , onContextMenu: onContextMenuHandler
-                , tabIndex: if props.disableKeyboardA11y then 0 else -1
+                -- TS: `disableKeyboardA11y ? undefined : -1`. React omits a
+                -- `null` prop, as it does an `undefined` one.
+                , tabIndex: toNullable (if props.disableKeyboardA11y then Nothing else Just (-1))
                 , onKeyDown:
                     if props.disableKeyboardA11y then handler_ (pure unit)
                     else onKeyDownEventHandler
+                -- Numbers, as TS's are, which React writes in pixels. A
+                -- string with no unit is invalid CSS, which the browser drops.
                 , style: toForeignStyle
-                    { width: showN slice.width
-                    , height: showN slice.height
+                    { width: slice.width
+                    , height: slice.height
                     }
                 }
                 []

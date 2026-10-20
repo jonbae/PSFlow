@@ -62,6 +62,7 @@ import Test.React.Additional.MiniMap (runMiniMapSliceTests)
 import Test.React.Component.AriaDescribedBy (runAriaDescribedByTests)
 import Test.React.Component.EdgeAriaLabel (runEdgeAriaLabelTests)
 import Test.React.Store.InPlaceSelection (runInPlaceSelectionTests)
+import Test.React.Component.NodesSelectionRect (runNodesSelectionRectTests)
 import Test.React.Component.EdgeComponentProps (runEdgeComponentPropsTests)
 import Test.React.Component.NodeInlineDimensions (runNodeInlineDimensionsTests)
 import Test.React.Store.UpdateNodePositions (runUpdateNodePositionsTests)
@@ -1164,6 +1165,7 @@ main = do
   runFinalConnectionStateTests
   runDragUserNodesTests
   runInPlaceSelectionTests
+  runNodesSelectionRectTests
   runEdgeAriaLabelTests
   runNodeA11yDescriptionTests
   runMeasuredDimensionsTests
