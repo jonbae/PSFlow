@@ -419,7 +419,9 @@ useConnection = mkEffectFn1 \selector ->
   stateOut :: ConnectionState (InternalNodeBase Foreign) -> JsConnectionState
   stateOut = connectionStateOut <<< case _ of
     NoConnection -> Nothing
-    ConnectionInProgress inProgress -> Just inProgress
+    -- A connection in progress always has a `toPosition`; only the final
+    -- state `onConnectEnd` receives drops it.
+    ConnectionInProgress inProgress -> Just inProgress { toPosition = Just inProgress.toPosition }
 
 -- ────────────────────────────────────────────────────────────────────────
 -- The listener hooks

@@ -22,6 +22,7 @@ module System.XYHandle
   , OnConnectEnd
   , OnReconnectEnd
   , xyHandle
+  , endConnection
   -- Public for testing.
   , HandleDragState
   , AutoPanEnv
@@ -174,6 +175,14 @@ type XYHandleInstance =
   }
 
 -- | Singleton matching the TS module-level export.
+-- | The state `onPointerUp` hands `onConnectEnd` and `onReconnectEnd`: the
+-- | last connection, with no `toPosition` when it ended on no handle. TS:
+-- |
+-- |     toPosition: previousConnection.toHandle ? previousConnection.toPosition : null
+endConnection :: forall node. ConnectionInProgressData node -> FinalConnectionState node
+endConnection prev = Just prev
+  { toPosition = if isJust prev.toHandle then Just prev.toPosition else Nothing }
+
 xyHandle :: XYHandleInstance
 xyHandle = { onPointerDown, isValid: isValidHandle }
 
@@ -481,7 +490,7 @@ onPointerDown event params = do
                       prev <- liftEffect (Ref.read previousConnection)
                       let
                         final :: FinalConnectionState (InternalNodeBase nodeData)
-                        final = Just prev
+                        final = endConnection prev
                       liftEffect $ for_ params.onConnectEnd \cb -> cb ev final
                       when (isJust params.edgeUpdaterType) $ liftEffect $
                         for_ params.onReconnectEnd \cb -> cb ev final

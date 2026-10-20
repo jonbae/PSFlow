@@ -76,6 +76,7 @@ import Test.System.Utils.MeasurementOrder (runMeasurementOrderTests)
 import Test.React.Hook.DeleteKey (runDeleteKeyTests)
 import Test.React.HandleNativeEvent (runHandleNativeEventTests)
 import Test.React.Hook.DragRebind (runDragRebindTests)
+import Test.System.FinalConnectionState (runFinalConnectionStateTests)
 import Test.System.XYDrag.DragErrors (runDragErrorsTests)
 import Test.System.XYDrag.DragSelection (runDragSelectionTests)
 import Test.React.Additional.NodeToolbarPortal (runNodeToolbarPortalTests)
@@ -1154,6 +1155,7 @@ main = do
   runDragSelectionTests
   runDragErrorsTests
   runEdgeComponentPropsTests
+  runFinalConnectionStateTests
   runEdgeAriaLabelTests
   runNodeA11yDescriptionTests
   runMeasuredDimensionsTests
