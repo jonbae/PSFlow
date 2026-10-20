@@ -12,7 +12,7 @@ import Data.Either (Either(..))
 import Data.Foldable (foldl)
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Newtype (class Newtype)
-import Data.Number (floor) as Number
+import Data.Number ((%))
 import Data.Number.Format (toString) as NumberFormat
 import Data.Tuple (Tuple(..))
 import Effect.Unsafe (unsafePerformEffect)
@@ -55,9 +55,6 @@ selector s = BgSlice
   { transform: s.transform
   , patternId: "pattern-" <> s.rfId
   }
-
-modN :: Number -> Number -> Number
-modN x y = x - y * Number.floor (x / y)
 
 toForeignStyle :: Object String -> Foreign
 toForeignStyle = unsafeCoerce
@@ -118,8 +115,11 @@ background =
         userClass = fromMaybe "" props.className
         className = "react-flow__background"
           <> (if userClass == "" then "" else " " <> userClass)
-        patternX = modN t.tx scaledGapX
-        patternY = modN t.ty scaledGapY
+        -- TS: `transform[0] % scaledGap[0]`. JavaScript's `%` takes the sign
+        -- of the dividend, so a viewport left of the origin starts the
+        -- pattern at a negative offset.
+        patternX = t.tx % scaledGapX
+        patternY = t.ty % scaledGapY
         patTransform = "translate(-" <> showN scaledOffX <> ",-" <> showN scaledOffY <> ")"
         innerPattern =
           if isDots then element dotPattern
