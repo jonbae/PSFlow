@@ -26735,6 +26735,11 @@ var pow = function(n) {
     return Math.pow(n, p);
   };
 };
+var remainder = function(n) {
+  return function(m) {
+    return n % m;
+  };
+};
 var round = Math.round;
 var sqrt = Math.sqrt;
 
@@ -33651,11 +33656,6 @@ var normalisePair = function(v) {
   ;
   throw new Error("Failed pattern match at React.Additional.Background (line 43, column 17 - line 45, column 15): " + [v.constructor.name]);
 };
-var modN = function(x) {
-  return function(y) {
-    return x - y * floor(x / y);
-  };
-};
 var eqBgSlice = /* @__PURE__ */ eqRec()(/* @__PURE__ */ eqRowCons(/* @__PURE__ */ eqRowCons(eqRowNil)()({
   reflectSymbol: function() {
     return "transform";
@@ -33702,7 +33702,7 @@ var buildStyle = function(userStyle) {
           return insert2("--xy-background-color-props")(bgColor.value0)(withContainer);
         }
         ;
-        throw new Error("Failed pattern match at React.Additional.Background (line 85, column 12 - line 87, column 74): " + [bgColor.constructor.name]);
+        throw new Error("Failed pattern match at React.Additional.Background (line 82, column 12 - line 84, column 74): " + [bgColor.constructor.name]);
       }();
       var merged = function() {
         if (patternColor instanceof Nothing) {
@@ -33713,7 +33713,7 @@ var buildStyle = function(userStyle) {
           return insert2("--xy-background-pattern-color-props")(patternColor.value0)(withBg);
         }
         ;
-        throw new Error("Failed pattern match at React.Additional.Background (line 88, column 12 - line 90, column 75): " + [patternColor.constructor.name]);
+        throw new Error("Failed pattern match at React.Additional.Background (line 85, column 12 - line 87, column 75): " + [patternColor.constructor.name]);
       }();
       return toForeignStyle(merged);
     };
@@ -33729,8 +33729,8 @@ var background = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__
     var scaledSize = patternSize * v1.transform.scale;
     var scaledGapYRaw = v2.value1 * v1.transform.scale;
     var scaledGapY = function() {
-      var $53 = scaledGapYRaw === 0;
-      if ($53) {
+      var $52 = scaledGapYRaw === 0;
+      if ($52) {
         return 1;
       }
       ;
@@ -33738,8 +33738,8 @@ var background = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__
     }();
     var scaledGapXRaw = v2.value0 * v1.transform.scale;
     var scaledGapX = function() {
-      var $54 = scaledGapXRaw === 0;
-      if ($54) {
+      var $53 = scaledGapXRaw === 0;
+      if ($53) {
         return 1;
       }
       ;
@@ -33754,13 +33754,13 @@ var background = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__
       return new Tuple(scaledGapX, scaledGapY);
     }();
     var userClass = fromMaybe("")(v.className);
-    var patternY = modN(v1.transform.ty)(scaledGapY);
-    var patternX = modN(v1.transform.tx)(scaledGapX);
+    var patternY = remainder(v1.transform.ty)(scaledGapY);
+    var patternX = remainder(v1.transform.tx)(scaledGapX);
     var patternIdResolved = v1.patternId + fromMaybe("")(v.id);
     var offYScaled = v3.value1 * v1.transform.scale;
     var scaledOffY = function() {
-      var $58 = offYScaled === 0;
-      if ($58) {
+      var $57 = offYScaled === 0;
+      if ($57) {
         return 1 + v4.value1 / 2;
       }
       ;
@@ -33768,8 +33768,8 @@ var background = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__
     }();
     var offXScaled = v3.value0 * v1.transform.scale;
     var scaledOffX = function() {
-      var $59 = offXScaled === 0;
-      if ($59) {
+      var $58 = offXScaled === 0;
+      if ($58) {
         return 1 + v4.value0 / 2;
       }
       ;
@@ -33792,8 +33792,8 @@ var background = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__
       });
     }();
     var className3 = "react-flow__background" + function() {
-      var $61 = userClass === "";
-      if ($61) {
+      var $60 = userClass === "";
+      if ($60) {
         return "";
       }
       ;
