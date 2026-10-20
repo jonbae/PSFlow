@@ -415,8 +415,8 @@
                 "tag": "pattern",
                 "attrs": {
                   "id": "pattern-1",
-                  "x": "6.636202829010784",
-                  "y": "16.92794319904749",
+                  "x": "-19.7539553864471",
+                  "y": "-9.462215016410383",
                   "width": "26.390158215457884",
                   "height": "26.390158215457884",
                   "patternUnits": "userSpaceOnUse",
@@ -532,7 +532,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 279.2999999523163,
+            "timeStamp": 281.09999990463257,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -599,7 +599,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 279.2999999523163,
+            "timeStamp": 281.09999990463257,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
