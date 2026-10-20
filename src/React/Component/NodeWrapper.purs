@@ -39,9 +39,6 @@
 -- |     `NodeBase` yet.
 -- |   * Keyboard `:focus-visible` guard is dropped (no PS Web binding);
 -- |     auto-pan fires on any focus when `autoPanOnNodeFocus` is on.
--- |   * `ariaLiveMessage` on arrow-key nudges is deferred (the
--- |     `AriaLabelConfig` method isn't surfaced through the wrapper
--- |     in a form that's ready for this call site).
 module React.Component.NodeWrapper
   ( nodeWrapper
   , mkDragStoreItems
@@ -71,7 +68,7 @@ import React.Hook.Drag (useDrag)
 import React.Hook.MoveSelectedNodes (useMoveSelectedNodes)
 import React.Hook.NodeObserver (useNodeObserver)
 import React.Hook.Store (UseStoreApi, useStore, useStoreApi)
-import React.Node.Util (handleNodeClick)
+import React.Node.Util (handleNodeClick, moveNodesByArrowKey)
 import React.Store.Action (Action(..))
 import React.Store.PanBy as StorePanBy
 import React.Store.Shell (Store)
@@ -452,7 +449,15 @@ nodeWrapper =
               Just delta
                 | isDraggable && node.selected == Just true -> do
                     preventDefault (KE.toEvent ke)
-                    moveSelectedNodes delta (if shift then 4.0 else 1.0)
+                    moveNodesByArrowKey
+                      { id: NodeId props.id
+                      , store
+                      , key: k
+                      , direction: delta
+                      , factor: if shift then 4.0 else 1.0
+                      , positionAbsolute: node.internals.positionAbsolute
+                      , moveSelectedNodes
+                      }
               _ -> pure unit
 
         onKeyDownEventHandler :: EventHandler

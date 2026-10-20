@@ -68,6 +68,7 @@ import Test.React.Additional.BackgroundOffset (runBackgroundOffsetTests)
 import Test.System.Utils.MathRound (runMathRoundTests)
 import Test.React.Node.HandleNodeClick (runHandleNodeClickTests)
 import Test.React.Hook.MoveSelectedNodes (runMoveSelectedNodesTests)
+import Test.React.Node.ArrowKeyMessage (runArrowKeyMessageTests)
 import Test.React.Component.EdgeComponentProps (runEdgeComponentPropsTests)
 import Test.React.Component.NodeInlineDimensions (runNodeInlineDimensionsTests)
 import Test.React.Store.UpdateNodePositions (runUpdateNodePositionsTests)
@@ -1176,6 +1177,7 @@ main = do
   runMathRoundTests
   runHandleNodeClickTests
   runMoveSelectedNodesTests
+  runArrowKeyMessageTests
   runEdgeAriaLabelTests
   runNodeA11yDescriptionTests
   runMeasuredDimensionsTests
