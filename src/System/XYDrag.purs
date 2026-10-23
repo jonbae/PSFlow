@@ -268,9 +268,8 @@ foreign import mouseButtonIsZero :: MouseEvent -> Effect Boolean
 -- | `event.target as Element`.
 foreign import mouseEventTarget :: MouseEvent -> Effect Element
 
--- TS `Math.round` rounds halves toward +∞; PS's `round` rounds to even.
--- The pure equivalent lives in `System.Utils.General.roundHalfUp` and is
--- imported above.
+-- TS `Math.round` rounds halves toward +∞; `Data.Int.round` rounds to even.
+-- `System.Utils.General.roundHalfUp` is `Math.round`, and is imported above.
 
 -- | Construct the controller. Allocates a single `Ref DragState` and
 -- | returns the `update`/`destroy` interface. Subsequent `update` calls

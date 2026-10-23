@@ -43,7 +43,7 @@ import Data.Either (Either(..))
 import Data.Foldable (any, oneOf) as Foldable
 import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isJust)
-import Data.Number (abs, floor, isFinite, isNaN) as Number
+import Data.Number (abs, floor, isFinite, isNaN, round) as Number
 import Data.Set (Set)
 import Effect (Effect)
 import Effect.Console (warn) as Console
@@ -217,20 +217,13 @@ snapPosition position (SnapGrid g) =
   , y: g.gy * roundHalfUp (position.y / g.gy)
   }
 
--- | TS uses `Math.round`, which rounds halves toward `+∞` (`-1.5` → `-1`) —
--- | neither away from zero nor to even (that's PS's `Data.Int.round`). Match
--- | it by hand.
--- |
--- | The obvious `floor (n + 0.5)` form is wrong for the largest double below
--- | one half: `0.49999999999999994 + 0.5` rounds up to `1.0`, so it would
--- | yield `1.0` where `Math.round` gives `0`. Comparing the fractional part
--- | avoids that — `n - floor n` is exact.
+-- | TS's `Math.round`, which `Data.Number.round` is. It rounds halves
+-- | toward `+∞` (`-1.5` → `-1`), neither away from zero nor to even (that's
+-- | `Data.Int.round`), and it keeps a zero's sign: a value from -0.5 up to 0
+-- | rounds to `-0`. A grid snap shows that sign, such as
+-- | `screenToFlowPosition`'s just left of the origin.
 roundHalfUp :: Number -> Number
-roundHalfUp n =
-  let
-    f = Number.floor n
-  in
-    if n - f >= 0.5 then f + 1.0 else f
+roundHalfUp = Number.round
 
 -- | TS exposes `(p, transform, snapToGrid?, snapGrid?)` — we collapse the
 -- | boolean+grid pair into `Maybe SnapGrid`. `Nothing` skips snapping;
