@@ -54451,25 +54451,114 @@ var handleNodeClick = function(args) {
         return unit;
       }
       ;
-      throw new Error("Failed pattern match at React.Node.Util (line 74, column 16 - line 76, column 27): " + [state3.onError.constructor.name]);
+      throw new Error("Failed pattern match at React.Node.Util (line 85, column 16 - line 87, column 27): " + [state3.onError.constructor.name]);
     }
     ;
     if (v instanceof Just) {
-      var $20 = notEq10(v.value0.selected)(new Just(true));
-      if ($20) {
+      args.store.dispatch(new PatchState(function(v1) {
+        return {
+          rfId: v1.rfId,
+          width: v1.width,
+          height: v1.height,
+          transform: v1.transform,
+          nodes: v1.nodes,
+          nodesInitialized: v1.nodesInitialized,
+          nodeLookup: v1.nodeLookup,
+          parentLookup: v1.parentLookup,
+          edges: v1.edges,
+          edgeLookup: v1.edgeLookup,
+          connectionLookup: v1.connectionLookup,
+          onNodesChange: v1.onNodesChange,
+          onEdgesChange: v1.onEdgesChange,
+          hasDefaultNodes: v1.hasDefaultNodes,
+          hasDefaultEdges: v1.hasDefaultEdges,
+          domNode: v1.domNode,
+          paneDragging: v1.paneDragging,
+          noPanClassName: v1.noPanClassName,
+          panZoom: v1.panZoom,
+          minZoom: v1.minZoom,
+          maxZoom: v1.maxZoom,
+          translateExtent: v1.translateExtent,
+          nodeExtent: v1.nodeExtent,
+          nodeOrigin: v1.nodeOrigin,
+          nodeDragThreshold: v1.nodeDragThreshold,
+          connectionDragThreshold: v1.connectionDragThreshold,
+          userSelectionActive: v1.userSelectionActive,
+          userSelectionRect: v1.userSelectionRect,
+          connection: v1.connection,
+          connectionMode: v1.connectionMode,
+          connectionClickStartHandle: v1.connectionClickStartHandle,
+          snapToGrid: v1.snapToGrid,
+          snapGrid: v1.snapGrid,
+          nodesDraggable: v1.nodesDraggable,
+          autoPanOnNodeFocus: v1.autoPanOnNodeFocus,
+          nodesConnectable: v1.nodesConnectable,
+          nodesFocusable: v1.nodesFocusable,
+          edgesFocusable: v1.edgesFocusable,
+          edgesReconnectable: v1.edgesReconnectable,
+          elementsSelectable: v1.elementsSelectable,
+          elevateNodesOnSelect: v1.elevateNodesOnSelect,
+          elevateEdgesOnSelect: v1.elevateEdgesOnSelect,
+          selectNodesOnDrag: v1.selectNodesOnDrag,
+          multiSelectionActive: v1.multiSelectionActive,
+          onNodeDragStart: v1.onNodeDragStart,
+          onNodeDrag: v1.onNodeDrag,
+          onNodeDragStop: v1.onNodeDragStop,
+          onSelectionDragStart: v1.onSelectionDragStart,
+          onSelectionDrag: v1.onSelectionDrag,
+          onSelectionDragStop: v1.onSelectionDragStop,
+          onMoveStart: v1.onMoveStart,
+          onMove: v1.onMove,
+          onMoveEnd: v1.onMoveEnd,
+          onConnect: v1.onConnect,
+          onConnectStart: v1.onConnectStart,
+          onConnectEnd: v1.onConnectEnd,
+          onClickConnectStart: v1.onClickConnectStart,
+          onClickConnectEnd: v1.onClickConnectEnd,
+          connectOnClick: v1.connectOnClick,
+          defaultEdgeOptions: v1.defaultEdgeOptions,
+          fitViewQueued: v1.fitViewQueued,
+          fitViewOptions: v1.fitViewOptions,
+          fitViewResolver: v1.fitViewResolver,
+          onNodesDelete: v1.onNodesDelete,
+          onEdgesDelete: v1.onEdgesDelete,
+          onDelete: v1.onDelete,
+          onError: v1.onError,
+          onViewportChangeStart: v1.onViewportChangeStart,
+          onViewportChange: v1.onViewportChange,
+          onViewportChangeEnd: v1.onViewportChangeEnd,
+          onBeforeDelete: v1.onBeforeDelete,
+          onSelectionChangeHandlers: v1.onSelectionChangeHandlers,
+          ariaLiveMessage: v1.ariaLiveMessage,
+          autoPanOnConnect: v1.autoPanOnConnect,
+          autoPanOnNodeDrag: v1.autoPanOnNodeDrag,
+          autoPanSpeed: v1.autoPanSpeed,
+          connectionRadius: v1.connectionRadius,
+          isValidConnection: v1.isValidConnection,
+          lib: v1.lib,
+          debug: v1.debug,
+          ariaLabelConfig: v1.ariaLabelConfig,
+          zIndexMode: v1.zIndexMode,
+          onNodesChangeMiddlewareMap: v1.onNodesChangeMiddlewareMap,
+          onEdgesChangeMiddlewareMap: v1.onEdgesChangeMiddlewareMap,
+          nodesSelectionActive: false
+        };
+      }))();
+      var $21 = notEq10(v.value0.selected)(new Just(true));
+      if ($21) {
         return args.store.dispatch(new AddSelectedNodes([args.id]))();
       }
       ;
-      var $21 = args.unselect || eq37(v.value0.selected)(new Just(true)) && state3.multiSelectionActive;
-      if ($21) {
+      var $22 = args.unselect || eq37(v.value0.selected)(new Just(true)) && state3.multiSelectionActive;
+      if ($22) {
         args.store.dispatch(new UnselectNodesAndEdges({
           nodes: new Just([v.value0]),
-          edges: Nothing.value
+          edges: new Just([])
         }))();
         return $$void10(requestAnimationFrame(function __do4() {
           var mDiv = map53(toMaybe)(readRef(args.nodeRef))();
-          return for_18(mDiv)(function($23) {
-            return blur(toHTMLElement($23));
+          return for_18(mDiv)(function($24) {
+            return blur(toHTMLElement($24));
           })();
         }))();
       }
@@ -54477,7 +54566,7 @@ var handleNodeClick = function(args) {
       return unit;
     }
     ;
-    throw new Error("Failed pattern match at React.Node.Util (line 73, column 3 - line 93, column 18): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at React.Node.Util (line 84, column 3 - line 105, column 18): " + [v.constructor.name]);
   };
 };
 
