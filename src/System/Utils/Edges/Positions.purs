@@ -15,7 +15,7 @@ module System.Utils.Edges.Positions
 
 import Prelude
 
-import Data.Array (concat, find, length, mapMaybe, (!!)) as Array
+import Data.Array (find, length, mapMaybe, (!!)) as Array
 import Data.Maybe (Maybe(..), fromMaybe, isJust)
 import System.Types.Connection (ConnectionMode(..))
 import System.Types.Edge (EdgePosition)
@@ -62,8 +62,8 @@ toHandleBounds node = case node.handles of
       asHandles = map (\h -> nodeHandleToHandle h node.id) handles
     in
       Just
-        { source: Array.mapMaybe mkSourceHandle asHandles
-        , target: Array.mapMaybe mkTargetHandle asHandles
+        { source: Just (Array.mapMaybe mkSourceHandle asHandles)
+        , target: Just (Array.mapMaybe mkTargetHandle asHandles)
         }
 
 nodeHandleToHandle :: NodeHandle -> NodeId -> Handle
@@ -98,21 +98,17 @@ getEdgePosition params =
       targetBounds = case params.targetNode.internals.handleBounds of
         Just b -> Just b
         Nothing -> toHandleBounds params.targetNode
-      sourceHandles = case sourceBounds of
-        Just b -> map unSourceHandle b.source
-        Nothing -> []
+      -- TS `sourceHandleBounds?.source ?? []`, and the same for the
+      -- target side: a missing bounds object and a `null` side both read
+      -- as no handles.
+      sourceHandles = map unSourceHandle (fromMaybe [] (sourceBounds >>= _.source))
+      targets = map unTargetHandle (fromMaybe [] (targetBounds >>= _.target))
       targetHandlePool = case params.connectionMode of
-        Strict ->
-          case targetBounds of
-            Just b -> map unTargetHandle b.target
-            Nothing -> []
+        Strict -> targets
         Loose ->
           -- In Loose mode the target endpoint may also be a source
           -- handle, so both arrays are unwrapped and merged.
-          case targetBounds of
-            Just b -> Array.concat
-              [ map unTargetHandle b.target, map unSourceHandle b.source ]
-            Nothing -> []
+          targets <> map unSourceHandle (fromMaybe [] (targetBounds >>= _.source))
     sh <- getHandle sourceHandles params.sourceHandle
     th <- getHandle targetHandlePool params.targetHandle
     let

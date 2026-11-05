@@ -65,7 +65,7 @@ mkNode nodeId px py w h =
       { positionAbsolute: { x: px, y: py }
       , z: 0.0
       , rootParentIndex: Nothing
-      , handleBounds: Just { source: [], target: [] }
+      , handleBounds: Just { source: Just [], target: Just [] }
       , bounds: Nothing
       }
   }

@@ -484,7 +484,7 @@ parseHandles userNode internalNode = case userNode.handles of
         Nothing -> Nothing
   Just handles ->
     let
-      empty :: NodeHandleBounds
+      empty :: { source :: Array SourceHandle, target :: Array TargetHandle }
       empty = { source: [], target: [] }
 
       go acc h =
@@ -506,8 +506,11 @@ parseHandles userNode internalNode = case userNode.handles of
           case h.handleType of
             Source -> acc { source = Array.snoc acc.source (SourceHandle bounds) }
             Target -> acc { target = Array.snoc acc.target (TargetHandle bounds) }
+
+      parsed = Foldable.foldl go empty handles
     in
-      Just (Foldable.foldl go empty handles)
+      -- Both arrays, empty or not, as upstream's `parseHandles` returns.
+      Just { source: Just parsed.source, target: Just parsed.target }
 
 handleExpandParent
   :: forall n
@@ -801,18 +804,17 @@ processUpdate update acc zoom origin extent zMode =
             node.id
           let
             -- `getHandleBounds Source/Target` queries the DOM for handles
-            -- of the requested side; the smart constructors enforce the
-            -- invariant at the type-system boundary in case the DOM
-            -- yields a handle of the other type.
+            -- of the requested side, and gives `Nothing` where upstream's
+            -- gives `null`: no handle of that side. The smart constructors
+            -- enforce the invariant at the type-system boundary in case the
+            -- DOM yields a handle of the other type.
             newNode = node
               { measured = { width: Just dims.width, height: Just dims.height }
               , internals = node.internals
                   { positionAbsolute = positionAbsoluteAdjusted
                   , handleBounds = Just
-                      { source: Array.mapMaybe mkSourceHandle
-                          (fromMaybe [] sourceHandles)
-                      , target: Array.mapMaybe mkTargetHandle
-                          (fromMaybe [] targetHandles)
+                      { source: Array.mapMaybe mkSourceHandle <$> sourceHandles
+                      , target: Array.mapMaybe mkTargetHandle <$> targetHandles
                       }
                   }
               }

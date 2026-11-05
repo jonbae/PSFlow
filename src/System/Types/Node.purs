@@ -112,11 +112,13 @@ type NodeInternals =
 type InternalNodeBase nodeData =
   { internals :: NodeInternals | NodeBaseRow nodeData }
 
--- | Source/target handle bounds. The outer optionality on `NodeHandleBounds`
--- | itself (`Maybe NodeHandleBounds`) carries the "not yet parsed"
--- | distinction; the inner arrays use the empty case for "parsed, no
--- | handles of this side". Three nesting levels of optionality collapsed
--- | to one.
+-- | Source/target handle bounds, upstream's
+-- | `{ source: Handle[] | null; target: Handle[] | null }`. The outer
+-- | `Maybe NodeHandleBounds` is "not measured yet". An inner `Nothing` is
+-- | the `null` that upstream's `getHandleBounds` returns when a measured
+-- | node has no handle of that side, which a consumer sees on
+-- | `getInternalNode`. A node's own `handles` always give both arrays, empty
+-- | or not, as upstream's `parseHandles` does.
 -- |
 -- | The inner arrays are typed with the phantom newtypes `SourceHandle` /
 -- | `TargetHandle` so that consumers can't accidentally pass the target
@@ -125,8 +127,8 @@ type InternalNodeBase nodeData =
 -- | boundary (`parseHandles`, `toHandleBounds`, the DOM-driven
 -- | `processUpdate`).
 type NodeHandleBounds =
-  { source :: Array SourceHandle
-  , target :: Array TargetHandle
+  { source :: Maybe (Array SourceHandle)
+  , target :: Maybe (Array TargetHandle)
   }
 
 type NodeBounds =

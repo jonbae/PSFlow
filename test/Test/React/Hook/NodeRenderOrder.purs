@@ -68,7 +68,7 @@ internalNode id x y =
       { positionAbsolute: { x, y }
       , z: 0.0
       , rootParentIndex: Nothing
-      , handleBounds: Just { source: [], target: [] }
+      , handleBounds: Just { source: Just [], target: Just [] }
       , bounds: Nothing
       }
   }

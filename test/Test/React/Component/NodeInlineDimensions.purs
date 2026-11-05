@@ -54,7 +54,7 @@ internalOf node =
 -- | reading `initialWidth` and `initialHeight`.
 measured :: InternalNodeBase Foreign -> InternalNodeBase Foreign
 measured internal =
-  internal { internals = internal.internals { handleBounds = Just { source: [], target: [] } } }
+  internal { internals = internal.internals { handleBounds = Just { source: Just [], target: Just [] } } }
 
 dimensionsAre :: Foreign -> Foreign -> InternalNodeBase Foreign -> Boolean
 dimensionsAre width height internal =

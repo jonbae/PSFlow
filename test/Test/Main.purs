@@ -110,6 +110,7 @@ import Test.React.Store.ZoomLimits (runZoomLimitsTests)
 import Test.System.Utils.Store (runStoreProperties)
 import Test.System.Utils.ConnectionOrder (runConnectionOrderTests)
 import Test.System.Utils.MeasuredDimensions (runMeasuredDimensionsTests)
+import Test.System.Utils.HandleBoundsNull (runHandleBoundsNullTests)
 import Test.System.Utils.StorePanBy (runStorePanByTests)
 import Test.System.XYDrag (runXYDragTests)
 import Test.System.XYDrag.DragItemOrder (runDragItemOrderTests)
@@ -871,8 +872,8 @@ main = do
     nodeWithHandles' = nodeWithHandles
       { internals = nodeWithHandles.internals
           { handleBounds = Just
-              { source: [ SourceHandle handleS ]
-              , target: [ TargetHandle handleT ]
+              { source: Just [ SourceHandle handleS ]
+              , target: Just [ TargetHandle handleT ]
               }
           }
       }
@@ -1181,6 +1182,7 @@ main = do
   runEdgeAriaLabelTests
   runNodeA11yDescriptionTests
   runMeasuredDimensionsTests
+  runHandleBoundsNullTests
   runPrunedKeysTests
   runAttributionPanelTests
   runHandleDataIdTests
