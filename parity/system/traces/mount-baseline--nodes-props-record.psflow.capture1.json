@@ -331,8 +331,8 @@
             },
             "z": 0,
             "handleBounds": {
-              "source": [],
-              "target": []
+              "source": null,
+              "target": null
             }
           }
         },

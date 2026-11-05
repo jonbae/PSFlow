@@ -12,90 +12,90 @@ claimed by a region — never by loosening what the net looks at.
 
 | scenario | verdict | failure classes | differences |
 |---|---|---|---|
-| `mount-baseline--edges-general` | **failed** | unclaimed-difference | 3 |
+| `mount-baseline--edges-general` | **failed** | unclaimed-difference | 2 |
 | `mount-baseline--node-toolbar-general` | **failed** | unclaimed-difference | 2 |
-| `mount-baseline--nodes-general` | **failed** | unclaimed-difference | 3 |
-| `mount-baseline--pane-general` | **failed** | unclaimed-difference | 3 |
-| `mount-baseline--pane-non-defaults` | **failed** | unclaimed-difference | 2 |
-| `mount-baseline--chrome-background` | **failed** | unclaimed-difference | 3 |
-| `mount-baseline--chrome-controls` | **failed** | unclaimed-difference | 3 |
-| `mount-baseline--chrome-minimap-colors` | **failed** | unclaimed-difference | 3 |
+| `mount-baseline--nodes-general` | **failed** | unclaimed-difference | 2 |
+| `mount-baseline--pane-general` | **failed** | unclaimed-difference | 2 |
+| `mount-baseline--pane-non-defaults` | **failed** | unclaimed-difference | 1 |
+| `mount-baseline--chrome-background` | **failed** | unclaimed-difference | 2 |
+| `mount-baseline--chrome-controls` | **failed** | unclaimed-difference | 2 |
+| `mount-baseline--chrome-minimap-colors` | **failed** | unclaimed-difference | 2 |
 | `mount-baseline--chrome-minimap-hidden-nodes` | **failed** | unclaimed-difference | 1 |
-| `mount-baseline--chrome-panels` | **failed** | unclaimed-difference | 3 |
-| `mount-baseline--edges-base-edge-path` | **failed** | unclaimed-difference | 3 |
-| `mount-baseline--fitview-uncontrolled` | **failed** | unclaimed-difference | 3 |
+| `mount-baseline--chrome-panels` | **failed** | unclaimed-difference | 2 |
+| `mount-baseline--edges-base-edge-path` | **failed** | unclaimed-difference | 2 |
+| `mount-baseline--fitview-uncontrolled` | **failed** | unclaimed-difference | 2 |
 | `mount-baseline--flow-chrome-defaults` | **failed** | unclaimed-difference | 1 |
-| `mount-baseline--flow-custom-testid` | **failed** | unclaimed-difference | 3 |
-| `mount-baseline--flow-display-none` | **failed** | unclaimed-difference | 3 |
-| `mount-baseline--flow-limits-change` | **failed** | unclaimed-difference | 2 |
-| `mount-baseline--flow-not-selectable` | **failed** | unclaimed-difference | 3 |
-| `mount-baseline--flow-props-change` | **failed** | unclaimed-difference | 3 |
-| `mount-baseline--nodes-autopan` | **failed** | unclaimed-difference | 2 |
+| `mount-baseline--flow-custom-testid` | **failed** | unclaimed-difference | 2 |
+| `mount-baseline--flow-display-none` | **failed** | unclaimed-difference | 2 |
+| `mount-baseline--flow-limits-change` | **failed** | unclaimed-difference | 1 |
+| `mount-baseline--flow-not-selectable` | **failed** | unclaimed-difference | 2 |
+| `mount-baseline--flow-props-change` | **failed** | unclaimed-difference | 2 |
+| `mount-baseline--nodes-autopan` | **failed** | unclaimed-difference | 1 |
 | `mount-baseline--nodes-connections` | **failed** | unclaimed-difference | 2 |
 | `mount-baseline--nodes-expand-parent` | **failed** | unclaimed-difference | 2 |
-| `mount-baseline--nodes-no-select-on-drag` | **failed** | unclaimed-difference | 3 |
+| `mount-baseline--nodes-no-select-on-drag` | **failed** | unclaimed-difference | 2 |
 | `mount-baseline--nodes-nowheel` | **failed** | unclaimed-difference | 2 |
-| `mount-baseline--nodes-props-record` | **failed** | unclaimed-difference | 3 |
-| `mount-baseline--nodes-tall` | **failed** | unclaimed-difference | 2 |
-| `mount-baseline--nodes-unmeasured` | **failed** | unclaimed-difference | 3 |
-| `mount-baseline--viewport-controlled` | **failed** | unclaimed-difference | 3 |
-| `mount-baseline--viewport-helpers` | **failed** | unclaimed-difference | 3 |
-| `mount-baseline--viewport-pan-on-scroll` | **failed** | unclaimed-difference | 2 |
+| `mount-baseline--nodes-props-record` | **failed** | unclaimed-difference | 1 |
+| `mount-baseline--nodes-tall` | **failed** | unclaimed-difference | 1 |
+| `mount-baseline--nodes-unmeasured` | **failed** | unclaimed-difference | 2 |
+| `mount-baseline--viewport-controlled` | **failed** | unclaimed-difference | 2 |
+| `mount-baseline--viewport-helpers` | **failed** | unclaimed-difference | 2 |
+| `mount-baseline--viewport-pan-on-scroll` | **failed** | unclaimed-difference | 1 |
 | `mount-baseline--examples-color-mode` | passed | — | 0 |
-| `click-selects-edge` | **failed** | unclaimed-difference | 3 |
-| `multi-select-edges-with-modifier` | **failed** | unclaimed-difference | 3 |
-| `click-unselectable-edge` | **failed** | unclaimed-difference | 3 |
-| `delete-key-removes-edge` | **failed** | unclaimed-difference | 3 |
-| `delete-key-spares-undeletable-edge` | **failed** | unclaimed-difference | 3 |
-| `click-inside-interaction-width` | **failed** | unclaimed-difference | 3 |
-| `click-selects-node` | **failed** | unclaimed-difference | 3 |
-| `shift-drag-selects-nodes` | **failed** | unclaimed-difference | 3 |
-| `click-unselectable-node` | **failed** | unclaimed-difference | 3 |
-| `drag-moves-node` | **failed** | unclaimed-difference | 3 |
-| `drag-does-not-move-undraggable-node` | **failed** | unclaimed-difference | 3 |
-| `drag-by-custom-drag-handle` | **failed** | unclaimed-difference | 3 |
-| `delete-key-removes-node-and-edges` | **failed** | unclaimed-difference | 3 |
-| `delete-key-spares-undeletable-node` | **failed** | unclaimed-difference | 3 |
-| `connect-source-handle-to-target-handle` | **failed** | unclaimed-difference | 7 |
-| `connect-output-to-output-handle` | **failed** | unclaimed-difference | 7 |
-| `connect-input-to-input-handle` | **failed** | unclaimed-difference | 6 |
-| `connect-to-unconnectable-handle` | **failed** | unclaimed-difference | 7 |
-| `drag-pans-the-pane` | **failed** | unclaimed-difference | 3 |
-| `wheel-zooms-the-pane` | **failed** | unclaimed-difference | 3 |
-| `wheel-zooms-out-to-min` | **failed** | unclaimed-difference | 3 |
-| `wheel-zooms-in-to-max` | **failed** | unclaimed-difference | 3 |
-| `wheel-pans-with-panonscroll` | **failed** | unclaimed-difference | 2 |
+| `click-selects-edge` | **failed** | unclaimed-difference | 2 |
+| `multi-select-edges-with-modifier` | **failed** | unclaimed-difference | 2 |
+| `click-unselectable-edge` | **failed** | unclaimed-difference | 2 |
+| `delete-key-removes-edge` | **failed** | unclaimed-difference | 2 |
+| `delete-key-spares-undeletable-edge` | **failed** | unclaimed-difference | 2 |
+| `click-inside-interaction-width` | **failed** | unclaimed-difference | 2 |
+| `click-selects-node` | **failed** | unclaimed-difference | 2 |
+| `shift-drag-selects-nodes` | **failed** | unclaimed-difference | 2 |
+| `click-unselectable-node` | **failed** | unclaimed-difference | 2 |
+| `drag-moves-node` | **failed** | unclaimed-difference | 2 |
+| `drag-does-not-move-undraggable-node` | **failed** | unclaimed-difference | 2 |
+| `drag-by-custom-drag-handle` | **failed** | unclaimed-difference | 2 |
+| `delete-key-removes-node-and-edges` | **failed** | unclaimed-difference | 2 |
+| `delete-key-spares-undeletable-node` | **failed** | unclaimed-difference | 2 |
+| `connect-source-handle-to-target-handle` | **failed** | unclaimed-difference | 4 |
+| `connect-output-to-output-handle` | **failed** | unclaimed-difference | 4 |
+| `connect-input-to-input-handle` | **failed** | unclaimed-difference | 4 |
+| `connect-to-unconnectable-handle` | **failed** | unclaimed-difference | 4 |
+| `drag-pans-the-pane` | **failed** | unclaimed-difference | 2 |
+| `wheel-zooms-the-pane` | **failed** | unclaimed-difference | 2 |
+| `wheel-zooms-out-to-min` | **failed** | unclaimed-difference | 2 |
+| `wheel-zooms-in-to-max` | **failed** | unclaimed-difference | 2 |
+| `wheel-pans-with-panonscroll` | **failed** | unclaimed-difference | 1 |
 | `click-reveals-default-toolbar` | **failed** | unclaimed-difference | 2 |
 | `select-dark-color-mode` | passed | — | 0 |
-| `drag-node-release` | **failed** | unclaimed-difference | 3 |
-| `drag-node-escape-mid-gesture` | **failed** | unclaimed-difference | 20 |
-| `drag-node-autopan` | **failed** | self-inconsistent, unclaimed-difference | 249 |
-| `drag-node-no-select-on-drag` | **failed** | unclaimed-difference | 3 |
+| `drag-node-release` | **failed** | unclaimed-difference | 2 |
+| `drag-node-escape-mid-gesture` | **failed** | unclaimed-difference | 19 |
+| `drag-node-autopan` | **failed** | self-inconsistent, unclaimed-difference | 217 |
+| `drag-node-no-select-on-drag` | **failed** | unclaimed-difference | 2 |
 | `drag-child-expand-parent` | **failed** | unclaimed-difference | 2 |
-| `drag-unmeasured-node` | **failed** | unclaimed-difference | 3 |
-| `selection-box-from-node` | **failed** | unclaimed-difference | 3 |
-| `selection-box-then-click-node` | **failed** | unclaimed-difference | 3 |
-| `selection-box-mid-gesture` | **failed** | unclaimed-difference | 3 |
-| `selection-box-touch` | **failed** | unclaimed-difference | 3 |
-| `arrow-key-selected-node` | **failed** | self-inconsistent, unclaimed-difference | 8 |
-| `keyboard-focus-node` | **failed** | unclaimed-difference | 2 |
-| `connect-handle-to-handle` | **failed** | unclaimed-difference | 7 |
-| `connect-then-keyboard-move` | **failed** | unclaimed-difference | 3 |
-| `connect-second-touch-point` | **failed** | unclaimed-difference | 3 |
+| `drag-unmeasured-node` | **failed** | unclaimed-difference | 2 |
+| `selection-box-from-node` | **failed** | unclaimed-difference | 2 |
+| `selection-box-then-click-node` | **failed** | unclaimed-difference | 2 |
+| `selection-box-mid-gesture` | **failed** | unclaimed-difference | 2 |
+| `selection-box-touch` | **failed** | unclaimed-difference | 2 |
+| `arrow-key-selected-node` | **failed** | self-inconsistent, unclaimed-difference | 7 |
+| `keyboard-focus-node` | **failed** | unclaimed-difference | 1 |
+| `connect-handle-to-handle` | **failed** | unclaimed-difference | 4 |
+| `connect-then-keyboard-move` | **failed** | unclaimed-difference | 2 |
+| `connect-second-touch-point` | **failed** | unclaimed-difference | 2 |
 | `probe-node-connections` | **failed** | unclaimed-difference | 4 |
-| `viewport-helpers-with-options` | **failed** | unclaimed-difference | 3 |
-| `pan-gesture-complete` | **failed** | unclaimed-difference | 3 |
-| `fitview-onnodeschange-variants` | **failed** | unclaimed-difference | 3 |
-| `uncontrolled-update-node` | **failed** | unclaimed-difference | 3 |
-| `flow-props-change-after-mount` | **failed** | self-inconsistent, unclaimed-difference | 4 |
-| `mount-in-display-none` | **failed** | unclaimed-difference | 3 |
+| `viewport-helpers-with-options` | **failed** | unclaimed-difference | 2 |
+| `pan-gesture-complete` | **failed** | unclaimed-difference | 2 |
+| `fitview-onnodeschange-variants` | **failed** | unclaimed-difference | 2 |
+| `uncontrolled-update-node` | **failed** | unclaimed-difference | 2 |
+| `flow-props-change-after-mount` | **failed** | unclaimed-difference | 2 |
+| `mount-in-display-none` | **failed** | unclaimed-difference | 2 |
 | `minimap-all-nodes-hidden` | **failed** | unclaimed-difference | 1 |
-| `minimap-custom-mask-colors` | **failed** | unclaimed-difference | 3 |
-| `controls-horizontal` | **failed** | unclaimed-difference | 3 |
-| `panel-center-positions` | **failed** | unclaimed-difference | 3 |
-| `background-custom-bgcolor` | **failed** | unclaimed-difference | 3 |
-| `flow-custom-testid` | **failed** | unclaimed-difference | 3 |
-| `custom-edge-baseedge-path` | **failed** | unclaimed-difference | 3 |
+| `minimap-custom-mask-colors` | **failed** | unclaimed-difference | 2 |
+| `controls-horizontal` | **failed** | unclaimed-difference | 2 |
+| `panel-center-positions` | **failed** | unclaimed-difference | 2 |
+| `background-custom-bgcolor` | **failed** | unclaimed-difference | 2 |
+| `flow-custom-testid` | **failed** | unclaimed-difference | 2 |
+| `custom-edge-baseedge-path` | **failed** | unclaimed-difference | 2 |
 | `pinch-over-nowheel-node` | **failed** | unclaimed-difference | 2 |
 | `minimap-default-click` | **failed** | unclaimed-difference | 1 |
 | `controls-default-zoom` | **failed** | unclaimed-difference | 1 |
@@ -105,16 +105,16 @@ claimed by a region — never by loosening what the net looks at.
 | `click-connect-reverse-direction` | **failed** | unclaimed-difference | 1 |
 | `connect-drag-holding-source` | **failed** | unclaimed-difference | 1 |
 | `connect-drag-released-on-pane` | **failed** | unclaimed-difference | 2 |
-| `node-props-record-parented` | **failed** | unclaimed-difference | 4 |
-| `wheel-zooms-to-changed-limits` | **failed** | unclaimed-difference | 3 |
-| `drag-pans-into-changed-extent` | **failed** | unclaimed-difference | 2 |
-| `pan-after-controlled-viewport-change` | **failed** | self-inconsistent, unclaimed-difference | 4 |
-| `ctrl-wheel-pinches-with-panonscroll` | **failed** | unclaimed-difference | 2 |
-| `pane-click-keeps-selection-when-not-selectable` | **failed** | unclaimed-difference | 3 |
-| `click-selects-node--probe-flow-node` | **failed** | unclaimed-difference | 29 |
-| `wheel-zooms-the-pane--probe-flow-node` | **failed** | unclaimed-difference | 26 |
+| `node-props-record-parented` | **failed** | unclaimed-difference | 2 |
+| `wheel-zooms-to-changed-limits` | **failed** | unclaimed-difference | 2 |
+| `drag-pans-into-changed-extent` | **failed** | unclaimed-difference | 1 |
+| `pan-after-controlled-viewport-change` | **failed** | unclaimed-difference | 2 |
+| `ctrl-wheel-pinches-with-panonscroll` | **failed** | unclaimed-difference | 1 |
+| `pane-click-keeps-selection-when-not-selectable` | **failed** | unclaimed-difference | 2 |
+| `click-selects-node--probe-flow-node` | **failed** | unclaimed-difference | 27 |
+| `wheel-zooms-the-pane--probe-flow-node` | **failed** | unclaimed-difference | 24 |
 | `mount-baseline--edges-general--probe-edge` | passed | — | 0 |
-| `connect-source-handle-to-target-handle--probe-connection-line` | **failed** | unclaimed-difference | 4 |
+| `connect-source-handle-to-target-handle--probe-connection-line` | **failed** | unclaimed-difference | 2 |
 
 Every trace behind this report is on disk under `parity/system/traces` — four per scenario, two sides captured
 twice each. They are the artifact: re-diffing them costs seconds and no browser.
@@ -147,7 +147,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -157,11 +157,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1"] |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 
@@ -238,7 +237,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -248,11 +247,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1"] |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
 
@@ -284,7 +282,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -294,11 +292,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1"] |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 
@@ -330,15 +327,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 2 unclaimed difference(s).
+**Failed:** 1 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 
@@ -370,7 +366,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -380,11 +376,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1"] |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 
@@ -416,7 +411,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -426,11 +421,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1"] |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 
@@ -462,7 +456,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -472,11 +466,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1"] |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 
@@ -547,7 +540,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -557,11 +550,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1"] |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 
@@ -593,7 +585,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -603,11 +595,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1"] |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 
@@ -639,7 +630,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -649,11 +640,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1"] |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 
@@ -724,7 +714,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -734,11 +724,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1"] |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 
@@ -770,7 +759,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -780,11 +769,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1"] |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 
@@ -816,15 +804,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 2 unclaimed difference(s).
+**Failed:** 1 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 
@@ -856,7 +843,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -866,11 +853,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1"] |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","selected":true,"measured":{"width":150,"height":37}} | — |
 
 
@@ -902,7 +888,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -912,11 +898,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1"] |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 
@@ -948,15 +933,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 2 unclaimed difference(s).
+**Failed:** 1 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 
@@ -1078,7 +1062,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1088,11 +1072,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1"] |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 
@@ -1169,16 +1152,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 1 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### api (3)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source` | differs | null | [] |
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"props-parent","type":"propsRecord","data":{"label":"props-parent"},"position":{"x":100,"y":200},"width":300,"height":200,"measured":{"width":300,"height… | — |
 
 
@@ -1210,15 +1191,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 2 unclaimed difference(s).
+**Failed:** 1 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 
@@ -1250,7 +1230,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1260,11 +1240,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1"] |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","selected":true,"measured":{"width":150,"height":37}} | — |
 
 
@@ -1296,7 +1275,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1306,11 +1285,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onMoveStart#1","onMove#1","onMoveEnd#1","onNodesChange#1"] |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 
@@ -1342,7 +1320,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1352,11 +1330,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1"] |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 
@@ -1388,15 +1365,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 2 unclaimed difference(s).
+**Failed:** 1 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 
@@ -1459,7 +1435,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1469,11 +1445,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 ## Normalization
@@ -1511,7 +1486,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1521,11 +1496,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 ## Normalization
@@ -1563,7 +1537,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1573,11 +1547,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 ## Normalization
@@ -1615,7 +1588,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1625,11 +1598,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 ## Normalization
@@ -1667,7 +1639,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1677,11 +1649,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 ## Normalization
@@ -1719,7 +1690,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1729,11 +1700,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 ## Normalization
@@ -1771,7 +1741,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1781,11 +1751,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
 ## Normalization
@@ -1823,7 +1792,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1833,11 +1802,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onSelectionStart#1","onNodesChange#2","onEdgesChange#1"… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onSelectionStart#1","onNodesChange#2","onEdgesChange#1"… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
 ## Normalization
@@ -1875,7 +1843,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1885,11 +1853,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
 ## Normalization
@@ -1927,7 +1894,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1937,11 +1904,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":194.2073170731707,"y":194.2073170731707},"type":"input","className":"playwright-test-class-123","style… | — |
 
 ## Normalization
@@ -1979,7 +1945,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -1989,11 +1955,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
 ## Normalization
@@ -2031,7 +1996,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2041,11 +2006,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
 ## Normalization
@@ -2083,7 +2047,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2093,11 +2057,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-2","type":"output","data":{"label":"Node-2"},"position":{"x":-100,"y":100},"measured":{"width":150,"height":37}} | — |
 
 ## Normalization
@@ -2135,7 +2098,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2145,11 +2108,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
 ## Normalization
@@ -2187,25 +2149,22 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 7 unclaimed difference(s).
+**Failed:** 4 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### callbacks (5)
+### callbacks (3)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
-| `callbacks/21/args/1/fromNode/internals/handleBounds/target` | differs | null | [] |
 | `callbacks/21/args/1/fromNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
-| `callbacks/21/args/1/toNode/internals/handleBounds/source` | differs | null | [] |
 | `callbacks/21/args/1/toNode/internals/userNode` | left only | {"id":"Node-4","data":{"label":"Node-4"},"position":{"x":0,"y":200},"type":"output","measured":{"width":150,"height":37}} | — |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
 ## Normalization
@@ -2243,25 +2202,22 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 7 unclaimed difference(s).
+**Failed:** 4 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### callbacks (5)
+### callbacks (3)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
-| `callbacks/15/args/1/fromNode/internals/handleBounds/source` | differs | null | [] |
 | `callbacks/15/args/1/fromNode/internals/userNode` | left only | {"id":"Node-2","type":"output","data":{"label":"Node-2"},"position":{"x":-100,"y":100},"measured":{"width":150,"height":37}} | — |
-| `callbacks/15/args/1/toNode/internals/handleBounds/source` | differs | null | [] |
 | `callbacks/15/args/1/toNode/internals/userNode` | left only | {"id":"Node-4","data":{"label":"Node-4"},"position":{"x":0,"y":200},"type":"output","measured":{"width":150,"height":37}} | — |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
 ## Normalization
@@ -2299,24 +2255,22 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 6 unclaimed difference(s).
+**Failed:** 4 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### callbacks (4)
+### callbacks (3)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
-| `callbacks/19/args/1/fromNode/internals/handleBounds/target` | differs | null | [] |
 | `callbacks/19/args/1/fromNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 | `callbacks/19/args/1/toNode/internals/userNode` | left only | {"id":"Node-3","data":{"label":"Node-3"},"position":{"x":100,"y":100},"measured":{"width":150,"height":37}} | — |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
 ## Normalization
@@ -2354,25 +2308,22 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 7 unclaimed difference(s).
+**Failed:** 4 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### callbacks (5)
+### callbacks (3)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
-| `callbacks/17/args/1/fromNode/internals/handleBounds/target` | differs | null | [] |
 | `callbacks/17/args/1/fromNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
-| `callbacks/17/args/1/toNode/internals/handleBounds/source` | differs | null | [] |
 | `callbacks/17/args/1/toNode/internals/userNode` | left only | {"id":"notConnectable","type":"output","data":{"label":"notConnectable"},"position":{"x":0,"y":300},"connectable":false,"measured":{"width":150,"height":37}} | — |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
 ## Normalization
@@ -2410,7 +2361,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2420,11 +2371,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 ## Normalization
@@ -2462,7 +2412,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2472,11 +2422,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 ## Normalization
@@ -2514,7 +2463,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2524,11 +2473,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 ## Normalization
@@ -2566,7 +2514,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2576,11 +2524,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 ## Normalization
@@ -2618,15 +2565,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 2 unclaimed difference(s).
+**Failed:** 1 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 ## Normalization
@@ -2746,7 +2692,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2756,11 +2702,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":58.26219512195121,"y":38.84146341463414},"type":"input","className":"playwright-test-class-123","style… | — |
 
 ## Normalization
@@ -2798,7 +2743,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 20 unclaimed difference(s).
+**Failed:** 19 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -2825,11 +2770,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/22/args/1/className` | right only | — | playwright-test-class-123 |
 | `callbacks/22/args/1/style` | right only | — | {"backgroundColor":"red"} |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":174.78658536585363,"y":116.52439024390243},"type":"input","className":"playwright-test-class-123","sty… | — |
 
 ## Normalization
@@ -2857,124 +2801,108 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | side | captures | verdict | differences |
 |---|---|---|---|
 | upstream | 1, 2 | reproduced | 0 |
-| psflow | 1, 2 | **disagrees with itself** | 112 |
+| psflow | 1, 2 | **disagrees with itself** | 96 |
 
 ### psflow disagrees with itself
 
 | path | kind | capture 1 | capture 2 |
 |---|---|---|---|
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/attrs/style` | differs | transform: translate(2000px, 2000px) scale(1); | transform: translate(1720px, 1940px) scale(1); |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M-1995,-1973 C-1995,-938 -25,-938 -25,97 | M-1715,-1913 C-1715,-908 -25,-908 -25,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M-1995,-1973 C-1995,-938 -25,-938 -25,97 | M-1715,-1913 C-1715,-908 -25,-908 -25,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | -1995 | -1715 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | -1963 | -1903 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M-1995,-1973 C-1995,-938 175,-938 175,97 | M-1715,-1913 C-1715,-908 175,-908 175,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M-1995,-1973 C-1995,-938 175,-938 175,97 | M-1715,-1913 C-1715,-908 175,-908 175,97 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | -1995 | -1715 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | -1963 | -1903 |
-| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(-2070px, -2013px); visibility: visible; z-index: 1000; | pointer-events: all; transform: translate(-1790px, -1953px); visibility: visible; z-index: 1000; |
-| `callbacks/54` | left only | {"name":"onMoveStart","args":[null,{"x":1720,"y":1920,"zoom":1}]} | — |
-| `callbacks/55` | left only | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/56` | left only | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/57` | left only | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/60` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
-| `callbacks/61` | left only | {"name":"onMoveStart","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/62` | left only | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/63` | left only | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/64` | left only | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/67` | left only | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2070,"y":-2013},"data":{"label":"Node-1"},"type":"input",… | — |
-| `callbacks/68` | left only | {"name":"onMoveStart","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/69` | left only | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/70` | left only | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/71` | left only | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
-| `callbacks/72` | left only | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… | — |
-| `callbacks/73` | left only | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2070,"y":-2013},"dragging":false}]]} | — |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[0]/attrs/d` | differs | M-1995,-1973 C-1995,-938 -25,-938 -25,97 | M-2065,-2263 C-2065,-1083 -25,-1083 -25,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/path[1]/attrs/d` | differs | M-1995,-1973 C-1995,-938 -25,-938 -25,97 | M-2065,-2263 C-2065,-1083 -25,-1083 -25,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cx` | differs | -1995 | -2065 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[0]/children/1-2/children/circle[0]/attrs/cy` | differs | -1963 | -2253 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[0]/attrs/d` | differs | M-1995,-1973 C-1995,-938 175,-938 175,97 | M-2065,-2263 C-2065,-1083 175,-1083 175,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/path[1]/attrs/d` | differs | M-1995,-1973 C-1995,-938 175,-938 175,97 | M-2065,-2263 C-2065,-1083 175,-1083 175,97 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cx` | differs | -1995 | -2065 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | -1963 | -2253 |
+| `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(-2070px, -2013px); visibility: visible; z-index: 1000; | pointer-events: all; transform: translate(-2140px, -2303px); visibility: visible; z-index: 1000; |
+| `callbacks/64` | left only | {"name":"onMoveStart","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/65` | left only | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/66` | left only | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/67` | left only | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} | — |
+| `callbacks/68` | left only | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… | — |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
+| `callbacks/23/args/0/x` | differs | 680 | 690 |
+| `callbacks/24/args/1/x` | differs | 680 | 690 |
+| `callbacks/25/args/1/x` | differs | 680 | 690 |
+| `callbacks/26/args/0/0/position/x` | differs | -749 | -410 |
+| `callbacks/26/args/0/0/position/y` | differs | -692 | -572 |
+| `callbacks/27/args/1/position/x` | differs | -749 | -410 |
+| `callbacks/27/args/1/position/y` | differs | -692 | -572 |
+| `callbacks/27/args/2/0/position/x` | differs | -749 | -410 |
+| `callbacks/27/args/2/0/position/y` | differs | -692 | -572 |
 | `callbacks/28/args/1/position/x` | differs | -749 | -409 |
 | `callbacks/28/args/1/position/y` | differs | -692 | -352 |
-| `callbacks/30/args/0/x` | differs | 1020 | 1030 |
-| `callbacks/31/args/1/x` | differs | 1020 | 1030 |
-| `callbacks/32/args/1/x` | differs | 1020 | 1030 |
-| `callbacks/33/args/0/0/position/x` | differs | -1089 | -750 |
-| `callbacks/33/args/0/0/position/y` | differs | -1032 | -912 |
-| `callbacks/34/args/1/position/x` | differs | -1089 | -750 |
-| `callbacks/34/args/1/position/y` | differs | -1032 | -912 |
-| `callbacks/34/args/2/0/position/x` | differs | -1089 | -750 |
-| `callbacks/34/args/2/0/position/y` | differs | -1032 | -912 |
-| `callbacks/36/args/0/0/position/x` | differs | -1090 | -1100 |
-| `callbacks/37/args/1/position/x` | differs | -1090 | -1100 |
-| `callbacks/37/args/2/0/position/x` | differs | -1090 | -1100 |
-| `callbacks/38/args/1/x` | differs | 1020 | 1030 |
-| `callbacks/39/args/0/y` | differs | 1580 | 1590 |
-| `callbacks/40/args/1/y` | differs | 1580 | 1590 |
+| `callbacks/30/args/0/0/position/x` | differs | -750 | -760 |
+| `callbacks/31/args/1/position/x` | differs | -750 | -760 |
+| `callbacks/31/args/2/0/position/x` | differs | -750 | -760 |
+| `callbacks/32/args/1/x` | differs | 680 | 690 |
+| `callbacks/33/args/0/x` | differs | 1030 | 1040 |
+| `callbacks/34/args/1/x` | differs | 1030 | 1040 |
+| `callbacks/35/args/1/x` | differs | 1030 | 1040 |
+| `callbacks/36/args/0/0/position/x` | differs | -1100 | -1110 |
+| `callbacks/37/args/1/position/x` | differs | -1100 | -1110 |
+| `callbacks/37/args/2/0/position/x` | differs | -1100 | -1110 |
+| `callbacks/38/args/1/position/x` | differs | -1100 | -760 |
+| `callbacks/38/args/1/position/y` | differs | -1252 | -912 |
+| `callbacks/39/args/1/x` | differs | 1030 | 1040 |
+| `callbacks/40/args/0/y` | differs | 1580 | 1590 |
 | `callbacks/41/args/1/y` | differs | 1580 | 1590 |
-| `callbacks/42/args/0/0/position/x` | differs | -1440 | -1099 |
-| `callbacks/42/args/0/0/position/y` | differs | -1592 | -1253 |
-| `callbacks/43/args/1/position/x` | differs | -1440 | -1099 |
-| `callbacks/43/args/1/position/y` | differs | -1592 | -1253 |
-| `callbacks/43/args/2/0/position/x` | differs | -1440 | -1099 |
-| `callbacks/43/args/2/0/position/y` | differs | -1592 | -1253 |
-| `callbacks/44/args/0/screenX` | differs | 5 | 6 |
-| `callbacks/44/args/0/screenY` | differs | 6 | 5 |
-| `callbacks/44/args/0/clientX` | differs | 5 | 6 |
-| `callbacks/44/args/0/clientY` | differs | 6 | 5 |
-| `callbacks/44/args/0/pageX` | differs | 5 | 6 |
-| `callbacks/44/args/0/pageY` | differs | 6 | 5 |
-| `callbacks/44/args/1/position/x` | differs | -1440 | -1100 |
-| `callbacks/44/args/1/position/y` | differs | -1592 | -1252 |
-| `callbacks/45/args/1/y` | differs | 1580 | 1590 |
-| `callbacks/46/args/0/y` | differs | 1920 | 1940 |
-| `callbacks/47/args/1/y` | differs | 1920 | 1940 |
-| `callbacks/48/args/1/y` | differs | 1920 | 1940 |
-| `callbacks/49/args/0/0/position/x` | differs | -1790 | -1439 |
-| `callbacks/49/args/0/0/position/y` | differs | -1932 | -1603 |
-| `callbacks/50/args/1/position/x` | differs | -1790 | -1439 |
-| `callbacks/50/args/1/position/y` | differs | -1932 | -1603 |
-| `callbacks/50/args/2/0/position/x` | differs | -1790 | -1439 |
-| `callbacks/50/args/2/0/position/y` | differs | -1932 | -1603 |
-| `callbacks/52/args/0/0/position/x` | differs | -1789 | -1440 |
-| `callbacks/52/args/0/0/position/y` | differs | -1933 | -1603 |
-| `callbacks/53/args/1/position/x` | differs | -1789 | -1440 |
-| `callbacks/53/args/1/position/y` | differs | -1933 | -1603 |
-| `callbacks/53/args/2/0/position/x` | differs | -1789 | -1440 |
-| `callbacks/53/args/2/0/position/y` | differs | -1933 | -1603 |
+| `callbacks/42/args/1/y` | differs | 1580 | 1590 |
+| `callbacks/43/args/0/0/position/x` | differs | -1450 | -1109 |
+| `callbacks/43/args/0/0/position/y` | differs | -1592 | -1253 |
+| `callbacks/44/args/1/position/x` | differs | -1450 | -1109 |
+| `callbacks/44/args/1/position/y` | differs | -1592 | -1253 |
+| `callbacks/44/args/2/0/position/x` | differs | -1450 | -1109 |
+| `callbacks/44/args/2/0/position/y` | differs | -1592 | -1253 |
+| `callbacks/46/args/0/0/position/y` | differs | -1593 | -1603 |
+| `callbacks/47/args/1/position/y` | differs | -1593 | -1603 |
+| `callbacks/47/args/2/0/position/y` | differs | -1593 | -1603 |
+| `callbacks/48/args/1/y` | differs | 1580 | 1590 |
+| `callbacks/49/args/0/y` | differs | 1930 | 1940 |
+| `callbacks/50/args/1/y` | differs | 1930 | 1940 |
+| `callbacks/51/args/1/y` | differs | 1930 | 1940 |
+| `callbacks/52/args/0/0/position/y` | differs | -1943 | -1953 |
+| `callbacks/53/args/1/position/y` | differs | -1943 | -1953 |
+| `callbacks/53/args/2/0/position/y` | differs | -1943 | -1953 |
+| `callbacks/54/args/1/y` | differs | 1930 | 1940 |
 | `callbacks/58/args/0/0/position/x` | differs | -2129 | -1790 |
-| `callbacks/58/args/0/0/position/y` | differs | -2283 | -1953 |
+| `callbacks/58/args/0/0/position/y` | differs | -2293 | -1953 |
 | `callbacks/59/args/1/position/x` | differs | -2129 | -1790 |
-| `callbacks/59/args/1/position/y` | differs | -2283 | -1953 |
+| `callbacks/59/args/1/position/y` | differs | -2293 | -1953 |
 | `callbacks/59/args/2/0/position/x` | differs | -2129 | -1790 |
-| `callbacks/59/args/2/0/position/y` | differs | -2283 | -1953 |
-| `callbacks/66/args/0/0/position/x` | differs | -2070 | -1790 |
-| `callbacks/66/args/0/0/position/y` | differs | -2013 | -1953 |
-| `callbacks/66/args/0/0/dragging` | differs | true | false |
-| `callbacks/74/args/1/position/x` | differs | -2070 | -1790 |
-| `callbacks/74/args/1/position/y` | differs | -2013 | -1953 |
-| `callbacks/74/args/2/0/position/x` | differs | -2070 | -1790 |
-| `callbacks/74/args/2/0/position/y` | differs | -2013 | -1953 |
-| `api/queries/getNodes/0/position/x` | differs | -2070 | -1790 |
-| `api/queries/getNodes/0/position/y` | differs | -2013 | -1953 |
-| `api/queries/getNode/position/x` | differs | -2070 | -1790 |
-| `api/queries/getNode/position/y` | differs | -2013 | -1953 |
-| `api/queries/getInternalNode/position/x` | differs | -2070 | -1790 |
-| `api/queries/getInternalNode/position/y` | differs | -2013 | -1953 |
-| `api/queries/getInternalNode/internals/positionAbsolute/x` | differs | -2070 | -1790 |
-| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | -2013 | -1953 |
-| `api/queries/getIntersectingNodes/0/position/x` | differs | -2070 | -1790 |
-| `api/queries/getIntersectingNodes/0/position/y` | differs | -2013 | -1953 |
-| `api/queries/getNodesBounds/x` | differs | -2070 | -1790 |
-| `api/queries/getNodesBounds/y` | differs | -2013 | -1953 |
-| `api/queries/getNodesBounds/width` | differs | 2320 | 2040 |
-| `api/queries/getNodesBounds/height` | differs | 2150 | 2090 |
-| `api/queries/toObject/nodes/0/position/x` | differs | -2070 | -1790 |
-| `api/queries/toObject/nodes/0/position/y` | differs | -2013 | -1953 |
-| `api/queries/toObject/viewport/x` | differs | 2000 | 1720 |
-| `api/queries/toObject/viewport/y` | differs | 2000 | 1940 |
-| `api/queries/getViewport/x` | differs | 2000 | 1720 |
-| `api/queries/getViewport/y` | differs | 2000 | 1940 |
-| `api/queries/screenToFlowPosition/x` | differs | -2000 | -1720 |
-| `api/queries/screenToFlowPosition/y` | differs | -2000 | -1940 |
-| `api/queries/flowToScreenPosition/x` | differs | 2000 | 1720 |
-| `api/queries/flowToScreenPosition/y` | differs | 2000 | 1940 |
+| `callbacks/59/args/2/0/position/y` | differs | -2293 | -1953 |
+| `callbacks/60/args/0/buttons` | differs | 1 | 0 |
+| `callbacks/60/args/1/position/x` | differs | -2129 | -2140 |
+| `callbacks/60/args/1/position/y` | differs | -2293 | -2303 |
+| `callbacks/62/args/0/0/position/x` | differs | -2070 | -2140 |
+| `callbacks/62/args/0/0/position/y` | differs | -2013 | -2303 |
+| `callbacks/63/args/1/position/x` | differs | -2070 | -2140 |
+| `callbacks/63/args/1/position/y` | differs | -2013 | -2303 |
+| `callbacks/63/args/2/0/position/x` | differs | -2070 | -2140 |
+| `callbacks/63/args/2/0/position/y` | differs | -2013 | -2303 |
+| `callbacks/69/args/0/0/position/x` | differs | -2070 | -2140 |
+| `callbacks/69/args/0/0/position/y` | differs | -2013 | -2303 |
+| `callbacks/70/args/1/position/x` | differs | -2070 | -2140 |
+| `callbacks/70/args/1/position/y` | differs | -2013 | -2303 |
+| `callbacks/70/args/2/0/position/x` | differs | -2070 | -2140 |
+| `callbacks/70/args/2/0/position/y` | differs | -2013 | -2303 |
+| `api/queries/getNodes/0/position/x` | differs | -2070 | -2140 |
+| `api/queries/getNodes/0/position/y` | differs | -2013 | -2303 |
+| `api/queries/getNode/position/x` | differs | -2070 | -2140 |
+| `api/queries/getNode/position/y` | differs | -2013 | -2303 |
+| `api/queries/getInternalNode/position/x` | differs | -2070 | -2140 |
+| `api/queries/getInternalNode/position/y` | differs | -2013 | -2303 |
+| `api/queries/getInternalNode/internals/positionAbsolute/x` | differs | -2070 | -2140 |
+| `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | -2013 | -2303 |
+| `api/queries/getIntersectingNodes/0/position/x` | differs | -2070 | -2140 |
+| `api/queries/getIntersectingNodes/0/position/y` | differs | -2013 | -2303 |
+| `api/queries/getNodesBounds/x` | differs | -2070 | -2140 |
+| `api/queries/getNodesBounds/y` | differs | -2013 | -2303 |
+| `api/queries/getNodesBounds/width` | differs | 2320 | 2390 |
+| `api/queries/getNodesBounds/height` | differs | 2150 | 2440 |
+| `api/queries/toObject/nodes/0/position/x` | differs | -2070 | -2140 |
+| `api/queries/toObject/nodes/0/position/y` | differs | -2013 | -2303 |
 
 **psflow did not reproduce.** The comparison below ran anyway —
 capture-everything applies to a failed run as much as to a passing one — but a difference it reports
@@ -2988,7 +2916,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 137 unclaimed difference(s).
+**Failed:** 121 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3007,39 +2935,32 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[0]/children/svg[1]/children/1-3/children/circle[0]/attrs/cy` | differs | -1563 | -1963 |
 | `dom/root/children/div[0]/children/div[0]/children/div[0]/children/div[2]/children/Node-1/attrs/style` | differs | pointer-events: all; transform: translate(-1450px, -1613px); visibility: visible; z-index: 1000; | pointer-events: all; transform: translate(-2070px, -2013px); visibility: visible; z-index: 1000; |
 
-### callbacks (101)
+### callbacks (86)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks/41` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1370,"y":1580,"zoom":1}]} |
-| `callbacks/45` | right only | — | {"name":"onMoveStart","args":[null,{"x":1370,"y":1580,"zoom":1}]} |
-| `callbacks/46` | right only | — | {"name":"onViewportChange","args":[{"x":1720,"y":1920,"zoom":1}]} |
-| `callbacks/47` | right only | — | {"name":"onMove","args":[null,{"x":1720,"y":1920,"zoom":1}]} |
-| `callbacks/48` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1720,"y":1920,"zoom":1}]} |
-| `callbacks/54` | right only | — | {"name":"onMoveStart","args":[null,{"x":1720,"y":1920,"zoom":1}]} |
+| `callbacks/42` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1380,"y":1580,"zoom":1}]} |
+| `callbacks/48` | right only | — | {"name":"onMoveStart","args":[null,{"x":1380,"y":1580,"zoom":1}]} |
+| `callbacks/49` | right only | — | {"name":"onViewportChange","args":[{"x":1720,"y":1930,"zoom":1}]} |
+| `callbacks/50` | right only | — | {"name":"onMove","args":[null,{"x":1720,"y":1930,"zoom":1}]} |
+| `callbacks/51` | right only | — | {"name":"onMoveEnd","args":[null,{"x":1720,"y":1930,"zoom":1}]} |
+| `callbacks/54` | right only | — | {"name":"onMoveStart","args":[null,{"x":1720,"y":1930,"zoom":1}]} |
 | `callbacks/55` | right only | — | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} |
 | `callbacks/56` | right only | — | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
 | `callbacks/57` | right only | — | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/59` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2129,"y":-2283},"data":{"label":"Node-1"},"type":"input",… |
+| `callbacks/59` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2129,"y":-2293},"data":{"label":"Node-1"},"type":"input",… |
 | `callbacks/60` | right only | — | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… |
-| `callbacks/61` | right only | — | {"name":"onMoveStart","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/62` | right only | — | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/63` | right only | — | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/64` | right only | — | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/66` | right only | — | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2070,"y":-2013},"dragging":true}]]} |
-| `callbacks/67` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2070,"y":-2013},"data":{"label":"Node-1"},"type":"input",… |
-| `callbacks/68` | right only | — | {"name":"onMoveStart","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/69` | right only | — | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/70` | right only | — | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/71` | right only | — | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
-| `callbacks/72` | right only | — | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
-| `callbacks/73` | right only | — | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2070,"y":-2013},"dragging":false}]]} |
+| `callbacks/62` | right only | — | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2070,"y":-2013},"dragging":true}]]} |
+| `callbacks/63` | right only | — | {"name":"onNodeDrag","args":[{"@class":"MouseEvent","isTrusted":true},{"id":"Node-1","position":{"x":-2070,"y":-2013},"data":{"label":"Node-1"},"type":"input",… |
+| `callbacks/64` | right only | — | {"name":"onMoveStart","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/65` | right only | — | {"name":"onViewportChange","args":[{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/66` | right only | — | {"name":"onMove","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/67` | right only | — | {"name":"onMoveEnd","args":[null,{"x":2000,"y":2000,"zoom":1}]} |
+| `callbacks/68` | right only | — | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… |
+| `callbacks/69` | right only | — | {"name":"onNodesChange","args":[[{"type":"position","id":"Node-1","position":{"x":-2070,"y":-2013},"dragging":false}]]} |
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
 | `callbacks/20/args/1/x` | differs | 340 | 0 |
 | `callbacks/20/args/1/y` | differs | 560 | 220.00000000000003 |
-| `callbacks/21/args/0/screenX` | differs | 5 | 6 |
-| `callbacks/21/args/0/clientX` | differs | 5 | 6 |
-| `callbacks/21/args/0/pageX` | differs | 5 | 6 |
 | `callbacks/21/args/1/position/x` | differs | -409 | -749 |
 | `callbacks/21/args/1/position/y` | differs | -352 | -692 |
 | `callbacks/23/args/0/0/position/x` | differs | -410 | -749 |
@@ -3050,12 +2971,9 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/24/args/2/0/position/y` | differs | -572 | -692 |
 | `callbacks/26/args/0/x` | differs | 690 | 680 |
 | `callbacks/27/args/1/x` | differs | 690 | 680 |
-| `callbacks/28/args/0/0/position/x` | differs | -760 | -1089 |
-| `callbacks/28/args/0/0/position/y` | differs | -912 | -1032 |
-| `callbacks/29/args/1/position/x` | differs | -760 | -1089 |
-| `callbacks/29/args/1/position/y` | differs | -912 | -1032 |
-| `callbacks/29/args/2/0/position/x` | differs | -760 | -1089 |
-| `callbacks/29/args/2/0/position/y` | differs | -912 | -1032 |
+| `callbacks/28/args/0/0/position/x` | differs | -760 | -750 |
+| `callbacks/29/args/1/position/x` | differs | -760 | -750 |
+| `callbacks/29/args/2/0/position/x` | differs | -760 | -750 |
 | `callbacks/30/args/1/x` | differs | 690 | 340 |
 | `callbacks/30/args/1/y` | differs | 900 | 560 |
 | `callbacks/31/args/0/screenX` | differs | 6 | 5 |
@@ -3064,56 +2982,51 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks/31/args/0/clientY` | differs | 5 | 6 |
 | `callbacks/31/args/0/pageX` | differs | 6 | 5 |
 | `callbacks/31/args/0/pageY` | differs | 5 | 6 |
-| `callbacks/31/args/1/position/x` | differs | -760 | -1440 |
-| `callbacks/31/args/1/position/y` | differs | -912 | -1592 |
-| `callbacks/33/args/0/0/position/x` | differs | -759 | -1090 |
+| `callbacks/31/args/1/position/x` | differs | -760 | -1100 |
+| `callbacks/31/args/1/position/y` | differs | -912 | -1252 |
+| `callbacks/33/args/0/0/position/x` | differs | -759 | -1100 |
 | `callbacks/33/args/0/0/position/y` | differs | -913 | -1252 |
-| `callbacks/34/args/1/position/x` | differs | -759 | -1090 |
+| `callbacks/34/args/1/position/x` | differs | -759 | -1100 |
 | `callbacks/34/args/1/position/y` | differs | -913 | -1252 |
-| `callbacks/34/args/2/0/position/x` | differs | -759 | -1090 |
+| `callbacks/34/args/2/0/position/x` | differs | -759 | -1100 |
 | `callbacks/34/args/2/0/position/y` | differs | -913 | -1252 |
 | `callbacks/35/args/1/x` | differs | 690 | 680 |
-| `callbacks/36/args/0/x` | differs | 1030 | 1020 |
 | `callbacks/36/args/0/y` | differs | 1250 | 1240 |
-| `callbacks/37/args/1/x` | differs | 1030 | 1020 |
 | `callbacks/37/args/1/y` | differs | 1250 | 1240 |
-| `callbacks/38/args/0/0/position/x` | differs | -1099 | -1440 |
+| `callbacks/38/args/0/0/position/x` | differs | -1099 | -1450 |
 | `callbacks/38/args/0/0/position/y` | differs | -1263 | -1592 |
-| `callbacks/39/args/1/position/x` | differs | -1099 | -1440 |
+| `callbacks/39/args/1/position/x` | differs | -1099 | -1450 |
 | `callbacks/39/args/1/position/y` | differs | -1263 | -1592 |
-| `callbacks/39/args/2/0/position/x` | differs | -1099 | -1440 |
+| `callbacks/39/args/2/0/position/x` | differs | -1099 | -1450 |
 | `callbacks/39/args/2/0/position/y` | differs | -1263 | -1592 |
 | `callbacks/40/args/1/x` | differs | 1030 | 680 |
 | `callbacks/40/args/1/y` | differs | 1250 | 900 |
-| `callbacks/42/args/0/0/position/x` | differs | -1100 | -1790 |
-| `callbacks/42/args/0/0/position/y` | differs | -1263 | -1932 |
-| `callbacks/43/args/1/position/x` | differs | -1100 | -1790 |
-| `callbacks/43/args/1/position/y` | differs | -1263 | -1932 |
-| `callbacks/43/args/2/0/position/x` | differs | -1100 | -1790 |
-| `callbacks/43/args/2/0/position/y` | differs | -1263 | -1932 |
-| `callbacks/44/args/1/x` | differs | 1030 | 1020 |
+| `callbacks/42/args/0/0/position/x` | differs | -1100 | -1449 |
+| `callbacks/42/args/0/0/position/y` | differs | -1263 | -1593 |
+| `callbacks/43/args/1/position/x` | differs | -1100 | -1449 |
+| `callbacks/43/args/1/position/y` | differs | -1263 | -1593 |
+| `callbacks/43/args/2/0/position/x` | differs | -1100 | -1449 |
+| `callbacks/43/args/2/0/position/y` | differs | -1263 | -1593 |
 | `callbacks/44/args/1/y` | differs | 1250 | 1240 |
-| `callbacks/45/args/0/x` | differs | 1380 | 1370 |
 | `callbacks/45/args/0/y` | differs | 1600 | 1580 |
-| `callbacks/46/args/1/x` | differs | 1380 | 1370 |
 | `callbacks/46/args/1/y` | differs | 1600 | 1580 |
 | `callbacks/47/args/0/0/position/x` | differs | -1450 | -1789 |
-| `callbacks/47/args/0/0/position/y` | differs | -1613 | -1933 |
+| `callbacks/47/args/0/0/position/y` | differs | -1613 | -1943 |
 | `callbacks/48/args/1/position/x` | differs | -1450 | -1789 |
-| `callbacks/48/args/1/position/y` | differs | -1613 | -1933 |
+| `callbacks/48/args/1/position/y` | differs | -1613 | -1943 |
 | `callbacks/48/args/2/0/position/x` | differs | -1450 | -1789 |
-| `callbacks/48/args/2/0/position/y` | differs | -1613 | -1933 |
-| `callbacks/49/args/1/x` | differs | 1380 | 1020 |
+| `callbacks/48/args/2/0/position/y` | differs | -1613 | -1943 |
+| `callbacks/49/args/1/x` | differs | 1380 | 1030 |
 | `callbacks/49/args/1/y` | differs | 1600 | 1240 |
 | `callbacks/50/args/0/0/position/x` | differs | -1450 | -2129 |
-| `callbacks/50/args/0/0/position/y` | differs | -1613 | -2283 |
+| `callbacks/50/args/0/0/position/y` | differs | -1613 | -2293 |
 | `callbacks/50/args/0/0/dragging` | differs | false | true |
 | `callbacks/51/args/1/position/x` | differs | -1450 | -2070 |
 | `callbacks/51/args/1/position/y` | differs | -1613 | -2013 |
 | `callbacks/51/args/2/0/position/x` | differs | -1450 | -2070 |
 | `callbacks/51/args/2/0/position/y` | differs | -1613 | -2013 |
 
-### api (26)
+### api (25)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
@@ -3125,7 +3038,6 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `api/queries/getInternalNode/position/y` | differs | -1613 | -2013 |
 | `api/queries/getInternalNode/internals/positionAbsolute/x` | differs | -1450 | -2070 |
 | `api/queries/getInternalNode/internals/positionAbsolute/y` | differs | -1613 | -2013 |
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":-1450,"y":-1613},"type":"input","measured":{"width":150,"height":37},"selected":true,"dragging":false} | — |
 | `api/queries/getIntersectingNodes/0/position/x` | differs | -1450 | -2070 |
 | `api/queries/getIntersectingNodes/0/position/y` | differs | -1613 | -2013 |
@@ -3179,7 +3091,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3189,11 +3101,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":60,"y":40},"type":"input","measured":{"width":150,"height":37},"dragging":false} | — |
 
 ## Normalization
@@ -3282,7 +3193,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3292,11 +3203,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":50,"y":30},"type":"input","selected":true,"measured":{"width":150,"height":37},"dragging":false} | — |
 
 ## Normalization
@@ -3334,7 +3244,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3344,11 +3254,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onNodeMouseEnter#1","onNodeMouseMove#1","onSelectionSta… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onNodeMouseEnter#1","onNodeMouseMove#1","onSelectionSta… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
 ## Normalization
@@ -3386,7 +3295,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3396,11 +3305,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMov… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMov… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
 ## Normalization
@@ -3438,7 +3346,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3448,11 +3356,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onSelectionStart#1"] | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onSelectionStart#1"] |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 ## Normalization
@@ -3490,7 +3397,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3500,11 +3407,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onNodesChange#2","onNodeDragStart#1","onSelectionChange… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onNodesChange#2","onNodeDragStart#1","onSelectionChange… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
 ## Normalization
@@ -3539,7 +3445,7 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 | path | kind | capture 1 | capture 2 |
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
-| `callbacks/17/args/1/position/x` | differs | 10 | 0 |
+| `callbacks/17/args/1/position/x` | differs | 10 | 5 |
 
 ### psflow disagrees with itself
 
@@ -3560,7 +3466,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 4 unclaimed difference(s).
+**Failed:** 3 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3571,11 +3477,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 | `callbacks` | ordered differently | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… | ["onSelectionChange#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouseMove#1","onNodesChange#2","onNodeDragStart#1… |
 | `callbacks/17/args/1/position/x` | differs | 10 | 5 |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":10,"y":20},"type":"input","measured":{"width":150,"height":37},"selected":true,"dragging":false} | — |
 
 ## Normalization
@@ -3613,15 +3518,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 2 unclaimed difference(s).
+**Failed:** 1 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37},"selected":true} | — |
 
 
@@ -3653,25 +3557,22 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 7 unclaimed difference(s).
+**Failed:** 4 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### callbacks (5)
+### callbacks (3)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
-| `callbacks/21/args/1/fromNode/internals/handleBounds/target` | differs | null | [] |
 | `callbacks/21/args/1/fromNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
-| `callbacks/21/args/1/toNode/internals/handleBounds/source` | differs | null | [] |
 | `callbacks/21/args/1/toNode/internals/userNode` | left only | {"id":"Node-4","data":{"label":"Node-4"},"position":{"x":0,"y":200},"type":"output","measured":{"width":150,"height":37}} | — |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
 ## Normalization
@@ -3709,7 +3610,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3719,11 +3620,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
 ## Normalization
@@ -3761,7 +3661,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3771,11 +3671,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseMove#1","onConnectStart… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onPaneMouseMove#1","onConnectStart… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
 ## Normalization
@@ -3866,7 +3765,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3876,11 +3775,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onMoveStart#2","onViewportChange#2","onMove#2","onMoveE… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onMoveStart#2","onViewportChange#2","onMove#2","onMoveE… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 
@@ -3912,7 +3810,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3922,11 +3820,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 ## Normalization
@@ -3964,7 +3861,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3974,11 +3871,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onMoveStart#2","onViewportChange#2","onMove#2","onMoveE… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onMoveStart#2","onViewportChange#2","onMove#2","onMoveE… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":80,"y":60},"type":"input","measured":{"width":150,"height":37},"selected":true,"dragging":false} | — |
 
 ## Normalization
@@ -4016,7 +3912,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -4026,11 +3922,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onNodesChange#2","onNodesChange#3","onNodesChange#4","o… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onNodesChange#2","onNodesChange#3","onNodesChange#4","o… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"updated"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 
@@ -4038,7 +3933,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 # System parity run — flow-props-change-after-mount
 
-**Failed:** self-inconsistent, unclaimed-difference.
+**Failed:** unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -4051,18 +3946,8 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 
 | side | captures | verdict | differences |
 |---|---|---|---|
-| upstream | 1, 2 | **disagrees with itself** | 1 |
+| upstream | 1, 2 | reproduced | 0 |
 | psflow | 1, 2 | reproduced | 0 |
-
-### upstream disagrees with itself
-
-| path | kind | capture 1 | capture 2 |
-|---|---|---|---|
-| `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
-
-**upstream did not reproduce.** The comparison below ran anyway —
-capture-everything applies to a failed run as much as to a passing one — but a difference it reports
-cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -4072,7 +3957,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -4082,11 +3967,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37},"selected":true} | — |
 
 ## Normalization
@@ -4124,7 +4008,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -4134,11 +4018,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1"] |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 
@@ -4209,7 +4092,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -4219,11 +4102,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMo… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37},"selected":true} | — |
 
 ## Normalization
@@ -4261,7 +4143,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -4271,11 +4153,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onMoveStart#2","onViewportChange#2","onMove#2","onMoveE… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onMoveStart#2","onViewportChange#2","onMove#2","onMoveE… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 
@@ -4307,7 +4188,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -4317,11 +4198,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1"] | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1"] |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 
@@ -4353,7 +4233,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -4363,11 +4243,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 ## Normalization
@@ -4405,7 +4284,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -4415,11 +4294,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 ## Normalization
@@ -4457,7 +4335,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -4467,11 +4345,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onEdgeMouseEnter#1","onPaneMouseMo… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 ## Normalization
@@ -5107,7 +4984,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 4 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -5117,12 +4994,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouse… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onPaneMouseEnter#1","onNodeMouseEnter#1","onPaneMouseMove#1","onNodeMouse… |
 
-### api (3)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/source` | differs | null | [] |
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"props-parent","type":"propsRecord","data":{"label":"props-parent"},"position":{"x":100,"y":200},"width":300,"height":200,"measured":{"width":300,"height… | — |
 
 ## Normalization
@@ -5160,7 +5035,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -5170,11 +5045,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 ## Normalization
@@ -5212,15 +5086,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 2 unclaimed difference(s).
+**Failed:** 1 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 ## Normalization
@@ -5234,7 +5107,7 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 # System parity run — pan-after-controlled-viewport-change
 
-**Failed:** self-inconsistent, unclaimed-difference.
+**Failed:** unclaimed-difference.
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -5247,18 +5120,8 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 
 | side | captures | verdict | differences |
 |---|---|---|---|
-| upstream | 1, 2 | **disagrees with itself** | 1 |
+| upstream | 1, 2 | reproduced | 0 |
 | psflow | 1, 2 | reproduced | 0 |
-
-### upstream disagrees with itself
-
-| path | kind | capture 1 | capture 2 |
-|---|---|---|---|
-| `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onMove#1","onMoveEnd#1","onNodesChange#1","onMoveStart#2","onMove#2","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveEn… | ["onSelectionChange#1","onMoveStart#1","onMove#1","onNodesChange#1","onMoveEnd#1","onMoveStart#2","onMove#2","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveEn… |
-
-**upstream did not reproduce.** The comparison below ran anyway —
-capture-everything applies to a failed run as much as to a passing one — but a difference it reports
-cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
 
 ---
 
@@ -5268,7 +5131,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -5276,13 +5139,12 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onMove#1","onMoveEnd#1","onNodesChange#1","onMoveStart#2","onMove#2","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveEn… | ["onSelectionChange#1","onMoveStart#1","onMove#1","onMoveEnd#1","onNodesChange#1","onMoveStart#2","onMove#2","onMoveEnd#2","onPaneMouseEnter#1","onPaneMouseMov… |
+| `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onMove#1","onNodesChange#1","onMoveEnd#1","onMoveStart#2","onMove#2","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveEn… | ["onSelectionChange#1","onMoveStart#1","onMove#1","onMoveEnd#1","onNodesChange#1","onMoveStart#2","onMove#2","onMoveEnd#2","onPaneMouseEnter#1","onPaneMouseMov… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 ## Normalization
@@ -5320,15 +5182,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 2 unclaimed difference(s).
+**Failed:** 1 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 ## Normalization
@@ -5366,7 +5227,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 3 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -5376,11 +5237,10 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 |---|---|---|---|
 | `callbacks` | ordered differently | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onNodesChange#1","onMoveEnd#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… | ["onSelectionChange#1","onMoveStart#1","onViewportChange#1","onMove#1","onMoveEnd#1","onNodesChange#1","onPaneMouseEnter#1","onPaneMouseMove#1","onMoveStart#2"… |
 
-### api (2)
+### api (1)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","selected":true,"measured":{"width":150,"height":37}} | — |
 
 ## Normalization
@@ -5418,7 +5278,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 29 unclaimed difference(s).
+**Failed:** 27 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -5429,12 +5289,11 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `callbacks/1` | right only | — | {"name":"useOnSelectionChange","args":[{"nodes":[{"id":"Node-1","position":{"x":0,"y":0},"data":{"label":"Node-1"},"type":"input","measured":{"width":150,"heig… |
 | `callbacks/0/args/0/nodes/0` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
-### hooks (12)
+### hooks (11)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `hooks/flow-probe/useConnection/inProgress` | left only | false | — |
-| `hooks/flow-probe/useInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `hooks/flow-probe/useInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 | `hooks/flow-probe/useStore/nodes` | left only | [{"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"me… | — |
 | `hooks/flow-probe/useStore/edges` | left only | [{"id":"1-2","type":"default","source":"Node-1","target":"Node-2","label":"edge"},{"id":"1-3","type":"default","source":"Node-1","target":"Node-3","label":"edg… | — |
@@ -5446,12 +5305,11 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `hooks/flow-probe/useStoreApi/subscribe` | left only | {"@ref":"function"} | — |
 | `hooks/flow-probe/useStoreApi/error` | right only | — | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
 
-### api (3)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getState` | left only | {"rfId":"1","width":1280,"height":720,"transform":[517.8398510242085,32,1.2216014897579144],"nodes":[{"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0… | — |
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
 ### props (2)
@@ -5473,8 +5331,8 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `console/3/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
 | `console/4/level` | differs | warning | pageerror |
 | `console/4/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:63530/parity/driver/dist/psflow.js:67377:… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:63530/parity/driver/dist/psflow.js:67377:… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:64297/parity/driver/dist/psflow.js:67342:… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:64297/parity/driver/dist/psflow.js:67342:… |
 
 
 ---
@@ -5505,16 +5363,15 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 26 unclaimed difference(s).
+**Failed:** 24 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### hooks (12)
+### hooks (11)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `hooks/flow-probe/useConnection/inProgress` | left only | false | — |
-| `hooks/flow-probe/useInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `hooks/flow-probe/useInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 | `hooks/flow-probe/useStore/nodes` | left only | [{"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}},{"id":"2","data":{"label":"2"},"position":{"x":-1… | — |
 | `hooks/flow-probe/useStore/edges` | left only | [{"id":"first-edge","source":"1","target":"2"},{"id":"second-edge","source":"1","target":"3"}] | — |
@@ -5526,12 +5383,11 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `hooks/flow-probe/useStoreApi/subscribe` | left only | {"@ref":"function"} | — |
 | `hooks/flow-probe/useStoreApi/error` | right only | — | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
 
-### api (3)
+### api (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
 | `api/queries/getState` | left only | {"rfId":"1","width":1280,"height":720,"transform":[552.9449436703876,121.469145656862,3.4822022531844965],"nodes":[{"id":"1","data":{"label":"1"},"position":{"… | — |
-| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
 | `api/queries/getInternalNode/internals/userNode` | left only | {"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}} | — |
 
 ### props (2)
@@ -5552,8 +5408,8 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `console/3/level` | differs | warning | pageerror |
 | `console/3/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
 | `console/4` | right only | — | {"level":"pageerror","text":"ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScri… |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:63530/parity/driver/dist/psflow.js:67377:… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:63530/parity/driver/dist/psflow.js:67377:… |
+| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:64297/parity/driver/dist/psflow.js:67342:… |
+| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:64297/parity/driver/dist/psflow.js:67342:… |
 
 
 ---
@@ -5615,16 +5471,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `props`, `console`.
 
-**Failed:** 4 unclaimed difference(s).
+**Failed:** 2 unclaimed difference(s).
 
 ## Unclaimed differences
 
-### props (4)
+### props (2)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `props/connection-line-props/fromNode/internals/handleBounds/target` | differs | null | [] |
 | `props/connection-line-props/fromNode/internals/userNode` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
-| `props/connection-line-props/toNode/internals/handleBounds/source` | differs | null | [] |
 | `props/connection-line-props/toNode/internals/userNode` | left only | {"id":"Node-4","data":{"label":"Node-4"},"position":{"x":0,"y":200},"type":"output","measured":{"width":150,"height":37}} | — |
 

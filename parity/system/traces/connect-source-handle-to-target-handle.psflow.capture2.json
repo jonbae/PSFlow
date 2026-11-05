@@ -831,7 +831,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 144.10000000009313,
+            "timeStamp": 180.59999999962747,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -900,7 +900,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 144.10000000009313,
+            "timeStamp": 180.59999999962747,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -976,7 +976,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 144.10000000009313,
+            "timeStamp": 180.59999999962747,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1041,7 +1041,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 144.10000000009313,
+            "timeStamp": 180.59999999962747,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1117,7 +1117,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 153.10000000009313,
+            "timeStamp": 189,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1195,7 +1195,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 153.10000000009313,
+            "timeStamp": 189,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1259,7 +1259,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 153.10000000009313,
+            "timeStamp": 189,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1324,7 +1324,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 153.10000000009313,
+            "timeStamp": 189,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1402,7 +1402,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 172,
+            "timeStamp": 207.29999999981374,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1468,7 +1468,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 172,
+            "timeStamp": 207.29999999981374,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1540,7 +1540,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 172,
+            "timeStamp": 207.29999999981374,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1605,7 +1605,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 172,
+            "timeStamp": 207.29999999981374,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1737,7 +1737,7 @@
                       "height": 8
                     }
                   ],
-                  "target": []
+                  "target": null
                 }
               }
             },
@@ -1777,7 +1777,7 @@
                 },
                 "z": 0,
                 "handleBounds": {
-                  "source": [],
+                  "source": null,
                   "target": [
                     {
                       "id": null,
@@ -2013,7 +2013,7 @@
                   "height": 8
                 }
               ],
-              "target": []
+              "target": null
             }
           }
         },
