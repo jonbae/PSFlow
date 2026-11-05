@@ -24880,10 +24880,10 @@ var map = function(dict) {
   return dict.map;
 };
 var mapFlipped = function(dictFunctor) {
-  var map120 = map(dictFunctor);
+  var map121 = map(dictFunctor);
   return function(fa) {
     return function(f) {
-      return map120(f)(fa);
+      return map121(f)(fa);
     };
   };
 };
@@ -29302,10 +29302,10 @@ var mapExceptT = function(f) {
   };
 };
 var functorExceptT = function(dictFunctor) {
-  var map120 = map(dictFunctor);
+  var map121 = map(dictFunctor);
   return {
     map: function(f) {
-      return mapExceptT(map120(map5(f)));
+      return mapExceptT(map121(map5(f)));
     }
   };
 };
@@ -43993,6 +43993,16 @@ var import_react5 = __toESM(require_react(), 1);
 var svg_2 = (props) => (children3) => (0, import_react5.createElement)("svg", props, ...children3);
 
 // output/Data.String.Common/foreign.js
+var replace = function(s1) {
+  return function(s2) {
+    return function(s3) {
+      return s3.replace(s1, s2);
+    };
+  };
+};
+var toLower = function(s) {
+  return s.toLowerCase();
+};
 var trim = function(s) {
   return s.trim();
 };
@@ -54607,15 +54617,122 @@ var useNodeObserver = function(v) {
   }));
 };
 
+// output/React.Node.Util/foreign.js
+var toInt32 = (n) => ~~n;
+
 // output/React.Node.Util/index.js
+var map52 = /* @__PURE__ */ map(functorMaybe);
 var lookup23 = /* @__PURE__ */ lookup2(ordNodeId);
 var unwrap17 = /* @__PURE__ */ unwrap();
 var eqMaybe16 = /* @__PURE__ */ eqMaybe(eqBoolean);
 var notEq10 = /* @__PURE__ */ notEq(eqMaybe16);
 var eq37 = /* @__PURE__ */ eq(eqMaybe16);
 var $$void10 = /* @__PURE__ */ $$void(functorEffect);
-var map52 = /* @__PURE__ */ map(functorEffect);
+var map117 = /* @__PURE__ */ map(functorEffect);
 var for_20 = /* @__PURE__ */ for_(applicativeEffect)(foldableMaybe);
+var moveNodesByArrowKey = function(args) {
+  return function __do3() {
+    var state3 = args.store.getState();
+    var at = fromMaybe(args.positionAbsolute)(map52(function(v) {
+      return v.internals.positionAbsolute;
+    })(lookup23(args.id)(state3.nodeLookup)));
+    var message2 = state3.ariaLabelConfig.nodeA11yDescriptionAriaLiveMessage({
+      direction: toLower(replace("Arrow")("")(args.key)),
+      x: toInt32(at.x),
+      y: toInt32(at.y)
+    });
+    args.store.dispatch(new PatchState(function(v) {
+      return {
+        rfId: v.rfId,
+        width: v.width,
+        height: v.height,
+        transform: v.transform,
+        nodes: v.nodes,
+        nodesInitialized: v.nodesInitialized,
+        nodeLookup: v.nodeLookup,
+        parentLookup: v.parentLookup,
+        edges: v.edges,
+        edgeLookup: v.edgeLookup,
+        connectionLookup: v.connectionLookup,
+        onNodesChange: v.onNodesChange,
+        onEdgesChange: v.onEdgesChange,
+        hasDefaultNodes: v.hasDefaultNodes,
+        hasDefaultEdges: v.hasDefaultEdges,
+        domNode: v.domNode,
+        paneDragging: v.paneDragging,
+        noPanClassName: v.noPanClassName,
+        panZoom: v.panZoom,
+        minZoom: v.minZoom,
+        maxZoom: v.maxZoom,
+        translateExtent: v.translateExtent,
+        nodeExtent: v.nodeExtent,
+        nodeOrigin: v.nodeOrigin,
+        nodeDragThreshold: v.nodeDragThreshold,
+        connectionDragThreshold: v.connectionDragThreshold,
+        nodesSelectionActive: v.nodesSelectionActive,
+        userSelectionActive: v.userSelectionActive,
+        userSelectionRect: v.userSelectionRect,
+        connection: v.connection,
+        connectionMode: v.connectionMode,
+        connectionClickStartHandle: v.connectionClickStartHandle,
+        snapToGrid: v.snapToGrid,
+        snapGrid: v.snapGrid,
+        nodesDraggable: v.nodesDraggable,
+        autoPanOnNodeFocus: v.autoPanOnNodeFocus,
+        nodesConnectable: v.nodesConnectable,
+        nodesFocusable: v.nodesFocusable,
+        edgesFocusable: v.edgesFocusable,
+        edgesReconnectable: v.edgesReconnectable,
+        elementsSelectable: v.elementsSelectable,
+        elevateNodesOnSelect: v.elevateNodesOnSelect,
+        elevateEdgesOnSelect: v.elevateEdgesOnSelect,
+        selectNodesOnDrag: v.selectNodesOnDrag,
+        multiSelectionActive: v.multiSelectionActive,
+        onNodeDragStart: v.onNodeDragStart,
+        onNodeDrag: v.onNodeDrag,
+        onNodeDragStop: v.onNodeDragStop,
+        onSelectionDragStart: v.onSelectionDragStart,
+        onSelectionDrag: v.onSelectionDrag,
+        onSelectionDragStop: v.onSelectionDragStop,
+        onMoveStart: v.onMoveStart,
+        onMove: v.onMove,
+        onMoveEnd: v.onMoveEnd,
+        onConnect: v.onConnect,
+        onConnectStart: v.onConnectStart,
+        onConnectEnd: v.onConnectEnd,
+        onClickConnectStart: v.onClickConnectStart,
+        onClickConnectEnd: v.onClickConnectEnd,
+        connectOnClick: v.connectOnClick,
+        defaultEdgeOptions: v.defaultEdgeOptions,
+        fitViewQueued: v.fitViewQueued,
+        fitViewOptions: v.fitViewOptions,
+        fitViewResolver: v.fitViewResolver,
+        onNodesDelete: v.onNodesDelete,
+        onEdgesDelete: v.onEdgesDelete,
+        onDelete: v.onDelete,
+        onError: v.onError,
+        onViewportChangeStart: v.onViewportChangeStart,
+        onViewportChange: v.onViewportChange,
+        onViewportChangeEnd: v.onViewportChangeEnd,
+        onBeforeDelete: v.onBeforeDelete,
+        onSelectionChangeHandlers: v.onSelectionChangeHandlers,
+        autoPanOnConnect: v.autoPanOnConnect,
+        autoPanOnNodeDrag: v.autoPanOnNodeDrag,
+        autoPanSpeed: v.autoPanSpeed,
+        connectionRadius: v.connectionRadius,
+        isValidConnection: v.isValidConnection,
+        lib: v.lib,
+        debug: v.debug,
+        ariaLabelConfig: v.ariaLabelConfig,
+        zIndexMode: v.zIndexMode,
+        onNodesChangeMiddlewareMap: v.onNodesChangeMiddlewareMap,
+        onEdgesChangeMiddlewareMap: v.onEdgesChangeMiddlewareMap,
+        ariaLiveMessage: message2
+      };
+    }))();
+    return args.moveSelectedNodes(args.direction)(args.factor)();
+  };
+};
 var handleNodeClick = function(args) {
   return function __do3() {
     var state3 = args.store.getState();
@@ -54629,7 +54746,7 @@ var handleNodeClick = function(args) {
         return unit;
       }
       ;
-      throw new Error("Failed pattern match at React.Node.Util (line 85, column 16 - line 87, column 27): " + [state3.onError.constructor.name]);
+      throw new Error("Failed pattern match at React.Node.Util (line 92, column 16 - line 94, column 27): " + [state3.onError.constructor.name]);
     }
     ;
     if (v instanceof Just) {
@@ -54722,21 +54839,21 @@ var handleNodeClick = function(args) {
           nodesSelectionActive: false
         };
       }))();
-      var $21 = notEq10(v.value0.selected)(new Just(true));
-      if ($21) {
+      var $24 = notEq10(v.value0.selected)(new Just(true));
+      if ($24) {
         return args.store.dispatch(new AddSelectedNodes([args.id]))();
       }
       ;
-      var $22 = args.unselect || eq37(v.value0.selected)(new Just(true)) && state3.multiSelectionActive;
-      if ($22) {
+      var $25 = args.unselect || eq37(v.value0.selected)(new Just(true)) && state3.multiSelectionActive;
+      if ($25) {
         args.store.dispatch(new UnselectNodesAndEdges({
           nodes: new Just([v.value0]),
           edges: new Just([])
         }))();
         return $$void10(requestAnimationFrame(function __do4() {
-          var mDiv = map52(toMaybe)(readRef(args.nodeRef))();
-          return for_20(mDiv)(function($24) {
-            return blur(toHTMLElement($24));
+          var mDiv = map117(toMaybe)(readRef(args.nodeRef))();
+          return for_20(mDiv)(function($27) {
+            return blur(toHTMLElement($27));
           })();
         }))();
       }
@@ -54744,7 +54861,7 @@ var handleNodeClick = function(args) {
       return unit;
     }
     ;
-    throw new Error("Failed pattern match at React.Node.Util (line 84, column 3 - line 105, column 18): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at React.Node.Util (line 91, column 3 - line 112, column 18): " + [v.constructor.name]);
   };
 };
 
@@ -54835,7 +54952,7 @@ var selectNodeSlice = function(nodeId) {
           return false;
         }
         ;
-        throw new Error("Failed pattern match at React.Component.NodeWrapper (line 130, column 15 - line 132, column 23): " + [v.constructor.name]);
+        throw new Error("Failed pattern match at React.Component.NodeWrapper (line 127, column 15 - line 129, column 23): " + [v.constructor.name]);
       }()
     };
   };
@@ -54849,7 +54966,7 @@ var nodeTypesAsObject = function(v) {
     return v.value0;
   }
   ;
-  throw new Error("Failed pattern match at React.Component.NodeWrapper (line 177, column 21 - line 179, column 27): " + [v.constructor.name]);
+  throw new Error("Failed pattern match at React.Component.NodeWrapper (line 174, column 21 - line 176, column 27): " + [v.constructor.name]);
 };
 var resolveNodeComponent = function(mTypes) {
   return function(mOnError) {
@@ -54892,14 +55009,14 @@ var resolveNodeComponent = function(mTypes) {
               };
             }
             ;
-            throw new Error("Failed pattern match at React.Component.NodeWrapper (line 194, column 9 - line 198, column 69): " + [v2.constructor.name]);
+            throw new Error("Failed pattern match at React.Component.NodeWrapper (line 191, column 9 - line 195, column 69): " + [v2.constructor.name]);
           };
         }
         ;
-        throw new Error("Failed pattern match at React.Component.NodeWrapper (line 190, column 16 - line 198, column 69): " + [v1.constructor.name]);
+        throw new Error("Failed pattern match at React.Component.NodeWrapper (line 187, column 16 - line 195, column 69): " + [v1.constructor.name]);
       }
       ;
-      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 188, column 3 - line 198, column 69): " + [v.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 185, column 3 - line 195, column 69): " + [v.constructor.name]);
     };
   };
 };
@@ -55027,7 +55144,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
         return v.elementsSelectable;
       }
       ;
-      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 323, column 24 - line 325, column 46): " + [slice3.node.selectable.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 320, column 24 - line 322, column 46): " + [slice3.node.selectable.constructor.name]);
     }();
     var isDraggable = function() {
       if (slice3.node.draggable instanceof Just) {
@@ -55038,7 +55155,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
         return v.nodesDraggable;
       }
       ;
-      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 320, column 23 - line 322, column 42): " + [slice3.node.draggable.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 317, column 23 - line 319, column 42): " + [slice3.node.draggable.constructor.name]);
     }();
     var isConnectable = function() {
       if (slice3.node.connectable instanceof Just) {
@@ -55049,7 +55166,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
         return v.nodesConnectable;
       }
       ;
-      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 326, column 25 - line 328, column 44): " + [slice3.node.connectable.constructor.name]);
+      throw new Error("Failed pattern match at React.Component.NodeWrapper (line 323, column 25 - line 325, column 44): " + [slice3.node.connectable.constructor.name]);
     }();
     var hasDims = nodeHasDimensions(slice3.node);
     return bind118(useStoreApi)(function(store) {
@@ -55101,13 +55218,21 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                   if (v1 instanceof Just && (isDraggable && eq38(slice3.node.selected)(new Just(true)))) {
                     return function __do4() {
                       preventDefault(toEvent2(ke))();
-                      return moveSelectedNodes2(v1.value0)(function() {
-                        if (shift) {
-                          return 4;
-                        }
-                        ;
-                        return 1;
-                      }())();
+                      return moveNodesByArrowKey({
+                        id: v.id,
+                        store,
+                        key: k,
+                        direction: v1.value0,
+                        factor: function() {
+                          if (shift) {
+                            return 4;
+                          }
+                          ;
+                          return 1;
+                        }(),
+                        positionAbsolute: slice3.node.internals.positionAbsolute,
+                        moveSelectedNodes: moveSelectedNodes2
+                      })();
                     };
                   }
                   ;
@@ -55130,7 +55255,7 @@ var nodeWrapper = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @_
                   return pure61(unit);
                 }
                 ;
-                throw new Error("Failed pattern match at React.Component.NodeWrapper (line 396, column 35 - line 398, column 31): " + [mCb.constructor.name]);
+                throw new Error("Failed pattern match at React.Component.NodeWrapper (line 393, column 35 - line 395, column 31): " + [mCb.constructor.name]);
               };
             };
             var onClickHandler = handler(syntheticEvent)(function(se) {
@@ -64834,7 +64959,7 @@ var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
 
 // output/Boundary.Flow/index.js
 var map62 = /* @__PURE__ */ map(functorArray);
-var map117 = /* @__PURE__ */ map(functorMaybe);
+var map118 = /* @__PURE__ */ map(functorMaybe);
 var bind54 = /* @__PURE__ */ bind(bindMaybe);
 var restOf3 = /* @__PURE__ */ restOf()(/* @__PURE__ */ rowLabelsCons({
   reflectSymbol: function() {
@@ -65487,7 +65612,7 @@ var convertEdgeOptions = function(o) {
     selectable: fromUndefinable(o.selectable),
     focusable: fromUndefinable(o.focusable),
     data: fromUndefinable(o.data),
-    zIndex: map117(round2)(fromUndefinable(o.zIndex)),
+    zIndex: map118(round2)(fromUndefinable(o.zIndex)),
     ariaLabel: edgeAriaLabelIn(o.ariaLabel),
     interactionWidth: fromUndefinable(o.interactionWidth),
     reconnectable: bind54(fromUndefinable(o.reconnectable))(reconnectableIn)
@@ -65515,87 +65640,87 @@ var convertProps = function(p) {
   return function(forwarded) {
     return {
       children: p.children,
-      nodes: map117(map62(nodeIn))(fromUndefinable(p.nodes)),
-      edges: map117(map62(edgeIn))(fromUndefinable(p.edges)),
-      defaultNodes: map117(map62(nodeIn))(fromUndefinable(p.defaultNodes)),
-      defaultEdges: map117(map62(edgeIn))(fromUndefinable(p.defaultEdges)),
-      defaultEdgeOptions: map117(defaultEdgeOptionsIn)(fromUndefinable(p.defaultEdgeOptions)),
-      onNodeClick: map117(nodeMouseHandlerIn)(fromUndefinable(p.onNodeClick)),
-      onNodeDoubleClick: map117(nodeMouseHandlerIn)(fromUndefinable(p.onNodeDoubleClick)),
-      onNodeMouseEnter: map117(nodeMouseHandlerIn)(fromUndefinable(p.onNodeMouseEnter)),
-      onNodeMouseMove: map117(nodeMouseHandlerIn)(fromUndefinable(p.onNodeMouseMove)),
-      onNodeMouseLeave: map117(nodeMouseHandlerIn)(fromUndefinable(p.onNodeMouseLeave)),
-      onNodeContextMenu: map117(nodeMouseHandlerIn)(fromUndefinable(p.onNodeContextMenu)),
-      onNodeDragStart: map117(onNodeDragIn)(fromUndefinable(p.onNodeDragStart)),
-      onNodeDrag: map117(onNodeDragIn)(fromUndefinable(p.onNodeDrag)),
-      onNodeDragStop: map117(onNodeDragIn)(fromUndefinable(p.onNodeDragStop)),
-      onEdgeClick: map117(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeClick)),
-      onEdgeContextMenu: map117(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeContextMenu)),
-      onEdgeMouseEnter: map117(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeMouseEnter)),
-      onEdgeMouseMove: map117(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeMouseMove)),
-      onEdgeMouseLeave: map117(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeMouseLeave)),
-      onEdgeDoubleClick: map117(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeDoubleClick)),
-      onReconnect: map117(onReconnectIn)(fromUndefinable(p.onReconnect)),
-      onReconnectStart: map117(onReconnectStartIn)(fromUndefinable(p.onReconnectStart)),
-      onReconnectEnd: map117(onReconnectEndIn)(fromUndefinable(p.onReconnectEnd)),
-      onNodesChange: map117(onNodesChangeIn)(fromUndefinable(p.onNodesChange)),
-      onEdgesChange: map117(onEdgesChangeIn)(fromUndefinable(p.onEdgesChange)),
-      onNodesDelete: map117(onNodesDeleteIn)(fromUndefinable(p.onNodesDelete)),
-      onEdgesDelete: map117(onEdgesDeleteIn)(fromUndefinable(p.onEdgesDelete)),
-      onDelete: map117(onDeleteIn)(fromUndefinable(p.onDelete)),
-      onSelectionDragStart: map117(selectionDragHandlerIn)(fromUndefinable(p.onSelectionDragStart)),
-      onSelectionDrag: map117(selectionDragHandlerIn)(fromUndefinable(p.onSelectionDrag)),
-      onSelectionDragStop: map117(selectionDragHandlerIn)(fromUndefinable(p.onSelectionDragStop)),
-      onSelectionStart: map117(mouseEventHandlerIn)(fromUndefinable(p.onSelectionStart)),
-      onSelectionEnd: map117(mouseEventHandlerIn)(fromUndefinable(p.onSelectionEnd)),
-      onSelectionContextMenu: map117(selectionDragHandlerIn)(fromUndefinable(p.onSelectionContextMenu)),
-      onSelectionChange: map117(onSelectionChangeIn)(fromUndefinable(p.onSelectionChange)),
-      onConnect: map117(onConnectIn)(fromUndefinable(p.onConnect)),
-      onConnectStart: map117(onConnectStartIn)(fromUndefinable(p.onConnectStart)),
-      onConnectEnd: map117(onConnectEndIn)(fromUndefinable(p.onConnectEnd)),
-      onClickConnectStart: map117(onConnectStartIn)(fromUndefinable(p.onClickConnectStart)),
-      onClickConnectEnd: map117(onConnectEndIn)(fromUndefinable(p.onClickConnectEnd)),
-      onInit: map117(onInitIn)(fromUndefinable(p.onInit)),
-      onMove: map117(onMoveIn)(fromUndefinable(p.onMove)),
-      onMoveStart: map117(onMoveIn)(fromUndefinable(p.onMoveStart)),
-      onMoveEnd: map117(onMoveIn)(fromUndefinable(p.onMoveEnd)),
+      nodes: map118(map62(nodeIn))(fromUndefinable(p.nodes)),
+      edges: map118(map62(edgeIn))(fromUndefinable(p.edges)),
+      defaultNodes: map118(map62(nodeIn))(fromUndefinable(p.defaultNodes)),
+      defaultEdges: map118(map62(edgeIn))(fromUndefinable(p.defaultEdges)),
+      defaultEdgeOptions: map118(defaultEdgeOptionsIn)(fromUndefinable(p.defaultEdgeOptions)),
+      onNodeClick: map118(nodeMouseHandlerIn)(fromUndefinable(p.onNodeClick)),
+      onNodeDoubleClick: map118(nodeMouseHandlerIn)(fromUndefinable(p.onNodeDoubleClick)),
+      onNodeMouseEnter: map118(nodeMouseHandlerIn)(fromUndefinable(p.onNodeMouseEnter)),
+      onNodeMouseMove: map118(nodeMouseHandlerIn)(fromUndefinable(p.onNodeMouseMove)),
+      onNodeMouseLeave: map118(nodeMouseHandlerIn)(fromUndefinable(p.onNodeMouseLeave)),
+      onNodeContextMenu: map118(nodeMouseHandlerIn)(fromUndefinable(p.onNodeContextMenu)),
+      onNodeDragStart: map118(onNodeDragIn)(fromUndefinable(p.onNodeDragStart)),
+      onNodeDrag: map118(onNodeDragIn)(fromUndefinable(p.onNodeDrag)),
+      onNodeDragStop: map118(onNodeDragIn)(fromUndefinable(p.onNodeDragStop)),
+      onEdgeClick: map118(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeClick)),
+      onEdgeContextMenu: map118(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeContextMenu)),
+      onEdgeMouseEnter: map118(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeMouseEnter)),
+      onEdgeMouseMove: map118(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeMouseMove)),
+      onEdgeMouseLeave: map118(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeMouseLeave)),
+      onEdgeDoubleClick: map118(edgeMouseHandlerIn)(fromUndefinable(p.onEdgeDoubleClick)),
+      onReconnect: map118(onReconnectIn)(fromUndefinable(p.onReconnect)),
+      onReconnectStart: map118(onReconnectStartIn)(fromUndefinable(p.onReconnectStart)),
+      onReconnectEnd: map118(onReconnectEndIn)(fromUndefinable(p.onReconnectEnd)),
+      onNodesChange: map118(onNodesChangeIn)(fromUndefinable(p.onNodesChange)),
+      onEdgesChange: map118(onEdgesChangeIn)(fromUndefinable(p.onEdgesChange)),
+      onNodesDelete: map118(onNodesDeleteIn)(fromUndefinable(p.onNodesDelete)),
+      onEdgesDelete: map118(onEdgesDeleteIn)(fromUndefinable(p.onEdgesDelete)),
+      onDelete: map118(onDeleteIn)(fromUndefinable(p.onDelete)),
+      onSelectionDragStart: map118(selectionDragHandlerIn)(fromUndefinable(p.onSelectionDragStart)),
+      onSelectionDrag: map118(selectionDragHandlerIn)(fromUndefinable(p.onSelectionDrag)),
+      onSelectionDragStop: map118(selectionDragHandlerIn)(fromUndefinable(p.onSelectionDragStop)),
+      onSelectionStart: map118(mouseEventHandlerIn)(fromUndefinable(p.onSelectionStart)),
+      onSelectionEnd: map118(mouseEventHandlerIn)(fromUndefinable(p.onSelectionEnd)),
+      onSelectionContextMenu: map118(selectionDragHandlerIn)(fromUndefinable(p.onSelectionContextMenu)),
+      onSelectionChange: map118(onSelectionChangeIn)(fromUndefinable(p.onSelectionChange)),
+      onConnect: map118(onConnectIn)(fromUndefinable(p.onConnect)),
+      onConnectStart: map118(onConnectStartIn)(fromUndefinable(p.onConnectStart)),
+      onConnectEnd: map118(onConnectEndIn)(fromUndefinable(p.onConnectEnd)),
+      onClickConnectStart: map118(onConnectStartIn)(fromUndefinable(p.onClickConnectStart)),
+      onClickConnectEnd: map118(onConnectEndIn)(fromUndefinable(p.onClickConnectEnd)),
+      onInit: map118(onInitIn)(fromUndefinable(p.onInit)),
+      onMove: map118(onMoveIn)(fromUndefinable(p.onMove)),
+      onMoveStart: map118(onMoveIn)(fromUndefinable(p.onMoveStart)),
+      onMoveEnd: map118(onMoveIn)(fromUndefinable(p.onMoveEnd)),
       className: fromUndefinable(p.className),
-      style: map117(asCssStyle)(fromUndefinable(p.style)),
-      onScroll: map117(onScrollIn)(fromUndefinable(p.onScroll)),
-      onPaneScroll: map117(onPaneScrollIn)(fromUndefinable(p.onPaneScroll)),
-      onPaneClick: map117(mouseEventHandlerIn)(fromUndefinable(p.onPaneClick)),
-      onPaneContextMenu: map117(mouseEventHandlerIn)(fromUndefinable(p.onPaneContextMenu)),
-      onPaneMouseEnter: map117(mouseEventHandlerIn)(fromUndefinable(p.onPaneMouseEnter)),
-      onPaneMouseMove: map117(mouseEventHandlerIn)(fromUndefinable(p.onPaneMouseMove)),
-      onPaneMouseLeave: map117(mouseEventHandlerIn)(fromUndefinable(p.onPaneMouseLeave)),
+      style: map118(asCssStyle)(fromUndefinable(p.style)),
+      onScroll: map118(onScrollIn)(fromUndefinable(p.onScroll)),
+      onPaneScroll: map118(onPaneScrollIn)(fromUndefinable(p.onPaneScroll)),
+      onPaneClick: map118(mouseEventHandlerIn)(fromUndefinable(p.onPaneClick)),
+      onPaneContextMenu: map118(mouseEventHandlerIn)(fromUndefinable(p.onPaneContextMenu)),
+      onPaneMouseEnter: map118(mouseEventHandlerIn)(fromUndefinable(p.onPaneMouseEnter)),
+      onPaneMouseMove: map118(mouseEventHandlerIn)(fromUndefinable(p.onPaneMouseMove)),
+      onPaneMouseLeave: map118(mouseEventHandlerIn)(fromUndefinable(p.onPaneMouseLeave)),
       paneClickDistance: fromUndefinable(p.paneClickDistance),
       nodeClickDistance: fromUndefinable(p.nodeClickDistance),
-      onBeforeDelete: map117(onBeforeDeleteIn)(fromUndefinable(p.onBeforeDelete)),
-      isValidConnection: map117(isValidConnectionIn)(fromUndefinable(p.isValidConnection)),
-      onError: map117(onErrorIn)(fromUndefinable(p.onError)),
-      nodeTypes: map117(nodeTypesIn)(fromUndefinable(p.nodeTypes)),
-      edgeTypes: map117(edgeTypesIn)(fromUndefinable(p.edgeTypes)),
-      connectionLineType: map117(connectionLineTypeIn("connectionLineType"))(fromUndefinable(p.connectionLineType)),
-      connectionLineStyle: map117(asCssStyle)(fromUndefinable(p.connectionLineStyle)),
-      connectionLineComponent: map117(connectionLineComponentIn)(fromUndefinable(p.connectionLineComponent)),
-      connectionLineContainerStyle: map117(asCssStyle)(fromUndefinable(p.connectionLineContainerStyle)),
-      connectionMode: map117(connectionModeIn("connectionMode"))(fromUndefinable(p.connectionMode)),
+      onBeforeDelete: map118(onBeforeDeleteIn)(fromUndefinable(p.onBeforeDelete)),
+      isValidConnection: map118(isValidConnectionIn)(fromUndefinable(p.isValidConnection)),
+      onError: map118(onErrorIn)(fromUndefinable(p.onError)),
+      nodeTypes: map118(nodeTypesIn)(fromUndefinable(p.nodeTypes)),
+      edgeTypes: map118(edgeTypesIn)(fromUndefinable(p.edgeTypes)),
+      connectionLineType: map118(connectionLineTypeIn("connectionLineType"))(fromUndefinable(p.connectionLineType)),
+      connectionLineStyle: map118(asCssStyle)(fromUndefinable(p.connectionLineStyle)),
+      connectionLineComponent: map118(connectionLineComponentIn)(fromUndefinable(p.connectionLineComponent)),
+      connectionLineContainerStyle: map118(asCssStyle)(fromUndefinable(p.connectionLineContainerStyle)),
+      connectionMode: map118(connectionModeIn("connectionMode"))(fromUndefinable(p.connectionMode)),
       deleteKeyCode: keyCodeIn("deleteKeyCode")(p.deleteKeyCode),
       selectionKeyCode: keyCodeIn("selectionKeyCode")(p.selectionKeyCode),
       selectionOnDrag: fromUndefinable(p.selectionOnDrag),
-      selectionMode: map117(selectionModeIn("selectionMode"))(fromUndefinable(p.selectionMode)),
+      selectionMode: map118(selectionModeIn("selectionMode"))(fromUndefinable(p.selectionMode)),
       panActivationKeyCode: keyCodeIn("panActivationKeyCode")(p.panActivationKeyCode),
       multiSelectionKeyCode: keyCodeIn("multiSelectionKeyCode")(p.multiSelectionKeyCode),
       zoomActivationKeyCode: keyCodeIn("zoomActivationKeyCode")(p.zoomActivationKeyCode),
       snapToGrid: fromUndefinable(p.snapToGrid),
-      snapGrid: map117(snapGridIn("snapGrid"))(fromUndefinable(p.snapGrid)),
+      snapGrid: map118(snapGridIn("snapGrid"))(fromUndefinable(p.snapGrid)),
       onlyRenderVisibleElements: fromUndefinable(p.onlyRenderVisibleElements),
       nodesDraggable: fromUndefinable(p.nodesDraggable),
       nodesConnectable: fromUndefinable(p.nodesConnectable),
       nodesFocusable: fromUndefinable(p.nodesFocusable),
       nodeDragThreshold: fromUndefinable(p.nodeDragThreshold),
-      nodeOrigin: map117(nodeOriginIn("nodeOrigin"))(fromUndefinable(p.nodeOrigin)),
-      nodeExtent: map117(coordinateExtentIn("nodeExtent"))(fromUndefinable(p.nodeExtent)),
+      nodeOrigin: map118(nodeOriginIn("nodeOrigin"))(fromUndefinable(p.nodeOrigin)),
+      nodeExtent: map118(coordinateExtentIn("nodeExtent"))(fromUndefinable(p.nodeExtent)),
       autoPanOnNodeFocus: fromUndefinable(p.autoPanOnNodeFocus),
       autoPanOnNodeDrag: fromUndefinable(p.autoPanOnNodeDrag),
       noDragClassName: fromUndefinable(p.noDragClassName),
@@ -65607,39 +65732,39 @@ var convertProps = function(p) {
       selectNodesOnDrag: fromUndefinable(p.selectNodesOnDrag),
       elevateNodesOnSelect: fromUndefinable(p.elevateNodesOnSelect),
       elevateEdgesOnSelect: fromUndefinable(p.elevateEdgesOnSelect),
-      panOnDrag: map117(panOnDragIn)(fromUndefinable(p.panOnDrag)),
+      panOnDrag: map118(panOnDragIn)(fromUndefinable(p.panOnDrag)),
       minZoom: fromUndefinable(p.minZoom),
       maxZoom: fromUndefinable(p.maxZoom),
-      translateExtent: map117(coordinateExtentIn("translateExtent"))(fromUndefinable(p.translateExtent)),
+      translateExtent: map118(coordinateExtentIn("translateExtent"))(fromUndefinable(p.translateExtent)),
       zoomOnScroll: fromUndefinable(p.zoomOnScroll),
       zoomOnPinch: fromUndefinable(p.zoomOnPinch),
       zoomOnDoubleClick: fromUndefinable(p.zoomOnDoubleClick),
       panOnScroll: fromUndefinable(p.panOnScroll),
       panOnScrollSpeed: fromUndefinable(p.panOnScrollSpeed),
-      panOnScrollMode: map117(panOnScrollModeIn("panOnScrollMode"))(fromUndefinable(p.panOnScrollMode)),
+      panOnScrollMode: map118(panOnScrollModeIn("panOnScrollMode"))(fromUndefinable(p.panOnScrollMode)),
       preventScrolling: fromUndefinable(p.preventScrolling),
-      viewport: map117(viewportIn)(fromUndefinable(p.viewport)),
-      defaultViewport: map117(viewportIn)(fromUndefinable(p.defaultViewport)),
-      onViewportChange: map117(onViewportChangeIn)(fromUndefinable(p.onViewportChange)),
+      viewport: map118(viewportIn)(fromUndefinable(p.viewport)),
+      defaultViewport: map118(viewportIn)(fromUndefinable(p.defaultViewport)),
+      onViewportChange: map118(onViewportChangeIn)(fromUndefinable(p.onViewportChange)),
       fitView: fromUndefinable(p.fitView),
-      fitViewOptions: map117(fitViewOptionsIn)(fromUndefinable(p.fitViewOptions)),
+      fitViewOptions: map118(fitViewOptionsIn)(fromUndefinable(p.fitViewOptions)),
       defaultMarkerColor: fromUndefinable(p.defaultMarkerColor),
       width: fromUndefinable(p.width),
       height: fromUndefinable(p.height),
-      colorMode: map117(colorModeIn("colorMode"))(fromUndefinable(p.colorMode)),
-      attributionPosition: map117(panelPositionIn("attributionPosition"))(fromUndefinable(p.attributionPosition)),
-      proOptions: map117(proOptionsIn)(fromUndefinable(p.proOptions)),
+      colorMode: map118(colorModeIn("colorMode"))(fromUndefinable(p.colorMode)),
+      attributionPosition: map118(panelPositionIn("attributionPosition"))(fromUndefinable(p.attributionPosition)),
+      proOptions: map118(proOptionsIn)(fromUndefinable(p.proOptions)),
       noWheelClassName: fromUndefinable(p.noWheelClassName),
       noPanClassName: fromUndefinable(p.noPanClassName),
       disableKeyboardA11y: fromUndefinable(p.disableKeyboardA11y),
-      ariaLabelConfig: map117(ariaLabelConfigIn)(fromUndefinable(p.ariaLabelConfig)),
+      ariaLabelConfig: map118(ariaLabelConfigIn)(fromUndefinable(p.ariaLabelConfig)),
       autoPanOnConnect: fromUndefinable(p.autoPanOnConnect),
       autoPanSpeed: fromUndefinable(p.autoPanSpeed),
       autoPanOnSelection: fromUndefinable(p.autoPanOnSelection),
       connectOnClick: fromUndefinable(p.connectOnClick),
       connectionRadius: fromUndefinable(p.connectionRadius),
       debug: fromUndefinable(p.debug),
-      zIndexMode: map117(zIndexModeIn("zIndexMode"))(fromUndefinable(p.zIndexMode)),
+      zIndexMode: map118(zIndexModeIn("zIndexMode"))(fromUndefinable(p.zIndexMode)),
       innerRef: orNullable(p.ref)(forwarded),
       wrapperAttributes: restOf3(p)
     };
@@ -66078,7 +66203,7 @@ var useUpdateNodeInternals = /* @__PURE__ */ coerceHook()(/* @__PURE__ */ bind12
 var map65 = /* @__PURE__ */ map(functorEffect);
 var unwrap20 = /* @__PURE__ */ unwrap();
 var useConnectionWith2 = /* @__PURE__ */ useConnectionWith(eqUnsafeReference);
-var map118 = /* @__PURE__ */ map(functorArray);
+var map119 = /* @__PURE__ */ map(functorArray);
 var map210 = /* @__PURE__ */ map(functorMaybe);
 var useInternalNode1 = /* @__PURE__ */ useInternalNode(eqUnsafeReference);
 var wrap7 = /* @__PURE__ */ wrap();
@@ -66141,7 +66266,7 @@ var useConnection = /* @__PURE__ */ function() {
   };
 }();
 var useEdges2 = /* @__PURE__ */ map65(/* @__PURE__ */ function() {
-  var $39 = map118(edgeOut);
+  var $39 = map119(edgeOut);
   return function($40) {
     return $39(transparent($40));
   };
@@ -66163,7 +66288,7 @@ var useKeyPress2 = function(keyCode, options2) {
 };
 var useNodeId2 = /* @__PURE__ */ map65(toNullable)(/* @__PURE__ */ runHook(useNodeId));
 var useNodes2 = /* @__PURE__ */ map65(/* @__PURE__ */ function() {
-  var $43 = map118(nodeOut);
+  var $43 = map119(nodeOut);
   return function($44) {
     return $43(transparent($44));
   };
@@ -66199,16 +66324,16 @@ var readNodeId = function(field) {
 var useUpdateNodeInternals2 = function __do2() {
   var update3 = runHook(useUpdateNodeInternals)();
   return function(ids) {
-    return update3(map118(readNodeId("useUpdateNodeInternals"))(oneOrMany(ids)))();
+    return update3(map119(readNodeId("useUpdateNodeInternals"))(oneOrMany(ids)))();
   };
 };
 var nodesTripleOut = function(bundle) {
-  return mkTriple(map118(nodeOut)(bundle.nodes), setStateOut("setNodes")(nodeIn)(nodeOut)(bundle.setNodes), function(changes) {
-    return bundle.onNodesChange(map118(nodeChangeIn)(changes))();
+  return mkTriple(map119(nodeOut)(bundle.nodes), setStateOut("setNodes")(nodeIn)(nodeOut)(bundle.setNodes), function(changes) {
+    return bundle.onNodesChange(map119(nodeChangeIn)(changes))();
   });
 };
 var useNodesState2 = function(initialNodes2) {
-  return map65(nodesTripleOut)(runHook(useNodesState(map118(nodeIn)(initialNodes2))))();
+  return map65(nodesTripleOut)(runHook(useNodesState(map119(nodeIn)(initialNodes2))))();
 };
 var nodeDataOut = function(n) {
   return {
@@ -66227,13 +66352,13 @@ var useNodesData2 = /* @__PURE__ */ function() {
   };
   return function(ids) {
     var requested = oneOrMany(ids);
-    var found = map65(transparent)(runHook(useNodesData1(map118(function() {
+    var found = map65(transparent)(runHook(useNodesData1(map119(function() {
       var $45 = readNodeId("useNodesData");
       return function($46) {
         return wrap7($45($46));
       };
     }())(requested))))();
-    var picks = map118(nodeDataOut)(found);
+    var picks = map119(nodeDataOut)(found);
     var $36 = isJust(asArray(ids));
     if ($36) {
       return unsafeToForeign(picks);
@@ -66245,7 +66370,7 @@ var useNodesData2 = /* @__PURE__ */ function() {
 var nodeConnectionsHandler = function(f) {
   return function(connections) {
     return function() {
-      return f(map118(handleConnectionOut)(connections));
+      return f(map119(handleConnectionOut)(connections));
     };
   };
 };
@@ -66257,7 +66382,7 @@ var member9 = function(bag) {
   };
 };
 var useNodeConnections2 = function(params) {
-  return map65(map118(handleConnectionOut))(runHook(useNodeConnections({
+  return map65(map119(handleConnectionOut))(runHook(useNodeConnections({
     nodeId: member9(params)(function(v) {
       return v.id;
     }),
@@ -66284,35 +66409,35 @@ var useNodesInitialized2 = function(options2) {
 };
 var experimental_useOnNodesChangeMiddleware = function(middleware) {
   return runHook(useOnNodesChangeMiddleware(function(changes) {
-    return map118(nodeChangeIn)(unsafePerformEffect(function() {
-      return middleware(map118(nodeChangeOut)(changes));
+    return map119(nodeChangeIn)(unsafePerformEffect(function() {
+      return middleware(map119(nodeChangeOut)(changes));
     }));
   }))();
 };
 var experimental_useOnEdgesChangeMiddleware = function(middleware) {
   return runHook(useOnEdgesChangeMiddleware(function(changes) {
-    return map118(edgeChangeIn)(unsafePerformEffect(function() {
-      return middleware(map118(edgeChangeOut)(changes));
+    return map119(edgeChangeIn)(unsafePerformEffect(function() {
+      return middleware(map119(edgeChangeOut)(changes));
     }));
   }))();
 };
 var edgesTripleOut = function(bundle) {
-  return mkTriple(map118(edgeOut)(bundle.edges), setStateOut("setEdges")(edgeIn)(edgeOut)(bundle.setEdges), function(changes) {
-    return bundle.onEdgesChange(map118(edgeChangeIn)(changes))();
+  return mkTriple(map119(edgeOut)(bundle.edges), setStateOut("setEdges")(edgeIn)(edgeOut)(bundle.setEdges), function(changes) {
+    return bundle.onEdgesChange(map119(edgeChangeIn)(changes))();
   });
 };
 var useEdgesState2 = function(initialEdges2) {
-  return map65(edgesTripleOut)(runHook(useEdgesState(map118(edgeIn)(initialEdges2))))();
+  return map65(edgesTripleOut)(runHook(useEdgesState(map119(edgeIn)(initialEdges2))))();
 };
 var connectionsHandler = function(f) {
   return function(connections) {
     return function() {
-      return f(map118(connectionOut)(connections));
+      return f(map119(connectionOut)(connections));
     };
   };
 };
 var useHandleConnections2 = function(params) {
-  return map65(map118(handleConnectionOut))(runHook(useHandleConnections({
+  return map65(map119(handleConnectionOut))(runHook(useHandleConnections({
     handleType: handleTypeIn("useHandleConnections.type")(params.type),
     id: fromUndefinable(params.id),
     nodeId: fromUndefinable(params.nodeId),
@@ -66521,7 +66646,7 @@ var nodeToolbar = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompo
 
 // output/Boundary.NodeChrome/index.js
 var map67 = /* @__PURE__ */ map(functorArray);
-var map119 = /* @__PURE__ */ map(functorMaybe);
+var map120 = /* @__PURE__ */ map(functorMaybe);
 var pure82 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
 var nodeIdIn = function(raw) {
   var readId = function(entry) {
@@ -66558,12 +66683,12 @@ var nodeIdIn = function(raw) {
 };
 var convertNodeToolbar = function(p) {
   return {
-    nodeId: map119(nodeIdIn)(fromUndefinable(p.nodeId)),
+    nodeId: map120(nodeIdIn)(fromUndefinable(p.nodeId)),
     isVisible: fromUndefinable(p.isVisible),
-    position: map119(positionIn("NodeToolbar.position"))(fromUndefinable(p.position)),
+    position: map120(positionIn("NodeToolbar.position"))(fromUndefinable(p.position)),
     offset: fromUndefinable(p.offset),
-    align: map119(alignIn("NodeToolbar.align"))(fromUndefinable(p.align)),
-    style: map119(asCssObject)(fromUndefinable(p.style)),
+    align: map120(alignIn("NodeToolbar.align"))(fromUndefinable(p.align)),
+    style: map120(asCssObject)(fromUndefinable(p.style)),
     className: fromUndefinable(p.className),
     children: p.children
   };
@@ -66580,10 +66705,10 @@ var convertHandle = function(p) {
       isConnectable: fromUndefinable(p.isConnectable),
       isConnectableStart: fromUndefinable(p.isConnectableStart),
       isConnectableEnd: fromUndefinable(p.isConnectableEnd),
-      onConnect: map119(onConnectIn)(fromUndefinable(p.onConnect)),
-      isValidConnection: map119(isValidConnectionIn)(fromUndefinable(p.isValidConnection)),
+      onConnect: map120(onConnectIn)(fromUndefinable(p.onConnect)),
+      isValidConnection: map120(isValidConnectionIn)(fromUndefinable(p.isValidConnection)),
       className: fromUndefinable(p.className),
-      style: map119(asCssStyle)(fromUndefinable(p.style)),
+      style: map120(asCssStyle)(fromUndefinable(p.style)),
       innerRef: orNullable(p.ref)(forwarded)
     };
   };

@@ -449,6 +449,7 @@
               "aria-atomic": "true",
               "style": "position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(100%);"
             },
+            "text": "Moved selected node right. New position, x: 5, y: 20",
             "children": []
           }
         ]
@@ -526,7 +527,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 143.5,
+            "timeStamp": 178.6999999997206,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -595,7 +596,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 143.5,
+            "timeStamp": 178.6999999997206,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -667,7 +668,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 143.5,
+            "timeStamp": 178.6999999997206,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -732,7 +733,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 143.5,
+            "timeStamp": 178.6999999997206,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -928,7 +929,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 160.79999995231628,
+            "timeStamp": 194.60000000009313,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1065,7 +1066,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 201.60000002384186,
+            "timeStamp": 237.5,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

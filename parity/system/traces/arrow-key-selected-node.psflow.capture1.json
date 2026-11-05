@@ -449,6 +449,7 @@
               "aria-atomic": "true",
               "style": "position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(100%);"
             },
+            "text": "Moved selected node right. New position, x: 5, y: 20",
             "children": []
           }
         ]
@@ -526,7 +527,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 261.2000000476837,
+            "timeStamp": 311.60000000009313,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -595,7 +596,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 261.2000000476837,
+            "timeStamp": 311.60000000009313,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -667,7 +668,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 261.2000000476837,
+            "timeStamp": 311.60000000009313,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -732,7 +733,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 261.2000000476837,
+            "timeStamp": 311.60000000009313,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -928,7 +929,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 284.3000000715256,
+            "timeStamp": 335.20000000018626,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1043,6 +1044,22 @@
         ]
       },
       {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "type": "position",
+              "id": "Node-1",
+              "position": {
+                "x": 5,
+                "y": 20
+              },
+              "dragging": false
+            }
+          ]
+        ]
+      },
+      {
         "name": "onNodeMouseLeave",
         "args": [
           {
@@ -1065,7 +1082,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 337,
+            "timeStamp": 405.89999999990687,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1102,7 +1119,7 @@
           {
             "id": "Node-1",
             "position": {
-              "x": 0,
+              "x": 5,
               "y": 20
             },
             "data": {
@@ -1116,22 +1133,6 @@
               "height": 37
             }
           }
-        ]
-      },
-      {
-        "name": "onNodesChange",
-        "args": [
-          [
-            {
-              "type": "position",
-              "id": "Node-1",
-              "position": {
-                "x": 5,
-                "y": 20
-              },
-              "dragging": false
-            }
-          ]
         ]
       },
       {
