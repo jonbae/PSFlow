@@ -1,0 +1,102 @@
+{
+  "sourceFiles": 171,
+  "packages": {
+    "system": 44,
+    "react": 127
+  },
+  "javascriptFiles": [],
+  "sourceFilesOmitted": [],
+  "tasks": 120,
+  "dependencyEdges": 460,
+  "cycles": [
+    {
+      "tasks": [
+        "task-122-0",
+        "task-121-0",
+        "task-119-0"
+      ],
+      "sourceFiles": [
+        "packages/system/src/types/general.ts",
+        "packages/system/src/types/nodes.ts",
+        "packages/system/src/types/panzoom.ts"
+      ]
+    },
+    {
+      "tasks": [
+        "task-111-0",
+        "task-110-0",
+        "task-109-0",
+        "task-108-0"
+      ],
+      "sourceFiles": [
+        "packages/react/src/types/edges.ts",
+        "packages/react/src/types/general.ts",
+        "packages/react/src/types/instance.ts",
+        "packages/react/src/types/nodes.ts"
+      ]
+    },
+    {
+      "tasks": [
+        "task-146-0",
+        "task-145-0"
+      ],
+      "sourceFiles": [
+        "packages/system/src/xypanzoom/XYPanZoom.ts",
+        "packages/system/src/xypanzoom/eventhandler.ts"
+      ]
+    },
+    {
+      "tasks": [
+        "task-70-0",
+        "task-59-0"
+      ],
+      "sourceFiles": [
+        "packages/react/src/container/FlowRenderer/index.tsx",
+        "packages/react/src/container/ZoomPane/index.tsx"
+      ]
+    }
+  ],
+  "compilationUnits": 0,
+  "directTaskFiles": 121,
+  "additionalReferenceFiles": 32,
+  "reexportOnlyFiles": 18,
+  "fileOnlyFallbackTasks": 0,
+  "danglingDependencies": 0,
+  "complexity": {
+    "complex": 9,
+    "moderate": 37,
+    "simple": 74
+  },
+  "maxTaskLines": 653,
+  "dependencySummary": {
+    "files": 171,
+    "modules": 152,
+    "connectedComponents": 7,
+    "largestConnectedComponent": 146
+  },
+  "importAudit": {
+    "total": 689,
+    "counts": {
+      "external": 158,
+      "scoped": 531
+    },
+    "unresolved": 0,
+    "outsideScope": 0,
+    "reactToSystem": 80
+  },
+  "crossPackageCalls": 56,
+  "crossPackageTypes": 324,
+  "generatedTargets": 121,
+  "targetExtensions": [
+    ".purescript"
+  ],
+  "checkpoint": {
+    "completedPhases": [
+      0,
+      1
+    ],
+    "currentPhase": 2,
+    "structuredGraphMatchesArtifacts": true,
+    "tokens": 0
+  }
+}

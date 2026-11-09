@@ -1,0 +1,24 @@
+{
+  "source": {
+    "beforeFiles": 688,
+    "afterFiles": 689,
+    "changed": [],
+    "removed": [],
+    "added": [
+      "tsconfig.json"
+    ],
+    "beforeDigest": "034a989f07a4242304a58682134ec743fd3d009e71ab5b04f0e482c1eead2df6",
+    "afterDigest": "c1d056c932cd5912634a1c5b44f19d58cda3021a58c63bea6ba539e1b0d7a067"
+  },
+  "target": {
+    "beforeFiles": 1167,
+    "afterFiles": 1167,
+    "changed": [],
+    "removed": [],
+    "added": [],
+    "beforeDigest": "6ab80d87b6d9eacb54c67ea09213071eaeff551b0379ba4463367f070b8b1e82",
+    "afterDigest": "6ab80d87b6d9eacb54c67ea09213071eaeff551b0379ba4463367f070b8b1e82"
+  },
+  "originalScopedFilesMatch": true,
+  "certifiedDatabaseSha256": "f8599adfecc5a69d004841c4c169b7c8b9bd7d9ac97c27d51fe66f57bf10403f"
+}

@@ -1,0 +1,1541 @@
+[
+  {
+    "path": "packages/react/src/additional-components/Background/Background.tsx",
+    "sha256": "dc7b4c711175b4e8cf012128c1d0cc533758f37c47596cf31c2078b60ef03ddc",
+    "language": "typescript",
+    "symbols": 8,
+    "calls": 10,
+    "types": 24,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/additional-components/Background/Patterns.tsx",
+    "sha256": "b65b9344e4f33fa16605d7a90cda7fdc570016aa26c2f3892d39953241eeae18",
+    "language": "typescript",
+    "symbols": 10,
+    "calls": 2,
+    "types": 3,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/additional-components/Background/index.tsx",
+    "sha256": "96fba29a099df9b0c7d79ca051d7528ae546a625f9a16371b077e09f4f518e2d",
+    "language": "typescript",
+    "symbols": 0,
+    "calls": 0,
+    "types": 0,
+    "accounting": "reexport-only"
+  },
+  {
+    "path": "packages/react/src/additional-components/Background/types.ts",
+    "sha256": "da5e5e18cd9863a568447631ac46447667b9aad3d54bcc9c5e79a4e51a6e4df6",
+    "language": "typescript",
+    "symbols": 16,
+    "calls": 0,
+    "types": 2,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/additional-components/Controls/ControlButton.tsx",
+    "sha256": "d41a18736fc7a739c77f0c93c3b42aa20f932c95b0792cfba9b8f30632fb74b4",
+    "language": "typescript",
+    "symbols": 1,
+    "calls": 1,
+    "types": 1,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/additional-components/Controls/Controls.tsx",
+    "sha256": "317933fea4d73ce4f3f780ee9fd27247bd34579e6071e911cf59981c5a47b577",
+    "language": "typescript",
+    "symbols": 10,
+    "calls": 20,
+    "types": 2,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/additional-components/Controls/Icons/FitView.tsx",
+    "sha256": "6b47ed4f11c70df91946899ee5f67cb15042acfea8b619d8b920483af12338e9",
+    "language": "typescript",
+    "symbols": 1,
+    "calls": 0,
+    "types": 0,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/additional-components/Controls/Icons/Lock.tsx",
+    "sha256": "4074b6d81c51a6f80096f4ffb856397134de8062e31e1cb2e3df3a6fe99cc7f9",
+    "language": "typescript",
+    "symbols": 1,
+    "calls": 0,
+    "types": 0,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/additional-components/Controls/Icons/Minus.tsx",
+    "sha256": "c32e9016adb087598feef70c2da4e30cbc91627bbcaa4099ad2f479847c48607",
+    "language": "typescript",
+    "symbols": 1,
+    "calls": 0,
+    "types": 0,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/additional-components/Controls/Icons/Plus.tsx",
+    "sha256": "18c63829553a574758b246c55c57a70c04faa3caeba39fb85ae82ad64304a7d9",
+    "language": "typescript",
+    "symbols": 1,
+    "calls": 0,
+    "types": 0,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/additional-components/Controls/Icons/Unlock.tsx",
+    "sha256": "ef8d85b79a9e8c084ba86f01896c442945b198ef2003a89679b96f7853e9b861",
+    "language": "typescript",
+    "symbols": 1,
+    "calls": 0,
+    "types": 0,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/additional-components/Controls/index.tsx",
+    "sha256": "b310eb6555fd2c6df7a1258d034b890d7bddd7a76048a8a9a8a600dd68a550f3",
+    "language": "typescript",
+    "symbols": 0,
+    "calls": 0,
+    "types": 0,
+    "accounting": "reexport-only"
+  },
+  {
+    "path": "packages/react/src/additional-components/Controls/types.ts",
+    "sha256": "8fd7e8682b07261eee10957b31d534e8288acd9b80b3a2568861bac70ec57e1a",
+    "language": "typescript",
+    "symbols": 16,
+    "calls": 0,
+    "types": 7,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/additional-components/EdgeToolbar/EdgeToolbar.tsx",
+    "sha256": "2cef572b7a30e6129c6097b5867354ac3ecae50cb2f13a6ea60f5d3224884f8b",
+    "language": "typescript",
+    "symbols": 7,
+    "calls": 9,
+    "types": 4,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/additional-components/EdgeToolbar/index.tsx",
+    "sha256": "6c5d50dca19d6fb862c9eac0db1b4882add3dd47a38ba5ed74b117b3860d078f",
+    "language": "typescript",
+    "symbols": 0,
+    "calls": 0,
+    "types": 0,
+    "accounting": "reexport-only"
+  },
+  {
+    "path": "packages/react/src/additional-components/EdgeToolbar/types.ts",
+    "sha256": "4ccafc24485ba19a943756317141355057afea69a18cbfd5fbd249f718527992",
+    "language": "typescript",
+    "symbols": 1,
+    "calls": 0,
+    "types": 5,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/additional-components/MiniMap/MiniMap.tsx",
+    "sha256": "28f6b2e136fe086001bd38e976119b6b05b93d48f703d8cad313ee9e298a07e5",
+    "language": "typescript",
+    "symbols": 24,
+    "calls": 16,
+    "types": 20,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/additional-components/MiniMap/MiniMapNode.tsx",
+    "sha256": "8fd6bf1571296419eb73594440fa3c95566a17ab88ce5957fe27d33e889f8e4a",
+    "language": "typescript",
+    "symbols": 6,
+    "calls": 3,
+    "types": 1,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/additional-components/MiniMap/MiniMapNodes.tsx",
+    "sha256": "a9724063e74090dfbd50ae24f3a6c26b7fce68b17ffd416555296670eeb362d0",
+    "language": "typescript",
+    "symbols": 17,
+    "calls": 12,
+    "types": 25,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/additional-components/MiniMap/index.tsx",
+    "sha256": "d7f91db766561a83655b535c2f06163647bd780d9bbb2c19e50dec97c0e391ea",
+    "language": "typescript",
+    "symbols": 0,
+    "calls": 0,
+    "types": 0,
+    "accounting": "reexport-only"
+  },
+  {
+    "path": "packages/react/src/additional-components/MiniMap/types.ts",
+    "sha256": "ac85a1d306eb269a05a055e6b02a643389f045219fa65eac72042b0d388f073f",
+    "language": "typescript",
+    "symbols": 21,
+    "calls": 0,
+    "types": 30,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/additional-components/NodeResizer/NodeResizeControl.tsx",
+    "sha256": "3b8a5b6dfd04a9ad5d04f7d9c568103855aba3f3066c2e524b87e13f30ec9d14",
+    "language": "typescript",
+    "symbols": 14,
+    "calls": 24,
+    "types": 39,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/additional-components/NodeResizer/NodeResizer.tsx",
+    "sha256": "c6c845215f83a1dd49ea045d00fb8f2659975d7daa8536a071b805bc37e9ac8c",
+    "language": "typescript",
+    "symbols": 1,
+    "calls": 2,
+    "types": 8,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/additional-components/NodeResizer/index.tsx",
+    "sha256": "324f8020ed136a756a82a321094c664b6bdf8b32683a6e16520451ccef2214c3",
+    "language": "typescript",
+    "symbols": 0,
+    "calls": 0,
+    "types": 0,
+    "accounting": "reexport-only"
+  },
+  {
+    "path": "packages/react/src/additional-components/NodeResizer/types.ts",
+    "sha256": "ed282374ad74808c53f55ab8f06c0dfa9d1206bc65b628a8d9fd5404ac11078f",
+    "language": "typescript",
+    "symbols": 20,
+    "calls": 0,
+    "types": 16,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/additional-components/NodeToolbar/NodeToolbar.tsx",
+    "sha256": "7d7b725da182f0115c5ac9a00ee44907fd51406bf74316c324196090df82f149",
+    "language": "typescript",
+    "symbols": 8,
+    "calls": 23,
+    "types": 34,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/additional-components/NodeToolbar/NodeToolbarPortal.tsx",
+    "sha256": "791bde9ca9d71fdfb321fde1829b7e06623046101b72c4e872a1ce219beae3df",
+    "language": "typescript",
+    "symbols": 3,
+    "calls": 3,
+    "types": 2,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/additional-components/NodeToolbar/index.tsx",
+    "sha256": "2ae0c35c2bffb3ad231d40170402436a4b323fe9ef1dfcb9a20248090f600f36",
+    "language": "typescript",
+    "symbols": 0,
+    "calls": 0,
+    "types": 0,
+    "accounting": "reexport-only"
+  },
+  {
+    "path": "packages/react/src/additional-components/NodeToolbar/types.ts",
+    "sha256": "903c24cc486117fde674db4fd3a5c2d434b574f9c62a8274d67f263bbf2124f0",
+    "language": "typescript",
+    "symbols": 1,
+    "calls": 0,
+    "types": 5,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/additional-components/index.ts",
+    "sha256": "1f5679d1cd7b9909c1470f14350f409df0ee45c3a55d34c53f7869bf6d93b572",
+    "language": "typescript",
+    "symbols": 0,
+    "calls": 0,
+    "types": 0,
+    "accounting": "reexport-only"
+  },
+  {
+    "path": "packages/react/src/components/A11yDescriptions/index.tsx",
+    "sha256": "dd1f312d822649e8a619d0cf2fb11dc6f5ca14be84ead059b9aa04754316f62a",
+    "language": "typescript",
+    "symbols": 12,
+    "calls": 3,
+    "types": 4,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/components/Attribution/index.tsx",
+    "sha256": "bc16f3393c92c4a23434104afd24100e0069f9ec4f907eb2e605f9b1aef508c7",
+    "language": "typescript",
+    "symbols": 4,
+    "calls": 0,
+    "types": 3,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/components/BatchProvider/index.tsx",
+    "sha256": "4adf3aa6acd7072f6e0be52b4abc46c9fe9f9dd09562fbb199122f57b7bd9a1f",
+    "language": "typescript",
+    "symbols": 6,
+    "calls": 13,
+    "types": 19,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/components/BatchProvider/types.ts",
+    "sha256": "d3f7042887a190df593ef65a9415cf538579803f9de1d82c6c6c5596b2d9cd00",
+    "language": "typescript",
+    "symbols": 7,
+    "calls": 0,
+    "types": 7,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/components/BatchProvider/useQueue.ts",
+    "sha256": "75c8f40905054bcc98bdb58a5a5aa08b81345d31fbff724de632b135aafec550",
+    "language": "typescript",
+    "symbols": 4,
+    "calls": 4,
+    "types": 9,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/components/ConnectionLine/index.tsx",
+    "sha256": "4914cab4067c23ccef78fb79f795ec0cbc7b8caf0b8828eb283c8ba0cf31b3a3",
+    "language": "typescript",
+    "symbols": 27,
+    "calls": 11,
+    "types": 27,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/components/EdgeLabelRenderer/index.tsx",
+    "sha256": "e444e6cdeab8bdeb8015cd8cd793fee32ede8e408bb6b4b02b3f9fc4e4f7f5de",
+    "language": "typescript",
+    "symbols": 4,
+    "calls": 3,
+    "types": 3,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/components/EdgeWrapper/EdgeUpdateAnchors.tsx",
+    "sha256": "5df6d937f6ab52a3bc3791609720c214ca0e4bafeeb0408ad214c9ab9a664682",
+    "language": "typescript",
+    "symbols": 4,
+    "calls": 3,
+    "types": 38,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/components/EdgeWrapper/index.tsx",
+    "sha256": "6ce68e18e6f3e39028823ae3dfc7acab067835538f070bcc362ba2f72a3acd7e",
+    "language": "typescript",
+    "symbols": 12,
+    "calls": 23,
+    "types": 20,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/components/EdgeWrapper/utils.ts",
+    "sha256": "b1daa754b2adccc67bf4f3e00757157f78e59f67c7631bd94d003010528cce76",
+    "language": "typescript",
+    "symbols": 13,
+    "calls": 0,
+    "types": 1,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/components/Edges/BaseEdge.tsx",
+    "sha256": "1a82a534bdc72a8d340db0a2194cd75b92baad901a2333fad5102b79358998a0",
+    "language": "typescript",
+    "symbols": 1,
+    "calls": 1,
+    "types": 1,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/components/Edges/BezierEdge.tsx",
+    "sha256": "43f6f3c2727114d237e7cd7f9a37d5b537b54ab32b70bc983f4e19f5a40f3764",
+    "language": "typescript",
+    "symbols": 4,
+    "calls": 5,
+    "types": 3,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/components/Edges/EdgeAnchor.tsx",
+    "sha256": "56d2ba6dec3eea2f6a18c5c6b67f2df03e415af212a61afc5ebc7fe8cb44e9b5",
+    "language": "typescript",
+    "symbols": 13,
+    "calls": 1,
+    "types": 26,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/components/Edges/EdgeText.tsx",
+    "sha256": "f64580093c01366d28c91675d4602f64e9fa8824a087628f0feba14bda9e5f5e",
+    "language": "typescript",
+    "symbols": 10,
+    "calls": 7,
+    "types": 4,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/components/Edges/SimpleBezierEdge.tsx",
+    "sha256": "a57b3b6c6993de1c6c56df49de7cff09346a66358b91b93f4e679a27ce754639",
+    "language": "typescript",
+    "symbols": 19,
+    "calls": 8,
+    "types": 10,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/components/Edges/SmoothStepEdge.tsx",
+    "sha256": "3ae3ac3abf55aa09a2c54a1f7aecccbff11c05c9edc1f90d67950edfc1fd0e8c",
+    "language": "typescript",
+    "symbols": 4,
+    "calls": 5,
+    "types": 3,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/components/Edges/StepEdge.tsx",
+    "sha256": "17b4c63c412db3dd2b58bfd64c607eeb472a65476570edd179df17a231b96396",
+    "language": "typescript",
+    "symbols": 4,
+    "calls": 4,
+    "types": 1,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/components/Edges/StraightEdge.tsx",
+    "sha256": "0acb4bb04a1dcb8025c50b88ae37db04d2db441cb0d243fb752ab9ce74c25cdc",
+    "language": "typescript",
+    "symbols": 4,
+    "calls": 5,
+    "types": 1,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/components/Edges/index.ts",
+    "sha256": "91dcca4cabecae71f0f30c3260a8f3ef973554c6a2dca32946198a6e7cff8e53",
+    "language": "typescript",
+    "symbols": 0,
+    "calls": 0,
+    "types": 0,
+    "accounting": "reexport-only"
+  },
+  {
+    "path": "packages/react/src/components/Handle/index.tsx",
+    "sha256": "d95b9d0a906bdd2534bed3fbbcf921b83c8f1befa49afa4c5b476008abc8bf93",
+    "language": "typescript",
+    "symbols": 34,
+    "calls": 11,
+    "types": 36,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/components/NodeWrapper/index.tsx",
+    "sha256": "fcd5d7a82118ab7f57136c0b04a55cbb5df9005d77776400eb122719e9eb6bab",
+    "language": "typescript",
+    "symbols": 13,
+    "calls": 23,
+    "types": 16,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/components/NodeWrapper/useNodeObserver.ts",
+    "sha256": "d2cf9c71f5122214d83eee3ca1a3163b531d1de11e23ddbe950ab62199a561e9",
+    "language": "typescript",
+    "symbols": 5,
+    "calls": 12,
+    "types": 9,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/components/NodeWrapper/utils.tsx",
+    "sha256": "ca56c6ca44485f338ae838c452ca6a045134ab2aeee166bba618a2220267c09c",
+    "language": "typescript",
+    "symbols": 14,
+    "calls": 4,
+    "types": 7,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/components/Nodes/DefaultNode.tsx",
+    "sha256": "1b5be46bb8978a0c32743e33312609265562be3b20451678d264acdf8352eca0",
+    "language": "typescript",
+    "symbols": 1,
+    "calls": 0,
+    "types": 4,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/components/Nodes/GroupNode.tsx",
+    "sha256": "4c405a8814569792cad4041409c8a579a65afff35e43f17cc39827d940369dbb",
+    "language": "typescript",
+    "symbols": 1,
+    "calls": 0,
+    "types": 0,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/components/Nodes/InputNode.tsx",
+    "sha256": "9a76248de3c603e15b26085fa1b0a2bae2cbfc82a0665e46330abcb8b940ef35",
+    "language": "typescript",
+    "symbols": 1,
+    "calls": 0,
+    "types": 3,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/components/Nodes/OutputNode.tsx",
+    "sha256": "08f72fd7562932493990d1e9a0d261cbad1dfd96c7f451a9acfa57b5390be080",
+    "language": "typescript",
+    "symbols": 1,
+    "calls": 0,
+    "types": 3,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/components/Nodes/utils.ts",
+    "sha256": "84b3ccfb85c810b30e86d499a739b17771a785b6ad2773e7cf3a8e1a9c65fbd3",
+    "language": "typescript",
+    "symbols": 10,
+    "calls": 3,
+    "types": 7,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/components/NodesSelection/index.tsx",
+    "sha256": "2b56249f3af0ecf237ad19537359787d662c3da4d57fa805c744ebbe97b18b55",
+    "language": "typescript",
+    "symbols": 17,
+    "calls": 13,
+    "types": 12,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/components/Panel/index.tsx",
+    "sha256": "14b6d0fa1852d0a413fa6c2b875244582c7bd6922bda12a4bacb335f3bae836f",
+    "language": "typescript",
+    "symbols": 2,
+    "calls": 1,
+    "types": 7,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/components/ReactFlowProvider/index.tsx",
+    "sha256": "1bbba2b35d6b71ed6bd7fd200387d83625e7efee257c7fa873f6468bdb861030",
+    "language": "typescript",
+    "symbols": 16,
+    "calls": 3,
+    "types": 10,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/components/SelectionListener/index.tsx",
+    "sha256": "4c25e13cc8b2c8bf3d490a7c91649a86740e48093eb905b6de7a4820da73862d",
+    "language": "typescript",
+    "symbols": 19,
+    "calls": 15,
+    "types": 34,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/components/StoreUpdater/index.tsx",
+    "sha256": "ce0c7b1db7459733524c64e8fd09f2a910c64d1308a2b4f966d4d0487ceffcfc",
+    "language": "typescript",
+    "symbols": 29,
+    "calls": 8,
+    "types": 29,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/components/UserSelection/index.tsx",
+    "sha256": "2f07f3859dee8c7cc85d92d1001d05e9adc7efd577db2d0fc7edea381f3832df",
+    "language": "typescript",
+    "symbols": 7,
+    "calls": 2,
+    "types": 1,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/components/ViewportPortal/index.tsx",
+    "sha256": "e49d15080bc3586bc0e22d1593d87fbfc8577e81097b9051d504c914b20e8126",
+    "language": "typescript",
+    "symbols": 3,
+    "calls": 3,
+    "types": 2,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/container/EdgeRenderer/MarkerDefinitions.tsx",
+    "sha256": "d1500719ead7fc7dcb19978ee98c0c3518fda00c04a43c3c12648665075bffdd",
+    "language": "typescript",
+    "symbols": 5,
+    "calls": 6,
+    "types": 3,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/container/EdgeRenderer/MarkerSymbols.tsx",
+    "sha256": "e69fd9a85e8c4aa20f4ceabdac79986dbda69735c3225c5bbdf2a171099bb145",
+    "language": "typescript",
+    "symbols": 10,
+    "calls": 4,
+    "types": 7,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/container/EdgeRenderer/index.tsx",
+    "sha256": "2728519466067cf3110e9808b94e2d4db8fa551fe8f58c942cc3c9ba2047dd21",
+    "language": "typescript",
+    "symbols": 11,
+    "calls": 7,
+    "types": 13,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/container/FlowRenderer/index.tsx",
+    "sha256": "100de31a5b3c02ac877f91966532adc444688bed666ad59f06f6455a5ad14b4f",
+    "language": "typescript",
+    "symbols": 11,
+    "calls": 13,
+    "types": 11,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/container/GraphView/index.tsx",
+    "sha256": "99f0b8c5191b23ec8cb08aee1c983827785c2364fe90d279f27484a55041b5ce",
+    "language": "typescript",
+    "symbols": 7,
+    "calls": 11,
+    "types": 24,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/container/GraphView/useNodeOrEdgeTypesWarning.ts",
+    "sha256": "e63d2abf96a2592e2d82eb667e0994de01a01b0babb9ca9285f25722657ff12d",
+    "language": "typescript",
+    "symbols": 4,
+    "calls": 0,
+    "types": 1,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/container/GraphView/useStylesLoadedWarning.ts",
+    "sha256": "9b88634a347025fa3c1ed2023aeb93b3246062fe87c7021877800b9b30351534",
+    "language": "typescript",
+    "symbols": 1,
+    "calls": 6,
+    "types": 0,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/container/NodeRenderer/index.tsx",
+    "sha256": "e1082b74799f41571e5674ffd7959442ce8a88c0b4f6402e32e17c219cf6bfa9",
+    "language": "typescript",
+    "symbols": 11,
+    "calls": 8,
+    "types": 9,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/container/NodeRenderer/useResizeObserver.ts",
+    "sha256": "ba8a837cbeeae1da914e2a1e2deb21653177f3a143cb8817a3a1bf0a36a7349c",
+    "language": "typescript",
+    "symbols": 2,
+    "calls": 7,
+    "types": 11,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/container/Pane/index.tsx",
+    "sha256": "6c9a042af519e4b60da2afabb867f2d151478bd85923d1af2211017e2d1b2ff3",
+    "language": "typescript",
+    "symbols": 35,
+    "calls": 43,
+    "types": 89,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/container/ReactFlow/Wrapper.tsx",
+    "sha256": "33d8788b02d1dc6f0179e6a2ca869114cb4a6998fd5a2ebbf74efa1b461bfdc2",
+    "language": "typescript",
+    "symbols": 15,
+    "calls": 3,
+    "types": 9,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/container/ReactFlow/index.tsx",
+    "sha256": "f4cc39d34038ee3ac6bbbd5fc3f79718b8c5cc834aef0376d81a99d96e6dcf73",
+    "language": "typescript",
+    "symbols": 7,
+    "calls": 10,
+    "types": 23,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/container/ReactFlow/init-values.ts",
+    "sha256": "4b11649c832a8e14e2eb4af7e2d438bb63ae733e1b2399979bce04b9f65c08c0",
+    "language": "typescript",
+    "symbols": 2,
+    "calls": 0,
+    "types": 2,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/container/Viewport/index.tsx",
+    "sha256": "16bdcf9cb0acc3f5221c79129040a9d3c529ae7d5a46279d7cb86b12a486b737",
+    "language": "typescript",
+    "symbols": 5,
+    "calls": 1,
+    "types": 3,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/container/ZoomPane/index.tsx",
+    "sha256": "ed246b6d6c69d846a46ed078b47b1e814f8831147edb270719c8b542aa6a1165",
+    "language": "typescript",
+    "symbols": 10,
+    "calls": 12,
+    "types": 11,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/contexts/NodeIdContext.ts",
+    "sha256": "7f5d86c0fc61e105498aaa790ba88f598df78158d28de9a62251d727c02e2f7a",
+    "language": "typescript",
+    "symbols": 4,
+    "calls": 2,
+    "types": 0,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/contexts/StoreContext.ts",
+    "sha256": "c812a46e50b159842cc2c305f5d30be358c5c12f8e33fb6e7ddc72cf7edfd092",
+    "language": "typescript",
+    "symbols": 2,
+    "calls": 1,
+    "types": 1,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/custom.d.ts",
+    "sha256": "9bde2ba9a93b33a4517215c3cc59b5771f8b7815d4520a13091059b6425ecd6b",
+    "language": "typescript",
+    "symbols": 4,
+    "calls": 0,
+    "types": 5,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/hooks/useColorModeClass.ts",
+    "sha256": "ca924ca00fc7f76588bb2648b1a3a7e434e5d1e3cb3ef6bdd07bf4bee307df6f",
+    "language": "typescript",
+    "symbols": 2,
+    "calls": 10,
+    "types": 3,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/hooks/useConnection.ts",
+    "sha256": "f5a9dbf29d1dce339ed38b32b9cf2ec4c81ee6cafe928d1769e16d7f3fc89e33",
+    "language": "typescript",
+    "symbols": 8,
+    "calls": 5,
+    "types": 31,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/hooks/useDrag.ts",
+    "sha256": "5eff9109afe6afc401216bdd552d42b7241667874b790e495123e48ef125b993",
+    "language": "typescript",
+    "symbols": 9,
+    "calls": 7,
+    "types": 5,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/hooks/useEdges.ts",
+    "sha256": "d6c0c03dc9532b5c5a55621213e247a584b28e9d3e997229b16a4a506070a0e7",
+    "language": "typescript",
+    "symbols": 3,
+    "calls": 2,
+    "types": 5,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/hooks/useGlobalKeyHandler.ts",
+    "sha256": "ac8fe00f5dcf2d26303b0ba79ee2e6fdb0685c6eb1b00762b988fb6a3d1139b4",
+    "language": "typescript",
+    "symbols": 9,
+    "calls": 8,
+    "types": 4,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/hooks/useHandleConnections.ts",
+    "sha256": "696ca498f22eab63b8634a49b6d0ab21c6e822d3ef35503c2884a6b810df503b",
+    "language": "typescript",
+    "symbols": 7,
+    "calls": 12,
+    "types": 23,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/hooks/useInternalNode.ts",
+    "sha256": "843b77597d726b3a24d8698908a88a8fe107bb21cdadfaef765c5a47a2ce562a",
+    "language": "typescript",
+    "symbols": 2,
+    "calls": 4,
+    "types": 6,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/hooks/useIsomorphicLayoutEffect.ts",
+    "sha256": "d2d6b189f49bea4de2e487a65e688ebe3fc2e7c09cfef9561da2cac7bc7828e2",
+    "language": "typescript",
+    "symbols": 1,
+    "calls": 2,
+    "types": 0,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/hooks/useKeyPress.ts",
+    "sha256": "90ba5422046ac56d3ec9891f486c0e9e317685be7ddf7b910aab4beb53a52344",
+    "language": "typescript",
+    "symbols": 11,
+    "calls": 58,
+    "types": 66,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/hooks/useMoveSelectedNodes.ts",
+    "sha256": "204879aecb0ac1c1eb74b155ddca7305b0a57c3228beb86174f9c906e66040cc",
+    "language": "typescript",
+    "symbols": 4,
+    "calls": 4,
+    "types": 5,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/hooks/useNodeConnections.ts",
+    "sha256": "10a11a500170b04cc1016c94c9d3ee3cfaf358db2d8bcdfa84eb2a63f85c4542",
+    "language": "typescript",
+    "symbols": 2,
+    "calls": 11,
+    "types": 22,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/hooks/useNodes.ts",
+    "sha256": "9a08bedba9736d3e863488780ad4f9b7c5afdfafff56ef9e1118ac89fb485a82",
+    "language": "typescript",
+    "symbols": 3,
+    "calls": 2,
+    "types": 5,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/hooks/useNodesData.ts",
+    "sha256": "e007b404310602638776d6dc9550c0b2024767a3d9d614e28dba947fb2351dba",
+    "language": "typescript",
+    "symbols": 8,
+    "calls": 0,
+    "types": 4,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/hooks/useNodesEdgesState.ts",
+    "sha256": "8c321868ffea761ce6771b6c71fa4c4b2c96253b75053680e903296f9e8cc974",
+    "language": "typescript",
+    "symbols": 4,
+    "calls": 6,
+    "types": 21,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/hooks/useNodesInitialized.ts",
+    "sha256": "736de3b6c266c34307473c0f56c81ee8572041d1bcc54ecea67efe286f9abbc9",
+    "language": "typescript",
+    "symbols": 4,
+    "calls": 2,
+    "types": 3,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/hooks/useOnEdgesChangeMiddleware.ts",
+    "sha256": "b259bd6e41c47a8f9a5376c98006a3131931bce6867d413d5d88efe6f2578b4a",
+    "language": "typescript",
+    "symbols": 2,
+    "calls": 6,
+    "types": 11,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/hooks/useOnInitHandler.ts",
+    "sha256": "d6b7ce3f618bbe4db7c0814a1aa3e9e9bac21d507e671f67066b18a6005011ff",
+    "language": "typescript",
+    "symbols": 3,
+    "calls": 4,
+    "types": 9,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/hooks/useOnNodesChangeMiddleware.ts",
+    "sha256": "1c8e9dc3bc44bf0974ff14d56bfdde614302efa1796f4553ce1540187c34511b",
+    "language": "typescript",
+    "symbols": 2,
+    "calls": 6,
+    "types": 11,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/hooks/useOnSelectionChange.ts",
+    "sha256": "441cba471a0b9fb1054caa173c7ac17df735286c2ed6ec2b066f5ca310ee7afe",
+    "language": "typescript",
+    "symbols": 9,
+    "calls": 3,
+    "types": 16,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/hooks/useOnViewportChange.ts",
+    "sha256": "127371f762f36e8c5252688160abbb24b3df6c8619c82aa7610fed46ec852c96",
+    "language": "typescript",
+    "symbols": 8,
+    "calls": 4,
+    "types": 4,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/hooks/useReactFlow.ts",
+    "sha256": "954c1f47e21942952a43fda321b3afcf92f82d72cd557922533a244373be18f7",
+    "language": "typescript",
+    "symbols": 18,
+    "calls": 33,
+    "types": 81,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/hooks/useResizeHandler.ts",
+    "sha256": "db3b50b64271bd0e169b585d76c76c28a4818ec673d9de67a455ab69ec7fe072",
+    "language": "typescript",
+    "symbols": 3,
+    "calls": 9,
+    "types": 4,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/hooks/useStore.ts",
+    "sha256": "f11848286567078bdf82f0af750b2f3c904fc07d38ce34499893b4f2b4f6445d",
+    "language": "typescript",
+    "symbols": 6,
+    "calls": 4,
+    "types": 17,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/hooks/useUpdateNodeInternals.ts",
+    "sha256": "624ae3009309486a94b12a19c017a7084cfe49392ca0d5e6b2aee5d8e82ce698",
+    "language": "typescript",
+    "symbols": 2,
+    "calls": 7,
+    "types": 16,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/hooks/useViewport.ts",
+    "sha256": "27f52591e98c1d77b25c6ad1d4dbe1c560beb59cff6e5f33bf376b2985946e7d",
+    "language": "typescript",
+    "symbols": 5,
+    "calls": 2,
+    "types": 2,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/hooks/useViewportHelper.ts",
+    "sha256": "a09ce09a93534d7f3ca7477dbd6cd3012c4f362b024cfa0362a886e579891a93",
+    "language": "typescript",
+    "symbols": 6,
+    "calls": 4,
+    "types": 5,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/hooks/useViewportSync.ts",
+    "sha256": "7e8dea6eaddec6294db36aa3a072630a6ab0dea8df7333dd8d7fdcc7404390e7",
+    "language": "typescript",
+    "symbols": 3,
+    "calls": 3,
+    "types": 2,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/hooks/useVisibleEdgeIds.ts",
+    "sha256": "438190fad9e3f5ad39f1e0f7f9fe28c19a4e9e64be6da7aa5ed19693ee7b3abc",
+    "language": "typescript",
+    "symbols": 1,
+    "calls": 8,
+    "types": 1,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/hooks/useVisibleNodeIds.ts",
+    "sha256": "ca2a581305942ddd093e9c9221e514799872968c4adbd1f4499700e663f862e5",
+    "language": "typescript",
+    "symbols": 2,
+    "calls": 7,
+    "types": 10,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/index.ts",
+    "sha256": "d3e592e86b48703d67da2d2c8aaa0f41e3124366d458372d07e285e93b3725fa",
+    "language": "typescript",
+    "symbols": 1,
+    "calls": 0,
+    "types": 1,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/store/index.ts",
+    "sha256": "f89a7f3230e0e56f305bc6f08d541042867fbd96c458d8b8d52005031bfe34e0",
+    "language": "typescript",
+    "symbols": 55,
+    "calls": 39,
+    "types": 46,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/store/initialState.ts",
+    "sha256": "7fe44150630117fcddd819b04dec4adfd904c57a0ff31053eb4da93f10abe205",
+    "language": "typescript",
+    "symbols": 6,
+    "calls": 2,
+    "types": 30,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/styles/utils.ts",
+    "sha256": "3016ea8b2ba65992475b664ad4482a76f63c57e564d36483d0a325a36b173bd8",
+    "language": "typescript",
+    "symbols": 1,
+    "calls": 0,
+    "types": 1,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/types/component-props.ts",
+    "sha256": "29918e6f6c93387e1fa2364e1984db013dcac3f58769f8c504f03a61481949f6",
+    "language": "typescript",
+    "symbols": 125,
+    "calls": 0,
+    "types": 133,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/types/edges.ts",
+    "sha256": "7c7e8f335a4bacaeffa5912cc4974c3cfd71d9ecb10f087dbaefde5dd5b9ea38",
+    "language": "typescript",
+    "symbols": 73,
+    "calls": 0,
+    "types": 127,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/types/general.ts",
+    "sha256": "1d84c5cba6a1d0d117a0f49eef3e4a87a189abab1de658278485e0a5d8640fd1",
+    "language": "typescript",
+    "symbols": 51,
+    "calls": 0,
+    "types": 92,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/types/index.ts",
+    "sha256": "8f433a52637174cf6394e731c14636e1fa187823c0322bbf94c955f14faa93b9",
+    "language": "typescript",
+    "symbols": 0,
+    "calls": 0,
+    "types": 0,
+    "accounting": "reexport-only"
+  },
+  {
+    "path": "packages/react/src/types/instance.ts",
+    "sha256": "38056ccb8438db8ca358055a6726dfa19add9536b85914ab8e2596b259228c4d",
+    "language": "typescript",
+    "symbols": 36,
+    "calls": 0,
+    "types": 87,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/types/nodes.ts",
+    "sha256": "b30788f3c54a8b497d2c161d6def4cc591c6fa6fa929fb9fc485c02357bf45ca",
+    "language": "typescript",
+    "symbols": 36,
+    "calls": 0,
+    "types": 58,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/types/store.ts",
+    "sha256": "9fdc509e668475f5333733e12f3e85e8ea61232cd89fa00fbb9d55c944b5c6be",
+    "language": "typescript",
+    "symbols": 114,
+    "calls": 1,
+    "types": 125,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/utils/changes.ts",
+    "sha256": "1ffafc9000f4ba67a4b487527126b076a30b68b3226c9e3fd05a031568b2c5fb",
+    "language": "typescript",
+    "symbols": 27,
+    "calls": 21,
+    "types": 49,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/react/src/utils/edges.ts",
+    "sha256": "885a3f72ee2ef168855173d30e1f05b6c1b26e8b76f2f6c1001bbb7930b6f6a0",
+    "language": "typescript",
+    "symbols": 7,
+    "calls": 0,
+    "types": 12,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/utils/general.ts",
+    "sha256": "34a69b97cb8ce32bb557003325a672ef1431d79cddc051b19be55cac21b80018",
+    "language": "typescript",
+    "symbols": 5,
+    "calls": 1,
+    "types": 13,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/react/src/utils/index.ts",
+    "sha256": "fdee803e48b47047b6de7d9eb031142494823d193ab1337593b240670bc7c1dd",
+    "language": "typescript",
+    "symbols": 0,
+    "calls": 0,
+    "types": 0,
+    "accounting": "reexport-only"
+  },
+  {
+    "path": "packages/system/src/constants.ts",
+    "sha256": "db726e06ba834e15278d058163bc31096f5b872cac99004c8a25b966fc529d0e",
+    "language": "typescript",
+    "symbols": 32,
+    "calls": 0,
+    "types": 1,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/index.ts",
+    "sha256": "1ed754d6574b3d08d9bcc143507a1dacf006bd91cbc2bd9a5d3d40b61b77cd88",
+    "language": "typescript",
+    "symbols": 0,
+    "calls": 0,
+    "types": 0,
+    "accounting": "reexport-only"
+  },
+  {
+    "path": "packages/system/src/types/changes.ts",
+    "sha256": "7831ea8cb1bd82d856f8476c021fd401d5c7d86d415c0b20886204815b6c9a13",
+    "language": "typescript",
+    "symbols": 45,
+    "calls": 0,
+    "types": 35,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/types/edges.ts",
+    "sha256": "8e69102383bb49310946dc0277516a33b66eb22ef94d2691ad0f67a69e817acb",
+    "language": "typescript",
+    "symbols": 64,
+    "calls": 0,
+    "types": 21,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/types/general.ts",
+    "sha256": "1633c3b2d2ff84555712b1250f0ebea5e8074d5de3f9c1054c8cec1be8dbcde8",
+    "language": "typescript",
+    "symbols": 133,
+    "calls": 0,
+    "types": 190,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/types/handles.ts",
+    "sha256": "20b0dda3f7b7393506ad3f2eca3ae55e7e7e7055fdb23cbd6cf0c13a66019f36",
+    "language": "typescript",
+    "symbols": 18,
+    "calls": 0,
+    "types": 5,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/types/index.ts",
+    "sha256": "aeb8e8e06b280225adcb57b5f9037c20f436e2cbbed2baf663f98dd8c079fc02",
+    "language": "typescript",
+    "symbols": 0,
+    "calls": 0,
+    "types": 0,
+    "accounting": "reexport-only"
+  },
+  {
+    "path": "packages/system/src/types/nodes.ts",
+    "sha256": "3421fe3bb9d71e719f0bce458eda7d5c26e313f745d295b11eb4007d1a4bcc0d",
+    "language": "typescript",
+    "symbols": 25,
+    "calls": 0,
+    "types": 58,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/types/panzoom.ts",
+    "sha256": "a34579a60b1438e9e157d39d0268ac6c0d61495c7f0da6efc74311646ed6ac5a",
+    "language": "typescript",
+    "symbols": 48,
+    "calls": 0,
+    "types": 47,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/types/utils.ts",
+    "sha256": "803c7154c440cf01568dcad6e39c51ae85d44bbdc3e9fff1807132332e2d7119",
+    "language": "typescript",
+    "symbols": 20,
+    "calls": 0,
+    "types": 9,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/utils/connections.ts",
+    "sha256": "bb63658fa1e79b236f193aeedfab692922d37963087b2c07c02cbf700d8df147",
+    "language": "typescript",
+    "symbols": 3,
+    "calls": 5,
+    "types": 18,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/utils/dom.ts",
+    "sha256": "d62b634284b929867302be63700db4385da733ab1b08e1edfd58cde56653c4f3",
+    "language": "typescript",
+    "symbols": 15,
+    "calls": 12,
+    "types": 56,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/utils/edge-toolbar.ts",
+    "sha256": "d130b6aed632fedb39cd442194985ae2fb78ebcbf7fc734d8c568811be4112c7",
+    "language": "typescript",
+    "symbols": 9,
+    "calls": 0,
+    "types": 2,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/system/src/utils/edges/bezier-edge.ts",
+    "sha256": "cedae29c746d69b15160eabba05a96c6c42e7fff5c2efcb88a956d38bb27d906",
+    "language": "typescript",
+    "symbols": 27,
+    "calls": 10,
+    "types": 23,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/utils/edges/general.ts",
+    "sha256": "0266c6615a20e0d910956dc6e95eada4784dfb885d4f72287a2cd07e407f0049",
+    "language": "typescript",
+    "symbols": 36,
+    "calls": 8,
+    "types": 36,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/utils/edges/index.ts",
+    "sha256": "3f9a50b3bd5d05ce64a1eaa5b6d9e4557b09f052cdf770f6960729230865811b",
+    "language": "typescript",
+    "symbols": 0,
+    "calls": 0,
+    "types": 0,
+    "accounting": "reexport-only"
+  },
+  {
+    "path": "packages/system/src/utils/edges/positions.ts",
+    "sha256": "abe8f831891e2fb381a09b5660650cf27f17ed06e8dece4eb01137091253765c",
+    "language": "typescript",
+    "symbols": 21,
+    "calls": 13,
+    "types": 24,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/utils/edges/smoothstep-edge.ts",
+    "sha256": "868723b11b692e4c10bf8457e115c8e5d69f25efaf942fbedea61ab636d936b8",
+    "language": "typescript",
+    "symbols": 45,
+    "calls": 15,
+    "types": 85,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/utils/edges/straight-edge.ts",
+    "sha256": "40bb2e63a07d02b2c6c486d946ca643b82bf621ed84c21bd9f568e7f317c01b3",
+    "language": "typescript",
+    "symbols": 6,
+    "calls": 1,
+    "types": 1,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/system/src/utils/general.ts",
+    "sha256": "b6152d19bad137111fbb48a29f6c3f66f0854e7f6dff4f6f5195d250b414ae5a",
+    "language": "typescript",
+    "symbols": 63,
+    "calls": 51,
+    "types": 207,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/utils/graph.ts",
+    "sha256": "f108772ff2c3ba9664638694cf33935d7bf097f09e09fa98dbfacaf7bffbc955",
+    "language": "typescript",
+    "symbols": 65,
+    "calls": 39,
+    "types": 128,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/utils/index.ts",
+    "sha256": "30a82ac2d8c8a45ffaaf0b168dfcc9e477cac0c0928a95ac95caf799a7c83177",
+    "language": "typescript",
+    "symbols": 0,
+    "calls": 0,
+    "types": 0,
+    "accounting": "reexport-only"
+  },
+  {
+    "path": "packages/system/src/utils/marker.ts",
+    "sha256": "25dee5606d10cfbb29417e0c78c0a649d3457395464a1543d72fa9960a73d6bf",
+    "language": "typescript",
+    "symbols": 6,
+    "calls": 14,
+    "types": 11,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/utils/node-toolbar.ts",
+    "sha256": "fbe6541d799ce55af3601711be554d1f15507c8402ada31f38e036e1b611f43a",
+    "language": "typescript",
+    "symbols": 1,
+    "calls": 0,
+    "types": 7,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/utils/shallow-node-data.ts",
+    "sha256": "889f2bc5781feb29f9e3f5e4046ecd272962176722de7faee87ffdd7541ed7c3",
+    "language": "typescript",
+    "symbols": 2,
+    "calls": 3,
+    "types": 23,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/utils/store.ts",
+    "sha256": "03f4971df64611bffcf9c0a90f74a94e1e9fb146e179dd959bac924265dab42a",
+    "language": "typescript",
+    "symbols": 91,
+    "calls": 83,
+    "types": 160,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/utils/types.ts",
+    "sha256": "74de51a68ddae304f5e529e479c541e6692b6c06475a986cd6c06384c450e412",
+    "language": "typescript",
+    "symbols": 7,
+    "calls": 0,
+    "types": 9,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/system/src/xydrag/XYDrag.ts",
+    "sha256": "3a408630383e2641b3ec2d17f4347588faef9a3f64bee160b3ad6a9999ceff67",
+    "language": "typescript",
+    "symbols": 61,
+    "calls": 30,
+    "types": 132,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/xydrag/index.ts",
+    "sha256": "957e2258cd6c97d582673e83239141e810a42caf4862514a7db6806b35414c25",
+    "language": "typescript",
+    "symbols": 0,
+    "calls": 0,
+    "types": 0,
+    "accounting": "reexport-only"
+  },
+  {
+    "path": "packages/system/src/xydrag/utils.ts",
+    "sha256": "a1e30baed4b480be92cd7b6116bcaf454f283939d25f9b4bf6168937b4f619f6",
+    "language": "typescript",
+    "symbols": 20,
+    "calls": 12,
+    "types": 45,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/xyhandle/XYHandle.ts",
+    "sha256": "ada733bcb77f524573dfd95d642d0b103578454877a5267e94a3b58f9c5a27fa",
+    "language": "typescript",
+    "symbols": 16,
+    "calls": 44,
+    "types": 52,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/xyhandle/index.ts",
+    "sha256": "066f0ab8c0d0100b9db417204defa31a9aa9d8c6194ba7aebf71375701afcf21",
+    "language": "typescript",
+    "symbols": 0,
+    "calls": 0,
+    "types": 0,
+    "accounting": "reexport-only"
+  },
+  {
+    "path": "packages/system/src/xyhandle/types.ts",
+    "sha256": "6f69d0224b2d7cf28fe1b9c5e21bb6bbf95a2581192be4f29d6400adab3f4174",
+    "language": "typescript",
+    "symbols": 48,
+    "calls": 0,
+    "types": 63,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/xyhandle/utils.ts",
+    "sha256": "9cec0423d541cb5c821f669f163f5e4a96cc97adbd1fddf19fd5030c632a9461",
+    "language": "typescript",
+    "symbols": 13,
+    "calls": 18,
+    "types": 29,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/xyminimap/index.ts",
+    "sha256": "630a1ee424eecee78f4b80b7fe89188cb621c4c80a7864ec177d4c31f00fc2e2",
+    "language": "typescript",
+    "symbols": 23,
+    "calls": 12,
+    "types": 30,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/xypanzoom/XYPanZoom.ts",
+    "sha256": "e62a0c81562a02d97808a2ac103d7851e7cac682002d9a3c61a299be8e44a982",
+    "language": "typescript",
+    "symbols": 14,
+    "calls": 46,
+    "types": 38,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/xypanzoom/eventhandler.ts",
+    "sha256": "42572f449202d3ee67f2bd3071cf016dd2c4c1bb8fcedd826f26d3d2c90d832f",
+    "language": "typescript",
+    "symbols": 38,
+    "calls": 11,
+    "types": 51,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/xypanzoom/filter.ts",
+    "sha256": "872cf851016cb64ca204aad2fb4243673cc0e511aaf50136e89a8ac88f9b4d61",
+    "language": "typescript",
+    "symbols": 13,
+    "calls": 4,
+    "types": 17,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/xypanzoom/index.ts",
+    "sha256": "b2b9e2d66040fdada60701a2c6a44de785b4635fded7c5abdf333db98b14b986",
+    "language": "typescript",
+    "symbols": 0,
+    "calls": 0,
+    "types": 0,
+    "accounting": "reexport-only"
+  },
+  {
+    "path": "packages/system/src/xypanzoom/utils.ts",
+    "sha256": "f2e4939e6abdf6b3621dcc5dcc4aa1490f5c1dd98cc2664b3c8f812cd25347dc",
+    "language": "typescript",
+    "symbols": 7,
+    "calls": 8,
+    "types": 13,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/xyresizer/XYResizer.ts",
+    "sha256": "85cd66f2fc8092ed14dc53dcafdd429b4c919e8d63911d041291fe56b5495d7c",
+    "language": "typescript",
+    "symbols": 51,
+    "calls": 24,
+    "types": 63,
+    "accounting": "task"
+  },
+  {
+    "path": "packages/system/src/xyresizer/index.ts",
+    "sha256": "3e46c022f080be631daf4d4945ce934d01576f9d40546fd46842acaa045f1d24",
+    "language": "typescript",
+    "symbols": 0,
+    "calls": 0,
+    "types": 0,
+    "accounting": "reexport-only"
+  },
+  {
+    "path": "packages/system/src/xyresizer/types.ts",
+    "sha256": "c07a0f90180d7675f0172a9287d2237a8ef2dc1d46149a23ae495d35028946a6",
+    "language": "typescript",
+    "symbols": 22,
+    "calls": 0,
+    "types": 18,
+    "accounting": "reference"
+  },
+  {
+    "path": "packages/system/src/xyresizer/utils.ts",
+    "sha256": "fcf8f39ca70b4766f53dd304a51caa852f63d54d301355fbc46372b3d4725ced",
+    "language": "typescript",
+    "symbols": 32,
+    "calls": 45,
+    "types": 69,
+    "accounting": "task"
+  }
+]

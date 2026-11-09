@@ -1,0 +1,4751 @@
+{
+  "fileCount": 171,
+  "totalLines": 17824,
+  "modules": [
+    {
+      "id": "c11",
+      "files": [
+        "xyflow/packages/react/src/additional-components/Background/Background.tsx"
+      ],
+      "lines": 74,
+      "symbolCount": 8,
+      "symbols": [
+        "defaultSize",
+        "patternId0",
+        "selector",
+        "transform0",
+        "Background",
+        "BackgroundComponent",
+        "'--xy-background-color-props'0",
+        "'--xy-background-pattern-color-props'0"
+      ],
+      "dependsOn": [
+        "c1288",
+        "c20",
+        "c40",
+        "c788"
+      ]
+    },
+    {
+      "id": "c20",
+      "files": [
+        "xyflow/packages/react/src/additional-components/Background/Patterns.tsx"
+      ],
+      "lines": 24,
+      "symbolCount": 10,
+      "symbols": [
+        "LinePattern",
+        "LinePatternProps",
+        "dimensions",
+        "variant",
+        "lineWidth",
+        "className",
+        "DotPattern",
+        "DotPatternProps",
+        "radius",
+        "className"
+      ],
+      "dependsOn": [
+        "c40"
+      ]
+    },
+    {
+      "id": "c40",
+      "files": [
+        "xyflow/packages/react/src/additional-components/Background/types.ts"
+      ],
+      "lines": 48,
+      "symbolCount": 16,
+      "symbols": [
+        "variant",
+        "BackgroundVariant",
+        "Lines",
+        "Dots",
+        "Cross",
+        "BackgroundProps",
+        "id",
+        "color",
+        "bgColor",
+        "className",
+        "patternClassName",
+        "gap",
+        "size",
+        "offset",
+        "lineWidth",
+        "style"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "c41",
+      "files": [
+        "xyflow/packages/react/src/additional-components/Controls/ControlButton.tsx"
+      ],
+      "lines": 7,
+      "symbolCount": 1,
+      "symbols": [
+        "ControlButton"
+      ],
+      "dependsOn": [
+        "c61"
+      ]
+    },
+    {
+      "id": "c51",
+      "files": [
+        "xyflow/packages/react/src/additional-components/Controls/Controls.tsx"
+      ],
+      "lines": 107,
+      "symbolCount": 10,
+      "symbols": [
+        "selector",
+        "isInteractive0",
+        "minZoomReached0",
+        "maxZoomReached0",
+        "ariaLabelConfig0",
+        "Controls",
+        "ControlsComponent",
+        "nodesDraggable0",
+        "nodesConnectable0",
+        "elementsSelectable0"
+      ],
+      "dependsOn": [
+        "c1288",
+        "c41",
+        "c52",
+        "c53",
+        "c54",
+        "c55",
+        "c56",
+        "c61",
+        "c777",
+        "c788"
+      ]
+    },
+    {
+      "id": "c52",
+      "files": [
+        "xyflow/packages/react/src/additional-components/Controls/Icons/FitView.tsx"
+      ],
+      "lines": 7,
+      "symbolCount": 1,
+      "symbols": [
+        "FitViewIcon"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "c53",
+      "files": [
+        "xyflow/packages/react/src/additional-components/Controls/Icons/Lock.tsx"
+      ],
+      "lines": 7,
+      "symbolCount": 1,
+      "symbols": [
+        "LockIcon"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "c54",
+      "files": [
+        "xyflow/packages/react/src/additional-components/Controls/Icons/Minus.tsx"
+      ],
+      "lines": 7,
+      "symbolCount": 1,
+      "symbols": [
+        "MinusIcon"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "c55",
+      "files": [
+        "xyflow/packages/react/src/additional-components/Controls/Icons/Plus.tsx"
+      ],
+      "lines": 7,
+      "symbolCount": 1,
+      "symbols": [
+        "PlusIcon"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "c56",
+      "files": [
+        "xyflow/packages/react/src/additional-components/Controls/Icons/Unlock.tsx"
+      ],
+      "lines": 7,
+      "symbolCount": 1,
+      "symbols": [
+        "UnlockIcon"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "c61",
+      "files": [
+        "xyflow/packages/react/src/additional-components/Controls/types.ts"
+      ],
+      "lines": 56,
+      "symbolCount": 16,
+      "symbols": [
+        "ControlProps",
+        "showZoom",
+        "showFitView",
+        "showInteractive",
+        "fitViewOptions",
+        "onZoomIn",
+        "onZoomOut",
+        "onFitView",
+        "onInteractiveChange",
+        "position",
+        "children",
+        "style",
+        "className",
+        "'aria-label'",
+        "orientation",
+        "ControlButtonProps"
+      ],
+      "dependsOn": [
+        "c1103",
+        "c1572"
+      ]
+    },
+    {
+      "id": "c79",
+      "files": [
+        "xyflow/packages/react/src/additional-components/EdgeToolbar/EdgeToolbar.tsx"
+      ],
+      "lines": 45,
+      "symbolCount": 7,
+      "symbols": [
+        "zoomSelector",
+        "EdgeToolbar",
+        "position0",
+        "transform0",
+        "zIndex0",
+        "pointerEvents0",
+        "transformOrigin0"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1288",
+        "c1734",
+        "c257",
+        "c788",
+        "c80"
+      ]
+    },
+    {
+      "id": "c80",
+      "files": [
+        "xyflow/packages/react/src/additional-components/EdgeToolbar/types.ts"
+      ],
+      "lines": 8,
+      "symbolCount": 1,
+      "symbols": [
+        "EdgeToolbarProps"
+      ],
+      "dependsOn": [
+        "c1469"
+      ]
+    },
+    {
+      "id": "c93",
+      "files": [
+        "xyflow/packages/react/src/additional-components/MiniMap/MiniMap.tsx"
+      ],
+      "lines": 172,
+      "symbolCount": 24,
+      "symbols": [
+        "defaultWidth",
+        "defaultHeight",
+        "filterHidden",
+        "selector",
+        "viewBB0",
+        "boundingRect0",
+        "filter0",
+        "rfId0",
+        "panZoom0",
+        "translateExtent0",
+        "flowWidth0",
+        "flowHeight0",
+        "ariaLabelConfig0",
+        "ARIA_LABEL_KEY",
+        "MiniMap",
+        "MiniMapComponent",
+        "[NodeType]",
+        "'--xy-minimap-background-color-props'0",
+        "'--xy-minimap-mask-background-color-props'0",
+        "'--xy-minimap-mask-stroke-color-props'0"
+      ],
+      "dependsOn": [
+        "c1154",
+        "c1288",
+        "c138",
+        "c1706",
+        "c2288",
+        "c788"
+      ]
+    },
+    {
+      "id": "c106",
+      "files": [
+        "xyflow/packages/react/src/additional-components/MiniMap/MiniMapNode.tsx"
+      ],
+      "lines": 39,
+      "symbolCount": 6,
+      "symbols": [
+        "MiniMapNode",
+        "MiniMapNodeComponent",
+        "selected0",
+        "fill0",
+        "stroke0",
+        "strokeWidth0"
+      ],
+      "dependsOn": [
+        "c138"
+      ]
+    },
+    {
+      "id": "c127",
+      "files": [
+        "xyflow/packages/react/src/additional-components/MiniMap/MiniMapNodes.tsx"
+      ],
+      "lines": 115,
+      "symbolCount": 17,
+      "symbols": [
+        "window",
+        "selectorNodeIds",
+        "getAttrFunction",
+        "onClick",
+        "NodeComponentWrapper",
+        "nodeStrokeColorFunc",
+        "NodeComponentWrapperInner",
+        "nodeColorFunc",
+        "nodeClassNameFunc",
+        "MiniMapNodes",
+        "[NodeType]",
+        "[NodeType]",
+        "id",
+        "nodeBorderRadius",
+        "nodeStrokeWidth",
+        "NodeComponent",
+        "shapeRendering"
+      ],
+      "dependsOn": [
+        "c1154",
+        "c1288",
+        "c138",
+        "c1889",
+        "c788"
+      ]
+    },
+    {
+      "id": "c138",
+      "files": [
+        "xyflow/packages/react/src/additional-components/MiniMap/types.ts"
+      ],
+      "lines": 113,
+      "symbolCount": 21,
+      "symbols": [
+        "MiniMapNodes",
+        "MiniMapProps",
+        "GetMiniMapNodeAttribute",
+        "[NodeType]",
+        "[NodeType]",
+        "[NodeType]",
+        "MiniMapNodeProps",
+        "id",
+        "x",
+        "y",
+        "width",
+        "height",
+        "borderRadius",
+        "className",
+        "color",
+        "shapeRendering",
+        "strokeColor",
+        "strokeWidth",
+        "style",
+        "selected"
+      ],
+      "dependsOn": [
+        "c1154",
+        "c1572",
+        "c1706"
+      ]
+    },
+    {
+      "id": "c157",
+      "files": [
+        "xyflow/packages/react/src/additional-components/NodeResizer/NodeResizeControl.tsx"
+      ],
+      "lines": 199,
+      "symbolCount": 14,
+      "symbols": [
+        "scaleSelector",
+        "defaultPositions",
+        "ResizeControlLine",
+        "NodeResizeControl",
+        "ResizeControl",
+        "x0",
+        "y0",
+        "height0",
+        "width0",
+        "width1",
+        "height1",
+        "width2",
+        "height2",
+        "scale0"
+      ],
+      "dependsOn": [
+        "c1288",
+        "c1392",
+        "c1706",
+        "c181",
+        "c1889",
+        "c2070",
+        "c2109",
+        "c2377",
+        "c2427",
+        "c788"
+      ]
+    },
+    {
+      "id": "c163",
+      "files": [
+        "xyflow/packages/react/src/additional-components/NodeResizer/NodeResizer.tsx"
+      ],
+      "lines": 69,
+      "symbolCount": 1,
+      "symbols": [
+        "NodeResizer"
+      ],
+      "dependsOn": [
+        "c181",
+        "c2427"
+      ]
+    },
+    {
+      "id": "c181",
+      "files": [
+        "xyflow/packages/react/src/additional-components/NodeResizer/types.ts"
+      ],
+      "lines": 99,
+      "symbolCount": 20,
+      "symbols": [
+        "ResizeControlLineProps",
+        "ResizeControlProps",
+        "NodeResizerProps",
+        "nodeId",
+        "color",
+        "handleClassName",
+        "handleStyle",
+        "lineClassName",
+        "lineStyle",
+        "isVisible",
+        "minWidth",
+        "minHeight",
+        "maxWidth",
+        "maxHeight",
+        "keepAspectRatio",
+        "autoScale",
+        "shouldResize",
+        "onResizeStart",
+        "onResize",
+        "onResizeEnd"
+      ],
+      "dependsOn": [
+        "c2427"
+      ]
+    },
+    {
+      "id": "c184",
+      "files": [
+        "xyflow/packages/react/src/additional-components/NodeToolbar/NodeToolbar.tsx"
+      ],
+      "lines": 93,
+      "symbolCount": 8,
+      "symbols": [
+        "nodeEqualityFn",
+        "nodesEqualityFn",
+        "storeSelector",
+        "x0",
+        "y0",
+        "zoom0",
+        "selectedNodesCount0",
+        "NodeToolbar"
+      ],
+      "dependsOn": [
+        "c1154",
+        "c1288",
+        "c1637",
+        "c1706",
+        "c194",
+        "c195",
+        "c2012",
+        "c788"
+      ]
+    },
+    {
+      "id": "c194",
+      "files": [
+        "xyflow/packages/react/src/additional-components/NodeToolbar/NodeToolbarPortal.tsx"
+      ],
+      "lines": 10,
+      "symbolCount": 3,
+      "symbols": [
+        "selector",
+        "children",
+        "NodeToolbarPortal"
+      ],
+      "dependsOn": [
+        "c1288",
+        "c788"
+      ]
+    },
+    {
+      "id": "c195",
+      "files": [
+        "xyflow/packages/react/src/additional-components/NodeToolbar/types.ts"
+      ],
+      "lines": 26,
+      "symbolCount": 1,
+      "symbols": [
+        "NodeToolbarProps"
+      ],
+      "dependsOn": [
+        "c1637",
+        "c1706"
+      ]
+    },
+    {
+      "id": "c207",
+      "files": [
+        "xyflow/packages/react/src/components/A11yDescriptions/index.tsx"
+      ],
+      "lines": 33,
+      "symbolCount": 12,
+      "symbols": [
+        "style",
+        "ariaLiveStyle",
+        "ARIA_NODE_DESC_KEY",
+        "ARIA_EDGE_DESC_KEY",
+        "ARIA_LIVE_MESSAGE",
+        "ariaLiveSelector",
+        "ariaLabelConfigSelector",
+        "A11yDescriptions",
+        "AriaLiveMessage",
+        "rfId",
+        "disableKeyboardA11y",
+        "rfId"
+      ],
+      "dependsOn": [
+        "c1288",
+        "c788"
+      ]
+    },
+    {
+      "id": "c208",
+      "files": [
+        "xyflow/packages/react/src/components/Attribution/index.tsx"
+      ],
+      "lines": 21,
+      "symbolCount": 4,
+      "symbols": [
+        "Attribution",
+        "AttributionProps",
+        "proOptions",
+        "position"
+      ],
+      "dependsOn": [
+        "c1572"
+      ]
+    },
+    {
+      "id": "c214",
+      "files": [
+        "xyflow/packages/react/src/components/BatchProvider/index.tsx"
+      ],
+      "lines": 93,
+      "symbolCount": 6,
+      "symbols": [
+        "BatchContext",
+        "BatchProvider",
+        "[NodeType]",
+        "[EdgeType]",
+        "children",
+        "useBatchContext"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1154",
+        "c1301",
+        "c1392",
+        "c226",
+        "c788"
+      ]
+    },
+    {
+      "id": "c226",
+      "files": [
+        "xyflow/packages/react/src/components/BatchProvider/types.ts",
+        "xyflow/packages/react/src/components/BatchProvider/useQueue.ts"
+      ],
+      "lines": 54,
+      "symbolCount": 11,
+      "symbols": [
+        "useQueue",
+        "createQueue",
+        "[T]",
+        "[T]",
+        "push",
+        "get",
+        "QueueItem",
+        "[T]",
+        "[T]",
+        "Queue",
+        "reset"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "c236",
+      "files": [
+        "xyflow/packages/react/src/components/ConnectionLine/index.tsx"
+      ],
+      "lines": 112,
+      "symbolCount": 27,
+      "symbols": [
+        "CustomComponent",
+        "ConnectionLineWrapper",
+        "component",
+        "[NodeType]",
+        "[NodeType]",
+        "[NodeType]",
+        "ConnectionLineWrapperProps",
+        "type",
+        "containerStyle",
+        "style",
+        "selector",
+        "nodesConnectable0",
+        "isValid0",
+        "inProgress0",
+        "width0",
+        "height0",
+        "ConnectionLine",
+        "ConnectionLineProps",
+        "type",
+        "style"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1154",
+        "c1288",
+        "c1469",
+        "c1716",
+        "c1747",
+        "c1835",
+        "c1872",
+        "c323",
+        "c670",
+        "c788"
+      ]
+    },
+    {
+      "id": "c257",
+      "files": [
+        "xyflow/packages/react/src/components/EdgeLabelRenderer/index.tsx"
+      ],
+      "lines": 13,
+      "symbolCount": 4,
+      "symbols": [
+        "selector",
+        "EdgeLabelRenderer",
+        "EdgeLabelRendererProps",
+        "children"
+      ],
+      "dependsOn": [
+        "c1288",
+        "c788"
+      ]
+    },
+    {
+      "id": "c260",
+      "files": [
+        "xyflow/packages/react/src/components/EdgeWrapper/EdgeUpdateAnchors.tsx"
+      ],
+      "lines": 127,
+      "symbolCount": 4,
+      "symbols": [
+        "EdgeUpdateAnchors",
+        "EdgeUpdateAnchorsProps",
+        "[EdgeType]",
+        "[EdgeType]"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1469",
+        "c1572",
+        "c1622",
+        "c302",
+        "c788"
+      ]
+    },
+    {
+      "id": "c266",
+      "files": [
+        "xyflow/packages/react/src/components/EdgeWrapper/index.tsx"
+      ],
+      "lines": 249,
+      "symbolCount": 12,
+      "symbols": [
+        "EdgeWrapper",
+        "[EdgeType]",
+        "nodesSelectionActive0",
+        "edges0",
+        "nodes0",
+        "edges1",
+        "zIndex2",
+        "selected0",
+        "animated0",
+        "inactive0",
+        "updating0",
+        "selectable0"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1774",
+        "c1807",
+        "c2006",
+        "c260",
+        "c788"
+      ]
+    },
+    {
+      "id": "c274",
+      "files": [
+        "xyflow/packages/react/src/components/EdgeWrapper/utils.ts"
+      ],
+      "lines": 13,
+      "symbolCount": 13,
+      "symbols": [
+        "builtinEdgeTypes",
+        "default0",
+        "straight0",
+        "step0",
+        "smoothstep0",
+        "simplebezier0",
+        "nullPosition",
+        "sourceX0",
+        "sourceY0",
+        "targetX0",
+        "targetY0",
+        "sourcePosition0",
+        "targetPosition0"
+      ],
+      "dependsOn": [
+        "c1103"
+      ]
+    },
+    {
+      "id": "c287",
+      "files": [
+        "xyflow/packages/react/src/components/Edges/BaseEdge.tsx"
+      ],
+      "lines": 40,
+      "symbolCount": 1,
+      "symbols": [
+        "BaseEdge"
+      ],
+      "dependsOn": [
+        "c1057"
+      ]
+    },
+    {
+      "id": "c289",
+      "files": [
+        "xyflow/packages/react/src/components/Edges/BezierEdge.tsx"
+      ],
+      "lines": 58,
+      "symbolCount": 4,
+      "symbols": [
+        "BezierEdgeInternal",
+        "BezierEdge",
+        "createBezierEdge",
+        "isInternal"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1706",
+        "c1747",
+        "c287"
+      ]
+    },
+    {
+      "id": "c302",
+      "files": [
+        "xyflow/packages/react/src/components/Edges/EdgeAnchor.tsx"
+      ],
+      "lines": 45,
+      "symbolCount": 13,
+      "symbols": [
+        "shiftX",
+        "shiftY",
+        "EdgeAnchor",
+        "EdgeAnchorProps",
+        "position",
+        "centerX",
+        "centerY",
+        "radius",
+        "onMouseDown",
+        "onMouseEnter",
+        "onMouseOut",
+        "type",
+        "EdgeUpdaterClassName"
+      ],
+      "dependsOn": [
+        "c1706"
+      ]
+    },
+    {
+      "id": "c305",
+      "files": [
+        "xyflow/packages/react/src/components/Edges/EdgeText.tsx"
+      ],
+      "lines": 67,
+      "symbolCount": 10,
+      "symbols": [
+        "EdgeText",
+        "EdgeTextComponent",
+        "height0",
+        "width0",
+        "x0",
+        "y0",
+        "x1",
+        "y1",
+        "width1",
+        "height1"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1706"
+      ]
+    },
+    {
+      "id": "c323",
+      "files": [
+        "xyflow/packages/react/src/components/Edges/SimpleBezierEdge.tsx"
+      ],
+      "lines": 121,
+      "symbolCount": 19,
+      "symbols": [
+        "SimpleBezierEdgeInternal",
+        "SimpleBezierEdge",
+        "createSimpleBezierEdge",
+        "getSimpleBezierPath",
+        "getControl",
+        "GetSimpleBezierPathParams",
+        "GetControlParams",
+        "sourceX",
+        "sourceY",
+        "sourcePosition",
+        "targetX",
+        "targetY",
+        "targetPosition",
+        "pos",
+        "x1",
+        "y1",
+        "x2",
+        "y2",
+        "isInternal"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1706",
+        "c1747",
+        "c287"
+      ]
+    },
+    {
+      "id": "c335",
+      "files": [
+        "xyflow/packages/react/src/components/Edges/SmoothStepEdge.tsx"
+      ],
+      "lines": 60,
+      "symbolCount": 4,
+      "symbols": [
+        "isInternal",
+        "SmoothStepEdgeInternal",
+        "SmoothStepEdge",
+        "createSmoothStepEdge"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1706",
+        "c1835",
+        "c287"
+      ]
+    },
+    {
+      "id": "c339",
+      "files": [
+        "xyflow/packages/react/src/components/Edges/StepEdge.tsx"
+      ],
+      "lines": 19,
+      "symbolCount": 4,
+      "symbols": [
+        "isInternal",
+        "StepEdgeInternal",
+        "StepEdge",
+        "createStepEdge"
+      ],
+      "dependsOn": [
+        "c1057"
+      ]
+    },
+    {
+      "id": "c343",
+      "files": [
+        "xyflow/packages/react/src/components/Edges/StraightEdge.tsx"
+      ],
+      "lines": 47,
+      "symbolCount": 4,
+      "symbols": [
+        "isInternal",
+        "StraightEdgeInternal",
+        "StraightEdge",
+        "createStraightEdge"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1872",
+        "c287"
+      ]
+    },
+    {
+      "id": "c362",
+      "files": [
+        "xyflow/packages/react/src/components/Handle/index.tsx"
+      ],
+      "lines": 223,
+      "symbolCount": 34,
+      "symbols": [
+        "Handle",
+        "HandleComponent",
+        "HandleProps",
+        "selector",
+        "connectOnClick0",
+        "noPanClassName0",
+        "rfId0",
+        "connectingSelector",
+        "connectingFrom0",
+        "connectingTo0",
+        "clickConnecting0",
+        "isPossibleEndHandle0",
+        "connectionInProcess0",
+        "clickConnectionInProcess0",
+        "valid0",
+        "onError0",
+        "connectionClickStartHandle0",
+        "id0",
+        "nodeId0",
+        "type0"
+      ],
+      "dependsOn": [
+        "c1288",
+        "c1325",
+        "c1333",
+        "c1572",
+        "c1622",
+        "c1706",
+        "c2109",
+        "c788"
+      ]
+    },
+    {
+      "id": "c384",
+      "files": [
+        "xyflow/packages/react/src/components/NodeWrapper/index.tsx"
+      ],
+      "lines": 229,
+      "symbolCount": 13,
+      "symbols": [
+        "NodeWrapper",
+        "[NodeType]",
+        "ariaLiveMessage0",
+        "zoom0",
+        "selected0",
+        "selectable0",
+        "parent0",
+        "draggable0",
+        "dragging0",
+        "zIndex0",
+        "transform0",
+        "pointerEvents0",
+        "visibility0"
+      ],
+      "dependsOn": [
+        "c1154",
+        "c1724",
+        "c1889",
+        "c397",
+        "c400",
+        "c418",
+        "c678",
+        "c713",
+        "c788"
+      ]
+    },
+    {
+      "id": "c397",
+      "files": [
+        "xyflow/packages/react/src/components/NodeWrapper/useNodeObserver.ts"
+      ],
+      "lines": 62,
+      "symbolCount": 5,
+      "symbols": [
+        "useNodeObserver",
+        "node",
+        "nodeType",
+        "hasDimensions",
+        "resizeObserver"
+      ],
+      "dependsOn": [
+        "c1154",
+        "c788"
+      ]
+    },
+    {
+      "id": "c400",
+      "files": [
+        "xyflow/packages/react/src/components/NodeWrapper/utils.tsx"
+      ],
+      "lines": 28,
+      "symbolCount": 14,
+      "symbols": [
+        "arrowKeyDiffs",
+        "ArrowUp0",
+        "ArrowDown0",
+        "ArrowLeft0",
+        "ArrowRight0",
+        "builtinNodeTypes",
+        "input0",
+        "default0",
+        "output0",
+        "group0",
+        "getNodeInlineStyleDimensions",
+        "[NodeType]",
+        "width",
+        "height"
+      ],
+      "dependsOn": [
+        "c1103",
+        "c1154",
+        "c1706",
+        "c412",
+        "c413",
+        "c414",
+        "c415"
+      ]
+    },
+    {
+      "id": "c412",
+      "files": [
+        "xyflow/packages/react/src/components/Nodes/DefaultNode.tsx"
+      ],
+      "lines": 14,
+      "symbolCount": 1,
+      "symbols": [
+        "DefaultNode"
+      ],
+      "dependsOn": [
+        "c1154",
+        "c1706"
+      ]
+    },
+    {
+      "id": "c413",
+      "files": [
+        "xyflow/packages/react/src/components/Nodes/GroupNode.tsx"
+      ],
+      "lines": 3,
+      "symbolCount": 1,
+      "symbols": [
+        "GroupNode"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "c414",
+      "files": [
+        "xyflow/packages/react/src/components/Nodes/InputNode.tsx"
+      ],
+      "lines": 8,
+      "symbolCount": 1,
+      "symbols": [
+        "InputNode"
+      ],
+      "dependsOn": [
+        "c1154",
+        "c1706"
+      ]
+    },
+    {
+      "id": "c415",
+      "files": [
+        "xyflow/packages/react/src/components/Nodes/OutputNode.tsx"
+      ],
+      "lines": 8,
+      "symbolCount": 1,
+      "symbols": [
+        "OutputNode"
+      ],
+      "dependsOn": [
+        "c1154",
+        "c1706"
+      ]
+    },
+    {
+      "id": "c418",
+      "files": [
+        "xyflow/packages/react/src/components/Nodes/utils.ts"
+      ],
+      "lines": 32,
+      "symbolCount": 10,
+      "symbols": [
+        "handleNodeClick",
+        "id",
+        "store",
+        "getState",
+        "setState",
+        "unselect",
+        "nodeRef",
+        "nodesSelectionActive0",
+        "edges0",
+        "nodes0"
+      ],
+      "dependsOn": [
+        "c1288"
+      ]
+    },
+    {
+      "id": "c435",
+      "files": [
+        "xyflow/packages/react/src/components/NodesSelection/index.tsx"
+      ],
+      "lines": 86,
+      "symbolCount": 17,
+      "symbols": [
+        "onSelectionContextMenu",
+        "NodesSelection",
+        "NodesSelectionProps",
+        "[NodeType]",
+        "[NodeType]",
+        "noPanClassName",
+        "disableKeyboardA11y",
+        "selector",
+        "filter0",
+        "width0",
+        "height0",
+        "userSelectionActive0",
+        "transformString0",
+        "preventScroll0",
+        "transform0",
+        "width1",
+        "height1"
+      ],
+      "dependsOn": [
+        "c1154",
+        "c1288",
+        "c678",
+        "c713",
+        "c788"
+      ]
+    },
+    {
+      "id": "c443",
+      "files": [
+        "xyflow/packages/react/src/components/Panel/index.tsx"
+      ],
+      "lines": 8,
+      "symbolCount": 2,
+      "symbols": [
+        "Panel",
+        "PanelProps"
+      ],
+      "dependsOn": [
+        "c1572"
+      ]
+    },
+    {
+      "id": "c458",
+      "files": [
+        "xyflow/packages/react/src/components/ReactFlowProvider/index.tsx"
+      ],
+      "lines": 84,
+      "symbolCount": 16,
+      "symbols": [
+        "ReactFlowProvider",
+        "ReactFlowProviderProps",
+        "initialNodes",
+        "initialEdges",
+        "defaultNodes",
+        "defaultEdges",
+        "initialWidth",
+        "initialHeight",
+        "fitView",
+        "initialFitViewOptions",
+        "initialMinZoom",
+        "initialMaxZoom",
+        "nodeOrigin",
+        "nodeExtent",
+        "children",
+        "zIndexMode"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1103",
+        "c1154",
+        "c1572",
+        "c1637",
+        "c1706",
+        "c214"
+      ]
+    },
+    {
+      "id": "c475",
+      "files": [
+        "xyflow/packages/react/src/components/SelectionListener/index.tsx"
+      ],
+      "lines": 56,
+      "symbolCount": 19,
+      "symbols": [
+        "SelectionListener",
+        "onSelectionChange",
+        "nodes0",
+        "[NodeType]",
+        "[NodeType]",
+        "[NodeType]",
+        "SelectionListenerInner",
+        "[EdgeType]",
+        "[EdgeType]",
+        "[EdgeType]",
+        "SelectionListenerProps",
+        "areEqual",
+        "SelectorSlice",
+        "selector",
+        "selectedEdges0",
+        "selectedNodes0",
+        "selectId",
+        "edges0",
+        "changeSelector"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1103",
+        "c1154",
+        "c1288",
+        "c788"
+      ]
+    },
+    {
+      "id": "c495",
+      "files": [
+        "xyflow/packages/react/src/components/StoreUpdater/index.tsx"
+      ],
+      "lines": 86,
+      "symbolCount": 29,
+      "symbols": [
+        "reactFlowFieldsToTrack",
+        "StoreUpdater",
+        "StoreUpdaterProps",
+        "[NodeType]",
+        "[NodeType]",
+        "[EdgeType]",
+        "[EdgeType]",
+        "ReactFlowFieldsToTrack",
+        "fieldsToTrack",
+        "selector",
+        "setNodes0",
+        "setEdges0",
+        "setMinZoom0",
+        "setMaxZoom0",
+        "setTranslateExtent0",
+        "setNodeExtent0",
+        "reset0",
+        "setDefaultNodesAndEdges0",
+        "initPrevValues",
+        "translateExtent0"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1103",
+        "c1154",
+        "c1288",
+        "c1364",
+        "c1572",
+        "c1706",
+        "c1889",
+        "c788",
+        "c980"
+      ]
+    },
+    {
+      "id": "c510",
+      "files": [
+        "xyflow/packages/react/src/components/UserSelection/index.tsx"
+      ],
+      "lines": 23,
+      "symbolCount": 7,
+      "symbols": [
+        "selector",
+        "userSelectionActive0",
+        "userSelectionRect0",
+        "UserSelection",
+        "width0",
+        "height0",
+        "transform0"
+      ],
+      "dependsOn": [
+        "c1288",
+        "c788"
+      ]
+    },
+    {
+      "id": "c517",
+      "files": [
+        "xyflow/packages/react/src/components/ViewportPortal/index.tsx"
+      ],
+      "lines": 10,
+      "symbolCount": 3,
+      "symbols": [
+        "selector",
+        "children",
+        "ViewportPortal"
+      ],
+      "dependsOn": [
+        "c1288",
+        "c788"
+      ]
+    },
+    {
+      "id": "c521",
+      "files": [
+        "xyflow/packages/react/src/container/EdgeRenderer/MarkerDefinitions.tsx"
+      ],
+      "lines": 75,
+      "symbolCount": 5,
+      "symbols": [
+        "MarkerDefinitions",
+        "MarkerDefinitionsProps",
+        "defaultColor",
+        "rfId",
+        "Marker"
+      ],
+      "dependsOn": [
+        "c1469",
+        "c2006",
+        "c525",
+        "c788"
+      ]
+    },
+    {
+      "id": "c525",
+      "files": [
+        "xyflow/packages/react/src/container/EdgeRenderer/MarkerSymbols.tsx"
+      ],
+      "lines": 52,
+      "symbolCount": 10,
+      "symbols": [
+        "ArrowSymbol",
+        "ArrowClosedSymbol",
+        "SymbolProps",
+        "strokeWidth0",
+        "stroke0",
+        "strokeWidth1",
+        "fill0",
+        "stroke1",
+        "MarkerSymbols",
+        "useMarkerSymbol"
+      ],
+      "dependsOn": [
+        "c1469",
+        "c788"
+      ]
+    },
+    {
+      "id": "c537",
+      "files": [
+        "xyflow/packages/react/src/container/EdgeRenderer/index.tsx"
+      ],
+      "lines": 83,
+      "symbolCount": 11,
+      "symbols": [
+        "EdgeRenderer",
+        "EdgeRendererComponent",
+        "EdgeRendererProps",
+        "[EdgeType]",
+        "[EdgeType]",
+        "selector",
+        "edgesFocusable0",
+        "edgesReconnectable0",
+        "elementsSelectable0",
+        "connectionMode0",
+        "onError0"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1154",
+        "c1288",
+        "c560",
+        "c788",
+        "c805"
+      ]
+    },
+    {
+      "id": "c547",
+      "files": [
+        "xyflow/packages/react/src/container/FlowRenderer/index.tsx"
+      ],
+      "lines": 126,
+      "symbolCount": 11,
+      "symbols": [
+        "FlowRenderer",
+        "FlowRendererComponent",
+        "FlowRendererProps",
+        "[NodeType]",
+        "[NodeType]",
+        "win",
+        "selector",
+        "nodesSelectionActive0",
+        "userSelectionActive0",
+        "target0",
+        "target1"
+      ],
+      "dependsOn": [
+        "c1154",
+        "c1288",
+        "c435",
+        "c560",
+        "c591",
+        "c651",
+        "c688",
+        "c711",
+        "c788"
+      ]
+    },
+    {
+      "id": "c560",
+      "files": [
+        "xyflow/packages/react/src/container/GraphView/index.tsx"
+      ],
+      "lines": 189,
+      "symbolCount": 7,
+      "symbols": [
+        "GraphView",
+        "GraphViewComponent",
+        "GraphViewProps",
+        "[NodeType]",
+        "[NodeType]",
+        "[EdgeType]",
+        "[EdgeType]"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1154",
+        "c236",
+        "c563",
+        "c567",
+        "c639",
+        "c742",
+        "c802",
+        "c980"
+      ]
+    },
+    {
+      "id": "c563",
+      "files": [
+        "xyflow/packages/react/src/container/GraphView/useNodeOrEdgeTypesWarning.ts"
+      ],
+      "lines": 2,
+      "symbolCount": 4,
+      "symbols": [
+        "emptyTypes",
+        "useNodeOrEdgeTypesWarning",
+        "useNodeOrEdgeTypesWarning",
+        "useNodeOrEdgeTypesWarning"
+      ],
+      "dependsOn": [
+        "c1103"
+      ]
+    },
+    {
+      "id": "c567",
+      "files": [
+        "xyflow/packages/react/src/container/GraphView/useStylesLoadedWarning.ts"
+      ],
+      "lines": 18,
+      "symbolCount": 1,
+      "symbols": [
+        "useStylesLoadedWarning"
+      ],
+      "dependsOn": [
+        "c788"
+      ]
+    },
+    {
+      "id": "c570",
+      "files": [
+        "xyflow/packages/react/src/container/NodeRenderer/index.tsx"
+      ],
+      "lines": 87,
+      "symbolCount": 11,
+      "symbols": [
+        "NodeRenderer",
+        "NodeRendererComponent",
+        "NodeRendererProps",
+        "[NodeType]",
+        "[NodeType]",
+        "selector",
+        "nodesDraggable0",
+        "nodesConnectable0",
+        "nodesFocusable0",
+        "elementsSelectable0",
+        "onError0"
+      ],
+      "dependsOn": [
+        "c1154",
+        "c1288",
+        "c560",
+        "c577",
+        "c788",
+        "c806"
+      ]
+    },
+    {
+      "id": "c577",
+      "files": [
+        "xyflow/packages/react/src/container/NodeRenderer/useResizeObserver.ts"
+      ],
+      "lines": 31,
+      "symbolCount": 2,
+      "symbols": [
+        "selector",
+        "useResizeObserver"
+      ],
+      "dependsOn": [
+        "c1288",
+        "c1637",
+        "c788"
+      ]
+    },
+    {
+      "id": "c591",
+      "files": [
+        "xyflow/packages/react/src/container/Pane/index.tsx"
+      ],
+      "lines": 340,
+      "symbolCount": 35,
+      "symbols": [
+        "Pane",
+        "PaneProps",
+        "wrapHandler",
+        "selector",
+        "userSelectionActive0",
+        "elementsSelectable0",
+        "connectionInProgress0",
+        "dragging0",
+        "panBy0",
+        "autoPanSpeed0",
+        "nodesSelectionActive0",
+        "userSelectionRect0",
+        "width0",
+        "height0",
+        "startX0",
+        "startY0",
+        "x0",
+        "y0",
+        "x1",
+        "y1"
+      ],
+      "dependsOn": [
+        "c1288",
+        "c1301",
+        "c1572",
+        "c1706",
+        "c1889",
+        "c510",
+        "c788",
+        "c980"
+      ]
+    },
+    {
+      "id": "c627",
+      "files": [
+        "xyflow/packages/react/src/container/ReactFlow/Wrapper.tsx"
+      ],
+      "lines": 61,
+      "symbolCount": 15,
+      "symbols": [
+        "Wrapper",
+        "children",
+        "nodes",
+        "edges",
+        "defaultNodes",
+        "defaultEdges",
+        "width",
+        "height",
+        "fitView",
+        "fitViewOptions",
+        "minZoom",
+        "maxZoom",
+        "nodeOrigin",
+        "nodeExtent",
+        "zIndexMode"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1103",
+        "c1154",
+        "c1572",
+        "c1637",
+        "c1706",
+        "c458"
+      ]
+    },
+    {
+      "id": "c635",
+      "files": [
+        "xyflow/packages/react/src/container/ReactFlow/index.tsx"
+      ],
+      "lines": 305,
+      "symbolCount": 7,
+      "symbols": [
+        "wrapperStyle",
+        "ReactFlow",
+        "[NodeType]",
+        "[EdgeType]",
+        "behavior0",
+        "left0",
+        "top0"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1154",
+        "c1469",
+        "c1572",
+        "c207",
+        "c208",
+        "c475",
+        "c495",
+        "c627",
+        "c664",
+        "c980"
+      ]
+    },
+    {
+      "id": "c636",
+      "files": [
+        "xyflow/packages/react/src/container/ReactFlow/init-values.ts"
+      ],
+      "lines": 2,
+      "symbolCount": 2,
+      "symbols": [
+        "defaultNodeOrigin",
+        "defaultViewport"
+      ],
+      "dependsOn": [
+        "c1637"
+      ]
+    },
+    {
+      "id": "c639",
+      "files": [
+        "xyflow/packages/react/src/container/Viewport/index.tsx"
+      ],
+      "lines": 13,
+      "symbolCount": 5,
+      "symbols": [
+        "selector",
+        "Viewport",
+        "ViewportProps",
+        "children",
+        "transform0"
+      ],
+      "dependsOn": [
+        "c1288",
+        "c788"
+      ]
+    },
+    {
+      "id": "c651",
+      "files": [
+        "xyflow/packages/react/src/container/ZoomPane/index.tsx"
+      ],
+      "lines": 142,
+      "symbolCount": 10,
+      "symbols": [
+        "ZoomPane",
+        "ZoomPaneProps",
+        "selector",
+        "userSelectionActive0",
+        "lib0",
+        "connectionInProgress0",
+        "transform0",
+        "panZoom0",
+        "transform1",
+        "domNode0"
+      ],
+      "dependsOn": [
+        "c1288",
+        "c1572",
+        "c1660",
+        "c1706",
+        "c2305",
+        "c547",
+        "c711",
+        "c781",
+        "c788"
+      ]
+    },
+    {
+      "id": "c654",
+      "files": [
+        "xyflow/packages/react/src/contexts/NodeIdContext.ts"
+      ],
+      "lines": 7,
+      "symbolCount": 4,
+      "symbols": [
+        "NodeIdContext",
+        "Provider",
+        "Consumer",
+        "useNodeId"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "c658",
+      "files": [
+        "xyflow/packages/react/src/contexts/StoreContext.ts"
+      ],
+      "lines": 2,
+      "symbolCount": 2,
+      "symbols": [
+        "StoreContext",
+        "Provider"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "c659",
+      "files": [
+        "xyflow/packages/react/src/custom.d.ts"
+      ],
+      "lines": 4,
+      "symbolCount": 4,
+      "symbols": [
+        "content",
+        "svgComponent",
+        "SvgrComponent",
+        "svgUrl"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "c664",
+      "files": [
+        "xyflow/packages/react/src/hooks/useColorModeClass.ts"
+      ],
+      "lines": 31,
+      "symbolCount": 2,
+      "symbols": [
+        "useColorModeClass",
+        "getMediaQuery"
+      ],
+      "dependsOn": [
+        "c1572"
+      ]
+    },
+    {
+      "id": "c670",
+      "files": [
+        "xyflow/packages/react/src/hooks/useConnection.ts"
+      ],
+      "lines": 24,
+      "symbolCount": 8,
+      "symbols": [
+        "useConnection",
+        "getSelector",
+        "[NodeType]",
+        "[NodeType]",
+        "[SelectorReturn]",
+        "[SelectorReturn]",
+        "storeSelector",
+        "to0"
+      ],
+      "dependsOn": [
+        "c1154",
+        "c1288",
+        "c1572",
+        "c788"
+      ]
+    },
+    {
+      "id": "c678",
+      "files": [
+        "xyflow/packages/react/src/hooks/useDrag.ts"
+      ],
+      "lines": 62,
+      "symbolCount": 9,
+      "symbols": [
+        "useDrag",
+        "UseDragParams",
+        "nodeRef",
+        "disabled",
+        "noDragClassName",
+        "handleSelector",
+        "nodeId",
+        "isSelectable",
+        "nodeClickDistance"
+      ],
+      "dependsOn": [
+        "c2168",
+        "c418",
+        "c788"
+      ]
+    },
+    {
+      "id": "c681",
+      "files": [
+        "xyflow/packages/react/src/hooks/useEdges.ts"
+      ],
+      "lines": 6,
+      "symbolCount": 3,
+      "symbols": [
+        "edgesSelector",
+        "useEdges",
+        "[EdgeType]"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1288",
+        "c788"
+      ]
+    },
+    {
+      "id": "c688",
+      "files": [
+        "xyflow/packages/react/src/hooks/useGlobalKeyHandler.ts"
+      ],
+      "lines": 27,
+      "symbolCount": 9,
+      "symbols": [
+        "selected",
+        "win",
+        "useGlobalKeyHandler",
+        "deleteKeyCode",
+        "multiSelectionKeyCode",
+        "actInsideInputWithModifier0",
+        "target0",
+        "nodesSelectionActive0",
+        "multiSelectionActive0"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1154",
+        "c1572",
+        "c711",
+        "c777",
+        "c788"
+      ]
+    },
+    {
+      "id": "c697",
+      "files": [
+        "xyflow/packages/react/src/hooks/useHandleConnections.ts"
+      ],
+      "lines": 46,
+      "symbolCount": 7,
+      "symbols": [
+        "useHandleConnections",
+        "UseHandleConnectionsParams",
+        "type",
+        "id",
+        "nodeId",
+        "onConnect",
+        "onDisconnect"
+      ],
+      "dependsOn": [
+        "c1572",
+        "c1622",
+        "c1716",
+        "c788"
+      ]
+    },
+    {
+      "id": "c700",
+      "files": [
+        "xyflow/packages/react/src/hooks/useInternalNode.ts"
+      ],
+      "lines": 8,
+      "symbolCount": 2,
+      "symbols": [
+        "useInternalNode",
+        "[NodeType]"
+      ],
+      "dependsOn": [
+        "c1154",
+        "c788"
+      ]
+    },
+    {
+      "id": "c701",
+      "files": [
+        "xyflow/packages/react/src/hooks/useIsomorphicLayoutEffect.ts"
+      ],
+      "lines": 1,
+      "symbolCount": 1,
+      "symbols": [
+        "useIsomorphicLayoutEffect"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "c711",
+      "files": [
+        "xyflow/packages/react/src/hooks/useKeyPress.ts"
+      ],
+      "lines": 155,
+      "symbolCount": 11,
+      "symbols": [
+        "useKeyPress",
+        "isMatchingKey",
+        "Keys",
+        "PressedKeys",
+        "useKeyOrCode",
+        "KeyOrCode",
+        "UseKeyPressOptions",
+        "target",
+        "actInsideInputWithModifier",
+        "preventDefault",
+        "defaultDoc"
+      ],
+      "dependsOn": [
+        "c1572",
+        "c1724"
+      ]
+    },
+    {
+      "id": "c713",
+      "files": [
+        "xyflow/packages/react/src/hooks/useMoveSelectedNodes.ts"
+      ],
+      "lines": 55,
+      "symbolCount": 4,
+      "symbols": [
+        "selectedAndDraggable",
+        "useMoveSelectedNodes",
+        "x0",
+        "y0"
+      ],
+      "dependsOn": [
+        "c1154",
+        "c1706",
+        "c1974",
+        "c788"
+      ]
+    },
+    {
+      "id": "c717",
+      "files": [
+        "xyflow/packages/react/src/hooks/useNodeConnections.ts"
+      ],
+      "lines": 38,
+      "symbolCount": 2,
+      "symbols": [
+        "error014",
+        "useNodeConnections"
+      ],
+      "dependsOn": [
+        "c1572",
+        "c1716",
+        "c788"
+      ]
+    },
+    {
+      "id": "c720",
+      "files": [
+        "xyflow/packages/react/src/hooks/useNodes.ts"
+      ],
+      "lines": 6,
+      "symbolCount": 3,
+      "symbols": [
+        "nodesSelector",
+        "useNodes",
+        "[NodeType]"
+      ],
+      "dependsOn": [
+        "c1154",
+        "c1288",
+        "c788"
+      ]
+    },
+    {
+      "id": "c727",
+      "files": [
+        "xyflow/packages/react/src/hooks/useNodesData.ts"
+      ],
+      "lines": 7,
+      "symbolCount": 8,
+      "symbols": [
+        "useNodesData",
+        "[NodeType]",
+        "[NodeType]",
+        "useNodesData",
+        "useNodesData",
+        "id0",
+        "type0",
+        "data0"
+      ],
+      "dependsOn": [
+        "c1154",
+        "c1706"
+      ]
+    },
+    {
+      "id": "c733",
+      "files": [
+        "xyflow/packages/react/src/hooks/useNodesEdgesState.ts"
+      ],
+      "lines": 32,
+      "symbolCount": 4,
+      "symbols": [
+        "useNodesState",
+        "[NodeType]",
+        "useEdgesState",
+        "[EdgeType]"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1103",
+        "c1154",
+        "c1301"
+      ]
+    },
+    {
+      "id": "c736",
+      "files": [
+        "xyflow/packages/react/src/hooks/useNodesInitialized.ts"
+      ],
+      "lines": 30,
+      "symbolCount": 4,
+      "symbols": [
+        "useNodesInitialized",
+        "selector",
+        "UseNodesInitializedOptions",
+        "includeHiddenNodes"
+      ],
+      "dependsOn": [
+        "c1288",
+        "c1889",
+        "c788"
+      ]
+    },
+    {
+      "id": "c739",
+      "files": [
+        "xyflow/packages/react/src/hooks/useOnEdgesChangeMiddleware.ts"
+      ],
+      "lines": 18,
+      "symbolCount": 2,
+      "symbols": [
+        "experimental_useOnEdgesChangeMiddleware",
+        "[EdgeType]"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1154",
+        "c1392",
+        "c788"
+      ]
+    },
+    {
+      "id": "c742",
+      "files": [
+        "xyflow/packages/react/src/hooks/useOnInitHandler.ts"
+      ],
+      "lines": 13,
+      "symbolCount": 3,
+      "symbols": [
+        "useOnInitHandler",
+        "[NodeType]",
+        "[EdgeType]"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1103",
+        "c1154",
+        "c777"
+      ]
+    },
+    {
+      "id": "c744",
+      "files": [
+        "xyflow/packages/react/src/hooks/useOnNodesChangeMiddleware.ts"
+      ],
+      "lines": 18,
+      "symbolCount": 2,
+      "symbols": [
+        "experimental_useOnNodesChangeMiddleware",
+        "[NodeType]"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1154",
+        "c1392",
+        "c788"
+      ]
+    },
+    {
+      "id": "c752",
+      "files": [
+        "xyflow/packages/react/src/hooks/useOnSelectionChange.ts"
+      ],
+      "lines": 19,
+      "symbolCount": 9,
+      "symbols": [
+        "useOnSelectionChange",
+        "onChange",
+        "[NodeType]",
+        "[NodeType]",
+        "[EdgeType]",
+        "[EdgeType]",
+        "UseOnSelectionChangeOptions",
+        "onSelectionChangeHandlers0",
+        "onSelectionChangeHandlers1"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1103",
+        "c1154",
+        "c788"
+      ]
+    },
+    {
+      "id": "c760",
+      "files": [
+        "xyflow/packages/react/src/hooks/useOnViewportChange.ts"
+      ],
+      "lines": 23,
+      "symbolCount": 8,
+      "symbols": [
+        "useOnViewportChange",
+        "UseOnViewportChangeOptions",
+        "onStart",
+        "onChange",
+        "onEnd",
+        "onViewportChangeStart0",
+        "onViewportChange0",
+        "onViewportChangeEnd0"
+      ],
+      "dependsOn": [
+        "c1572",
+        "c788"
+      ]
+    },
+    {
+      "id": "c777",
+      "files": [
+        "xyflow/packages/react/src/hooks/useReactFlow.ts"
+      ],
+      "lines": 259,
+      "symbolCount": 18,
+      "symbols": [
+        "selector",
+        "useReactFlow",
+        "[NodeType]",
+        "[EdgeType]",
+        "position0",
+        "width0",
+        "height0",
+        "replace0",
+        "replace1",
+        "deletedEdges0",
+        "deletedNodes0",
+        "replace2",
+        "replace3",
+        "nodeLookup0",
+        "nodeOrigin0",
+        "fitViewOptions0",
+        "fitViewQueued0",
+        "fitViewResolver0"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1103",
+        "c1140",
+        "c1154",
+        "c1288",
+        "c1301",
+        "c1392",
+        "c1706",
+        "c1889",
+        "c1974",
+        "c214",
+        "c788"
+      ]
+    },
+    {
+      "id": "c781",
+      "files": [
+        "xyflow/packages/react/src/hooks/useResizeHandler.ts"
+      ],
+      "lines": 34,
+      "symbolCount": 3,
+      "symbols": [
+        "useResizeHandler",
+        "height0",
+        "width0"
+      ],
+      "dependsOn": [
+        "c788"
+      ]
+    },
+    {
+      "id": "c788",
+      "files": [
+        "xyflow/packages/react/src/hooks/useStore.ts"
+      ],
+      "lines": 31,
+      "symbolCount": 6,
+      "symbols": [
+        "zustandErrorMessage",
+        "useStore",
+        "[StateSlice]",
+        "useStoreApi",
+        "[NodeType]",
+        "[EdgeType]"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1154",
+        "c1288"
+      ]
+    },
+    {
+      "id": "c790",
+      "files": [
+        "xyflow/packages/react/src/hooks/useUpdateNodeInternals.ts"
+      ],
+      "lines": 19,
+      "symbolCount": 2,
+      "symbols": [
+        "useUpdateNodeInternals",
+        "triggerFitView0"
+      ],
+      "dependsOn": [
+        "c1572",
+        "c1637",
+        "c788"
+      ]
+    },
+    {
+      "id": "c792",
+      "files": [
+        "xyflow/packages/react/src/hooks/useViewport.ts"
+      ],
+      "lines": 10,
+      "symbolCount": 5,
+      "symbols": [
+        "viewportSelector",
+        "x0",
+        "y0",
+        "zoom0",
+        "useViewport"
+      ],
+      "dependsOn": [
+        "c1288",
+        "c788"
+      ]
+    },
+    {
+      "id": "c799",
+      "files": [
+        "xyflow/packages/react/src/hooks/useViewportHelper.ts"
+      ],
+      "lines": 103,
+      "symbolCount": 6,
+      "symbols": [
+        "useViewportHelper",
+        "duration0",
+        "ease0",
+        "interpolate0",
+        "x0",
+        "y0"
+      ],
+      "dependsOn": [
+        "c1103",
+        "c1572",
+        "c1706",
+        "c788"
+      ]
+    },
+    {
+      "id": "c802",
+      "files": [
+        "xyflow/packages/react/src/hooks/useViewportSync.ts"
+      ],
+      "lines": 14,
+      "symbolCount": 3,
+      "symbols": [
+        "selector",
+        "useViewportSync",
+        "transform0"
+      ],
+      "dependsOn": [
+        "c1288",
+        "c788"
+      ]
+    },
+    {
+      "id": "c805",
+      "files": [
+        "xyflow/packages/react/src/hooks/useVisibleEdgeIds.ts"
+      ],
+      "lines": 40,
+      "symbolCount": 1,
+      "symbols": [
+        "useVisibleEdgeIds"
+      ],
+      "dependsOn": [
+        "c1288",
+        "c1774",
+        "c788"
+      ]
+    },
+    {
+      "id": "c806",
+      "files": [
+        "xyflow/packages/react/src/hooks/useVisibleNodeIds.ts"
+      ],
+      "lines": 12,
+      "symbolCount": 2,
+      "symbols": [
+        "selector",
+        "useVisibleNodeIds"
+      ],
+      "dependsOn": [
+        "c1154",
+        "c1288",
+        "c788"
+      ]
+    },
+    {
+      "id": "c808",
+      "files": [
+        "xyflow/packages/react/src/index.ts"
+      ],
+      "lines": 1,
+      "symbolCount": 1,
+      "symbols": [
+        "Handle"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "c813",
+      "files": [
+        "xyflow/packages/react/src/store/index.ts"
+      ],
+      "lines": 427,
+      "symbolCount": 55,
+      "symbols": [
+        "createStore",
+        "fitViewResolver0",
+        "nodes1",
+        "edges0",
+        "width1",
+        "height1",
+        "fitView0",
+        "fitViewOptions0",
+        "minZoom1",
+        "maxZoom1",
+        "nodeOrigin0",
+        "nodeExtent0",
+        "defaultNodes0",
+        "defaultEdges0",
+        "zIndexMode0",
+        "nodeOrigin1",
+        "nodeExtent1",
+        "elevateNodesOnSelect0",
+        "checkEquality0",
+        "zIndexMode1"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1103",
+        "c1154",
+        "c1288",
+        "c1301",
+        "c1392",
+        "c1572",
+        "c1637",
+        "c1706",
+        "c1807",
+        "c1974",
+        "c2070",
+        "c2109"
+      ]
+    },
+    {
+      "id": "c864",
+      "files": [
+        "xyflow/packages/react/src/store/initialState.ts"
+      ],
+      "lines": 140,
+      "symbolCount": 6,
+      "symbols": [
+        "devWarn",
+        "getInitialState",
+        "nodeOrigin0",
+        "nodeExtent0",
+        "zIndexMode0",
+        "filter0"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1103",
+        "c1154",
+        "c1288",
+        "c1572",
+        "c1637",
+        "c1706",
+        "c2070"
+      ]
+    },
+    {
+      "id": "c870",
+      "files": [
+        "xyflow/packages/react/src/styles/utils.ts"
+      ],
+      "lines": 1,
+      "symbolCount": 1,
+      "symbols": [
+        "containerStyle"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "c980",
+      "files": [
+        "xyflow/packages/react/src/types/component-props.ts"
+      ],
+      "lines": 653,
+      "symbolCount": 125,
+      "symbols": [
+        "ReactFlowProps",
+        "onSelectionDragStop",
+        "onSelectionDragStart",
+        "onSelectionDrag",
+        "onSelectionContextMenu",
+        "onReconnectStart",
+        "onReconnect",
+        "onNodesDelete",
+        "onNodesChange",
+        "onNodeMouseMove",
+        "onNodeMouseLeave",
+        "onNodeMouseEnter",
+        "onNodeDragStop",
+        "onNodeDragStart",
+        "onNodeDrag",
+        "onNodeDoubleClick",
+        "onNodeContextMenu",
+        "onNodeClick",
+        "onEdgesDelete",
+        "onEdgesChange"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1103",
+        "c1154",
+        "c1364",
+        "c1469",
+        "c1572",
+        "c1622",
+        "c1637",
+        "c1706"
+      ]
+    },
+    {
+      "id": "c1057",
+      "files": [
+        "xyflow/packages/react/src/types/edges.ts"
+      ],
+      "lines": 177,
+      "symbolCount": 73,
+      "symbols": [
+        "StraightEdgeProps",
+        "StepEdgeProps",
+        "SmoothStepEdgeProps",
+        "SimpleBezierEdgeProps",
+        "EdgeTextProps",
+        "DefaultEdgeOptions",
+        "BezierEdgeProps",
+        "EdgeComponentWithPathOptions",
+        "BaseEdgeProps",
+        "[PathOptions]",
+        "EdgeComponentProps",
+        "BuiltInEdge",
+        "onReconnectStart",
+        "onReconnect",
+        "EdgeWrapperProps",
+        "EdgeProps",
+        "onMouseMove",
+        "onMouseLeave",
+        "onMouseEnter",
+        "onDoubleClick"
+      ],
+      "dependsOn": [
+        "c1103",
+        "c1154",
+        "c1469",
+        "c1572",
+        "c1622",
+        "c1706"
+      ]
+    },
+    {
+      "id": "c1103",
+      "files": [
+        "xyflow/packages/react/src/types/general.ts"
+      ],
+      "lines": 141,
+      "symbolCount": 51,
+      "symbols": [
+        "OnNodesDelete",
+        "OnNodesChange",
+        "nodes",
+        "nodes",
+        "FitViewParams",
+        "FitView",
+        "OnSelectionChangeFunc",
+        "OnInit",
+        "OnEdgesDelete",
+        "OnEdgesChange",
+        "OnDelete",
+        "OnBeforeDelete",
+        "IsValidConnection",
+        "edges",
+        "edges",
+        "[EdgeType]",
+        "[EdgeType]",
+        "[EdgeType]",
+        "[EdgeType]",
+        "[EdgeType]"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1140",
+        "c1154",
+        "c1392",
+        "c1572",
+        "c1706"
+      ]
+    },
+    {
+      "id": "c1140",
+      "files": [
+        "xyflow/packages/react/src/types/instance.ts"
+      ],
+      "lines": 244,
+      "symbolCount": 36,
+      "symbols": [
+        "setEdges",
+        "getEdges",
+        "getEdge",
+        "edges",
+        "addEdges",
+        "toObject",
+        "setNodes",
+        "ReactFlowInstance",
+        "nodes",
+        "isNodeIntersecting",
+        "getNodesBounds",
+        "getNodes",
+        "getNode",
+        "getInternalNode",
+        "fitView",
+        "addNodes",
+        "GeneralHelpers",
+        "[NodeType]",
+        "[NodeType]",
+        "[NodeType]"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1103",
+        "c1154",
+        "c1572",
+        "c1622",
+        "c1706"
+      ]
+    },
+    {
+      "id": "c1154",
+      "files": [
+        "xyflow/packages/react/src/types/nodes.ts"
+      ],
+      "lines": 64,
+      "symbolCount": 36,
+      "symbols": [
+        "BuiltInNode",
+        "OnNodeDrag",
+        "SelectionDragHandler",
+        "onMouseMove",
+        "onMouseLeave",
+        "onMouseEnter",
+        "onDoubleClick",
+        "onContextMenu",
+        "onClick",
+        "NodeProps",
+        "NodeMouseHandler",
+        "InternalNode",
+        "[NodeType]",
+        "[NodeType]",
+        "Node",
+        "[NodeType]",
+        "[NodeType]",
+        "[NodeType]",
+        "[NodeType]",
+        "[NodeType]"
+      ],
+      "dependsOn": [
+        "c1103",
+        "c1572",
+        "c1637",
+        "c1706"
+      ]
+    },
+    {
+      "id": "c1288",
+      "files": [
+        "xyflow/packages/react/src/types/store.ts"
+      ],
+      "lines": 134,
+      "symbolCount": 114,
+      "symbols": [
+        "updateConnection",
+        "triggerNodeChanges",
+        "triggerEdgeChanges",
+        "setNodes",
+        "setEdges",
+        "onEdgesDelete",
+        "onEdgesChangeMiddlewareMap",
+        "onEdgesChange",
+        "isValidConnection",
+        "edges",
+        "edgeLookup",
+        "unselectNodesAndEdges",
+        "setDefaultNodesAndEdges",
+        "ReactFlowState",
+        "parentLookup",
+        "onSelectionChangeHandlers",
+        "onNodesDelete",
+        "onNodesChangeMiddlewareMap",
+        "onNodesChange",
+        "onNodeDragStop"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1103",
+        "c1154",
+        "c1364",
+        "c1392",
+        "c1469",
+        "c1572",
+        "c1637",
+        "c1660",
+        "c1706",
+        "c1889"
+      ]
+    },
+    {
+      "id": "c1301",
+      "files": [
+        "xyflow/packages/react/src/utils/changes.ts"
+      ],
+      "lines": 194,
+      "symbolCount": 27,
+      "symbols": [
+        "applyNodeChanges",
+        "[NodeType]",
+        "applyEdgeChanges",
+        "applyChanges",
+        "applyChange",
+        "[EdgeType]",
+        "getSelectionChanges",
+        "createSelectionChange",
+        "getElementsDiffChanges",
+        "getElementsDiffChanges",
+        "getElementsDiffChanges",
+        "items",
+        "lookup",
+        "items",
+        "lookup",
+        "items",
+        "lookup",
+        "id0",
+        "item0",
+        "type0"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1154",
+        "c1392",
+        "c1469",
+        "c1637"
+      ]
+    },
+    {
+      "id": "c1325",
+      "files": [
+        "xyflow/packages/react/src/utils/edges.ts"
+      ],
+      "lines": 22,
+      "symbolCount": 7,
+      "symbols": [
+        "defaultOnError",
+        "reconnectEdge",
+        "addEdge",
+        "[EdgeType]",
+        "[EdgeType]",
+        "onError0",
+        "onError1"
+      ],
+      "dependsOn": [
+        "c1469",
+        "c1572",
+        "c1774"
+      ]
+    },
+    {
+      "id": "c1333",
+      "files": [
+        "xyflow/packages/react/src/utils/general.ts"
+      ],
+      "lines": 10,
+      "symbolCount": 5,
+      "symbols": [
+        "isNode",
+        "isEdge",
+        "fixedForwardRef",
+        "[P]",
+        "[T]"
+      ],
+      "dependsOn": [
+        "c1057",
+        "c1154"
+      ]
+    },
+    {
+      "id": "c1364",
+      "files": [
+        "xyflow/packages/system/src/constants.ts"
+      ],
+      "lines": 32,
+      "symbolCount": 32,
+      "symbols": [
+        "errorMessages",
+        "error0010",
+        "error0020",
+        "error0030",
+        "error0040",
+        "error0050",
+        "error0060",
+        "error0070",
+        "error0090",
+        "error0080",
+        "error0100",
+        "error0110",
+        "error0120",
+        "error0130",
+        "error0140",
+        "error0150",
+        "error0160",
+        "infiniteExtent",
+        "elementSelectionKeys",
+        "defaultAriaLabelConfig"
+      ],
+      "dependsOn": [
+        "c1706"
+      ]
+    },
+    {
+      "id": "c1392",
+      "files": [
+        "xyflow/packages/system/src/types/changes.ts"
+      ],
+      "lines": 59,
+      "symbolCount": 45,
+      "symbols": [
+        "NodeChange",
+        "item",
+        "item",
+        "[NodeType]",
+        "[NodeType]",
+        "[NodeType]",
+        "item",
+        "item",
+        "EdgeChange",
+        "EdgeSelectionChange",
+        "EdgeRemoveChange",
+        "EdgeAddChange",
+        "[EdgeType]",
+        "[EdgeType]",
+        "[EdgeType]",
+        "EdgeReplaceChange",
+        "NodeSelectionChange",
+        "NodeRemoveChange",
+        "NodeDimensionChange",
+        "NodePositionChange"
+      ],
+      "dependsOn": [
+        "c1469",
+        "c1637",
+        "c1706"
+      ]
+    },
+    {
+      "id": "c1469",
+      "files": [
+        "xyflow/packages/system/src/types/edges.ts"
+      ],
+      "lines": 115,
+      "symbolCount": 64,
+      "symbols": [
+        "type",
+        "DefaultEdgeOptionsBase",
+        "[EdgeType]",
+        "EdgeLookup",
+        "[EdgeType]",
+        "EdgeBase",
+        "[EdgeType]",
+        "data",
+        "[EdgeData]",
+        "id",
+        "source",
+        "target",
+        "sourceHandle",
+        "targetHandle",
+        "animated",
+        "hidden",
+        "deletable",
+        "selectable",
+        "selected",
+        "markerStart"
+      ],
+      "dependsOn": [
+        "c1706"
+      ]
+    },
+    {
+      "id": "c1572",
+      "files": [
+        "xyflow/packages/system/src/types/general.ts"
+      ],
+      "lines": 219,
+      "symbolCount": 133,
+      "symbols": [
+        "Project",
+        "ZoomTo",
+        "ZoomInOut",
+        "SetViewport",
+        "OnViewportChange",
+        "OnMoveStart",
+        "OnMoveEnd",
+        "OnMove",
+        "GetViewport",
+        "Viewport",
+        "SetCenter",
+        "SetCenterOptions",
+        "FitBounds",
+        "FitBoundsOptions",
+        "ViewportHelperFunctionOptions",
+        "GetZoom",
+        "UseNodeConnectionsParams",
+        "OnConnect",
+        "NodeConnection",
+        "OnReconnectStart"
+      ],
+      "dependsOn": [
+        "c1469",
+        "c1622",
+        "c1637",
+        "c1660",
+        "c1706"
+      ]
+    },
+    {
+      "id": "c1622",
+      "files": [
+        "xyflow/packages/system/src/types/handles.ts"
+      ],
+      "lines": 53,
+      "symbolCount": 18,
+      "symbols": [
+        "type",
+        "type",
+        "HandleType",
+        "Handle",
+        "id",
+        "nodeId",
+        "x",
+        "y",
+        "position",
+        "width",
+        "height",
+        "HandleProps",
+        "position",
+        "isConnectable",
+        "isConnectableStart",
+        "isConnectableEnd",
+        "isValidConnection",
+        "id"
+      ],
+      "dependsOn": [
+        "c1706"
+      ]
+    },
+    {
+      "id": "c1637",
+      "files": [
+        "xyflow/packages/system/src/types/nodes.ts"
+      ],
+      "lines": 140,
+      "symbolCount": 25,
+      "symbols": [
+        "NodeDragItem",
+        "NodeProps",
+        "ParentLookup",
+        "NodeLookup",
+        "InternalNodeBase",
+        "OnSelectionDrag",
+        "[NodeType]",
+        "[NodeType]",
+        "NodeBase",
+        "[NodeType]",
+        "[NodeType]",
+        "[NodeType]",
+        "[NodeType]",
+        "NodeHandleBounds",
+        "NodeBounds",
+        "[NodeData]",
+        "NodeOrigin",
+        "NodeHandle",
+        "source",
+        "target"
+      ],
+      "dependsOn": [
+        "c1706",
+        "c2109"
+      ]
+    },
+    {
+      "id": "c1660",
+      "files": [
+        "xyflow/packages/system/src/types/panzoom.ts"
+      ],
+      "lines": 56,
+      "symbolCount": 48,
+      "symbols": [
+        "onDraggingChange",
+        "OnDraggingChange",
+        "onTransformChange",
+        "OnTransformChange",
+        "PanZoomParams",
+        "domNode",
+        "minZoom",
+        "maxZoom",
+        "viewport",
+        "translateExtent",
+        "onPanZoomStart",
+        "onPanZoomEnd",
+        "onPanZoom",
+        "OnPanZoom",
+        "setViewport",
+        "scaleTo",
+        "scaleBy",
+        "PanZoomTransformOptions",
+        "duration",
+        "ease"
+      ],
+      "dependsOn": [
+        "c1572",
+        "c1706"
+      ]
+    },
+    {
+      "id": "c1706",
+      "files": [
+        "xyflow/packages/system/src/types/utils.ts"
+      ],
+      "lines": 24,
+      "symbolCount": 20,
+      "symbols": [
+        "Position",
+        "Left",
+        "Top",
+        "Right",
+        "Bottom",
+        "oppositePosition",
+        "XYZPosition",
+        "Rect",
+        "Dimensions",
+        "Box",
+        "XYPosition",
+        "x",
+        "y",
+        "width",
+        "height",
+        "Transform",
+        "CoordinateExtent",
+        "DistributivePick",
+        "[T]",
+        "[K]"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "c1716",
+      "files": [
+        "xyflow/packages/system/src/utils/connections.ts"
+      ],
+      "lines": 45,
+      "symbolCount": 3,
+      "symbols": [
+        "areConnectionMapsEqual",
+        "handleConnectionChange",
+        "getConnectionStatus"
+      ],
+      "dependsOn": [
+        "c1572"
+      ]
+    },
+    {
+      "id": "c1724",
+      "files": [
+        "xyflow/packages/system/src/utils/dom.ts"
+      ],
+      "lines": 78,
+      "symbolCount": 15,
+      "symbols": [
+        "getPointerPosition",
+        "GetPointerPositionParams",
+        "transform",
+        "snapGrid",
+        "snapToGrid",
+        "containerBounds",
+        "getDimensions",
+        "getHostForElement",
+        "inputTags",
+        "isInputDOMNode",
+        "isMouseEvent",
+        "getEventPosition",
+        "x0",
+        "y0",
+        "getHandleBounds"
+      ],
+      "dependsOn": [
+        "c1572",
+        "c1706"
+      ]
+    },
+    {
+      "id": "c1734",
+      "files": [
+        "xyflow/packages/system/src/utils/edge-toolbar.ts"
+      ],
+      "lines": 19,
+      "symbolCount": 9,
+      "symbols": [
+        "alignXToPercent",
+        "left0",
+        "center0",
+        "right0",
+        "alignYToPercent",
+        "top0",
+        "center1",
+        "bottom0",
+        "getEdgeToolbarTransform"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "c1747",
+      "files": [
+        "xyflow/packages/system/src/utils/edges/bezier-edge.ts"
+      ],
+      "lines": 126,
+      "symbolCount": 27,
+      "symbols": [
+        "getBezierPath",
+        "getControlWithCurvature",
+        "getBezierEdgeCenter",
+        "GetBezierPathParams",
+        "calculateControlOffset",
+        "GetControlWithCurvatureParams",
+        "sourceX",
+        "sourceY",
+        "sourcePosition",
+        "targetX",
+        "targetY",
+        "targetPosition",
+        "curvature",
+        "pos",
+        "x1",
+        "y1",
+        "x2",
+        "y2",
+        "c",
+        "sourceX"
+      ],
+      "dependsOn": [
+        "c1706"
+      ]
+    },
+    {
+      "id": "c1774",
+      "files": [
+        "xyflow/packages/system/src/utils/edges/general.ts"
+      ],
+      "lines": 184,
+      "symbolCount": 36,
+      "symbols": [
+        "getEdgeCenter",
+        "sourceX",
+        "sourceY",
+        "targetX",
+        "targetY",
+        "getElevatedEdgeZIndex",
+        "GetEdgeZIndexParams",
+        "sourceNode",
+        "targetNode",
+        "selected",
+        "zIndex",
+        "elevateOnSelect",
+        "zIndexMode",
+        "isEdgeVisible",
+        "IsEdgeVisibleParams",
+        "sourceNode",
+        "targetNode",
+        "width",
+        "height",
+        "transform"
+      ],
+      "dependsOn": [
+        "c1469",
+        "c1572",
+        "c1637",
+        "c1706"
+      ]
+    },
+    {
+      "id": "c1807",
+      "files": [
+        "xyflow/packages/system/src/utils/edges/positions.ts"
+      ],
+      "lines": 121,
+      "symbolCount": 21,
+      "symbols": [
+        "getEdgePosition",
+        "isNodeInitialized",
+        "toHandleBounds",
+        "getHandle",
+        "getHandlePosition",
+        "GetEdgePositionParams",
+        "id",
+        "sourceNode",
+        "sourceHandle",
+        "targetNode",
+        "targetHandle",
+        "connectionMode",
+        "onError",
+        "sourceX0",
+        "sourceY0",
+        "targetX0",
+        "targetY0",
+        "sourcePosition0",
+        "targetPosition0",
+        "source0"
+      ],
+      "dependsOn": [
+        "c1469",
+        "c1572",
+        "c1637",
+        "c1706",
+        "c1889"
+      ]
+    },
+    {
+      "id": "c1835",
+      "files": [
+        "xyflow/packages/system/src/utils/edges/smoothstep-edge.ts"
+      ],
+      "lines": 253,
+      "symbolCount": 45,
+      "symbols": [
+        "getSmoothStepPath",
+        "getPoints",
+        "getBend",
+        "GetSmoothStepPathParams",
+        "sourceX",
+        "sourceY",
+        "sourcePosition",
+        "targetX",
+        "targetY",
+        "targetPosition",
+        "borderRadius",
+        "centerX",
+        "centerY",
+        "offset",
+        "stepPosition",
+        "handleDirections",
+        "x0",
+        "y0",
+        "x1",
+        "y1"
+      ],
+      "dependsOn": [
+        "c1572",
+        "c1706",
+        "c1774"
+      ]
+    },
+    {
+      "id": "c1872",
+      "files": [
+        "xyflow/packages/system/src/utils/edges/straight-edge.ts"
+      ],
+      "lines": 25,
+      "symbolCount": 6,
+      "symbols": [
+        "getStraightPath",
+        "GetStraightPathParams",
+        "sourceX",
+        "sourceY",
+        "targetX",
+        "targetY"
+      ],
+      "dependsOn": [
+        "c1774"
+      ]
+    },
+    {
+      "id": "c1889",
+      "files": [
+        "xyflow/packages/system/src/utils/general.ts"
+      ],
+      "lines": 309,
+      "symbolCount": 63,
+      "symbols": [
+        "clamp",
+        "clampPosition",
+        "x0",
+        "y0",
+        "clampPositionToParent",
+        "[NodeType]",
+        "[NodeType]",
+        "getNodeDimensions",
+        "calcAutoPanVelocity",
+        "calcAutoPan",
+        "getBoundsOfBoxes",
+        "rectToBox",
+        "boxToRect",
+        "nodeToRect",
+        "nodeToBox",
+        "getBoundsOfRects",
+        "getOverlappingArea",
+        "isRectObject",
+        "isNumeric",
+        "createDevWarn"
+      ],
+      "dependsOn": [
+        "c1364",
+        "c1572",
+        "c1637",
+        "c1706"
+      ]
+    },
+    {
+      "id": "c1974",
+      "files": [
+        "xyflow/packages/system/src/utils/graph.ts"
+      ],
+      "lines": 338,
+      "symbolCount": 65,
+      "symbols": [
+        "isEdgeBase",
+        "isNodeBase",
+        "isInternalNodeBase",
+        "getOutgoers",
+        "getIncomers",
+        "getNodePositionWithOrigin",
+        "getNodesBounds",
+        "GetNodesBoundsParams",
+        "onBeforeDelete",
+        "nodesToRemove",
+        "nodes",
+        "nodes",
+        "nodeLookup",
+        "nodeLookup",
+        "getElementsToRemove",
+        "filter",
+        "[NodeType]",
+        "[NodeType]",
+        "[NodeType]",
+        "[NodeType]"
+      ],
+      "dependsOn": [
+        "c1469",
+        "c1572",
+        "c1637",
+        "c1706",
+        "c1889"
+      ]
+    },
+    {
+      "id": "c2006",
+      "files": [
+        "xyflow/packages/system/src/utils/marker.ts"
+      ],
+      "lines": 48,
+      "symbolCount": 6,
+      "symbols": [
+        "createMarkerIds",
+        "getMarkerId",
+        "id",
+        "defaultColor",
+        "defaultMarkerStart",
+        "defaultMarkerEnd"
+      ],
+      "dependsOn": [
+        "c1469"
+      ]
+    },
+    {
+      "id": "c2012",
+      "files": [
+        "xyflow/packages/system/src/utils/node-toolbar.ts"
+      ],
+      "lines": 49,
+      "symbolCount": 1,
+      "symbols": [
+        "getNodeToolbarTransform"
+      ],
+      "dependsOn": [
+        "c1637",
+        "c1706"
+      ]
+    },
+    {
+      "id": "c2014",
+      "files": [
+        "xyflow/packages/system/src/utils/shallow-node-data.ts"
+      ],
+      "lines": 21,
+      "symbolCount": 2,
+      "symbols": [
+        "shallowNodeData",
+        "NodeData"
+      ],
+      "dependsOn": [
+        "c1637"
+      ]
+    },
+    {
+      "id": "c2070",
+      "files": [
+        "xyflow/packages/system/src/utils/store.ts"
+      ],
+      "lines": 534,
+      "symbolCount": 91,
+      "symbols": [
+        "SELECTED_NODE_Z",
+        "ROOT_PARENT_Z_INCREMENT",
+        "defaultOptions",
+        "nodeOrigin0",
+        "nodeExtent0",
+        "elevateNodesOnSelect0",
+        "zIndexMode0",
+        "defaults0",
+        "adoptUserNodesDefaultOptions",
+        "checkEquality0",
+        "defaults",
+        "updateNodeInternals",
+        "updateAbsolutePositions",
+        "adoptUserNodes",
+        "mergeObjects",
+        "updateChildNode",
+        "isManualZIndexMode",
+        "calculateZ",
+        "[NodeType]",
+        "calculateChildXYZ"
+      ],
+      "dependsOn": [
+        "c1392",
+        "c1469",
+        "c1572",
+        "c1637",
+        "c1660",
+        "c1706",
+        "c1889",
+        "c2109"
+      ]
+    },
+    {
+      "id": "c2109",
+      "files": [
+        "xyflow/packages/system/src/utils/types.ts"
+      ],
+      "lines": 2,
+      "symbolCount": 7,
+      "symbols": [
+        "Optional",
+        "[T]",
+        "[K]",
+        "id",
+        "ParentExpandChild",
+        "parentId",
+        "rect"
+      ],
+      "dependsOn": [
+        "c1572",
+        "c1706"
+      ]
+    },
+    {
+      "id": "c2168",
+      "files": [
+        "xyflow/packages/system/src/xydrag/XYDrag.ts"
+      ],
+      "lines": 385,
+      "symbolCount": 61,
+      "symbols": [
+        "updateNodePositions",
+        "onSelectionDragStop",
+        "onSelectionDragStart",
+        "onSelectionDrag",
+        "onNodeDragStop",
+        "onNodeDragStart",
+        "onNodeDrag",
+        "onDragStop",
+        "onDragStart",
+        "onDrag",
+        "nodes",
+        "nodes",
+        "nodeLookup",
+        "XYDrag",
+        "unselectNodesAndEdges",
+        "getStoreItems",
+        "edges",
+        "edges",
+        "[EdgeType]",
+        "[EdgeType]"
+      ],
+      "dependsOn": [
+        "c1469",
+        "c1572",
+        "c1637",
+        "c1706",
+        "c1724",
+        "c1974",
+        "c2186"
+      ]
+    },
+    {
+      "id": "c2186",
+      "files": [
+        "xyflow/packages/system/src/xydrag/utils.ts"
+      ],
+      "lines": 140,
+      "symbolCount": 20,
+      "symbols": [
+        "nodeLookup",
+        "getEventHandlerParams",
+        "getDragItems",
+        "[NodeType]",
+        "[NodeType]",
+        "[NodeType]",
+        "isParentSelected",
+        "hasSelector",
+        "nodeId",
+        "dragItems",
+        "dragging",
+        "calculateSnapOffset",
+        "dragItems",
+        "snapGrid",
+        "x",
+        "y",
+        "x0",
+        "y0",
+        "x1",
+        "y1"
+      ],
+      "dependsOn": [
+        "c1572",
+        "c1637",
+        "c1706"
+      ]
+    },
+    {
+      "id": "c2198",
+      "files": [
+        "xyflow/packages/system/src/xyhandle/XYHandle.ts"
+      ],
+      "lines": 296,
+      "symbolCount": 16,
+      "symbols": [
+        "alwaysValid",
+        "onPointerDown",
+        "isValidHandle",
+        "[NodeType]",
+        "[NodeType]",
+        "[EdgeType]",
+        "[EdgeType]",
+        "from0",
+        "isValid0",
+        "to0",
+        "toHandle0",
+        "toPosition0",
+        "toNode0",
+        "pointer0",
+        "toPosition1",
+        "XYHandle"
+      ],
+      "dependsOn": [
+        "c1469",
+        "c1572",
+        "c1637",
+        "c1706",
+        "c1807",
+        "c2240",
+        "c2259"
+      ]
+    },
+    {
+      "id": "c2240",
+      "files": [
+        "xyflow/packages/system/src/xyhandle/types.ts"
+      ],
+      "lines": 51,
+      "symbolCount": 48,
+      "symbols": [
+        "isValidConnection",
+        "isValidConnection",
+        "[EdgeType]",
+        "[EdgeType]",
+        "onPointerDown",
+        "updateConnection",
+        "OnPointerDownParams",
+        "onConnectEnd",
+        "nodeLookup",
+        "nodeLookup",
+        "[NodeType]",
+        "[NodeType]",
+        "autoPanOnConnect",
+        "connectionMode",
+        "connectionRadius",
+        "domNode",
+        "handleId",
+        "nodeId",
+        "isTarget",
+        "lib"
+      ],
+      "dependsOn": [
+        "c1469",
+        "c1572",
+        "c1622",
+        "c1637",
+        "c1706"
+      ]
+    },
+    {
+      "id": "c2259",
+      "files": [
+        "xyflow/packages/system/src/xyhandle/utils.ts"
+      ],
+      "lines": 115,
+      "symbolCount": 13,
+      "symbols": [
+        "getClosestHandle",
+        "getNodesWithinDistance",
+        "x0",
+        "y0",
+        "width0",
+        "height0",
+        "ADDITIONAL_DISTANCE",
+        "id",
+        "nodeId",
+        "type",
+        "getHandle",
+        "getHandleType",
+        "isConnectionValid"
+      ],
+      "dependsOn": [
+        "c1572",
+        "c1622",
+        "c1637",
+        "c1706",
+        "c1807"
+      ]
+    },
+    {
+      "id": "c2288",
+      "files": [
+        "xyflow/packages/system/src/xyminimap/index.ts"
+      ],
+      "lines": 117,
+      "symbolCount": 23,
+      "symbols": [
+        "XYMinimapInstance",
+        "XYMinimap",
+        "XYMinimapParams",
+        "update",
+        "XYMinimapUpdate",
+        "destroy",
+        "pointer",
+        "panZoom",
+        "domNode",
+        "getTransform",
+        "getViewScale",
+        "translateExtent",
+        "width",
+        "height",
+        "inversePan",
+        "zoomStep",
+        "pannable",
+        "zoomable",
+        "x0",
+        "y0"
+      ],
+      "dependsOn": [
+        "c1660",
+        "c1706"
+      ]
+    },
+    {
+      "id": "c2305",
+      "files": [
+        "xyflow/packages/system/src/xypanzoom/XYPanZoom.ts"
+      ],
+      "lines": 273,
+      "symbolCount": 14,
+      "symbols": [
+        "XYPanZoom",
+        "ZoomPanValues",
+        "isZoomingOrPanning",
+        "usedRightMouseButton",
+        "prevViewport",
+        "mouseButton",
+        "timerId",
+        "panScrollTimeout",
+        "isPanScrolling",
+        "passive0",
+        "sync0",
+        "k0",
+        "x0",
+        "y0"
+      ],
+      "dependsOn": [
+        "c1660",
+        "c1706",
+        "c2308",
+        "c2347"
+      ]
+    },
+    {
+      "id": "c2308",
+      "files": [
+        "xyflow/packages/system/src/xypanzoom/eventhandler.ts"
+      ],
+      "lines": 224,
+      "symbolCount": 38,
+      "symbols": [
+        "createPanOnScrollHandler",
+        "PanOnScrollParams",
+        "zoomPanValues",
+        "noWheelClassName",
+        "d3Selection",
+        "d3Zoom",
+        "panOnScrollMode",
+        "panOnScrollSpeed",
+        "zoomOnPinch",
+        "onPanZoomStart",
+        "onPanZoom",
+        "onPanZoomEnd",
+        "createZoomOnScrollHandler",
+        "ZoomOnScrollParams",
+        "noWheelClassName",
+        "preventScrolling",
+        "d3ZoomHandler",
+        "createPanZoomStartHandler",
+        "PanZoomStartParams",
+        "zoomPanValues"
+      ],
+      "dependsOn": [
+        "c1572",
+        "c1660",
+        "c2305"
+      ]
+    },
+    {
+      "id": "c2347",
+      "files": [
+        "xyflow/packages/system/src/xypanzoom/filter.ts"
+      ],
+      "lines": 99,
+      "symbolCount": 13,
+      "symbols": [
+        "createFilter",
+        "FilterParams",
+        "zoomActivationKeyPressed",
+        "zoomOnScroll",
+        "zoomOnPinch",
+        "panOnDrag",
+        "panOnScroll",
+        "zoomOnDoubleClick",
+        "userSelectionActive",
+        "noWheelClassName",
+        "noPanClassName",
+        "lib",
+        "connectionInProgress"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "c2363",
+      "files": [
+        "xyflow/packages/system/src/xypanzoom/utils.ts"
+      ],
+      "lines": 25,
+      "symbolCount": 7,
+      "symbols": [
+        "transformToViewport",
+        "viewportToTransform",
+        "isWrappedWithClass",
+        "isRightClickPan",
+        "defaultEase",
+        "getD3Transition",
+        "wheelDelta"
+      ],
+      "dependsOn": [
+        "c1572"
+      ]
+    },
+    {
+      "id": "c2377",
+      "files": [
+        "xyflow/packages/system/src/xyresizer/XYResizer.ts"
+      ],
+      "lines": 319,
+      "symbolCount": 51,
+      "symbols": [
+        "height0",
+        "initPrevValues",
+        "width0",
+        "x0",
+        "y0",
+        "initStartValues",
+        "pointerX0",
+        "pointerY0",
+        "aspectRatio0",
+        "update",
+        "onEnd",
+        "XYResizer",
+        "onChange",
+        "XYResizerChange",
+        "XYResizerChildChange",
+        "nodeToChildExtent",
+        "XYResizerParams",
+        "XYResizerInstance",
+        "XYResizerUpdateParams",
+        "x"
+      ],
+      "dependsOn": [
+        "c1637",
+        "c1706",
+        "c1724",
+        "c1889",
+        "c2427",
+        "c2446"
+      ]
+    },
+    {
+      "id": "c2427",
+      "files": [
+        "xyflow/packages/system/src/xyresizer/types.ts"
+      ],
+      "lines": 24,
+      "symbolCount": 22,
+      "symbols": [
+        "OnResizeStart",
+        "OnResizeEnd",
+        "ShouldResize",
+        "OnResize",
+        "OnResizeHandler",
+        "ResizeParamsWithDirection",
+        "ResizeParams",
+        "ResizeDragEvent",
+        "[Params]",
+        "[Result]",
+        "x",
+        "y",
+        "width",
+        "height",
+        "XY_RESIZER_LINE_POSITIONS",
+        "XY_RESIZER_HANDLE_POSITIONS",
+        "ControlPosition",
+        "ControlLinePosition",
+        "ResizeControlVariant",
+        "Line"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "c2446",
+      "files": [
+        "xyflow/packages/system/src/xyresizer/utils.ts"
+      ],
+      "lines": 233,
+      "symbolCount": 32,
+      "symbols": [
+        "getResizeDirection",
+        "GetResizeDirectionParams",
+        "width",
+        "prevWidth",
+        "height",
+        "prevHeight",
+        "affectsX",
+        "affectsY",
+        "getDimensionsAfterResize",
+        "getControlDirection",
+        "getSizeClamp",
+        "getLowerExtentClamp",
+        "getUpperExtentClamp",
+        "xor",
+        "StartValues",
+        "PrevValues",
+        "isHorizontal0",
+        "isVertical0",
+        "affectsX0",
+        "affectsY0"
+      ],
+      "dependsOn": [
+        "c1637",
+        "c1706",
+        "c1724",
+        "c2427"
+      ]
+    }
+  ],
+  "connectedComponents": [
+    {
+      "moduleIds": [
+        "c11",
+        "c20",
+        "c40",
+        "c41",
+        "c51",
+        "c52",
+        "c53",
+        "c54",
+        "c55",
+        "c56",
+        "c61",
+        "c79",
+        "c80",
+        "c93",
+        "c106",
+        "c127",
+        "c138",
+        "c157",
+        "c163",
+        "c181",
+        "c184",
+        "c194",
+        "c195",
+        "c207",
+        "c208",
+        "c214",
+        "c226",
+        "c236",
+        "c257",
+        "c260",
+        "c266",
+        "c274",
+        "c287",
+        "c289",
+        "c302",
+        "c305",
+        "c323",
+        "c335",
+        "c339",
+        "c343",
+        "c362",
+        "c384",
+        "c397",
+        "c400",
+        "c412",
+        "c413",
+        "c414",
+        "c415",
+        "c418",
+        "c435",
+        "c443",
+        "c458",
+        "c475",
+        "c495",
+        "c510",
+        "c517",
+        "c521",
+        "c525",
+        "c537",
+        "c547",
+        "c560",
+        "c563",
+        "c567",
+        "c570",
+        "c577",
+        "c591",
+        "c627",
+        "c635",
+        "c636",
+        "c639",
+        "c651",
+        "c664",
+        "c670",
+        "c678",
+        "c681",
+        "c688",
+        "c697",
+        "c700",
+        "c711",
+        "c713",
+        "c717",
+        "c720",
+        "c727",
+        "c733",
+        "c736",
+        "c739",
+        "c742",
+        "c744",
+        "c752",
+        "c760",
+        "c777",
+        "c781",
+        "c788",
+        "c790",
+        "c792",
+        "c799",
+        "c802",
+        "c805",
+        "c806",
+        "c813",
+        "c864",
+        "c980",
+        "c1057",
+        "c1103",
+        "c1140",
+        "c1154",
+        "c1288",
+        "c1301",
+        "c1325",
+        "c1333",
+        "c1364",
+        "c1392",
+        "c1469",
+        "c1572",
+        "c1622",
+        "c1637",
+        "c1660",
+        "c1706",
+        "c1716",
+        "c1724",
+        "c1734",
+        "c1747",
+        "c1774",
+        "c1807",
+        "c1835",
+        "c1872",
+        "c1889",
+        "c1974",
+        "c2006",
+        "c2012",
+        "c2014",
+        "c2070",
+        "c2109",
+        "c2168",
+        "c2186",
+        "c2198",
+        "c2240",
+        "c2259",
+        "c2288",
+        "c2305",
+        "c2308",
+        "c2347",
+        "c2363",
+        "c2377",
+        "c2427",
+        "c2446"
+      ],
+      "totalLines": 13494
+    },
+    {
+      "moduleIds": [
+        "c654"
+      ],
+      "totalLines": 7
+    },
+    {
+      "moduleIds": [
+        "c658"
+      ],
+      "totalLines": 2
+    },
+    {
+      "moduleIds": [
+        "c659"
+      ],
+      "totalLines": 4
+    },
+    {
+      "moduleIds": [
+        "c701"
+      ],
+      "totalLines": 1
+    },
+    {
+      "moduleIds": [
+        "c808"
+      ],
+      "totalLines": 1
+    },
+    {
+      "moduleIds": [
+        "c870"
+      ],
+      "totalLines": 1
+    }
+  ],
+  "sccs": [
+    [
+      "c1660",
+      "c2109",
+      "c1637",
+      "c1572"
+    ],
+    [
+      "c1154",
+      "c1140",
+      "c1103",
+      "c1057"
+    ],
+    [
+      "c2308",
+      "c2305"
+    ],
+    [
+      "c651",
+      "c547"
+    ]
+  ],
+  "fileMetrics": {
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/types/changes.ts": {
+      "lines": 85,
+      "symbolCount": 45
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/types/utils.ts": {
+      "lines": 65,
+      "symbolCount": 20
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/utils/types.ts": {
+      "lines": 5,
+      "symbolCount": 7
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/types/nodes.ts": {
+      "lines": 178,
+      "symbolCount": 25
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/types/handles.ts": {
+      "lines": 60,
+      "symbolCount": 18
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/types/panzoom.ts": {
+      "lines": 65,
+      "symbolCount": 48
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/types/general.ts": {
+      "lines": 402,
+      "symbolCount": 133
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/types/edges.ts": {
+      "lines": 158,
+      "symbolCount": 64
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/types/index.ts": {
+      "lines": 0,
+      "symbolCount": 0
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/constants.ts": {
+      "lines": 66,
+      "symbolCount": 32
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/utils/connections.ts": {
+      "lines": 57,
+      "symbolCount": 3
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/utils/graph.ts": {
+      "lines": 525,
+      "symbolCount": 65
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/utils/general.ts": {
+      "lines": 423,
+      "symbolCount": 63
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/utils/dom.ts": {
+      "lines": 94,
+      "symbolCount": 15
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/utils/edges/bezier-edge.ts": {
+      "lines": 164,
+      "symbolCount": 27
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/utils/edges/general.ts": {
+      "lines": 244,
+      "symbolCount": 36
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/utils/edges/straight-edge.ts": {
+      "lines": 57,
+      "symbolCount": 6
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/utils/edges/smoothstep-edge.ts": {
+      "lines": 298,
+      "symbolCount": 45
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/utils/edges/positions.ts": {
+      "lines": 134,
+      "symbolCount": 21
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/utils/edges/index.ts": {
+      "lines": 0,
+      "symbolCount": 0
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/utils/marker.ts": {
+      "lines": 51,
+      "symbolCount": 6
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/utils/node-toolbar.ts": {
+      "lines": 51,
+      "symbolCount": 1
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/utils/edge-toolbar.ts": {
+      "lines": 23,
+      "symbolCount": 9
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/utils/store.ts": {
+      "lines": 600,
+      "symbolCount": 91
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/utils/shallow-node-data.ts": {
+      "lines": 24,
+      "symbolCount": 2
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/utils/index.ts": {
+      "lines": 0,
+      "symbolCount": 0
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/xydrag/utils.ts": {
+      "lines": 157,
+      "symbolCount": 20
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/xydrag/XYDrag.ts": {
+      "lines": 422,
+      "symbolCount": 61
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/xydrag/index.ts": {
+      "lines": 0,
+      "symbolCount": 0
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/xyhandle/utils.ts": {
+      "lines": 127,
+      "symbolCount": 13
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/xyhandle/types.ts": {
+      "lines": 73,
+      "symbolCount": 48
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/xyhandle/XYHandle.ts": {
+      "lines": 323,
+      "symbolCount": 16
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/xyhandle/index.ts": {
+      "lines": 0,
+      "symbolCount": 0
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/xyminimap/index.ts": {
+      "lines": 126,
+      "symbolCount": 23
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/xypanzoom/utils.ts": {
+      "lines": 40,
+      "symbolCount": 7
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/xypanzoom/eventhandler.ts": {
+      "lines": 251,
+      "symbolCount": 38
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/xypanzoom/filter.ts": {
+      "lines": 103,
+      "symbolCount": 13
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/xypanzoom/XYPanZoom.ts": {
+      "lines": 299,
+      "symbolCount": 14
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/xypanzoom/index.ts": {
+      "lines": 0,
+      "symbolCount": 0
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/xyresizer/types.ts": {
+      "lines": 66,
+      "symbolCount": 22
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/xyresizer/utils.ts": {
+      "lines": 280,
+      "symbolCount": 32
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/xyresizer/XYResizer.ts": {
+      "lines": 353,
+      "symbolCount": 51
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/xyresizer/index.ts": {
+      "lines": 0,
+      "symbolCount": 0
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/index.ts": {
+      "lines": 0,
+      "symbolCount": 0
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/types/general.ts": {
+      "lines": 232,
+      "symbolCount": 51
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/types/nodes.ts": {
+      "lines": 126,
+      "symbolCount": 36
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/types/edges.ts": {
+      "lines": 288,
+      "symbolCount": 73
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/types/component-props.ts": {
+      "lines": 708,
+      "symbolCount": 125
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/types/store.ts": {
+      "lines": 189,
+      "symbolCount": 114
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/types/instance.ts": {
+      "lines": 261,
+      "symbolCount": 36
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/types/index.ts": {
+      "lines": 0,
+      "symbolCount": 0
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/utils/changes.ts": {
+      "lines": 324,
+      "symbolCount": 27
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/store/initialState.ts": {
+      "lines": 159,
+      "symbolCount": 6
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/store/index.ts": {
+      "lines": 452,
+      "symbolCount": 55
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/contexts/StoreContext.ts": {
+      "lines": 7,
+      "symbolCount": 2
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useStore.ts": {
+      "lines": 77,
+      "symbolCount": 6
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/A11yDescriptions/index.tsx": {
+      "lines": 52,
+      "symbolCount": 12
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/Panel/index.tsx": {
+      "lines": 41,
+      "symbolCount": 2
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/Attribution/index.tsx": {
+      "lines": 26,
+      "symbolCount": 4
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/SelectionListener/index.tsx": {
+      "lines": 75,
+      "symbolCount": 19
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/container/ReactFlow/init-values.ts": {
+      "lines": 4,
+      "symbolCount": 2
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/StoreUpdater/index.tsx": {
+      "lines": 171,
+      "symbolCount": 29
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useColorModeClass.ts": {
+      "lines": 41,
+      "symbolCount": 2
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useKeyPress.ts": {
+      "lines": 189,
+      "symbolCount": 11
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useViewportHelper.ts": {
+      "lines": 121,
+      "symbolCount": 6
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/utils/edges.ts": {
+      "lines": 34,
+      "symbolCount": 7
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/utils/general.ts": {
+      "lines": 60,
+      "symbolCount": 5
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/utils/index.ts": {
+      "lines": 0,
+      "symbolCount": 0
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/BatchProvider/types.ts": {
+      "lines": 7,
+      "symbolCount": 7
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useIsomorphicLayoutEffect.ts": {
+      "lines": 4,
+      "symbolCount": 1
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/BatchProvider/useQueue.ts": {
+      "lines": 62,
+      "symbolCount": 4
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/BatchProvider/index.tsx": {
+      "lines": 115,
+      "symbolCount": 6
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useReactFlow.ts": {
+      "lines": 315,
+      "symbolCount": 18
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useGlobalKeyHandler.ts": {
+      "lines": 42,
+      "symbolCount": 9
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useResizeHandler.ts": {
+      "lines": 44,
+      "symbolCount": 3
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/styles/utils.ts": {
+      "lines": 3,
+      "symbolCount": 1
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/container/ZoomPane/index.tsx": {
+      "lines": 156,
+      "symbolCount": 10
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/UserSelection/index.tsx": {
+      "lines": 29,
+      "symbolCount": 7
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/container/Pane/index.tsx": {
+      "lines": 372,
+      "symbolCount": 35
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/Nodes/utils.ts": {
+      "lines": 44,
+      "symbolCount": 10
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useDrag.ts": {
+      "lines": 74,
+      "symbolCount": 9
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useMoveSelectedNodes.ts": {
+      "lines": 68,
+      "symbolCount": 4
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/contexts/NodeIdContext.ts": {
+      "lines": 38,
+      "symbolCount": 4
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/Handle/index.tsx": {
+      "lines": 285,
+      "symbolCount": 34
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/Nodes/InputNode.tsx": {
+      "lines": 13,
+      "symbolCount": 1
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/Nodes/DefaultNode.tsx": {
+      "lines": 19,
+      "symbolCount": 1
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/Nodes/GroupNode.tsx": {
+      "lines": 3,
+      "symbolCount": 1
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/Nodes/OutputNode.tsx": {
+      "lines": 13,
+      "symbolCount": 1
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/NodeWrapper/utils.tsx": {
+      "lines": 40,
+      "symbolCount": 14
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/NodesSelection/index.tsx": {
+      "lines": 103,
+      "symbolCount": 17
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/container/FlowRenderer/index.tsx": {
+      "lines": 144,
+      "symbolCount": 11
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useVisibleNodeIds.ts": {
+      "lines": 27,
+      "symbolCount": 2
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/container/NodeRenderer/useResizeObserver.ts": {
+      "lines": 38,
+      "symbolCount": 2
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/NodeWrapper/useNodeObserver.ts": {
+      "lines": 73,
+      "symbolCount": 5
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/NodeWrapper/index.tsx": {
+      "lines": 251,
+      "symbolCount": 13
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/container/NodeRenderer/index.tsx": {
+      "lines": 103,
+      "symbolCount": 11
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useVisibleEdgeIds.ts": {
+      "lines": 54,
+      "symbolCount": 1
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/container/EdgeRenderer/MarkerSymbols.tsx": {
+      "lines": 64,
+      "symbolCount": 10
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/container/EdgeRenderer/MarkerDefinitions.tsx": {
+      "lines": 88,
+      "symbolCount": 5
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/Edges/EdgeText.tsx": {
+      "lines": 102,
+      "symbolCount": 10
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/Edges/BaseEdge.tsx": {
+      "lines": 73,
+      "symbolCount": 1
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/Edges/SimpleBezierEdge.tsx": {
+      "lines": 145,
+      "symbolCount": 19
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/Edges/SmoothStepEdge.tsx": {
+      "lines": 94,
+      "symbolCount": 4
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/Edges/StepEdge.tsx": {
+      "lines": 52,
+      "symbolCount": 4
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/Edges/StraightEdge.tsx": {
+      "lines": 79,
+      "symbolCount": 4
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/Edges/BezierEdge.tsx": {
+      "lines": 92,
+      "symbolCount": 4
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/Edges/index.ts": {
+      "lines": 0,
+      "symbolCount": 0
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/EdgeWrapper/utils.ts": {
+      "lines": 24,
+      "symbolCount": 13
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/Edges/EdgeAnchor.tsx": {
+      "lines": 56,
+      "symbolCount": 13
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/EdgeWrapper/EdgeUpdateAnchors.tsx": {
+      "lines": 142,
+      "symbolCount": 4
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/EdgeWrapper/index.tsx": {
+      "lines": 266,
+      "symbolCount": 12
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/container/EdgeRenderer/index.tsx": {
+      "lines": 98,
+      "symbolCount": 11
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/container/Viewport/index.tsx": {
+      "lines": 20,
+      "symbolCount": 5
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useOnInitHandler.ts": {
+      "lines": 23,
+      "symbolCount": 3
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useViewportSync.ts": {
+      "lines": 27,
+      "symbolCount": 3
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useConnection.ts": {
+      "lines": 60,
+      "symbolCount": 8
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/ConnectionLine/index.tsx": {
+      "lines": 132,
+      "symbolCount": 27
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/container/GraphView/useNodeOrEdgeTypesWarning.ts": {
+      "lines": 15,
+      "symbolCount": 4
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/container/GraphView/useStylesLoadedWarning.ts": {
+      "lines": 23,
+      "symbolCount": 1
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/container/GraphView/index.tsx": {
+      "lines": 206,
+      "symbolCount": 7
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/ReactFlowProvider/index.tsx": {
+      "lines": 127,
+      "symbolCount": 16
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/container/ReactFlow/Wrapper.tsx": {
+      "lines": 68,
+      "symbolCount": 15
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/container/ReactFlow/index.tsx": {
+      "lines": 327,
+      "symbolCount": 7
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/EdgeLabelRenderer/index.tsx": {
+      "lines": 62,
+      "symbolCount": 4
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/components/ViewportPortal/index.tsx": {
+      "lines": 42,
+      "symbolCount": 3
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useUpdateNodeInternals.ts": {
+      "lines": 69,
+      "symbolCount": 2
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useNodes.ts": {
+      "lines": 31,
+      "symbolCount": 3
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useEdges.ts": {
+      "lines": 30,
+      "symbolCount": 3
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useViewport.ts": {
+      "lines": 46,
+      "symbolCount": 5
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useNodesEdgesState.ts": {
+      "lines": 130,
+      "symbolCount": 4
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useOnViewportChange.ts": {
+      "lines": 51,
+      "symbolCount": 8
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useOnSelectionChange.ts": {
+      "lines": 61,
+      "symbolCount": 9
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useNodesInitialized.ts": {
+      "lines": 70,
+      "symbolCount": 4
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useHandleConnections.ts": {
+      "lines": 66,
+      "symbolCount": 7
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useNodeConnections.ts": {
+      "lines": 73,
+      "symbolCount": 2
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useNodesData.ts": {
+      "lines": 48,
+      "symbolCount": 8
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useInternalNode.ts": {
+      "lines": 41,
+      "symbolCount": 2
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useOnNodesChangeMiddleware.ts": {
+      "lines": 30,
+      "symbolCount": 2
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/hooks/useOnEdgesChangeMiddleware.ts": {
+      "lines": 30,
+      "symbolCount": 2
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/Background/types.ts": {
+      "lines": 60,
+      "symbolCount": 16
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/Background/Patterns.tsx": {
+      "lines": 31,
+      "symbolCount": 10
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/Background/Background.tsx": {
+      "lines": 146,
+      "symbolCount": 8
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/Background/index.tsx": {
+      "lines": 0,
+      "symbolCount": 0
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/Controls/Icons/Plus.tsx": {
+      "lines": 7,
+      "symbolCount": 1
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/Controls/Icons/Minus.tsx": {
+      "lines": 7,
+      "symbolCount": 1
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/Controls/Icons/FitView.tsx": {
+      "lines": 7,
+      "symbolCount": 1
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/Controls/Icons/Lock.tsx": {
+      "lines": 7,
+      "symbolCount": 1
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/Controls/Icons/Unlock.tsx": {
+      "lines": 7,
+      "symbolCount": 1
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/Controls/types.ts": {
+      "lines": 68,
+      "symbolCount": 16
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/Controls/ControlButton.tsx": {
+      "lines": 34,
+      "symbolCount": 1
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/Controls/Controls.tsx": {
+      "lines": 149,
+      "symbolCount": 10
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/Controls/index.tsx": {
+      "lines": 0,
+      "symbolCount": 0
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/MiniMap/types.ts": {
+      "lines": 131,
+      "symbolCount": 21
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/MiniMap/MiniMapNode.tsx": {
+      "lines": 45,
+      "symbolCount": 6
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/MiniMap/MiniMapNodes.tsx": {
+      "lines": 130,
+      "symbolCount": 17
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/MiniMap/MiniMap.tsx": {
+      "lines": 212,
+      "symbolCount": 24
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/MiniMap/index.tsx": {
+      "lines": 0,
+      "symbolCount": 0
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/NodeResizer/types.ts": {
+      "lines": 122,
+      "symbolCount": 20
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/NodeResizer/NodeResizeControl.tsx": {
+      "lines": 235,
+      "symbolCount": 14
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/NodeResizer/NodeResizer.tsx": {
+      "lines": 98,
+      "symbolCount": 1
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/NodeResizer/index.tsx": {
+      "lines": 0,
+      "symbolCount": 0
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/NodeToolbar/NodeToolbarPortal.tsx": {
+      "lines": 17,
+      "symbolCount": 3
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/NodeToolbar/types.ts": {
+      "lines": 32,
+      "symbolCount": 1
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/NodeToolbar/NodeToolbar.tsx": {
+      "lines": 142,
+      "symbolCount": 8
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/NodeToolbar/index.tsx": {
+      "lines": 0,
+      "symbolCount": 0
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/EdgeToolbar/types.ts": {
+      "lines": 14,
+      "symbolCount": 1
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/EdgeToolbar/EdgeToolbar.tsx": {
+      "lines": 79,
+      "symbolCount": 7
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/EdgeToolbar/index.tsx": {
+      "lines": 0,
+      "symbolCount": 0
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/additional-components/index.ts": {
+      "lines": 0,
+      "symbolCount": 0
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/index.ts": {
+      "lines": 126,
+      "symbolCount": 1
+    },
+    "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/react/src/custom.d.ts": {
+      "lines": 10,
+      "symbolCount": 4
+    }
+  }
+}

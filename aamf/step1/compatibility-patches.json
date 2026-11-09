@@ -1,0 +1,19 @@
+{
+  "loreVersion": "0.4.2",
+  "files": [
+    {
+      "path": "dist/indexer/stages/scip-indexer.js",
+      "originalHash": "f40bbe5fc9577bc14d9ce8ebf401b6bab17e93c795e9d86b7c2a9a3165e6cf4d",
+      "patchedHash": "4238de2c637d536c864b33dd7da3f7c4604888609166a86d85cdb75534bc2ee0"
+    },
+    {
+      "path": "dist/validation/index-health.js",
+      "originalHash": "f74ba9293619e9aa42d4115dc55b535a5a1a9df3cb32ed5fa9e8d7885fac456f",
+      "patchedHash": "2efaffc03ea1f12d684faa98b1de3dbfbcfce26ec7f20b3008512c562fe3408d"
+    }
+  ],
+  "helper": {
+    "path": "dist/validation/psflow-reexports.js",
+    "sha256": "06cc90621f6170b759ed52d462638af9229ec7d754c7e8bda1129e03944f23bf"
+  }
+}
