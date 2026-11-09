@@ -1,0 +1,28 @@
+
+> ps-flow@0.0.0 build:driver
+> spago build && node parity/driver/build.mjs
+
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[1 of 7] Compiling Boundary.Utils
+[2 of 7] Compiling Test.Boundary.EdgeHidden
+[3 of 7] Compiling Boundary
+[4 of 7] Compiling Test.Boundary.EdgeSelected
+[5 of 7] Compiling Test.Boundary.EdgeAnimated
+[6 of 7] Compiling Test.Boundary.NodeDragging
+[7 of 7] Compiling Test.Main
+           Src   Lib   All
+Warnings     0     0     0
+Errors       0     0     0
+
+✓ Build succeeded.
+
+
+  parity/driver/dist/psflow.js  2.8mb ⚠️
+
+⚡ Done in 584ms
+driver [psflow]: 29 fixtures + 1 direct component(s), 48 observed callback props, library from `// output/Boundary/` → dist/psflow.js

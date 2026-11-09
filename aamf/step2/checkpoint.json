@@ -1,0 +1,357 @@
+{
+  "projectName": "psflow-step2-pilot-20261109",
+  "version": 1,
+  "currentPhase": 5,
+  "currentTask": null,
+  "completedPhases": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "completedTasks": [
+    "psflow-w01-viewport"
+  ],
+  "failedTasks": [],
+  "blockedTasks": [],
+  "phaseOutputs": {
+    "0": "",
+    "1": "",
+    "2": "",
+    "3": "",
+    "4": ""
+  },
+  "tokenUsage": {
+    "total": 35471,
+    "byPhase": {
+      "4": 35471
+    },
+    "byAgent": {
+      "code-migrator": 16082,
+      "parity-verifier": 13559,
+      "test-writer": 5830
+    }
+  },
+  "startedAt": "2026-11-09T20:04:59.312Z",
+  "lastCheckpoint": "2026-11-09T20:28:41.536Z",
+  "resumeCount": 4,
+  "cumulativeDurationMs": 710470,
+  "completedTaskDurationsMs": [
+    332290
+  ],
+  "phase3aComplete": false,
+  "scaffoldComplete": false,
+  "completedPhase2Groups": [],
+  "metricsCount": 6,
+  "adjudicationWaivers": [],
+  "adjudicationEvents": [],
+  "phaseCursors": {
+    "4": {
+      "tasks": {
+        "psflow-w01-viewport": {
+          "completedSubsteps": [
+            "migrate",
+            "commit",
+            "parity",
+            "parity-gate",
+            "minor-repass",
+            "build",
+            "test",
+            "target-index",
+            "complete"
+          ],
+          "scopeExecutionPrefix": "aamf-migration/iterative-migration/phase-4-per-task/psflow-w01-viewport/",
+          "startedAtMs": 1794255500312,
+          "lastSuccessfulStep": "complete",
+          "executionIds": {
+            "migrate": "aamf-migration/iterative-migration/phase-4-per-task/psflow-w01-viewport/migrate",
+            "commit": "aamf-migration/iterative-migration/phase-4-per-task/psflow-w01-viewport/commit",
+            "parity": "aamf-migration/iterative-migration/phase-4-per-task/psflow-w01-viewport/parity",
+            "parity-gate": "aamf-migration/iterative-migration/phase-4-per-task/psflow-w01-viewport/parity-gate",
+            "minor-repass": "aamf-migration/iterative-migration/phase-4-per-task/psflow-w01-viewport/minor-repass",
+            "build": "aamf-migration/iterative-migration/phase-4-per-task/psflow-w01-viewport/build",
+            "test": "aamf-migration/iterative-migration/phase-4-per-task/psflow-w01-viewport/test",
+            "target-index": "aamf-migration/iterative-migration/phase-4-per-task/psflow-w01-viewport/target-index",
+            "complete": "aamf-migration/iterative-migration/phase-4-per-task/psflow-w01-viewport/complete"
+          }
+        }
+      }
+    },
+    "5": {
+      "iteration": 0,
+      "fixIndex": 0
+    },
+    "6": {
+      "completedAgents": [],
+      "completedSuites": []
+    },
+    "7": {
+      "iteration": 0,
+      "issueIndex": 0
+    }
+  },
+  "phase0Fingerprint": "677132cf71b1e0a05242ec263c38c9ccdfe4ad3c47f9bd2fb014d0e2108691af",
+  "__flowCheckpoint": {
+    "flowId": "aamf-migration",
+    "status": "completed",
+    "startedAt": "2026-11-09T20:28:41.522Z",
+    "updatedAt": "2026-11-09T20:28:41.527Z",
+    "completedExecutionIds": [
+      "aamf-migration/kb-index",
+      "aamf-migration/task-graph-construction",
+      "aamf-migration/kb-construction",
+      "aamf-migration/budget-check-2",
+      "aamf-migration/migration-planning",
+      "aamf-migration/budget-check-3",
+      "aamf-migration/iterative-migration",
+      "aamf-migration/phase-4-teardown",
+      "aamf-migration/budget-check-4"
+    ],
+    "outputs": {
+      "kb-index": {
+        "phase": 0,
+        "name": "KB Indexing",
+        "success": true,
+        "outputPath": "/private/tmp/psflow-aamf-step2-20261109/.aamf/migration/psflow-step2-pilot-20261109/kb.db",
+        "duration": 1848
+      },
+      "task-graph-construction": {
+        "phase": 1,
+        "name": "Task Graph Construction",
+        "success": true,
+        "outputPath": "/private/tmp/psflow-aamf-step2-20261109/.aamf/migration/psflow-step2-pilot-20261109/artifacts/planning/tasks-merged.json",
+        "duration": 11722,
+        "tasks": [
+          {
+            "id": "psflow-w01-viewport",
+            "name": "Cross getViewportForBounds at the JS entry",
+            "sourceFiles": [
+              "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/utils/general.ts"
+            ],
+            "sourceReferenceFiles": [
+              "packages/system/src/utils/graph.ts",
+              "packages/react/src/store/initialState.ts",
+              "packages/react/src/hooks/useViewportHelper.ts"
+            ],
+            "referenceFiles": [
+              "src/System/Utils/General.purs",
+              "src/System/Types/Geometry.purs",
+              "src/System/Types/Connection.purs",
+              "src/Boundary/Elements.purs",
+              "src/Boundary/FitView.purs",
+              "src/Boundary/FitView.js",
+              "src/Boundary/Untagged.purs",
+              "src/Boundary/Undefined.purs",
+              "index.js",
+              "PORTING.md",
+              "CONTEXT.md",
+              "README.md",
+              "test/Test/Parity/Geometry.purs"
+            ],
+            "targetFiles": [
+              "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/src/Boundary/Utils.purs",
+              "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/src/Boundary/Utils.js",
+              "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/src/Boundary.purs",
+              "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/src/Boundary.js",
+              "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/parity/boundary/viewport.test.mjs",
+              "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/parity/surface/allowlist.json",
+              "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/parity/surface/upstream.json",
+              "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/parity/surface/psflow.json",
+              "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/parity/surface/upstream-bundle.mjs",
+              "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/parity/surface/report.md"
+            ],
+            "dependencies": [],
+            "description": "Implement only W01. Retain System.Utils.General geometry. Accept six arguments in a JS call and return a JS viewport. Padding has NO default: undefined means zero; null throws upstream TypeError. Match padding parsing, malformed-value console errors and return/error behavior against the provided JS-entry regression. Runtime FFI is limited to JS property access, type tests, parseFloat and native error semantics. Keep all geometry math in PureScript. Move only this export into crossed ownership, remove exactly its two surface exceptions, and keep stage 4 and seven raw exports. Existing viewport.test.mjs is the red regression and must remain intact; do not weaken it. No other work or scaffold is authorized.",
+            "acceptanceCriteria": [
+              "node --test parity/boundary/viewport.test.mjs passes all cases against pinned @xyflow/system",
+              "spago build succeeds; npm run parity:surface then spago test succeed",
+              "npm run parity:boundary succeeds",
+              "Only declared outputs change; core geometry, project setup, entry point, tests and comparator rules are preserved",
+              "Only viewport arity and call-convention exceptions are retired; stage 4 has seven passthrough exports"
+            ],
+            "knowledgeBaseRef": "PSFlow reviewed source-to-existing-target reconciliation",
+            "complexity": "simple",
+            "parityChecks": [
+              "node --test parity/boundary/viewport.test.mjs passes all cases against pinned @xyflow/system",
+              "spago build succeeds; npm run parity:surface then spago test succeed",
+              "npm run parity:boundary succeeds",
+              "Only declared outputs change; core geometry, project setup, entry point, tests and comparator rules are preserved",
+              "Only viewport arity and call-convention exceptions are retired; stage 4 has seven passthrough exports"
+            ]
+          }
+        ],
+        "sccs": [],
+        "compilationUnits": []
+      },
+      "kb-construction": {
+        "phase": 2,
+        "name": "Reviewed source knowledge",
+        "success": true,
+        "duration": 0,
+        "outputPath": "/private/tmp/psflow-aamf-step2-20261109/.aamf/migration/psflow-step2-pilot-20261109/knowledge-base/index.md"
+      },
+      "budget-check-2": {
+        "passed": true
+      },
+      "migration-planning": {
+        "phase": 3,
+        "name": "Preserve existing project",
+        "success": true,
+        "duration": 0,
+        "outputPath": "/private/tmp/psflow-aamf-step2-20261109/.aamf/migration/psflow-step2-pilot-20261109/artifacts/planning/migration-plan.md"
+      },
+      "budget-check-3": {
+        "passed": true
+      },
+      "iterative-migration": {
+        "flowId": "phase-4-per-task",
+        "status": "completed",
+        "outputs": {
+          "psflow-w01-viewport/migrate": {
+            "durationMs": 141681
+          }
+        }
+      },
+      "budget-check-4": {
+        "passed": true
+      }
+    },
+    "executionOutputs": {
+      "aamf-migration/kb-index": {
+        "phase": 0,
+        "name": "KB Indexing",
+        "success": true,
+        "outputPath": "/private/tmp/psflow-aamf-step2-20261109/.aamf/migration/psflow-step2-pilot-20261109/kb.db",
+        "duration": 1848
+      },
+      "aamf-migration/task-graph-construction": {
+        "phase": 1,
+        "name": "Task Graph Construction",
+        "success": true,
+        "outputPath": "/private/tmp/psflow-aamf-step2-20261109/.aamf/migration/psflow-step2-pilot-20261109/artifacts/planning/tasks-merged.json",
+        "duration": 11722,
+        "tasks": [
+          {
+            "id": "psflow-w01-viewport",
+            "name": "Cross getViewportForBounds at the JS entry",
+            "sourceFiles": [
+              "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/utils/general.ts"
+            ],
+            "sourceReferenceFiles": [
+              "packages/system/src/utils/graph.ts",
+              "packages/react/src/store/initialState.ts",
+              "packages/react/src/hooks/useViewportHelper.ts"
+            ],
+            "referenceFiles": [
+              "src/System/Utils/General.purs",
+              "src/System/Types/Geometry.purs",
+              "src/System/Types/Connection.purs",
+              "src/Boundary/Elements.purs",
+              "src/Boundary/FitView.purs",
+              "src/Boundary/FitView.js",
+              "src/Boundary/Untagged.purs",
+              "src/Boundary/Undefined.purs",
+              "index.js",
+              "PORTING.md",
+              "CONTEXT.md",
+              "README.md",
+              "test/Test/Parity/Geometry.purs"
+            ],
+            "targetFiles": [
+              "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/src/Boundary/Utils.purs",
+              "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/src/Boundary/Utils.js",
+              "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/src/Boundary.purs",
+              "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/src/Boundary.js",
+              "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/parity/boundary/viewport.test.mjs",
+              "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/parity/surface/allowlist.json",
+              "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/parity/surface/upstream.json",
+              "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/parity/surface/psflow.json",
+              "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/parity/surface/upstream-bundle.mjs",
+              "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/parity/surface/report.md"
+            ],
+            "dependencies": [],
+            "description": "Implement only W01. Retain System.Utils.General geometry. Accept six arguments in a JS call and return a JS viewport. Padding has NO default: undefined means zero; null throws upstream TypeError. Match padding parsing, malformed-value console errors and return/error behavior against the provided JS-entry regression. Runtime FFI is limited to JS property access, type tests, parseFloat and native error semantics. Keep all geometry math in PureScript. Move only this export into crossed ownership, remove exactly its two surface exceptions, and keep stage 4 and seven raw exports. Existing viewport.test.mjs is the red regression and must remain intact; do not weaken it. No other work or scaffold is authorized.",
+            "acceptanceCriteria": [
+              "node --test parity/boundary/viewport.test.mjs passes all cases against pinned @xyflow/system",
+              "spago build succeeds; npm run parity:surface then spago test succeed",
+              "npm run parity:boundary succeeds",
+              "Only declared outputs change; core geometry, project setup, entry point, tests and comparator rules are preserved",
+              "Only viewport arity and call-convention exceptions are retired; stage 4 has seven passthrough exports"
+            ],
+            "knowledgeBaseRef": "PSFlow reviewed source-to-existing-target reconciliation",
+            "complexity": "simple",
+            "parityChecks": [
+              "node --test parity/boundary/viewport.test.mjs passes all cases against pinned @xyflow/system",
+              "spago build succeeds; npm run parity:surface then spago test succeed",
+              "npm run parity:boundary succeeds",
+              "Only declared outputs change; core geometry, project setup, entry point, tests and comparator rules are preserved",
+              "Only viewport arity and call-convention exceptions are retired; stage 4 has seven passthrough exports"
+            ]
+          }
+        ],
+        "sccs": [],
+        "compilationUnits": []
+      },
+      "aamf-migration/kb-construction": {
+        "phase": 2,
+        "name": "Reviewed source knowledge",
+        "success": true,
+        "duration": 0,
+        "outputPath": "/private/tmp/psflow-aamf-step2-20261109/.aamf/migration/psflow-step2-pilot-20261109/knowledge-base/index.md"
+      },
+      "aamf-migration/budget-check-2": {
+        "passed": true
+      },
+      "aamf-migration/migration-planning": {
+        "phase": 3,
+        "name": "Preserve existing project",
+        "success": true,
+        "duration": 0,
+        "outputPath": "/private/tmp/psflow-aamf-step2-20261109/.aamf/migration/psflow-step2-pilot-20261109/artifacts/planning/migration-plan.md"
+      },
+      "aamf-migration/budget-check-3": {
+        "passed": true
+      },
+      "aamf-migration/iterative-migration": {
+        "flowId": "phase-4-per-task",
+        "status": "completed",
+        "outputs": {
+          "psflow-w01-viewport/migrate": {
+            "durationMs": 141681
+          }
+        }
+      },
+      "aamf-migration/budget-check-4": {
+        "passed": true
+      }
+    }
+  },
+  "__phase4FlowCheckpoint": {
+    "flowId": "aamf-migration/iterative-migration/phase-4-per-task",
+    "status": "completed",
+    "startedAt": "2026-11-09T20:18:20.311Z",
+    "updatedAt": "2026-11-09T20:23:55.248Z",
+    "completedExecutionIds": [
+      "aamf-migration/iterative-migration/phase-4-per-task/psflow-w01-viewport/migrate",
+      "aamf-migration/iterative-migration/phase-4-per-task/psflow-w01-viewport/commit",
+      "aamf-migration/iterative-migration/phase-4-per-task/psflow-w01-viewport/parity",
+      "aamf-migration/iterative-migration/phase-4-per-task/psflow-w01-viewport/parity-gate",
+      "aamf-migration/iterative-migration/phase-4-per-task/psflow-w01-viewport/minor-repass",
+      "aamf-migration/iterative-migration/phase-4-per-task/psflow-w01-viewport/build",
+      "aamf-migration/iterative-migration/phase-4-per-task/psflow-w01-viewport/test",
+      "aamf-migration/iterative-migration/phase-4-per-task/psflow-w01-viewport/target-index",
+      "aamf-migration/iterative-migration/phase-4-per-task/psflow-w01-viewport/complete"
+    ],
+    "outputs": {
+      "psflow-w01-viewport/migrate": {
+        "durationMs": 141681
+      }
+    },
+    "executionOutputs": {
+      "aamf-migration/iterative-migration/phase-4-per-task/psflow-w01-viewport/migrate": {
+        "durationMs": 141681
+      }
+    }
+  }
+}

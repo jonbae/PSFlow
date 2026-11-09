@@ -1,0 +1,40 @@
+{
+  "adapterSha256": "c2e0bd6fb98a601364c72f1296caafa8ec04efa893f4c0421ebd1fb2c79bb49a",
+  "patches": [
+    {
+      "path": "/private/tmp/psflow-aamf-step1-20261109/AAMF/dist/flow/steps/task-graph.js",
+      "originalHash": "3b6f90409e9e6435b15ef89a9c6d252d8dd72fcbfb00112bbf3a9f4907acce95",
+      "patchedHash": "32e166e27cd4301f261b6773d178d3d8e7f0277b357562f6cacf52166d2ff600"
+    },
+    {
+      "path": "/private/tmp/psflow-aamf-step1-20261109/AAMF/dist/flow/steps/kb-construction.js",
+      "originalHash": "ec5992708dcad217160a06e30e0d58868eefa37108ff47e8d84a15961864f037",
+      "patchedHash": "e2e49ed4b8da91ce5b1fb1c2773981ce825bd8228bf3e63407eb0c60c34480ca"
+    },
+    {
+      "path": "/private/tmp/psflow-aamf-step1-20261109/AAMF/dist/flow/steps/planning.js",
+      "originalHash": "b1ddbea46862e95eee6d8e6dd015f9f4ae2a74f1c80126f673ad806bea745edc",
+      "patchedHash": "311619bb981c8de411cae8aa4dc47c63063e6d647ae02122dc8cb8251f67d02c"
+    },
+    {
+      "path": "/private/tmp/psflow-aamf-step1-20261109/AAMF/dist/flow/steps/migration.js",
+      "originalHash": "fee03fbb66432f2cac640ae4f8f048034d05474acbf73bc2febf93b0ffa6437a",
+      "patchedHash": "325d6966d5ae1db27e97feab796f6ae3e28c1848c5285052a84bb972e0ff6912"
+    },
+    {
+      "path": "/private/tmp/psflow-aamf-step1-20261109/AAMF/dist/agents/context-builder.js",
+      "originalHash": "3a115940c10d542feb6021c32292ea9e64a69f0014a27ff16e1e0f0926947010",
+      "patchedHash": "b15765371faad21732479ee2cc1ec496ae7ef7203fbcc461de3ddc2231b6bdae"
+    },
+    {
+      "path": "/private/tmp/psflow-aamf-step1-20261109/AAMF/dist/core/runtime.js",
+      "originalHash": "001cf5e0b74184852b01235520b576df6c599760a37163c7366cb225bd664706",
+      "patchedHash": "8e23435af2bcb2958c51a184b735c5526d90d3944d95dbc3523609fb4718dc09"
+    },
+    {
+      "path": "/private/tmp/psflow-aamf-step1-20261109/AAMF/dist/core/agent-launcher.js",
+      "originalHash": "198376c87776d61cab8dee370afefb2e9ee48b4c49f0ef9c18f8c2b21cc9b73a",
+      "patchedHash": "12e3926230311c2f698cb6a4de26e7bdcc3dac4580fbc3347111f79c8d01d633"
+    }
+  ]
+}

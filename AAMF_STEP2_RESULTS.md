@@ -1,35 +1,75 @@
 # AAMF Step 2: reconcile the existing port
 
-Prepared 2026-11-07 against PSFlow
-`04fd4f246eb02d311effbf4fb1debedcbc21ba01`, `@xyflow/react` 12.11.0,
-`@xyflow/system` 0.0.77, and AAMF
-`7dc475d81ef9796b5b90f57a29475eaafa375753`.
+**Step 2 is complete, 2026-11-09. Step 3 was not started.** All 171 source files
+have reviewed existing-target mappings. The maintained adapter and the
+`getViewportForBounds` pilot are implemented and verified, including real AAMF
+runtime execution, rollback, and checkpoint resume.
 
-**The documentation portion of Step 2 is complete.** All 171 source files
-have explicit mappings into the existing port, with symbol/caller context,
-dispositions, evidence limits, and bounded follow-up work. The AAMF integration
-and `getViewportForBounds` pilot are specified but unimplemented. AAMF remains
-analysis-only: its normal source index is uncertified, and this session does
-not authorize code changes. Step 3 was not started.
+The execution uses PSFlow base `7e41ee83cc9ea4c77509d9baacaab833558420c3`, plus
+the recorded numeric prerequisite; AAMF `7dc475d81ef9796b5b90f57a29475eaafa375753`;
+React 12.11.0 / system 0.0.77; Node 22.18.0, PureScript 0.15.16, Spago 1.0.4.
+The target was an existing checkout copy with explicit file hashes, not a claim
+of a clean target at the base commit. No package or baseline changed.
 
-## Deliverables and decision
+## Completion evidence
 
-| Artifact | Contents |
+| Step 2 requirement | Verified result |
 |---|---|
-| [Complete mapping](AAMF_STEP2_MAPPING.md) | 127 React and 44 system files; named declarations; existing `.purs` destinations; converters/FFI; observed callers; disposition and work routing |
-| [Integration contract](AAMF_STEP2_INTEGRATION.md) | Verified AAMF capabilities, missing adapter requirements, authoritative task/checkpoint handoff, target context, project preservation, and the unexecuted pilot |
-| This document | Evidence profiles, individual work contracts, ownership/dependencies, accepted representation decisions, and the stop point |
+| Reviewed source/target reconciliation | All 171 source hashes and implementation/converter paths validated; 121 assigned source files + 32 references + 18 re-export-only files retained |
+| Explicit `.purs` destinations | Selected outputs use existing canonical module paths; no extension-derived `.purescript` write paths |
+| Reuse and bounded work | Exactly `psflow-w01-viewport` selected; original 120 tasks and four cyclic groups preserved as source context; reused geometry excluded from its write set |
+| Runtime inventory and resume | Phase 1 structured outputs, context, disk artifacts and phase-4 discovery agree; changed mappings and completed outputs are rejected |
+| Honest target context | 23 explicit target files with refreshed hashes/module/import context; symbol coverage is `null`; no target Lore DB or symbol server |
+| Existing project | Reviewed phase-2/3 route bypasses planning/scaffolding; package files, module layout, entry point and other reference files unchanged |
+| File ownership | Canonical alias/escape checks, target-overlap scheduling, full target transaction, and final allowed-diff audit verified |
+| Pilot | Six-argument JS call returns the upstream viewport; 28 direct-call regressions pass against the rebuilt vendored oracle; only its two surface exceptions retired |
+| Completion resume | Same completed task retained; zero additional agent invocations; stale accepted output rejected before task execution |
 
-Retain AAMF's diagnostic inventory as reference material and carry subsequent
-port tasks through PSFlow's current workflow. Do not feed its 120 provisional
-source-driven tasks directly into phase 4. The map accounts for **121 task-source
-files + 32 absorbed context files + 18 re-export-only files**. None of those
-counts is a missing-feature or completion count.
+The [mapping](AAMF_STEP2_MAPPING.md), [integration details](AAMF_STEP2_INTEGRATION.md),
+[adapter](tools/aamf/README.md#step-2-existing-project-adapter), and
+[durable evidence](aamf/step2/README.md) make the result reviewable. This completes
+one integration pilot, not an autonomous migration of the whole port.
 
-The integration decision is scoped to the current docs-only work. Adapter cost
-has not been estimated against the remaining port work. A future AAMF execution
-requires both the Step 1 certification fixes and the integration acceptance
-checks; this is not a completed autonomous AAMF migration.
+## Validation and bounded prerequisite
+
+The initial crossing passed 23/24 cases and correctly stopped for review:
+`Ord Number` min/max lost `NaN` where upstream's Math operations propagate it.
+A new differential property in `Test.Parity.Geometry` was observed red before
+the correction and green after it. The correction is local to
+`System.Utils.General.getViewportForBounds`; its existing arithmetic remains
+in place and the shared clamp API is unchanged. The fresh pilot treated this
+corrected geometry and its test as read-only dependencies.
+
+The first interrupted rollback also exposed an adapter preflight problem:
+validation must allow the runtime to restore temporarily missing target files
+before checking them. A later attempt exposed stock AAMF's requirement that a
+test-writer change a file even when the reviewed regression already exists.
+The adapter now adopts that exact pinned test only after executing it
+successfully and writing a runtime evidence report. No test edit was fabricated.
+Both paths have positive and negative regression coverage.
+
+All final checks passed:
+
+- Adapter integration tests: **8/8**, exercising actual phase-4 construction and checkpoint services.
+- JS-entry regression: **28/28**, observed red before crossing and green after.
+- `npm run build:oracle`; `npm run build:driver` (including `spago build`).
+- `npm run parity:surface`, then `spago test`, and `npm run parity:boundary`.
+- `npm run test:surface`: **30/30**; `npm run test:boundary`: **41/41**.
+- `npm run parity:fork`; completed-task resume and stale-output rejection probes.
+
+The working checkout received the reviewed crossing and the derived driver
+bundle refresh required at an integration point. Boundary stage remains **4**,
+with **61 crossed / seven passthrough** value exports. The full system corpus,
+browser baseline, remaining boundary crossings, identity work, resize, and
+other work cards were not executed. The first build hit temporary local storage
+exhaustion; its clean retry and all final builds passed.
+
+## Original reconciliation and future work contracts
+
+The following profiles and W00/W02–W12 cards preserve the November 7 review
+against PSFlow `04fd4f2`. Their limits remain relevant; they are not new claims
+that every cited browser scenario or source branch passed. W01 is complete,
+and W13 records an additional numeric finding left for Step 3.
 
 ## Evidence and review method
 
@@ -38,7 +78,7 @@ was assigned existing target ownership explicitly, rather than through extension
 replacement. The map links the source declarations, actual PureScript modules,
 boundary converters, and existing FFI. Its caller appendix preserves distinct
 cross-file symbol-call observations from the Step 1 diagnostic database.
-Those observations remain partial and uncertified. Known caller chains from
+Those historical observations remain partial; the preserved runtime mapping also includes the certified import audit. Known caller chains from
 source inspection are recorded in the work contracts below even when SCIP did
 not record them.
 
@@ -50,8 +90,9 @@ either. Retained implementations stay as dependencies/context instead of being
 scheduled for wholesale translation.
 
 The governing rules are [PORTING.md](PORTING.md), [CONTEXT.md](CONTEXT.md), and
-[README.md](README.md#the-five-gates). Existing tests and committed reports
-were read, not executed or refreshed. Their names below identify what they can
+[README.md](README.md#the-five-gates). In the original November 7 review, existing tests and committed reports
+were read, not executed or refreshed. The execution checklist above identifies
+exactly what was subsequently run for the pilot. Their names below identify what they can
 observe, with no new claim that they currently pass. In particular, the old
 system and surface reports remain snapshots.
 
@@ -124,6 +165,9 @@ Split any card further if implementing it requires unrelated behavior changes.
 
 ### W01 — cross the JS viewport function (first pilot)
 
+**Complete, 2026-11-09.** See the execution evidence above and the maintained
+integration contract for its final scope, numeric prerequisite, and gates.
+
 - **Disposition:** finish conversion; retain core geometry unchanged.
 - **Source/callers:** system `utils/general.ts::getViewportForBounds` plus
   `parsePadding`, `parsePaddings`, `calculateAppliedPaddings`; callers are system
@@ -133,16 +177,19 @@ Split any card further if implementing it requires unrelated behavior changes.
 - **Target/FFI:** `System.Utils.General` already implements the math.
   `Boundary.Utils`, `Boundary.purs` and the manifest own the new crossing;
   inspect `Boundary.FitView.paddingIn` before reusing its option-field parser.
-- **Observable gap:** a single uncurried JS call currently yields the next
+- **Original gap:** a single uncurried JS call yielded the next
   function rather than a viewport. **Allowed outputs and acceptance:** use the
-  complete [pilot specification](AAMF_STEP2_INTEGRATION.md#pilot-specification-cross-getviewportforbounds).
-  It limits code output to `src/Boundary/Utils.purs`, `src/Boundary.purs`,
-  `src/Boundary.js`, with named evidence outputs. Numeric, pixel, percent and
+  complete [pilot specification](AAMF_STEP2_INTEGRATION.md#pilot-scope-and-prerequisite).
+  Its final code scope is `src/Boundary/Utils.purs`, its platform-only `.js`
+  shim, `src/Boundary.purs`, and `src/Boundary.js`, with named evidence outputs
+  and the separately tested numeric prerequisite. Numeric, pixel, percent and
   directional padding, clamps, omission and invalid values require comparison
   against upstream. Retire only this export's two exceptions. Seven other
   passthrough exports remain; stage 4 stays recorded.
-- **Dependencies:** W00 and an implementation scope; for AAMF execution also
-  certified phase 0/1, the adapter, target-context and resume acceptance checks.
+- **Dependencies:** certified phase 0/1, reviewed source/target snapshots, the
+  numeric prerequisite, adapter, applicable fresh build/surface baseline,
+  target-context and resume acceptance checks. W00's wider browser/corpus
+  baseline remains Step 3 work.
 
 ### W02 — cross one remaining graph utility at a time
 
@@ -390,6 +437,19 @@ separate: enabling the callback in the driver alone cannot prove timer order.
   depends on W05, defaults on W07, reconnection on W02, and `onInit` timing on
   W08a. Do not remove a hole because a fixture was merely written.
 
+### W13 — preserve NaN in the shared clamp (future work)
+
+- **Disposition:** fix behavior; not executed in Step 2.
+- **Source/target:** system `utils/general.ts::clamp` → `System.Utils.General`.
+- **Observable gap:** direct PS `clamp NaN 0.1 4` still returns `4`, while
+  upstream returns `NaN`. The viewport prerequisite corrects its own min/max
+  operations and deliberately does not change this shared API.
+- **Allowed future outputs:** `src/System/Utils/General.purs` and a focused
+  differential regression in `test/Test/Parity/Geometry.purs`.
+- **Acceptance:** drive NaN in each clamp argument against the vendored oracle,
+  preserve the finite-domain properties and applicable gates. Schedule after
+  the Step 3 baseline, and serialize with other writers of these files.
+
 ## Ownership and dependency rules
 
 The map's target modules are read context. **Only a selected card's permitted
@@ -407,18 +467,17 @@ when AAMF's source graph claims independence:
 | Boundary mount checks, surface allowlist and generated surface files | W01, W02, W03, W06 and W07 as their named evidence requires |
 | Corpus/registry/hole register and generated traces | W11 evidence additions and each W12 fixture task |
 
-Use one implementation task at a time initially. A future adapter must put
-canonical, complete output paths into AAMF's `targetFiles`; its existing
-per-task scheduling can then detect overlap. Keep read-only source dependency
+Use one implementation task at a time initially. The maintained adapter puts
+canonical, complete output paths into AAMF's `targetFiles`, allowing its existing
+per-task scheduling to detect overlap. Keep read-only source dependency
 context, including the system/react type cycles, pan/zoom cycle and flow
 container cycle from Step 1. Do not turn retained dependencies into fabricated
 “completed migration” tasks.
 
-The recommended next implementation sequence is W00, then W01 as one bounded
-pilot. Choose later cards from the refreshed evidence; W03's confirmed identity
-gap and W05's explicit resize scaffold do not justify a wholesale rewrite of
-their dependency modules. AAMF runtime execution remains gated by
-[the integration contract](AAMF_STEP2_INTEGRATION.md).
+W01 is complete. Step 3 should begin with W00's wider fresh baseline, then
+choose bounded cards from the evidence. W03's confirmed identity gap and W05's
+resize scaffold do not justify rewriting their dependency modules. Any further
+AAMF execution needs a newly reviewed task selection and project snapshot.
 
 ## Accepted differences and stop point
 
@@ -433,11 +492,8 @@ their dependency modules. AAMF runtime execution remains gated by
   structural identity comparison or removed timers are pending work/evidence,
   not newly accepted differences.
 
-The normal AAMF pipeline still has no certified phase 0/1 result. No adapter,
-target PureScript symbol index, authoritative reconciled runtime graph or pilot
-has been implemented or verified. Those are explicit uncompleted execution
-prerequisites, not missing documentation to conceal.
-
-Only Markdown documentation changed. No implementation, tests, fixtures,
-packages, AAMF source, checkpoints, issue/PR state, baseline, builds or parity
-artifacts changed. Step 3 was not started.
+The certified Step 1 inventory and Step 2 runtime pilot are now preserved.
+PureScript target context is explicitly file-based, with no symbol-index claim.
+No other work card was executed and no additional surface exception, system
+region, comparator change, fixture change, package update or baseline bump was
+introduced. **Stopped at the end of Step 2.**

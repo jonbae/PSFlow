@@ -34,11 +34,12 @@
 -- | there is nothing to get wrong but member names, which the record types
 -- | check.
 -- |
--- | **What is left in `passthrough` is eight pure functions.** Stage 5
+-- | **What is left in `passthrough` is seven pure functions.** Stage 5
 -- | (`tickets/082-boundary-stage-5-pure-functions.md`) crosses the fourteen
 -- | that stage 4 left, and its first half has landed: the six edge-path
--- | helpers a custom edge component calls, in `Boundary.EdgePaths`. The eight
--- | left are the six graph utilities, which are curried where upstream takes
+-- | helpers a custom edge component calls, in `Boundary.EdgePaths`, and since
+-- | then `getViewportForBounds`, in `Boundary.Utils`. The seven left are the
+-- | five other graph utilities, which are curried where upstream takes
 -- | every argument at once, and `isNode` and `isEdge`, which agree with
 -- | upstream on every call surface parity makes. `parity/surface/allowlist.json`
 -- | carries one entry per difference they publish, and surface parity calls
@@ -62,7 +63,8 @@
 -- |   * `Boundary.Flow` — the 124 flow props, and `ReactFlow` itself.
 -- |   * `Boundary.Utils` — `applyNodeChanges`, `applyEdgeChanges` and
 -- |     `addEdge`, which a controlled flow's own change handlers call, so a
--- |     driver reaches them on the first interaction.
+-- |     driver reaches them on the first interaction; and, from stage 5,
+-- |     `getViewportForBounds` and the padding it reads.
 -- |   * `Boundary.Chrome` — `Panel`, `Background`, `Controls` and `MiniMap`,
 -- |     which a driver mounts inside the flow, and since stage 4 the two
 -- |     pieces a consumer reaches *inside* two of them, `ControlButton` and
@@ -139,9 +141,11 @@ module Boundary
 -- not from the PureScript surface, which still has the unconverted one. The
 -- three utilities come from `Boundary.Utils` for the same reason: a driver
 -- calls them with every argument at once, which a curried PureScript function
--- is not.
+-- is not. So does `getViewportForBounds`, stage 5's first graph utility, whose
+-- six arguments upstream takes in one call and whose `padding` is an untagged
+-- value; `Boundary.Utils` crosses both.
 import Boundary.Flow (reactFlow, reactFlowProvider) as CrossedSurface
-import Boundary.Utils (addEdge, applyEdgeChanges, applyNodeChanges) as CrossedSurface
+import Boundary.Utils (addEdge, applyEdgeChanges, applyNodeChanges, getViewportForBounds) as CrossedSurface
 
 -- The four chrome components upstream's drivers mount. `Boundary.Chrome` says
 -- why each needed a wrapper at all; the short version is that a JavaScript
@@ -234,7 +238,6 @@ import React
     isNode
   , isEdge
   -- System functions
-  , getViewportForBounds
   , getNodesBounds
   , getIncomers
   , getOutgoers

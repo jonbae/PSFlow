@@ -1,0 +1,260 @@
+{
+  "mode": "files",
+  "symbolCoverage": null,
+  "files": [
+    {
+      "path": "src/System/Utils/General.purs",
+      "sha256": "302dfe7ee740fa903e567b10507757330df610ac8d82e04f9bac989b4a575419",
+      "module": "System.Utils.General",
+      "imports": [
+        "Prelude",
+        "Data.Either",
+        "Data.Foldable",
+        "Data.Map",
+        "Data.Maybe",
+        "Data.Number",
+        "Data.Set",
+        "Effect",
+        "Effect.Console",
+        "System.Types.Connection",
+        "System.Types.Ids",
+        "System.Types.Geometry",
+        "System.Types.Node"
+      ]
+    },
+    {
+      "path": "src/System/Types/Geometry.purs",
+      "sha256": "962a1838cf8b22278252aa93c48aa194384d6406b1b70fdcb15e082a13e50f46",
+      "module": "System.Types.Geometry",
+      "imports": [
+        "Prelude",
+        "Data.Enum",
+        "Data.Enum.Generic",
+        "Data.Generic.Rep",
+        "Data.Newtype",
+        "Data.Number",
+        "Data.Show.Generic"
+      ]
+    },
+    {
+      "path": "src/System/Types/Connection.purs",
+      "sha256": "6db1c9ce18ba1dd59abdda84b8c7fde94833c3107c4dd3e1f67acd039565dc45",
+      "module": "System.Types.Connection",
+      "imports": [
+        "Prelude",
+        "Data.Array.NonEmpty",
+        "Data.Enum",
+        "Data.Enum.Generic",
+        "Data.Generic.Rep",
+        "Data.List",
+        "Data.Map",
+        "Data.Maybe",
+        "Data.Show.Generic",
+        "System.Types.Geometry",
+        "System.Types.Handle",
+        "System.Types.Ids"
+      ]
+    },
+    {
+      "path": "src/Boundary/Elements.purs",
+      "sha256": "aaaeedf40ec1915708de8d09d056fdbc338502479d781603ff1aa6cda7d4c985",
+      "module": "Boundary.Elements",
+      "imports": [
+        "Prelude",
+        "Boundary.Enums",
+        "Boundary.Undefined",
+        "Boundary.Untagged",
+        "Boundary.Wrapper",
+        "Data.Array",
+        "Data.Array.NonEmpty",
+        "Data.Int",
+        "Data.Maybe",
+        "Data.Newtype",
+        "Data.Nullable",
+        "Effect.Exception.Unsafe",
+        "Effect.Uncurried",
+        "Foreign",
+        "Foreign.Object",
+        "Foreign.Object",
+        "Record.Unsafe",
+        "React.Basic",
+        "React.Types.Edges",
+        "React.Types.Nodes",
+        "System.Types.Connection",
+        "System.Types.Edge",
+        "System.Types.Geometry",
+        "System.Types.Handle",
+        "System.Types.Node",
+        "Unsafe.Coerce"
+      ]
+    },
+    {
+      "path": "src/Boundary/FitView.purs",
+      "sha256": "9d040e0e78b3b1f0902c1e0f7bf471fc4719813c39daf14e4e5245f5c1edd13c",
+      "module": "Boundary.FitView",
+      "imports": [
+        "Prelude",
+        "Boundary.Enums",
+        "Boundary.Undefined",
+        "Boundary.Untagged",
+        "Data.Int",
+        "Data.Maybe",
+        "Data.Newtype",
+        "Data.Number",
+        "Data.String",
+        "Effect.Console",
+        "Effect.Unsafe",
+        "Foreign",
+        "System.Types.Connection",
+        "System.Utils.Graph",
+        "Unsafe.Coerce"
+      ]
+    },
+    {
+      "path": "src/Boundary/FitView.js",
+      "sha256": "0f574e0a3ef099a6cf9d474173044d93ec9b3b4e214d918a1073686d04332ca8"
+    },
+    {
+      "path": "src/Boundary/Untagged.purs",
+      "sha256": "1a0bb41a9d67836100a0dbdbebfdc3130bad20bc3e8d4dbd1ff393463157ed55",
+      "module": "Boundary.Untagged",
+      "imports": [
+        "Data.Function.Uncurried",
+        "Data.Maybe",
+        "Foreign"
+      ]
+    },
+    {
+      "path": "src/Boundary/Undefined.purs",
+      "sha256": "525035837fc634aaf54e1d1c31d7d6b32c31eaa2f5a4bd02deb438a64f1932c8",
+      "module": "Boundary.Undefined",
+      "imports": [
+        "Prelude",
+        "Data.Function.Uncurried",
+        "Data.Maybe",
+        "Data.Nullable",
+        "Effect.Exception.Unsafe"
+      ]
+    },
+    {
+      "path": "index.js",
+      "sha256": "3893c38cef3189a64f596a385ffedc0644e5cfb2af478314b4a011e296a92cba"
+    },
+    {
+      "path": "PORTING.md",
+      "sha256": "361aa5cbd63cbd77e51e9c17d2ef3b95dfbda2370cd2b7af8db6bf4b3503ce39"
+    },
+    {
+      "path": "CONTEXT.md",
+      "sha256": "1aefeaebdb885d39581593d1b0a9707b2ce85968e6562beace2707e5714ada9f"
+    },
+    {
+      "path": "README.md",
+      "sha256": "17a10b6a2e5b7ed780e8f3287748306bb4d93cf5e185eb74d11f3a37132cf860"
+    },
+    {
+      "path": "test/Test/Parity/Geometry.purs",
+      "sha256": "55cdaf593d40e8cba8b0f1bf40d5c09be9d3bb41aadf1d63ddd743a774a0929d",
+      "module": "Test.Parity.Geometry",
+      "imports": [
+        "Prelude",
+        "Data.Array.NonEmpty",
+        "Data.Int",
+        "Data.Maybe",
+        "Data.Number",
+        "Effect",
+        "Effect.Class.Console",
+        "System.Types.Connection",
+        "System.Types.Geometry",
+        "System.Utils.General",
+        "Test.Oracle",
+        "Test.Parity.Util",
+        "Test.Properties",
+        "Test.QuickCheck",
+        "Test.QuickCheck.Gen"
+      ]
+    },
+    {
+      "path": "src/Boundary/Utils.purs",
+      "sha256": "e3136917c6348c6646e313ba2cbb73bb77ddee5c5f891d686c9eb5818d80d55d",
+      "module": "Boundary.Utils",
+      "imports": [
+        "Prelude",
+        "Boundary.Callbacks",
+        "Boundary.Elements",
+        "Boundary.Undefined",
+        "Boundary.Untagged",
+        "Data.Either",
+        "Data.Function.Uncurried",
+        "Data.Maybe",
+        "Data.Number",
+        "Data.String",
+        "Data.String.CodeUnits",
+        "Effect",
+        "Effect.Console",
+        "Effect.Exception.Unsafe",
+        "Effect.Uncurried",
+        "Effect.Unsafe",
+        "Foreign",
+        "React.Store.Changes",
+        "System.Constants",
+        "System.Types.Connection",
+        "System.Types.Edge",
+        "System.Types.Geometry",
+        "System.Utils.Edges.General",
+        "System.Utils.General",
+        "System.Utils.Graph",
+        "Unsafe.Coerce"
+      ]
+    },
+    {
+      "path": "src/Boundary/Utils.js",
+      "sha256": "465bcdd6523279f9ab442957c1d845d19e06bd146eb3ffc1d46b520c7fb8e665"
+    },
+    {
+      "path": "src/Boundary.purs",
+      "sha256": "53add4f8dc797836043edd732b839ab2f2c27aa53fab4b19e0a70fa78dff2bcb",
+      "module": "Boundary",
+      "imports": [
+        "Boundary.Flow",
+        "Boundary.Utils",
+        "Boundary.Chrome",
+        "Boundary.EdgePaths",
+        "Boundary.Edges",
+        "Boundary.Portals",
+        "Boundary.Hooks",
+        "Boundary.NodeChrome",
+        "Boundary.Resizer",
+        "React"
+      ]
+    },
+    {
+      "path": "src/Boundary.js",
+      "sha256": "af2c215899d9c0bbc35b1f316111a7fb4cdba1b8fa58b64f514e75411524a08a"
+    },
+    {
+      "path": "parity/boundary/viewport.test.mjs",
+      "sha256": "65e0d6ddbb4ccbf47158fb91fb4adf5f6f8311406783f0beb3aa1c18ca272078"
+    },
+    {
+      "path": "parity/surface/allowlist.json",
+      "sha256": "826d00351ab3d9d9c647eeffbf1daacf690aff32f89edf7df96321afbd8ef077"
+    },
+    {
+      "path": "parity/surface/upstream.json",
+      "sha256": "6b4bc14850373e60a43168bab7a38d3e9f81240d2a975a9bc92327df6d2a3569"
+    },
+    {
+      "path": "parity/surface/psflow.json",
+      "sha256": "66bf497445f69182ddfbea8292fdf7393bcb3e33b382d1ce4ab90558adfa2ccd"
+    },
+    {
+      "path": "parity/surface/upstream-bundle.mjs",
+      "sha256": "856239280edaa91f5e7e2f162b7137eead89fc9f3a53cfb2c559447cfc9a81ad"
+    },
+    {
+      "path": "parity/surface/report.md",
+      "sha256": "8542202c02dbb76c42b72c63659d53191fd349ad82e2e58518d618725c19dccb"
+    }
+  ]
+}

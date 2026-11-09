@@ -14,6 +14,7 @@ import Prelude
 import Data.Array.NonEmpty as NEA
 import Data.Int (toNumber) as Int
 import Data.Maybe (Maybe(..))
+import Data.Number (isNaN, nan) as Number
 import Effect (Effect)
 import Effect.Class.Console (log)
 import System.Types.Connection (Padding(..), PaddingValue(..))
@@ -43,7 +44,7 @@ import System.Utils.General
 import Test.Oracle as Oracle
 import Test.Parity.Util (boxMatch, numMatch, rectMatch, viewportMatch, xyMatch)
 import Test.Properties (genBox, genFiniteNumber, genNonNegNumber, genRect, genSnapGrid)
-import Test.QuickCheck (Result, quickCheck)
+import Test.QuickCheck (Result, quickCheck, (<?>))
 import Test.QuickCheck.Gen (Gen, chooseInt, elements)
 
 genXY :: Gen XYPosition
@@ -264,6 +265,18 @@ runGeometryParity = do
     i <- genFitViewInput
     p <- genPadding
     pure (fitViewMatch "getViewportForBounds" i p)
+
+  -- The JS boundary pilot exposed Ord Number's different NaN semantics.
+  -- Keep this below the boundary too: every draw reaches NaN propagation in
+  -- the zoom minimum and clamp, and compares with the vendored oracle.
+  quickCheck do
+    i <- genFitViewInput
+    let
+      padding = UniformPadding (RatioPadding Number.nan)
+      actual = PS.getViewportForBounds i.bounds i.width i.height i.minZoom i.maxZoom padding
+      expected = Oracle.getViewportForBounds i.bounds i.width i.height i.minZoom i.maxZoom padding
+      allNaN v = Number.isNaN v.x && Number.isNaN v.y && Number.isNaN v.zoom
+    pure ((allNaN actual && allNaN expected) <?> "getViewportForBounds must propagate NaN padding")
 
   -- The configuration the dual-run spike actually ran: `fitView` with no
   -- options, whose padding defaults to the ratio `0.1`. The spike saw the two

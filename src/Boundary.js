@@ -42,8 +42,8 @@ export const manifest = Object.freeze({
   // Stage 4 emptied the component half of `passthrough` and left fourteen
   // pure functions. Stage 5 (`tickets/082-boundary-stage-5-pure-functions.md`)
   // crosses them, and this number moves when the last of them has: its first
-  // half, the six edge-path helpers, is listed below as crossed, and the
-  // eight it leaves are still in `passthrough`.
+  // half, the six edge-path helpers, is listed below as crossed, and so is
+  // `getViewportForBounds`; the seven it leaves are still in `passthrough`.
   stage: 4,
 
   // The eight TS enums are plain data on both sides, so crossing them was the
@@ -134,6 +134,7 @@ export const manifest = Object.freeze({
     "getSimpleBezierPath",
     "getSmoothStepPath",
     "getStraightPath",
+    "getViewportForBounds",
     "useConnection",
     "useEdges",
     "useEdgesState",
@@ -155,8 +156,8 @@ export const manifest = Object.freeze({
     "useViewport",
   ]),
 
-  // What is left, and it is one kind of thing: the eight pure functions stage
-  // 5 has yet to cross. The six graph utilities resolve and return the right
+  // What is left, and it is one kind of thing: the seven pure functions stage
+  // 5 has yet to cross. The five graph utilities resolve and return the right
   // answer behind a curried call, and `isNode` and `isEdge` agree with
   // upstream on every call surface parity makes. Surface parity's
   // call-and-compare measures each difference rather than assuming it, which
@@ -167,7 +168,6 @@ export const manifest = Object.freeze({
     "getIncomers",
     "getNodesBounds",
     "getOutgoers",
-    "getViewportForBounds",
     "isEdge",
     "isNode",
     "reconnectEdge",

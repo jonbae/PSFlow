@@ -258,24 +258,36 @@ getViewportForBounds bounds width height minZoom maxZoom padding =
     p = parsePaddings padding width height
     xZoom = (width - p.x) / bounds.width
     yZoom = (height - p.y) / bounds.height
-    zoom = min xZoom yZoom
-    clampedZoom = clamp zoom minZoom maxZoom
+    zoom = minimum xZoom yZoom
+    clampedZoom = minimum (maximum zoom minZoom) maxZoom
     boundsCenterX = bounds.x + bounds.width / 2.0
     boundsCenterY = bounds.y + bounds.height / 2.0
     x0 = width / 2.0 - boundsCenterX * clampedZoom
     y0 = height / 2.0 - boundsCenterY * clampedZoom
     newPadding = calculateAppliedPaddings bounds x0 y0 clampedZoom width height
     offset =
-      { left: min (newPadding.left - p.left) 0.0
-      , top: min (newPadding.top - p.top) 0.0
-      , right: min (newPadding.right - p.right) 0.0
-      , bottom: min (newPadding.bottom - p.bottom) 0.0
+      { left: minimum (newPadding.left - p.left) 0.0
+      , top: minimum (newPadding.top - p.top) 0.0
+      , right: minimum (newPadding.right - p.right) 0.0
+      , bottom: minimum (newPadding.bottom - p.bottom) 0.0
       }
   in
     { x: x0 - offset.left + offset.right
     , y: y0 - offset.top + offset.bottom
     , zoom: clampedZoom
     }
+  where
+  -- Math.min/Math.max propagate NaN. Ord Number's min/max discard it, which
+  -- would turn invalid numeric padding into a valid-looking clamped viewport.
+  -- Keep the upstream arithmetic here; leave the shared clamp API unchanged.
+  minimum a b
+    | Number.isNaN a = a
+    | Number.isNaN b = b
+    | otherwise = min a b
+  maximum a b
+    | Number.isNaN a = a
+    | Number.isNaN b = b
+    | otherwise = max a b
 
 -- | Read a `PaddingValue` against the given viewport extent. Mirrors the TS
 -- | `parsePadding` but pattern-matches on the ADT instead of parsing strings.

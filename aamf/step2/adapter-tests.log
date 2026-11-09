@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: selects only the gap; retains source graph/cycles and existing PureScript context
+ok 1 - selects only the gap; retains source graph/cycles and existing PureScript context
+  ---
+  duration_ms: 866.541739
+  type: 'test'
+  ...
+# Subtest: real phase-4 discovery uses identical tasks after checkpoint reload; rejects disk-only substitution
+ok 2 - real phase-4 discovery uses identical tasks after checkpoint reload; rejects disk-only substitution
+  ---
+  duration_ms: 1265.732749
+  type: 'test'
+  ...
+# Subtest: rejects stale mapping, changed source, dangling dependencies and reused writers
+ok 3 - rejects stale mapping, changed source, dangling dependencies and reused writers
+  ---
+  duration_ms: 971.442765
+  type: 'test'
+  ...
+# Subtest: existing-project phases preserve every file; out-of-scope edits and symlink escapes fail
+ok 4 - existing-project phases preserve every file; out-of-scope edits and symlink escapes fail
+  ---
+  duration_ms: 1594.063347
+  type: 'test'
+  ...
+# Subtest: canonical shared output aliases impose a predecessor in the real phase-4 flow
+ok 5 - canonical shared output aliases impose a predecessor in the real phase-4 flow
+  ---
+  duration_ms: 1127.01637
+  type: 'test'
+  ...
+# Subtest: interrupted rollback can recover missing target files; a changed mapping still fails before recovery
+ok 6 - interrupted rollback can recover missing target files; a changed mapping still fails before recovery
+  ---
+  duration_ms: 1160.598307
+  type: 'test'
+  ...
+# Subtest: adopts unchanged reviewed tests only after a real successful run
+ok 7 - adopts unchanged reviewed tests only after a real successful run
+  ---
+  duration_ms: 1931.845534
+  type: 'test'
+  ...
+# Subtest: completed-task resume rejects changed accepted outputs
+ok 8 - completed-task resume rejects changed accepted outputs
+  ---
+  duration_ms: 1842.011265
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 11120.119322

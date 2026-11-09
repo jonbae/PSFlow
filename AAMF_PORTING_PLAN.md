@@ -7,8 +7,9 @@ Prepared 2026-11-07 against PSFlow commit
 This began as a documentation-only assessment and proposed workflow. The
 execution updates below record the later isolated analysis and reconciliation.
 Commands and configuration in the original plan remain proposals except where
-the linked execution results explicitly report them as run. No PSFlow runtime
-change or baseline bump has been made.
+the linked execution results explicitly report them as run. The baseline stays
+fixed; Step 2 runtime changes are limited to its recorded pilot and numeric
+prerequisite.
 
 Execution update (2026-11-09): **Step 1 is complete.** The bounded inventory was
 rebuilt with the maintained [Lore compatibility fixes](tools/aamf/README.md),
@@ -19,15 +20,19 @@ declarations. The source index has no validation errors. See
 [the Step 1 completion checklist](AAMF_STEP1_RESULTS.md) and
 [the preserved artifacts](aamf/step1/README.md).
 
-The original November 7 temporary workspace is no longer available. Its reports
-remain as history; the completed Step 1 evidence, including the real certified
-index and structured checkpoint, is now saved in the repository. This run
-stopped before Step 2. Existing Step 2 documentation includes the
-[171-file mapping](AAMF_STEP2_MAPPING.md),
-[work contracts and evidence](AAMF_STEP2_RESULTS.md), and
-[integration requirements/pilot specification](AAMF_STEP2_INTEGRATION.md).
-The adapter and code-writing pilot remain unimplemented; AAMF stays
-analysis-only. No implementation changes were made, and Step 3 was not started.
+**Step 2 is also complete, 2026-11-09.** The 171-file mapping was revalidated
+against the certified inventory. A maintained adapter now supplies explicit
+existing-module paths, a single reconciled runtime task, checkpoint/resume,
+file-based PureScript context, and an existing-project route. The
+`getViewportForBounds` pilot passed its regression and applicable gates. A
+small, separately tested NaN-compatibility prerequisite preserves the existing
+geometry algorithm; that file stayed read-only during the AAMF pilot.
+
+See [Step 2 results](AAMF_STEP2_RESULTS.md), the
+[integration implementation](AAMF_STEP2_INTEGRATION.md), and
+[preserved evidence](aamf/step2/README.md). The original November 7 temporary
+workspace is gone; the completed Step 1 and Step 2 evidence now survives in
+the repository. **Stopped at the end of Step 2. Step 3 was not started.**
 
 ## Recommendation
 
@@ -60,7 +65,7 @@ when a later baseline update is intentional.
 |---|---|---|
 | Implementation | 169 `.purs` modules and 50 JavaScript FFI files under `src/`, counted for this assessment | Reuse the existing implementation; file count is not a completion percentage. |
 | Public API | [Census](parity/census/report.md): 68 value exports and 142 type exports | Track source behavior, boundary conversion, and evidence separately. |
-| Boundary | [Manifest](src/Boundary.js): stage 4, with eight exports still passing through raw | The six edge-path helpers have already crossed. Finish the remaining graph/bounds/reconnection crossings. |
+| Boundary | [Manifest](src/Boundary.js): stage 4, with seven exports still passing through raw after the Step 2 viewport pilot | The six edge-path helpers have already crossed. Finish the remaining graph/bounds/reconnection crossings. |
 | Surface report | [Committed snapshot](parity/surface/report.md) says last run 2026-09-22 | It predates some current boundary code and allowlist changes; regenerate before making numerical claims. |
 | System report | [Committed snapshot](parity/system/report.md), last changed in commit `c3e242a7` on 2026-10-20: 100 of 103 scenarios failed | This is a snapshot of observed differences, not 100 separate missing features. Re-capture after the baseline build. |
 | Coverage | [Committed snapshot](parity/system/coverage.md): 122 of 156 export-bearing entries driven, 34 declared holes; 50 behaviors still awaiting gates | A declared hole is accounted for, not implemented or verified by that declaration. Export coverage and behavior coverage are different measures. |
@@ -226,6 +231,10 @@ to the inventory if present and relevant, after verifying its indexing coverage.
 
 ## Step 2: reconcile the inventory with the existing port
 
+**Status: complete, 2026-11-09.** See the [completion report](AAMF_STEP2_RESULTS.md)
+and [maintained integration](AAMF_STEP2_INTEGRATION.md). The procedure below
+records the requirements satisfied by the bounded pilot.
+
 Create a reviewed mapping artifact before enabling phase 4. This is a proposed
 PSFlow integration artifact, **not an existing AAMF configuration feature**.
 Give each source unit these fields:
@@ -287,7 +296,7 @@ clear. Each behavior fix needs its own observable acceptance criterion.
 | Order | Work and existing starting point | Acceptance / dependency |
 |---|---|---|
 | A | Establish a fresh baseline after checking the two open PRs. Rebuild PSFlow, oracle, and driver; run the gates below. Cluster remaining differences by mechanism. | Save results with the exact source/target revisions. Resolve self-inconsistency before interpreting affected scenarios. |
-| B | Finish boundary stage 5 from the **current** manifest: `getConnectedEdges`, `getIncomers`, `getOutgoers`, `getNodesBounds`, `getViewportForBounds`, `reconnectEdge`, `isNode`, `isEdge`. The six edge-path helpers already have converters. | Empty `passthrough`, stage 5 recorded, and applicable transitional allowlist entries retired while surface parity remains green. Use [the older stage specification](tickets/082-boundary-stage-5-pure-functions.md) for intent, not its obsolete count of fourteen remaining functions. |
+| B | Finish boundary stage 5 from the **current** manifest: `getConnectedEdges`, `getIncomers`, `getOutgoers`, `getNodesBounds`, `reconnectEdge`, `isNode`, `isEdge`. The six edge-path helpers and Step 2 viewport pilot already have converters. | Empty `passthrough`, stage 5 recorded, and applicable transitional allowlist entries retired while surface parity remains green. Use [the older stage specification](tickets/082-boundary-stage-5-pure-functions.md) for intent, not its obsolete count of fourteen remaining functions. |
 | C | Preserve consumer objects, keys, and identity in `applyNodeChanges`, `applyEdgeChanges`, and `addEdge`; inspect `reconnectEdge` as part of B. Start with [Hand back the consumer's own nodes and edges](https://github.com/jonbae/PSFlow/issues/150) and `src/Boundary/Utils.purs`. | Untouched elements retain reference identity; changed copies retain custom keys and explicitly present `undefined`; added edges retain consumer fields. Remove the three issue-owned return-value allowlist entries. B and C share boundary concerns and should be serialized where files overlap. |
 | D | Restore original-node provenance through adoption and internal-node conversion. `NodeInternals` and `JsNodeInternals` currently omit `userNode`. | `getInternalNode().internals.userNode` and any reference-sensitive consumers match upstream. Coordinate the representation with C; a fabricated equivalent record does not preserve identity. |
 | E | Re-measure callback ordering, keyboard behavior, and auto-pan against upstream. The committed report marks `drag-node-autopan`, `arrow-key-selected-node`, and `drag-node-reports-changes` self-inconsistent. Account for the open keyboard/handle-bound PRs first. | Both captures reproduce before their cross-side diff is interpreted. Port timing and state reads; do not remove callbacks or broaden tolerance to gain green. |
@@ -382,9 +391,7 @@ Treat the port as complete against the pinned baseline when:
 - The AAMF integration pilot, selected task graph, source/target revisions,
   validation results, and resume procedure are recorded for the next baseline.
 
-The next plan step is Step 2: reconcile the completed source inventory with
-existing modules and finish its integration and pilot requirements. The first
-code-writing execution task should be
-the small boundary pilot, followed by the remaining boundary work and consumer
-object preservation. Keep the original port and its parity apparatus as the
-foundation throughout.
+Steps 1 and 2 are complete. The next plan step is Step 3: establish its fresh
+baseline and choose the next bounded gap from the reviewed work contracts.
+The viewport pilot is already crossed; the remaining boundary work and consumer
+object preservation remain future work. This execution stopped after Step 2.

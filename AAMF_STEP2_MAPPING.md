@@ -1,5 +1,14 @@
 # Step 2 source-to-target reconciliation map
 
+Execution review (2026-11-09): all 171 rows and target paths were revalidated
+against the certified Step 1 inventory. The [runtime mapping](aamf/step2/reconciliation.json)
+adds source hashes and all import/re-export consumers from the certified audit.
+W01 is now complete; the profiles below preserve the pre-pilot work routing.
+The completed checkpoint, rather than these historical gap labels, records
+what ran. The pilot generator refuses to queue W01 once it is crossed.
+See [results](AAMF_STEP2_RESULTS.md) for the separately tested numeric prerequisite
+and the remaining shared-clamp finding (W13).
+
 Prepared 2026-11-07 at PSFlow `04fd4f246eb02d311effbf4fb1debedcbc21ba01`; upstream `@xyflow/react` 12.11.0 / `@xyflow/system` 0.0.77. See [the results and work contracts](AAMF_STEP2_RESULTS.md) and [integration requirements](AAMF_STEP2_INTEGRATION.md).
 
 This is a reviewed file/symbol inventory, not an executable AAMF configuration or a parity certificate. All **171** Step 1 source files have an explicit existing-target mapping. Symbols are named top-level declarations extracted from the pinned TypeScript AST; nested locals remain source context, not standalone rewrite jobs. Repeated overload names are collapsed. Re-exports remain explicit units. This reconciles the 121 task-source files, 32 absorbed context files and 18 re-export-only files instead of treating the 120 provisional tasks as missing implementations.
@@ -389,7 +398,7 @@ The profile on each unit supplies its disposition, evidence limitation and futur
 
 - Source files: 127 React + 44 system = **171**, with one map row each and no unmatched source file.
 - Every implementation/converter path resolves to an existing `.purs` file. Five icon source files intentionally share one module; hooks and store units intentionally share modules too.
-- The diagnostic graph is **uncertified**. No generated task was marked migrated, no checkpoint was replaced, and no source-independent scheduling assumption was carried into execution.
+- The original caller appendix remains partial diagnostic evidence. Current reconciliation uses the certified Step 1 graph and import audit. Only W01 entered the runtime write queue; all original tasks and cycles remain source context. Target-path overlap is checked independently of source dependencies.
 - Symbol naming, exports, exact source links and caller observations help locate work. A full branch-by-branch semantic review remains the acceptance work of each small future task; this mapping does not claim 2,484 indexed symbols are equivalent.
 - D02 accepts only the absence of a separate runtime translation for `custom.d.ts`; it does not accept different DOM, styles, exports or component behavior.
 

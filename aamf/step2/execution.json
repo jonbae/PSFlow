@@ -1,0 +1,59 @@
+{
+  "psflowBaseCommit": "7e41ee83cc9ea4c77509d9baacaab833558420c3",
+  "aamfCommit": "7dc475d81ef9796b5b90f57a29475eaafa375753",
+  "packages": {
+    "react": "12.11.0",
+    "system": "0.0.77"
+  },
+  "node": "22.18.0",
+  "purescript": "0.15.16",
+  "spago": "1.0.4",
+  "projectName": "psflow-step2-pilot-20261109",
+  "workspace": "/private/tmp/psflow-aamf-step2-20261109",
+  "backend": "claude-code",
+  "executionMode": "per-task",
+  "maxParallelAgents": 1,
+  "qualityPolicy": "strict",
+  "prepareCommand": [
+    "node",
+    "<AAMF>/dist/index.js",
+    "migrate",
+    "-c",
+    "<workspace>/pilot.json",
+    "--phase",
+    "3"
+  ],
+  "pilotCommand": [
+    "node",
+    "<AAMF>/dist/index.js",
+    "migrate",
+    "-c",
+    "<workspace>/pilot.json",
+    "--resume",
+    "--phase",
+    "4"
+  ],
+  "prepareExitCode": 0,
+  "pilotExitCode": 0,
+  "rootBuildExitCode": 0,
+  "rootForkExitCode": 0,
+  "geometryProxy": {
+    "beforeExitCode": 1,
+    "afterExitCode": 0
+  },
+  "viewportProxy": {
+    "beforeExitCode": 1,
+    "afterExitCode": 0,
+    "cases": 28
+  },
+  "adapterTests": {
+    "exitCode": 0,
+    "tests": 8
+  },
+  "prerequisiteOutputs": [
+    "src/System/Utils/General.purs",
+    "test/Test/Parity/Geometry.purs"
+  ],
+  "rootIntegrationArtifact": "parity/driver/dist/psflow.js",
+  "stop": "End of plan Step 2; internal phases 0\u20134 only; Step 3 not started"
+}

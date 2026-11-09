@@ -1,0 +1,178 @@
+TAP version 13
+# Subtest: getViewportForBounds accepts all six JS arguments
+ok 1 - getViewportForBounds accepts all six JS arguments
+  ---
+  duration_ms: 9.687836
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: ratio
+ok 2 - getViewportForBounds matches upstream: ratio
+  ---
+  duration_ms: 1.078956
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: zero
+ok 3 - getViewportForBounds matches upstream: zero
+  ---
+  duration_ms: 0.511404
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: pixels
+ok 4 - getViewportForBounds matches upstream: pixels
+  ---
+  duration_ms: 1.255649
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: percent
+ok 5 - getViewportForBounds matches upstream: percent
+  ---
+  duration_ms: 0.59826
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: directional
+ok 6 - getViewportForBounds matches upstream: directional
+  ---
+  duration_ms: 1.193359
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: axis fallback
+ok 7 - getViewportForBounds matches upstream: axis fallback
+  ---
+  duration_ms: 0.840154
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: asymmetric
+ok 8 - getViewportForBounds matches upstream: asymmetric
+  ---
+  duration_ms: 1.04996
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: empty
+ok 9 - getViewportForBounds matches upstream: empty
+  ---
+  duration_ms: 1.977899
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: explicit undefined
+ok 10 - getViewportForBounds matches upstream: explicit undefined
+  ---
+  duration_ms: 1.343766
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: null
+ok 11 - getViewportForBounds matches upstream: null
+  ---
+  duration_ms: 0.736912
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: boolean
+ok 12 - getViewportForBounds matches upstream: boolean
+  ---
+  duration_ms: 0.708177
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: function
+ok 13 - getViewportForBounds matches upstream: function
+  ---
+  duration_ms: 0.324876
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: array
+ok 14 - getViewportForBounds matches upstream: array
+  ---
+  duration_ms: 0.720625
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: invalid scalar
+ok 15 - getViewportForBounds matches upstream: invalid scalar
+  ---
+  duration_ms: 0.648834
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: invalid side
+ok 16 - getViewportForBounds matches upstream: invalid side
+  ---
+  duration_ms: 0.57114
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: parseFloat suffix
+ok 17 - getViewportForBounds matches upstream: parseFloat suffix
+  ---
+  duration_ms: 0.279879
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: negative pixels
+ok 18 - getViewportForBounds matches upstream: negative pixels
+  ---
+  duration_ms: 0.197526
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: infinite pixels
+ok 19 - getViewportForBounds matches upstream: infinite pixels
+  ---
+  duration_ms: 0.25954
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: NaN
+ok 20 - getViewportForBounds matches upstream: NaN
+  ---
+  duration_ms: 0.285429
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: infinity
+ok 21 - getViewportForBounds matches upstream: infinity
+  ---
+  duration_ms: 0.225236
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: NaN horizontal padding
+ok 22 - getViewportForBounds matches upstream: NaN horizontal padding
+  ---
+  duration_ms: 0.310633
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: NaN vertical padding
+ok 23 - getViewportForBounds matches upstream: NaN vertical padding
+  ---
+  duration_ms: 0.243473
+  type: 'test'
+  ...
+# Subtest: omitted padding has no caller-specific default
+ok 24 - omitted padding has no caller-specific default
+  ---
+  duration_ms: 0.287356
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds respects min clamp
+ok 25 - getViewportForBounds respects min clamp
+  ---
+  duration_ms: 0.33833
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds respects max clamp
+ok 26 - getViewportForBounds respects max clamp
+  ---
+  duration_ms: 0.234645
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds propagates NaN minZoom
+ok 27 - getViewportForBounds propagates NaN minZoom
+  ---
+  duration_ms: 0.242758
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds propagates NaN maxZoom
+ok 28 - getViewportForBounds propagates NaN maxZoom
+  ---
+  duration_ms: 0.194782
+  type: 'test'
+  ...
+1..28
+# tests 28
+# suites 0
+# pass 28
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2156.376168

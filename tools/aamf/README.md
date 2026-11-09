@@ -1,5 +1,7 @@
 # AAMF phase 0 compatibility fixes
 
+This directory also maintains the opt-in [Step 2 integration](#step-2-existing-project-adapter).
+
 These fixes let the pinned AAMF checkout index PSFlow's pinned xyflow source.
 They apply to Lore **0.4.2** as installed by AAMF commit
 `7dc475d81ef9796b5b90f57a29475eaafa375753`. They do not change PSFlow's runtime
@@ -88,3 +90,71 @@ TypeScript parser, and checks the original vendored source plus copied target
 for changes. It performs no migration or target mapping. Configurations stay
 in the isolated workspace; refresh the preserved runtime archive and checksums
 if regenerating the review artifacts.
+
+## Step 2 existing-project adapter
+
+`psflow-integration.mjs` and the seven guarded build patches in
+`step2-patches.json` integrate a reviewed single-task pilot with the pinned
+AAMF runtime. Apply **after** `npm run build`; rebuilding replaces the patched
+distribution. The installer rejects other revisions/builds, validates every
+input before writing, and supports exact reapplication. It changes neither
+the upstream checkout nor the original Step 1 checkpoint.
+
+```sh
+node tools/aamf/apply-step2-integration.mjs /private/tmp/psflow-aamf-step1-20261109/AAMF
+PSFLOW_AAMF_ROOT=/private/tmp/psflow-aamf-step1-20261109/AAMF \
+  node --test tools/aamf/step2.test.mjs
+```
+
+Use Node 22.18.0, PureScript 0.15.16 and Spago 1.0.4. This is maintained adapter
+data with an explicit opt-in environment variable, not a stock configuration
+feature. Ordinary AAMF behavior remains available without opt-in; a reconciled
+checkpoint refuses resume without its mapping.
+
+`prepare-step2.mjs <PSFlow root> <output JSON>` joins all 171 Markdown mappings
+to the certified inventory and import audit. It records package versions,
+source hashes, declarations, callers/import consumers, existing modules and
+converters, dispositions, evidence, work contracts and target snapshot hashes.
+It selects only W01; the complete source graph and its cycles remain read-only
+context. Another write task requires a new reviewed mapping and project,
+with its own allowed outputs and acceptance criteria.
+
+The runtime hook replaces the graph **before** phase 1 publishes its structured
+output, context output, and disk artifacts. Phase 4 checks that same inventory
+on fresh execution and checkpoint reload. Existing-project phases 2/3 consume
+reviewed knowledge/plan files and bypass both agent planning and scaffolding.
+The pilot uses one agent at a time and `per-task`; this also caps the stock
+parity/test-writer pair, which otherwise launches two agents.
+
+PureScript target context is explicitly **files**, including read-only geometry,
+module/import headers, source callers and fresh per-invocation file hashes.
+No target Lore DB or target symbol server is advertised. Context refresh and
+rollback invalidation use the original target indexer's lifecycle. The runtime's
+full filesystem transaction and the adapter's ownership check reject a diff
+outside reviewed outputs before marking the task completed.
+
+The strict pilot can adopt its pre-existing Node regression: the launcher
+executes the unchanged, snapshot-pinned test and records its hash, command,
+TAP output and status in `psflow-adopted-tests.json`. Changed or failing tests
+cannot be adopted. This replaces stock AAMF's changed-file requirement for
+this explicit existing-test route; it does not replace the runtime gates.
+Completed resume also verifies accepted output hashes before skipping work.
+Interrupted rollback can restore missing target files before those checks.
+All eight adapter regression tests pass, including the negative paths.
+
+The isolated pilot configuration and mapping live at
+`/private/tmp/psflow-aamf-step2-20261109/`. With that workspace present and the
+recorded Node/compiler tools on PATH:
+
+```sh
+export PSFLOW_AAMF_RECONCILIATION=/private/tmp/psflow-aamf-step2-20261109/reconciliation.json
+node /private/tmp/psflow-aamf-step1-20261109/AAMF/dist/index.js migrate \
+  -c /private/tmp/psflow-aamf-step2-20261109/pilot.json --resume --phase 4
+node tools/aamf/inspect-step2.mjs /private/tmp/psflow-aamf-step2-20261109 aamf/step2
+```
+
+Never replace only `tasks-merged.json`, reset completion flags manually, or
+run beyond `--phase 4` with this adapter. A changed mapping/source/project
+snapshot needs a new project and normal indexing/reconciliation. Preserved
+JSON is evidence of the original pilot, not permission to rerun W01 against a
+new target revision. See [integration details](../../AAMF_STEP2_INTEGRATION.md).

@@ -1,0 +1,676 @@
+TAP version 13
+# Subtest: getViewportForBounds accepts all six JS arguments
+not ok 1 - getViewportForBounds accepts all six JS arguments
+  ---
+  duration_ms: 7.277071
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:24:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 6
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 6
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:25:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: getViewportForBounds matches upstream: ratio
+not ok 2 - getViewportForBounds matches upstream: ratio
+  ---
+  duration_ms: 7.818773
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:43:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        messages: [],
+    +   value: [Function (anonymous)]
+    -   value: {
+    -     x: 254.4,
+    -     y: 72.5,
+    -     zoom: 1.82
+    -   }
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: getViewportForBounds matches upstream: zero
+not ok 3 - getViewportForBounds matches upstream: zero
+  ---
+  duration_ms: 1.420849
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:43:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        messages: [],
+    +   value: [Function (anonymous)]
+    -   value: {
+    -     x: 240,
+    -     y: 50,
+    -     zoom: 2
+    -   }
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: getViewportForBounds matches upstream: pixels
+not ok 4 - getViewportForBounds matches upstream: pixels
+  ---
+  duration_ms: 1.651284
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:43:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        messages: [],
+    +   value: [Function (anonymous)]
+    -   value: {
+    -     x: 252.4,
+    -     y: 69.375,
+    -     zoom: 1.845
+    -   }
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: getViewportForBounds matches upstream: percent
+not ok 5 - getViewportForBounds matches upstream: percent
+  ---
+  duration_ms: 1.174292
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:43:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        messages: [],
+    +   value: [Function (anonymous)]
+    -   value: {
+    -     x: 280,
+    -     y: 112.5,
+    -     zoom: 1.5
+    -   }
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: getViewportForBounds matches upstream: directional
+not ok 6 - getViewportForBounds matches upstream: directional
+  ---
+  duration_ms: 0.997738
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:43:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        messages: [],
+    +   value: [Function (anonymous)]
+    -   value: {
+    -     x: 207,
+    -     y: 89.0625,
+    -     zoom: 1.6875
+    -   }
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: getViewportForBounds matches upstream: axis fallback
+not ok 7 - getViewportForBounds matches upstream: axis fallback
+  ---
+  duration_ms: 1.226922
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:43:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        messages: [],
+    +   value: [Function (anonymous)]
+    -   value: {
+    -     x: 248,
+    -     y: 62.5,
+    -     zoom: 1.9
+    -   }
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: getViewportForBounds matches upstream: asymmetric
+not ok 8 - getViewportForBounds matches upstream: asymmetric
+  ---
+  duration_ms: 0.890685
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:43:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        messages: [],
+    +   value: [Function (anonymous)]
+    -   value: {
+    -     x: 415,
+    -     y: 64.125,
+    -     zoom: 1.375
+    -   }
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: getViewportForBounds matches upstream: empty
+not ok 9 - getViewportForBounds matches upstream: empty
+  ---
+  duration_ms: 2.690375
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:43:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        messages: [],
+    +   value: [Function (anonymous)]
+    -   value: {
+    -     x: 240,
+    -     y: 50,
+    -     zoom: 2
+    -   }
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: getViewportForBounds matches upstream: explicit undefined
+not ok 10 - getViewportForBounds matches upstream: explicit undefined
+  ---
+  duration_ms: 1.990083
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:43:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        messages: [],
+    +   value: [Function (anonymous)]
+    -   value: {
+    -     x: 240,
+    -     y: 50,
+    -     zoom: 2
+    -   }
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: getViewportForBounds matches upstream: null
+not ok 11 - getViewportForBounds matches upstream: null
+  ---
+  duration_ms: 1.873117
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:43:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+    -   error: {
+    -     message: "Cannot read properties of null (reading 'top')",
+    -     name: 'TypeError'
+    -   },
+        messages: [],
+    +   value: [Function (anonymous)]
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: getViewportForBounds matches upstream: boolean
+not ok 12 - getViewportForBounds matches upstream: boolean
+  ---
+  duration_ms: 0.778991
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:43:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        messages: [],
+    +   value: [Function (anonymous)]
+    -   value: {
+    -     x: 240,
+    -     y: 50,
+    -     zoom: 2
+    -   }
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: getViewportForBounds matches upstream: function
+not ok 13 - getViewportForBounds matches upstream: function
+  ---
+  duration_ms: 1.310601
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:43:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        messages: [],
+    +   value: [Function (anonymous)]
+    -   value: {
+    -     x: 240,
+    -     y: 50,
+    -     zoom: 2
+    -   }
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: getViewportForBounds matches upstream: array
+not ok 14 - getViewportForBounds matches upstream: array
+  ---
+  duration_ms: 0.886007
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:43:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        messages: [],
+    +   value: [Function (anonymous)]
+    -   value: {
+    -     x: 240,
+    -     y: 50,
+    -     zoom: 2
+    -   }
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: getViewportForBounds matches upstream: invalid scalar
+not ok 15 - getViewportForBounds matches upstream: invalid scalar
+  ---
+  duration_ms: 1.236285
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:43:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+    +   messages: [],
+    +   value: [Function (anonymous)]
+    -   messages: [
+    -     [
+    -       'The padding value "bad" is invalid. Please provide a number or a string with a valid unit (px or %).'
+    -     ],
+    -     [
+    -       'The padding value "bad" is invalid. Please provide a number or a string with a valid unit (px or %).'
+    -     ]
+    -   ],
+    -   value: {
+    -     x: 240,
+    -     y: 50,
+    -     zoom: 2
+    -   }
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: getViewportForBounds matches upstream: invalid side
+not ok 16 - getViewportForBounds matches upstream: invalid side
+  ---
+  duration_ms: 1.009147
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:43:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+    +   messages: [],
+    +   value: [Function (anonymous)]
+    -   messages: [
+    -     [
+    -       'The padding value "bad" is invalid. Please provide a number or a string with a valid unit (px or %).'
+    -     ],
+    -     [
+    -       'The padding value "true" is invalid. Please provide a number or a string with a valid unit (px or %).'
+    -     ],
+    -     [
+    -       'The padding value "also bad" is invalid. Please provide a number or a string with a valid unit (px or %).'
+    -     ],
+    -     [
+    -       'The padding value "also bad" is invalid. Please provide a number or a string with a valid unit (px or %).'
+    -     ]
+    -   ],
+    -   value: {
+    -     x: 240,
+    -     y: 50,
+    -     zoom: 2
+    -   }
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: getViewportForBounds matches upstream: parseFloat suffix
+not ok 17 - getViewportForBounds matches upstream: parseFloat suffix
+  ---
+  duration_ms: 1.139947
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:43:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        messages: [],
+    +   value: [Function (anonymous)]
+    -   value: {
+    -     x: 244.8,
+    -     y: 57.5,
+    -     zoom: 1.94
+    -   }
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: getViewportForBounds matches upstream: negative pixels
+not ok 18 - getViewportForBounds matches upstream: negative pixels
+  ---
+  duration_ms: 1.185246
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:43:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        messages: [],
+    +   value: [Function (anonymous)]
+    -   value: {
+    -     x: 236.8,
+    -     y: 45,
+    -     zoom: 2.04
+    -   }
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: getViewportForBounds matches upstream: infinite pixels
+not ok 19 - getViewportForBounds matches upstream: infinite pixels
+  ---
+  duration_ms: 1.266661
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:43:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        messages: [],
+    +   value: [Function (anonymous)]
+    -   value: {
+    -     x: NaN,
+    -     y: NaN,
+    -     zoom: 0.1
+    -   }
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: getViewportForBounds matches upstream: NaN
+not ok 20 - getViewportForBounds matches upstream: NaN
+  ---
+  duration_ms: 0.712487
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:43:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        messages: [],
+    +   value: [Function (anonymous)]
+    -   value: {
+    -     x: NaN,
+    -     y: NaN,
+    -     zoom: NaN
+    -   }
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: getViewportForBounds matches upstream: infinity
+not ok 21 - getViewportForBounds matches upstream: infinity
+  ---
+  duration_ms: 0.853549
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:43:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        messages: [],
+    +   value: [Function (anonymous)]
+    -   value: {
+    -     x: 392,
+    -     y: 287.5,
+    -     zoom: 0.1
+    -   }
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: getViewportForBounds matches upstream: NaN horizontal padding
+not ok 22 - getViewportForBounds matches upstream: NaN horizontal padding
+  ---
+  duration_ms: 0.692223
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:43:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        messages: [],
+    +   value: [Function (anonymous)]
+    -   value: {
+    -     x: NaN,
+    -     y: NaN,
+    -     zoom: NaN
+    -   }
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: getViewportForBounds matches upstream: NaN vertical padding
+not ok 23 - getViewportForBounds matches upstream: NaN vertical padding
+  ---
+  duration_ms: 0.950627
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:43:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        messages: [],
+    +   value: [Function (anonymous)]
+    -   value: {
+    -     x: NaN,
+    -     y: NaN,
+    -     zoom: NaN
+    -   }
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: omitted padding has no caller-specific default
+not ok 24 - omitted padding has no caller-specific default
+  ---
+  duration_ms: 1.083568
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:47:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        messages: [],
+    +   value: [Function (anonymous)]
+    -   value: {
+    -     x: 240,
+    -     y: 50,
+    -     zoom: 2
+    -   }
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: getViewportForBounds respects min clamp
+not ok 25 - getViewportForBounds respects min clamp
+  ---
+  duration_ms: 0.880575
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:51:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        messages: [],
+    +   value: [Function (anonymous)]
+    -   value: {
+    -     x: 360,
+    -     y: -75,
+    -     zoom: 3
+    -   }
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: getViewportForBounds respects max clamp
+not ok 26 - getViewportForBounds respects max clamp
+  ---
+  duration_ms: 0.656294
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:51:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        messages: [],
+    +   value: [Function (anonymous)]
+    -   value: {
+    -     x: 360,
+    -     y: 237.5,
+    -     zoom: 0.5
+    -   }
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: getViewportForBounds propagates NaN minZoom
+not ok 27 - getViewportForBounds propagates NaN minZoom
+  ---
+  duration_ms: 0.807507
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:57:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        messages: [],
+    +   value: [Function (anonymous)]
+    -   value: {
+    -     x: NaN,
+    -     y: NaN,
+    -     zoom: NaN
+    -   }
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: getViewportForBounds propagates NaN maxZoom
+not ok 28 - getViewportForBounds propagates NaN maxZoom
+  ---
+  duration_ms: 0.628588
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/viewport.test.mjs:57:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        messages: [],
+    +   value: [Function (anonymous)]
+    -   value: {
+    -     x: NaN,
+    -     y: NaN,
+    -     zoom: NaN
+    -   }
+      }
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+1..28
+# tests 28
+# suites 0
+# pass 0
+# fail 28
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2003.592611

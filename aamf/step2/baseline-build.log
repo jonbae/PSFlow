@@ -1,0 +1,19 @@
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[1 of 7] Compiling React.Additional.Background
+[2 of 7] Compiling Test.React.Additional.BackgroundOffset
+[3 of 7] Compiling React
+[4 of 7] Compiling Boundary.Chrome
+[5 of 7] Compiling Test.React.Additional.BackgroundPattern
+[6 of 7] Compiling Boundary
+[7 of 7] Compiling Test.Main
+           Src   Lib   All
+Warnings     0     0     0
+Errors       0     0     0
+
+✓ Build succeeded.
+

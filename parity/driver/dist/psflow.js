@@ -24518,8 +24518,8 @@ var manifest = Object.freeze({
   // Stage 4 emptied the component half of `passthrough` and left fourteen
   // pure functions. Stage 5 (`tickets/082-boundary-stage-5-pure-functions.md`)
   // crosses them, and this number moves when the last of them has: its first
-  // half, the six edge-path helpers, is listed below as crossed, and the
-  // eight it leaves are still in `passthrough`.
+  // half, the six edge-path helpers, is listed below as crossed, and so is
+  // `getViewportForBounds`; the seven it leaves are still in `passthrough`.
   stage: 4,
   // The eight TS enums are plain data on both sides, so crossing them was the
   // whole conversion: no wrapper, no arity change, no representation to
@@ -24609,6 +24609,7 @@ var manifest = Object.freeze({
     "getSimpleBezierPath",
     "getSmoothStepPath",
     "getStraightPath",
+    "getViewportForBounds",
     "useConnection",
     "useEdges",
     "useEdgesState",
@@ -24629,8 +24630,8 @@ var manifest = Object.freeze({
     "useUpdateNodeInternals",
     "useViewport"
   ]),
-  // What is left, and it is one kind of thing: the eight pure functions stage
-  // 5 has yet to cross. The six graph utilities resolve and return the right
+  // What is left, and it is one kind of thing: the seven pure functions stage
+  // 5 has yet to cross. The five graph utilities resolve and return the right
   // answer behind a curried call, and `isNode` and `isEdge` agree with
   // upstream on every call surface parity makes. Surface parity's
   // call-and-compare measures each difference rather than assuming it, which
@@ -24641,7 +24642,6 @@ var manifest = Object.freeze({
     "getIncomers",
     "getNodesBounds",
     "getOutgoers",
-    "getViewportForBounds",
     "isEdge",
     "isNode",
     "reconnectEdge"
@@ -25083,12 +25083,12 @@ var defer = function(dict) {
 
 // output/Control.Monad/index.js
 var ap = function(dictMonad) {
-  var bind62 = bind(dictMonad.Bind1());
+  var bind61 = bind(dictMonad.Bind1());
   var pure83 = pure(dictMonad.Applicative0());
   return function(f) {
     return function(a) {
-      return bind62(f)(function(f$prime) {
-        return bind62(a)(function(a$prime) {
+      return bind61(f)(function(f$prime) {
+        return bind61(a)(function(a$prime) {
           return pure83(f$prime(a$prime));
         });
       });
@@ -26208,13 +26208,13 @@ var foldMap = function(dict) {
 var foldM = function(dictFoldable) {
   var foldl22 = foldl(dictFoldable);
   return function(dictMonad) {
-    var bind62 = bind(dictMonad.Bind1());
+    var bind61 = bind(dictMonad.Bind1());
     var pure83 = pure(dictMonad.Applicative0());
     return function(f) {
       return function(b0) {
         return foldl22(function(b) {
           return function(a) {
-            return bind62(b)(flip(f)(a));
+            return bind61(b)(flip(f)(a));
           };
         })(pure83(b0));
       };
@@ -28055,11 +28055,11 @@ function datum(node) {
 }
 function data_default(value12, key2) {
   if (!arguments.length) return Array.from(this, datum);
-  var bind62 = key2 ? bindKey : bindIndex, parents = this._parents, groups = this._groups;
+  var bind61 = key2 ? bindKey : bindIndex, parents = this._parents, groups = this._groups;
   if (typeof value12 !== "function") value12 = constant_default(value12);
   for (var m = groups.length, update3 = new Array(m), enter = new Array(m), exit = new Array(m), j = 0; j < m; ++j) {
     var parent2 = parents[j], group4 = groups[j], groupLength = group4.length, data = arraylike(value12.call(parent2, parent2 && parent2.__data__, j, parents)), dataLength = data.length, enterGroup = enter[j] = new Array(dataLength), updateGroup = update3[j] = new Array(dataLength), exitGroup = exit[j] = new Array(groupLength);
-    bind62(parent2, group4, enterGroup, updateGroup, exitGroup, data, key2);
+    bind61(parent2, group4, enterGroup, updateGroup, exitGroup, data, key2);
     for (var i0 = 0, i1 = 0, previous, next; i0 < dataLength; ++i0) {
       if (previous = enterGroup[i0]) {
         if (i0 >= i1) i1 = i0 + 1;
@@ -29320,12 +29320,12 @@ var monadExceptT = function(dictMonad) {
   };
 };
 var bindExceptT = function(dictMonad) {
-  var bind62 = bind(dictMonad.Bind1());
+  var bind61 = bind(dictMonad.Bind1());
   var pure83 = pure(dictMonad.Applicative0());
   return {
     bind: function(v) {
       return function(k) {
-        return bind62(v)(either(function($193) {
+        return bind61(v)(either(function($193) {
           return pure83(Left.create($193));
         })(function(a) {
           var v1 = k(a);
@@ -29728,7 +29728,7 @@ function _mapWithKey(m0, f) {
   }
   return m;
 }
-function _foldM(bind62) {
+function _foldM(bind61) {
   return function(f) {
     return function(mz) {
       return function(m) {
@@ -29740,7 +29740,7 @@ function _foldM(bind62) {
         }
         for (var k in m) {
           if (hasOwnProperty.call(m, k)) {
-            acc = bind62(acc)(g(k));
+            acc = bind61(acc)(g(k));
           }
         }
         return acc;
@@ -29868,11 +29868,11 @@ var fromFoldable3 = function(dictFoldable) {
   };
 };
 var foldM4 = function(dictMonad) {
-  var bind124 = bind(dictMonad.Bind1());
+  var bind125 = bind(dictMonad.Bind1());
   var pure136 = pure(dictMonad.Applicative0());
   return function(f) {
     return function(z) {
-      return _foldM(bind124)(f)(pure136(z));
+      return _foldM(bind125)(f)(pure136(z));
     };
   };
 };
@@ -35220,7 +35220,7 @@ var parsePadding = function(pv) {
       return floor(viewport2 * pv.value0 * 0.01);
     }
     ;
-    throw new Error("Failed pattern match at System.Utils.General (line 283, column 28 - line 286, column 57): " + [pv.constructor.name]);
+    throw new Error("Failed pattern match at System.Utils.General (line 295, column 28 - line 298, column 57): " + [pv.constructor.name]);
   };
 };
 var parsePaddings = function(padding) {
@@ -35255,10 +35255,10 @@ var parsePaddings = function(padding) {
                 return 0;
               }
               ;
-              throw new Error("Failed pattern match at System.Utils.General (line 316, column 22 - line 318, column 27): " + [padding.value0.y.constructor.name]);
+              throw new Error("Failed pattern match at System.Utils.General (line 328, column 22 - line 330, column 27): " + [padding.value0.y.constructor.name]);
             }
             ;
-            throw new Error("Failed pattern match at System.Utils.General (line 314, column 9 - line 318, column 27): " + [side.constructor.name]);
+            throw new Error("Failed pattern match at System.Utils.General (line 326, column 9 - line 330, column 27): " + [side.constructor.name]);
           };
         };
         var top3 = pickV(padding.value0.top)(height8);
@@ -35277,10 +35277,10 @@ var parsePaddings = function(padding) {
                 return 0;
               }
               ;
-              throw new Error("Failed pattern match at System.Utils.General (line 322, column 22 - line 324, column 27): " + [padding.value0.x.constructor.name]);
+              throw new Error("Failed pattern match at System.Utils.General (line 334, column 22 - line 336, column 27): " + [padding.value0.x.constructor.name]);
             }
             ;
-            throw new Error("Failed pattern match at System.Utils.General (line 320, column 9 - line 324, column 27): " + [side.constructor.name]);
+            throw new Error("Failed pattern match at System.Utils.General (line 332, column 9 - line 336, column 27): " + [side.constructor.name]);
           };
         };
         var right = pickH(padding.value0.right)(width8);
@@ -35296,7 +35296,7 @@ var parsePaddings = function(padding) {
         };
       }
       ;
-      throw new Error("Failed pattern match at System.Utils.General (line 298, column 38 - line 330, column 69): " + [padding.constructor.name]);
+      throw new Error("Failed pattern match at System.Utils.General (line 310, column 38 - line 342, column 69): " + [padding.constructor.name]);
     };
   };
 };
@@ -35424,7 +35424,7 @@ var evaluateAbsolutePosition = function(position3) {
             };
           }
           ;
-          throw new Error("Failed pattern match at System.Utils.General (line 412, column 3 - line 422, column 10): " + [v.constructor.name]);
+          throw new Error("Failed pattern match at System.Utils.General (line 424, column 3 - line 434, column 10): " + [v.constructor.name]);
         };
       };
     };
@@ -35500,21 +35500,55 @@ var getViewportForBounds = function(bounds) {
       return function(minZoom) {
         return function(maxZoom) {
           return function(padding) {
+            var minimum2 = function(a) {
+              return function(b) {
+                if (isNaNImpl(a)) {
+                  return a;
+                }
+                ;
+                if (isNaNImpl(b)) {
+                  return b;
+                }
+                ;
+                if (otherwise) {
+                  return min4(a)(b);
+                }
+                ;
+                throw new Error("Failed pattern match at System.Utils.General (line 283, column 3 - line 286, column 26): " + [a.constructor.name, b.constructor.name]);
+              };
+            };
+            var maximum2 = function(a) {
+              return function(b) {
+                if (isNaNImpl(a)) {
+                  return a;
+                }
+                ;
+                if (isNaNImpl(b)) {
+                  return b;
+                }
+                ;
+                if (otherwise) {
+                  return max4(a)(b);
+                }
+                ;
+                throw new Error("Failed pattern match at System.Utils.General (line 287, column 3 - line 290, column 26): " + [a.constructor.name, b.constructor.name]);
+              };
+            };
             var p = parsePaddings(padding)(width8)(height8);
             var xZoom = (width8 - p.x) / bounds.width;
             var yZoom = (height8 - p.y) / bounds.height;
-            var zoom = min4(xZoom)(yZoom);
-            var clampedZoom = clamp2(zoom)(minZoom)(maxZoom);
+            var zoom = minimum2(xZoom)(yZoom);
+            var clampedZoom = minimum2(maximum2(zoom)(minZoom))(maxZoom);
             var boundsCenterY = bounds.y + bounds.height / 2;
             var y0 = height8 / 2 - boundsCenterY * clampedZoom;
             var boundsCenterX = bounds.x + bounds.width / 2;
             var x0 = width8 / 2 - boundsCenterX * clampedZoom;
             var newPadding = calculateAppliedPaddings(bounds)(x0)(y0)(clampedZoom)(width8)(height8);
             var offset = {
-              left: min4(newPadding.left - p.left)(0),
-              top: min4(newPadding.top - p.top)(0),
-              right: min4(newPadding.right - p.right)(0),
-              bottom: min4(newPadding.bottom - p.bottom)(0)
+              left: minimum2(newPadding.left - p.left)(0),
+              top: minimum2(newPadding.top - p.top)(0),
+              right: minimum2(newPadding.right - p.right)(0),
+              bottom: minimum2(newPadding.bottom - p.bottom)(0)
             };
             return {
               x: x0 - offset.left + offset.right,
@@ -37939,38 +37973,38 @@ function attrRemoveNS2(fullname) {
     this.removeAttributeNS(fullname.space, fullname.local);
   };
 }
-function attrConstant2(name15, interpolate, value1) {
+function attrConstant2(name15, interpolate2, value1) {
   var string00, string1 = value1 + "", interpolate0;
   return function() {
     var string0 = this.getAttribute(name15);
-    return string0 === string1 ? null : string0 === string00 ? interpolate0 : interpolate0 = interpolate(string00 = string0, value1);
+    return string0 === string1 ? null : string0 === string00 ? interpolate0 : interpolate0 = interpolate2(string00 = string0, value1);
   };
 }
-function attrConstantNS2(fullname, interpolate, value1) {
+function attrConstantNS2(fullname, interpolate2, value1) {
   var string00, string1 = value1 + "", interpolate0;
   return function() {
     var string0 = this.getAttributeNS(fullname.space, fullname.local);
-    return string0 === string1 ? null : string0 === string00 ? interpolate0 : interpolate0 = interpolate(string00 = string0, value1);
+    return string0 === string1 ? null : string0 === string00 ? interpolate0 : interpolate0 = interpolate2(string00 = string0, value1);
   };
 }
-function attrFunction2(name15, interpolate, value12) {
+function attrFunction2(name15, interpolate2, value12) {
   var string00, string10, interpolate0;
   return function() {
     var string0, value1 = value12(this), string1;
     if (value1 == null) return void this.removeAttribute(name15);
     string0 = this.getAttribute(name15);
     string1 = value1 + "";
-    return string0 === string1 ? null : string0 === string00 && string1 === string10 ? interpolate0 : (string10 = string1, interpolate0 = interpolate(string00 = string0, value1));
+    return string0 === string1 ? null : string0 === string00 && string1 === string10 ? interpolate0 : (string10 = string1, interpolate0 = interpolate2(string00 = string0, value1));
   };
 }
-function attrFunctionNS2(fullname, interpolate, value12) {
+function attrFunctionNS2(fullname, interpolate2, value12) {
   var string00, string10, interpolate0;
   return function() {
     var string0, value1 = value12(this), string1;
     if (value1 == null) return void this.removeAttributeNS(fullname.space, fullname.local);
     string0 = this.getAttributeNS(fullname.space, fullname.local);
     string1 = value1 + "";
-    return string0 === string1 ? null : string0 === string00 && string1 === string10 ? interpolate0 : (string10 = string1, interpolate0 = interpolate(string00 = string0, value1));
+    return string0 === string1 ? null : string0 === string00 && string1 === string10 ? interpolate0 : (string10 = string1, interpolate0 = interpolate2(string00 = string0, value1));
   };
 }
 function attr_default2(name15, value12) {
@@ -38180,11 +38214,11 @@ function selection_default2() {
 }
 
 // node_modules/d3-transition/src/transition/style.js
-function styleNull(name15, interpolate) {
+function styleNull(name15, interpolate2) {
   var string00, string10, interpolate0;
   return function() {
     var string0 = styleValue(this, name15), string1 = (this.style.removeProperty(name15), styleValue(this, name15));
-    return string0 === string1 ? null : string0 === string00 && string1 === string10 ? interpolate0 : interpolate0 = interpolate(string00 = string0, string10 = string1);
+    return string0 === string1 ? null : string0 === string00 && string1 === string10 ? interpolate0 : interpolate0 = interpolate2(string00 = string0, string10 = string1);
   };
 }
 function styleRemove2(name15) {
@@ -38192,19 +38226,19 @@ function styleRemove2(name15) {
     this.style.removeProperty(name15);
   };
 }
-function styleConstant2(name15, interpolate, value1) {
+function styleConstant2(name15, interpolate2, value1) {
   var string00, string1 = value1 + "", interpolate0;
   return function() {
     var string0 = styleValue(this, name15);
-    return string0 === string1 ? null : string0 === string00 ? interpolate0 : interpolate0 = interpolate(string00 = string0, value1);
+    return string0 === string1 ? null : string0 === string00 ? interpolate0 : interpolate0 = interpolate2(string00 = string0, value1);
   };
 }
-function styleFunction2(name15, interpolate, value12) {
+function styleFunction2(name15, interpolate2, value12) {
   var string00, string10, interpolate0;
   return function() {
     var string0 = styleValue(this, name15), value1 = value12(this), string1 = value1 + "";
     if (value1 == null) string1 = value1 = (this.style.removeProperty(name15), styleValue(this, name15));
-    return string0 === string1 ? null : string0 === string00 && string1 === string10 ? interpolate0 : (string10 = string1, interpolate0 = interpolate(string00 = string0, value1));
+    return string0 === string1 ? null : string0 === string00 && string1 === string10 ? interpolate0 : (string10 = string1, interpolate0 = interpolate2(string00 = string0, value1));
   };
 }
 function styleMaybeRemove(id3, name15) {
@@ -38525,7 +38559,7 @@ function defaultConstrain(transform2, extent, translateExtent) {
   );
 }
 function zoom_default2() {
-  var filter6 = defaultFilter2, extent = defaultExtent, constrain = defaultConstrain, wheelDelta2 = defaultWheelDelta, touchable = defaultTouchable2, scaleExtent = [0, Infinity], translateExtent = [[-Infinity, -Infinity], [Infinity, Infinity]], duration2 = 250, interpolate = zoom_default, listeners = dispatch_default("start", "zoom", "end"), touchstarting, touchfirst, touchending, touchDelay = 500, wheelDelay = 150, clickDistance2 = 0, tapDistance = 10;
+  var filter6 = defaultFilter2, extent = defaultExtent, constrain = defaultConstrain, wheelDelta2 = defaultWheelDelta, touchable = defaultTouchable2, scaleExtent = [0, Infinity], translateExtent = [[-Infinity, -Infinity], [Infinity, Infinity]], duration2 = 250, interpolate2 = zoom_default, listeners = dispatch_default("start", "zoom", "end"), touchstarting, touchfirst, touchending, touchDelay = 500, wheelDelay = 150, clickDistance2 = 0, tapDistance = 10;
   function zoom(selection2) {
     selection2.property("__zoom", defaultTransform).on("wheel.zoom", wheeled, { passive: false }).on("mousedown.zoom", mousedowned).on("dblclick.zoom", dblclicked).filter(touchable).on("touchstart.zoom", touchstarted).on("touchmove.zoom", touchmoved).on("touchend.zoom touchcancel.zoom", touchended).style("-webkit-tap-highlight-color", "rgba(0,0,0,0)");
   }
@@ -38586,7 +38620,7 @@ function zoom_default2() {
     }).on("interrupt.zoom end.zoom", function() {
       gesture(this, arguments).event(event).end();
     }).tween("zoom", function() {
-      var that = this, args = arguments, g = gesture(that, args).event(event), e = extent.apply(that, args), p = point == null ? centroid(e) : typeof point === "function" ? point.apply(that, args) : point, w = Math.max(e[1][0] - e[0][0], e[1][1] - e[0][1]), a = that.__zoom, b = typeof transform2 === "function" ? transform2.apply(that, args) : transform2, i = interpolate(a.invert(p).concat(w / a.k), b.invert(p).concat(w / b.k));
+      var that = this, args = arguments, g = gesture(that, args).event(event), e = extent.apply(that, args), p = point == null ? centroid(e) : typeof point === "function" ? point.apply(that, args) : point, w = Math.max(e[1][0] - e[0][0], e[1][1] - e[0][1]), a = that.__zoom, b = typeof transform2 === "function" ? transform2.apply(that, args) : transform2, i = interpolate2(a.invert(p).concat(w / a.k), b.invert(p).concat(w / b.k));
       return function(t) {
         if (t === 1) t = b;
         else {
@@ -38792,7 +38826,7 @@ function zoom_default2() {
     return arguments.length ? (duration2 = +_, zoom) : duration2;
   };
   zoom.interpolate = function(_) {
-    return arguments.length ? (interpolate = _, zoom) : interpolate;
+    return arguments.length ? (interpolate2 = _, zoom) : interpolate2;
   };
   zoom.on = function() {
     var value12 = listeners.on.apply(listeners, arguments);
@@ -44773,11 +44807,11 @@ var runStateT = function(v) {
 };
 var monadTransStateT = {
   lift: function(dictMonad) {
-    var bind62 = bind(dictMonad.Bind1());
+    var bind61 = bind(dictMonad.Bind1());
     var pure83 = pure(dictMonad.Applicative0());
     return function(m) {
       return function(s) {
-        return bind62(m)(function(x) {
+        return bind61(m)(function(x) {
           return pure83(new Tuple(x, s));
         });
       };
@@ -44818,12 +44852,12 @@ var monadStateT = function(dictMonad) {
   };
 };
 var bindStateT = function(dictMonad) {
-  var bind62 = bind(dictMonad.Bind1());
+  var bind61 = bind(dictMonad.Bind1());
   return {
     bind: function(v) {
       return function(f) {
         return function(s) {
-          return bind62(v(s))(function(v1) {
+          return bind61(v(s))(function(v1) {
             var v3 = f(v1.value0);
             return v3(v1.value1);
           });
@@ -66599,8 +66633,8 @@ var withDefaultedOptions = (impl) => (first, second, options2 = void 0) => impl(
 
 // output/Boundary.Utils/index.js
 var show4 = /* @__PURE__ */ show(showString);
+var bind124 = /* @__PURE__ */ bind(bindMaybe);
 var map68 = /* @__PURE__ */ map(functorArray);
-var bind61 = /* @__PURE__ */ bind(bindMaybe);
 var reportAddEdgeError = function(onError) {
   return function(message2) {
     if (message2 === errorMessage(E006.value)) {
@@ -66613,7 +66647,7 @@ var reportAddEdgeError = function(onError) {
       return unsafeThrow("ps-flow: `addEdge` failed with " + (show4(message2) + ", which is not the one error it is able to report. `options.onError` takes upstream's error code as its first argument and there is no code for this one, so it is refused rather than reported under another error's."));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Utils (line 158, column 1 - line 158, column 57): " + [onError.constructor.name, message2.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Utils (line 173, column 1 - line 173, column 57): " + [onError.constructor.name, message2.constructor.name]);
   };
 };
 var edgeFromConnection = function(generate) {
@@ -66653,14 +66687,14 @@ var addEdgeWithOptions = function(edgeParams) {
     return function(rawOptions) {
       var options2 = fromUndefinable(rawOptions);
       var generate = function() {
-        var v2 = bind61(options2)(function($24) {
+        var v2 = bind124(options2)(function($46) {
           return fromUndefinable(function(v1) {
             return v1.getEdgeId;
-          }($24));
+          }($46));
         });
         if (v2 instanceof Just) {
-          return function($25) {
-            return v2.value0(connectionOut($25));
+          return function($47) {
+            return v2.value0(connectionOut($47));
           };
         }
         ;
@@ -66668,11 +66702,11 @@ var addEdgeWithOptions = function(edgeParams) {
           return getEdgeId;
         }
         ;
-        throw new Error("Failed pattern match at Boundary.Utils (line 140, column 14 - line 142, column 28): " + [v2.constructor.name]);
+        throw new Error("Failed pattern match at Boundary.Utils (line 155, column 14 - line 157, column 28): " + [v2.constructor.name]);
       }();
       var edge = function() {
-        var $18 = isEdgeBase(edgeParams);
-        if ($18) {
+        var $40 = isEdgeBase(edgeParams);
+        if ($40) {
           return edgeIn(edgeParams);
         }
         ;
@@ -66682,10 +66716,10 @@ var addEdgeWithOptions = function(edgeParams) {
       if (v instanceof Left) {
         return unsafePerformEffect(function __do3() {
           (function() {
-            var v1 = bind61(options2)(function($26) {
+            var v1 = bind124(options2)(function($48) {
               return fromUndefinable(function(v2) {
                 return v2.onError;
-              }($26));
+              }($48));
             });
             if (v1 instanceof Nothing) {
               return unit;
@@ -66695,7 +66729,7 @@ var addEdgeWithOptions = function(edgeParams) {
               return reportAddEdgeError(v1.value0)(v.value0)();
             }
             ;
-            throw new Error("Failed pattern match at Boundary.Utils (line 131, column 7 - line 133, column 59): " + [v1.constructor.name]);
+            throw new Error("Failed pattern match at Boundary.Utils (line 146, column 7 - line 148, column 59): " + [v1.constructor.name]);
           })();
           return edges2;
         });
@@ -66705,7 +66739,7 @@ var addEdgeWithOptions = function(edgeParams) {
         return map68(edgeOut)(v.value0);
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Utils (line 126, column 3 - line 135, column 35): " + [v.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Utils (line 141, column 3 - line 150, column 35): " + [v.constructor.name]);
     };
   };
 };

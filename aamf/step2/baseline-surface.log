@@ -1,0 +1,13 @@
+
+> ps-flow@0.0.0 parity:surface
+> node parity/surface/extract-upstream.ts && node parity/surface/extract-psflow.mjs && node parity/surface/diff.mjs
+
+[extract-upstream] react 12.11.0 / system 0.0.77: 68 value (shapes from the vendored bundle) + 142 type exports, props ReactFlowProps=122 NodeProps=18 EdgeProps=28 → /Users/jonathanbae/repos/PSFlow/parity/surface/upstream.json
+[extract-psflow] 68 value (60 crossed, 8 passthrough — boundary stage 4) + 163 type exports, props ReactFlowProps=128 NodeProps=18 EdgeProps=28 → /Users/jonathanbae/repos/PSFlow/parity/surface/psflow.json
+[diff] missing(gap)=0 extra=28 allowlisted(missing)=18 allowlisted(extra)=3
+[diff] shapes compared=68 same=60 differ=0 allowlisted=8
+[diff] behavior enums=8/0/0 functions=17/9/0 (checked/differ/unallowlisted)
+[diff] props ReactFlowProps=0/0 NodeProps=0/0 EdgeProps=0/0 (missing/extra, after allowlist)
+[diff] report → /Users/jonathanbae/repos/PSFlow/parity/surface/report.md
+[diff] OK: no un-allowlisted missing exports, shape, behavior or prop divergence,
+       and every allowlist entry claims something.

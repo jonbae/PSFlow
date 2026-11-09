@@ -1,0 +1,12 @@
+{
+  "beforeResumeCount": 3,
+  "afterResumeCount": 4,
+  "completedTasks": [
+    "psflow-w01-viewport"
+  ],
+  "agentInvocationsAdded": 0,
+  "invocationMetricsSha256": "66538411e32bb754a1d4c92be284fe56c7af0347193023b564ba19159f7a0dac",
+  "staleCompletedOutputRejected": true,
+  "staleOutputExitCode": 1,
+  "resumeExitCode": 0
+}

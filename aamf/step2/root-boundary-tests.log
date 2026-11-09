@@ -1,0 +1,260 @@
+
+> ps-flow@0.0.0 test:boundary
+> node --test "parity/boundary/**/*.test.mjs"
+
+TAP version 13
+# Subtest: a record written as one literal reads back as itself
+ok 1 - a record written as one literal reads back as itself
+  ---
+  duration_ms: 14.261808
+  type: 'test'
+  ...
+# Subtest: a record composed from a row is expanded, tail last
+ok 2 - a record composed from a row is expanded, tail last
+  ---
+  duration_ms: 11.0727
+  type: 'test'
+  ...
+# Subtest: `{ label :: T | Row }` is a composition too, not a one-field record
+ok 3 - `{ label :: T | Row }` is a composition too, not a one-field record
+  ---
+  duration_ms: 6.425803
+  type: 'test'
+  ...
+# Subtest: two rows compose, and a synonym in between is followed
+ok 4 - two rows compose, and a synonym in between is followed
+  ---
+  duration_ms: 8.697828
+  type: 'test'
+  ...
+# Subtest: a parameterised record synonym is applied, not just named
+ok 5 - a parameterised record synonym is applied, not just named
+  ---
+  duration_ms: 4.812011
+  type: 'test'
+  ...
+# Subtest: an argument is read in the scope that passed it, not the one that uses it
+ok 6 - an argument is read in the scope that passed it, not the one that uses it
+  ---
+  duration_ms: 4.738726
+  type: 'test'
+  ...
+# Subtest: a synonym sees only its own parameters — an enclosing one is not in scope
+ok 7 - a synonym sees only its own parameters — an enclosing one is not in scope
+  ---
+  duration_ms: 3.613752
+  type: 'test'
+  ...
+# Subtest: an unapplied tail contributes nothing rather than failing
+ok 8 - an unapplied tail contributes nothing rather than failing
+  ---
+  duration_ms: 4.37664
+  type: 'test'
+  ...
+# Subtest: field types come back alongside the labels, whitespace collapsed
+ok 9 - field types come back alongside the labels, whitespace collapsed
+  ---
+  duration_ms: 4.600678
+  type: 'test'
+  ...
+# Subtest: a quoted label survives, and a `--` inside one is not a comment
+ok 10 - a quoted label survives, and a `--` inside one is not a comment
+  ---
+  duration_ms: 4.677972
+  type: 'test'
+  ...
+# Subtest: ReactFlowInstance reads as all thirty-two members
+ok 11 - ReactFlowInstance reads as all thirty-two members
+  ---
+  duration_ms: 15.832052
+  type: 'test'
+  ...
+# Subtest: InternalNodeBase carries the node's own fields, not just `internals`
+ok 12 - InternalNodeBase carries the node's own fields, not just `internals`
+  ---
+  duration_ms: 4.833335
+  type: 'test'
+  ...
+# Subtest: a path-shaped edge props record is its shared row plus pathOptions
+ok 13 - a path-shaped edge props record is its shared row plus pathOptions
+  ---
+  duration_ms: 6.644583
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds accepts all six JS arguments
+ok 14 - getViewportForBounds accepts all six JS arguments
+  ---
+  duration_ms: 9.380878
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: ratio
+ok 15 - getViewportForBounds matches upstream: ratio
+  ---
+  duration_ms: 0.901187
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: zero
+ok 16 - getViewportForBounds matches upstream: zero
+  ---
+  duration_ms: 0.498331
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: pixels
+ok 17 - getViewportForBounds matches upstream: pixels
+  ---
+  duration_ms: 1.081081
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: percent
+ok 18 - getViewportForBounds matches upstream: percent
+  ---
+  duration_ms: 0.524963
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: directional
+ok 19 - getViewportForBounds matches upstream: directional
+  ---
+  duration_ms: 1.591327
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: axis fallback
+ok 20 - getViewportForBounds matches upstream: axis fallback
+  ---
+  duration_ms: 0.860441
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: asymmetric
+ok 21 - getViewportForBounds matches upstream: asymmetric
+  ---
+  duration_ms: 0.559427
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: empty
+ok 22 - getViewportForBounds matches upstream: empty
+  ---
+  duration_ms: 1.283713
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: explicit undefined
+ok 23 - getViewportForBounds matches upstream: explicit undefined
+  ---
+  duration_ms: 1.434743
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: null
+ok 24 - getViewportForBounds matches upstream: null
+  ---
+  duration_ms: 0.677364
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: boolean
+ok 25 - getViewportForBounds matches upstream: boolean
+  ---
+  duration_ms: 0.27991
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: function
+ok 26 - getViewportForBounds matches upstream: function
+  ---
+  duration_ms: 0.201692
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: array
+ok 27 - getViewportForBounds matches upstream: array
+  ---
+  duration_ms: 0.484218
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: invalid scalar
+ok 28 - getViewportForBounds matches upstream: invalid scalar
+  ---
+  duration_ms: 0.512288
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: invalid side
+ok 29 - getViewportForBounds matches upstream: invalid side
+  ---
+  duration_ms: 0.51743
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: parseFloat suffix
+ok 30 - getViewportForBounds matches upstream: parseFloat suffix
+  ---
+  duration_ms: 0.422636
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: negative pixels
+ok 31 - getViewportForBounds matches upstream: negative pixels
+  ---
+  duration_ms: 0.236542
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: infinite pixels
+ok 32 - getViewportForBounds matches upstream: infinite pixels
+  ---
+  duration_ms: 0.27086
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: NaN
+ok 33 - getViewportForBounds matches upstream: NaN
+  ---
+  duration_ms: 0.234134
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: infinity
+ok 34 - getViewportForBounds matches upstream: infinity
+  ---
+  duration_ms: 0.176766
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: NaN horizontal padding
+ok 35 - getViewportForBounds matches upstream: NaN horizontal padding
+  ---
+  duration_ms: 0.318785
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: NaN vertical padding
+ok 36 - getViewportForBounds matches upstream: NaN vertical padding
+  ---
+  duration_ms: 0.235942
+  type: 'test'
+  ...
+# Subtest: omitted padding has no caller-specific default
+ok 37 - omitted padding has no caller-specific default
+  ---
+  duration_ms: 0.278272
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds respects min clamp
+ok 38 - getViewportForBounds respects min clamp
+  ---
+  duration_ms: 0.530851
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds respects max clamp
+ok 39 - getViewportForBounds respects max clamp
+  ---
+  duration_ms: 0.290302
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds propagates NaN minZoom
+ok 40 - getViewportForBounds propagates NaN minZoom
+  ---
+  duration_ms: 0.524249
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds propagates NaN maxZoom
+ok 41 - getViewportForBounds propagates NaN maxZoom
+  ---
+  duration_ms: 0.238406
+  type: 'test'
+  ...
+1..41
+# tests 41
+# suites 0
+# pass 41
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2232.557052

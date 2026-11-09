@@ -1,0 +1,124 @@
+[
+  {
+    "path": "dist/flow/steps/task-graph.js",
+    "originalHash": "3b6f90409e9e6435b15ef89a9c6d252d8dd72fcbfb00112bbf3a9f4907acce95",
+    "changes": [
+      [
+        "import { join } from 'node:path';",
+        "import { selectGraph } from '../../core/psflow-integration.mjs';\nimport { join } from 'node:path';"
+      ],
+      [
+        "const graphResult = await buildTaskGraph({",
+        "const rawGraphResult = await buildTaskGraph({"
+      ],
+      [
+        "        const allTasks = graphResult.tasks;",
+        "        const graphResult = await selectGraph(ctx, rawGraphResult);\n        const allTasks = graphResult.tasks;"
+      ]
+    ]
+  },
+  {
+    "path": "dist/flow/steps/kb-construction.js",
+    "originalHash": "ec5992708dcad217160a06e30e0d58868eefa37108ff47e8d84a15961864f037",
+    "changes": [
+      [
+        "import { buildInvocation, launchAgentWithEvents, recordTokens, assertPhaseSuccess } from './shared.js';",
+        "import { existingProjectPhase } from '../../core/psflow-integration.mjs';\nimport { buildInvocation, launchAgentWithEvents, recordTokens, assertPhaseSuccess } from './shared.js';"
+      ],
+      [
+        "    const ctx = flowCtx.context;",
+        "    const ctx = flowCtx.context;\n    const reviewed = await existingProjectPhase(ctx, 2);\n    if (reviewed) return reviewed;"
+      ]
+    ]
+  },
+  {
+    "path": "dist/flow/steps/planning.js",
+    "originalHash": "b1ddbea46862e95eee6d8e6dd015f9f4ae2a74f1c80126f673ad806bea745edc",
+    "changes": [
+      [
+        "import { join } from 'node:path';",
+        "import { existingProjectPhase } from '../../core/psflow-integration.mjs';\nimport { join } from 'node:path';"
+      ],
+      [
+        "    const ctx = flowCtx.context;\n    await ctx.targetChanges.begin",
+        "    const ctx = flowCtx.context;\n    const reviewed = await existingProjectPhase(ctx, 3);\n    if (reviewed) return reviewed;\n    await ctx.targetChanges.begin"
+      ]
+    ]
+  },
+  {
+    "path": "dist/flow/steps/migration.js",
+    "originalHash": "fee03fbb66432f2cac640ae4f8f048034d05474acbf73bc2febf93b0ffa6437a",
+    "changes": [
+      [
+        "import { join } from 'node:path';",
+        "import { discoverGraph, assertOwnedChanges } from '../../core/psflow-integration.mjs';\nimport { join } from 'node:path';"
+      ],
+      [
+        "async function discoverTasks(ctx, input) {",
+        "async function discoverTasks(ctx, input) {\n    const selected = await discoverGraph(ctx, input);\n    if (selected) return selected;"
+      ],
+      [
+        "const parallelExec = new ParallelExecutor(2, invocation => launchAgentWithEvents(ctx, invocation, signal), ctx.logger);",
+        "const parallelExec = new ParallelExecutor(process.env.PSFLOW_AAMF_RECONCILIATION ? 1 : 2, invocation => launchAgentWithEvents(ctx, invocation, signal), ctx.logger);"
+      ],
+      [
+        "async function completePhase4Tasks(ctx, tasks, executionId) {",
+        "async function completePhase4Tasks(ctx, tasks, executionId) {\n    for (const task of tasks) await assertOwnedChanges(ctx, task);"
+      ]
+    ]
+  },
+  {
+    "path": "dist/agents/context-builder.js",
+    "originalHash": "3a115940c10d542feb6021c32292ea9e64a69f0014a27ff16e1e0f0926947010",
+    "changes": [
+      [
+        "import { isAbsolute, join, relative, resolve, sep } from 'node:path';",
+        "import { addFileContext } from '../core/psflow-integration.mjs';\nimport { isAbsolute, join, relative, resolve, sep } from 'node:path';"
+      ],
+      [
+        "const context = this.createContext(agent, phase, taskId, payload);",
+        "const context = await addFileContext(this.config, this.createContext(agent, phase, taskId, payload));"
+      ]
+    ]
+  },
+  {
+    "path": "dist/core/runtime.js",
+    "originalHash": "001cf5e0b74184852b01235520b576df6c599760a37163c7366cb225bd664706",
+    "changes": [
+      [
+        "import { randomUUID } from 'node:crypto';",
+        "import { beforeRun, FileTargetContext } from './psflow-integration.mjs';\nimport { randomUUID } from 'node:crypto';"
+      ],
+      [
+        "            const impliedResume = this.fromPhase !== undefined;",
+        "            await beforeRun({ config: this.config, paths: this.paths, maxPhase: this.phase });\n            const impliedResume = this.fromPhase !== undefined;"
+      ],
+      [
+        "const targetIndexer = new TargetIndexer(this.paths.kbTargetDbFile, this.config.target.outputPath, this.logger);",
+        "const targetIndexer = process.env.PSFLOW_AAMF_RECONCILIATION\n                ? new FileTargetContext({ config: this.config, paths: this.paths, maxPhase: this.phase })\n                : new TargetIndexer(this.paths.kbTargetDbFile, this.config.target.outputPath, this.logger);"
+      ],
+      [
+        "            this.flowContext = flowContext;",
+        "            this.flowContext = flowContext;\n            if (process.env.PSFLOW_AAMF_RECONCILIATION) await targetIndexer.build();"
+      ]
+    ]
+  },
+  {
+    "path": "dist/core/agent-launcher.js",
+    "originalHash": "198376c87776d61cab8dee370afefb2e9ee48b4c49f0ef9c18f8c2b21cc9b73a",
+    "changes": [
+      [
+        "import { isAbsolute, join, relative, resolve, sep } from 'node:path';",
+        "import { adoptExistingTests } from './psflow-integration.mjs';\nimport { isAbsolute, join, relative, resolve, sep } from 'node:path';"
+      ],
+      [
+        "            (agentResult.extensions.outputFiles?.length ?? 0) === 0)",
+        "            (agentResult.extensions.outputFiles?.length ?? 0) === 0 && !agentResult.extensions.psflowAdoptedTestReport)"
+      ],
+      [
+        "        // Copilot event summary",
+        "        await adoptExistingTests(this.config, buildRuntimePaths(this.projectRoot, this.config.projectName), invocation, agentResult, parseAamfOutput(stdoutForParsing, getOutputSchema(invocation.agent)));\n        // Copilot event summary"
+      ]
+    ]
+  }
+]
