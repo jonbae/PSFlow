@@ -1381,7 +1381,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 68,
+            "timeStamp": 53,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1450,7 +1450,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 68,
+            "timeStamp": 53,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1524,7 +1524,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 68,
+            "timeStamp": 53,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1589,7 +1589,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 68,
+            "timeStamp": 53,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1673,7 +1673,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 128,
+            "timeStamp": 112,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2024,21 +2024,21 @@
         },
         "getInternalNode": {
           "id": "default-node",
-          "position": {
-            "x": 0,
-            "y": -200
-          },
+          "type": "ToolbarNode",
           "data": {
             "label": "toolbar top",
             "toolbarPosition": "top"
           },
-          "type": "ToolbarNode",
-          "selected": true,
+          "position": {
+            "x": 0,
+            "y": -200
+          },
+          "className": "react-flow__node-default",
           "measured": {
             "width": 150,
             "height": 37
           },
-          "className": "react-flow__node-default",
+          "selected": true,
           "internals": {
             "positionAbsolute": {
               "x": 0,

@@ -47,6 +47,7 @@ import System.Types.Geometry
   )
 import System.Types.Handle (HandleIdField, HandleType, SourceHandle, TargetHandle)
 import System.Types.Ids (NodeId, ParentId)
+import System.Types.Opaque (Opaque)
 
 -- | The shared row of `NodeBase` fields. `InternalNodeBase` extends this
 -- | with `internals`, so `toBaseLike`-style copies and the previously-
@@ -100,6 +101,12 @@ type NodeBaseRow nodeData =
   , nodeType :: Maybe String
   , className :: Maybe String
   , style :: Maybe (Object String)
+  -- | React `Node`'s three accessibility and DOM members. `<NodeWrapper />`
+  -- | reads `focusable` over `nodesFocusable`, sets `role` from `ariaRole`,
+  -- | and spreads `domAttributes` last onto the node's `<div>`.
+  , focusable :: Maybe Boolean
+  , ariaRole :: Maybe String
+  , domAttributes :: Maybe Opaque
   )
 
 type NodeBase nodeData = { | NodeBaseRow nodeData }

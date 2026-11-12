@@ -1803,21 +1803,21 @@
             "fromPosition": "bottom",
             "fromNode": {
               "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
               "position": {
                 "x": 0,
                 "y": 0
               },
-              "data": {
-                "label": "Node-1"
-              },
               "type": "input",
-              "measured": {
-                "width": 150,
-                "height": 37
-              },
               "className": "playwright-test-class-123",
               "style": {
                 "backgroundColor": "red"
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
               },
               "internals": {
                 "positionAbsolute": {
@@ -1878,12 +1878,12 @@
             "toPosition": "top",
             "toNode": {
               "id": "Node-4",
+              "data": {
+                "label": "Node-4"
+              },
               "position": {
                 "x": 0,
                 "y": 200
-              },
-              "data": {
-                "label": "Node-4"
               },
               "type": "output",
               "measured": {
@@ -2113,21 +2113,21 @@
         },
         "getInternalNode": {
           "id": "Node-1",
+          "data": {
+            "label": "Node-1"
+          },
           "position": {
             "x": 0,
             "y": 0
           },
-          "data": {
-            "label": "Node-1"
-          },
           "type": "input",
-          "measured": {
-            "width": 150,
-            "height": 37
-          },
           "className": "playwright-test-class-123",
           "style": {
             "backgroundColor": "red"
+          },
+          "measured": {
+            "width": 150,
+            "height": 37
           },
           "internals": {
             "positionAbsolute": {
@@ -2612,21 +2612,21 @@
         "connectionLineType": "default",
         "fromNode": {
           "id": "Node-1",
+          "data": {
+            "label": "Node-1"
+          },
           "position": {
             "x": 0,
             "y": 0
           },
-          "data": {
-            "label": "Node-1"
-          },
           "type": "input",
-          "measured": {
-            "width": 150,
-            "height": 37
-          },
           "className": "playwright-test-class-123",
           "style": {
             "backgroundColor": "red"
+          },
+          "measured": {
+            "width": 150,
+            "height": 37
           },
           "internals": {
             "positionAbsolute": {
@@ -2689,12 +2689,12 @@
         "connectionStatus": "valid",
         "toNode": {
           "id": "Node-4",
+          "data": {
+            "label": "Node-4"
+          },
           "position": {
             "x": 0,
             "y": 200
-          },
-          "data": {
-            "label": "Node-4"
           },
           "type": "output",
           "measured": {

@@ -1351,19 +1351,19 @@
         },
         "getInternalNode": {
           "id": "Node-1",
+          "data": {
+            "label": "Node-1"
+          },
           "position": {
             "x": 0,
             "y": 0
           },
-          "data": {
-            "label": "Node-1"
-          },
           "type": "input",
-          "selected": true,
           "measured": {
             "width": 150,
             "height": 37
           },
+          "selected": true,
           "internals": {
             "positionAbsolute": {
               "x": 0,

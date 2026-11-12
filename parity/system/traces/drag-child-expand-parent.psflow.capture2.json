@@ -2031,24 +2031,24 @@
         },
         "getInternalNode": {
           "id": "parent",
-          "position": {
-            "x": 0,
-            "y": 0
-          },
           "data": {
             "label": "parent"
           },
-          "width": 330,
-          "height": 220,
-          "measured": {
-            "width": 330,
-            "height": 220
+          "position": {
+            "x": 0,
+            "y": 0
           },
           "style": {
             "width": 320,
             "height": 220,
             "backgroundColor": "rgba(80, 120, 200, 0.12)"
           },
+          "measured": {
+            "width": 330,
+            "height": 220
+          },
+          "width": 330,
+          "height": 220,
           "internals": {
             "positionAbsolute": {
               "x": 0,

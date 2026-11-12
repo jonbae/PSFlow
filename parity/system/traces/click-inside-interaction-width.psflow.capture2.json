@@ -1960,7 +1960,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 256,
+            "timeStamp": 224,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2029,7 +2029,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 256,
+            "timeStamp": 224,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2093,7 +2093,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 256,
+            "timeStamp": 224,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2158,7 +2158,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 256,
+            "timeStamp": 224,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2232,7 +2232,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 320,
+            "timeStamp": 288,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2519,12 +2519,12 @@
         },
         "getInternalNode": {
           "id": "1",
+          "data": {
+            "label": "1"
+          },
           "position": {
             "x": 0,
             "y": 0
-          },
-          "data": {
-            "label": "1"
           },
           "type": "input",
           "measured": {

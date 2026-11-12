@@ -68,13 +68,11 @@ export const manifest = Object.freeze({
   // wait for its converter.
   //
   // Stage 3 adds the other nineteen hooks. Two of them — `useStore` and
-  // `useStoreApi` — are listed as crossed on the same terms as everything else
-  // here, which is that a JavaScript caller gets upstream's shape or an error
-  // and never silence: both are callable at upstream's arity and both throw,
-  // because what they would hand over is the internal store state and no
-  // converter for it exists. `Boundary.Hooks` says why refusing beat handing it
-  // over raw, and `parity/boundary/mount.mjs` holds the refusal directly, by
-  // calling each hook and reading the message it throws.
+  // `useStoreApi` — crossed at upstream's arity and refused at the call until
+  // Step 3 G, because what they hand over is the internal store state and no
+  // converter for it existed. `Boundary.Store` is that converter now, and
+  // `parity/boundary/mount.mjs` holds both hooks by calling them and reading
+  // upstream's shape back.
   //
   // Stage 4 adds the fourteen components `passthrough` still held, which is
   // the selection: it is defined by *this list* and not by a fixture, and it

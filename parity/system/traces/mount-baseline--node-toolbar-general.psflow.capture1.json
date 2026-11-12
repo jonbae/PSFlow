@@ -1600,20 +1600,20 @@
         },
         "getInternalNode": {
           "id": "default-node",
-          "position": {
-            "x": 0,
-            "y": -200
-          },
+          "type": "ToolbarNode",
           "data": {
             "label": "toolbar top",
             "toolbarPosition": "top"
           },
-          "type": "ToolbarNode",
+          "position": {
+            "x": 0,
+            "y": -200
+          },
+          "className": "react-flow__node-default",
           "measured": {
             "width": 150,
             "height": 37
           },
-          "className": "react-flow__node-default",
           "internals": {
             "positionAbsolute": {
               "x": 0,

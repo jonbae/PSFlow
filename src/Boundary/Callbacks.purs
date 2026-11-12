@@ -77,6 +77,7 @@ module Boundary.Callbacks
   , JsShouldResize
   , commandHandlerIn
   , connectionStateOut
+  , withInProgress
   , edgeMouseHandlerIn
   , interactiveChangeHandlerIn
   , isValidConnectionIn
@@ -126,6 +127,7 @@ import Boundary.Elements
   , JsViewport
   , JsXYPosition
   , connectionOut
+  , connectionParamsOut
   , edgeChangeOut
   , edgeIn
   , edgeOut
@@ -263,6 +265,14 @@ type JsConnectionState =
   , toNode :: Nullable JsInternalNode
   , pointer :: Nullable JsXYPosition
   }
+
+-- | Upstream's live `ConnectionState`, which is the final state with
+-- | `inProgress` in front: what `useConnection` and the store's `connection`
+-- | member hold.
+foreign import withInProgressImpl :: forall a. Fn2 Boolean a Foreign
+
+withInProgress :: forall a. Boolean -> a -> Foreign
+withInProgress = runFn2 withInProgressImpl
 
 connectionStateOut :: FinalConnectionState (InternalNodeBase Foreign) -> JsConnectionState
 connectionStateOut = case _ of
@@ -461,7 +471,7 @@ onInitIn f = \instance_ -> runEffectFn1 f (instanceOut instance_)
 type JsOnConnect = EffectFn1 JsConnection Unit
 
 onConnectIn :: JsOnConnect -> OnConnect
-onConnectIn f = \connection -> runEffectFn1 f (connectionOut connection)
+onConnectIn f = \connection -> runEffectFn1 f (connectionParamsOut connection)
 
 type JsOnConnectStart = EffectFn2 Foreign JsConnectStartParams Unit
 

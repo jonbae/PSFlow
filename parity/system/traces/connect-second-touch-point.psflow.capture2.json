@@ -1473,21 +1473,21 @@
         },
         "getInternalNode": {
           "id": "Node-1",
+          "data": {
+            "label": "Node-1"
+          },
           "position": {
             "x": 0,
             "y": 0
           },
-          "data": {
-            "label": "Node-1"
-          },
           "type": "input",
-          "measured": {
-            "width": 150,
-            "height": 37
-          },
           "className": "playwright-test-class-123",
           "style": {
             "backgroundColor": "red"
+          },
+          "measured": {
+            "width": 150,
+            "height": 37
           },
           "internals": {
             "positionAbsolute": {

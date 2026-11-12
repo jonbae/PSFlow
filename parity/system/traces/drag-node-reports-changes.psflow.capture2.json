@@ -2853,23 +2853,23 @@
         },
         "getInternalNode": {
           "id": "n1",
+          "data": {
+            "label": "n1"
+          },
           "position": {
             "x": 45,
             "y": 26.25
           },
-          "data": {
-            "label": "n1"
-          },
           "sourcePosition": "right",
           "targetPosition": "left",
-          "selected": true,
-          "dragging": false,
           "width": 100,
           "height": 40,
           "measured": {
             "width": 100,
             "height": 40
           },
+          "selected": true,
+          "dragging": false,
           "internals": {
             "positionAbsolute": {
               "x": 45,

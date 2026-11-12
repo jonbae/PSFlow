@@ -300,7 +300,7 @@ check("no flow prop is wired to `Nothing`", () => {
   assert(
     dropped.length === 0,
     `props wired to \`Nothing\`, so they are silently ignored: ${dropped.join(", ")}. ` +
-      `Convert them, or refuse them the way \`defaultEdgeOptions\`' dropped members are — ` +
+      `Convert them, or refuse them at mount with a message naming them — ` +
       `a prop ps-flow ignores in silence is indistinguishable from one the consumer never set.`
   );
 });
@@ -491,23 +491,42 @@ refuses("a null key code is refused rather than defaulted", { deleteKeyCode: nul
 
 refuses("a key code of the wrong type is refused", { selectionKeyCode: 42 }, "selectionKeyCode");
 
-// `defaultEdgeOptions` is upstream's `Edge` minus its identity fields; ps-flow's
-// own record carries ten of those 23. The other thirteen would be dropped on the
-// floor, so the boundary refuses them one by one.
-const refusedOptionsPattern = /^\s*[[,]?\s*(?:droppedOption|unmodelledOption)\s+"([^"]+)"/gm;
-const refusedOptions = [...flowText.matchAll(refusedOptionsPattern)].map((m) => m[1]);
+// `defaultEdgeOptions` is upstream's `Edge` minus its identity fields and
+// `selected`: 23 members. Until Step 3 G ps-flow's record carried ten and the
+// boundary refused the other thirteen here, one by one. All 23 convert now,
+// so the check is the other way round: a value for every member mounts.
+// `parity/boundary/drift.mjs` holds the member list against the record, and
+// `Test.Boundary.DefaultEdgeOptions` holds the merge against upstream's.
+const everyEdgeOption = {
+  type: "smoothstep",
+  animated: true,
+  hidden: false,
+  deletable: true,
+  selectable: true,
+  data: { probe: true },
+  markerStart: MarkerType.Arrow,
+  markerEnd: { type: "arrowclosed", color: "#000" },
+  zIndex: 1,
+  ariaLabel: "probe",
+  interactionWidth: 12,
+  label: "probe",
+  labelStyle: { fill: "red" },
+  labelShowBg: false,
+  labelBgStyle: { fill: "blue" },
+  labelBgPadding: [2, 4],
+  labelBgBorderRadius: 3,
+  style: { stroke: "red" },
+  className: "probe",
+  reconnectable: "target",
+  focusable: false,
+  ariaRole: "note",
+  domAttributes: { "data-probe": "1" },
+};
+const edgeOptionsAccepted = Object.keys(everyEdgeOption).length;
 
-if (refusedOptions.length === 0) {
-  fail(`read no refused defaultEdgeOptions members from ${flowSource} — the parse is wrong`);
-}
-
-for (const name of refusedOptions) {
-  refuses(
-    `\`defaultEdgeOptions.${name}\` is refused at mount`,
-    { defaultEdgeOptions: { ...convertedProps.defaultEdgeOptions, [name]: "probe" } },
-    `defaultEdgeOptions.${name}`
-  );
-}
+check(`every one of the ${edgeOptionsAccepted} \`defaultEdgeOptions\` members is accepted`, () => {
+  renderToStaticMarkup(createElement(ReactFlow, { ...convertedProps, defaultEdgeOptions: everyEdgeOption }));
+});
 
 // ── 4. The utilities a driver calls ─────────────────────────────────────
 //
@@ -1939,24 +1958,40 @@ check("the listener and middleware hooks accept JS-shaped handlers", () => {
   });
 });
 
-// The two that refuse. See `Boundary.Hooks`: both hand over the internal store
-// state, which is an 85-field PureScript record with no JS shape, and both are
-// callable at upstream's arity so that surface parity sees them agree. That
-// they throw is this gate's to hold, and it is held the way the refused
-// `defaultEdgeOptions` members are — by making the call and reading the
-// message.
-throws(
-  "`useStore` refuses rather than handing over the PureScript store state",
-  () => insideFlow(() => useStore((s) => s)),
-  "useStore",
-  "nodeLookup"
-);
+// The two store hooks. Until Step 3 G both refused at the call, because the
+// state they hand over is a PureScript record; `Boundary.Store` gives it
+// upstream's shape. A server render reaches both, so this holds the shape a
+// consumer reads: upstream's members, its `Map` lookups, its `[x, y, zoom]`
+// transform, and zustand's three functions. `parity/boundary/store.test.mjs`
+// compares every member and the write semantics against upstream itself.
+check("`useStore` hands a selector the state in upstream's shape", () => {
+  const { slice, whole, api } = insideFlow((out) => {
+    out.slice = useStore((s) => ({ count: s.nodes.length, transform: s.transform, lookup: s.nodeLookup }));
+    out.whole = useStore();
+    out.api = useStoreApi();
+  });
+  assert(slice.count === psflowNodes.length, `selected ${slice.count} nodes, not ${psflowNodes.length}`);
+  assert(Array.isArray(slice.transform) && slice.transform.length === 3, "`transform` is not [x, y, zoom]");
+  assert(slice.lookup instanceof Map, "`nodeLookup` is not a JavaScript Map");
+  assert(whole === api.getState(), "`useStore()` with no selector is not the whole state");
+});
 
-throws(
-  "`useStoreApi` refuses rather than handing over the PureScript store state",
-  () => insideFlow(() => useStoreApi()),
-  "useStoreApi"
-);
+check("`useStoreApi` hands over getState, setState and subscribe", () => {
+  const { api } = insideFlow((out) => {
+    out.api = useStoreApi();
+  });
+  assert(
+    ["getState", "setState", "subscribe"].every((k) => typeof api[k] === "function"),
+    "missing one of getState, setState, subscribe"
+  );
+  let heard = 0;
+  const unsubscribe = api.subscribe(() => heard++);
+  api.setState({ nodesDraggable: false });
+  unsubscribe();
+  assert(heard === 1, `a subscriber heard ${heard} setState calls, not 1`);
+  assert(api.getState().nodesDraggable === false, "setState did not reach the state");
+  assert(typeof api.getState().setNodes === "function", "the actions are not on the state");
+});
 
 // `onInit` is the second path to the instance and the one that does not need a
 // component of the consumer's own. It was the last deferred callback prop, and
@@ -1998,6 +2033,6 @@ if (failures > 0) {
   process.exit(1);
 }
 
-console.log(`boundary mount: ${notes.length} checks, ${refusedOptions.length} defaultEdgeOptions members refused, 0 deferred props.`);
+console.log(`boundary mount: ${notes.length} checks, ${edgeOptionsAccepted} defaultEdgeOptions members accepted, 0 deferred props.`);
 console.log(notes.slice(0, 5).join("\n"));
 console.log(`  ✓ … and ${notes.length - 5} more`);

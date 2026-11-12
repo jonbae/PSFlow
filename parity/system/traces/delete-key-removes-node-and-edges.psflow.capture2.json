@@ -1519,14 +1519,14 @@
         },
         "getInternalNode": {
           "id": "Node-2",
+          "type": "output",
+          "data": {
+            "label": "Node-2"
+          },
           "position": {
             "x": -100,
             "y": 100
           },
-          "data": {
-            "label": "Node-2"
-          },
-          "type": "output",
           "measured": {
             "width": 150,
             "height": 37

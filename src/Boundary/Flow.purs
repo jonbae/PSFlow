@@ -55,10 +55,11 @@
 -- | through the converters above.
 module Boundary.Flow
   ( JsAriaLabelConfig
-  , JsDefaultEdgeOptions
   , JsFlowProps
   , JsProOptions
   , JsReactFlowProviderProps
+  , ariaLabelConfigIn
+  , panOnDragIn
   , reactFlow
   , reactFlowProvider
   ) where
@@ -119,8 +120,9 @@ import Boundary.Callbacks
   , selectionDragHandlerIn
   )
 import Boundary.Elements
-  ( JsEdge
-  , edgeAriaLabelIn
+  ( JsDefaultEdgeOptions
+  , JsEdge
+  , defaultEdgeOptionsIn
   , JsNode
   , JsNodeProps
   , JsViewport
@@ -134,6 +136,7 @@ import Boundary.Elements
   , snapGridIn
   , viewportIn
   )
+import Boundary.Original (remembering)
 import Boundary.Edges
   ( JsConnectionLineComponentProps
   , JsEdgeProps
@@ -144,16 +147,14 @@ import Boundary.Enums
   ( colorModeIn
   , connectionLineTypeIn
   , connectionModeIn
-  , handleTypeIn
   , panOnScrollModeIn
   , panelPositionIn
   , selectionModeIn
   , zIndexModeIn
   )
-import Boundary.Refusal (Refusal, refuseFirst)
 import Boundary.Rest (restOf)
-import Boundary.Undefined (Undefinable, fromUndefinable, isDefined, orNullable)
-import Boundary.Untagged (asArray, asBoolean, asNumber, asString, typeName)
+import Boundary.Undefined (Undefinable, fromUndefinable, orNullable)
+import Boundary.Untagged (asArray, asBoolean, asNumber, typeName)
 import Data.Array.NonEmpty (fromArray) as NEA
 import Data.Int (round) as Int
 import Data.Maybe (Maybe(..))
@@ -168,7 +169,6 @@ import React.Container.ReactFlow (reactFlow) as PS
 import React.FFI.ForwardRef (forwardNullableRef)
 import React.Provider (reactFlowProvider) as PS
 import React.Types.Component (ReactFlowProps, ReactFlowProviderProps)
-import React.Types.Edges (DefaultEdgeOptions, ReconnectHandleType(..))
 import React.Types.General (ProOptions)
 import System.Constants (AriaLabelConfigOverride)
 import System.Types.PanZoom (PanOnDrag(..))
@@ -180,47 +180,6 @@ import System.Types.PanZoom (PanOnDrag(..))
 type JsProOptions =
   { hideAttribution :: Boolean
   , account :: Undefinable String
-  }
-
--- | Upstream's `DefaultEdgeOptions` is `Edge` minus its identity fields — 23
--- | of them. `React.Types.Edges.DefaultEdgeOptions` carries ten. The other
--- | thirteen are named here anyway, and **refused**, because dropping them is
--- | the same silence the deferred props exist to prevent: a consumer writing
--- | `defaultEdgeOptions={{ type: 'smoothstep' }}` would get straight edges and
--- | no indication why.
--- |
--- | The thirteen split two ways, and the message says which:
--- |
--- |   * `type`, `markerStart`, `markerEnd`, `style`, `className` and `label`
--- |     are fields `Edge` itself has — so the value has somewhere to go, just
--- |     not through this record, and setting it per edge works today.
--- |   * the five remaining label options, `ariaRole` and `domAttributes` are fields
--- |     ps-flow does not model anywhere yet. Those are census rows.
-type JsDefaultEdgeOptions =
-  { animated :: Undefinable Boolean
-  , hidden :: Undefinable Boolean
-  , deletable :: Undefinable Boolean
-  , selectable :: Undefinable Boolean
-  , focusable :: Undefinable Boolean
-  , data :: Undefinable Foreign
-  , zIndex :: Undefinable Number
-  , ariaLabel :: Undefinable String
-  , interactionWidth :: Undefinable Number
-  , reconnectable :: Undefinable Foreign
-  -- Refused. Present so they can be seen and rejected, never read.
-  , type :: Undefinable Foreign
-  , markerStart :: Undefinable Foreign
-  , markerEnd :: Undefinable Foreign
-  , style :: Undefinable Foreign
-  , className :: Undefinable Foreign
-  , label :: Undefinable Foreign
-  , labelStyle :: Undefinable Foreign
-  , labelShowBg :: Undefinable Foreign
-  , labelBgStyle :: Undefinable Foreign
-  , labelBgPadding :: Undefinable Foreign
-  , labelBgBorderRadius :: Undefinable Foreign
-  , ariaRole :: Undefinable Foreign
-  , domAttributes :: Undefinable Foreign
   }
 
 -- | Upstream keys this record by dotted path — `'node.a11yDescription.default'`
@@ -396,7 +355,8 @@ type JsFlowProps =
 -- on the JS surface and had no converter, and it threw on the first one a
 -- consumer supplied. Stage 2 emptied 46 of its entries, stage 3 the 47th, and
 -- stage 4 the last two — so it is gone, along with the entry kind it was the
--- last user of (`Boundary.Refusal`).
+-- last user of. The refusal module itself went in Step 3 G, with its last
+-- table: `defaultEdgeOptions`' thirteen members, which now convert.
 --
 -- What replaces it is not a smaller guard but a differently-shaped check:
 -- `parity/boundary/mount.mjs` reads this function and fails if *any* prop is
@@ -414,10 +374,10 @@ type JsFlowProps =
 convertProps :: JsFlowProps -> Nullable Foreign -> ReactFlowProps Foreign Foreign
 convertProps p forwarded =
   { children: p.children
-  , nodes: map (map nodeIn) (fromUndefinable p.nodes)
-  , edges: map (map edgeIn) (fromUndefinable p.edges)
-  , defaultNodes: map (map nodeIn) (fromUndefinable p.defaultNodes)
-  , defaultEdges: map (map edgeIn) (fromUndefinable p.defaultEdges)
+  , nodes: map (remembering (map nodeIn)) (fromUndefinable p.nodes)
+  , edges: map (remembering (map edgeIn)) (fromUndefinable p.edges)
+  , defaultNodes: map (remembering (map nodeIn)) (fromUndefinable p.defaultNodes)
+  , defaultEdges: map (remembering (map edgeIn)) (fromUndefinable p.defaultEdges)
   , defaultEdgeOptions: map defaultEdgeOptionsIn (fromUndefinable p.defaultEdgeOptions)
   , onNodeClick: map nodeMouseHandlerIn (fromUndefinable p.onNodeClick)
   , onNodeDoubleClick: map nodeMouseHandlerIn (fromUndefinable p.onNodeDoubleClick)
@@ -425,9 +385,9 @@ convertProps p forwarded =
   , onNodeMouseMove: map nodeMouseHandlerIn (fromUndefinable p.onNodeMouseMove)
   , onNodeMouseLeave: map nodeMouseHandlerIn (fromUndefinable p.onNodeMouseLeave)
   , onNodeContextMenu: map nodeMouseHandlerIn (fromUndefinable p.onNodeContextMenu)
-  , onNodeDragStart: map onNodeDragIn (fromUndefinable p.onNodeDragStart)
-  , onNodeDrag: map onNodeDragIn (fromUndefinable p.onNodeDrag)
-  , onNodeDragStop: map onNodeDragIn (fromUndefinable p.onNodeDragStop)
+  , onNodeDragStart: map (remembering onNodeDragIn) (fromUndefinable p.onNodeDragStart)
+  , onNodeDrag: map (remembering onNodeDragIn) (fromUndefinable p.onNodeDrag)
+  , onNodeDragStop: map (remembering onNodeDragIn) (fromUndefinable p.onNodeDragStop)
   , onEdgeClick: map edgeMouseHandlerIn (fromUndefinable p.onEdgeClick)
   , onEdgeContextMenu: map edgeMouseHandlerIn (fromUndefinable p.onEdgeContextMenu)
   , onEdgeMouseEnter: map edgeMouseHandlerIn (fromUndefinable p.onEdgeMouseEnter)
@@ -437,27 +397,27 @@ convertProps p forwarded =
   , onReconnect: map onReconnectIn (fromUndefinable p.onReconnect)
   , onReconnectStart: map onReconnectStartIn (fromUndefinable p.onReconnectStart)
   , onReconnectEnd: map onReconnectEndIn (fromUndefinable p.onReconnectEnd)
-  , onNodesChange: map onNodesChangeIn (fromUndefinable p.onNodesChange)
-  , onEdgesChange: map onEdgesChangeIn (fromUndefinable p.onEdgesChange)
-  , onNodesDelete: map onNodesDeleteIn (fromUndefinable p.onNodesDelete)
-  , onEdgesDelete: map onEdgesDeleteIn (fromUndefinable p.onEdgesDelete)
-  , onDelete: map onDeleteIn (fromUndefinable p.onDelete)
-  , onSelectionDragStart: map selectionDragHandlerIn (fromUndefinable p.onSelectionDragStart)
-  , onSelectionDrag: map selectionDragHandlerIn (fromUndefinable p.onSelectionDrag)
-  , onSelectionDragStop: map selectionDragHandlerIn (fromUndefinable p.onSelectionDragStop)
+  , onNodesChange: map (remembering onNodesChangeIn) (fromUndefinable p.onNodesChange)
+  , onEdgesChange: map (remembering onEdgesChangeIn) (fromUndefinable p.onEdgesChange)
+  , onNodesDelete: map (remembering onNodesDeleteIn) (fromUndefinable p.onNodesDelete)
+  , onEdgesDelete: map (remembering onEdgesDeleteIn) (fromUndefinable p.onEdgesDelete)
+  , onDelete: map (remembering onDeleteIn) (fromUndefinable p.onDelete)
+  , onSelectionDragStart: map (remembering selectionDragHandlerIn) (fromUndefinable p.onSelectionDragStart)
+  , onSelectionDrag: map (remembering selectionDragHandlerIn) (fromUndefinable p.onSelectionDrag)
+  , onSelectionDragStop: map (remembering selectionDragHandlerIn) (fromUndefinable p.onSelectionDragStop)
   , onSelectionStart: map mouseEventHandlerIn (fromUndefinable p.onSelectionStart)
   , onSelectionEnd: map mouseEventHandlerIn (fromUndefinable p.onSelectionEnd)
   , onSelectionContextMenu: map selectionDragHandlerIn (fromUndefinable p.onSelectionContextMenu)
   , onSelectionChange: map onSelectionChangeIn (fromUndefinable p.onSelectionChange)
-  , onConnect: map onConnectIn (fromUndefinable p.onConnect)
-  , onConnectStart: map onConnectStartIn (fromUndefinable p.onConnectStart)
-  , onConnectEnd: map onConnectEndIn (fromUndefinable p.onConnectEnd)
-  , onClickConnectStart: map onConnectStartIn (fromUndefinable p.onClickConnectStart)
-  , onClickConnectEnd: map onConnectEndIn (fromUndefinable p.onClickConnectEnd)
+  , onConnect: map (remembering onConnectIn) (fromUndefinable p.onConnect)
+  , onConnectStart: map (remembering onConnectStartIn) (fromUndefinable p.onConnectStart)
+  , onConnectEnd: map (remembering onConnectEndIn) (fromUndefinable p.onConnectEnd)
+  , onClickConnectStart: map (remembering onConnectStartIn) (fromUndefinable p.onClickConnectStart)
+  , onClickConnectEnd: map (remembering onConnectEndIn) (fromUndefinable p.onClickConnectEnd)
   , onInit: map onInitIn (fromUndefinable p.onInit)
-  , onMove: map onMoveIn (fromUndefinable p.onMove)
-  , onMoveStart: map onMoveIn (fromUndefinable p.onMoveStart)
-  , onMoveEnd: map onMoveIn (fromUndefinable p.onMoveEnd)
+  , onMove: map (remembering onMoveIn) (fromUndefinable p.onMove)
+  , onMoveStart: map (remembering onMoveIn) (fromUndefinable p.onMoveStart)
+  , onMoveEnd: map (remembering onMoveIn) (fromUndefinable p.onMoveEnd)
   , className: fromUndefinable p.className
   , style: map asCssStyle (fromUndefinable p.style)
   , onScroll: map onScrollIn (fromUndefinable p.onScroll)
@@ -469,9 +429,9 @@ convertProps p forwarded =
   , onPaneMouseLeave: map mouseEventHandlerIn (fromUndefinable p.onPaneMouseLeave)
   , paneClickDistance: fromUndefinable p.paneClickDistance
   , nodeClickDistance: fromUndefinable p.nodeClickDistance
-  , onBeforeDelete: map onBeforeDeleteIn (fromUndefinable p.onBeforeDelete)
-  , isValidConnection: map isValidConnectionIn (fromUndefinable p.isValidConnection)
-  , onError: map onErrorIn (fromUndefinable p.onError)
+  , onBeforeDelete: map (remembering onBeforeDeleteIn) (fromUndefinable p.onBeforeDelete)
+  , isValidConnection: map (remembering isValidConnectionIn) (fromUndefinable p.isValidConnection)
+  , onError: map (remembering onErrorIn) (fromUndefinable p.onError)
   , nodeTypes: map nodeTypesIn (fromUndefinable p.nodeTypes)
   , edgeTypes: map edgeTypesIn (fromUndefinable p.edgeTypes)
   , connectionLineType:
@@ -525,9 +485,9 @@ convertProps p forwarded =
   , preventScrolling: fromUndefinable p.preventScrolling
   , viewport: map viewportIn (fromUndefinable p.viewport)
   , defaultViewport: map viewportIn (fromUndefinable p.defaultViewport)
-  , onViewportChange: map onViewportChangeIn (fromUndefinable p.onViewportChange)
+  , onViewportChange: map (remembering onViewportChangeIn) (fromUndefinable p.onViewportChange)
   , fitView: fromUndefinable p.fitView
-  , fitViewOptions: map fitViewOptionsIn (fromUndefinable p.fitViewOptions)
+  , fitViewOptions: map (remembering fitViewOptionsIn) (fromUndefinable p.fitViewOptions)
   , defaultMarkerColor: fromUndefinable p.defaultMarkerColor
   , width: fromUndefinable p.width
   , height: fromUndefinable p.height
@@ -552,88 +512,6 @@ convertProps p forwarded =
   -- the div after the rest, so it rides here with the value it would have had.
   , wrapperAttributes: restOf p
   }
-
--- | The thirteen `defaultEdgeOptions` members ps-flow's own record has no room
--- | for. The last refusal table on this surface, and the one the deferred
--- | props were never quite the same as: these are refused because the
--- | internals do not model them, not because a converter is pending, so no
--- | stage retires them. The guard has to name them because nothing about
--- | writing the conversion would.
-refusedEdgeOptions :: Array (Refusal JsDefaultEdgeOptions)
-refusedEdgeOptions =
-  [ droppedOption "type" _.type
-  , droppedOption "markerStart" _.markerStart
-  , droppedOption "markerEnd" _.markerEnd
-  , droppedOption "style" _.style
-  , droppedOption "className" _.className
-  , droppedOption "label" _.label
-  , unmodelledOption "labelStyle" _.labelStyle
-  , unmodelledOption "labelShowBg" _.labelShowBg
-  , unmodelledOption "labelBgStyle" _.labelBgStyle
-  , unmodelledOption "labelBgPadding" _.labelBgPadding
-  , unmodelledOption "labelBgBorderRadius" _.labelBgBorderRadius
-  , unmodelledOption "ariaRole" _.ariaRole
-  , unmodelledOption "domAttributes" _.domAttributes
-  ]
-
-droppedOption :: forall a. String -> (JsDefaultEdgeOptions -> Undefinable a) -> Refusal JsDefaultEdgeOptions
-droppedOption name get =
-  { name
-  , stage: 1
-  , note:
-      "ps-flow's `DefaultEdgeOptions` has no such member, though `Edge` does — \
-      \set it on each edge instead"
-  , supplied: \p -> isDefined (get p)
-  }
-
-unmodelledOption :: forall a. String -> (JsDefaultEdgeOptions -> Undefinable a) -> Refusal JsDefaultEdgeOptions
-unmodelledOption name get =
-  { name
-  , stage: 1
-  , note: "ps-flow does not model this edge field yet, on any record"
-  , supplied: \p -> isDefined (get p)
-  }
-
-guardEdgeOptions :: JsDefaultEdgeOptions -> JsDefaultEdgeOptions
-guardEdgeOptions = refuseFirst message refusedEdgeOptions
-  where
-  message d =
-    "ps-flow: `defaultEdgeOptions." <> d.name
-      <> "` is refused rather than ignored — "
-      <> d.note
-      <> ". Dropping it silently would look exactly like never having set it."
-
-defaultEdgeOptionsIn :: JsDefaultEdgeOptions -> DefaultEdgeOptions Foreign
-defaultEdgeOptionsIn = convertEdgeOptions <<< guardEdgeOptions
-
-convertEdgeOptions :: JsDefaultEdgeOptions -> DefaultEdgeOptions Foreign
-convertEdgeOptions o =
-  { animated: fromUndefinable o.animated
-  , hidden: fromUndefinable o.hidden
-  , deletable: fromUndefinable o.deletable
-  , selectable: fromUndefinable o.selectable
-  , focusable: fromUndefinable o.focusable
-  , data: fromUndefinable o.data
-  , zIndex: map Int.round (fromUndefinable o.zIndex)
-  , ariaLabel: edgeAriaLabelIn o.ariaLabel
-  , interactionWidth: fromUndefinable o.interactionWidth
-  , reconnectable: fromUndefinable o.reconnectable >>= reconnectableIn
-  }
-
--- | `boolean | HandleType`. `false` is "not reconnectable", which PureScript
--- | spells as the absence of the field rather than a third constructor.
-reconnectableIn :: Foreign -> Maybe ReconnectHandleType
-reconnectableIn raw = case asBoolean raw of
-  Just true -> Just ReconnectAny
-  Just false -> Nothing
-  Nothing -> case asString raw of
-    Just s -> Just (ReconnectOnly (handleTypeIn "defaultEdgeOptions.reconnectable" s))
-    Nothing ->
-      unsafeThrow $
-        "ps-flow: `defaultEdgeOptions.reconnectable` must be a boolean, "
-          <> "\"source\" or \"target\", got "
-          <> typeName raw
-          <> "."
 
 proOptionsIn :: JsProOptions -> ProOptions
 proOptionsIn o =
@@ -739,8 +617,8 @@ convertProvider :: JsReactFlowProviderProps -> ReactFlowProviderProps Foreign Fo
 convertProvider p =
   { initialNodes: map (map nodeIn) (fromUndefinable p.initialNodes)
   , initialEdges: map (map edgeIn) (fromUndefinable p.initialEdges)
-  , defaultNodes: map (map nodeIn) (fromUndefinable p.defaultNodes)
-  , defaultEdges: map (map edgeIn) (fromUndefinable p.defaultEdges)
+  , defaultNodes: map (remembering (map nodeIn)) (fromUndefinable p.defaultNodes)
+  , defaultEdges: map (remembering (map edgeIn)) (fromUndefinable p.defaultEdges)
   , initialWidth: fromUndefinable p.initialWidth
   , initialHeight: fromUndefinable p.initialHeight
   , fitView: fromUndefinable p.fitView

@@ -88,15 +88,19 @@ useOnViewportChange opts = coerceHook React.do
 -- | Append a selection-change handler to the store's handler list. On
 -- | unmount the handler is removed by JS reference identity. Multiple
 -- | components may subscribe simultaneously; each gets its own slot.
+-- |
+-- | TS keys the effect on `[onChange]`, the handler itself, so a re-render
+-- | with the same handler leaves the list alone. Keying on the options record
+-- | re-registered on every render, since the record is new each time.
 useOnSelectionChange
   :: forall n e
    . UseOnSelectionChangeOptions n e
   -> Hook
-       (UseListenerEffect (UnsafeReference (UseOnSelectionChangeOptions n e)))
+       (UseListenerEffect (Maybe (UnsafeReference (OnSelectionChangeFunc n e))))
        Unit
 useOnSelectionChange opts = coerceHook React.do
   store <- (useStoreApi :: Hook UseStoreApi _)
-  useEffect (UnsafeReference opts) do
+  useEffect (map UnsafeReference opts.onChange) do
     case opts.onChange of
       Nothing -> pure (pure unit)
       Just cb -> do

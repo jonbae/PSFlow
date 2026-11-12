@@ -70,6 +70,9 @@ nodeAt id at handles =
   , height: Just 25.0
   , initialWidth: Nothing
   , initialHeight: Nothing
+  , focusable: Nothing
+  , ariaRole: Nothing
+  , domAttributes: Nothing
   , parentId: Nothing
   , zIndex: Nothing
   , extent: Nothing
@@ -108,6 +111,16 @@ edgeAB =
   , label: Nothing
   , ariaLabel: Nothing
   , interactionWidth: Nothing
+  , focusable: Nothing
+  , reconnectable: Nothing
+  , ariaRole: Nothing
+  , domAttributes: Nothing
+  , labelStyle: Nothing
+  , labelShowBg: Nothing
+  , labelBgStyle: Nothing
+  , labelBgPadding: Nothing
+  , labelBgBorderRadius: Nothing
+  , pathOptions: Nothing
   , className: Nothing
   , style: Nothing
   }

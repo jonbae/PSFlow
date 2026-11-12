@@ -865,7 +865,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 69,
+            "timeStamp": 62,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -934,7 +934,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 69,
+            "timeStamp": 62,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1006,7 +1006,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 69,
+            "timeStamp": 62,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1071,7 +1071,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 69,
+            "timeStamp": 62,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1267,7 +1267,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 128,
+            "timeStamp": 112,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1340,7 +1340,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 160,
+            "timeStamp": 144,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1415,7 +1415,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 160,
+            "timeStamp": 144,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1491,7 +1491,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 160,
+            "timeStamp": 144,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1556,7 +1556,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 160,
+            "timeStamp": 144,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1728,7 +1728,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 224,
+            "timeStamp": 208,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1862,7 +1862,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 256,
+            "timeStamp": 240,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1996,7 +1996,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 288,
+            "timeStamp": 272,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2130,7 +2130,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 320,
+            "timeStamp": 304,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2264,7 +2264,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 352,
+            "timeStamp": 336,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2467,7 +2467,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 416,
+            "timeStamp": 400,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2532,7 +2532,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 416,
+            "timeStamp": 400,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2661,7 +2661,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 480,
+            "timeStamp": 464,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2795,7 +2795,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 512,
+            "timeStamp": 496,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2929,7 +2929,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 544,
+            "timeStamp": 528,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3063,7 +3063,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 576,
+            "timeStamp": 560,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3197,7 +3197,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 608,
+            "timeStamp": 592,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3562,24 +3562,24 @@
         },
         "getInternalNode": {
           "id": "Node-1",
+          "data": {
+            "label": "Node-1"
+          },
           "position": {
             "x": 58.26219512195121,
             "y": 38.84146341463414
           },
-          "data": {
-            "label": "Node-1"
-          },
           "type": "input",
-          "selected": true,
-          "dragging": false,
-          "measured": {
-            "width": 150,
-            "height": 37
-          },
           "className": "playwright-test-class-123",
           "style": {
             "backgroundColor": "red"
           },
+          "measured": {
+            "width": 150,
+            "height": 37
+          },
+          "selected": true,
+          "dragging": false,
           "internals": {
             "positionAbsolute": {
               "x": 58.26219512195121,

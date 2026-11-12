@@ -293,7 +293,7 @@ Every export reaches the JS surface through the **boundary module** and a
   that upstream's object would have.
 - **Refuse what the port doesn't model.** A prop that ps-flow doesn't model
   throws at mount with a message, so a dropped prop can't pass for an unset
-  one. See `Boundary.Refusal`.
+  one.
 - **Report a truthful shape.** Surface parity compares `Function.length`. Where
   upstream's parameters carry JavaScript defaults, its arity is `0`; record the
   difference as a permanent allowlist entry rather than writing a wrapper that

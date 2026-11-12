@@ -15,6 +15,11 @@ module System.Types.Edge
   , AlignX(..)
   , AlignY(..)
   , EdgeChange(..)
+  , EdgePathOptions
+  , EdgeReconnectable(..)
+  , rememberUserEdge
+  , originalUserEdge
+  , edgeOwnsKey
   ) where
 
 import Prelude
@@ -22,12 +27,17 @@ import Prelude
 import Data.Enum (class BoundedEnum, class Enum, Cardinality(..))
 import Data.Enum.Generic (genericFromEnum, genericPred, genericSucc, genericToEnum)
 import Data.Generic.Rep (class Generic)
+import Data.Function.Uncurried (Fn2)
 import Data.Map (Map)
 import Data.Maybe (Maybe)
+import Data.Nullable (Nullable)
 import Data.Show.Generic (genericShow)
+import Foreign (Foreign)
 import Foreign.Object (Object)
 import System.Types.Geometry (Position)
+import System.Types.Handle (HandleType)
 import System.Types.Ids (NodeId)
+import System.Types.Opaque (Opaque)
 
 -- | TS field `type` is renamed to `edgeType` for internal consistency with the
 -- | `edgeTypes` lookup map it indexes into — *not* because `type` is unusable
@@ -46,6 +56,13 @@ import System.Types.Ids (NodeId)
 -- | — so the record keeps a derivable `Eq` for memoization/tests.
 -- |
 -- | `ariaLabel` holds three states. See `EdgeAriaLabel`.
+-- |
+-- | The ten fields after `style` are the rest of upstream's React `Edge`:
+-- | `focusable`, `reconnectable`, `ariaRole` and `domAttributes`, the five
+-- | label options `EdgeText` draws with, and the `pathOptions` the built-in
+-- | bending edges read (upstream reads it with `'pathOptions' in edge`, off
+-- | whichever built-in variant the edge is). `<EdgeWrapper />` reads each of
+-- | them, and each one inherits from `defaultEdgeOptions` when it is absent.
 type EdgeBase edgeData =
   { id :: String
   , edgeType :: Maybe String
@@ -67,7 +84,53 @@ type EdgeBase edgeData =
   , interactionWidth :: Maybe Number
   , className :: Maybe String
   , style :: Maybe (Object String)
+  , focusable :: Maybe Boolean
+  , reconnectable :: Maybe EdgeReconnectable
+  , ariaRole :: Maybe String
+  , domAttributes :: Maybe Opaque
+  , labelStyle :: Maybe (Object String)
+  , labelShowBg :: Maybe Boolean
+  , labelBgStyle :: Maybe (Object String)
+  , labelBgPadding :: Maybe { x :: Number, y :: Number }
+  , labelBgBorderRadius :: Maybe Number
+  , pathOptions :: Maybe EdgePathOptions
   }
+
+-- | Upstream's `boolean | HandleType`. `false` is a value of its own, not an
+-- | absent field: an edge's `reconnectable: false` overrides the flow's
+-- | `edgesReconnectable`, where an absent one inherits it.
+data EdgeReconnectable
+  = ReconnectableFlag Boolean
+  | ReconnectableEnd HandleType
+
+derive instance eqEdgeReconnectable :: Eq EdgeReconnectable
+derive instance genericEdgeReconnectable :: Generic EdgeReconnectable _
+instance showEdgeReconnectable :: Show EdgeReconnectable where
+  show = genericShow
+
+-- | The union of the three built-in `pathOptions` records. An edge does not
+-- | know which built-in will draw it until its `type` is resolved, and each
+-- | variant reads only its own members: `curvature` for a bezier edge, and
+-- | `offset`, `borderRadius` and `stepPosition` for the step variants.
+type EdgePathOptions =
+  { curvature :: Maybe Number
+  , offset :: Maybe Number
+  , borderRadius :: Maybe Number
+  , stepPosition :: Maybe Number
+  }
+
+-- | The consumer's own edge object, kept beside the decoded record the way
+-- | `System.Types.Node.rememberUserNode` keeps a node's. Upstream's store
+-- | holds the consumer's objects, so a store read hands those back.
+foreign import rememberUserEdge :: forall e. Fn2 Foreign (EdgeBase e) (EdgeBase e)
+foreign import originalUserEdge :: forall e. EdgeBase e -> Nullable Foreign
+
+-- | Whether the consumer's edge object, if there was one, has `key` as an own
+-- | property. Upstream merges `{ ...defaultEdgeOptions, ...edge }`, and an
+-- | edge written as `{ type: undefined }` owns `type`: the spread copies its
+-- | `undefined` over the default. A decoded `Nothing` cannot say which of the
+-- | two the consumer wrote, and this can. `key` is the consumer's spelling.
+foreign import edgeOwnsKey :: forall e. String -> EdgeBase e -> Boolean
 
 -- | An edge's `ariaLabel` when the consumer set one. `Nothing` on the field
 -- | is an absent label.

@@ -39,23 +39,16 @@
 -- | compares the whole node object by identity; the difference is recorded on
 -- | the divergence backlog.
 -- |
--- | ## The two that do not cross
+-- | ## The store hooks
 -- |
--- | `useStore` and `useStoreApi` hand the consumer the **internal store
--- | state** — an 85-field PureScript record whose `nodeLookup` is a
--- | `Data.Map` where upstream's is a JavaScript `Map`, and whose `transform`
--- | is a newtype where upstream's is a three-element array. There is no
--- | `JsReactFlowState` and building one is not this stage's work.
--- |
--- | So they cross as far as their *shape* — arity and callability, which is
--- | what `parity/surface/diff.mjs` compares — and **refuse at the call**, with
--- | a message naming what has not crossed. The alternative was to hand the
--- | PureScript state over raw, which is worse than it looks: a consumer's
--- | `(s) => s.nodes.length` would work, because a PureScript `Array` *is* a
--- | JavaScript array, while `(s) => s.nodeLookup.get(id)` would return
--- | `undefined` forever. A surface that is right often enough to be trusted
--- | and wrong without saying so is the failure this whole module exists to
--- | remove.
+-- | `useStore` and `useStoreApi` hand the consumer the store's state itself.
+-- | Until Step 3 G they refused at the call, because ps-flow's state is a
+-- | PureScript record and nothing gave it upstream's shape. `Boundary.Store`
+-- | does now: every member in upstream's shape, the consumer's own objects
+-- | where ps-flow kept them, and zustand's `setState` and `subscribe`. The
+-- | selection runs through `React.Hook.Store.useStoreWith`, the hook every
+-- | internal component reads the store through, with the consumer's
+-- | `equalityFn` or `Object.is` in place of an `Eq` instance.
 module Boundary.Hooks
   ( JsEdgesState
   , JsNodeConnectionsParams
@@ -91,7 +84,7 @@ module Boundary.Hooks
   ) where
 
 import Prelude
-import React.Types.General (OnViewportChange)
+import React.Types.General (OnSelectionChangeFunc, OnViewportChange)
 
 import Boundary.Callbacks
   ( JsConnectionState
@@ -100,6 +93,7 @@ import Boundary.Callbacks
   , connectionStateOut
   , onSelectionChangeIn
   , onViewportChangeIn
+  , withInProgress
   )
 import Boundary.Elements
   ( JsConnection
@@ -123,6 +117,8 @@ import Boundary.Elements
   , viewportOut
   )
 import Boundary.Enums (handleTypeIn)
+import Boundary.Original (remembering)
+import Boundary.Store (JsStoreApi, equalityFor, selectorThrough, storeViewOf, useStoreApiObject)
 import Boundary.Instance
   ( JsHandleConnection
   , JsReactFlowInstance
@@ -137,7 +133,6 @@ import Data.Maybe (Maybe(..), fromMaybe, isJust)
 import Data.Newtype (unwrap, wrap)
 import Data.Nullable (Nullable, toNullable)
 import Effect (Effect)
-import Effect.Exception (throw)
 import Effect.Exception.Unsafe (unsafeThrow)
 import Effect.Uncurried
   ( EffectFn1
@@ -169,6 +164,8 @@ import React.Hook.Selectors
   , useViewport
   ) as PS
 import React.Hook.Listeners (useOnSelectionChange, useOnViewportChange) as PS
+import React.Hook.Store (useStoreApi, useStoreWith) as PS
+import React.Store.Shell (Store)
 import React.Hook.UpdateNodeInternals (useUpdateNodeInternals) as PS
 import React.Types.Edges (Edge)
 import React.Types.Nodes (InternalNode, Node)
@@ -417,12 +414,15 @@ useConnection = mkEffectFn1 \selector ->
   in
     unwrap <$> runHook (PS.useConnectionWith (UnsafeReference <<< project <<< stateOut))
   where
+  -- Upstream's `ConnectionState`, so `inProgress` leads, as the store's own
+  -- `connection` member has it. A connection in progress always has a
+  -- `toPosition`; only the final state `onConnectEnd` receives drops it.
   stateOut :: ConnectionState (InternalNodeBase Foreign) -> JsConnectionState
-  stateOut = connectionStateOut <<< case _ of
-    NoConnection -> Nothing
-    -- A connection in progress always has a `toPosition`; only the final
-    -- state `onConnectEnd` receives drops it.
-    ConnectionInProgress inProgress -> Just inProgress { toPosition = Just inProgress.toPosition }
+  stateOut = case _ of
+    NoConnection -> unsafeCoerce (withInProgress false (connectionStateOut Nothing))
+    ConnectionInProgress inProgress ->
+      unsafeCoerce
+        (withInProgress true (connectionStateOut (Just inProgress { toPosition = Just inProgress.toPosition })))
 
 -- ────────────────────────────────────────────────────────────────────────
 -- The listener hooks
@@ -441,7 +441,7 @@ useOnViewportChange = mkEffectFn1 \options ->
 -- | Dependency identity belongs to the consumer callback. Preserve the
 -- | existing conversion while giving the same function the same adapter.
 stableViewportChangeIn :: JsOnViewportChange -> OnViewportChange
-stableViewportChangeIn = cacheCallback onViewportChangeIn
+stableViewportChangeIn = cacheCallback (remembering onViewportChangeIn)
 
 foreign import cacheCallback :: forall a b. (a -> b) -> a -> b
 
@@ -449,8 +449,14 @@ useOnSelectionChange :: EffectFn1 JsUseOnSelectionChangeOptions Unit
 useOnSelectionChange = mkEffectFn1 \options ->
   runHook
     ( PS.useOnSelectionChange
-        { onChange: map onSelectionChangeIn (fromUndefinable options.onChange) }
+        { onChange: map stableSelectionChangeIn (fromUndefinable options.onChange) }
     )
+
+-- | The same consumer handler converts to the same PureScript function, so
+-- | the listener's `[onChange]` dependency holds across renders, and the
+-- | store's handler list reads back as the consumer's own function.
+stableSelectionChangeIn :: JsOnSelectionChange -> OnSelectionChangeFunc Foreign Foreign
+stableSelectionChangeIn = cacheCallback (remembering onSelectionChangeIn)
 
 -- ────────────────────────────────────────────────────────────────────────
 -- The connection-query hooks
@@ -555,37 +561,27 @@ experimental_useOnEdgesChangeMiddleware = mkEffectFn1 \middleware ->
     )
 
 -- ────────────────────────────────────────────────────────────────────────
--- The two that refuse
+-- The store
 -- ────────────────────────────────────────────────────────────────────────
---
--- See the module header. Both are callable and both throw, because the value
--- they would hand over is the internal store state and no converter for it
--- exists. Their arity is upstream's, so `parity/surface/diff.mjs` sees them
--- agree; that they refuse is `parity/boundary/mount.mjs`'s to hold, by calling
--- each one and reading the message it throws.
 
--- | `Effect.Exception.throw` and not `unsafeThrow`: the refusal has to happen
--- | when the hook is *called*, and `useStoreApi` is nullary, so an
--- | `unsafeThrow` in its body would fire while `index.js` was being imported
--- | and take the whole surface down with it. `throw` builds an `Effect` that
--- | throws when run, which is the same thing one call later.
-useStore :: EffectFn2 Foreign (Undefinable Foreign) Foreign
-useStore = mkEffectFn2 \_ _ -> throw (storeRefusal "useStore")
+-- | Upstream's `useStore(selector, equalityFn?)`. The selector reads the
+-- | state's JavaScript view; with no selector the hook answers the whole
+-- | view, as zustand's identity default does.
+useStore :: EffectFn2 (Undefinable Foreign) (Undefinable Foreign) Foreign
+useStore = mkEffectFn2 \selector equalityFn -> do
+  store <- runHook PS.useStoreApi
+  let view = storeViewOf (store :: Store JsData JsData)
+  runHook (PS.useStoreWith (selectorThrough view selector) (equalityFor equalityFn))
 
-useStoreApi :: Effect Foreign
-useStoreApi = throw (storeRefusal "useStoreApi")
-
-storeRefusal :: String -> String
-storeRefusal name =
-  "ps-flow: `" <> name
-    <> "` has not crossed the JavaScript boundary — it hands over ps-flow's "
-    <> "internal store state, which is a PureScript record and not upstream's "
-    <> "object: `nodeLookup` is a `Data.Map` where upstream has a `Map`, "
-    <> "`transform` is a newtype where upstream has `[x, y, zoom]`, and the "
-    <> "other 83 fields are unconverted. It is refused rather than handed over "
-    <> "raw so that the selectors which would silently answer `undefined` fail "
-    <> "instead. `useReactFlow`, `useNodes`, `useEdges` and `useViewport` have "
-    <> "crossed and reach most of the same state."
+-- | Upstream's `useStoreApi()`: `{ getState, setState, subscribe }`, one
+-- | object per component holding the store's three functions.
+-- |
+-- | `Effect` and not a bare value, as `useReactFlow` is: a nullary binding
+-- | would run when `index.js` was imported, outside any render.
+useStoreApi :: Effect JsStoreApi
+useStoreApi = do
+  store <- runHook PS.useStoreApi
+  runEffectFn1 useStoreApiObject (storeViewOf (store :: Store JsData JsData))
 
 -- ────────────────────────────────────────────────────────────────────────
 -- Small helpers

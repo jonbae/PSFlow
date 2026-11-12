@@ -45,12 +45,15 @@ import System.Types.Edge
   , ConnectionLineType
   , EdgeAriaLabel
   , EdgeBase
+  , EdgeMarkerType
+  , EdgeReconnectable
   , SmoothStepPathOptions
   , StepPathOptions
   )
 import System.Types.Geometry (Position, XYPosition)
 import System.Types.Handle (Handle, HandleType)
 import System.Types.Node (InternalNodeBase, OnError)
+import System.Types.Opaque (Opaque)
 import Web.UIEvent.MouseEvent (MouseEvent)
 
 -- | The React-layer alias for `System.Types.Edge.EdgeBase`. Polymorphic in
@@ -82,17 +85,34 @@ derive instance ordReconnectHandleType :: Ord ReconnectHandleType
 
 type OnReconnect e = Edge e -> Connection -> Effect Unit
 
+-- | Upstream's `DefaultEdgeOptions`: `Edge` without `id`, `source`, `target`,
+-- | `sourceHandle`, `targetHandle` and `selected`, so 23 members. The tag is
+-- | `edgeType` here because it is `edgeType` on `EdgeBase`, which these
+-- | options are merged under.
 type DefaultEdgeOptions e =
-  { animated :: Maybe Boolean
+  { edgeType :: Maybe String
+  , animated :: Maybe Boolean
   , hidden :: Maybe Boolean
   , deletable :: Maybe Boolean
   , selectable :: Maybe Boolean
-  , focusable :: Maybe Boolean
   , data :: Maybe e
+  , markerStart :: Maybe EdgeMarkerType
+  , markerEnd :: Maybe EdgeMarkerType
   , zIndex :: Maybe Int
   , ariaLabel :: Maybe EdgeAriaLabel
   , interactionWidth :: Maybe Number
-  , reconnectable :: Maybe ReconnectHandleType
+  , label :: Maybe String
+  , labelStyle :: Maybe (Object String)
+  , labelShowBg :: Maybe Boolean
+  , labelBgStyle :: Maybe (Object String)
+  , labelBgPadding :: Maybe { x :: Number, y :: Number }
+  , labelBgBorderRadius :: Maybe Number
+  , style :: Maybe (Object String)
+  , className :: Maybe String
+  , reconnectable :: Maybe EdgeReconnectable
+  , focusable :: Maybe Boolean
+  , ariaRole :: Maybe String
+  , domAttributes :: Maybe Opaque
   }
 
 -- | Opaque placeholder for `Record<string, ComponentType<EdgeProps>>`.

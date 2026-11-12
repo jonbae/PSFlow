@@ -1,0 +1,125 @@
+
+> ps-flow@0.0.0 parity:system
+> node parity/system/net.mjs
+
+fork: 54 upstream unit(s) affirmed — 30 of 48 spec unit(s) lifted, 18 declined with a reason, and 6 depended-on source(s).
+driver [psflow]: 30 fixtures + 1 direct component(s), 49 observed callback props, library from `// output/Boundary/` → dist/psflow.js
+driver [upstream]: 30 fixtures + 1 direct component(s), 49 observed callback props, library from `// xyflow/packages/react/src/` → dist/upstream.js
+captured mount-baseline--edges-general
+captured mount-baseline--node-toolbar-general
+captured mount-baseline--nodes-general
+captured mount-baseline--pane-general
+captured mount-baseline--pane-non-defaults
+captured mount-baseline--chrome-background
+captured mount-baseline--chrome-controls
+captured mount-baseline--chrome-minimap-colors
+captured mount-baseline--chrome-minimap-hidden-nodes
+captured mount-baseline--chrome-panels
+captured mount-baseline--edges-base-edge-path
+captured mount-baseline--fitview-uncontrolled
+captured mount-baseline--flow-chrome-defaults
+captured mount-baseline--flow-custom-testid
+captured mount-baseline--flow-display-none
+captured mount-baseline--flow-limits-change
+captured mount-baseline--flow-not-selectable
+captured mount-baseline--flow-props-change
+captured mount-baseline--nodes-autopan
+captured mount-baseline--nodes-connections
+captured mount-baseline--nodes-expand-parent
+captured mount-baseline--nodes-no-select-on-drag
+captured mount-baseline--nodes-nowheel
+captured mount-baseline--nodes-props-record
+captured mount-baseline--nodes-tall
+captured mount-baseline--nodes-unmeasured
+captured mount-baseline--resize-lifecycle
+captured mount-baseline--viewport-controlled
+captured mount-baseline--viewport-helpers
+captured mount-baseline--viewport-pan-on-scroll
+captured mount-baseline--examples-color-mode
+captured click-selects-edge
+captured multi-select-edges-with-modifier
+captured click-unselectable-edge
+captured delete-key-removes-edge
+captured delete-key-spares-undeletable-edge
+captured click-inside-interaction-width
+captured click-selects-node
+captured shift-drag-selects-nodes
+captured click-unselectable-node
+captured drag-moves-node
+captured drag-does-not-move-undraggable-node
+captured drag-by-custom-drag-handle
+captured delete-key-removes-node-and-edges
+captured delete-key-spares-undeletable-node
+captured connect-source-handle-to-target-handle
+captured connect-output-to-output-handle
+captured connect-input-to-input-handle
+captured connect-to-unconnectable-handle
+captured drag-pans-the-pane
+captured wheel-zooms-the-pane
+captured wheel-zooms-out-to-min
+captured wheel-zooms-in-to-max
+captured wheel-pans-with-panonscroll
+captured click-reveals-default-toolbar
+captured select-dark-color-mode
+captured drag-node-release
+captured drag-node-escape-mid-gesture
+captured drag-node-autopan
+captured drag-node-no-select-on-drag
+captured drag-child-expand-parent
+captured drag-unmeasured-node
+captured selection-box-from-node
+captured selection-box-then-click-node
+captured selection-box-mid-gesture
+captured selection-box-touch
+captured arrow-key-selected-node
+captured keyboard-focus-node
+captured connect-handle-to-handle
+captured connect-then-keyboard-move
+captured connect-second-touch-point
+captured probe-node-connections
+captured viewport-helpers-with-options
+captured pan-gesture-complete
+captured fitview-onnodeschange-variants
+captured uncontrolled-update-node
+captured flow-props-change-after-mount
+captured mount-in-display-none
+captured minimap-all-nodes-hidden
+captured minimap-custom-mask-colors
+captured controls-horizontal
+captured panel-center-positions
+captured background-custom-bgcolor
+captured flow-custom-testid
+captured custom-edge-baseedge-path
+captured pinch-over-nowheel-node
+captured minimap-default-click
+captured controls-default-zoom
+captured wheel-zoom-from-identity-viewport
+captured pane-drag-from-identity-viewport
+captured drag-node-reports-changes
+captured click-connect-reverse-direction
+captured connect-drag-holding-source
+captured connect-drag-released-on-pane
+captured node-props-record-parented
+captured resize-node-with-direct-control
+captured resize-node-with-resizer
+captured resize-node-after-active-limit-change
+captured wheel-zooms-to-changed-limits
+captured drag-pans-into-changed-extent
+captured pan-after-controlled-viewport-change
+captured ctrl-wheel-pinches-with-panonscroll
+captured pane-click-keeps-selection-when-not-selectable
+captured click-selects-node--probe-flow-node
+captured wheel-zooms-the-pane--probe-flow-node
+captured mount-baseline--edges-general--probe-edge
+captured connect-source-handle-to-target-handle--probe-connection-line
+
+2 of 107 scenario(s) failed:
+  click-selects-node--probe-flow-node: unclaimed-difference
+  wheel-zooms-the-pane--probe-flow-node: unclaimed-difference
+coverage: 128 of 156 export-bearing entries driven, 28 declared hole(s), across 107 scenario(s) that ran — and 50 hand-declared behavior(s), counted apart.
+The report is parity/system/report.md and the coverage artifact is parity/system/coverage.md.
+npm notice
+npm notice New major version of npm available! 11.12.1 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

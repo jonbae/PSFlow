@@ -15,10 +15,10 @@
 // So this compares the two type declarations' label sets directly. There is no
 // recorded baseline to re-bless: both sides are read live from source, and the
 // gate fails on the field that appears in one and not the other. The only
-// hand-written data is the rename and refusal tables and the rest fields, and
-// all three are themselves checked — an entry naming a field that no longer
-// exists, or a refusal whose PureScript counterpart has since appeared, fails
-// as stale.
+// hand-written data is the rename tables and the rest fields, and
+// both are themselves checked — an entry naming a field that no longer exists
+// fails as stale. A third table, of refused fields, went in Step 3 G with the
+// last refusal: `defaultEdgeOptions`' thirteen members, which now convert.
 //
 // `NodeChange` and `EdgeChange` are handled separately, because their JS shape
 // is a flattened discriminated union rather than one record's mirror. Their
@@ -27,8 +27,8 @@
 // extended.
 //
 // The run ends with a falsification probe. A green differential result proves
-// nothing until it has been shown it can go red, and this one has nine
-// failure classes to demonstrate, so it demonstrates all nine on every run.
+// nothing until it has been shown it can go red, and this one has seven
+// failure classes to demonstrate, so it demonstrates all seven on every run.
 //
 // Usage: node parity/boundary/drift.mjs
 
@@ -136,31 +136,24 @@ const pairs = [
     // `Boundary.Flow` collects it with `Boundary.Rest.restOf`.
     rest: "wrapperAttributes",
   },
+  // The store as `useStore` and `useStoreApi` hand it to JavaScript. Each
+  // member converts through one `Field` in `Boundary.Store`, so the label sets
+  // must agree: a state member without a field is one a JavaScript reader
+  // never sees, and a field without a member converts nothing.
+  {
+    what: "ReactFlowState",
+    ps: { file: "src/React/Types/Store.purs", type: "ReactFlowState" },
+    js: { file: "src/Boundary/Store.purs", type: "StateFields" },
+    renames: {},
+  },
+  // Upstream's `DefaultEdgeOptions` is `Edge` minus its identity fields and
+  // `selected`, 23 members, and both sides carry all 23. Its tag carries
+  // `Edge`'s rename because the options are merged under an `EdgeBase`.
   {
     what: "DefaultEdgeOptions",
     ps: { file: "src/React/Types/Edges.purs", type: "DefaultEdgeOptions" },
-    js: { file: "src/Boundary/Flow.purs", type: "JsDefaultEdgeOptions" },
-    renames: {},
-    // Upstream's `DefaultEdgeOptions` is `Edge` minus its identity fields, and
-    // ps-flow's carries ten of those 23. The other thirteen are named on the JS
-    // side on purpose, so `Boundary.Flow.guardEdgeOptions` can refuse them —
-    // dropping them silently is the failure the whole module exists to remove.
-    // One of them gaining a PureScript counterpart fails as stale below.
-    refused: [
-      "type",
-      "markerStart",
-      "markerEnd",
-      "style",
-      "className",
-      "label",
-      "labelStyle",
-      "labelShowBg",
-      "labelBgStyle",
-      "labelBgPadding",
-      "labelBgBorderRadius",
-      "ariaRole",
-      "domAttributes",
-    ],
+    js: { file: "src/Boundary/Elements.purs", type: "JsDefaultEdgeOptions" },
+    renames: { edgeType: "type" },
   },
   {
     what: "Viewport",
@@ -568,26 +561,10 @@ const pairs = [
 
 // Pure, so the falsification probe below can hand it perturbed field lists
 // without touching a file.
-export function compare({ psType, jsType, psFields, jsFields, renames, refused = [], rest }) {
+export function compare({ psType, jsType, psFields, jsFields, renames, rest }) {
   const psSet = new Set(psFields);
   const jsSet = new Set(jsFields);
-  const refusedSet = new Set(refused);
   const problems = [];
-
-  // A refused field is one the JS side names so it can be rejected. It must
-  // still exist there, and it must still have no PureScript counterpart — once
-  // it gains one it can be converted, and going on refusing it would be a
-  // working prop turned into an error.
-  for (const name of refused) {
-    if (!jsSet.has(name)) {
-      problems.push(`stale refusal: \`${name}\` is not a field of ${jsType}`);
-    }
-    if (psSet.has(name)) {
-      problems.push(
-        `stale refusal: \`${name}\` is refused but ${psType} now has it — convert it instead`
-      );
-    }
-  }
 
   // A rename must name a field that exists on both sides. One that stops
   // matching means the divergence it documents is gone, and a rename table
@@ -630,7 +607,7 @@ export function compare({ psType, jsType, psFields, jsFields, renames, refused =
     }
   }
   for (const name of jsFields) {
-    if (!psCrossed.has(name) && !refusedSet.has(name)) {
+    if (!psCrossed.has(name)) {
       const origin = reverse.get(name);
       problems.push(
         `${jsType}.${name} has no field in ${psType}` +
@@ -649,7 +626,6 @@ function pairInput(pair) {
     psFields: recordFields(join(repoRoot, pair.ps.file), pair.ps.type),
     jsFields: recordFields(join(repoRoot, pair.js.file), pair.js.type),
     renames: pair.renames,
-    refused: pair.refused ?? [],
     rest: pair.rest,
   };
 }
@@ -729,12 +705,11 @@ function unionInput(union) {
 
 // ── The falsification probe ─────────────────────────────────────────────
 //
-// Nine failure classes, nine perturbations, checked against the real field
+// Seven failure classes, seven perturbations, checked against the real field
 // lists so the probe cannot pass on a shape the gate never sees.
 
 function falsify(inputs, unionInputs) {
   const base = inputs[0];
-  const optionsPair = inputs.find((i) => i.refused.length > 0);
   const restPair = inputs.find((i) => i.rest !== undefined);
   const union = unionInputs[0];
   const firstVariant = Object.keys(union.variants)[0];
@@ -751,18 +726,6 @@ function falsify(inputs, unionInputs) {
     [
       "a rename naming a field neither side has",
       () => compare({ ...base, renames: { ...base.renames, goneFromBoth: "alsoGone" } }),
-    ],
-    [
-      "a refusal that no longer names a JS field",
-      () => compare({ ...optionsPair, refused: [...optionsPair.refused, "goneFromJs"] }),
-    ],
-    [
-      "a refused field the PureScript record has since gained",
-      () =>
-        compare({
-          ...optionsPair,
-          psFields: [...optionsPair.psFields, optionsPair.refused[0]],
-        }),
     ],
     [
       "a rest field the PureScript record no longer has",
@@ -824,14 +787,11 @@ const report = (what, problems, summary) => {
 };
 
 pairs.forEach((pair, i) => {
-  const refused = inputs[i].refused.length;
   const rest = inputs[i].rest;
   report(
     pair.what,
     compare(inputs[i]),
-    `${inputs[i].psFields.length} fields` +
-      (refused ? `, ${refused} refused` : "") +
-      (rest ? `, rest in \`${rest}\`` : "")
+    `${inputs[i].psFields.length} fields` + (rest ? `, rest in \`${rest}\`` : "")
   );
 });
 
@@ -858,4 +818,4 @@ falsify(inputs, unionInputs);
 
 console.log("boundary drift: every crossed record agrees, field for field.");
 console.log(rows.join("\n"));
-console.log("\n  ✓ falsification probe — the check goes red on all nine failure classes.");
+console.log("\n  ✓ falsification probe — the check goes red on all seven failure classes.");

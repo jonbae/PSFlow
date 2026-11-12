@@ -1,0 +1,669 @@
+{
+  "scenarios": 107,
+  "passed": 105,
+  "failed": 2,
+  "selfConsistentSides": 214,
+  "coverage": [
+    128,
+    156,
+    28
+  ],
+  "failing": [
+    {
+      "scenario": "click-selects-node--probe-flow-node",
+      "outcome": "failed",
+      "reason": "unclaimed-difference",
+      "differences": 8
+    },
+    {
+      "scenario": "wheel-zooms-the-pane--probe-flow-node",
+      "outcome": "failed",
+      "reason": "unclaimed-difference",
+      "differences": 5
+    }
+  ],
+  "results": [
+    {
+      "scenario": "mount-baseline--edges-general",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--node-toolbar-general",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--nodes-general",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--pane-general",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--pane-non-defaults",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--chrome-background",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--chrome-controls",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--chrome-minimap-colors",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--chrome-minimap-hidden-nodes",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--chrome-panels",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--edges-base-edge-path",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--fitview-uncontrolled",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--flow-chrome-defaults",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--flow-custom-testid",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--flow-display-none",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--flow-limits-change",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--flow-not-selectable",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--flow-props-change",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--nodes-autopan",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--nodes-connections",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--nodes-expand-parent",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--nodes-no-select-on-drag",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--nodes-nowheel",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--nodes-props-record",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--nodes-tall",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--nodes-unmeasured",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--resize-lifecycle",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--viewport-controlled",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--viewport-helpers",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--viewport-pan-on-scroll",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-baseline--examples-color-mode",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "click-selects-edge",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "multi-select-edges-with-modifier",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "click-unselectable-edge",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "delete-key-removes-edge",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "delete-key-spares-undeletable-edge",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "click-inside-interaction-width",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "click-selects-node",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "shift-drag-selects-nodes",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "click-unselectable-node",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "drag-moves-node",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "drag-does-not-move-undraggable-node",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "drag-by-custom-drag-handle",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "delete-key-removes-node-and-edges",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "delete-key-spares-undeletable-node",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "connect-source-handle-to-target-handle",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "connect-output-to-output-handle",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "connect-input-to-input-handle",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "connect-to-unconnectable-handle",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "drag-pans-the-pane",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "wheel-zooms-the-pane",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "wheel-zooms-out-to-min",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "wheel-zooms-in-to-max",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "wheel-pans-with-panonscroll",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "click-reveals-default-toolbar",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "select-dark-color-mode",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "drag-node-release",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "drag-node-escape-mid-gesture",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "drag-node-autopan",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "drag-node-no-select-on-drag",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "drag-child-expand-parent",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "drag-unmeasured-node",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "selection-box-from-node",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "selection-box-then-click-node",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "selection-box-mid-gesture",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "selection-box-touch",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "arrow-key-selected-node",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "keyboard-focus-node",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "connect-handle-to-handle",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "connect-then-keyboard-move",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "connect-second-touch-point",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "probe-node-connections",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "viewport-helpers-with-options",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "pan-gesture-complete",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "fitview-onnodeschange-variants",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "uncontrolled-update-node",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "flow-props-change-after-mount",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "mount-in-display-none",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "minimap-all-nodes-hidden",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "minimap-custom-mask-colors",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "controls-horizontal",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "panel-center-positions",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "background-custom-bgcolor",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "flow-custom-testid",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "custom-edge-baseedge-path",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "pinch-over-nowheel-node",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "minimap-default-click",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "controls-default-zoom",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "wheel-zoom-from-identity-viewport",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "pane-drag-from-identity-viewport",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "drag-node-reports-changes",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "click-connect-reverse-direction",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "connect-drag-holding-source",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "connect-drag-released-on-pane",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "node-props-record-parented",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "resize-node-with-direct-control",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "resize-node-with-resizer",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "resize-node-after-active-limit-change",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "wheel-zooms-to-changed-limits",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "drag-pans-into-changed-extent",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "pan-after-controlled-viewport-change",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "ctrl-wheel-pinches-with-panonscroll",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "pane-click-keeps-selection-when-not-selectable",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "click-selects-node--probe-flow-node",
+      "outcome": "failed",
+      "reason": "unclaimed-difference",
+      "differences": 8
+    },
+    {
+      "scenario": "wheel-zooms-the-pane--probe-flow-node",
+      "outcome": "failed",
+      "reason": "unclaimed-difference",
+      "differences": 5
+    },
+    {
+      "scenario": "mount-baseline--edges-general--probe-edge",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    },
+    {
+      "scenario": "connect-source-handle-to-target-handle--probe-connection-line",
+      "outcome": "passed",
+      "reason": "—",
+      "differences": 0
+    }
+  ]
+}

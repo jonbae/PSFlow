@@ -30,10 +30,10 @@
 -- |     there was none, so neither of TS's two `edgeRef.current?.blur()`
 -- |     calls had anything to call, and a deselected edge kept the focus
 -- |     ring and the keyboard. See [#27](https://github.com/jonbae/PSFlow/issues/27).
--- |   * `edge.ariaRole` / `edge.domAttributes` / `edge.reconnectable`
--- |     aren't carried on `EdgeBase`; the wrapper substitutes
--- |     "img"/"group" for `role`, skips the dom-attribute spread, and
--- |     keys reconnect off the global `edgesReconnectable` flag alone.
+-- |   * `edge.focusable`, `edge.reconnectable`, `edge.ariaRole` and
+-- |     `edge.domAttributes` are read as upstream reads them: the first two
+-- |     override the flow-wide flags only when present, `role` falls back to
+-- |     "group" or "img", and the attribute bag is spread last onto `<g>`.
 -- |   * The component resolution lookup uses the `unsafePerformEffect`
 -- |     pattern: a fresh resolution happens each render, and the
 -- |     `onError` callback fires on every miss. Acceptable because
@@ -64,7 +64,7 @@ import React.Component.EdgeWrapper.UpdateAnchors (edgeUpdateAnchors)
 import React.Component.EdgeWrapper.Util (EdgePositionSlice, builtinEdgeTypes, nullPosition)
 import React.Container.A11yDescriptions (ariaEdgeDescKey)
 import React.Edge.Bezier (bezierEdgeInternal)
-import React.FFI.DOM (blurElement, g_, opt)
+import React.FFI.DOM (blurElement, g_, opt, spreadOver)
 import React.Hook.Store (UseStoreApi, useStore, useStoreApi)
 import React.Store.Action (Action(..))
 import React.Types.Edges
@@ -78,7 +78,8 @@ import React.Types.Edges
   )
 import React.Types.Store (ReactFlowState)
 import System.Constants (ErrorCode(..), elementSelectionKeys, errorMessage)
-import System.Types.Edge (EdgeAriaLabel(..), EdgeMarkerType)
+import System.Types.Edge (EdgeAriaLabel(..), EdgeMarkerType, EdgeReconnectable(..), edgeOwnsKey)
+import System.Types.Opaque (unOpaque)
 import System.Types.Geometry (Position)
 import Data.Newtype (unwrap)
 import System.Types.Ids (NodeId(..))
@@ -139,10 +140,24 @@ placeholderEdge edgeId =
   , interactionWidth: Nothing
   , className: Nothing
   , style: Nothing
+  , focusable: Nothing
+  , reconnectable: Nothing
+  , ariaRole: Nothing
+  , domAttributes: Nothing
+  , labelStyle: Nothing
+  , labelShowBg: Nothing
+  , labelBgStyle: Nothing
+  , labelBgPadding: Nothing
+  , labelBgBorderRadius: Nothing
+  , pathOptions: Nothing
   }
 
--- | TS `edge = { ...defaultEdgeOptions, ...edge }`. Per-edge fields
--- | take precedence; defaults fill gaps.
+-- | TS `edge = { ...defaultEdgeOptions, ...edge }`, over all 23 members the
+-- | options can carry. A member the edge holds wins. A member the edge's own
+-- | object has as a key holding `undefined` wins too, because the spread
+-- | copies that `undefined` over the default; `edgeOwnsKey` reads the key
+-- | off the consumer's object, since a decoded `Nothing` cannot tell the two
+-- | absences apart. Only a member the edge does not have inherits.
 applyDefaults
   :: forall e
    . Maybe (DefaultEdgeOptions e)
@@ -151,19 +166,37 @@ applyDefaults
 applyDefaults Nothing edge = edge
 applyDefaults (Just defaults) edge =
   edge
-    { animated = orElse edge.animated defaults.animated
-    , hidden = orElse edge.hidden defaults.hidden
-    , deletable = orElse edge.deletable defaults.deletable
-    , selectable = orElse edge.selectable defaults.selectable
-    , data = orElse edge.data defaults.data
-    , zIndex = orElse edge.zIndex defaults.zIndex
-    , ariaLabel = orElse edge.ariaLabel defaults.ariaLabel
-    , interactionWidth = orElse edge.interactionWidth defaults.interactionWidth
+    { edgeType = from "type" edge.edgeType defaults.edgeType
+    , animated = from "animated" edge.animated defaults.animated
+    , hidden = from "hidden" edge.hidden defaults.hidden
+    , deletable = from "deletable" edge.deletable defaults.deletable
+    , selectable = from "selectable" edge.selectable defaults.selectable
+    , data = from "data" edge.data defaults.data
+    , markerStart = from "markerStart" edge.markerStart defaults.markerStart
+    , markerEnd = from "markerEnd" edge.markerEnd defaults.markerEnd
+    , zIndex = from "zIndex" edge.zIndex defaults.zIndex
+    , ariaLabel = from "ariaLabel" edge.ariaLabel defaults.ariaLabel
+    , interactionWidth = from "interactionWidth" edge.interactionWidth defaults.interactionWidth
+    , label = from "label" edge.label defaults.label
+    , labelStyle = from "labelStyle" edge.labelStyle defaults.labelStyle
+    , labelShowBg = from "labelShowBg" edge.labelShowBg defaults.labelShowBg
+    , labelBgStyle = from "labelBgStyle" edge.labelBgStyle defaults.labelBgStyle
+    , labelBgPadding = from "labelBgPadding" edge.labelBgPadding defaults.labelBgPadding
+    , labelBgBorderRadius =
+        from "labelBgBorderRadius" edge.labelBgBorderRadius defaults.labelBgBorderRadius
+    , style = from "style" edge.style defaults.style
+    , className = from "className" edge.className defaults.className
+    , reconnectable = from "reconnectable" edge.reconnectable defaults.reconnectable
+    , focusable = from "focusable" edge.focusable defaults.focusable
+    , ariaRole = from "ariaRole" edge.ariaRole defaults.ariaRole
+    , domAttributes = from "domAttributes" edge.domAttributes defaults.domAttributes
     }
   where
-  orElse :: forall a. Maybe a -> Maybe a -> Maybe a
-  orElse (Just x) _ = Just x
-  orElse Nothing y = y
+  from :: forall a. String -> Maybe a -> Maybe a -> Maybe a
+  from _ (Just own) _ = Just own
+  from key Nothing inherited
+    | edgeOwnsKey key edge = Nothing
+    | otherwise = inherited
 
 selectEdgePosition
   :: forall n e
@@ -302,16 +335,21 @@ mkEdgeProps edge isSelectable sx sy tx ty sp tp mStart mEnd =
   , sourcePosition: sp
   , targetPosition: tp
   , label: edge.label
-  , labelStyle: Nothing
-  , labelShowBg: Nothing
-  , labelBgStyle: Nothing
-  , labelBgPadding: Nothing
-  , labelBgBorderRadius: Nothing
+  -- `Object String` and the opaque `Style` share a runtime representation,
+  -- as `style` above does.
+  , labelStyle: unsafeCoerce edge.labelStyle
+  , labelShowBg: edge.labelShowBg
+  , labelBgStyle: unsafeCoerce edge.labelBgStyle
+  , labelBgPadding: edge.labelBgPadding
+  , labelBgBorderRadius: edge.labelBgBorderRadius
   , sourceHandleId: edge.sourceHandle
   , targetHandleId: edge.targetHandle
   , markerStart: mStart
   , markerEnd: mEnd
-  , pathOptions: Nothing
+  -- TS `'pathOptions' in edge ? edge.pathOptions : undefined`. The union
+  -- record holds every member the three built-in variants read, so each
+  -- variant's narrower record is a view of it.
+  , pathOptions: unsafeCoerce edge.pathOptions
   , interactionWidth: edge.interactionWidth
   }
 
@@ -348,11 +386,22 @@ edgeWrapper =
       positionSlice <- useStore (selectEdgePosition props.id)
 
       let
-        isFocusable = props.edgesFocusable
+        -- TS: `!!(edge.focusable || (edgesFocusable && typeof edge.focusable === 'undefined'))`.
+        isFocusable = fromMaybe false edge.focusable
+          || (props.edgesFocusable && isNothing edge.focusable)
+
+        -- TS: `typeof onReconnect !== 'undefined' && (edge.reconnectable ||
+        -- (edgesReconnectable && typeof edge.reconnectable === 'undefined'))`.
+        -- A handle type is truthy and passes through as itself; an edge's
+        -- `false` falls to the flag clause, whose `undefined` test fails.
         isReconnectable :: Maybe ReconnectHandleType
         isReconnectable = case props.onReconnect of
           Nothing -> Nothing
-          Just _ -> if props.edgesReconnectable then Just ReconnectAny else Nothing
+          Just _ -> case edge.reconnectable of
+            Just (ReconnectableFlag true) -> Just ReconnectAny
+            Just (ReconnectableEnd end) -> Just (ReconnectOnly end)
+            Just (ReconnectableFlag false) -> Nothing
+            Nothing -> if props.edgesReconnectable then Just ReconnectAny else Nothing
 
         -- TS: `edge.selectable || (elementsSelectable && edge.selectable === undefined)`.
         -- An explicit `selectable: false` wins over the global `elementsSelectable`
@@ -430,6 +479,7 @@ edgeWrapper =
           svg_
             { style: { zIndex: positionSlice.zIndex } }
             [ g_
+                ( spreadOver (map unOpaque edge.domAttributes)
                 { className: buildEdgeClassName
                     { edgeType
                     , noPanClassName: props.noPanClassName
@@ -448,8 +498,10 @@ edgeWrapper =
                 , onMouseMove: onMouseMoveHandler
                 , onMouseLeave: onMouseLeaveHandler
                 , onKeyDown: if isFocusable then onKeyDownHandler else handler_ (pure unit)
-                , tabIndex: if isFocusable then 0 else -1
-                , role: if isFocusable then "group" else "img"
+                -- TS `tabIndex={isFocusable ? 0 : undefined}`.
+                , tabIndex: opt (if isFocusable then Just 0 else Nothing)
+                -- TS `edge.ariaRole ?? (isFocusable ? 'group' : 'img')`.
+                , role: fromMaybe (if isFocusable then "group" else "img") edge.ariaRole
                 , "aria-roledescription": "edge"
                 , "data-id": props.id
                 , "data-testid": "rf__edge-" <> props.id
@@ -468,6 +520,7 @@ edgeWrapper =
                         else Nothing
                       )
                 }
+                )
                 ( case positionSlice.sourceX,
                     positionSlice.sourceY,
                     positionSlice.targetX,

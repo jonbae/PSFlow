@@ -35,8 +35,10 @@
 -- |   * `node.style.width` / `node.style.height` string fallbacks for
 -- |     inline dimensions are deferred (`Style` is `Foreign` with no
 -- |     typed accessor yet).
--- |   * `node.domAttributes` spread and `node.ariaRole` aren't carried on
--- |     `NodeBase` yet.
+-- |   * `node.focusable` overrides `nodesFocusable` only when present,
+-- |     `role` is `node.ariaRole` falling back to "group" for a focusable
+-- |     node and to no attribute otherwise, and `node.domAttributes` is
+-- |     spread last onto the `<div>`, as TS writes all three.
 module React.Component.NodeWrapper
   ( nodeWrapper
   , mkDragStoreItems
@@ -50,7 +52,7 @@ import Type.Proxy (Proxy(..))
 import Data.Array (elem, null) as Array
 import Data.Foldable (for_)
 import Data.Map (lookup) as Map
-import Data.Maybe (Maybe(..), fromMaybe, isJust)
+import Data.Maybe (Maybe(..), fromMaybe, isJust, isNothing)
 import Data.Newtype (unwrap)
 import Data.Nullable (toMaybe)
 import Effect (Effect)
@@ -65,7 +67,7 @@ import React.Basic.Hooks as React
 import React.Component.NodeWrapper.Util (arrowKeyDiffs, builtinNodeTypes, getNodeInlineStyleDimensions, nodeTransform)
 import React.Container.A11yDescriptions (ariaNodeDescKey)
 import React.Context.NodeId (nodeIdProvider)
-import React.FFI.DOM (div_, opt)
+import React.FFI.DOM (div_, opt, spreadOver)
 import React.Hook.Drag (useDrag)
 import React.Hook.MoveSelectedNodes (useMoveSelectedNodes)
 import React.Hook.NodeObserver (useNodeObserver)
@@ -84,6 +86,7 @@ import React.Types.Nodes
   )
 import React.Types.Store (ReactFlowState)
 import System.Constants (ErrorCode(..), elementSelectionKeys, errorMessage)
+import System.Types.Opaque (unOpaque)
 import System.Types.Geometry (Transform(..))
 import System.Types.Ids (NodeId(..), nodeToParent)
 import System.Types.Node (OnError)
@@ -166,6 +169,9 @@ placeholderNode nodeId =
       , nodeType: Nothing
       , className: Nothing
       , style: Nothing
+      , focusable: Nothing
+      , ariaRole: Nothing
+      , domAttributes: Nothing
       }
   in
     Record.insert (Proxy :: Proxy "internals")
@@ -333,7 +339,9 @@ nodeWrapper =
         isConnectable = case node.connectable of
           Just b -> b
           Nothing -> props.nodesConnectable
-        isFocusable = props.nodesFocusable
+        -- TS: `!!(node.focusable || (nodesFocusable && typeof node.focusable === 'undefined'))`.
+        isFocusable = fromMaybe false node.focusable
+          || (props.nodesFocusable && isNothing node.focusable)
         userNode :: Node n
         userNode = (unsafeCoerce node) :: Node n
         hasDims = nodeHasDimensions userNode
@@ -510,6 +518,7 @@ nodeWrapper =
         if node.hidden == Just true then mempty
         else
           div_
+            ( spreadOver (map unOpaque node.domAttributes)
             { className: buildNodeClassName
                 { nodeType
                 , noPanClassName: props.noPanClassName
@@ -532,8 +541,13 @@ nodeWrapper =
             , onDoubleClick: onDoubleClickHandler
             , onKeyDown: if isFocusable then onKeyDownEventHandler else handler_ (pure unit)
             , onFocus: if isFocusable then onFocusHandler else handler_ (pure unit)
-            , tabIndex: if isFocusable then 0 else -1
-            , role: if isFocusable then "group" else ""
+            -- TS `tabIndex={isFocusable ? 0 : undefined}` and
+            -- `role={node.ariaRole ?? (isFocusable ? 'group' : undefined)}`:
+            -- neither attribute is written for a node that cannot take focus.
+            , tabIndex: opt (if isFocusable then Just 0 else Nothing)
+            , role: opt (case node.ariaRole of
+                Just role -> Just role
+                Nothing -> if isFocusable then Just "group" else Nothing)
             , "aria-roledescription": "node"
             , "aria-describedby":
                 opt
@@ -542,6 +556,7 @@ nodeWrapper =
                   )
             , "aria-label": opt node.ariaLabel
             }
+            )
             [ nodeIdProvider (Just props.id)
                 [ element userComponent
                     (mkNodeProps node nodeType isSelectable isDraggable isConnectable dragging)

@@ -67,6 +67,13 @@ type Store n e =
   -- | would be the one captured when the subscription was made, and a
   -- | consumer's selector can change from render to render.
   , subscribeAll :: Effect Unit -> Effect (Effect Unit)
+  -- | Zustand's `subscribe(listener)` as a JavaScript consumer reaches it
+  -- | through `useStoreApi`: the listener is handed the state and the one
+  -- | before it. Zustand passes its `state` variable as it is when each
+  -- | listener runs, and the `previousState` of the `set` that notified, so
+  -- | a listener that dispatches lets the next one see the newer state beside
+  -- | the older previous one. This hands over the same two.
+  , subscribeStates :: (ReactFlowState n e -> ReactFlowState n e -> Effect Unit) -> Effect (Effect Unit)
   , dispatch :: Action n e -> Effect Unit
   , freshMiddlewareKey :: Effect MiddlewareKey
   }
@@ -231,6 +238,15 @@ createStore opts = do
       Ref.modify_ (\xs -> xs <> [ { onUpdate, key } ]) subsRef
       pure (Ref.modify_ (Array.filter (\sub -> sub.key /= key)) subsRef)
 
+    subscribeStates listener = do
+      key <- Ref.modify (_ + 1) nextSubKeyRef
+      let
+        onUpdate prev next = unless (unsafeRefEq prev next) do
+          current <- Ref.read stateRef
+          listener current prev
+      Ref.modify_ (\xs -> xs <> [ { onUpdate, key } ]) subsRef
+      pure (Ref.modify_ (Array.filter (\sub -> sub.key /= key)) subsRef)
+
     freshMiddlewareKey = do
       n <- Ref.modify (_ + 1) middlewareKeyRef
       pure (MiddlewareKey n)
@@ -240,6 +256,7 @@ createStore opts = do
     , setState
     , subscribe
     , subscribeAll
+    , subscribeStates
     , dispatch
     , freshMiddlewareKey
     }

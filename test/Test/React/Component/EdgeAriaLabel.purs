@@ -75,6 +75,9 @@ nodeAt id at handles =
   , height: Just 25.0
   , initialWidth: Nothing
   , initialHeight: Nothing
+  , focusable: Nothing
+  , ariaRole: Nothing
+  , domAttributes: Nothing
   , parentId: Nothing
   , zIndex: Nothing
   , extent: Nothing
@@ -113,23 +116,23 @@ edgeLabelled ariaLabel =
   , label: Nothing
   , ariaLabel
   , interactionWidth: Nothing
+  , focusable: Nothing
+  , reconnectable: Nothing
+  , ariaRole: Nothing
+  , domAttributes: Nothing
+  , labelStyle: Nothing
+  , labelShowBg: Nothing
+  , labelBgStyle: Nothing
+  , labelBgPadding: Nothing
+  , labelBgBorderRadius: Nothing
+  , pathOptions: Nothing
   , className: Nothing
   , style: Nothing
   }
 
 defaultsLabelled :: Maybe EdgeAriaLabel -> DefaultEdgeOptions Unit
 defaultsLabelled ariaLabel =
-  { animated: Nothing
-  , hidden: Nothing
-  , deletable: Nothing
-  , selectable: Nothing
-  , focusable: Nothing
-  , data: Nothing
-  , zIndex: Nothing
-  , ariaLabel
-  , interactionWidth: Nothing
-  , reconnectable: Nothing
-  }
+  noEdgeOptions { ariaLabel = ariaLabel }
 
 edgeProps :: EdgeWrapperProps Unit Unit
 edgeProps =
@@ -221,3 +224,31 @@ runEdgeAriaLabelTests = do
     (ariaLabelIsNull (edgeOut (edgeLabelled (Just AriaLabelOff))))
   assert "the boundary hands an absent aria label back as undefined"
     (ariaLabelIsUndefined (edgeOut (edgeLabelled Nothing)))
+
+-- | Every member absent, so each test names only what it sets.
+noEdgeOptions :: forall e. DefaultEdgeOptions e
+noEdgeOptions =
+  { edgeType: Nothing
+  , animated: Nothing
+  , hidden: Nothing
+  , deletable: Nothing
+  , selectable: Nothing
+  , data: Nothing
+  , markerStart: Nothing
+  , markerEnd: Nothing
+  , zIndex: Nothing
+  , ariaLabel: Nothing
+  , interactionWidth: Nothing
+  , label: Nothing
+  , labelStyle: Nothing
+  , labelShowBg: Nothing
+  , labelBgStyle: Nothing
+  , labelBgPadding: Nothing
+  , labelBgBorderRadius: Nothing
+  , style: Nothing
+  , className: Nothing
+  , reconnectable: Nothing
+  , focusable: Nothing
+  , ariaRole: Nothing
+  , domAttributes: Nothing
+  }

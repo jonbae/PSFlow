@@ -18,6 +18,7 @@
 module React.Handle
   ( handle
   , clickConnectEndState
+  , onConnectExtended
   , nativePointerEvent
   , startsConnection
   ) where
@@ -31,7 +32,8 @@ import Data.Maybe (Maybe(..), fromMaybe, isJust, maybe)
 import Effect (Effect)
 import Effect.Exception.Unsafe (unsafeThrow)
 import Effect.Unsafe (unsafePerformEffect)
-import Foreign (Foreign)
+import Data.Function.Uncurried (runFn2)
+import Foreign (Foreign, unsafeToForeign)
 import React.Basic (ReactComponent)
 import React.Basic.Events (EventHandler, SyntheticEvent, handler, syntheticEvent)
 import React.Basic.Hooks (memo, reactComponent)
@@ -52,6 +54,7 @@ import System.Types.Connection
   , ConnectionMode(..)
   , ConnectionState(..)
   , FinalConnectionState
+  , withEdgeDefaults
   )
 import System.Types.Edge (EdgeBase)
 import System.Types.Geometry (Position(..))
@@ -282,7 +285,7 @@ connectionToEdge
   -> EdgeBase e
 connectionToEdge mDefaults conn =
   { id: getEdgeId conn
-  , edgeType: Nothing
+  , edgeType: _.edgeType =<< mDefaults
   , source: conn.source
   , target: conn.target
   , sourceHandle: conn.sourceHandle
@@ -293,14 +296,24 @@ connectionToEdge mDefaults conn =
   , selectable: _.selectable =<< mDefaults
   , data: _.data =<< mDefaults
   , selected: Nothing
-  , markerStart: Nothing
-  , markerEnd: Nothing
+  , markerStart: _.markerStart =<< mDefaults
+  , markerEnd: _.markerEnd =<< mDefaults
   , zIndex: _.zIndex =<< mDefaults
-  , label: Nothing
+  , label: _.label =<< mDefaults
   , ariaLabel: _.ariaLabel =<< mDefaults
   , interactionWidth: _.interactionWidth =<< mDefaults
-  , className: Nothing
-  , style: Nothing
+  , className: _.className =<< mDefaults
+  , style: _.style =<< mDefaults
+  , focusable: _.focusable =<< mDefaults
+  , reconnectable: _.reconnectable =<< mDefaults
+  , ariaRole: _.ariaRole =<< mDefaults
+  , domAttributes: _.domAttributes =<< mDefaults
+  , labelStyle: _.labelStyle =<< mDefaults
+  , labelShowBg: _.labelShowBg =<< mDefaults
+  , labelBgStyle: _.labelBgStyle =<< mDefaults
+  , labelBgPadding: _.labelBgPadding =<< mDefaults
+  , labelBgBorderRadius: _.labelBgBorderRadius =<< mDefaults
+  , pathOptions: Nothing
   }
 
 -- | The reusable "user dropped a valid connection" path. Used by both
@@ -320,8 +333,14 @@ onConnectExtended store mPropOnConnect conn = do
     case addEdge edge state.edges getEdgeId of
       Right next -> store.dispatch (SetEdges next)
       Left _ -> pure unit
-  for_ state.onConnect \cb -> cb conn
-  for_ mPropOnConnect \cb -> cb conn
+  -- TS hands both callbacks `edgeParams`, the connection spread over the
+  -- default options. See `System.Types.Connection.withEdgeDefaults`.
+  let
+    edgeParams = case state.defaultEdgeOptions of
+      Nothing -> conn
+      Just defaults -> runFn2 withEdgeDefaults (unsafeToForeign defaults) conn
+  for_ state.onConnect \cb -> cb edgeParams
+  for_ mPropOnConnect \cb -> cb edgeParams
 
 -- ---------------------------------------------------------------------------
 -- The component

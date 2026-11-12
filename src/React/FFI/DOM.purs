@@ -27,6 +27,7 @@ module React.FFI.DOM
   , title_
   , textContent
   , spreadUnder
+  , spreadOver
   , opt
   , scrollResetHandler
   , blurElement
@@ -72,6 +73,16 @@ foreign import spreadUnderImpl :: forall p. Fn2 (Object Foreign) (Record p) (Rec
 spreadUnder :: forall p. Maybe (Object Foreign) -> Record p -> Record p
 spreadUnder Nothing props = props
 spreadUnder (Just attributes) props = runFn2 spreadUnderImpl attributes props
+
+foreign import spreadOverImpl :: forall p. Fn2 Foreign (Record p) (Record p)
+
+-- | An element's props with a consumer's attribute bag spread **over** them,
+-- | as upstream's wrappers write `<g … {...edge.domAttributes}>` and
+-- | `<div … {...node.domAttributes}>`: the bag comes last, so a key in both
+-- | takes the bag's value.
+spreadOver :: forall p. Maybe Foreign -> Record p -> Record p
+spreadOver Nothing props = props
+spreadOver (Just attributes) props = runFn2 spreadOverImpl attributes props
 
 -- | A bare string rendered as a React text child. React accepts strings
 -- | directly as JSX children, so the cast is sound.

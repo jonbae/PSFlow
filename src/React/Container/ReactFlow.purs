@@ -301,7 +301,9 @@ reactFlow =
           , edgesFocusable: props.edgesFocusable
           , edgesReconnectable: props.edgesReconnectable
           , elevateNodesOnSelect: props.elevateNodesOnSelect
-          , elevateEdgesOnSelect: props.elevateEdgesOnSelect
+          -- TS `elevateEdgesOnSelect = false` in the parameter list, so the
+          -- updater writes it over the store's initial `true` on mount.
+          , elevateEdgesOnSelect: Just (fromMaybe false props.elevateEdgesOnSelect)
           , minZoom: storeSeeded.minZoom
           , maxZoom: storeSeeded.maxZoom
           , nodeExtent: props.nodeExtent

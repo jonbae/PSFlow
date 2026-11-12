@@ -356,7 +356,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 70,
+            "timeStamp": 54,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -425,7 +425,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 70,
+            "timeStamp": 54,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -501,7 +501,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 70,
+            "timeStamp": 54,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -566,7 +566,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 70,
+            "timeStamp": 54,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -642,7 +642,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 128,
+            "timeStamp": 112,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -718,7 +718,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 128,
+            "timeStamp": 112,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -802,7 +802,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 128,
+            "timeStamp": 112,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -881,7 +881,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 160,
+            "timeStamp": 144,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -958,7 +958,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 160,
+            "timeStamp": 144,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1042,7 +1042,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 160,
+            "timeStamp": 144,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1121,7 +1121,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 192,
+            "timeStamp": 176,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1198,7 +1198,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 192,
+            "timeStamp": 176,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1282,7 +1282,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 192,
+            "timeStamp": 176,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1402,13 +1402,12 @@
         },
         "getInternalNode": {
           "id": "resize",
+          "type": "resizeReceipt",
+          "data": {},
           "position": {
             "x": 240,
             "y": 180
           },
-          "data": {},
-          "type": "resizeReceipt",
-          "resizing": false,
           "width": 180,
           "height": 110,
           "measured": {
@@ -1419,6 +1418,7 @@
             "width": 120,
             "height": 80
           },
+          "resizing": false,
           "internals": {
             "positionAbsolute": {
               "x": 240,

@@ -1,17 +1,19 @@
 # Step 3 execution evidence
 
-**Latest checkpoint (November 12 UTC): Order E complete; 105/107 scenarios
+**Latest checkpoint (November 12 UTC): Order G complete; 105/107 scenarios
 pass, 2 fail. Zero self-inconsistent scenarios or driving divergences.**
-The shared handle-bound/end-timer fixes are retained, and E's keyboard, focus and
-isolated frame/timer protocol are validated. The remaining two failures are G/H
-flow/node probes. Detailed sections below preserve historical checkpoints; see
-[Order E](order-e/README.md) for the current evidence.
+`useStore` and `useStoreApi` hand JavaScript consumers upstream's store, and all
+23 `defaultEdgeOptions` members and the edge and node members they depend on are
+implemented. The two remaining failures are the flow/node probes, whose store
+differences are gone; H's node-prop, deprecation-warning and selection-callback
+differences remain. See [Order G](order-g/README.md) for the current evidence
+and [Order E](order-e/README.md) for the checkpoint before it.
 
 This directory preserves the November 9, 2026 W00 baseline, all seven W02
 crossings and stage-5 checkpoint, plus November 10 W03/W04 and W08a/W08b work. See [the results](../../AAMF_STEP3_RESULTS.md)
 for interpretation and remaining work. **Step 3 B / boundary stage 5 is complete:
 68 crossed exports, zero passthroughs. Step 3 C / W03 and D / W04 are also
-complete, along with W08a/W08b and F/W05. The resize witnesses, G node.resizing field, bounded keyboard protocol and H onInit witness are complete. E is now complete; G–I remain open.**
+complete, along with W08a/W08b and F/W05. The resize witnesses, G node.resizing field, bounded keyboard protocol and H onInit witness are complete. E and G are now complete; H and I remain open.**
 
 ## Baseline
 

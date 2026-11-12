@@ -78,8 +78,6 @@ module Boundary.Edges
   , edgeText
   , edgeToolbar
   , edgeTypesIn
-  , labelBgPaddingIn
-  , labelBgPaddingOut
   , simpleBezierEdge
   , smoothStepEdge
   , stepEdge
@@ -97,6 +95,9 @@ import Boundary.Elements
   , fromCssStyle
   , handleOut
   , internalNodeOut
+  , edgePathOptionsOut
+  , labelBgPaddingIn
+  , labelBgPaddingOut
   )
 import Boundary.Enums
   ( alignXIn
@@ -109,10 +110,9 @@ import Boundary.Undefined (Undefinable, fromUndefinable, requiredProp, toUndefin
 import Boundary.Rest (restOf)
 import Data.Maybe (Maybe, maybe)
 import Boundary.Wrapper (mkComponentWrapper)
-import Effect.Exception.Unsafe (unsafeThrow)
 import Effect.Uncurried (mkEffectFn1)
 import Effect.Unsafe (unsafePerformEffect)
-import Foreign (Foreign)
+import Foreign (Foreign, unsafeToForeign)
 import Foreign.Object (Object)
 import Foreign.Object (mapWithKey) as Object
 import React.Additional.EdgeToolbar (edgeToolbar) as PS
@@ -154,18 +154,6 @@ import Unsafe.Coerce (unsafeCoerce)
 -- | in this module declare a `sourceX`, so a bare prop name would say nothing
 -- | about which element the consumer has to go and look at.
 
--- | `[x, y]` upstream, `{ x, y }` in ps-flow. One of the two members on these
--- | records whose representation actually differs, so it is one of the two
--- | that converts.
-labelBgPaddingIn :: String -> Array Number -> { x :: Number, y :: Number }
-labelBgPaddingIn field = case _ of
-  [ x, y ] -> { x, y }
-  _ ->
-    unsafeThrow $
-      "ps-flow: `" <> field <> "` must be [paddingX, paddingY]."
-
-labelBgPaddingOut :: { x :: Number, y :: Number } -> Array Number
-labelBgPaddingOut p = [ p.x, p.y ]
 
 -- ────────────────────────────────────────────────────────────────────────
 -- EdgeText
@@ -578,12 +566,12 @@ edgePropsOut p =
   , interactionWidth: toUndefinable p.interactionWidth
   }
 
--- | `PathOptions` is opaque on the generic props record — upstream's is a
--- | union of the three per-variant option records — so it crosses as the plain
--- | object it already is. A consumer reading `pathOptions.offset` gets what
--- | ps-flow was handed, unread.
+-- | `PathOptions` is opaque on the generic props record. What
+-- | `<EdgeWrapper />` puts there is the edge's own `pathOptions`, which is
+-- | `System.Types.Edge.EdgePathOptions`, the union of the three per-variant
+-- | records, so it crosses with that record's converter.
 pathOptionsOut :: PathOptions -> Foreign
-pathOptionsOut = unsafeCoerce
+pathOptionsOut = unsafeToForeign <<< edgePathOptionsOut <<< unsafeCoerce
 
 -- | `edgeTypes` is `nodeTypes`' twin: the values are consumer code ps-flow
 -- | calls, so crossing it wraps every component in the map rather than

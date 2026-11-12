@@ -1722,14 +1722,14 @@
             "fromPosition": "bottom",
             "fromNode": {
               "id": "down-1",
+              "type": "connections",
+              "data": {
+                "label": "down-1"
+              },
               "position": {
                 "x": 0,
                 "y": 320
               },
-              "data": {
-                "label": "down-1"
-              },
-              "type": "connections",
               "measured": {
                 "width": 49,
                 "height": 18
@@ -1800,14 +1800,14 @@
             "toPosition": "top",
             "toNode": {
               "id": "hub",
+              "type": "connections",
+              "data": {
+                "label": "hub"
+              },
               "position": {
                 "x": 160,
                 "y": 160
               },
-              "data": {
-                "label": "hub"
-              },
-              "type": "connections",
               "measured": {
                 "width": 24,
                 "height": 18
@@ -1981,14 +1981,14 @@
         },
         "getInternalNode": {
           "id": "hub",
+          "type": "connections",
+          "data": {
+            "label": "hub"
+          },
           "position": {
             "x": 160,
             "y": 160
           },
-          "data": {
-            "label": "hub"
-          },
-          "type": "connections",
           "measured": {
             "width": 24,
             "height": 18

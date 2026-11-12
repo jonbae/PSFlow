@@ -2298,24 +2298,24 @@
         },
         "getInternalNode": {
           "id": "Node-1",
+          "data": {
+            "label": "Node-1"
+          },
           "position": {
             "x": 174.78658536585363,
             "y": 116.52439024390243
           },
-          "data": {
-            "label": "Node-1"
-          },
           "type": "input",
-          "selected": false,
-          "dragging": true,
-          "measured": {
-            "width": 150,
-            "height": 37
-          },
           "className": "playwright-test-class-123",
           "style": {
             "backgroundColor": "red"
           },
+          "measured": {
+            "width": 150,
+            "height": 37
+          },
+          "selected": false,
+          "dragging": true,
           "internals": {
             "positionAbsolute": {
               "x": 174.78658536585363,

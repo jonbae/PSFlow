@@ -421,6 +421,9 @@ adoptUserNodes nodes prev _prevParent options =
               , nodeType: userNodeWithDefaults.nodeType
               , className: userNodeWithDefaults.className
               , style: userNodeWithDefaults.style
+              , focusable: userNodeWithDefaults.focusable
+              , ariaRole: userNodeWithDefaults.ariaRole
+              , domAttributes: userNodeWithDefaults.domAttributes
               , internals:
                   { positionAbsolute: clamped
                   , userNode

@@ -2165,12 +2165,12 @@
         },
         "getInternalNode": {
           "id": "1",
+          "data": {
+            "label": "1"
+          },
           "position": {
             "x": 0,
             "y": 0
-          },
-          "data": {
-            "label": "1"
           },
           "type": "input",
           "measured": {

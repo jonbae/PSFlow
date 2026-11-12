@@ -69,6 +69,9 @@ nodeAt id at =
       , height: Just 25.0
       , initialWidth: Nothing
       , initialHeight: Nothing
+      , focusable: Nothing
+      , ariaRole: Nothing
+      , domAttributes: Nothing
       , parentId: Nothing
       , zIndex: Nothing
       , extent: Nothing

@@ -8,12 +8,15 @@ W04 / Step 3 D and W05 / Step 3 F are complete. Resize witnesses and G's
 H's `onInit` witness and bounded initialization/native-frame driving. H's bounded
 geometry/resize numeric correction is also implemented. The two shared handle-bound and viewport-end scheduling defects remain fixed.
 Order E is complete: keyboard announcements, focus panning, callback ordering
-and gesture reproducibility are validated. The fresh Linux checkpoint captures
-all 107 scenarios: **105 pass and 2 fail**, with **zero self-inconsistent
-scenarios and zero driving divergences**. The remaining two failures are the
-flow/node probes for G/H store, connection and node-prop compatibility. Coverage
-remains **128/156 driven, 28 declared holes**, with 50 separate behavior-debt rows.
-G–I and overall Step 3 completion remain open.
+and gesture reproducibility are validated.
+**Order G is complete:** `useStore` and `useStoreApi` hand JavaScript consumers
+upstream's store, and all 23 `defaultEdgeOptions` members and the edge and node
+members they depend on are implemented. The fresh Linux checkpoint captures all
+107 scenarios: **105 pass and 2 fail**, with **zero self-inconsistent scenarios
+and zero driving divergences**. The two remaining failures are the flow/node
+probes, now down to H's node-prop, deprecation-warning and selection-callback
+differences. Coverage remains **128/156 driven, 28 declared holes**, with 50
+separate behavior-debt rows. H, I and overall Step 3 completion remain open.
 
 ## Fresh baseline (Step 3 A / W00)
 
@@ -814,3 +817,120 @@ G–I and overall Step 3 completion remain open.
 Use `node parity/system/linux.mjs npm run parity:system` after building PureScript
 to reproduce the isolated full wave. No fixture, corpus action, normalization,
 tolerance, region, weakening, callback register or coverage register changed.
+
+## Order G completion (November 12 UTC)
+
+**Order G is complete.** Both store hooks hand JavaScript consumers upstream's
+store, and the thirteen refused `defaultEdgeOptions` members, with the edge and
+node members they depend on, are implemented. Nothing in G is refused any more
+except the precise exclusions listed below. [Task evidence](aamf/step3/order-g/)
+keeps the red runs, the gates and the browser captures. No AAMF migration agent
+was invoked, and no PR was merged or cherry-picked.
+
+### The store, from JavaScript
+
+`useStore(selector?, equalityFn?)` and `useStoreApi()` threw at the call until
+now. The new `Boundary.Store` module gives ps-flow's store state upstream's
+JavaScript shape:
+
+- All 85 state members and the 20 actions, in upstream's key order. Each member
+  converts through one typed `Field`, and `parity/boundary/drift.mjs` holds the
+  85 labels against `ReactFlowState`.
+- The consumer's own objects wherever ps-flow kept them: the `nodes` and `edges`
+  arrays, each node and edge, `internals.userNode`, the `defaultEdgeOptions`
+  object, and every callback. Lookups are JavaScript `Map`s filled in upstream's
+  insertion order, and an unchanged member keeps its value across states.
+- zustand 4.5.7's write semantics. `setState` calls a function partial, ignores
+  an identical result, merges with `Object.assign` semantics, keeps keys that
+  are not state members, and notifies `subscribe` listeners with the state and
+  the one before it. A direct assignment such as `getState().x = v` writes into
+  the live state and notifies nobody.
+- `useStore` runs through the same `useSyncExternalStore` selection memo as
+  every internal component, with the consumer's `equalityFn` or `Object.is`.
+  `useStoreApi` returns one memoized `{ getState, setState, subscribe }` per
+  component, around the store's own three functions.
+
+Reading the state exposed four smaller differences, which are fixed here:
+
+- `useConnection` and the store's `connection` member gain upstream's
+  `inProgress`.
+- An internal node spreads the consumer's node first, as upstream's
+  `{ ...userNode, measured, internals }` does, so custom keys appear in
+  `nodeLookup`, `getInternalNode` and connection states.
+- The store's initial `elevateEdgesOnSelect` is upstream's `true`, and
+  `<ReactFlow />` writes its default of `false` on mount.
+- `useOnSelectionChange` is keyed on the handler, as upstream's `[onChange]`
+  dependency is. It used to re-register on every render.
+
+### Edge and node members, and `defaultEdgeOptions`
+
+`EdgeBase` gains upstream's other ten members: `focusable`, `reconnectable`
+(`boolean | HandleType`, where `false` overrides the flow), `ariaRole`,
+`domAttributes`, the five label options and `pathOptions`. `NodeBase` gains
+`focusable`, `ariaRole` and `domAttributes`. `DefaultEdgeOptions` carries all
+23 of upstream's members. The refusal table, its `Boundary.Refusal` module and
+the drift gate's refused-field mechanism are removed.
+
+`<EdgeWrapper />` merges all 23 options as `{ ...defaultEdgeOptions, ...edge }`
+does, including an edge that owns a key holding `undefined`. Both wrappers now
+read `focusable` before the flow-wide flag, set `role` from `ariaRole`, omit
+`tabindex` (and a node's `role`) when the element cannot take focus, and spread
+`domAttributes` last. Default markers are seeded into the marker definitions.
+`onConnect` receives `{ ...defaultEdgeOptions, ...connection }`, and an
+uncontrolled flow adds that merged edge. A falsy edge label draws nothing, as
+upstream's `if (!label)` decides.
+
+### Precise exclusions
+
+Each throws with a message naming the call:
+
+- `setState(partial, true)` and a non-object partial, which replace upstream's
+  whole state. ps-flow's internals read a complete record.
+- A store member written with a value outside its declared type, such as
+  `setState({ minZoom: "2" })`.
+- A `panZoom`, `fitViewResolver` or middleware map that the store did not hand
+  out. ps-flow's own pane and hooks create those.
+- Calling a store callback that PureScript code installed. Every callback a
+  JavaScript consumer installs reads back as itself.
+
+### Evidence
+
+| Check | Result |
+|---|---|
+| JS-entry regressions at the starting commit `5766fbb1` | 17 of 18 red; the marker case already passed |
+| `parity/boundary/store.test.mjs` | 11/11 against upstream: every member and lookup entry, identity, `setState`, `subscribe`, direct writes, actions, `equalityFn`, exclusions |
+| `parity/boundary/edge-fields.test.mjs` | 8/8 against upstream's server-rendered edges and nodes |
+| `Test.Boundary.DefaultEdgeOptions` | Merge and `onConnect` match upstream's spread and `addEdge` |
+| `spago build`, `spago test` | Passed |
+| `npm run parity:surface` | Passed; 68 shapes, 65 same, 3 allowlisted |
+| `npm run parity:boundary` | Passed; drift with `ReactFlowState` (85) and `DefaultEdgeOptions` (23) pairs, 208 mount checks |
+| `npm run test:boundary` | 138/138; 119 before this task |
+| `test:surface`, `test:harness`, `test:compare`, `test:coverage`, `test:census` | 30, 279, 109, 39 and 5 passed |
+| `npm run parity:fork`, `npm run parity:changelog` | Passed; 54 units affirmed; 50 gate-pending rows |
+| Linux conformance and smoke | 41/41 and 2/2 |
+| Linux full net, final code | **105/107 pass**; 214/214 sides reproduce themselves; coverage 128/156 driven, 28 declared holes |
+
+Both flow-probe scenarios lost every store difference: the hook values, the
+full browser `getState()` read and `useConnection`'s `inProgress`. The wheel
+probe went from 22 differences to 5 and the click probe from 25 to 8. The other
+105 scenarios pass as they did at the Order E checkpoint, which is preserved in
+`before-checkpoint.tar.gz`. An earlier full wave, captured before the falsy-label
+fix, had the same outcome and is kept as its own experiment. No fixture, corpus
+action, normalization, region, weakening, callback register or coverage register
+changed.
+
+Reproduce the wave with `node parity/system/linux.mjs npm run parity:system`
+after `npm run build:driver`.
+
+### What remains, routed to H
+
+- The node-props probe reads `width` and `height` as `undefined` where
+  upstream reads `0`.
+- `useHandleConnections` does not log upstream's deprecation warning.
+- The click probe's selection callbacks differ. ps-flow calls
+  `useOnSelectionChange` once at mount with an empty selection, and its
+  post-click payload nodes lack `selected: true`.
+- Instance reads such as `getNodes()` still return copies, and a merged edge
+  handed to an edge handler lacks the consumer's custom keys.
+- A server render reads the store's current state, where zustand reads its
+  initial state. The two differ only when the state changes during that render.

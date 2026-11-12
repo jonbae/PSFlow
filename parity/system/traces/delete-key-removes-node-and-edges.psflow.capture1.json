@@ -638,7 +638,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 57,
+            "timeStamp": 71,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -707,7 +707,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 57,
+            "timeStamp": 71,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -783,7 +783,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 57,
+            "timeStamp": 71,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -848,7 +848,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 57,
+            "timeStamp": 71,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1068,7 +1068,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 112,
+            "timeStamp": 128,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1318,7 +1318,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 144,
+            "timeStamp": 160,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1519,14 +1519,14 @@
         },
         "getInternalNode": {
           "id": "Node-2",
+          "type": "output",
+          "data": {
+            "label": "Node-2"
+          },
           "position": {
             "x": -100,
             "y": 100
           },
-          "data": {
-            "label": "Node-2"
-          },
-          "type": "output",
           "measured": {
             "width": 150,
             "height": 37

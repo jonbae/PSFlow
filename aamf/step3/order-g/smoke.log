@@ -1,0 +1,16 @@
+
+> ps-flow@0.0.0 test:smoke
+> playwright test --config examples/react-smoke/playwright.config.ts --project=smoke
+
+
+Running 2 tests using 1 worker
+
+  ✓  1 [smoke] › examples/react-smoke/tests/smoke.spec.ts:45:3 › ps-flow smoke test › the driver page mounts and renders its fixture (1.4s)
+  ✓  2 [smoke] › examples/react-smoke/tests/smoke.spec.ts:54:3 › ps-flow smoke test › no console errors during a 5-second interaction session (3.4s)
+
+  2 passed (7.3s)
+npm notice
+npm notice New major version of npm available! 11.12.1 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

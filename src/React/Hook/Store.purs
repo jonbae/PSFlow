@@ -32,6 +32,7 @@ module React.Hook.Store
   , UseStore(..)
   , UseSyncExternalStoreWithSelector
   , useStore
+  , useStoreWith
   , useStoreApi
   , opaqueToStore
   ) where
@@ -107,6 +108,24 @@ useStore selector = coerceHook React.do
       Nothing -> unsafeThrow (errorMessage E001)
       Just opaque -> opaqueToStore opaque
   unsafeHook (runEffectFn3 useStoreImpl store selector eq)
+
+-- | `useStore` with the equality handed over as a function rather than found
+-- | as an `Eq` instance: upstream's own `useStore(selector, equalityFn)`, as
+-- | the JavaScript boundary calls it. The memo is rebuilt when either the
+-- | selector or the equality is a new function, so callers keep both stable.
+useStoreWith
+  :: forall n e a
+   . (ReactFlowState n e -> a)
+  -> (a -> a -> Boolean)
+  -> Hook (UseStore a) a
+useStoreWith selector isEqual = coerceHook React.do
+  mStore <- useContext storeContext
+  let
+    store :: Store n e
+    store = case mStore of
+      Nothing -> unsafeThrow (errorMessage E001)
+      Just opaque -> opaqueToStore opaque
+  unsafeHook (runEffectFn3 useStoreImpl store selector isEqual)
 
 -- | The sanctioned `OpaqueStore -> Store n e` cast. Documented in
 -- | `React.Context.Store`'s module header — this is the one place the

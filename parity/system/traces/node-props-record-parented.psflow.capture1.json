@@ -371,7 +371,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 62,
+            "timeStamp": 53,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -440,7 +440,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 62,
+            "timeStamp": 53,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -514,7 +514,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 62,
+            "timeStamp": 53,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -579,7 +579,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 62,
+            "timeStamp": 53,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1209,21 +1209,21 @@
         },
         "getInternalNode": {
           "id": "props-parent",
+          "type": "propsRecord",
+          "data": {
+            "label": "props-parent"
+          },
           "position": {
             "x": 100,
             "y": 200
           },
-          "data": {
-            "label": "props-parent"
-          },
-          "type": "propsRecord",
-          "selected": true,
           "width": 300,
           "height": 200,
           "measured": {
             "width": 300,
             "height": 200
           },
+          "selected": true,
           "internals": {
             "positionAbsolute": {
               "x": 100,

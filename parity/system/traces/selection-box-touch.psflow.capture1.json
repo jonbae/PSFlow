@@ -977,7 +977,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 112,
+            "timeStamp": 128,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1217,7 +1217,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 176,
+            "timeStamp": 192,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1284,7 +1284,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 176,
+            "timeStamp": 192,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1573,21 +1573,21 @@
         },
         "getInternalNode": {
           "id": "Node-1",
+          "data": {
+            "label": "Node-1"
+          },
           "position": {
             "x": 0,
             "y": 0
           },
-          "data": {
-            "label": "Node-1"
-          },
           "type": "input",
-          "measured": {
-            "width": 150,
-            "height": 37
-          },
           "className": "playwright-test-class-123",
           "style": {
             "backgroundColor": "red"
+          },
+          "measured": {
+            "width": 150,
+            "height": 37
           },
           "internals": {
             "positionAbsolute": {

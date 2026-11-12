@@ -34,3 +34,7 @@ export const awaitPromise = (value) => (onError, onSuccess) => {
   );
   return (_cancelError, _onCancelerError, onCancelerSuccess) => onCancelerSuccess();
 };
+
+// Upstream's live `ConnectionState`: `inProgress` first, then the final
+// state's members, as `initialConnection` is written.
+export const withInProgressImpl = (inProgress, state) => ({ inProgress, ...state });

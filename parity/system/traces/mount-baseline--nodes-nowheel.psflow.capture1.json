@@ -505,19 +505,19 @@
         },
         "getInternalNode": {
           "id": "nowheel",
+          "data": {
+            "label": "nowheel"
+          },
           "position": {
             "x": 0,
             "y": 0
           },
-          "data": {
-            "label": "nowheel"
-          },
-          "measured": {
+          "className": "nowheel",
+          "style": {
             "width": 400,
             "height": 320
           },
-          "className": "nowheel",
-          "style": {
+          "measured": {
             "width": 400,
             "height": 320
           },

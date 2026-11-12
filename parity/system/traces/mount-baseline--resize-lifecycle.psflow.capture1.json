@@ -379,12 +379,12 @@
         },
         "getInternalNode": {
           "id": "resize",
+          "type": "resizeReceipt",
+          "data": {},
           "position": {
             "x": 240,
             "y": 180
           },
-          "data": {},
-          "type": "resizeReceipt",
           "width": 120,
           "height": 80,
           "measured": {

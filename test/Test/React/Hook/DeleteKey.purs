@@ -70,6 +70,9 @@ node id flags =
   , height: Nothing
   , initialWidth: Nothing
   , initialHeight: Nothing
+  , focusable: Nothing
+  , ariaRole: Nothing
+  , domAttributes: Nothing
   , parentId: Nothing
   , zIndex: Nothing
   , extent: Nothing
@@ -104,6 +107,16 @@ edge source target selected =
   , label: Nothing
   , ariaLabel: Nothing
   , interactionWidth: Nothing
+  , focusable: Nothing
+  , reconnectable: Nothing
+  , ariaRole: Nothing
+  , domAttributes: Nothing
+  , labelStyle: Nothing
+  , labelShowBg: Nothing
+  , labelBgStyle: Nothing
+  , labelBgPadding: Nothing
+  , labelBgBorderRadius: Nothing
+  , pathOptions: Nothing
   , className: Nothing
   , style: Nothing
   }

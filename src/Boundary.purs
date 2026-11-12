@@ -42,15 +42,15 @@
 -- | consumer references. Crossing is independent of full parity: the earlier
 -- | change/add helpers still have consumer-object exceptions owned by #150.
 -- |
--- | The converters are the rest, and they live in nineteen modules beneath
+-- | The converters are the rest, and they live in twenty modules beneath
 -- | this one, none of them on the PureScript surface:
 -- |
 -- |   * `Boundary.Undefined` — `undefined`, which is what a JavaScript caller
 -- |     means by a prop they did not set.
 -- |   * `Boundary.Untagged` — the runtime narrowing TypeScript does at the use
 -- |     site for unions like `string | string[]` and erases.
--- |   * `Boundary.Refusal` — the shape of a prop that resolves and does not
--- |     cross, and the guard that throws on one.
+-- |   * `Boundary.Original` — the consumer's own value behind a conversion,
+-- |     which a raw store read hands back as upstream's store does.
 -- |   * `Boundary.Enums` — string literals in, sum-type constructors out.
 -- |   * `Boundary.Elements` — `Node`, `Edge`, node props, the change objects,
 -- |     `Connection`, and the shapes a handler carries back out.
@@ -87,6 +87,8 @@
 -- |     hooks and the instance's `setNodes`/`setEdges`.
 -- |   * `Boundary.Instance` — the imperative `ReactFlowInstance`: thirty-two
 -- |     members, reached from `useReactFlow` and from `onInit`.
+-- |   * `Boundary.Store` — the store state in upstream's shape, with zustand's
+-- |     `setState` and `subscribe`: what `useStore` and `useStoreApi` hand over.
 -- |   * `Boundary.Hooks` — all 21 hooks. Two of them crossed in stage 1
 -- |     (`useNodesState`, `useEdgesState`) because they touch no instance; the
 -- |     rest could not, because `useReactFlow` returns one.

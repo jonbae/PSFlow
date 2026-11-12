@@ -681,7 +681,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 240,
+            "timeStamp": 224,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -748,7 +748,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 240,
+            "timeStamp": 224,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -827,7 +827,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 304,
+            "timeStamp": 288,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -959,12 +959,12 @@
         },
         "getInternalNode": {
           "id": "Node-1",
+          "data": {
+            "label": "Node-1"
+          },
           "position": {
             "x": 0,
             "y": 0
-          },
-          "data": {
-            "label": "Node-1"
           },
           "type": "input",
           "selected": true,

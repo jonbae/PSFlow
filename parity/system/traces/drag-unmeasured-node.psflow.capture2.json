@@ -1725,20 +1725,20 @@
         },
         "getInternalNode": {
           "id": "Node-1",
+          "data": {
+            "label": "Node-1"
+          },
           "position": {
             "x": 50,
             "y": 30
           },
-          "data": {
-            "label": "Node-1"
-          },
           "type": "input",
           "selected": true,
-          "dragging": false,
           "measured": {
             "width": 150,
             "height": 37
           },
+          "dragging": false,
           "internals": {
             "positionAbsolute": {
               "x": 50,

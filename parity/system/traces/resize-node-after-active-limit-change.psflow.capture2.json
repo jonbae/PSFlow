@@ -356,7 +356,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 336,
+            "timeStamp": 320,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -425,7 +425,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 336,
+            "timeStamp": 320,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -501,7 +501,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 336,
+            "timeStamp": 320,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -566,7 +566,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 336,
+            "timeStamp": 320,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -642,7 +642,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 400,
+            "timeStamp": 384,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -718,7 +718,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 400,
+            "timeStamp": 384,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -802,7 +802,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 400,
+            "timeStamp": 384,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -881,7 +881,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 464,
+            "timeStamp": 448,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -958,7 +958,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 464,
+            "timeStamp": 448,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1083,13 +1083,12 @@
         },
         "getInternalNode": {
           "id": "resize",
+          "type": "resizeReceipt",
+          "data": {},
           "position": {
             "x": 240,
             "y": 180
           },
-          "data": {},
-          "type": "resizeReceipt",
-          "resizing": false,
           "width": 145,
           "height": 110,
           "measured": {
@@ -1100,6 +1099,7 @@
             "width": 120,
             "height": 80
           },
+          "resizing": false,
           "internals": {
             "positionAbsolute": {
               "x": 240,

@@ -115,8 +115,8 @@ claimed by a region — never by loosening what the net looks at.
 | `pan-after-controlled-viewport-change` | passed | — | 0 |
 | `ctrl-wheel-pinches-with-panonscroll` | passed | — | 0 |
 | `pane-click-keeps-selection-when-not-selectable` | passed | — | 0 |
-| `click-selects-node--probe-flow-node` | **failed** | unclaimed-difference | 25 |
-| `wheel-zooms-the-pane--probe-flow-node` | **failed** | unclaimed-difference | 22 |
+| `click-selects-node--probe-flow-node` | **failed** | unclaimed-difference | 8 |
+| `wheel-zooms-the-pane--probe-flow-node` | **failed** | unclaimed-difference | 5 |
 | `mount-baseline--edges-general--probe-edge` | passed | — | 0 |
 | `connect-source-handle-to-target-handle--probe-connection-line` | passed | — | 0 |
 
@@ -3716,7 +3716,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 25 unclaimed difference(s).
+**Failed:** 8 unclaimed difference(s).
 
 ## Unclaimed differences
 
@@ -3727,27 +3727,6 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `callbacks/1` | right only | — | {"name":"useOnSelectionChange","args":[{"nodes":[{"id":"Node-1","position":{"x":0,"y":0},"data":{"label":"Node-1"},"type":"input","measured":{"width":150,"heig… |
 | `callbacks/0/args/0/nodes/0` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
 
-### hooks (10)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `hooks/flow-probe/useConnection/inProgress` | left only | false | — |
-| `hooks/flow-probe/useStore/nodes` | left only | [{"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"me… | — |
-| `hooks/flow-probe/useStore/edges` | left only | [{"id":"1-2","type":"default","source":"Node-1","target":"Node-2","label":"edge"},{"id":"1-3","type":"default","source":"Node-1","target":"Node-3","label":"edg… | — |
-| `hooks/flow-probe/useStore/transform` | left only | [517.8398510242085,32,1.2216014897579144] | — |
-| `hooks/flow-probe/useStore/viewportInitialized` | left only | {"@undefined":true} | — |
-| `hooks/flow-probe/useStore/error` | right only | — | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
-| `hooks/flow-probe/useStoreApi/getState` | left only | {"@ref":"function"} | — |
-| `hooks/flow-probe/useStoreApi/setState` | left only | {"@ref":"function"} | — |
-| `hooks/flow-probe/useStoreApi/subscribe` | left only | {"@ref":"function"} | — |
-| `hooks/flow-probe/useStoreApi/error` | right only | — | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
-
-### api (1)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `api/queries/getState` | left only | {"rfId":"1","width":1280,"height":720,"transform":[517.8398510242085,32,1.2216014897579144],"nodes":[{"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0… | — |
-
 ### props (2)
 
 | path | kind | upstream | psflow |
@@ -3755,20 +3734,14 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `props/node-props/width` | differs | 0 | {"@undefined":true} |
 | `props/node-props/height` | differs | 0 | {"@undefined":true} |
 
-### console (10)
+### console (4)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `console/1/level` | differs | warning | pageerror |
-| `console/1/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
-| `console/2/level` | differs | warning | pageerror |
-| `console/2/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
-| `console/3/level` | differs | warning | pageerror |
-| `console/3/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
-| `console/4/level` | differs | warning | pageerror |
-| `console/4/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:42573/parity/driver/dist/psflow.js:69786:… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:42573/parity/driver/dist/psflow.js:69786:… |
+| `console/1` | left only | {"level":"warning","text":"[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNod… | — |
+| `console/2` | left only | {"level":"warning","text":"[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNod… | — |
+| `console/3` | left only | {"level":"warning","text":"[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNod… | — |
+| `console/4` | left only | {"level":"warning","text":"[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNod… | — |
 
 
 ---
@@ -3799,30 +3772,9 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 22 unclaimed difference(s).
+**Failed:** 5 unclaimed difference(s).
 
 ## Unclaimed differences
-
-### hooks (10)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `hooks/flow-probe/useConnection/inProgress` | left only | false | — |
-| `hooks/flow-probe/useStore/nodes` | left only | [{"id":"1","data":{"label":"1"},"position":{"x":0,"y":0},"type":"input","measured":{"width":150,"height":37}},{"id":"2","data":{"label":"2"},"position":{"x":-1… | — |
-| `hooks/flow-probe/useStore/edges` | left only | [{"id":"first-edge","source":"1","target":"2"},{"id":"second-edge","source":"1","target":"3"}] | — |
-| `hooks/flow-probe/useStore/transform` | left only | [552.9449436703876,121.469145656862,3.4822022531844965] | — |
-| `hooks/flow-probe/useStore/viewportInitialized` | left only | {"@undefined":true} | — |
-| `hooks/flow-probe/useStore/error` | right only | — | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
-| `hooks/flow-probe/useStoreApi/getState` | left only | {"@ref":"function"} | — |
-| `hooks/flow-probe/useStoreApi/setState` | left only | {"@ref":"function"} | — |
-| `hooks/flow-probe/useStoreApi/subscribe` | left only | {"@ref":"function"} | — |
-| `hooks/flow-probe/useStoreApi/error` | right only | — | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
-
-### api (1)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `api/queries/getState` | left only | {"rfId":"1","width":1280,"height":720,"transform":[552.9449436703876,121.469145656862,3.4822022531844965],"nodes":[{"id":"1","data":{"label":"1"},"position":{"… | — |
 
 ### props (2)
 
@@ -3831,19 +3783,13 @@ Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 | `props/node-props/width` | differs | 0 | {"@undefined":true} |
 | `props/node-props/height` | differs | 0 | {"@undefined":true} |
 
-### console (9)
+### console (3)
 
 | path | kind | upstream | psflow |
 |---|---|---|---|
-| `console/1/level` | differs | warning | pageerror |
-| `console/1/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
-| `console/2/level` | differs | warning | pageerror |
-| `console/2/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's … |
-| `console/3/level` | differs | warning | pageerror |
-| `console/3/text` | differs | [DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections | ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's obj… |
-| `console/4` | right only | — | {"level":"pageerror","text":"ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScri… |
-| `console/5` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:42573/parity/driver/dist/psflow.js:69786:… |
-| `console/6` | right only | — | {"level":"error","text":"The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:42573/parity/driver/dist/psflow.js:69786:… |
+| `console/1` | left only | {"level":"warning","text":"[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNod… | — |
+| `console/2` | left only | {"level":"warning","text":"[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNod… | — |
+| `console/3` | left only | {"level":"warning","text":"[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNod… | — |
 
 
 ---

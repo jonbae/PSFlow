@@ -66,12 +66,11 @@ A prop that resolves on the JS surface but whose converter has not landed. It
 **throws at mount**, naming the stage that will land it, because a prop that was
 silently ignored would be indistinguishable from a prop the consumer never set.
 **There are none**: boundary stage 4 crossed the last two, and the entry kinds
-that constructed them went with their tables (`Boundary.Refusal`). The term
-stays because the failure it names does not, and `parity/boundary`'s mount check
-now asserts the residue instead — no prop of any converter is wired to
-`Nothing`. What still refuses is `defaultEdgeOptions`' thirteen dropped members,
-which were never deferred props: no stage retires them, because ps-flow's record
-does not model them at all.
+that constructed them went with their tables. The term stays because the failure
+it names does not, and `parity/boundary`'s mount check now asserts the residue
+instead — no prop of any converter is wired to `Nothing`. The last refusal
+table, `defaultEdgeOptions`' thirteen unmodelled members, went in Step 3 G when
+`Edge` and `DefaultEdgeOptions` gained them, and the refusal module went with it.
 _Avoid_: unsupported prop, unimplemented prop, TODO prop
 
 ### The gates

@@ -50,6 +50,7 @@ import Test.Parity.Graph (runGraphParity)
 import Test.Parity.Marker (runMarkerParity)
 import Test.Parity.Toolbar (runToolbarParity)
 import Test.Boundary.ConnectionNullHandle (runConnectionNullHandleTests)
+import Test.Boundary.DefaultEdgeOptions (runDefaultEdgeOptionsTests)
 import Test.Boundary.EdgeAnimated (runEdgeAnimatedTests)
 import Test.Boundary.EdgeHidden (runEdgeHiddenTests)
 import Test.Boundary.ConsumerObjects (runConsumerObjectsTests)
@@ -550,6 +551,9 @@ main = do
       , height: Just 25.0
       , initialWidth: Nothing
       , initialHeight: Nothing
+      , focusable: Nothing
+      , ariaRole: Nothing
+      , domAttributes: Nothing
       , parentId: Nothing
       , zIndex: Nothing
       , extent: Nothing
@@ -583,6 +587,16 @@ main = do
       , label: Nothing
       , ariaLabel: Nothing
       , interactionWidth: Nothing
+      , focusable: Nothing
+      , reconnectable: Nothing
+      , ariaRole: Nothing
+      , domAttributes: Nothing
+      , labelStyle: Nothing
+      , labelShowBg: Nothing
+      , labelBgStyle: Nothing
+      , labelBgPadding: Nothing
+      , labelBgBorderRadius: Nothing
+      , pathOptions: Nothing
       , className: Nothing
       , style: Nothing
       }
@@ -713,6 +727,9 @@ main = do
           , height: Just 25.0
           , initialWidth: Nothing
           , initialHeight: Nothing
+          , focusable: Nothing
+          , ariaRole: Nothing
+          , domAttributes: Nothing
           , parentId
           , zIndex: Nothing
           , extent: Nothing
@@ -1217,6 +1234,7 @@ main = do
   runConnectionOrderTests
   runConnectionNullHandleTests
   runEdgeAnimatedTests
+  runDefaultEdgeOptionsTests
   runNodeExpandParentTests
   runEdgeHiddenTests
   runEdgeSelectedTests
