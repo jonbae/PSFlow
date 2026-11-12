@@ -1,0 +1,47 @@
+$ node --test parity/boundary/consumer-objects.test.mjs
+TAP version 13
+# Subtest: addEdge copies the consumer edge/connection and retains untouched edges
+ok 1 - addEdge copies the consumer edge/connection and retains untouched edges
+  ---
+  duration_ms: 19.766363
+  type: 'test'
+  ...
+# Subtest: applyNodeChanges retains untouched consumer references and keys
+ok 2 - applyNodeChanges retains untouched consumer references and keys
+  ---
+  duration_ms: 1.409375
+  type: 'test'
+  ...
+# Subtest: applyEdgeChanges retains untouched consumer references and keys
+ok 3 - applyEdgeChanges retains untouched consumer references and keys
+  ---
+  duration_ms: 0.445321
+  type: 'test'
+  ...
+# Subtest: applyNodeChanges preserves raw position, dimensions, attributes and resizing semantics
+ok 4 - applyNodeChanges preserves raw position, dimensions, attributes and resizing semantics
+  ---
+  duration_ms: 7.525391
+  type: 'test'
+  ...
+# Subtest: applyNodeChanges shallow-copies touched/add/replace items and preserves change ordering
+ok 5 - applyNodeChanges shallow-copies touched/add/replace items and preserves change ordering
+  ---
+  duration_ms: 4.896298
+  type: 'test'
+  ...
+# Subtest: applyEdgeChanges shallow-copies touched/add/replace items and preserves change ordering
+ok 6 - applyEdgeChanges shallow-copies touched/add/replace items and preserves change ordering
+  ---
+  duration_ms: 2.648257
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2380.783692

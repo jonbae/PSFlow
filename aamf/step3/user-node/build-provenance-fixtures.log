@@ -1,0 +1,42 @@
+$ spago build
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[ 1 of 29] Compiling React.Component.NodeWrapper
+[ 2 of 29] Compiling Test.React.Hook.VisibleIds
+[ 3 of 29] Compiling Test.React.Store.Reduce
+[ 4 of 29] Compiling Test.System.XYDrag
+[ 5 of 29] Compiling Test.System.XYDrag.DragItemOrder
+[ 6 of 29] Compiling Test.Boundary.PrunedKeys
+[ 7 of 29] Compiling Test.React.Hook.NodeRenderOrder
+[ 8 of 29] Compiling Test.Properties
+[ 9 of 29] Compiling Test.Boundary.UserNode
+[10 of 29] Compiling Test.System.FinalConnectionState
+[11 of 29] Compiling Test.Parity.Geometry
+[12 of 29] Compiling Test.Parity.Edges
+[13 of 29] Compiling Test.Parity.Changes
+[14 of 29] Compiling Test.Parity.Graph
+[15 of 29] Compiling Test.Parity.Toolbar
+[16 of 29] Compiling Test.System.XYHandle
+[17 of 29] Compiling Test.System.XYDrag.DragErrors
+[18 of 29] Compiling React.Container.NodeRenderer
+[19 of 29] Compiling Test.React.Component.AriaDescribedBy
+[20 of 29] Compiling Test.System.XYDrag.DragUserNodes
+[21 of 29] Compiling Test.System.XYDrag.DragSelection
+[22 of 29] Compiling React.Container.GraphView
+[23 of 29] Compiling React.Container.ReactFlow
+[24 of 29] Compiling Boundary.Flow
+[25 of 29] Compiling React
+[26 of 29] Compiling Boundary
+[27 of 29] Compiling Test.React.Additional.BackgroundPattern
+[28 of 29] Compiling Test.Boundary.FlowWrapperAttributes
+[29 of 29] Compiling Test.Main
+           Src   Lib   All
+Warnings     0     0     0
+Errors       0     0     0
+
+✓ Build succeeded.
+

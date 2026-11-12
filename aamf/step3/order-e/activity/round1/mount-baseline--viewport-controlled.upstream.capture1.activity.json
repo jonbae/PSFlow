@@ -1,0 +1,80 @@
+[
+  {
+    "at": 14,
+    "type": "resize.observe",
+    "target": "react-flow__node react-flow__node-input nopan selectable draggable"
+  },
+  {
+    "at": 14,
+    "type": "resize.observe",
+    "target": "react-flow__node react-flow__node-output nopan selectable draggable"
+  },
+  {
+    "at": 14,
+    "type": "resize.observe",
+    "target": "react-flow__node react-flow__node-default nopan selectable draggable"
+  },
+  {
+    "at": 14,
+    "type": "resize.observe",
+    "target": "react-flow__node react-flow__node-output nopan selectable draggable"
+  },
+  {
+    "at": 14,
+    "type": "resize.observe",
+    "target": "react-flow__renderer"
+  },
+  {
+    "at": 14,
+    "type": "timer.schedule",
+    "id": 1000000000000,
+    "delay": 1,
+    "stack": [
+      "    at http://127.0.0.1:65130/parity/driver/dist/upstream.js:34180:7",
+      "    at commitHookEffectListMount (http://127.0.0.1:65130/parity/driver/dist/upstream.js:18871:34)",
+      "    at commitPassiveMountOnFiber (http://127.0.0.1:65130/parity/driver/dist/upstream.js:20119:17)"
+    ]
+  },
+  {
+    "at": 14,
+    "type": "timer.cancel"
+  },
+  {
+    "at": 14,
+    "type": "timer.schedule",
+    "id": 1000000000001,
+    "delay": 0,
+    "stack": [
+      "    at HTMLDivElement.<anonymous> (http://127.0.0.1:65130/parity/driver/dist/upstream.js:30003:31)",
+      "    at Dispatch.call (http://127.0.0.1:65130/parity/driver/dist/upstream.js:26188:72)",
+      "    at Gesture.emit (http://127.0.0.1:65130/parity/driver/dist/upstream.js:29607:17)"
+    ]
+  },
+  {
+    "at": 14,
+    "type": "timer.fire",
+    "id": 1000000000001
+  },
+  {
+    "at": 14,
+    "type": "resize.fire",
+    "targets": [
+      "react-flow__node react-flow__node-input nopan selectable draggable",
+      "react-flow__node react-flow__node-output nopan selectable draggable",
+      "react-flow__node react-flow__node-default nopan selectable draggable",
+      "react-flow__node react-flow__node-output nopan selectable draggable"
+    ]
+  },
+  {
+    "at": 14,
+    "type": "resize.fire",
+    "targets": [
+      "react-flow__renderer"
+    ]
+  },
+  {
+    "at": 15,
+    "type": "timer.fire",
+    "id": 1000000000000
+  }
+]

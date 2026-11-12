@@ -1,0 +1,12 @@
+[
+  "src/React/Component/NodeWrapper.purs",
+  "test/Test/Properties.purs",
+  "test/Test/Main.purs",
+  "test/Test/Boundary/PrunedKeys.purs",
+  "test/Test/System/XYDrag.purs",
+  "test/Test/System/FinalConnectionState.purs",
+  "test/Test/React/Hook/VisibleIds.purs",
+  "test/Test/React/Hook/NodeRenderOrder.purs",
+  "test/Test/React/Store/Reduce.purs",
+  "test/Test/System/XYDrag/DragItemOrder.purs"
+]

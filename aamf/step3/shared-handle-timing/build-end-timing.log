@@ -1,0 +1,28 @@
+$ npm exec --yes --package=purescript@0.15.16 -- spago build
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[ 1 of 15] Compiling System.XYPanZoom.EventHandler
+[ 2 of 15] Compiling Test.System.XYPanZoom.EventHandler
+[ 3 of 15] Compiling Test.System.XYPanZoom.EndTiming
+[ 4 of 15] Compiling System.XYPanZoom
+[ 5 of 15] Compiling Test.System.XYPanZoom.SourceEvents
+[ 6 of 15] Compiling React.Container.ZoomPane
+[ 7 of 15] Compiling React.Container.FlowRenderer
+[ 8 of 15] Compiling React.Container.GraphView
+[ 9 of 15] Compiling React.Container.ReactFlow
+[11 of 15] Compiling React
+[10 of 15] Compiling Boundary.Flow
+[12 of 15] Compiling Boundary
+[13 of 15] Compiling Test.React.Additional.BackgroundPattern
+[14 of 15] Compiling Test.Boundary.FlowWrapperAttributes
+[15 of 15] Compiling Test.Main
+           Src   Lib   All
+Warnings     0     0     0
+Errors       0     0     0
+
+✓ Build succeeded.
+

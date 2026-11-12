@@ -1,0 +1,55 @@
+{
+  "id": "psflow-w02-connected-edges",
+  "planWork": "Step 3 B / W02, one export",
+  "status": "complete, 2026-11-09; first of seven W02 crossings only",
+  "source": "xyflow/packages/system/src/utils/graph.ts::getConnectedEdges",
+  "sourceContext": [
+    "xyflow/packages/react/src/index.ts",
+    "src/System/Utils/Graph.purs::getConnectedEdges",
+    "test/Test/Parity/Graph.purs"
+  ],
+  "mechanism": "Collect node ids, then filter the caller's edges by source or target membership in input order. Return original edge references, including custom keys and explicitly present undefined. Return a fresh result array even when empty or when every edge matches.",
+  "seam": "Direct JavaScript calls through index.js, compared with the rebuilt vendored oracle",
+  "allowedOutputs": [
+    "src/Boundary/Utils.purs",
+    "src/Boundary.purs",
+    "src/Boundary.js",
+    "parity/boundary/connected-edges.test.mjs (new JS-entry regression)",
+    "parity/surface/allowlist.json (only this export's arity and call-convention entries, plus the resulting count comment)",
+    "parity/surface/psflow.json",
+    "parity/surface/report.md",
+    "parity/driver/dist/psflow.js (integration rebuild)",
+    "aamf/step3/ (execution evidence)",
+    "AAMF_STEP3_RESULTS.md",
+    "AAMF_PORTING_PLAN.md (status only)"
+  ],
+  "readOnly": [
+    "src/System/Utils/Graph.purs",
+    "src/Boundary/Elements.purs",
+    "src/Boundary/Utils.js",
+    "package.json",
+    "package-lock.json",
+    "spago.yaml",
+    "spago.lock",
+    "parity/system/normalization.json",
+    "parity/system/regions.json",
+    "parity/system/weakenings.json"
+  ],
+  "execution": {
+    "route": "Current PSFlow workflow, serialized after W00; not an autonomous AAMF execution",
+    "reason": "The maintained Step 2 adapter intentionally selects only the completed viewport pilot and rejects requeuing it. Expanding its runtime/checkpoint contract for a single small crossing would exceed this task. The certified AAMF inventory and reconciliation remain read-only context.",
+    "concurrency": 1
+  },
+  "acceptance": [
+    "Observe a direct JS-entry regression fail before the crossing and pass after a fresh build",
+    "Match upstream arity, inclusion from either endpoint, order, duplicate behavior, empty inputs and original object references",
+    "Preserve custom and symbol keys and explicitly present undefined without mutating input arrays or elements",
+    "Retire exactly the two matching surface exceptions while surface parity stays green",
+    "Pass spago test, parity:boundary and existing boundary tests",
+    "Keep stage 4 while six other passthrough exports remain"
+  ],
+  "dependencies": [
+    "W01 complete at 98a3f77ab1bb17d481c6dec4fed2e23174448e45",
+    "W00 fresh baseline completed; unstable browser scenarios remain quarantined until E resolves reproducibility"
+  ]
+}

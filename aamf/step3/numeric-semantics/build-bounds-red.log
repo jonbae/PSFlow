@@ -1,0 +1,63 @@
+$ npm exec --yes --package=purescript@0.15.16 -- spago build
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[  1 of 204] Compiling System.Utils.Number
+[  2 of 204] Compiling System.Utils.General
+[  3 of 204] Compiling System.XYMinimap
+[  4 of 204] Compiling System.Utils.Edges.Positions
+[  5 of 204] Compiling System.Utils.Dom
+[  6 of 204] Compiling System.Utils.Graph
+[  7 of 204] Compiling Test.System.Utils.MathRound
+[  8 of 204] Compiling System.XYDrag.Utils
+[  9 of 204] Compiling System.Utils.Edges.General
+[ 10 of 204] Compiling Test.System.Utils.NumericParity
+[ 11 of 204] Compiling System.XYPanZoom.Utils
+[ 12 of 204] Compiling System.XYPanZoom.EventHandler
+[ 13 of 204] Compiling Test.System.XYDrag.DragItemOrder
+[ 14 of 204] Compiling System.XYPanZoom.Filter
+[ 15 of 204] Compiling System.XYHandle.Utils
+[ 16 of 204] Compiling React.Hook.KeyPress
+[ 17 of 204] Compiling System.XYResizer
+[ 19 of 204] Compiling System.Utils.Store
+[ 18 of 204] Compiling React.Container.Pane.Internal
+[ 20 of 204] Compiling System.Utils.Edges.Bezier
+[ 21 of 204] Compiling System.Utils.Edges.Straight
+[ 22 of 204] Compiling Test.Parity.Util
+[ 23 of 204] Compiling System.Utils.Edges.SmoothStep
+[ 24 of 204] Compiling System.XYHandle
+[ 25 of 204] Compiling React.Edge.Straight
+[ 26 of 204] Compiling Test.React.Container.Pane
+[ 27 of 204] Compiling React.Types.General
+[ 28 of 204] Compiling Test.Properties
+[ 29 of 204] Compiling React.Util.General
+[ 30 of 204] Compiling System.XYDrag
+[ 31 of 204] Compiling System.Utils.Edges.SimpleBezier
+[ 32 of 204] Compiling React.Edge.Bezier
+[ 33 of 204] Compiling Test.System.XYPanZoom.EventHandler
+[ 34 of 204] Compiling System.XYPanZoom
+[ 35 of 204] Compiling React.Types.Instance
+[ 36 of 204] Compiling React.Edge.SmoothStep
+[ 37 of 204] Compiling System.Utils.Edges
+[ 38 of 204] Compiling Test.Oracle
+[ 39 of 204] Compiling React.Edge.SimpleBezier
+[ 40 of 204] Compiling React.Edge.Step
+[ 41 of 204] Compiling React.Component.EdgeWrapper.Util
+[ 42 of 204] Compiling Test.System.XYPanZoom.SourceEvents
+[ 43 of 204] Compiling Test.Parity.Connections
+[ 44 of 204] Compiling Test.Parity.Toolbar
+[ 45 of 204] Compiling Test.Parity.Graph
+[ 46 of 204] Compiling Test.Parity.Geometry
+[ 47 of 204] Compiling Test.Parity.Marker
+[ 48 of 204] Compiling Test.Parity.Edges
+[ 49 of 204] Compiling Test.Parity.Changes
+[ 50 of 204] Compiling React.Types.Component
+[ 51 of 204] Compiling Test.System.Utils.Store
+[ 52 of 204] Compiling Test.System.Utils.StorePanBy
+[ 53 of 204] Compiling Test.System.Utils.ConnectionOrder
+
+✘ purs exited with non-ok status code: BySignal "SIGTERM"
+

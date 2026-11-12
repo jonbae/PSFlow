@@ -1,0 +1,125 @@
+$ node --test parity/boundary/node-bounds.test.mjs
+TAP version 13
+# Subtest: getNodesBounds returns a rect from one JS call with omitted options
+ok 1 - getNodesBounds returns a rect from one JS call with omitted options
+  ---
+  duration_ms: 3.878533
+  type: 'test'
+  ...
+# Subtest: getNodesBounds resolves ids and plain nodes through the lookup, keeps internal inputs, and includes a zero box for misses
+ok 2 - getNodesBounds resolves ids and plain nodes through the lookup, keeps internal inputs, and includes a zero box for misses
+  ---
+  duration_ms: 0.591561
+  type: 'test'
+  ...
+# Subtest: getNodesBounds propagates NaN through every box merge in either input order
+ok 3 - getNodesBounds propagates NaN through every box merge in either input order
+  ---
+  duration_ms: 1.595451
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: empty nodes
+ok 4 - getNodesBounds matches upstream: empty nodes
+  ---
+  duration_ms: 0.229534
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: explicit undefined options
+ok 5 - getNodesBounds matches upstream: explicit undefined options
+  ---
+  duration_ms: 0.288317
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: empty options
+ok 6 - getNodesBounds matches upstream: empty options
+  ---
+  duration_ms: 0.185889
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: ids without a lookup contribute zero boxes
+ok 7 - getNodesBounds matches upstream: ids without a lookup contribute zero boxes
+  ---
+  duration_ms: 0.227295
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: global origin
+ok 8 - getNodesBounds matches upstream: global origin
+  ---
+  duration_ms: 0.202718
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: own origin overrides global origin
+ok 9 - getNodesBounds matches upstream: own origin overrides global origin
+  ---
+  duration_ms: 0.484387
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: partial measured dimensions and independent fallbacks
+ok 10 - getNodesBounds matches upstream: partial measured dimensions and independent fallbacks
+  ---
+  duration_ms: 0.546234
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: missing dimensions default to zero
+ok 11 - getNodesBounds matches upstream: missing dimensions default to zero
+  ---
+  duration_ms: 0.280456
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: internal nodes use absolute positions and ignore origins
+ok 12 - getNodesBounds matches upstream: internal nodes use absolute positions and ignore origins
+  ---
+  duration_ms: 0.148894
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: lookup miss for a plain node contributes zero instead of falling back
+ok 13 - getNodesBounds matches upstream: lookup miss for a plain node contributes zero instead of falling back
+  ---
+  duration_ms: 0.167509
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: nullish measured fields fall back independently
+ok 14 - getNodesBounds matches upstream: nullish measured fields fall back independently
+  ---
+  duration_ms: 0.170478
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches signed zero, infinities and negative dimensions
+ok 15 - getNodesBounds matches signed zero, infinities and negative dimensions
+  ---
+  duration_ms: 1.742239
+  type: 'test'
+  ...
+# Subtest: getNodesBounds reads only used geometry fields and short-circuits dimension fallbacks
+ok 16 - getNodesBounds reads only used geometry fields and short-circuits dimension fallbacks
+  ---
+  duration_ms: 0.193186
+  type: 'test'
+  ...
+# Subtest: getNodesBounds leaves frozen nodes, options and lookup entries unchanged
+ok 17 - getNodesBounds leaves frozen nodes, options and lookup entries unchanged
+  ---
+  duration_ms: 0.209892
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches malformed-option error and empty-input timing
+ok 18 - getNodesBounds matches malformed-option error and empty-input timing
+  ---
+  duration_ms: 0.590867
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches the vendored development warning before the empty-input return
+ok 19 - getNodesBounds matches the vendored development warning before the empty-input return
+  ---
+  duration_ms: 37.958082
+  type: 'test'
+  ...
+1..19
+# tests 19
+# suites 0
+# pass 19
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 732.294467

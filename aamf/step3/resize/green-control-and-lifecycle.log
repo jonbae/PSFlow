@@ -1,0 +1,2 @@
+$ node --input-type=module -e import {runXYResizerTests} from "./output/Test.System.XYResizer/index.js";runXYResizerTests();
+XYResizer: basic lifecycle and 64 source-differential cases passed

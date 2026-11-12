@@ -1,0 +1,72 @@
+{
+  "completedAt": "2026-11-10T02:46:07.136Z",
+  "audit": {
+    "inputs": 1316,
+    "changedInputs": [
+      "parity/driver/dist/psflow.js",
+      "parity/surface/allowlist.json",
+      "parity/surface/report.md",
+      "src/Boundary.js",
+      "src/Boundary.purs",
+      "src/Boundary/Utils.js",
+      "src/Boundary/Utils.purs"
+    ],
+    "unexpectedChanges": []
+  },
+  "regressions": {
+    "callingConvention": {
+      "red": 1,
+      "green": 0
+    },
+    "lookup": {
+      "red": 1,
+      "green": 0
+    },
+    "numeric": {
+      "red": 1,
+      "green": 0
+    },
+    "finalCases": 19,
+    "boundarySuite": 85
+  },
+  "boundary": {
+    "stage": 4,
+    "crossed": 65,
+    "passthrough": 3
+  },
+  "outputs": [
+    {
+      "path": "src/Boundary/Utils.purs",
+      "sha256": "aacf6505f4b70f3ddc819fbe44dff0e9748ac320ee2375d1892d80a0cb5a26c9"
+    },
+    {
+      "path": "src/Boundary/Utils.js",
+      "sha256": "60373bfdd802cc2eb27ffb3f7fddc1dfec5b0d5c68da9f43b1540126325060f6"
+    },
+    {
+      "path": "src/Boundary.purs",
+      "sha256": "6f2e857f72509b00cf0e97385c030f236d2063a0c7c6339cf3e6fa934a1b8470"
+    },
+    {
+      "path": "src/Boundary.js",
+      "sha256": "620946ced4715c31c9ab167bb4932f79024870ebaf7c2b35694a09aebd129c4b"
+    },
+    {
+      "path": "parity/surface/allowlist.json",
+      "sha256": "cd7006050580800df9fe48a44c777f3e95edfb840c043cc3147c33531b42fcb8"
+    },
+    {
+      "path": "parity/surface/report.md",
+      "sha256": "c16c475fadf5ab4270deaf9790adf2038b2251d37f704deb776e0211c5623409"
+    },
+    {
+      "path": "parity/driver/dist/psflow.js",
+      "sha256": "c25a238d75ca4a271842f9f89eadf96900c03d907fb7b85e46c24c928e1e9df7"
+    },
+    {
+      "path": "parity/boundary/node-bounds.test.mjs",
+      "sha256": "ccd7a229ae1b88024fb2a5da6b91b28d4ad768efe2eee68211a5a3779e2fc809"
+    }
+  ],
+  "aamfInvoked": false
+}

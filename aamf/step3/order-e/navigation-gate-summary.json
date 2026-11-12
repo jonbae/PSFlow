@@ -1,0 +1,722 @@
+[
+  {
+    "scenario": "pan-after-controlled-viewport-change",
+    "round": 1,
+    "interpretable": true,
+    "fullGatePassed": true,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "pan-after-controlled-viewport-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "pan-after-controlled-viewport-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [],
+    "differences": []
+  },
+  {
+    "scenario": "pan-after-controlled-viewport-change",
+    "round": 2,
+    "interpretable": true,
+    "fullGatePassed": true,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "pan-after-controlled-viewport-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "pan-after-controlled-viewport-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [],
+    "differences": []
+  },
+  {
+    "scenario": "pan-after-controlled-viewport-change",
+    "round": 3,
+    "interpretable": true,
+    "fullGatePassed": true,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "pan-after-controlled-viewport-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "pan-after-controlled-viewport-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [],
+    "differences": []
+  },
+  {
+    "scenario": "pan-after-controlled-viewport-change",
+    "round": 4,
+    "interpretable": true,
+    "fullGatePassed": true,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "pan-after-controlled-viewport-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "pan-after-controlled-viewport-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [],
+    "differences": []
+  },
+  {
+    "scenario": "pan-after-controlled-viewport-change",
+    "round": 5,
+    "interpretable": true,
+    "fullGatePassed": true,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "pan-after-controlled-viewport-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "pan-after-controlled-viewport-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [],
+    "differences": []
+  },
+  {
+    "scenario": "mount-baseline--viewport-controlled",
+    "round": 1,
+    "interpretable": true,
+    "fullGatePassed": true,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "mount-baseline--viewport-controlled",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "mount-baseline--viewport-controlled",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [],
+    "differences": []
+  },
+  {
+    "scenario": "mount-baseline--viewport-controlled",
+    "round": 2,
+    "interpretable": true,
+    "fullGatePassed": true,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "mount-baseline--viewport-controlled",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "mount-baseline--viewport-controlled",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [],
+    "differences": []
+  },
+  {
+    "scenario": "mount-baseline--viewport-controlled",
+    "round": 3,
+    "interpretable": true,
+    "fullGatePassed": true,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "mount-baseline--viewport-controlled",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "mount-baseline--viewport-controlled",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [],
+    "differences": []
+  },
+  {
+    "scenario": "mount-baseline--viewport-controlled",
+    "round": 4,
+    "interpretable": true,
+    "fullGatePassed": true,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "mount-baseline--viewport-controlled",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "mount-baseline--viewport-controlled",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [],
+    "differences": []
+  },
+  {
+    "scenario": "mount-baseline--viewport-controlled",
+    "round": 5,
+    "interpretable": true,
+    "fullGatePassed": true,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "mount-baseline--viewport-controlled",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "mount-baseline--viewport-controlled",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [],
+    "differences": []
+  },
+  {
+    "scenario": "arrow-key-selected-node",
+    "round": 1,
+    "interpretable": true,
+    "fullGatePassed": true,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [],
+    "differences": []
+  },
+  {
+    "scenario": "arrow-key-selected-node",
+    "round": 2,
+    "interpretable": true,
+    "fullGatePassed": true,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [],
+    "differences": []
+  },
+  {
+    "scenario": "arrow-key-selected-node",
+    "round": 3,
+    "interpretable": true,
+    "fullGatePassed": true,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [],
+    "differences": []
+  },
+  {
+    "scenario": "arrow-key-selected-node",
+    "round": 4,
+    "interpretable": true,
+    "fullGatePassed": true,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [],
+    "differences": []
+  },
+  {
+    "scenario": "arrow-key-selected-node",
+    "round": 5,
+    "interpretable": true,
+    "fullGatePassed": true,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [],
+    "differences": []
+  }
+]

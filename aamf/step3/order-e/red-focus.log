@@ -1,0 +1,120 @@
+$ npm run test:harness:live -- --grep only auto-pans
+
+> ps-flow@0.0.0 test:harness:live
+> playwright test --config parity/system/harness/playwright.config.mjs --grep only auto-pans
+
+
+Running 4 tests using 1 worker
+
+(node:40440) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:40440) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [harness] › parity/system/harness/focus.spec.mjs:10:5 › upstream only auto-pans an offscreen node on keyboard focus (pointer) (5.9s)
+(node:40576) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:40576) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [harness] › parity/system/harness/focus.spec.mjs:10:5 › upstream only auto-pans an offscreen node on keyboard focus (keyboard) (5.2s)
+  ✘  3 [harness] › parity/system/harness/focus.spec.mjs:10:5 › psflow only auto-pans an offscreen node on keyboard focus (pointer) (7.5s)
+(node:40947) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:40947) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  4 [harness] › parity/system/harness/focus.spec.mjs:10:5 › psflow only auto-pans an offscreen node on keyboard focus (keyboard) (6.9s)
+
+
+  1) [harness] › parity/system/harness/focus.spec.mjs:10:5 › upstream only auto-pans an offscreen node on keyboard focus (pointer) 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mfalse[39m
+    Received: [31mtrue[39m
+
+      23 |       const selector='.react-flow__node[data-id="n1"]';
+      24 |       await port.focus(selector);
+    > 25 |       expect(await page.locator(selector).evaluate(el=>el.matches(':focus-visible'))).toBe(modality==='keyboard');
+         |                                                                                       ^
+      26 |       await port.tick();
+      27 |       const after=await viewport.getAttribute('style');
+      28 |       if (modality==='keyboard') expect(after).not.toBe(before);
+        at /Users/jonathanbae/repos/PSFlow/parity/system/harness/focus.spec.mjs:25:87
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/focus-upstream-only-auto-p-4814c--on-keyboard-focus-pointer--harness/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/focus-upstream-only-auto-p-4814c--on-keyboard-focus-pointer--harness/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/focus-upstream-only-auto-p-4814c--on-keyboard-focus-pointer--harness/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/focus-upstream-only-auto-p-4814c--on-keyboard-focus-pointer--harness/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [harness] › parity/system/harness/focus.spec.mjs:10:5 › psflow only auto-pans an offscreen node on keyboard focus (pointer) 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mfalse[39m
+    Received: [31mtrue[39m
+
+      23 |       const selector='.react-flow__node[data-id="n1"]';
+      24 |       await port.focus(selector);
+    > 25 |       expect(await page.locator(selector).evaluate(el=>el.matches(':focus-visible'))).toBe(modality==='keyboard');
+         |                                                                                       ^
+      26 |       await port.tick();
+      27 |       const after=await viewport.getAttribute('style');
+      28 |       if (modality==='keyboard') expect(after).not.toBe(before);
+        at /Users/jonathanbae/repos/PSFlow/parity/system/harness/focus.spec.mjs:25:87
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/focus-psflow-only-auto-pan-97361--on-keyboard-focus-pointer--harness/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/focus-psflow-only-auto-pan-97361--on-keyboard-focus-pointer--harness/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/focus-psflow-only-auto-pan-97361--on-keyboard-focus-pointer--harness/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/focus-psflow-only-auto-pan-97361--on-keyboard-focus-pointer--harness/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [harness] › parity/system/harness/focus.spec.mjs:10:5 › psflow only auto-pans an offscreen node on keyboard focus (keyboard) 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mnot[2m.[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: not [32m"transform: translate(-1000px, -1000px) scale(1);"[39m
+
+      26 |       await port.tick();
+      27 |       const after=await viewport.getAttribute('style');
+    > 28 |       if (modality==='keyboard') expect(after).not.toBe(before);
+         |                                                    ^
+      29 |       else expect(after).toBe(before);
+      30 |     });
+      31 |   }
+        at /Users/jonathanbae/repos/PSFlow/parity/system/harness/focus.spec.mjs:28:52
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/focus-psflow-only-auto-pan-f02da-on-keyboard-focus-keyboard--harness/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/focus-psflow-only-auto-pan-f02da-on-keyboard-focus-keyboard--harness/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/focus-psflow-only-auto-pan-f02da-on-keyboard-focus-keyboard--harness/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/focus-psflow-only-auto-pan-f02da-on-keyboard-focus-keyboard--harness/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3 failed
+    [harness] › parity/system/harness/focus.spec.mjs:10:5 › upstream only auto-pans an offscreen node on keyboard focus (pointer) 
+    [harness] › parity/system/harness/focus.spec.mjs:10:5 › psflow only auto-pans an offscreen node on keyboard focus (pointer) 
+    [harness] › parity/system/harness/focus.spec.mjs:10:5 › psflow only auto-pans an offscreen node on keyboard focus (keyboard) 
+  1 passed (51.0s)

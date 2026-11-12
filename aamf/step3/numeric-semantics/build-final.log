@@ -1,0 +1,117 @@
+$ npm exec --yes --package=purescript@0.15.16 -- spago build
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[  1 of 104] Compiling System.XYResizer
+[  2 of 104] Compiling React.Types.Component
+[  3 of 104] Compiling React.Component.ConnectionLine
+[  4 of 104] Compiling React.Additional.NodeResizer.Control
+[  5 of 104] Compiling Boundary.Enums
+[  6 of 104] Compiling React.Component.UserSelection
+[  7 of 104] Compiling React.Additional.MiniMap.Node
+[  8 of 104] Compiling React.Portal.ViewportPortal
+[  9 of 104] Compiling React.Container.Viewport
+[ 10 of 104] Compiling React.Provider.StoreUpdater
+[ 11 of 104] Compiling React.Portal.EdgeLabelRenderer
+[ 12 of 104] Compiling React.Additional.Controls.Button
+[ 13 of 104] Compiling React.Container.A11yDescriptions
+[ 14 of 104] Compiling React.Container.MarkerDefinitions
+[ 15 of 104] Compiling React.Types
+[ 16 of 104] Compiling React.Container.ZoomPane
+[ 17 of 104] Compiling React.Provider.Batch
+[ 18 of 104] Compiling React.Additional.Background.Patterns
+[ 19 of 104] Compiling React.Additional.NodeToolbar.Portal
+[ 20 of 104] Compiling React.Provider.SelectionListener
+[ 21 of 104] Compiling React.Additional.MiniMap.Nodes
+[ 22 of 104] Compiling React.Handle
+[ 23 of 104] Compiling React.Portal.Panel
+[ 24 of 104] Compiling Boundary.FitView
+[ 25 of 104] Compiling Boundary.Elements
+[ 26 of 104] Compiling React.Container.Pane
+[ 27 of 104] Compiling Boundary.EdgePaths
+[ 28 of 104] Compiling Boundary.Portals
+[ 29 of 104] Compiling React.Additional.EdgeToolbar
+[ 30 of 104] Compiling React.Additional.Background
+[ 31 of 104] Compiling Test.React.Hook.ConnectionTo
+[ 32 of 104] Compiling React.Additional.NodeToolbar
+[ 33 of 104] Compiling React.Component.EdgeWrapper
+[ 34 of 104] Compiling Test.React.Container.NodeA11yDescription
+[ 35 of 104] Compiling React.Additional.Controls
+[ 36 of 104] Compiling React.Container.Attribution
+[ 37 of 104] Compiling React.Additional.MiniMap
+[ 38 of 104] Compiling Test.Boundary.EdgePaths
+[ 39 of 104] Compiling React.Provider
+[ 40 of 104] Compiling React.Additional.NodeResizer
+[ 41 of 104] Compiling Test.React.Additional.BackgroundOffset
+[ 42 of 104] Compiling Boundary.Edges
+[ 43 of 104] Compiling Test.React.Provider.BatchQueue
+[ 44 of 104] Compiling Test.Boundary.PrunedKeys
+[ 45 of 104] Compiling Test.Boundary.NodeSelected
+[ 46 of 104] Compiling Test.Boundary.NodeHidden
+[ 47 of 104] Compiling Boundary.Instance
+[ 48 of 104] Compiling Test.Boundary.HandleIdNull
+[ 49 of 104] Compiling Test.Boundary.NodeExpandParent
+[ 50 of 104] Compiling Test.Boundary.DimensionResizing
+[ 51 of 104] Compiling Test.React.Hook.OnInitTiming
+[ 52 of 104] Compiling Test.React.Additional.NodeToolbarPortal
+[ 53 of 104] Compiling Test.React.Container.AttributionPanel
+[ 54 of 104] Compiling Test.React.Component.EdgeAriaLabel
+[ 55 of 104] Compiling Test.React.Component.EdgeComponentProps
+[ 56 of 104] Compiling React.Container.EdgeRenderer
+[ 57 of 104] Compiling Test.React.Additional.MiniMapMask
+[ 58 of 104] Compiling Test.React.Additional.MiniMap
+[ 59 of 104] Compiling Test.Boundary.BaseEdgeAttributes
+[ 60 of 104] Compiling Test.Boundary.Wrapper
+[ 61 of 104] Compiling React.Container.Wrapper
+[ 62 of 104] Compiling React.Node.Default
+[ 63 of 104] Compiling Test.React.Component.HandleDataId
+[ 64 of 104] Compiling Test.React.HandleNativeEvent
+[ 65 of 104] Compiling React.Node.Output
+[ 66 of 104] Compiling React.Node.Input
+[ 67 of 104] Compiling Test.React.Store.InPlaceSelection
+[ 68 of 104] Compiling Test.Boundary.ConnectionNullHandle
+[ 69 of 104] Compiling Boundary.Callbacks
+[ 70 of 104] Compiling React.Component.NodeWrapper.Util
+[ 71 of 104] Compiling Test.React.DomNumbers
+[ 72 of 104] Compiling React.Component.NodesSelection
+[ 73 of 104] Compiling Test.React.Component.NodeInlineDimensions
+[ 74 of 104] Compiling React.Component.NodeWrapper
+[ 75 of 104] Compiling Boundary.Resizer
+[ 76 of 104] Compiling Boundary.NodeChrome
+[ 77 of 104] Compiling Boundary.Chrome
+[ 78 of 104] Compiling Test.System.XYResizer
+[ 79 of 104] Compiling Test.System.FinalConnectionState
+[ 80 of 104] Compiling Boundary.Utils
+[ 81 of 104] Compiling Boundary.Hooks
+[ 82 of 104] Compiling Test.Boundary.UserNode
+[ 84 of 104] Compiling Test.React.Hook.ViewportListeners
+[ 83 of 104] Compiling Test.Boundary.NodeResizing
+[ 85 of 104] Compiling Test.Boundary.NodeDragging
+[ 86 of 104] Compiling Test.Boundary.EdgeAnimated
+[ 87 of 104] Compiling Test.Boundary.EdgeSelected
+[ 88 of 104] Compiling Test.Boundary.EdgeHidden
+[ 89 of 104] Compiling Test.Boundary.ConsumerObjects
+[ 90 of 104] Compiling Test.React.Component.NodesSelectionRect
+[ 91 of 104] Compiling React.Container.FlowRenderer
+[ 92 of 104] Compiling Test.System.XYDrag.DragUserNodes
+[ 93 of 104] Compiling Test.System.XYDrag.DragSelection
+[ 94 of 104] Compiling React.Container.NodeRenderer
+[ 95 of 104] Compiling Test.System.XYDrag.DragErrors
+[ 96 of 104] Compiling Test.React.Component.AriaDescribedBy
+[ 97 of 104] Compiling React.Container.GraphView
+[ 98 of 104] Compiling React.Container.ReactFlow
+[100 of 104] Compiling React
+[ 99 of 104] Compiling Boundary.Flow
+[101 of 104] Compiling Test.React.Additional.BackgroundPattern
+[102 of 104] Compiling Boundary
+[103 of 104] Compiling Test.Boundary.FlowWrapperAttributes
+[104 of 104] Compiling Test.Main
+           Src   Lib   All
+Warnings     0     0     0
+Errors       0     0     0
+
+✓ Build succeeded.
+

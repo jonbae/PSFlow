@@ -1,0 +1,486 @@
+[
+  {
+    "scenario": "pan-gesture-complete",
+    "beforeSource": "stage-5 checkpoint; unstable experiment excluded from cross-side interpretation",
+    "before": {
+      "passed": false,
+      "interpretable": false,
+      "selfConsistency": [
+        {
+          "side": "upstream",
+          "consistent": false,
+          "differences": 1
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "self-inconsistent",
+        "unclaimed-difference"
+      ],
+      "unclaimed": null,
+      "differences": null
+    },
+    "current": {
+      "passed": false,
+      "interpretable": true,
+      "selfConsistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "differences": [
+        {
+          "kind": "order",
+          "path": [
+            "callbacks"
+          ],
+          "left": [
+            "onSelectionChange#1",
+            "onMoveStart#1",
+            "onViewportChange#1",
+            "onMove#1",
+            "onNodesChange#1",
+            "onMoveEnd#1",
+            "onPaneMouseEnter#1",
+            "onPaneMouseMove#1",
+            "onMoveStart#2",
+            "onPaneMouseMove#2",
+            "onViewportChange#2",
+            "onMove#2",
+            "onPaneMouseMove#3",
+            "onViewportChange#3",
+            "onMove#3",
+            "onPaneMouseMove#4",
+            "onViewportChange#4",
+            "onMove#4",
+            "onPaneMouseMove#5",
+            "onViewportChange#5",
+            "onMove#5",
+            "onPaneMouseMove#6",
+            "onViewportChange#6",
+            "onMove#6",
+            "onMoveEnd#2",
+            "onPaneMouseMove#7",
+            "onMoveStart#3",
+            "onPaneMouseMove#8",
+            "onViewportChange#7",
+            "onMove#7",
+            "onPaneMouseMove#9",
+            "onViewportChange#8",
+            "onMove#8",
+            "onPaneMouseMove#10",
+            "onViewportChange#9",
+            "onMove#9",
+            "onPaneMouseMove#11",
+            "onViewportChange#10",
+            "onMove#10",
+            "onPaneMouseMove#12",
+            "onViewportChange#11",
+            "onMove#11",
+            "onMoveEnd#3"
+          ],
+          "right": [
+            "onSelectionChange#1",
+            "onMoveStart#1",
+            "onViewportChange#1",
+            "onMove#1",
+            "onMoveEnd#1",
+            "onNodesChange#1",
+            "onPaneMouseEnter#1",
+            "onPaneMouseMove#1",
+            "onMoveStart#2",
+            "onPaneMouseMove#2",
+            "onViewportChange#2",
+            "onMove#2",
+            "onPaneMouseMove#3",
+            "onViewportChange#3",
+            "onMove#3",
+            "onPaneMouseMove#4",
+            "onViewportChange#4",
+            "onMove#4",
+            "onPaneMouseMove#5",
+            "onViewportChange#5",
+            "onMove#5",
+            "onPaneMouseMove#6",
+            "onViewportChange#6",
+            "onMove#6",
+            "onMoveEnd#2",
+            "onPaneMouseMove#7",
+            "onMoveStart#3",
+            "onPaneMouseMove#8",
+            "onViewportChange#7",
+            "onMove#7",
+            "onPaneMouseMove#9",
+            "onViewportChange#8",
+            "onMove#8",
+            "onPaneMouseMove#10",
+            "onViewportChange#9",
+            "onMove#9",
+            "onPaneMouseMove#11",
+            "onViewportChange#10",
+            "onMove#10",
+            "onPaneMouseMove#12",
+            "onViewportChange#11",
+            "onMove#11",
+            "onMoveEnd#3"
+          ]
+        },
+        {
+          "kind": "changed",
+          "path": [
+            "api",
+            "queries",
+            "getInternalNode",
+            "internals",
+            "handleBounds",
+            "target"
+          ],
+          "left": null,
+          "right": []
+        }
+      ]
+    },
+    "independentRepeat": {
+      "passed": false,
+      "interpretable": true,
+      "selfConsistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "differences": [
+        {
+          "kind": "order",
+          "path": [
+            "callbacks"
+          ],
+          "left": [
+            "onSelectionChange#1",
+            "onMoveStart#1",
+            "onViewportChange#1",
+            "onMove#1",
+            "onNodesChange#1",
+            "onMoveEnd#1",
+            "onPaneMouseEnter#1",
+            "onPaneMouseMove#1",
+            "onMoveStart#2",
+            "onPaneMouseMove#2",
+            "onViewportChange#2",
+            "onMove#2",
+            "onPaneMouseMove#3",
+            "onViewportChange#3",
+            "onMove#3",
+            "onPaneMouseMove#4",
+            "onViewportChange#4",
+            "onMove#4",
+            "onPaneMouseMove#5",
+            "onViewportChange#5",
+            "onMove#5",
+            "onPaneMouseMove#6",
+            "onViewportChange#6",
+            "onMove#6",
+            "onMoveEnd#2",
+            "onPaneMouseMove#7",
+            "onMoveStart#3",
+            "onPaneMouseMove#8",
+            "onViewportChange#7",
+            "onMove#7",
+            "onPaneMouseMove#9",
+            "onViewportChange#8",
+            "onMove#8",
+            "onPaneMouseMove#10",
+            "onViewportChange#9",
+            "onMove#9",
+            "onPaneMouseMove#11",
+            "onViewportChange#10",
+            "onMove#10",
+            "onPaneMouseMove#12",
+            "onViewportChange#11",
+            "onMove#11",
+            "onMoveEnd#3"
+          ],
+          "right": [
+            "onSelectionChange#1",
+            "onMoveStart#1",
+            "onViewportChange#1",
+            "onMove#1",
+            "onMoveEnd#1",
+            "onNodesChange#1",
+            "onPaneMouseEnter#1",
+            "onPaneMouseMove#1",
+            "onMoveStart#2",
+            "onPaneMouseMove#2",
+            "onViewportChange#2",
+            "onMove#2",
+            "onPaneMouseMove#3",
+            "onViewportChange#3",
+            "onMove#3",
+            "onPaneMouseMove#4",
+            "onViewportChange#4",
+            "onMove#4",
+            "onPaneMouseMove#5",
+            "onViewportChange#5",
+            "onMove#5",
+            "onPaneMouseMove#6",
+            "onViewportChange#6",
+            "onMove#6",
+            "onMoveEnd#2",
+            "onPaneMouseMove#7",
+            "onMoveStart#3",
+            "onPaneMouseMove#8",
+            "onViewportChange#7",
+            "onMove#7",
+            "onPaneMouseMove#9",
+            "onViewportChange#8",
+            "onMove#8",
+            "onPaneMouseMove#10",
+            "onViewportChange#9",
+            "onMove#9",
+            "onPaneMouseMove#11",
+            "onViewportChange#10",
+            "onMove#10",
+            "onPaneMouseMove#12",
+            "onViewportChange#11",
+            "onMove#11",
+            "onMoveEnd#3"
+          ]
+        },
+        {
+          "kind": "changed",
+          "path": [
+            "api",
+            "queries",
+            "getInternalNode",
+            "internals",
+            "handleBounds",
+            "target"
+          ],
+          "left": null,
+          "right": []
+        }
+      ]
+    }
+  },
+  {
+    "scenario": "node-props-record-parented",
+    "beforeSource": "W04 checkpoint",
+    "before": {
+      "passed": false,
+      "interpretable": true,
+      "selfConsistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 3,
+      "differences": [
+        {
+          "kind": "order",
+          "path": [
+            "callbacks"
+          ],
+          "left": [
+            "onSelectionChange#1",
+            "onMoveStart#1",
+            "onViewportChange#1",
+            "onMove#1",
+            "onMoveEnd#1",
+            "onPaneMouseEnter#1",
+            "onNodeMouseEnter#1",
+            "onPaneMouseMove#1",
+            "onNodeMouseMove#1",
+            "onNodesChange#1",
+            "onNodeClick#1",
+            "onSelectionChange#2",
+            "onNodeMouseLeave#1",
+            "onNodeMouseEnter#2",
+            "onPaneMouseMove#2",
+            "onNodeMouseMove#2",
+            "onMoveStart#2",
+            "onNodeClick#2",
+            "onMoveEnd#2"
+          ],
+          "right": [
+            "onSelectionChange#1",
+            "onMoveStart#1",
+            "onViewportChange#1",
+            "onMove#1",
+            "onMoveEnd#1",
+            "onPaneMouseEnter#1",
+            "onNodeMouseEnter#1",
+            "onPaneMouseMove#1",
+            "onNodeMouseMove#1",
+            "onNodesChange#1",
+            "onNodeClick#1",
+            "onSelectionChange#2",
+            "onNodeMouseLeave#1",
+            "onNodeMouseEnter#2",
+            "onPaneMouseMove#2",
+            "onNodeMouseMove#2",
+            "onMoveStart#2",
+            "onMoveEnd#2",
+            "onNodeClick#2"
+          ]
+        },
+        {
+          "kind": "changed",
+          "path": [
+            "api",
+            "queries",
+            "getInternalNode",
+            "internals",
+            "handleBounds",
+            "source"
+          ],
+          "left": null,
+          "right": []
+        },
+        {
+          "kind": "changed",
+          "path": [
+            "api",
+            "queries",
+            "getInternalNode",
+            "internals",
+            "handleBounds",
+            "target"
+          ],
+          "left": null,
+          "right": []
+        }
+      ]
+    },
+    "current": {
+      "passed": false,
+      "interpretable": true,
+      "selfConsistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 3,
+      "differences": [
+        {
+          "kind": "order",
+          "path": [
+            "callbacks"
+          ],
+          "left": [
+            "onSelectionChange#1",
+            "onMoveStart#1",
+            "onViewportChange#1",
+            "onMove#1",
+            "onMoveEnd#1",
+            "onPaneMouseEnter#1",
+            "onNodeMouseEnter#1",
+            "onPaneMouseMove#1",
+            "onNodeMouseMove#1",
+            "onNodesChange#1",
+            "onNodeClick#1",
+            "onSelectionChange#2",
+            "onNodeMouseLeave#1",
+            "onNodeMouseEnter#2",
+            "onPaneMouseMove#2",
+            "onNodeMouseMove#2",
+            "onMoveStart#2",
+            "onNodeClick#2",
+            "onMoveEnd#2"
+          ],
+          "right": [
+            "onSelectionChange#1",
+            "onMoveStart#1",
+            "onViewportChange#1",
+            "onMove#1",
+            "onMoveEnd#1",
+            "onPaneMouseEnter#1",
+            "onNodeMouseEnter#1",
+            "onPaneMouseMove#1",
+            "onNodeMouseMove#1",
+            "onNodesChange#1",
+            "onNodeClick#1",
+            "onSelectionChange#2",
+            "onNodeMouseLeave#1",
+            "onNodeMouseEnter#2",
+            "onPaneMouseMove#2",
+            "onNodeMouseMove#2",
+            "onMoveStart#2",
+            "onMoveEnd#2",
+            "onNodeClick#2"
+          ]
+        },
+        {
+          "kind": "changed",
+          "path": [
+            "api",
+            "queries",
+            "getInternalNode",
+            "internals",
+            "handleBounds",
+            "source"
+          ],
+          "left": null,
+          "right": []
+        },
+        {
+          "kind": "changed",
+          "path": [
+            "api",
+            "queries",
+            "getInternalNode",
+            "internals",
+            "handleBounds",
+            "target"
+          ],
+          "left": null,
+          "right": []
+        }
+      ]
+    }
+  }
+]

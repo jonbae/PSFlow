@@ -1,0 +1,42 @@
+[
+  {
+    "phase": "final",
+    "round": 1,
+    "preservedGeometry": true,
+    "missingCallbackRejected": true,
+    "fullGatePassed": false,
+    "unclaimed": 2
+  },
+  {
+    "phase": "final",
+    "round": 2,
+    "preservedGeometry": true,
+    "missingCallbackRejected": true,
+    "fullGatePassed": false,
+    "unclaimed": 2
+  },
+  {
+    "phase": "final",
+    "round": 3,
+    "preservedGeometry": true,
+    "missingCallbackRejected": true,
+    "fullGatePassed": false,
+    "unclaimed": 2
+  },
+  {
+    "phase": "final",
+    "round": 4,
+    "preservedGeometry": true,
+    "missingCallbackRejected": true,
+    "fullGatePassed": false,
+    "unclaimed": 2
+  },
+  {
+    "phase": "final",
+    "round": 5,
+    "preservedGeometry": true,
+    "missingCallbackRejected": true,
+    "fullGatePassed": false,
+    "unclaimed": 2
+  }
+]

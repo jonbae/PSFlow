@@ -1,0 +1,31 @@
+{
+  "loop": [
+    "node",
+    "--input-type=module",
+    "-e",
+    "import {runOnInitTimingTests} from \"./output/Test.React.Hook.OnInitTiming/index.js\"; runOnInitTimingTests();"
+  ],
+  "initialFailure": "commit must schedule, not invoke onInit; actual [first], expected []; reproduced twice in 2-3 seconds",
+  "rankedHypotheses": [
+    {
+      "rank": 1,
+      "hypothesis": "Direct invocation inside the readiness effect",
+      "prediction": "Source has no timeout on this path and first callback appears before any timer is queued"
+    },
+    {
+      "rank": 2,
+      "hypothesis": "Timer wrapper invokes synchronously",
+      "prediction": "Path calls a timeout wrapper, which invokes the callback before returning"
+    },
+    {
+      "rank": 3,
+      "hypothesis": "A prior not-ready render leaks state",
+      "prediction": "First eligible render without any prior render will not exhibit the bug"
+    }
+  ],
+  "finding": "Source calls onInit rfInstance directly. Existing System.FFI.Timer exposes native scheduling and is not used on that path. Replace direct invocation with existing timer primitive, then use the same loop to test callback dependency handling.",
+  "scope": "This proves the local onInit scheduling contract; it does not establish that this caused the six unstable corpus scenarios.",
+  "capturedAt": "2026-11-10T17:20:31.177539+00:00",
+  "followupFailure": "After timer-only fix: handler added after readiness must schedule; expected 1 pending timer, actual 0.",
+  "resolution": "Native 1ms timer with flag set at scheduling; effect depends on both viewportInitialized and the callback payload reference. Proxy now passes all timing/late-handler/unmount cases."
+}

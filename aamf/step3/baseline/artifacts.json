@@ -1,0 +1,37 @@
+[
+  {
+    "path": "oracle/index.js",
+    "sha256": "a9898087c595d4a1b9d3bfad88ecedb4c355d5ea64e9bea511100e22fb58506f",
+    "headSha256": "a9898087c595d4a1b9d3bfad88ecedb4c355d5ea64e9bea511100e22fb58506f"
+  },
+  {
+    "path": "parity/driver/dist/psflow.js",
+    "sha256": "9122ca1d37cc4562fbdd5db5749e479ba92768222a3186066006bcbffee5f9cd",
+    "headSha256": "9122ca1d37cc4562fbdd5db5749e479ba92768222a3186066006bcbffee5f9cd"
+  },
+  {
+    "path": "parity/driver/dist/upstream.js",
+    "sha256": "ed19fbcad9b006ed324a34a25cd153a5645070acb69315a707493f97b5bbb401",
+    "headSha256": null
+  },
+  {
+    "path": "parity/surface/report.md",
+    "sha256": "81d3b3d6195cfa9ca99f02ed0a00d7781ebf78d4a2a88a02fb7abb1484e95311",
+    "headSha256": "8542202c02dbb76c42b72c63659d53191fd349ad82e2e58518d618725c19dccb"
+  },
+  {
+    "path": "parity/system/report.md",
+    "sha256": "f63560481c1ad46b96bafc5e2ae357560cdf065594b4045b76763f3b079a8813",
+    "headSha256": "584cddf111426c5c6c1426108cd87dc8ff299fafd9243f6e0470fd812d69d538"
+  },
+  {
+    "path": "parity/system/coverage.md",
+    "sha256": "120866a6fab22b90cdf94c0e134646ff167bc4a18e25649609eb078cbd8c0295",
+    "headSha256": "120866a6fab22b90cdf94c0e134646ff167bc4a18e25649609eb078cbd8c0295"
+  },
+  {
+    "path": "parity/changelog-audit/report.md",
+    "sha256": "54ae6d8c10f863a304d056a01842da70432baf728df93565ac13a6fec1d4e4b9",
+    "headSha256": "be6bffdde8001eecb4bdbd27d4dfefff019a9548270d5c4ac68f6df3cad072ab"
+  }
+]

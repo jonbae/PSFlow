@@ -1,0 +1,12 @@
+$ npm run test:conformance
+
+> ps-flow@0.0.0 test:conformance
+> playwright test --config examples/react-smoke/playwright.config.ts --project=conformance
+
+Error: examples/react-smoke/playwright.config.ts: Playwright requires Node.js 18.19 or higher to load esm modules. Please update your version of Node.js.
+    at errorWithFile (/Users/jonathanbae/repos/PSFlow/node_modules/playwright/lib/common/index.js:433:10)
+    at loadConfig (/Users/jonathanbae/repos/PSFlow/node_modules/playwright/lib/common/index.js:1300:13)
+    at Object.loadConfigFromFile (/Users/jonathanbae/repos/PSFlow/node_modules/playwright/lib/common/index.js:1517:16)
+    at runTests (/Users/jonathanbae/repos/PSFlow/node_modules/playwright/lib/cli/testActions.js:45:51)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async _Command.<anonymous> (/Users/jonathanbae/repos/PSFlow/node_modules/playwright/lib/program.js:50:7)

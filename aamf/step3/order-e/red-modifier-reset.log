@@ -1,0 +1,88 @@
+$ npm run test:harness:live -- --grep resets held keyboard
+
+> ps-flow@0.0.0 test:harness:live
+> playwright test --config parity/system/harness/playwright.config.mjs --grep resets held keyboard
+
+[2m[WebServer] [22m(node:48579) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:48608) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:48608) [DEP0066] DeprecationWarning: OutgoingMessage.prototype._headers is deprecated
+
+Running 2 tests using 1 worker
+
+(node:48614) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:48614) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [harness] › parity/system/harness/timing.spec.mjs:98:3 › upstream resets held keyboard modifiers on the blank document between captures (3.4s)
+(node:48753) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:48753) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [harness] › parity/system/harness/timing.spec.mjs:98:3 › psflow resets held keyboard modifiers on the blank document between captures (4.6s)
+
+
+  1) [harness] › parity/system/harness/timing.spec.mjs:98:3 › upstream resets held keyboard modifiers on the blank document between captures 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+
+      106 |     const events=trace.sections.callbacks.flatMap(c=>c.args).filter(a=>a&&Object.hasOwn(a,'shiftKey'));
+      107 |     expect(events.length).toBeGreaterThan(0);
+    > 108 |     expect(events.every(e=>!e.shiftKey&&!e.altKey&&!e.ctrlKey&&!e.metaKey)).toBe(true);
+          |                                                                             ^
+      109 |   });
+      110 | }
+      111 |
+        at /Users/jonathanbae/repos/PSFlow/parity/system/harness/timing.spec.mjs:108:77
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/timing-upstream-resets-hel-7c660-k-document-between-captures-harness/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/timing-upstream-resets-hel-7c660-k-document-between-captures-harness/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/timing-upstream-resets-hel-7c660-k-document-between-captures-harness/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/timing-upstream-resets-hel-7c660-k-document-between-captures-harness/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [harness] › parity/system/harness/timing.spec.mjs:98:3 › psflow resets held keyboard modifiers on the blank document between captures 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+
+      106 |     const events=trace.sections.callbacks.flatMap(c=>c.args).filter(a=>a&&Object.hasOwn(a,'shiftKey'));
+      107 |     expect(events.length).toBeGreaterThan(0);
+    > 108 |     expect(events.every(e=>!e.shiftKey&&!e.altKey&&!e.ctrlKey&&!e.metaKey)).toBe(true);
+          |                                                                             ^
+      109 |   });
+      110 | }
+      111 |
+        at /Users/jonathanbae/repos/PSFlow/parity/system/harness/timing.spec.mjs:108:77
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/timing-psflow-resets-held--edde5-k-document-between-captures-harness/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/timing-psflow-resets-held--edde5-k-document-between-captures-harness/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/timing-psflow-resets-held--edde5-k-document-between-captures-harness/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/timing-psflow-resets-held--edde5-k-document-between-captures-harness/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [harness] › parity/system/harness/timing.spec.mjs:98:3 › upstream resets held keyboard modifiers on the blank document between captures 
+    [harness] › parity/system/harness/timing.spec.mjs:98:3 › psflow resets held keyboard modifiers on the blank document between captures 

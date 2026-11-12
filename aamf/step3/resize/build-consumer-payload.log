@@ -1,0 +1,33 @@
+$ spago build
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[ 1 of 20] Compiling Boundary.Callbacks
+[ 2 of 20] Compiling Boundary.Hooks
+[ 3 of 20] Compiling Boundary.Flow
+[ 4 of 20] Compiling Test.System.XYResizer
+[ 5 of 20] Compiling Boundary.Chrome
+[ 6 of 20] Compiling Test.System.FinalConnectionState
+[ 7 of 20] Compiling Boundary.Resizer
+[ 8 of 20] Compiling Boundary.Utils
+[ 9 of 20] Compiling Boundary.NodeChrome
+[10 of 20] Compiling Test.Boundary.UserNode
+[11 of 20] Compiling Test.React.Hook.ViewportListeners
+[12 of 20] Compiling Test.Boundary.ConsumerObjects
+[13 of 20] Compiling Test.Boundary.NodeDragging
+[14 of 20] Compiling Test.Boundary.EdgeAnimated
+[16 of 20] Compiling Test.Boundary.EdgeHidden
+[15 of 20] Compiling Test.Boundary.EdgeSelected
+[17 of 20] Compiling Test.Boundary.FlowWrapperAttributes
+[18 of 20] Compiling Boundary
+[19 of 20] Compiling Test.React.Additional.BackgroundPattern
+[20 of 20] Compiling Test.Main
+           Src   Lib   All
+Warnings     0     0     0
+Errors       0     0     0
+
+✓ Build succeeded.
+

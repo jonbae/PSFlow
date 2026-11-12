@@ -337,6 +337,29 @@
         "probe": true
       },
       {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "type": "dimensions",
+              "id": "1",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "2",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          ]
+        ]
+      },
+      {
         "name": "onMoveEnd",
         "args": [
           null,
@@ -359,26 +382,104 @@
         "probe": true
       },
       {
-        "name": "onNodesChange",
+        "name": "onInit",
         "args": [
-          [
-            {
-              "type": "dimensions",
-              "id": "1",
-              "dimensions": {
-                "width": 150,
-                "height": 37
-              }
+          {
+            "getNodes": {
+              "@ref": "function"
             },
-            {
-              "type": "dimensions",
-              "id": "2",
-              "dimensions": {
-                "width": 150,
-                "height": 37
-              }
-            }
-          ]
+            "setNodes": {
+              "@ref": "function"
+            },
+            "addNodes": {
+              "@ref": "function"
+            },
+            "getNode": {
+              "@ref": "function"
+            },
+            "getInternalNode": {
+              "@ref": "function"
+            },
+            "getEdges": {
+              "@ref": "function"
+            },
+            "setEdges": {
+              "@ref": "function"
+            },
+            "addEdges": {
+              "@ref": "function"
+            },
+            "getEdge": {
+              "@ref": "function"
+            },
+            "toObject": {
+              "@ref": "function"
+            },
+            "deleteElements": {
+              "@ref": "function"
+            },
+            "getIntersectingNodes": {
+              "@ref": "function"
+            },
+            "isNodeIntersecting": {
+              "@ref": "function"
+            },
+            "updateNode": {
+              "@ref": "function"
+            },
+            "updateNodeData": {
+              "@ref": "function"
+            },
+            "updateEdge": {
+              "@ref": "function"
+            },
+            "updateEdgeData": {
+              "@ref": "function"
+            },
+            "getNodesBounds": {
+              "@ref": "function"
+            },
+            "getHandleConnections": {
+              "@ref": "function"
+            },
+            "getNodeConnections": {
+              "@ref": "function"
+            },
+            "fitView": {
+              "@ref": "function"
+            },
+            "zoomIn": {
+              "@ref": "function"
+            },
+            "zoomOut": {
+              "@ref": "function"
+            },
+            "zoomTo": {
+              "@ref": "function"
+            },
+            "getZoom": {
+              "@ref": "function"
+            },
+            "setViewport": {
+              "@ref": "function"
+            },
+            "getViewport": {
+              "@ref": "function"
+            },
+            "setCenter": {
+              "@ref": "function"
+            },
+            "fitBounds": {
+              "@ref": "function"
+            },
+            "screenToFlowPosition": {
+              "@ref": "function"
+            },
+            "flowToScreenPosition": {
+              "@ref": "function"
+            },
+            "viewportInitialized": true
+          }
         ]
       },
       {
@@ -404,7 +505,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 273.60000002384186,
+            "timeStamp": 70,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -473,7 +574,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 273.60000002384186,
+            "timeStamp": 70,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -535,7 +636,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 273.60000002384186,
+            "timeStamp": 70,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -600,7 +701,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 273.60000002384186,
+            "timeStamp": 70,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -676,6 +777,31 @@
       },
       {
         "name": "onMove",
+        "args": [
+          {
+            "@class": "WheelEvent",
+            "isTrusted": true
+          },
+          {
+            "x": 552.9449436703876,
+            "y": 121.469145656862,
+            "zoom": 3.4822022531844965
+          }
+        ]
+      },
+      {
+        "name": "useOnViewportChange",
+        "args": [
+          {
+            "x": 552.9449436703876,
+            "y": 121.469145656862,
+            "zoom": 3.4822022531844965
+          }
+        ],
+        "probe": true
+      },
+      {
+        "name": "onMoveEnd",
         "args": [
           {
             "@class": "WheelEvent",
@@ -774,6 +900,21 @@
               "y": 0
             },
             "z": 0,
+            "userNode": {
+              "id": "1",
+              "data": {
+                "label": "1"
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "type": "input",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
             "handleBounds": {
               "source": [
                 {
@@ -787,7 +928,7 @@
                   "height": 8
                 }
               ],
-              "target": []
+              "target": null
             }
           }
         },
@@ -1045,6 +1186,21 @@
               "y": 0
             },
             "z": 0,
+            "userNode": {
+              "id": "1",
+              "data": {
+                "label": "1"
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "type": "input",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
             "handleBounds": {
               "source": [
                 {
@@ -1058,7 +1214,7 @@
                   "height": 8
                 }
               ],
-              "target": []
+              "target": null
             }
           }
         },
@@ -1298,11 +1454,11 @@
       },
       {
         "level": "error",
-        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:64866/parity/driver/dist/psflow.js:67252:20)\n    at HookBoundary (http://127.0.0.1:64866/parity/driver/dist/psflow.js:67240:20)\n    at HookLevel (http://127.0.0.1:64866/parity/driver/dist/psflow.js:67259:20)\n    at NetObserver (http://127.0.0.1:64866/parity/driver/dist/psflow.js:67260:22)\n    at http://127.0.0.1:64866/parity/driver/dist/psflow.js:33082:61\n    at http://127.0.0.1:64866/parity/driver/dist/psflow.js:33082:61\n    at http://127.0.0.1:64866/parity/driver/dist/psflow.js:33082:61\n    at div\n    at http://127.0.0.1:64866/parity/driver/dist/psflow.js:33082:45\n    at http://127.0.0.1:64866/parity/driver/dist/psflow.js:41878:64\n    at div\n    at Flow_default (http://127.0.0.1:64866/parity/driver/dist/psflow.js:67289:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
+        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:42573/parity/driver/dist/psflow.js:69786:20)\n    at HookBoundary (http://127.0.0.1:42573/parity/driver/dist/psflow.js:69774:20)\n    at HookLevel (http://127.0.0.1:42573/parity/driver/dist/psflow.js:69793:20)\n    at NetObserver (http://127.0.0.1:42573/parity/driver/dist/psflow.js:69794:22)\n    at http://127.0.0.1:42573/parity/driver/dist/psflow.js:32243:61\n    at http://127.0.0.1:42573/parity/driver/dist/psflow.js:32243:61\n    at http://127.0.0.1:42573/parity/driver/dist/psflow.js:32243:61\n    at div\n    at http://127.0.0.1:42573/parity/driver/dist/psflow.js:32243:45\n    at http://127.0.0.1:42573/parity/driver/dist/psflow.js:42254:64\n    at div\n    at Flow_default (http://127.0.0.1:42573/parity/driver/dist/psflow.js:69823:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
       },
       {
         "level": "error",
-        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:64866/parity/driver/dist/psflow.js:67252:20)\n    at HookBoundary (http://127.0.0.1:64866/parity/driver/dist/psflow.js:67240:20)\n    at HookLevel (http://127.0.0.1:64866/parity/driver/dist/psflow.js:67259:20)\n    at NetObserver (http://127.0.0.1:64866/parity/driver/dist/psflow.js:67260:22)\n    at http://127.0.0.1:64866/parity/driver/dist/psflow.js:33082:61\n    at http://127.0.0.1:64866/parity/driver/dist/psflow.js:33082:61\n    at http://127.0.0.1:64866/parity/driver/dist/psflow.js:33082:61\n    at div\n    at http://127.0.0.1:64866/parity/driver/dist/psflow.js:33082:45\n    at http://127.0.0.1:64866/parity/driver/dist/psflow.js:41878:64\n    at div\n    at Flow_default (http://127.0.0.1:64866/parity/driver/dist/psflow.js:67289:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
+        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:42573/parity/driver/dist/psflow.js:69786:20)\n    at HookBoundary (http://127.0.0.1:42573/parity/driver/dist/psflow.js:69774:20)\n    at HookLevel (http://127.0.0.1:42573/parity/driver/dist/psflow.js:69793:20)\n    at NetObserver (http://127.0.0.1:42573/parity/driver/dist/psflow.js:69794:22)\n    at http://127.0.0.1:42573/parity/driver/dist/psflow.js:32243:61\n    at http://127.0.0.1:42573/parity/driver/dist/psflow.js:32243:61\n    at http://127.0.0.1:42573/parity/driver/dist/psflow.js:32243:61\n    at div\n    at http://127.0.0.1:42573/parity/driver/dist/psflow.js:32243:45\n    at http://127.0.0.1:42573/parity/driver/dist/psflow.js:42254:64\n    at div\n    at Flow_default (http://127.0.0.1:42573/parity/driver/dist/psflow.js:69823:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
       }
     ],
     "driving": [

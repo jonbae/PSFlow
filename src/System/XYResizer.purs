@@ -1,342 +1,243 @@
--- | Node-resize controller — port of
--- | `xyflow/packages/system/src/xyresizer/XYResizer.ts` with the
--- | adjacent `types.ts`.
--- |
--- | This module exports the full type surface — `ControlLinePosition`,
--- | `ControlPosition`, `ResizeControlVariant`, `ResizeControlDirection`,
--- | `XYResizerInstance`, etc. — plus the `createXYResizer` factory.
--- | d3-drag wiring goes through `System.FFI.D3Drag` (introduced in
--- | ticket 016) so this module reuses, not extends, the FFI.
-module System.XYResizer
-  ( ControlLinePosition(..)
-  , CornerPosition(..)
-  , ControlPosition(..)
-  , ResizeControlVariant(..)
-  , ResizeControlDirection(..)
-  , ResizeParams
-  , ResizeParamsWithDirection
-  , ResizeBoundaries
-  , RequiredXYResizerChange
-  , ShouldResize
-  , OnResizeStart
-  , OnResize
-  , OnResizeEnd
-  , ResizeDragEvent(..)
-  , XYResizerChange
-  , XYResizerChildChange
-  , XYResizerInstance
-  , XYResizerUpdateParams
-  , XYResizerParams
-  , ResizerStoreItems
-  , xyResizerHandlePositions
-  , xyResizerLinePositions
-  , createXYResizer
-  ) where
+-- | Node-resize controller, preserving XYResizer.ts's update and gesture scopes.
+module System.XYResizer (module Types, createXYResizer) where
 
-import Prelude
+import Prelude hiding (min, max)
 
+import Data.Either (Either(..))
+import Data.Array as Array
 import Data.Foldable (for_)
-import Data.Generic.Rep (class Generic)
-import Data.Maybe (Maybe(..))
-import Data.Show.Generic (genericShow)
+import Data.Function.Uncurried (Fn2, runFn2)
+import Data.Map as Map
+import Data.Maybe (Maybe(..), fromMaybe)
+import Data.Number as Number
 import Effect (Effect)
 import Effect.Ref (Ref)
 import Effect.Ref as Ref
+import Effect.Uncurried (EffectFn3, runEffectFn3)
 import Foreign (Foreign)
-import Web.HTML.HTMLDivElement (HTMLDivElement)
-import System.FFI.D3Drag
-  ( D3DragEvent
-  , applyDrag
-  , dragBehavior
-  , setDragOn
-  )
-import System.FFI.D3Selection (D3Selection, d3Select, d3SelectionOnNull)
-import System.Types.Geometry
-  ( NodeOrigin
-  , SnapGrid
-  , Transform
-  , XYPosition
-  )
-import System.Types.Ids (NodeId)
-import System.Types.Node (NodeExtent, NodeLookup)
+import Record as Record
+import Type.Proxy (Proxy(..))
+import System.FFI.D3Drag (D3DragEvent, applyDrag, dragBehavior, dragSourceEvent, setDragOn)
+import System.FFI.D3Selection (d3Select, d3SelectionOnNull)
+import System.Types.Geometry (CoordinateExtent(..), NodeOrigin(..), mkSnapGrid)
+import System.Types.Ids (parentToNode)
+import System.Types.Node (InternalNodeBase, NodeExtent(..))
+import System.Utils.Dom (DOMRect, PointerPosition, elementBoundingRect, getPointerPosition)
+import System.Utils.Number (min, max)
+import System.XYResizer.Types (ControlLinePosition(..), ControlPosition(..), CornerPosition(..), OnResize, OnResizeEnd, OnResizeStart, RequiredXYResizerChange, ResizeBoundaries, ResizeControlDirection(..), ResizeControlVariant(..), ResizeDragEvent(..), ResizeParams, ResizeParamsWithDirection, ResizerStoreItems, ShouldResize, XYResizerChange, XYResizerChildChange, XYResizerInstance, XYResizerParams, XYResizerUpdateParams, xyResizerHandlePositions, xyResizerLinePositions) as Types
+import System.XYResizer.Types (ResizeParams, ResizeParamsWithDirection, ResizeDragEvent(..), ResizeControlDirection(..), ResizerStoreItems, XYResizerChildChange, XYResizerInstance, XYResizerParams, XYResizerUpdateParams)
+import System.XYResizer.Utils (ControlDirection, ResizeStartValues, getControlDirection, getDimensionsAfterResize, getResizeDirection)
+import Unsafe.Coerce (unsafeCoerce)
 
--- | TS `ControlLinePosition = 'top' | 'bottom' | 'left' | 'right'`.
-data ControlLinePosition = LineTop | LineBottom | LineLeft | LineRight
+-- Native property operations only. All resize decisions and state reads live here.
+foreign import hasProperty :: Fn2 String Foreign Boolean
+foreign import writeProperty :: forall a b. EffectFn3 String a b Unit
 
-derive instance eqControlLinePosition :: Eq ControlLinePosition
-derive instance ordControlLinePosition :: Ord ControlLinePosition
-derive instance genericControlLinePosition :: Generic ControlLinePosition _
+initPrevValues :: ResizeParams
+initPrevValues = { width: 0.0, height: 0.0, x: 0.0, y: 0.0 }
 
-instance showControlLinePosition :: Show ControlLinePosition where
-  show = genericShow
+initStartValues :: ResizeStartValues
+initStartValues = { width: 0.0, height: 0.0, x: 0.0, y: 0.0, pointerX: 0.0, pointerY: 0.0, aspectRatio: 1.0 }
 
--- | TS `'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'`.
-data CornerPosition
-  = CornerTopLeft
-  | CornerTopRight
-  | CornerBottomLeft
-  | CornerBottomRight
-
-derive instance eqCornerPosition :: Eq CornerPosition
-derive instance ordCornerPosition :: Ord CornerPosition
-derive instance genericCornerPosition :: Generic CornerPosition _
-
-instance showCornerPosition :: Show CornerPosition where
-  show = genericShow
-
--- | TS union `ControlLinePosition | corner-position`. The PS port nests the
--- | two halves rather than flattening to 8 constructors — `getControlDirection`
--- | dispatches on this nested shape.
-data ControlPosition
-  = ControlLine ControlLinePosition
-  | ControlCorner CornerPosition
-
-derive instance eqControlPosition :: Eq ControlPosition
-derive instance ordControlPosition :: Ord ControlPosition
-derive instance genericControlPosition :: Generic ControlPosition _
-
-instance showControlPosition :: Show ControlPosition where
-  show = genericShow
-
--- | TS enum `ResizeControlVariant { Line, Handle }`.
-data ResizeControlVariant = LineVariant | HandleVariant
-
-derive instance eqResizeControlVariant :: Eq ResizeControlVariant
-derive instance ordResizeControlVariant :: Ord ResizeControlVariant
-derive instance genericResizeControlVariant :: Generic ResizeControlVariant _
-
-instance showResizeControlVariant :: Show ResizeControlVariant where
-  show = genericShow
-
--- | TS `'horizontal' | 'vertical'`.
-data ResizeControlDirection = Horizontal | Vertical
-
-derive instance eqResizeControlDirection :: Eq ResizeControlDirection
-derive instance ordResizeControlDirection :: Ord ResizeControlDirection
-derive instance genericResizeControlDirection :: Generic ResizeControlDirection _
-
-instance showResizeControlDirection :: Show ResizeControlDirection where
-  show = genericShow
-
--- | The TS `XY_RESIZER_HANDLE_POSITIONS` array. Translated to PS using the
--- | nested `ControlPosition` ADT.
-xyResizerHandlePositions :: Array ControlPosition
-xyResizerHandlePositions =
-  [ ControlCorner CornerTopLeft
-  , ControlCorner CornerTopRight
-  , ControlCorner CornerBottomLeft
-  , ControlCorner CornerBottomRight
-  ]
-
-xyResizerLinePositions :: Array ControlLinePosition
-xyResizerLinePositions = [ LineTop, LineRight, LineBottom, LineLeft ]
-
--- ----------------------------------------------------------------------------
--- ResizeParams / boundaries / change records
--- ----------------------------------------------------------------------------
-
-type ResizeParams =
-  { x :: Number
-  , y :: Number
-  , width :: Number
-  , height :: Number
-  }
-
-type ResizeParamsWithDirection =
-  { x :: Number
-  , y :: Number
-  , width :: Number
-  , height :: Number
-  , direction :: { dx :: Int, dy :: Int }
-  }
-
-type ResizeBoundaries =
-  { minWidth :: Number
-  , minHeight :: Number
-  , maxWidth :: Number
-  , maxHeight :: Number
-  }
-
--- | TS `ResizeDragEvent = D3DragEvent<...>`. Opaque newtype around `Foreign`
--- | so callers can read `sourceEvent` (mouse/touch) via FFI in the future
--- | without leaking d3 internals into the API.
-newtype ResizeDragEvent = ResizeDragEvent Foreign
-
--- | TS callback aliases.
-type ShouldResize = ResizeDragEvent -> ResizeParamsWithDirection -> Effect Boolean
-type OnResizeStart = ResizeDragEvent -> ResizeParams -> Effect Unit
-type OnResize = ResizeDragEvent -> ResizeParamsWithDirection -> Effect Unit
-type OnResizeEnd = ResizeDragEvent -> ResizeParams -> Effect Unit
-
-type XYResizerChange =
-  { x :: Maybe Number
-  , y :: Maybe Number
-  , width :: Maybe Number
-  , height :: Maybe Number
-  }
-
-type XYResizerChildChange =
-  { id :: NodeId
-  , position :: XYPosition
-  , extent :: Maybe NodeExtent
-  }
-
--- | TS `Required<XYResizerChange>` — every field non-`Maybe`.
-type RequiredXYResizerChange =
-  { x :: Number
-  , y :: Number
-  , width :: Number
-  , height :: Number
-  }
-
--- | Subset of the store the controller reads on every drag tick.
-type ResizerStoreItems nodeData =
-  { nodeLookup :: NodeLookup nodeData
-  , transform :: Transform
-  , snapGrid :: Maybe SnapGrid
-  , snapToGrid :: Boolean
-  , nodeOrigin :: NodeOrigin
-  , paneDomNode :: Maybe HTMLDivElement
-  }
-
-type XYResizerParams nodeData =
-  { domNode :: HTMLDivElement
-  , nodeId :: NodeId
-  , getStoreItems :: Effect (ResizerStoreItems nodeData)
-  , onChange :: XYResizerChange -> Array XYResizerChildChange -> Effect Unit
-  , onEnd :: Maybe (RequiredXYResizerChange -> Effect Unit)
-  }
-
-type XYResizerUpdateParams =
-  { controlPosition :: ControlPosition
-  , boundaries :: ResizeBoundaries
-  , keepAspectRatio :: Boolean
-  , resizeDirection :: Maybe ResizeControlDirection
-  , onResizeStart :: Maybe OnResizeStart
-  , onResize :: Maybe OnResize
-  , onResizeEnd :: Maybe OnResizeEnd
-  , shouldResize :: Maybe ShouldResize
-  }
-
-type XYResizerInstance =
-  { update :: XYResizerUpdateParams -> Effect Unit
-  , destroy :: Effect Unit
-  }
-
--- | Thin closure-state record. The TS source carries 9 mutable variables —
--- | `prevValues`, `startValues`, `node`, `containerBounds`, `childNodes`,
--- | `parentNode`, `parentExtent`, `childExtent`, `resizeDetected`. The PS
--- | port reuses the same names but stores each as a `Ref`.
-type ResizerState =
-  { d3Selection :: Ref (Maybe D3Selection)
-  , prevValues :: Ref ResizeParams
+type ResizerState n =
+  { prevValues :: Ref ResizeParams
   , startValues :: Ref ResizeStartValues
+  , node :: Ref (Maybe (InternalNodeBase n))
+  , containerBounds :: Ref (Maybe DOMRect)
+  , childNodes :: Ref (Array XYResizerChildChange)
+  , parentNode :: Ref (Maybe (InternalNodeBase n))
+  , nodeExtent :: Ref (Maybe CoordinateExtent)
+  , childExtent :: Ref (Maybe CoordinateExtent)
   , resizeDetected :: Ref Boolean
   }
 
-type ResizeStartValues =
-  { x :: Number
-  , y :: Number
-  , width :: Number
-  , height :: Number
-  , pointerX :: Number
-  , pointerY :: Number
-  , aspectRatio :: Number
+type ResizeOptions =
+  { controlDirection :: ControlDirection
+  , boundaries :: Types.ResizeBoundaries
+  , resizeDirection :: Maybe ResizeControlDirection
+  , keepAspectRatio :: Boolean
   }
 
-initResizeParams :: ResizeParams
-initResizeParams = { width: 0.0, height: 0.0, x: 0.0, y: 0.0 }
-
-initStartValues :: ResizeStartValues
-initStartValues =
-  { width: 0.0
-  , height: 0.0
-  , x: 0.0
-  , y: 0.0
-  , pointerX: 0.0
-  , pointerY: 0.0
-  , aspectRatio: 1.0
-  }
-
-defaultResizerState :: Effect ResizerState
-defaultResizerState = do
-  d3Selection <- Ref.new (Nothing :: Maybe D3Selection)
-  prevValues <- Ref.new initResizeParams
+newGestureState :: forall n. Effect (ResizerState n)
+newGestureState = do
+  prevValues <- Ref.new initPrevValues
   startValues <- Ref.new initStartValues
+  node <- Ref.new Nothing
+  containerBounds <- Ref.new Nothing
+  childNodes <- Ref.new []
+  parentNode <- Ref.new Nothing
+  nodeExtent <- Ref.new Nothing
+  childExtent <- Ref.new Nothing
   resizeDetected <- Ref.new false
-  pure { d3Selection, prevValues, startValues, resizeDetected }
+  pure { prevValues, startValues, node, containerBounds, childNodes, parentNode, nodeExtent, childExtent, resizeDetected }
 
--- | Construct the controller. Allocates `Ref` cells, attaches a d3 drag to
--- | the host element, and returns the imperative method record.
-createXYResizer
-  :: forall nodeData
-   . XYResizerParams nodeData
-  -> Effect XYResizerInstance
+pointerPosition :: forall n. D3DragEvent -> ResizerStoreItems n -> Maybe DOMRect -> Effect PointerPosition
+pointerPosition event store containerBounds = do
+  source <- dragSourceEvent event
+  getPointerPosition
+    (if runFn2 hasProperty "clientX" source then Left (unsafeCoerce source) else Right (unsafeCoerce source))
+    { transform: store.transform
+    , snapGrid: fromMaybe (mkSnapGrid 0.0 0.0) store.snapGrid
+    , snapToGrid: store.snapToGrid
+    , containerBounds
+    }
+
+createXYResizer :: forall n. XYResizerParams n -> Effect XYResizerInstance
 createXYResizer params = do
-  state <- defaultResizerState
-  sel <- d3Select params.domNode
-  Ref.write (Just sel) state.d3Selection
-
+  selection <- d3Select params.domNode
+  -- Geometry options are factory-scoped; d3's active gesture retains the
+  -- callbacks and state from its update, but observes later geometry options.
+  options <- Ref.new (Nothing :: Maybe ResizeOptions)
   let
-    update :: XYResizerUpdateParams -> Effect Unit
     update upd = do
+      state <- newGestureState
+      Ref.write (Just
+        { controlDirection: getControlDirection upd.controlPosition
+        , boundaries: upd.boundaries, keepAspectRatio: upd.keepAspectRatio
+        , resizeDirection: upd.resizeDirection
+        }) options
       behavior <- dragBehavior
       _ <- setDragOn "start" (onStart params state upd) behavior
-      _ <- setDragOn "drag" (onDrag params state upd) behavior
+      _ <- setDragOn "drag" (onDrag params state options upd) behavior
       _ <- setDragOn "end" (onEnd params state upd) behavior
-      applyDrag sel behavior
+      applyDrag selection behavior
+  pure { update, destroy: d3SelectionOnNull selection ".drag" }
 
-    destroy :: Effect Unit
-    destroy = do
-      mSel <- Ref.read state.d3Selection
-      for_ mSel \s -> d3SelectionOnNull s ".drag"
+onStart :: forall n. XYResizerParams n -> ResizerState n -> XYResizerUpdateParams -> D3DragEvent -> Effect Unit
+onStart params state upd event = do
+  store <- params.getStoreItems
+  let found = Map.lookup params.nodeId store.nodeLookup
+  Ref.write found state.node
+  for_ found \node -> do
+    bounds <- case store.paneDomNode of
+      Nothing -> pure Nothing
+      Just pane -> Just <$> elementBoundingRect pane
+    Ref.write bounds state.containerBounds
+    pointer <- pointerPosition event store bounds
+    let previous =
+          { width: fromMaybe 0.0 node.measured.width, height: fromMaybe 0.0 node.measured.height
+          , x: node.position.x, y: node.position.y
+          }
+    Ref.write previous state.prevValues
+    Ref.write
+      { width: previous.width, height: previous.height, x: previous.x, y: previous.y
+      , pointerX: pointer.xSnapped, pointerY: pointer.ySnapped
+      , aspectRatio: previous.width / previous.height
+      } state.startValues
+    let
+      parent = case node.parentId of
+        Just pid | node.extent == Just ParentExtent || node.expandParent == Just true -> Map.lookup (parentToNode pid) store.nodeLookup
+        _ -> Nothing
+      extent = case node.extent, parent of
+        Just ParentExtent, Just p -> Just $ CoordinateExtent
+          { minX: 0.0, minY: 0.0, maxX: fromMaybe Number.nan p.measured.width, maxY: fromMaybe Number.nan p.measured.height }
+        Just (CoordExtent e), _ -> Just e
+        _, _ -> Nothing
+    Ref.write parent state.parentNode
+    Ref.write extent state.nodeExtent
+    Ref.write [] state.childNodes
+    Ref.write Nothing state.childExtent
+    for_ store.nodeOrder \childId -> for_ (Map.lookup childId store.nodeLookup) \child ->
+      when (map parentToNode child.parentId == Just params.nodeId) do
+        Ref.modify_ (_ <> [ { id: childId, position: { x: child.position.x, y: child.position.y }, extent: child.extent } ]) state.childNodes
+        when (child.extent == Just ParentExtent || child.expandParent == Just true) do
+          let
+            NodeOrigin childOrigin = fromMaybe store.nodeOrigin child.origin
+            width = fromMaybe 0.0 child.measured.width
+            height = fromMaybe 0.0 child.measured.height
+            x = node.position.x + child.position.x
+            y = node.position.y + child.position.y
+            childBounds =
+              { minX: x - childOrigin.ox * width, minY: y - childOrigin.oy * height
+              , maxX: x + width - childOrigin.ox * width, maxY: y + height - childOrigin.oy * height
+              }
+          Ref.modify_ (Just <<< CoordinateExtent <<< case _ of
+            Nothing -> childBounds
+            Just (CoordinateExtent old) ->
+              { minX: min childBounds.minX old.minX, minY: min childBounds.minY old.minY
+              , maxX: max childBounds.maxX old.maxX, maxY: max childBounds.maxY old.maxY
+              }) state.childExtent
+    for_ upd.onResizeStart \callback -> callback (ResizeDragEvent (unsafeCoerce event)) previous
 
-  pure { update, destroy }
+onDrag :: forall n. XYResizerParams n -> ResizerState n -> Ref (Maybe ResizeOptions) -> XYResizerUpdateParams -> D3DragEvent -> Effect Unit
+onDrag params state options upd event = do
+  store <- params.getStoreItems
+  bounds <- Ref.read state.containerBounds
+  pointer <- pointerPosition event store bounds
+  nodeMaybe <- Ref.read state.node
+  optionsMaybe <- Ref.read options
+  case nodeMaybe, optionsMaybe of
+    Just node, Just opts -> do
+      previous <- Ref.read state.prevValues
+      start <- Ref.read state.startValues
+      extent <- Ref.read state.nodeExtent
+      childExtent <- Ref.read state.childExtent
+      let
+        origin@(NodeOrigin o) = fromMaybe store.nodeOrigin node.origin
+        next = getDimensionsAfterResize start opts.controlDirection pointer opts.boundaries opts.keepAspectRatio origin extent childExtent
+        widthChanged = next.width /= previous.width
+        heightChanged = next.height /= previous.height
+        xChanged = next.x /= previous.x && widthChanged
+        yChanged = next.y /= previous.y && heightChanged
+      when (xChanged || yChanged || widthChanged || heightChanged) do
+        let
+          positionChanged = xChanged || yChanged || o.ox == 1.0 || o.oy == 1.0
+          dimensionsChanged = widthChanged || heightChanged
+          change =
+            { x: if positionChanged then Just (if xChanged then next.x else previous.x) else Nothing
+            , y: if positionChanged then Just (if yChanged then next.y else previous.y) else Nothing
+            , width: if dimensionsChanged then Just (if widthChanged && opts.resizeDirection /= Just Vertical then next.width else previous.width) else Nothing
+            , height: if dimensionsChanged then Just (if heightChanged && opts.resizeDirection /= Just Horizontal then next.height else previous.height) else Nothing
+            }
+          updated =
+            { x: fromMaybe previous.x change.x, y: fromMaybe previous.y change.y
+            , width: fromMaybe previous.width change.width, height: fromMaybe previous.height change.height
+            }
+        Ref.write updated state.prevValues
+        children <- Ref.read state.childNodes
+        let childChanges = if positionChanged then children else []
+        for_ childChanges \child -> runEffectFn3 writeProperty "position" child
+          { x: child.position.x - (next.x - previous.x) + o.ox * (next.width - previous.width)
+          , y: child.position.y - (next.y - previous.y) + o.oy * (next.height - previous.height)
+          }
+        parent <- Ref.read state.parentNode
+        for_ parent \_ -> when (node.expandParent == Just true) do
+          let xLimit = o.ox * fromMaybe 0.0 change.width
+          case change.x of
+            Just x | x /= 0.0 && x < xLimit -> do
+              Ref.modify_ (_ { x = xLimit }) state.prevValues
+              Ref.modify_ (\s -> s { x = s.x - (x - xLimit) }) state.startValues
+            _ -> pure unit
+          let yLimit = o.oy * fromMaybe 0.0 change.height
+          case change.y of
+            Just y | y /= 0.0 && y < yLimit -> do
+              Ref.modify_ (_ { y = yLimit }) state.prevValues
+              Ref.modify_ (\s -> s { y = s.y - (y - yLimit) }) state.startValues
+            _ -> pure unit
+        corrected <- Ref.read state.prevValues
+        let
+          direction = getResizeDirection
+            { width: corrected.width, prevWidth: previous.width, height: corrected.height, prevHeight: previous.height
+            , affectsX: opts.controlDirection.affectsX, affectsY: opts.controlDirection.affectsY
+            }
+          nextValues :: ResizeParamsWithDirection
+          nextValues = Record.insert (Proxy :: Proxy "direction") direction corrected
+        allowed <- case upd.shouldResize of
+          Nothing -> pure true
+          Just callback -> callback (ResizeDragEvent (unsafeCoerce event)) nextValues
+        when allowed do
+          Ref.write true state.resizeDetected
+          for_ upd.onResize \callback -> callback (ResizeDragEvent (unsafeCoerce event)) nextValues
+          -- Source creates a fresh changes array, retaining its owned child
+          -- records across drag events (their positions are mutated above).
+          params.onChange change (Array.slice 0 (Array.length childChanges) childChanges)
+    _, _ -> pure unit
 
--- ----------------------------------------------------------------------------
--- Lifecycle handlers — typed scaffolds; the heavy math lives in
--- `System.XYResizer.Utils.getDimensionsAfterResize`.
--- ----------------------------------------------------------------------------
-
-onStart
-  :: forall n
-   . XYResizerParams n
-  -> ResizerState
-  -> XYResizerUpdateParams
-  -> D3DragEvent
-  -> Effect Unit
-onStart _params _state upd ev = case upd.onResizeStart of
-  Just cb -> cb (ResizeDragEvent (toForeign ev)) initResizeParams
-  Nothing -> pure unit
-
-onDrag
-  :: forall n
-   . XYResizerParams n
-  -> ResizerState
-  -> XYResizerUpdateParams
-  -> D3DragEvent
-  -> Effect Unit
-onDrag _params _state upd ev = case upd.onResize of
-  Just cb -> cb (ResizeDragEvent (toForeign ev))
-    { x: 0.0
-    , y: 0.0
-    , width: 0.0
-    , height: 0.0
-    , direction: { dx: 0, dy: 0 }
-    }
-  Nothing -> pure unit
-
-onEnd
-  :: forall n
-   . XYResizerParams n
-  -> ResizerState
-  -> XYResizerUpdateParams
-  -> D3DragEvent
-  -> Effect Unit
-onEnd _params _state upd ev = case upd.onResizeEnd of
-  Just cb -> cb (ResizeDragEvent (toForeign ev)) initResizeParams
-  Nothing -> pure unit
-
--- | Trivial coercion to bring a d3 drag event into `Foreign`. Defined as
--- | FFI to avoid an `unsafeCoerce` import at this layer.
-foreign import toForeign :: forall a. a -> Foreign
+onEnd :: forall n. XYResizerParams n -> ResizerState n -> XYResizerUpdateParams -> D3DragEvent -> Effect Unit
+onEnd params state upd event = do
+  detected <- Ref.read state.resizeDetected
+  when detected do
+    previous <- Ref.read state.prevValues
+    for_ upd.onResizeEnd \callback -> callback (ResizeDragEvent (unsafeCoerce event)) previous
+    for_ params.onEnd \callback -> callback previous
+    Ref.write false state.resizeDetected

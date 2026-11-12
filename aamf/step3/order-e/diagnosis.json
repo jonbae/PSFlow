@@ -1,0 +1,66 @@
+{
+  "keyboard": {
+    "red": "red-keyboard-replay.json and red-keyboard-unit.log",
+    "hypotheses": [
+      "Missing announcement write: writing before movement restores onNodesChange-visible and rendered text",
+      "Stale rendered position: repeated presses before rerender diverge from the live lookup position",
+      "Aria-live render failure: populated state would remain absent from the mounted DOM"
+    ],
+    "finding": "Missing state write confirmed; adapt relevant PR194 helper and wrapper call, preserving live lookup reads and JS ToInt32 semantics"
+  },
+  "gestureTiming": {
+    "red": "red-mounted.log and red-harness-timing.log",
+    "hypotheses": [
+      "Resumed application RAFs run a variable number of times between host input commands; holding time and pacing each dispatch should stabilize auto-pan and hover",
+      "DOM stability precedes wheel idle/end timers; draining actual finite timeout scheduling should retain every completion callback",
+      "Native resize delivery races virtual mount timers; smaller timer steps alone might stabilize initial controlled viewport order"
+    ],
+    "probes": {
+      "pausedActions": "Auto-pan cases pass two pairs each, controlled viewport still varies",
+      "wheelDrain": "Both wheel cases pass three full pairs each",
+      "mountStep1ms": "Failed: controlled viewport still varies",
+      "platformActivity": "Zero-delay timer fires before/after native ResizeObserver at frozen application time",
+      "navigationGate": "Reasserting public clock pause before bundle execution cancels Playwright's initial native dispatcher: all 15 complete comparisons pass (five rounds each for controlled pan, controlled mount and keyboard)"
+    }
+  },
+  "focus": {
+    "firstProbe": "red-focus.log: pointer modality precondition failed upstream as well; not a product red",
+    "red": "red-focus-pointer-mode.log: clicking a real focusable control establishes pointer modality; upstream passes both modes, PSFlow fails keyboard panning",
+    "hypotheses": [
+      "Store's RunSetCenter descriptor does nothing: implementing the upstream action restores keyboard panning and exposes the separate missing focus-visible guard",
+      "Visibility predicate incorrectly treats the node as on-screen: store action repair alone would not restore panning",
+      "Focus event is not delivered: store action repair alone would not restore panning"
+    ],
+    "status": "Store effect implemented and native focus-visible guard restored; final validation pending",
+    "effectProbe": "focus-effect-probe.log: implementing only RunSetCenter makes keyboard pass and pointer fail, isolating the missing guard"
+  },
+  "laterRepeatabilityFindings": {
+    "lateAutoPanRed": "live-harness-final.log: 44 pass, one PSFlow trace inconsistent only in native hover Shift flags",
+    "modifierLoop": "red-modifier-reset.log: both sides reproduce held Shift leaking across blank navigation; blank-page releases restore the precondition",
+    "modifierTrial": "green-modifier-reset.log: reset checks and PSFlow auto-pan pass; upstream still varies in two hover events, and route.fallback introduced Route already handled! page errors",
+    "routingCorrection": "Restore the previously validated route.continue and use a real static JS fixture for the navigation test; gate the first external JS request generically",
+    "frameHypothesis": "Two application RAFs inside runFor(32) can be painted once or twice by native Chrome during scheduler yields. Advance to one RAF boundary, await native rendering, then repeat.",
+    "frameTrial": "All five auto-pan and drag-change pairs pass; three of five keyboard pairs pass. Remaining two failures contain only host Shift/Meta flags in PSFlow hover receipts, without modifier input in the scenario."
+  },
+  "macNativeModifiers": {
+    "observations": "Arrow scenario contains only ArrowDown/ArrowRight, but native hover receipts vary in Shift/Meta; direct no-key hover probe captured 181 events with zero flags while host modifiers were idle.",
+    "primarySources": [
+      "https://chromium.googlesource.com/chromium/src/+/861ffbfabd58ded5869bb89b56b18779d2a31811/third_party/blink/renderer/core/input/keyboard_event_manager.cc",
+      "https://chromium.googlesource.com/chromium/src/+/b82f00e345ff385b02393d09dd0131415479aafa/third_party/blink/renderer/core/input/mouse_event_manager.cc"
+    ],
+    "mechanism": "Mac GetCurrentModifierState calls Carbon GetCurrentKeyModifiers; recomputed native hover uses it. Non-Mac branch returns zero. CDP modifier reset cannot isolate physical host modifier activity.",
+    "next": "Validate under version-matched Linux Playwright container without changing captured fields or comparator"
+  },
+  "linuxValidation": {
+    "firstFullLiveRun": {
+      "checks": 47,
+      "passed": 46,
+      "executionDeadline": 1,
+      "comparisonFailures": 0
+    },
+    "deadlineEvidence": "linux-live-deadline-artifacts.tar.gz: cdpSession target closed by 30s runner deadline during capture, before comparison",
+    "correction": "Only multi-capture test execution deadlines raised to 120s; no sleeps, DOM polling limits, action frames, callback assertions or comparison rules changed",
+    "retry": "live-harness-deadline-final.log: affected PSFlow drag-change check passes three complete captures and official across-capture comparisons in 22 seconds",
+    "aggregate": "All 47 live browser checks have passed across the complete run and the affected-check rerun"
+  }
+}

@@ -17,7 +17,7 @@ import Prelude
 import Data.Array (concat, find, foldl, fromFoldable, head) as Array
 import Data.Either (Either(..))
 import Data.Map (lookup, values) as Map
-import Data.Maybe (Maybe(..))
+import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Number (sqrt)
 import Data.Tuple (Tuple(..))
 import Effect (Effect)
@@ -107,12 +107,8 @@ getClosestHandle position connectionRadius lookup fromHandle =
           -- The closest-handle search is intentionally side-agnostic
           -- (it then prefers the *opposite* side at tie-break time), so
           -- the typed source/target arrays are unwrapped and merged.
-          src = case node.internals.handleBounds of
-            Just hb -> map unSourceHandle hb.source
-            Nothing -> []
-          tgt = case node.internals.handleBounds of
-            Just hb -> map unTargetHandle hb.target
-            Nothing -> []
+          src = map unSourceHandle (fromMaybe [] (node.internals.handleBounds >>= _.source))
+          tgt = map unTargetHandle (fromMaybe [] (node.internals.handleBounds >>= _.target))
         in
           map (Tuple node) (src <> tgt)
 
@@ -186,15 +182,11 @@ getHandle nodeId handleType handleId lookup mode withAbsolutePosition =
       let
         handles :: Array Handle
         handles = case mode of
-          Strict -> case node.internals.handleBounds of
-            Just hb -> case handleType of
-              Source -> map unSourceHandle hb.source
-              Target -> map unTargetHandle hb.target
-            Nothing -> []
-          Loose -> case node.internals.handleBounds of
-            Just hb -> map unSourceHandle hb.source
-              <> map unTargetHandle hb.target
-            Nothing -> []
+          Strict -> fromMaybe [] case handleType of
+            Source -> map unSourceHandle <$> (node.internals.handleBounds >>= _.source)
+            Target -> map unTargetHandle <$> (node.internals.handleBounds >>= _.target)
+          Loose -> map unSourceHandle (fromMaybe [] (node.internals.handleBounds >>= _.source))
+            <> map unTargetHandle (fromMaybe [] (node.internals.handleBounds >>= _.target))
 
         match :: Maybe Handle
         match = case handleId of

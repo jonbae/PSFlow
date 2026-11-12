@@ -1,0 +1,21 @@
+$ spago build
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[1 of 2] Compiling Test.System.XYResizer
+[ERROR 1/1 UnknownName] test/Test/System/XYResizer.purs:46:21
+
+  46  runXYResizerTests = runEffectFn1 checkLifecycle $ mkEffectFn1 \p -> do
+                          ^^^^^^^^^^^^
+
+  Unknown value runEffectFn1
+
+           Src   Lib   All
+Warnings     0     0     0
+Errors       1     0     1
+
+✘ Failed to build.
+

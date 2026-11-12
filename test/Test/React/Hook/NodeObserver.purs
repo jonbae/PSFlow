@@ -90,6 +90,7 @@ userNode =
   , zIndex: Nothing
   , extent: Nothing
   , expandParent: Nothing
+  , resizing: Nothing
   , ariaLabel: Nothing
   , origin: Nothing
   , handles: Nothing
@@ -108,7 +109,7 @@ unmeasured =
 
 -- | The node after `updateNodeInternals` has read its handles.
 measured :: InternalNodeBase Unit
-measured = unmeasured { internals { handleBounds = Just { source: [], target: [] } } }
+measured = unmeasured { internals { handleBounds = Just { source: Just [], target: Just [] } } }
 
 -- | A node's wrapper, rendered by a renderer with a recording store and
 -- | observer. `renderWith` is one render and its commit, as `NodeWrapper`

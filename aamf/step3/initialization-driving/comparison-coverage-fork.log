@@ -1,0 +1,965 @@
+$ node --test parity/system/compare/**/*.test.mjs parity/system/coverage/**/*.test.mjs parity/system/corpus/fork.test.mjs
+TAP version 13
+# Subtest: two identical sequences agree
+ok 1 - two identical sequences agree
+  ---
+  duration_ms: 15.530283
+  type: 'test'
+  ...
+# Subtest: a missing call fails, and only the call that went missing is reported
+ok 2 - a missing call fails, and only the call that went missing is reported
+  ---
+  duration_ms: 2.946735
+  type: 'test'
+  ...
+# Subtest: a duplicated call fails
+ok 3 - a duplicated call fails
+  ---
+  duration_ms: 1.717314
+  type: 'test'
+  ...
+# Subtest: a reordered pair fails, as one difference carrying both sequences
+ok 4 - a reordered pair fails, as one difference carrying both sequences
+  ---
+  duration_ms: 1.972449
+  type: 'test'
+  ...
+# Subtest: two calls of the same name, reordered, is an order difference and not two argument ones
+ok 5 - two calls of the same name, reordered, is an order difference and not two argument ones
+  ---
+  duration_ms: 6.362056
+  type: 'test'
+  ...
+# Subtest: a call whose arguments changed still pairs, rather than reading as one missing and one extra
+ok 6 - a call whose arguments changed still pairs, rather than reading as one missing and one extra
+  ---
+  duration_ms: 1.397587
+  type: 'test'
+  ...
+# Subtest: a handler that fired on neither side is not a difference, and one that fired on one side is
+ok 7 - a handler that fired on neither side is not a difference, and one that fired on one side is
+  ---
+  duration_ms: 1.277515
+  type: 'test'
+  ...
+# Subtest: arguments compare under the call they were passed to
+ok 8 - arguments compare under the call they were passed to
+  ---
+  duration_ms: 1.3575
+  type: 'test'
+  ...
+# Subtest: the serializer's own output goes red through the comparison, native against synthetic
+ok 9 - the serializer's own output goes red through the comparison, native against synthetic
+  ---
+  duration_ms: 16.914033
+  type: 'test'
+  ...
+# Subtest: the same two halves agree when the argument really is the same
+ok 10 - the same two halves agree when the argument really is the same
+  ---
+  duration_ms: 2.537814
+  type: 'test'
+  ...
+# Subtest: an argument that is a synthetic event where a native one belongs differs field by field
+ok 11 - an argument that is a synthetic event where a native one belongs differs field by field
+  ---
+  duration_ms: 1.189682
+  type: 'test'
+  ...
+# Subtest: the calls a weakened count does not cover still compare exactly
+ok 12 - the calls a weakened count does not cover still compare exactly
+  ---
+  duration_ms: 1.833783
+  type: 'test'
+  ...
+# Subtest: a weakened order lets one callback float without letting the others
+ok 13 - a weakened order lets one callback float without letting the others
+  ---
+  duration_ms: 1.054909
+  type: 'test'
+  ...
+# Subtest: a weakening that forgives nothing fails as stale, like every other register here
+ok 14 - a weakening that forgives nothing fails as stale, like every other register here
+  ---
+  duration_ms: 0.995278
+  type: 'test'
+  ...
+# Subtest: a weakening naming a callback nothing fired is stale rather than quietly harmless
+ok 15 - a weakening naming a callback nothing fired is stale rather than quietly harmless
+  ---
+  duration_ms: 23.055112
+  type: 'test'
+  ...
+# Subtest: a weakening is judged on what it alone forgives, so one cannot ride on another's back
+ok 16 - a weakening is judged on what it alone forgives, so one cannot ride on another's back
+  ---
+  duration_ms: 1.243016
+  type: 'test'
+  ...
+# Subtest: a weakening needs a written reason
+ok 17 - a weakening needs a written reason
+  ---
+  duration_ms: 2.872978
+  type: 'test'
+  ...
+# Subtest: the weakening axes are closed, and arguments is deliberately not one of them
+ok 18 - the weakening axes are closed, and arguments is deliberately not one of them
+  ---
+  duration_ms: 0.953881
+  type: 'test'
+  ...
+# Subtest: one callback cannot carry the same weakening twice, which would let one of them never go stale
+ok 19 - one callback cannot carry the same weakening twice, which would let one of them never go stale
+  ---
+  duration_ms: 0.675043
+  type: 'test'
+  ...
+# Subtest: the report leads with the driving log, because inputs that differed frame everything after
+ok 20 - the report leads with the driving log, because inputs that differed frame everything after
+  ---
+  duration_ms: 22.697437
+  type: 'test'
+  ...
+# Subtest: plain and probe variants select mutually exclusive comparison experiments
+ok 21 - plain and probe variants select mutually exclusive comparison experiments
+  ---
+  duration_ms: 3.155841
+  type: 'test'
+  ...
+# Subtest: two traces that agree compare clean
+ok 22 - two traces that agree compare clean
+  ---
+  duration_ms: 37.553023
+  type: 'test'
+  ...
+# Subtest: comparing two different scenarios is a mistake, not a difference
+ok 23 - comparing two different scenarios is a mistake, not a difference
+  ---
+  duration_ms: 9.704511
+  type: 'test'
+  ...
+# Subtest: normalization runs before comparison, so reordering never reaches the report
+ok 24 - normalization runs before comparison, so reordering never reaches the report
+  ---
+  duration_ms: 36.352671
+  type: 'test'
+  ...
+# Subtest: an unclaimed difference fails the run and is reported under its section
+ok 25 - an unclaimed difference fails the run and is reported under its section
+  ---
+  duration_ms: 48.266982
+  type: 'test'
+  ...
+# Subtest: a difference claimed by a region does not fail the run
+ok 26 - a difference claimed by a region does not fail the run
+  ---
+  duration_ms: 23.043054
+  type: 'test'
+  ...
+# Subtest: a driving divergence is reported first and frames the rest as consequences, suppressing none of them
+ok 27 - a driving divergence is reported first and frames the rest as consequences, suppressing none of them
+  ---
+  duration_ms: 21.442587
+  type: 'test'
+  ...
+# Subtest: a driving log that agrees frames nothing
+ok 28 - a driving log that agrees frames nothing
+  ---
+  duration_ms: 71.132697
+  type: 'test'
+  ...
+# Subtest: a region can claim a driving difference; it cannot make the sections after it readable
+ok 29 - a region can claim a driving difference; it cannot make the sections after it readable
+  ---
+  duration_ms: 44.08019
+  type: 'test'
+  ...
+# Subtest: the report names both sides by the identity their traces carry
+ok 30 - the report names both sides by the identity their traces carry
+  ---
+  duration_ms: 5.373117
+  type: 'test'
+  ...
+# Subtest: the deleted fields are reported as unobserved rather than as agreement
+ok 31 - the deleted fields are reported as unobserved rather than as agreement
+  ---
+  duration_ms: 16.174417
+  type: 'test'
+  ...
+# Subtest: the CLI produces a report and passes on an agreeing pair
+ok 32 - the CLI produces a report and passes on an agreeing pair
+  ---
+  duration_ms: 627.545865
+  type: 'test'
+  ...
+# Subtest: the CLI exits non-zero on an unclaimed difference
+ok 33 - the CLI exits non-zero on an unclaimed difference
+  ---
+  duration_ms: 386.465913
+  type: 'test'
+  ...
+# Subtest: the CLI reads four traces as one run and passes when both sides reproduced
+ok 34 - the CLI reads four traces as one run and passes when both sides reproduced
+  ---
+  duration_ms: 499.131149
+  type: 'test'
+  ...
+# Subtest: the CLI fails a run whose sides agree with each other but not with themselves
+ok 35 - the CLI fails a run whose sides agree with each other but not with themselves
+  ---
+  duration_ms: 582.888043
+  type: 'test'
+  ...
+# Subtest: the two-trace form says that self-consistency went unchecked
+ok 36 - the two-trace form says that self-consistency went unchecked
+  ---
+  duration_ms: 431.669855
+  type: 'test'
+  ...
+# Subtest: the CLI exits 2 on traces that are not two captures of each of two sides
+ok 37 - the CLI exits 2 on traces that are not two captures of each of two sides
+  ---
+  duration_ms: 389.415965
+  type: 'test'
+  ...
+# Subtest: the CLI exits 2 on a trace it cannot interpret, rather than comparing what is left
+ok 38 - the CLI exits 2 on a trace it cannot interpret, rather than comparing what is left
+  ---
+  duration_ms: 693.59011
+  type: 'test'
+  ...
+# Subtest: the committed ruleset and both registers are themselves legal
+ok 39 - the committed ruleset and both registers are themselves legal
+  ---
+  duration_ms: 3.00328
+  type: 'test'
+  ...
+# Subtest: a handler that fired on one side and not the other fails, though nothing else differs
+ok 40 - a handler that fired on one side and not the other fails, though nothing else differs
+  ---
+  duration_ms: 6.558404
+  type: 'test'
+  ...
+# Subtest: a weakening is read from the register and forgives the count it names
+ok 41 - a weakening is read from the register and forgives the count it names
+  ---
+  duration_ms: 8.738903
+  type: 'test'
+  ...
+# Subtest: a weakening that forgives nothing fails the run, with nothing for --record to write back
+ok 42 - a weakening that forgives nothing fails the run, with nothing for --record to write back
+  ---
+  duration_ms: 5.543077
+  type: 'test'
+  ...
+# Subtest: self-consistency compares the call log too, and no weakening reaches it
+ok 43 - self-consistency compares the call log too, and no weakening reaches it
+  ---
+  duration_ms: 25.818234
+  type: 'test'
+  ...
+# Subtest: two captures of one side that agree are self-consistent
+ok 44 - two captures of one side that agree are self-consistent
+  ---
+  duration_ms: 48.134791
+  type: 'test'
+  ...
+# Subtest: sub-pixel box variation between one side's two captures fails
+ok 45 - sub-pixel box variation between one side's two captures fails
+  ---
+  duration_ms: 39.352969
+  type: 'test'
+  ...
+# Subtest: no rule can be written that would forgive a driving difference
+ok 46 - no rule can be written that would forgive a driving difference
+  ---
+  duration_ms: 35.703892
+  type: 'test'
+  ...
+# Subtest: every other section normalizes exactly as it does across the sides
+ok 47 - every other section normalizes exactly as it does across the sides
+  ---
+  duration_ms: 59.078769
+  type: 'test'
+  ...
+# Subtest: a rule broad enough to reach the driving log still normalizes the sections it may touch
+ok 48 - a rule broad enough to reach the driving log still normalizes the sections it may touch
+  ---
+  duration_ms: 19.44757
+  type: 'test'
+  ...
+# Subtest: a side compared against the other side is a mistake, not an inconsistency
+ok 49 - a side compared against the other side is a mistake, not an inconsistency
+  ---
+  duration_ms: 3.637604
+  type: 'test'
+  ...
+# Subtest: a trace checked against itself is a check that cannot go red
+ok 50 - a trace checked against itself is a check that cannot go red
+  ---
+  duration_ms: 5.808917
+  type: 'test'
+  ...
+# Subtest: two captures of different scenarios are not two captures of one run
+ok 51 - two captures of different scenarios are not two captures of one run
+  ---
+  duration_ms: 2.326045
+  type: 'test'
+  ...
+# Subtest: two captures against different baselines are not two captures of one run
+ok 52 - two captures against different baselines are not two captures of one run
+  ---
+  duration_ms: 3.444493
+  type: 'test'
+  ...
+# Subtest: an illegal rule fails the check rather than being quietly skipped
+ok 53 - an illegal rule fails the check rather than being quietly skipped
+  ---
+  duration_ms: 66.852732
+  type: 'test'
+  ...
+# Subtest: a malformed capture fails as a malformed trace rather than as an inconsistency
+ok 54 - a malformed capture fails as a malformed trace rather than as an inconsistency
+  ---
+  duration_ms: 3.1354
+  type: 'test'
+  ...
+# Subtest: two identical traces produce no differences
+ok 55 - two identical traces produce no differences
+  ---
+  duration_ms: 32.53932
+  type: 'test'
+  ...
+# Subtest: reordering nodes yields one keyed order difference, not a positional shift
+ok 56 - reordering nodes yields one keyed order difference, not a positional shift
+  ---
+  duration_ms: 7.51773
+  type: 'test'
+  ...
+# Subtest: positional comparison of the same pair shifts — the reason keying exists
+ok 57 - positional comparison of the same pair shifts — the reason keying exists
+  ---
+  duration_ms: 8.56237
+  type: 'test'
+  ...
+# Subtest: a real change under a reorder still goes red
+ok 58 - a real change under a reorder still goes red
+  ---
+  duration_ms: 2.436171
+  type: 'test'
+  ...
+# Subtest: an element present on one side only is reported as one difference, keyed
+ok 59 - an element present on one side only is reported as one difference, keyed
+  ---
+  duration_ms: 6.619937
+  type: 'test'
+  ...
+# Subtest: keying is for DOM children alone; every other list is positional
+ok 60 - keying is for DOM children alone; every other list is positional
+  ---
+  duration_ms: 1.89569
+  type: 'test'
+  ...
+# Subtest: a missing object member and an extra one are distinct kinds
+ok 61 - a missing object member and an extra one are distinct kinds
+  ---
+  duration_ms: 1.260229
+  type: 'test'
+  ...
+# Subtest: path segments carrying a slash survive rendering
+ok 62 - path segments carrying a slash survive rendering
+  ---
+  duration_ms: 0.681689
+  type: 'test'
+  ...
+# Subtest: delete-by-name removes a field from a side regardless of its value
+ok 63 - delete-by-name removes a field from a side regardless of its value
+  ---
+  duration_ms: 25.252827
+  type: 'test'
+  ...
+# Subtest: a deleted field is recorded as unobserved rather than silently dropped
+ok 64 - a deleted field is recorded as unobserved rather than silently dropped
+  ---
+  duration_ms: 12.376642
+  type: 'test'
+  ...
+# Subtest: sorting reorders class tokens and style declarations without touching anything else
+ok 65 - sorting reorders class tokens and style declarations without touching anything else
+  ---
+  duration_ms: 15.057146
+  type: 'test'
+  ...
+# Subtest: a callback argument's timeStamp is deleted from both sides, and recorded as unobserved
+ok 66 - a callback argument's timeStamp is deleted from both sides, and recorded as unobserved
+  ---
+  duration_ms: 1.571657
+  type: 'test'
+  ...
+# Subtest: the rule reaches only the callbacks section, since that is where it is aimed
+ok 67 - the rule reaches only the callbacks section, since that is where it is aimed
+  ---
+  duration_ms: 2.697686
+  type: 'test'
+  ...
+# Subtest: normalization cannot collapse two distinct values into one
+ok 68 - normalization cannot collapse two distinct values into one
+  ---
+  duration_ms: 26.260238
+  type: 'test'
+  ...
+# Subtest: a duplicated token is not deduplicated away by sorting
+ok 69 - a duplicated token is not deduplicated away by sorting
+  ---
+  duration_ms: 2.861492
+  type: 'test'
+  ...
+# Subtest: declarations are left unsorted when a property repeats, because order decides there
+ok 70 - declarations are left unsorted when a property repeats, because order decides there
+  ---
+  duration_ms: 0.989392
+  type: 'test'
+  ...
+# Subtest: a rule kind outside delete and sort is a hard error
+ok 71 - a rule kind outside delete and sort is a hard error
+  ---
+  duration_ms: 19.369339
+  type: 'test'
+  ...
+# Subtest: a rule without a written reason is a hard error
+ok 72 - a rule without a written reason is a hard error
+  ---
+  duration_ms: 2.48004
+  type: 'test'
+  ...
+# Subtest: the collapse guard rejects a normalizer that made two distinct values agree
+ok 73 - the collapse guard rejects a normalizer that made two distinct values agree
+  ---
+  duration_ms: 2.19038
+  type: 'test'
+  ...
+# Subtest: the collapse guard accepts a reorder, which is what makes it a permutation and not a collapse
+ok 74 - the collapse guard accepts a reorder, which is what makes it a permutation and not a collapse
+  ---
+  duration_ms: 8.42408
+  type: 'test'
+  ...
+# Subtest: the collapse guard is not fooled by two values that are merely anagrams
+ok 75 - the collapse guard is not fooled by two values that are merely anagrams
+  ---
+  duration_ms: 1.050377
+  type: 'test'
+  ...
+# Subtest: a value no rule touched cannot legally agree after normalization
+ok 76 - a value no rule touched cannot legally agree after normalization
+  ---
+  duration_ms: 1.201734
+  type: 'test'
+  ...
+# Subtest: a region claims what its pattern says and no more
+ok 77 - a region claims what its pattern says and no more
+  ---
+  duration_ms: 26.702097
+  type: 'test'
+  ...
+# Subtest: an empty region fails as stale
+ok 78 - an empty region fails as stale
+  ---
+  duration_ms: 14.328927
+  type: 'test'
+  ...
+# Subtest: a region scoped to another scenario claims nothing here
+ok 79 - a region scoped to another scenario claims nothing here
+  ---
+  duration_ms: 3.121424
+  type: 'test'
+  ...
+# Subtest: a region whose content moved fails, so the bump has to re-affirm it
+ok 80 - a region whose content moved fails, so the bump has to re-affirm it
+  ---
+  duration_ms: 6.149984
+  type: 'test'
+  ...
+# Subtest: a region whose recording still matches rides free
+ok 81 - a region whose recording still matches rides free
+  ---
+  duration_ms: 3.884349
+  type: 'test'
+  ...
+# Subtest: a difference is claimed by exactly one region — the first whose pattern matches
+ok 82 - a difference is claimed by exactly one region — the first whose pattern matches
+  ---
+  duration_ms: 2.370043
+  type: 'test'
+  ...
+# Subtest: re-recording cannot create a region
+ok 83 - re-recording cannot create a region
+  ---
+  duration_ms: 16.656073
+  type: 'test'
+  ...
+# Subtest: re-recording refreshes a moved region's values and the baseline it was affirmed against
+ok 84 - re-recording refreshes a moved region's values and the baseline it was affirmed against
+  ---
+  duration_ms: 3.444128
+  type: 'test'
+  ...
+# Subtest: a known divergence without a ticket is a hard error
+ok 85 - a known divergence without a ticket is a hard error
+  ---
+  duration_ms: 3.727917
+  type: 'test'
+  ...
+# Subtest: an intentional region needs no ticket but still needs a reason
+ok 86 - an intentional region needs no ticket but still needs a reason
+  ---
+  duration_ms: 11.786971
+  type: 'test'
+  ...
+# Subtest: a region kind outside the two is a hard error, and so is a duplicate id
+ok 87 - a region kind outside the two is a hard error, and so is a duplicate id
+  ---
+  duration_ms: 3.750984
+  type: 'test'
+  ...
+# Subtest: the run reads exactly the sides the driver serves, reordered rather than renamed
+ok 88 - the run reads exactly the sides the driver serves, reordered rather than renamed
+  ---
+  duration_ms: 24.005796
+  type: 'test'
+  ...
+# Subtest: four agreeing captures pass, and the report says both sides agreed with themselves first
+ok 89 - four agreeing captures pass, and the report says both sides agreed with themselves first
+  ---
+  duration_ms: 166.295021
+  type: 'test'
+  ...
+# Subtest: a side that disagrees with itself is its own failure class
+ok 90 - a side that disagrees with itself is its own failure class
+  ---
+  duration_ms: 105.641147
+  type: 'test'
+  ...
+# Subtest: the cross-side comparison still runs and is still reported when a side is not reproducible
+ok 91 - the cross-side comparison still runs and is still reported when a side is not reproducible
+  ---
+  duration_ms: 146.597695
+  type: 'test'
+  ...
+# Subtest: self-consistency is checked against both captures, not against the one that goes on to compare
+ok 92 - self-consistency is checked against both captures, not against the one that goes on to compare
+  ---
+  duration_ms: 21.456168
+  type: 'test'
+  ...
+# Subtest: a driving divergence between the sides is named apart from the differences it explains
+ok 93 - a driving divergence between the sides is named apart from the differences it explains
+  ---
+  duration_ms: 32.471596
+  type: 'test'
+  ...
+# Subtest: the run refuses traces that are not two captures of each of two sides
+ok 94 - the run refuses traces that are not two captures of each of two sides
+  ---
+  duration_ms: 4.957574
+  type: 'test'
+  ...
+# Subtest: upstream reads left, whichever order the traces arrived in
+ok 95 - upstream reads left, whichever order the traces arrived in
+  ---
+  duration_ms: 46.246927
+  type: 'test'
+  ...
+# Subtest: a stale region fails the run under its own name
+ok 96 - a stale region fails the run under its own name
+  ---
+  duration_ms: 23.268237
+  type: 'test'
+  ...
+# Subtest: flow-node probes compare their observations without comparing probe-induced DOM or driving
+ok 97 - flow-node probes compare their observations without comparing probe-induced DOM or driving
+  ---
+  duration_ms: 10.240517
+  type: 'test'
+  ...
+# Subtest: flow-node probes still compare the exact sequence of tagged hook callback receipts
+ok 98 - flow-node probes still compare the exact sequence of tagged hook callback receipts
+  ---
+  duration_ms: 20.147926
+  type: 'test'
+  ...
+# Subtest: flow-node probes still fail on a props difference
+ok 99 - flow-node probes still fail on a props difference
+  ---
+  duration_ms: 64.065727
+  type: 'test'
+  ...
+# Subtest: a unit's name is the describes it sits under, then itself
+ok 100 - a unit's name is the describes it sits under, then itself
+  ---
+  duration_ms: 158.515303
+  type: 'test'
+  ...
+# Subtest: a hook is registered like a test, so a moved route cannot pass silently
+ok 101 - a hook is registered like a test, so a moved route cannot pass silently
+  ---
+  duration_ms: 46.815179
+  type: 'test'
+  ...
+# Subtest: a modifier does not change what a call is
+ok 102 - a modifier does not change what a call is
+  ---
+  duration_ms: 63.697046
+  type: 'test'
+  ...
+# Subtest: the hash ignores line endings and nothing else
+ok 103 - the hash ignores line endings and nothing else
+  ---
+  duration_ms: 1.274028
+  type: 'test'
+  ...
+# Subtest: two units under one name fail rather than one being unregisterable
+ok 104 - two units under one name fail rather than one being unregisterable
+  ---
+  duration_ms: 7.190722
+  type: 'test'
+  ...
+# Subtest: an entry needs a spec, a test, a hash and the baseline it was affirmed against
+ok 105 - an entry needs a spec, a test, a hash and the baseline it was affirmed against
+  ---
+  duration_ms: 3.453861
+  type: 'test'
+  ...
+# Subtest: an entry that lifts nothing needs a written reason
+ok 106 - an entry that lifts nothing needs a written reason
+  ---
+  duration_ms: 2.691702
+  type: 'test'
+  ...
+# Subtest: two entries for one unit fail
+ok 107 - two entries for one unit fail
+  ---
+  duration_ms: 0.978925
+  type: 'test'
+  ...
+# Subtest: a unit whose source is the one the entry recorded is affirmed
+ok 108 - a unit whose source is the one the entry recorded is affirmed
+  ---
+  duration_ms: 7.86641
+  type: 'test'
+  ...
+# Subtest: a forked spec that changed fails, naming the scenarios to re-affirm
+ok 109 - a forked spec that changed fails, naming the scenarios to re-affirm
+  ---
+  duration_ms: 3.646118
+  type: 'test'
+  ...
+# Subtest: an entry naming a unit the spec no longer holds is stale
+ok 110 - an entry naming a unit the spec no longer holds is stale
+  ---
+  duration_ms: 2.182082
+  type: 'test'
+  ...
+# Subtest: a unit no entry names fails as unregistered
+ok 111 - a unit no entry names fails as unregistered
+  ---
+  duration_ms: 1.427893
+  type: 'test'
+  ...
+# Subtest: an entry naming a scenario the corpus does not hold fails
+ok 112 - an entry naming a scenario the corpus does not hold fails
+  ---
+  duration_ms: 1.369137
+  type: 'test'
+  ...
+# Subtest: a seed scenario no entry names fails as unlifted
+ok 113 - a seed scenario no entry names fails as unlifted
+  ---
+  duration_ms: 0.933856
+  type: 'test'
+  ...
+# Subtest: affirming restamps a moved entry's hash and baseline
+ok 114 - affirming restamps a moved entry's hash and baseline
+  ---
+  duration_ms: 2.156071
+  type: 'test'
+  ...
+# Subtest: affirming cannot create an entry or delete one
+ok 115 - affirming cannot create an entry or delete one
+  ---
+  duration_ms: 0.928335
+  type: 'test'
+  ...
+# Subtest: every forked spec is in the vendored tree
+ok 116 - every forked spec is in the vendored tree
+  ---
+  duration_ms: 476.492957
+  type: 'test'
+  ...
+# Subtest: every vendored fixture and the example driver are registered whole
+ok 117 - every vendored fixture and the example driver are registered whole
+  ---
+  duration_ms: 251.055184
+  type: 'test'
+  ...
+# Subtest: the committed register is affirmed against the vendored source
+ok 118 - the committed register is affirmed against the vendored source
+  ---
+  duration_ms: 135.783515
+  type: 'test'
+  ...
+# Subtest: falsify: renaming the colour-mode option fails the register
+ok 119 - falsify: renaming the colour-mode option fails the register
+  ---
+  duration_ms: 92.154924
+  type: 'test'
+  ...
+# Subtest: falsify: a single edited character in a forked spec fails the register
+ok 120 - falsify: a single edited character in a forked spec fails the register
+  ---
+  duration_ms: 124.433495
+  type: 'test'
+  ...
+# Subtest: an export counts as driven only when a trace that ran actually held it
+ok 121 - an export counts as driven only when a trace that ran actually held it
+  ---
+  duration_ms: 18.912383
+  type: 'test'
+  ...
+# Subtest: an undeclared hole fails, and a declared one passes
+ok 122 - an undeclared hole fails, and a declared one passes
+  ---
+  duration_ms: 3.223768
+  type: 'test'
+  ...
+# Subtest: an export with no witness fails, which is what a bump that adds one looks like
+ok 123 - an export with no witness fails, which is what a bump that adds one looks like
+  ---
+  duration_ms: 1.51214
+  type: 'test'
+  ...
+# Subtest: a witness naming an export the census no longer carries is stale
+ok 124 - a witness naming an export the census no longer carries is stale
+  ---
+  duration_ms: 1.32115
+  type: 'test'
+  ...
+# Subtest: a hole over an export something did drive is stale — the reason stopped being true
+ok 125 - a hole over an export something did drive is stale — the reason stopped being true
+  ---
+  duration_ms: 5.231099
+  type: 'test'
+  ...
+# Subtest: a hole register entry covers as many exports as its reason covers
+ok 126 - a hole register entry covers as many exports as its reason covers
+  ---
+  duration_ms: 5.771101
+  type: 'test'
+  ...
+# Subtest: the register is refused when an entry names nothing, or names one export twice
+ok 127 - the register is refused when an entry names nothing, or names one export twice
+  ---
+  duration_ms: 3.598168
+  type: 'test'
+  ...
+# Subtest: the two counts are kept apart, and the termination condition is what green means
+ok 128 - the two counts are kept apart, and the termination condition is what green means
+  ---
+  duration_ms: 1.670102
+  type: 'test'
+  ...
+# Subtest: a field the noise policy deletes is unobserved, not driven
+ok 129 - a field the noise policy deletes is unobserved, not driven
+  ---
+  duration_ms: 12.491548
+  type: 'test'
+  ...
+# Subtest: the export-bearing entries and their sections are read off the census
+ok 130 - the export-bearing entries and their sections are read off the census
+  ---
+  duration_ms: 5.513741
+  type: 'test'
+  ...
+# Subtest: behavior coverage is hand-declared, and counted in its own currency
+ok 131 - behavior coverage is hand-declared, and counted in its own currency
+  ---
+  duration_ms: 79.66117
+  type: 'test'
+  ...
+# Subtest: a gate-pending row naming a scenario the corpus does not hold fails
+ok 132 - a gate-pending row naming a scenario the corpus does not hold fails
+  ---
+  duration_ms: 0.919524
+  type: 'test'
+  ...
+# Subtest: a gate-pending row that names no scenario cannot be joined to anything
+ok 133 - a gate-pending row that names no scenario cannot be joined to anything
+  ---
+  duration_ms: 0.777653
+  type: 'test'
+  ...
+# Subtest: a row against a reserved id resolves, and is counted apart from one against a written scenario
+ok 134 - a row against a reserved id resolves, and is counted apart from one against a written scenario
+  ---
+  duration_ms: 6.523483
+  type: 'test'
+  ...
+# Subtest: only a net-bound row joins the corpus; the others are counted and left alone
+ok 135 - only a net-bound row joins the corpus; the others are counted and left alone
+  ---
+  duration_ms: 1.176358
+  type: 'test'
+  ...
+# Subtest: the holes are queryable by section, which is what derives from the list
+ok 136 - the holes are queryable by section, which is what derives from the list
+  ---
+  duration_ms: 2.422749
+  type: 'test'
+  ...
+# Subtest: the artifact states the termination condition and whether it holds
+ok 137 - the artifact states the termination condition and whether it holds
+  ---
+  duration_ms: 26.983552
+  type: 'test'
+  ...
+# Subtest: the two counts are printed apart, and the report says why they are never summed
+ok 138 - the two counts are printed apart, and the report says why they are never summed
+  ---
+  duration_ms: 3.000085
+  type: 'test'
+  ...
+# Subtest: an undeclared hole is named in the artifact rather than only in the exit code
+ok 139 - an undeclared hole is named in the artifact rather than only in the exit code
+  ---
+  duration_ms: 2.590736
+  type: 'test'
+  ...
+# Subtest: every export's witness is printed, so a wrong one can be read and disputed
+ok 140 - every export's witness is printed, so a wrong one can be read and disputed
+  ---
+  duration_ms: 8.049496
+  type: 'test'
+  ...
+# Subtest: a clean register says so in one line; a broken one says what to fix
+ok 141 - a clean register says so in one line; a broken one says what to fix
+  ---
+  duration_ms: 6.094602
+  type: 'test'
+  ...
+# Subtest: holes sharing a reason are listed together, so the reason is written once
+ok 142 - holes sharing a reason are listed together, so the reason is written once
+  ---
+  duration_ms: 1.874412
+  type: 'test'
+  ...
+# Subtest: a witness that needed defending prints its defence, not just its rule
+ok 143 - a witness that needed defending prints its defence, not just its rule
+  ---
+  duration_ms: 2.277031
+  type: 'test'
+  ...
+# Subtest: each declared behavior says whether its scenario is written, reserved, or neither
+ok 144 - each declared behavior says whether its scenario is written, reserved, or neither
+  ---
+  duration_ms: 82.957548
+  type: 'test'
+  ...
+# Subtest: a class selector matches an element carrying that class token
+ok 145 - a class selector matches an element carrying that class token
+  ---
+  duration_ms: 16.724995
+  type: 'test'
+  ...
+# Subtest: a compound selector asks about the tag and every attribute at once
+ok 146 - a compound selector asks about the tag and every attribute at once
+  ---
+  duration_ms: 3.014766
+  type: 'test'
+  ...
+# Subtest: attribute presence, exact, token and substring are four different questions
+ok 147 - attribute presence, exact, token and substring are four different questions
+  ---
+  duration_ms: 2.89931
+  type: 'test'
+  ...
+# Subtest: a selector the language cannot express fails rather than matching nothing
+ok 148 - a selector the language cannot express fails rather than matching nothing
+  ---
+  duration_ms: 2.861001
+  type: 'test'
+  ...
+# Subtest: a dom witness searches the whole recorded subtree, root included
+ok 149 - a dom witness searches the whole recorded subtree, root included
+  ---
+  duration_ms: 1.661853
+  type: 'test'
+  ...
+# Subtest: a side that rendered no flow at all witnesses nothing
+ok 150 - a side that rendered no flow at all witnesses nothing
+  ---
+  duration_ms: 0.977047
+  type: 'test'
+  ...
+# Subtest: the callbacks section offers a handler's name, and its changes' discriminants
+ok 151 - the callbacks section offers a handler's name, and its changes' discriminants
+  ---
+  duration_ms: 5.578632
+  type: 'test'
+  ...
+# Subtest: the api section offers its query keys and the names of the calls that were made
+ok 152 - the api section offers its query keys and the names of the calls that were made
+  ---
+  duration_ms: 4.344774
+  type: 'test'
+  ...
+# Subtest: hooks and props are offered by probe id and by what the probe reported
+ok 153 - hooks and props are offered by probe id and by what the probe reported
+  ---
+  duration_ms: 3.645281
+  type: 'test'
+  ...
+# Subtest: an empty section offers nothing, which is what makes its exports holes
+ok 154 - an empty section offers nothing, which is what makes its exports holes
+  ---
+  duration_ms: 5.705613
+  type: 'test'
+  ...
+# Subtest: a compiled witness answers one question: did this trace's sections hold it?
+ok 155 - a compiled witness answers one question: did this trace's sections hold it?
+  ---
+  duration_ms: 2.977761
+  type: 'test'
+  ...
+# Subtest: a witness whose kind does not suit its section is a mis-edit, not a finding
+ok 156 - a witness whose kind does not suit its section is a mis-edit, not a finding
+  ---
+  duration_ms: 1.625112
+  type: 'test'
+  ...
+# Subtest: a witness that names nothing is refused, because it could never witness anything
+ok 157 - a witness that names nothing is refused, because it could never witness anything
+  ---
+  duration_ms: 0.935469
+  type: 'test'
+  ...
+# Subtest: a descendant chain asks about content inside a container, not the container
+ok 158 - a descendant chain asks about content inside a container, not the container
+  ---
+  duration_ms: 0.986585
+  type: 'test'
+  ...
+# Subtest: a chain matches across generations, not only parent and child
+ok 159 - a chain matches across generations, not only parent and child
+  ---
+  duration_ms: 1.34591
+  type: 'test'
+  ...
+1..159
+# tests 159
+# suites 0
+# pass 159
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6071.822492

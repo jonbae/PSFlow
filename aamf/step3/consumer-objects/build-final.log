@@ -1,0 +1,21 @@
+$ spago build
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[1 of 8] Compiling Boundary.Utils
+[2 of 8] Compiling Test.Boundary.EdgeSelected
+[3 of 8] Compiling Boundary
+[4 of 8] Compiling Test.Boundary.EdgeAnimated
+[5 of 8] Compiling Test.Boundary.EdgeHidden
+[6 of 8] Compiling Test.Boundary.ConsumerObjects
+[7 of 8] Compiling Test.Boundary.NodeDragging
+[8 of 8] Compiling Test.Main
+           Src   Lib   All
+Warnings     0     0     0
+Errors       0     0     0
+
+✓ Build succeeded.
+

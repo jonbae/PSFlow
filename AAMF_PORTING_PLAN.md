@@ -32,7 +32,41 @@ See [Step 2 results](AAMF_STEP2_RESULTS.md), the
 [integration implementation](AAMF_STEP2_INTEGRATION.md), and
 [preserved evidence](aamf/step2/README.md). The original November 7 temporary
 workspace is gone; the completed Step 1 and Step 2 evidence now survives in
-the repository. **Stopped at the end of Step 2. Step 3 was not started.**
+the repository.
+
+**Step 3 is in progress, updated 2026-11-12 UTC.** W00 established a fresh baseline at
+`98a3f77ab1bb17d481c6dec4fed2e23174448e45`: the four cheap gates and boundary
+checks passed, while 100 of 103 system scenarios failed. Its four self-inconsistent
+scenarios were excluded pending E; the current isolated checkpoint reproduces all scenarios. All seven W02 crossings
+then passed red/green JS-entry regressions and applicable gates. **Step 3 B is
+complete: boundary stage 5 has 68 crossed exports and zero passthroughs.** See
+[Step 3 results](AAMF_STEP3_RESULTS.md) and [evidence](aamf/step3/README.md).
+**Step 3 C / W03 is complete, 2026-11-10:** change/add helpers retain original
+consumer references and enumerable keys, and their three issue-150 return-value
+exceptions have retired. Applicable surface/function/boundary checks pass.
+**D / W04 is also complete:** original-node references survive adoption and JS
+conversion, with focused reproducible browser evidence. E / W11 is now complete. **W08a onInit scheduling and W08b viewport listener mechanics are
+complete**, with red/green public-interface proxies and a passing browser
+checkpoint. **F / W05 resize lifecycle is now complete**, with genuine mounted
+resize witnesses. G's missing `node.resizing` field is also implemented and
+verified. E's bounded keyboard protocol and H's `onInit` witness are now complete.
+The shared handle-bound and viewport-end scheduling fixes remain complete.
+Order E is complete: keyboard announcements, focus panning, callback ordering
+and gesture reproducibility are validated. The fresh Linux checkpoint captures
+all 107 scenarios: **105 pass and 2 fail**, with **zero self-inconsistent
+scenarios and zero driving divergences**. The remaining two failures are the
+flow/node probes for G/H store, connection and node-prop compatibility. Coverage
+remains **128/156 driven, 28 declared holes**, with 50 separate behavior-debt rows.
+G–I and overall Step 3 completion remain open.
+
+
+**H / bounded W13 numeric work is implemented, November 11:** shared geometry
+and resize helpers now preserve JavaScript's `NaN` and signed-zero min/max
+behavior. Exact source comparisons and a real controller regression pass.
+The [numeric task evidence](aamf/step3/numeric-semantics/) records its focused
+browser checks and the then-current 95-failure checkpoint. The newer shared-fix
+checkpoint is preserved; the Order E task provides the newer result above. Other numeric call sites remain
+to be audited.
 
 ## Recommendation
 
@@ -65,10 +99,10 @@ when a later baseline update is intentional.
 |---|---|---|
 | Implementation | 169 `.purs` modules and 50 JavaScript FFI files under `src/`, counted for this assessment | Reuse the existing implementation; file count is not a completion percentage. |
 | Public API | [Census](parity/census/report.md): 68 value exports and 142 type exports | Track source behavior, boundary conversion, and evidence separately. |
-| Boundary | [Manifest](src/Boundary.js): stage 4, with seven exports still passing through raw after the Step 2 viewport pilot | The six edge-path helpers have already crossed. Finish the remaining graph/bounds/reconnection crossings. |
-| Surface report | [Committed snapshot](parity/surface/report.md) says last run 2026-09-22 | It predates some current boundary code and allowlist changes; regenerate before making numerical claims. |
-| System report | [Committed snapshot](parity/system/report.md), last changed in commit `c3e242a7` on 2026-10-20: 100 of 103 scenarios failed | This is a snapshot of observed differences, not 100 separate missing features. Re-capture after the baseline build. |
-| Coverage | [Committed snapshot](parity/system/coverage.md): 122 of 156 export-bearing entries driven, 34 declared holes; 50 behaviors still awaiting gates | A declared hole is accounted for, not implemented or verified by that declaration. Export coverage and behavior coverage are different measures. |
+| Boundary | [Manifest](src/Boundary.js): stage 5, all 68 values crossed, zero passthroughs | W02 and W03 are complete; the three consumer-object exceptions have retired. Explicit store/default-edge refusals remain separate work. |
+| Surface report | [Current snapshot](parity/surface/report.md) refreshed at stage 5 | Passed; all stage-5 call-convention exceptions retired. [Step 3 results](AAMF_STEP3_RESULTS.md) distinguish baseline and checkpoint evidence. |
+| System report | [Order E Linux checkpoint](parity/system/report.md): 2 of 107 failed, zero self-inconsistent | The preceding 99-pass/8-failure Mac checkpoint is [preserved](aamf/step3/order-e/before-canonical-checkpoint.tar.gz); earlier checkpoints remain in their task archives. Capture platform, exact runtime, unchanged comparison policy and reproducibility evidence are recorded in [Order E](aamf/step3/order-e/). |
+| Coverage | [Current coverage](parity/system/coverage.md): 128 of 156 export-bearing entries driven, 28 declared holes; 50 behaviors still awaiting gates | A declared hole is accounted for, not implemented or verified by that declaration. Export coverage and behavior coverage are different measures. |
 | Porting contract | [PORTING.md](PORTING.md), [CONTEXT.md](CONTEXT.md), and the [five gates](README.md#the-five-gates) | Use these as the migration and verification rules. |
 
 The live issue index is [Close the divergence backlog](https://github.com/jonbae/PSFlow/issues/93).
@@ -83,8 +117,9 @@ Two open PRs were present during this assessment:
 - [Announce an arrow-key move in the aria-live region](https://github.com/jonbae/PSFlow/pull/194).
 - [Hold null for a side with no handle](https://github.com/jonbae/PSFlow/pull/195).
 
-Check their disposition before assigning overlapping work. This plan does not
-merge either PR or assume it has landed.
+Both remained open at the Step 3 W00 recheck on 2026-11-09. Check their
+disposition before assigning overlapping work. This plan does not merge either
+PR or assume it has landed.
 
 ## What AAMF can and cannot supply today
 
@@ -289,6 +324,11 @@ describe that fallback as a completed autonomous AAMF migration.
 
 ## Step 3: complete the remaining work in dependency order
 
+**Status: started, 2026-11-09.** A / W00's baseline capture and triage are
+complete; its original unstable experiments remain archived. E now supplies
+reproducible replacement captures under the isolated protocol. **B / W02 is complete: stage 5, 68 crossed, zero passthroughs.** See the
+[execution results](AAMF_STEP3_RESULTS.md). C, D, E and F are also complete; G–I have the partial completions recorded above.
+
 The following is a proposed queue, to refine against fresh captures. Independent
 branches may proceed once their prerequisites and target-file ownership are
 clear. Each behavior fix needs its own observable acceptance criterion.
@@ -296,13 +336,13 @@ clear. Each behavior fix needs its own observable acceptance criterion.
 | Order | Work and existing starting point | Acceptance / dependency |
 |---|---|---|
 | A | Establish a fresh baseline after checking the two open PRs. Rebuild PSFlow, oracle, and driver; run the gates below. Cluster remaining differences by mechanism. | Save results with the exact source/target revisions. Resolve self-inconsistency before interpreting affected scenarios. |
-| B | Finish boundary stage 5 from the **current** manifest: `getConnectedEdges`, `getIncomers`, `getOutgoers`, `getNodesBounds`, `reconnectEdge`, `isNode`, `isEdge`. The six edge-path helpers and Step 2 viewport pilot already have converters. | Empty `passthrough`, stage 5 recorded, and applicable transitional allowlist entries retired while surface parity remains green. Use [the older stage specification](tickets/082-boundary-stage-5-pure-functions.md) for intent, not its obsolete count of fourteen remaining functions. |
+| B | **Complete.** All seven remaining graph/bounds/reconnection/guard crossings landed in serialized W02 tasks, after the six edge-path helpers and Step 2 viewport pilot. | Empty `passthrough`, stage 5 recorded, matching transitional exceptions retired, surface parity green, and source-based JS-entry regressions pass. See [the results](AAMF_STEP3_RESULTS.md). |
 | C | Preserve consumer objects, keys, and identity in `applyNodeChanges`, `applyEdgeChanges`, and `addEdge`; inspect `reconnectEdge` as part of B. Start with [Hand back the consumer's own nodes and edges](https://github.com/jonbae/PSFlow/issues/150) and `src/Boundary/Utils.purs`. | Untouched elements retain reference identity; changed copies retain custom keys and explicitly present `undefined`; added edges retain consumer fields. Remove the three issue-owned return-value allowlist entries. B and C share boundary concerns and should be serialized where files overlap. |
 | D | Restore original-node provenance through adoption and internal-node conversion. `NodeInternals` and `JsNodeInternals` currently omit `userNode`. | `getInternalNode().internals.userNode` and any reference-sensitive consumers match upstream. Coordinate the representation with C; a fabricated equivalent record does not preserve identity. |
-| E | Re-measure callback ordering, keyboard behavior, and auto-pan against upstream. The committed report marks `drag-node-autopan`, `arrow-key-selected-node`, and `drag-node-reports-changes` self-inconsistent. Account for the open keyboard/handle-bound PRs first. | Both captures reproduce before their cross-side diff is interpreted. Port timing and state reads; do not remove callbacks or broaden tolerance to gain green. |
-| F | Complete the genuine resize implementation gap in [the XYResizer lifecycle](tickets/073-xyresizer-drag-lifecycle-scaffold.md). `onStart`, `onDrag`, and `onEnd` still emit initial/zero values and ignore resize state. | Maintain start/previous values and resize detection; call the existing resize math; match constraints, parent/child changes, `shouldResize`, mid-drag prop updates, and callback payload/order. Add a fixture that actually resizes plus a local lifecycle test. |
-| G | Close explicit JS compatibility gaps: `useStore` / `useStoreApi` currently throw in `Boundary.Hooks`; thirteen `defaultEdgeOptions` fields are refused in `Boundary.Flow`. Check missing edge/node fields against source. | Implement a faithful JS store view and required edge fields/default merge behavior, or record precise permanent exclusions. A callable export that throws is not full functional parity. Keep read identity, subscriptions, setters, and mutation semantics in the store task's scope. |
-| H | Add missing behavioral witnesses and deepen function parity. Start with the coverage register and the scenarios below. | A new witness must fire upstream as well as PSFlow. Retire the matching hole only after capture proves it. Keep declared behavior debt separate from export counts. |
+| E | **Complete.** Keyboard aria-live announcements, native focus-visible gating and the real focus-centering store effect match upstream. The shared viewport-end timer correction is retained. Browser driving now isolates native layout, timer completion, per-frame hover delivery and capture input state; a version-matched Linux runner isolates Mac physical modifiers. PR194 and PR195 were reviewed/adapted without merging or cherry-picking. | All nine targeted scenarios pass five independent rounds (180 raw traces), including full callback logs and across-round checks. The fresh 107-scenario wave has zero self-inconsistency or driving divergence. Four deliberate restored-defect probes are rejected by the unchanged official comparator. See [Order E results](AAMF_STEP3_RESULTS.md#order-e-completion-november-12-utc). |
+| F | **Complete.** XYResizer maintains gesture state and uses the existing solver. The mounted JS controls resize and receive changed limits during a drag. | Basic lifecycle plus 65 vendored-source differential cases, actual control/store proxies, and mounted receipts. The full net remains red on separate differences; see [results](AAMF_STEP3_RESULTS.md). |
+| G | Close explicit JS compatibility gaps: `useStore` / `useStoreApi` currently throw in `Boundary.Hooks`; thirteen `defaultEdgeOptions` fields are refused in `Boundary.Flow`. Check missing edge/node fields against source; `node.resizing` is now complete. | Implement a faithful JS store view and required edge fields/default merge behavior, or record precise permanent exclusions. A callable export that throws is not full functional parity. Keep read identity, subscriptions, setters, and mutation semantics in the store task's scope. |
+| H | Add missing behavioral witnesses and deepen function parity. The bounded W13 geometry/resize numeric slice is implemented; other numeric call sites and reference/selector behavior remain open. Start with the coverage register and the scenarios below. | A new witness must fire upstream as well as PSFlow. Retire the matching hole only after capture proves it. Keep declared behavior debt separate from export counts. |
 | I | Finish distribution compatibility after runtime behavior is settled: `.d.ts` for JS/TS consumers, package entry points, and distributable styles/assets. | Declarations describe the actual crossed JS API and accepted gaps. They must not expose PureScript ADT representations or blindly promise all upstream behavior. PureScript remains the implementation language. |
 
 D and E are high-impact investigation candidates: the committed report repeats
@@ -324,8 +364,8 @@ handle-bound PR already addresses part of that list.
   gestures; and supported default edge options. These are starting points in
   [the hole register](parity/system/coverage/holes.json), not claims that all
   need separate new fixtures.
-- Reassess the withheld `onInit` driver callback: its converter exists, while
-  the hole register still describes it as absent from captures.
+- **Complete:** the `onInit` driver callback is now observed on both sides and
+  its single coverage hole has retired. Initialization ordering remains E work.
 - Extend [function parity](tickets/059-layer1-behavioral-parity-coverage.md)
   for node-bounds/origin/internal-node functions using richer oracle inputs
   when that gives evidence the browser corpus cannot provide.
@@ -391,7 +431,12 @@ Treat the port as complete against the pinned baseline when:
 - The AAMF integration pilot, selected task graph, source/target revisions,
   validation results, and resume procedure are recorded for the next baseline.
 
-Steps 1 and 2 are complete. The next plan step is Step 3: establish its fresh
-baseline and choose the next bounded gap from the reviewed work contracts.
-The viewport pilot is already crossed; the remaining boundary work and consumer
-object preservation remain future work. This execution stopped after Step 2.
+Steps 1 and 2 are complete. Step 3 A–D are complete, including stage 5, consumer
+objects and original-node provenance. W08a onInit timing and W08b viewport
+listener mechanics are also complete. F / W05, the resize witness family and
+G's `node.resizing` field are complete. E's bounded keyboard protocol and H's
+`onInit` witness are also complete. Bounded initialization/native-frame driving is
+also complete. E / W11 is now complete, including keyboard behavior and isolated
+viewport/gesture reproducibility. Continue
+G's JS store/default-edge work, H's other witnesses/reference checks and I.
+Step 3 G–I and overall port completion remain open. A–F are complete.

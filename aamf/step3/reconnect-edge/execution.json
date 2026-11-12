@@ -1,0 +1,63 @@
+{
+  "completedAt": "2026-11-10T03:10:28.320Z",
+  "audit": {
+    "inputs": 1369,
+    "changedInputs": [
+      "parity/driver/dist/psflow.js",
+      "parity/surface/allowlist.json",
+      "parity/surface/report.md",
+      "src/Boundary.js",
+      "src/Boundary.purs",
+      "src/Boundary/Utils.js",
+      "src/Boundary/Utils.purs"
+    ],
+    "unexpectedChanges": []
+  },
+  "regression": {
+    "red": 1,
+    "green": 0,
+    "finalCases": 16,
+    "boundarySuite": 107,
+    "getterWitness": "Initial cold-path object-rest receipts did not reproduce upstream itself; the final proxy-backed getter witness asserts upstream self-consistency and exact cross-side receipt equality."
+  },
+  "boundary": {
+    "stage": 5,
+    "crossed": 68,
+    "passthrough": 0
+  },
+  "outputs": [
+    {
+      "path": "src/Boundary/Utils.purs",
+      "sha256": "e03183f38f31723f2ce67e903ad1d03cb4eacd11fc66936a5801513ae5c58a9c"
+    },
+    {
+      "path": "src/Boundary/Utils.js",
+      "sha256": "a689bd04f90910ce8c602756537284f181564827059005ffd12542cf113213ef"
+    },
+    {
+      "path": "src/Boundary.purs",
+      "sha256": "6742cecbf2c4ee155f3b2c1d432147e59b81a9a3d59173c122954190eed20117"
+    },
+    {
+      "path": "src/Boundary.js",
+      "sha256": "c58a9e2c095dc3a54d45fcc5fc96a1fded0e0d972580ba2b4b9216504fe10dcc"
+    },
+    {
+      "path": "parity/surface/allowlist.json",
+      "sha256": "60409c11725331c245feb1e5a6bd0f14ba2f4f8d06c391de784cb8031e1b187b"
+    },
+    {
+      "path": "parity/surface/report.md",
+      "sha256": "a9a2a4a892ea22b705764a6ff187e6d9a4fd34b91358042b164ce14cc488cb3c"
+    },
+    {
+      "path": "parity/driver/dist/psflow.js",
+      "sha256": "9484bbadc35f20aedab96260d68816809633409558495fcc2b26e24a46ad1ee3"
+    },
+    {
+      "path": "parity/boundary/reconnect-edge.test.mjs",
+      "sha256": "8ab1a99840c82c67c0bc8f42d28ba6bad142a609f1f95afd541599b82dc2ca9a"
+    }
+  ],
+  "aamfInvoked": false
+}

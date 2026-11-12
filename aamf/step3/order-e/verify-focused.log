@@ -1,0 +1,2 @@
+$ node aamf/step3/order-e/verify-candidates.mjs
+45 complete comparisons pass; every capture reproduces across rounds; four deliberate faults rejected

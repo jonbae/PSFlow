@@ -1,0 +1,31 @@
+$ npm run test:conformance
+
+> ps-flow@0.0.0 test:conformance
+> playwright test --config examples/react-smoke/playwright.config.ts --project=conformance
+
+[2m[WebServer] [22m(node:46019) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:46078) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22mnode:events:496
+[2m[WebServer] [22m      throw er; // Unhandled 'error' event
+[2m[WebServer] [22m      ^
+[2m[WebServer] [22m
+[2m[WebServer] [22mError: listen EADDRINUSE: address already in use 0.0.0.0:5173
+[2m[WebServer] [22m[90m    at Server.setupListenHandle [as _listen2] (node:net:1940:16)[39m
+[2m[WebServer] [22m[90m    at listenInCluster (node:net:1997:12)[39m
+[2m[WebServer] [22m[90m    at node:net:2206:7[39m
+[2m[WebServer] [22m[90m    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+[2m[WebServer] [22mEmitted 'error' event on Server instance at:
+[2m[WebServer] [22m[90m    at emitErrorNT (node:net:1976:8)[39m
+[2m[WebServer] [22m[90m    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m {
+[2m[WebServer] [22m  code: [32m'EADDRINUSE'[39m,
+[2m[WebServer] [22m  errno: [33m-48[39m,
+[2m[WebServer] [22m  syscall: [32m'listen'[39m,
+[2m[WebServer] [22m  address: [32m'0.0.0.0'[39m,
+[2m[WebServer] [22m  port: [33m5173[39m
+[2m[WebServer] [22m}
+[2m[WebServer] [22m
+[2m[WebServer] [22mNode.js v22.18.0
+Error: Process from config.webServer was not able to start. Exit code: 1
+

@@ -1,0 +1,118 @@
+{
+  "provisional": true,
+  "captured": 37,
+  "rows": [
+    {
+      "scenario": "mount-baseline--edges-general",
+      "sides": [
+        {
+          "side": "upstream",
+          "consistent": true
+        },
+        {
+          "side": "psflow",
+          "consistent": true
+        }
+      ],
+      "fullGatePassed": false
+    },
+    {
+      "scenario": "mount-baseline--node-toolbar-general",
+      "sides": [
+        {
+          "side": "upstream",
+          "consistent": true
+        },
+        {
+          "side": "psflow",
+          "consistent": true
+        }
+      ],
+      "fullGatePassed": false
+    },
+    {
+      "scenario": "mount-baseline--chrome-background",
+      "sides": [
+        {
+          "side": "upstream",
+          "consistent": true
+        },
+        {
+          "side": "psflow",
+          "consistent": true
+        }
+      ],
+      "fullGatePassed": false
+    },
+    {
+      "scenario": "mount-baseline--chrome-panels",
+      "sides": [
+        {
+          "side": "upstream",
+          "consistent": true
+        },
+        {
+          "side": "psflow",
+          "consistent": true
+        }
+      ],
+      "fullGatePassed": false
+    },
+    {
+      "scenario": "mount-baseline--flow-display-none",
+      "sides": [
+        {
+          "side": "upstream",
+          "consistent": true
+        },
+        {
+          "side": "psflow",
+          "consistent": true
+        }
+      ],
+      "fullGatePassed": false
+    },
+    {
+      "scenario": "mount-baseline--flow-props-change",
+      "sides": [
+        {
+          "side": "upstream",
+          "consistent": true
+        },
+        {
+          "side": "psflow",
+          "consistent": true
+        }
+      ],
+      "fullGatePassed": false
+    },
+    {
+      "scenario": "mount-baseline--nodes-expand-parent",
+      "sides": [
+        {
+          "side": "upstream",
+          "consistent": true
+        },
+        {
+          "side": "psflow",
+          "consistent": true
+        }
+      ],
+      "fullGatePassed": false
+    },
+    {
+      "scenario": "mount-baseline--nodes-unmeasured",
+      "sides": [
+        {
+          "side": "upstream",
+          "consistent": true
+        },
+        {
+          "side": "psflow",
+          "consistent": true
+        }
+      ],
+      "fullGatePassed": false
+    }
+  ]
+}

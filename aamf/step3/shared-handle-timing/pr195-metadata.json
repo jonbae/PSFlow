@@ -1,0 +1,12 @@
+{
+  "url": "https://github.com/jonbae/PSFlow/pull/195",
+  "number": 195,
+  "state": "open",
+  "merged": false,
+  "title": "Hold null for a side with no handle, as upstream's getHandleBounds returns",
+  "head_sha": "aa11373670d52f5bbb61b9c44dda58be64fe9b6d",
+  "base_sha": "04fd4f246eb02d311effbf4fb1debedcbc21ba01",
+  "head": "port-handle-bounds-null",
+  "base": "master",
+  "updated_at": "2026-11-05T04:59:52Z"
+}

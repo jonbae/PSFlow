@@ -1,0 +1,46 @@
+{
+  "id": "psflow-w02-incomers",
+  "planWork": "Step 3 B / W02, second of seven remaining-utility crossings",
+  "status": "complete, 2026-11-09; two of seven remaining-utility crossings completed in W02",
+  "source": "xyflow/packages/system/src/utils/graph.ts::getIncomers",
+  "seam": "Direct JavaScript calls through index.js compared with the rebuilt vendored oracle, as required by the W02 contract",
+  "mechanism": "Return empty for an empty or absent query id without reading the other arrays. Otherwise collect the sources of edges whose target matches the query id, then filter the caller's nodes in node-array order. Retain original node references and all their keys; return a fresh array.",
+  "allowedOutputs": [
+    "src/Boundary/Utils.purs",
+    "src/Boundary.purs",
+    "src/Boundary.js",
+    "parity/boundary/incomers.test.mjs",
+    "parity/surface/allowlist.json (only getIncomers exceptions and the resulting count comment)",
+    "parity/surface/report.md",
+    "parity/driver/dist/psflow.js",
+    "AAMF_PORTING_PLAN.md (status)",
+    "AAMF_STEP3_RESULTS.md (task results and status)",
+    "aamf/step3/README.md",
+    "aamf/step3/SHA256SUMS",
+    "aamf/step3/incomers/"
+  ],
+  "readOnly": [
+    "src/System/Utils/Graph.purs",
+    "src/Boundary/Elements.purs",
+    "src/Boundary/Utils.js",
+    "package.json",
+    "package-lock.json",
+    "spago.yaml",
+    "spago.lock",
+    "parity/system/",
+    "aamf/step3/baseline/",
+    "aamf/step3/w02/",
+    "aamf/step3/connected-edges.json",
+    "parity/boundary/connected-edges.test.mjs"
+  ],
+  "execution": "Current PSFlow workflow, serialized after getConnectedEdges. The Step 2 AAMF adapter remains pilot-only; no new autonomous runtime or resume behavior is claimed.",
+  "acceptance": [
+    "Fresh build/oracle and green surface baseline before observing a JS-entry regression red",
+    "Match upstream's three-argument call, minimal id-only query, guards, direction, order, self-loops, duplicate behavior, empty inputs and exact original references",
+    "Preserve frozen consumer objects, custom and symbol keys and explicitly present undefined without mutating inputs",
+    "Retire exactly getIncomers arity and call-convention exceptions while surface parity stays green",
+    "Pass spago test, parity:boundary, test:boundary, test:surface and the integration driver build",
+    "Keep stage 4 with five passthrough exports remaining",
+    "Preserve the W00 system baseline and earlier execution evidence"
+  ]
+}

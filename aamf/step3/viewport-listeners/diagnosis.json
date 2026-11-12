@@ -1,0 +1,29 @@
+{
+  "capturedAt": "2026-11-10T17:39:28.472454+00:00",
+  "loop": "node --input-type=module -e import(runViewportListenerTests); invocation preserved exactly in checks.json",
+  "initialSymptom": "Second caller replaces onStart but retains previous onChange and onEnd. Red twice in under one second.",
+  "rankedHypotheses": [
+    {
+      "rank": 1,
+      "cause": "Reducer retains absent slots",
+      "prediction": "Hook sends every field but reducer treats Nothing as leave unchanged"
+    },
+    {
+      "rank": 2,
+      "cause": "Hook omits absent slots",
+      "prediction": "Action payload lacks the absent slots"
+    },
+    {
+      "rank": 3,
+      "cause": "Second effect not committed",
+      "prediction": "onStart also stays unchanged; receipt already makes this unlikely"
+    }
+  ],
+  "findings": [
+    "Hook sends all fields; reducer intentionally preserves absent fields.",
+    "Source has three independent effects, each setting one slot, with no cleanup. Replaced synthetic atomic install/uninstall with three source-order slot setters.",
+    "Core proxy passes; extended index.js proxy fails because each boundary conversion allocates a fresh callback. Native WeakMap caches the unchanged PureScript conversion per original JS function."
+  ],
+  "testClarification": "A later unreachable test expectation initially assumed all slots reinstall when one handler changes; source inspection corrected it to independent-slot behavior before implementation.",
+  "limits": "Does not prove all corpus timing self-inconsistencies share this cause. Browser/checkpoint validation remains separate."
+}

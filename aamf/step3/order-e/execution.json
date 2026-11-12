@@ -1,0 +1,284 @@
+{
+  "id": "order-e-completion",
+  "status": "complete",
+  "completedAt": "2026-11-12T04:27:43.145131+00:00",
+  "aamfInvoked": false,
+  "productionFixes": [
+    "Announce arrow-key moves before movement using live lookup position and JS ToInt32",
+    "Interpret the focus-centering store effect through the real pan-zoom instance",
+    "Restore native focus-visible guard before auto-pan"
+  ],
+  "drivingFixes": [
+    "Reassert public clock pause before first external script",
+    "Keep application time held; two separately painted virtual frame boundaries per input",
+    "Drain actual finite wheel timeout chains",
+    "Advance frames for returning animated imperative calls",
+    "Release held modifiers on blank document between captures",
+    "Isolate Mac physical hover modifiers with version-matched Linux runner"
+  ],
+  "comparisonPolicyChanged": false,
+  "fixturesChanged": false,
+  "corpusActionsChanged": false,
+  "coverageRegisterChanged": false,
+  "focused": {
+    "scenarios": 9,
+    "independentRounds": 5,
+    "rawTraces": 180,
+    "fullComparisonsPassed": 45,
+    "acrossRoundsStable": true,
+    "faults": {
+      "missingAnnouncementRejected": true,
+      "missingWheelEndRejected": true,
+      "missingAutoPanFrameRejected": true,
+      "initialOrderFaultRejected": true
+    }
+  },
+  "wave": {
+    "previous": {
+      "scenarios": 107,
+      "passed": 99,
+      "failed": 8,
+      "selfInconsistent": [
+        "drag-node-autopan",
+        "wheel-zoom-from-identity-viewport",
+        "drag-node-reports-changes",
+        "ctrl-wheel-pinches-with-panonscroll"
+      ],
+      "drivingDivergence": [],
+      "reproducibleFailed": 4,
+      "handleScenarios": 0,
+      "handleDifferences": 0,
+      "callbackOrderScenarios": 1,
+      "initialMeasurementOrderScenarios": 0
+    },
+    "current": {
+      "scenarios": 107,
+      "passed": 105,
+      "failed": 2,
+      "selfInconsistent": [],
+      "drivingDivergence": [],
+      "reproducibleFailed": 2,
+      "handleScenarios": 0,
+      "handleDifferences": 0,
+      "callbackOrderScenarios": 0,
+      "initialMeasurementOrderScenarios": 0
+    },
+    "rawTraces": 428,
+    "priorCanonicalFilesPreserved": 430
+  },
+  "validation": {
+    "build-final": {
+      "name": "build-final",
+      "command": [
+        "npm",
+        "exec",
+        "--yes",
+        "--package=purescript@0.15.16",
+        "--",
+        "spago",
+        "build"
+      ],
+      "startedAt": "2026-11-12T03:32:14.705Z",
+      "finishedAt": "2026-11-12T03:32:43.690Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/order-e/build-final.log"
+    },
+    "function-unit-final": {
+      "name": "function-unit-final",
+      "command": [
+        "npm",
+        "exec",
+        "--yes",
+        "--package=purescript@0.15.16",
+        "--",
+        "spago",
+        "test"
+      ],
+      "startedAt": "2026-11-12T03:32:43.801Z",
+      "finishedAt": "2026-11-12T03:32:54.491Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/order-e/function-unit-final.log"
+    },
+    "linux-function-unit-final": {
+      "name": "linux-function-unit-final",
+      "command": [
+        "/Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node",
+        "parity/system/linux.mjs",
+        "node",
+        "--input-type=module",
+        "-e",
+        "const m=await import('./output/Test.Main/index.js');m.main();"
+      ],
+      "startedAt": "2026-11-12T03:51:21.250Z",
+      "finishedAt": "2026-11-12T03:51:47.065Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/order-e/linux-function-unit-final.log"
+    },
+    "surface-final": {
+      "name": "surface-final",
+      "command": [
+        "npm",
+        "run",
+        "parity:surface"
+      ],
+      "startedAt": "2026-11-12T03:32:54.613Z",
+      "finishedAt": "2026-11-12T03:33:01.235Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/order-e/surface-final.log"
+    },
+    "boundary-final": {
+      "name": "boundary-final",
+      "command": [
+        "npm",
+        "run",
+        "parity:boundary"
+      ],
+      "startedAt": "2026-11-12T03:33:01.359Z",
+      "finishedAt": "2026-11-12T03:33:05.336Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/order-e/boundary-final.log"
+    },
+    "boundary-tests-final": {
+      "name": "boundary-tests-final",
+      "command": [
+        "npm",
+        "run",
+        "test:boundary"
+      ],
+      "startedAt": "2026-11-12T03:33:05.531Z",
+      "finishedAt": "2026-11-12T03:33:12.186Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/order-e/boundary-tests-final.log"
+    },
+    "harness-unit-final": {
+      "name": "harness-unit-final",
+      "command": [
+        "/Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node",
+        "parity/system/linux.mjs",
+        "npm",
+        "run",
+        "test:harness"
+      ],
+      "startedAt": "2026-11-12T04:02:47.004Z",
+      "finishedAt": "2026-11-12T04:02:57.975Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/order-e/harness-unit-final.log"
+    },
+    "comparison-coverage-final": {
+      "name": "comparison-coverage-final",
+      "command": [
+        "/Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node",
+        "parity/system/linux.mjs",
+        "sh",
+        "-c",
+        "npm run test:compare && npm run test:coverage"
+      ],
+      "startedAt": "2026-11-12T04:02:58.128Z",
+      "finishedAt": "2026-11-12T04:03:02.478Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/order-e/comparison-coverage-final.log"
+    },
+    "conformance-final": {
+      "name": "conformance-final",
+      "command": [
+        "/Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node",
+        "parity/system/linux.mjs",
+        "npm",
+        "run",
+        "test:conformance"
+      ],
+      "startedAt": "2026-11-12T04:03:02.621Z",
+      "finishedAt": "2026-11-12T04:05:03.119Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/order-e/conformance-final.log"
+    },
+    "smoke-final": {
+      "name": "smoke-final",
+      "command": [
+        "/Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node",
+        "parity/system/linux.mjs",
+        "npm",
+        "run",
+        "test:smoke"
+      ],
+      "startedAt": "2026-11-12T04:05:03.340Z",
+      "finishedAt": "2026-11-12T04:05:24.278Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/order-e/smoke-final.log"
+    },
+    "changelog-final": {
+      "name": "changelog-final",
+      "command": [
+        "/Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node",
+        "parity/system/linux.mjs",
+        "npm",
+        "run",
+        "parity:changelog"
+      ],
+      "startedAt": "2026-11-12T04:05:24.675Z",
+      "finishedAt": "2026-11-12T04:05:28.302Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/order-e/changelog-final.log"
+    },
+    "live-harness-deadline-final": {
+      "name": "live-harness-deadline-final",
+      "command": [
+        "/Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node",
+        "parity/system/linux.mjs",
+        "npm",
+        "run",
+        "test:harness:live",
+        "--",
+        "--grep",
+        "psflow reproduces the complete drag-node-reports-changes"
+      ],
+      "startedAt": "2026-11-12T04:02:17.112Z",
+      "finishedAt": "2026-11-12T04:02:45.331Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/order-e/live-harness-deadline-final.log"
+    },
+    "verify-focused": {
+      "name": "verify-focused",
+      "command": [
+        "node",
+        "aamf/step3/order-e/verify-candidates.mjs"
+      ],
+      "startedAt": "2026-11-12T04:13:28.052Z",
+      "finishedAt": "2026-11-12T04:13:36.058Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/order-e/verify-focused.log"
+    }
+  },
+  "liveChecks": {
+    "totalValidated": 47,
+    "firstFullPassed": 46,
+    "firstFullExecutionTimeout": 1,
+    "affectedCheckRerunPassed": 1,
+    "comparisonFailures": 0
+  },
+  "coverage": {
+    "driven": 128,
+    "total": 156,
+    "declaredHoles": 28,
+    "undeclaredHoles": 0,
+    "separateBehaviorDebt": 50
+  },
+  "remaining": [
+    "G: JS store hooks and defaultEdgeOptions",
+    "H: remaining witnesses, reference/selector behavior, other numeric sites, connection/node-prop probes",
+    "I: declarations, entry points, styles/assets"
+  ]
+}

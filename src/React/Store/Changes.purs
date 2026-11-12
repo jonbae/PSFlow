@@ -89,11 +89,7 @@ partitionEdgeChanges = foldl step { byId: Map.empty, adds: [] }
     Just existing -> Map.insert id (Array.snoc existing c) m
 
 -- | Apply a single non-terminal change to a node. The outer driver
--- | handles `Remove` / `Replace` / `Add`. Note that the TS source's
--- | `resizing` flag has no representation on `NodeBase` (it lives on
--- | the React-layer `Node` extension in TS); we drop it here. If a
--- | future ticket adds a row-typed React `Node`, restore the
--- | resizing-update line.
+-- | handles `Remove` / `Replace` / `Add`.
 applySingleNodeChange :: forall n. NodeChange n -> Node n -> Node n
 applySingleNodeChange c node = case c of
   NodeSelectionChange { selected } -> node { selected = Just selected }
@@ -107,22 +103,26 @@ applySingleNodeChange c node = case c of
       case dragging of
         Just _ -> withPos { dragging = dragging }
         Nothing -> withPos
-  NodeDimensionChange { dimensions, setAttributes } ->
-    case dimensions of
-      Nothing -> node
-      Just d ->
-        let
-          withMeasured =
-            node { measured = { width: Just d.width, height: Just d.height } }
-        in
-          case setAttributes of
-            Nothing -> withMeasured
-            Just sa ->
-              let
-                n1 = if sa.width then withMeasured { width = Just d.width } else withMeasured
-                n2 = if sa.height then n1 { height = Just d.height } else n1
-              in
-                n2
+  NodeDimensionChange { dimensions, setAttributes, resizing } ->
+    let
+      measured = case dimensions of
+        Nothing -> node
+        Just d ->
+          let
+            withMeasured =
+              node { measured = { width: Just d.width, height: Just d.height } }
+          in
+            case setAttributes of
+              Nothing -> withMeasured
+              Just sa ->
+                let
+                  n1 = if sa.width then withMeasured { width = Just d.width } else withMeasured
+                  n2 = if sa.height then n1 { height = Just d.height } else n1
+                in
+                  n2
+    in case resizing of
+      Nothing -> measured
+      Just _ -> measured { resizing = resizing }
   -- Remove / Replace / Add are routed in the outer driver.
   NodeRemoveChange _ -> node
   NodeReplaceChange _ -> node

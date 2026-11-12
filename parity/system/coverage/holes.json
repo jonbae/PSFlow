@@ -65,16 +65,6 @@
     },
     {
       "exports": [
-        "NodeResizer",
-        "NodeResizerProps",
-        "NodeResizeControl",
-        "ControlLinePosition",
-        "ControlPosition"
-      ],
-      "reason": "no fixture mounts a resizer. parity:boundary mounts both components with no props inside a node component, which is below the net and asserts no DOM; nothing in the corpus renders a resize control, and ticket 073 (XYResizer drag lifecycle) is what a scenario driving one would be measuring against. The two components had already crossed in boundary stage 2; boundary stage 4 (#62) read this entry and left them alone, which is the register working — the reason here is about a fixture, not about a wrapper."
-    },
-    {
-      "exports": [
         "EdgeTypes"
       ],
       "reason": "no fixture passes an edgeTypes map, so no edge carries a type outside the built-in set. NodeTypes is driven because the node-toolbar fixture registers one; the edges fixture registers no edge type at all. The prop itself crossed in boundary stage 4 (#62) — until then no fixture *could* pass one, because `edgeTypes`' values are the consumer's own components and the props record ps-flow hands them had not crossed. That blocker is gone and the fixture is still missing; no issue owns writing one yet."
@@ -97,12 +87,6 @@
         "OnReconnect"
       ],
       "reason": "the driver installs onReconnect and no scenario drags an edge endpoint onto another handle, so it never fires. The edgeupdater circles are in every edges-fixture trace, so the target exists and the gesture does not — reconnecting is not in the gesture tier, and adding one is a reviewable act rather than a scenario detail. None of the thirty test-debt scenarios is about reconnection, so this is a hole-closing scenario and no issue owns it yet."
-    },
-    {
-      "exports": [
-        "OnInit"
-      ],
-      "reason": "the driver withholds the prop (`parity/driver/callbacks.mjs`, HOLES), so no page installs it and no trace can record it. The reason recorded there — that onInit's ReactFlowInstance argument had not crossed the boundary — no longer holds: boundary stage 3 crosses `onInitIn` (`src/Boundary/Callbacks.purs`). Installing it and re-capturing the corpus is what closes this, and it is the first thing this artifact found that its own registers cannot fix."
     },
     {
       "exports": [

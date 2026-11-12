@@ -15,6 +15,8 @@ module Test.Properties
   ) where
 
 import Prelude hiding (clamp)
+import Record as Record
+import Type.Proxy (Proxy(..))
 
 import Data.Array.NonEmpty as NEA
 import Data.Either (Either(..))
@@ -160,42 +162,48 @@ runAddEdge e edges = case addEdge e edges getEdgeId of
 -- | `extent == ParentExtent` branches are out of scope for this property.
 mkLeafInternalNode :: NodeId -> Number -> Number -> InternalNodeBase Unit
 mkLeafInternalNode nid width height =
-  { id: nid
-  , position: { x: 0.0, y: 0.0 }
-  , data: unit
-  , sourcePosition: Nothing
-  , targetPosition: Nothing
-  , hidden: Nothing
-  , selected: Nothing
-  , dragging: Nothing
-  , draggable: Nothing
-  , selectable: Nothing
-  , connectable: Nothing
-  , deletable: Nothing
-  , dragHandle: Nothing
-  , width: Just width
-  , height: Just height
-  , initialWidth: Nothing
-  , initialHeight: Nothing
-  , parentId: Nothing
-  , zIndex: Nothing
-  , extent: Nothing
-  , expandParent: Nothing
-  , ariaLabel: Nothing
-  , origin: Nothing
-  , handles: Nothing
-  , measured: { width: Just width, height: Just height }
-  , nodeType: Nothing
-  , className: Nothing
-  , style: Nothing
-  , internals:
+  let
+    originalUserNode =
+      { id: nid
+      , position: { x: 0.0, y: 0.0 }
+      , data: unit
+      , sourcePosition: Nothing
+      , targetPosition: Nothing
+      , hidden: Nothing
+      , selected: Nothing
+      , dragging: Nothing
+      , draggable: Nothing
+      , selectable: Nothing
+      , connectable: Nothing
+      , deletable: Nothing
+      , dragHandle: Nothing
+      , width: Just width
+      , height: Just height
+      , initialWidth: Nothing
+      , initialHeight: Nothing
+      , parentId: Nothing
+      , zIndex: Nothing
+      , extent: Nothing
+      , expandParent: Nothing
+      , resizing: Nothing
+      , ariaLabel: Nothing
+      , origin: Nothing
+      , handles: Nothing
+      , measured: { width: Just width, height: Just height }
+      , nodeType: Nothing
+      , className: Nothing
+      , style: Nothing
+      }
+  in
+    Record.insert (Proxy :: Proxy "internals")
       { positionAbsolute: { x: 0.0, y: 0.0 }
       , z: 0.0
       , rootParentIndex: Nothing
       , handleBounds: Nothing
       , bounds: Nothing
+      , userNode: originalUserNode
       }
-  }
+      originalUserNode
 
 -- | Generate a `CoordinateExtent` whose `max` strictly exceeds `min`. The
 -- | spread is bounded so that `maxX - width` and `maxY - height` (the

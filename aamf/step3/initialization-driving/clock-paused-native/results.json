@@ -1,0 +1,202 @@
+[
+  {
+    "round": 1,
+    "side": "upstream",
+    "scenario": "init-order-mount",
+    "captures": [
+      1,
+      2
+    ],
+    "scope": [
+      "driving",
+      "dom",
+      "callbacks",
+      "hooks",
+      "api",
+      "props",
+      "console"
+    ],
+    "differences": [],
+    "consistent": true,
+    "callbackSequences": [
+      [
+        "onSelectionChange",
+        "onMoveStart",
+        "onViewportChange",
+        "onMove",
+        "onNodesChange",
+        "onMoveEnd",
+        "onInit"
+      ],
+      [
+        "onSelectionChange",
+        "onMoveStart",
+        "onViewportChange",
+        "onMove",
+        "onNodesChange",
+        "onMoveEnd",
+        "onInit"
+      ]
+    ]
+  },
+  {
+    "round": 2,
+    "side": "upstream",
+    "scenario": "init-order-mount",
+    "captures": [
+      1,
+      2
+    ],
+    "scope": [
+      "driving",
+      "dom",
+      "callbacks",
+      "hooks",
+      "api",
+      "props",
+      "console"
+    ],
+    "differences": [],
+    "consistent": true,
+    "callbackSequences": [
+      [
+        "onSelectionChange",
+        "onMoveStart",
+        "onViewportChange",
+        "onMove",
+        "onNodesChange",
+        "onMoveEnd",
+        "onInit"
+      ],
+      [
+        "onSelectionChange",
+        "onMoveStart",
+        "onViewportChange",
+        "onMove",
+        "onNodesChange",
+        "onMoveEnd",
+        "onInit"
+      ]
+    ]
+  },
+  {
+    "round": 3,
+    "side": "upstream",
+    "scenario": "init-order-mount",
+    "captures": [
+      1,
+      2
+    ],
+    "scope": [
+      "driving",
+      "dom",
+      "callbacks",
+      "hooks",
+      "api",
+      "props",
+      "console"
+    ],
+    "differences": [],
+    "consistent": true,
+    "callbackSequences": [
+      [
+        "onSelectionChange",
+        "onMoveStart",
+        "onViewportChange",
+        "onMove",
+        "onNodesChange",
+        "onMoveEnd",
+        "onInit"
+      ],
+      [
+        "onSelectionChange",
+        "onMoveStart",
+        "onViewportChange",
+        "onMove",
+        "onNodesChange",
+        "onMoveEnd",
+        "onInit"
+      ]
+    ]
+  },
+  {
+    "round": 4,
+    "side": "upstream",
+    "scenario": "init-order-mount",
+    "captures": [
+      1,
+      2
+    ],
+    "scope": [
+      "driving",
+      "dom",
+      "callbacks",
+      "hooks",
+      "api",
+      "props",
+      "console"
+    ],
+    "differences": [],
+    "consistent": true,
+    "callbackSequences": [
+      [
+        "onSelectionChange",
+        "onMoveStart",
+        "onViewportChange",
+        "onMove",
+        "onNodesChange",
+        "onMoveEnd",
+        "onInit"
+      ],
+      [
+        "onSelectionChange",
+        "onMoveStart",
+        "onViewportChange",
+        "onMove",
+        "onNodesChange",
+        "onMoveEnd",
+        "onInit"
+      ]
+    ]
+  },
+  {
+    "round": 5,
+    "side": "upstream",
+    "scenario": "init-order-mount",
+    "captures": [
+      1,
+      2
+    ],
+    "scope": [
+      "driving",
+      "dom",
+      "callbacks",
+      "hooks",
+      "api",
+      "props",
+      "console"
+    ],
+    "differences": [],
+    "consistent": true,
+    "callbackSequences": [
+      [
+        "onSelectionChange",
+        "onMoveStart",
+        "onViewportChange",
+        "onMove",
+        "onNodesChange",
+        "onMoveEnd",
+        "onInit"
+      ],
+      [
+        "onSelectionChange",
+        "onMoveStart",
+        "onViewportChange",
+        "onMove",
+        "onNodesChange",
+        "onMoveEnd",
+        "onInit"
+      ]
+    ]
+  }
+]

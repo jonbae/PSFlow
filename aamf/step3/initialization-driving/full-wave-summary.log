@@ -1,0 +1,14 @@
+$ node aamf/step3/initialization-driving/summarize-wave.mjs
+{
+  "scenarios": 107,
+  "passed": 13,
+  "failed": 94,
+  "selfInconsistent": [
+    "mount-baseline--viewport-controlled",
+    "drag-node-autopan",
+    "arrow-key-selected-node",
+    "drag-node-reports-changes",
+    "pan-after-controlled-viewport-change"
+  ],
+  "drivingDivergence": []
+}

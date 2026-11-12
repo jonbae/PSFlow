@@ -1,0 +1,614 @@
+[
+  {
+    "scenario": "resize-node-after-active-limit-change",
+    "round": 1,
+    "interpretable": true,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "resize-node-after-active-limit-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "resize-node-after-active-limit-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "differences": [
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "source"
+        ],
+        "left": null,
+        "right": []
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "target"
+        ],
+        "left": null,
+        "right": []
+      }
+    ]
+  },
+  {
+    "scenario": "resize-node-after-active-limit-change",
+    "round": 2,
+    "interpretable": true,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "resize-node-after-active-limit-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "resize-node-after-active-limit-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "differences": [
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "source"
+        ],
+        "left": null,
+        "right": []
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "target"
+        ],
+        "left": null,
+        "right": []
+      }
+    ]
+  },
+  {
+    "scenario": "viewport-helpers-with-options",
+    "round": 1,
+    "interpretable": true,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "viewport-helpers-with-options",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "viewport-helpers-with-options",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "differences": [
+      {
+        "kind": "order",
+        "path": [
+          "callbacks"
+        ],
+        "left": [
+          "onSelectionChange#1",
+          "onMoveStart#1",
+          "onViewportChange#1",
+          "onMove#1",
+          "onNodesChange#1",
+          "onMoveEnd#1",
+          "onInit#1",
+          "onMoveStart#2",
+          "onViewportChange#2",
+          "onMove#2",
+          "onMoveEnd#2",
+          "onMoveStart#3",
+          "onViewportChange#3",
+          "onMove#3",
+          "onMoveEnd#3",
+          "onMoveStart#4",
+          "onViewportChange#4",
+          "onMove#4",
+          "onMoveEnd#4",
+          "onMoveStart#5",
+          "onViewportChange#5",
+          "onMove#5",
+          "onMoveEnd#5",
+          "onMoveStart#6",
+          "onViewportChange#6",
+          "onMove#6",
+          "onMoveEnd#6",
+          "onMoveStart#7",
+          "onViewportChange#7",
+          "onMove#7",
+          "onMoveEnd#7",
+          "onMoveStart#8",
+          "onViewportChange#8",
+          "onMove#8",
+          "onMoveEnd#8",
+          "onBeforeDelete#1",
+          "onEdgesDelete#1",
+          "onEdgesChange#1",
+          "onNodesDelete#1",
+          "onNodesChange#2",
+          "onDelete#1"
+        ],
+        "right": [
+          "onSelectionChange#1",
+          "onMoveStart#1",
+          "onViewportChange#1",
+          "onMove#1",
+          "onMoveEnd#1",
+          "onNodesChange#1",
+          "onInit#1",
+          "onMoveStart#2",
+          "onViewportChange#2",
+          "onMove#2",
+          "onMoveEnd#2",
+          "onMoveStart#3",
+          "onViewportChange#3",
+          "onMove#3",
+          "onMoveEnd#3",
+          "onMoveStart#4",
+          "onViewportChange#4",
+          "onMove#4",
+          "onMoveEnd#4",
+          "onMoveStart#5",
+          "onViewportChange#5",
+          "onMove#5",
+          "onMoveEnd#5",
+          "onMoveStart#6",
+          "onViewportChange#6",
+          "onMove#6",
+          "onMoveEnd#6",
+          "onMoveStart#7",
+          "onViewportChange#7",
+          "onMove#7",
+          "onMoveEnd#7",
+          "onMoveStart#8",
+          "onViewportChange#8",
+          "onMove#8",
+          "onMoveEnd#8",
+          "onBeforeDelete#1",
+          "onEdgesDelete#1",
+          "onEdgesChange#1",
+          "onNodesDelete#1",
+          "onNodesChange#2",
+          "onDelete#1"
+        ]
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "target"
+        ],
+        "left": null,
+        "right": []
+      }
+    ]
+  },
+  {
+    "scenario": "viewport-helpers-with-options",
+    "round": 2,
+    "interpretable": true,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "viewport-helpers-with-options",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "viewport-helpers-with-options",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "differences": [
+      {
+        "kind": "order",
+        "path": [
+          "callbacks"
+        ],
+        "left": [
+          "onSelectionChange#1",
+          "onMoveStart#1",
+          "onViewportChange#1",
+          "onMove#1",
+          "onNodesChange#1",
+          "onMoveEnd#1",
+          "onInit#1",
+          "onMoveStart#2",
+          "onViewportChange#2",
+          "onMove#2",
+          "onMoveEnd#2",
+          "onMoveStart#3",
+          "onViewportChange#3",
+          "onMove#3",
+          "onMoveEnd#3",
+          "onMoveStart#4",
+          "onViewportChange#4",
+          "onMove#4",
+          "onMoveEnd#4",
+          "onMoveStart#5",
+          "onViewportChange#5",
+          "onMove#5",
+          "onMoveEnd#5",
+          "onMoveStart#6",
+          "onViewportChange#6",
+          "onMove#6",
+          "onMoveEnd#6",
+          "onMoveStart#7",
+          "onViewportChange#7",
+          "onMove#7",
+          "onMoveEnd#7",
+          "onMoveStart#8",
+          "onViewportChange#8",
+          "onMove#8",
+          "onMoveEnd#8",
+          "onBeforeDelete#1",
+          "onEdgesDelete#1",
+          "onEdgesChange#1",
+          "onNodesDelete#1",
+          "onNodesChange#2",
+          "onDelete#1"
+        ],
+        "right": [
+          "onSelectionChange#1",
+          "onMoveStart#1",
+          "onViewportChange#1",
+          "onMove#1",
+          "onMoveEnd#1",
+          "onNodesChange#1",
+          "onInit#1",
+          "onMoveStart#2",
+          "onViewportChange#2",
+          "onMove#2",
+          "onMoveEnd#2",
+          "onMoveStart#3",
+          "onViewportChange#3",
+          "onMove#3",
+          "onMoveEnd#3",
+          "onMoveStart#4",
+          "onViewportChange#4",
+          "onMove#4",
+          "onMoveEnd#4",
+          "onMoveStart#5",
+          "onViewportChange#5",
+          "onMove#5",
+          "onMoveEnd#5",
+          "onMoveStart#6",
+          "onViewportChange#6",
+          "onMove#6",
+          "onMoveEnd#6",
+          "onMoveStart#7",
+          "onViewportChange#7",
+          "onMove#7",
+          "onMoveEnd#7",
+          "onMoveStart#8",
+          "onViewportChange#8",
+          "onMove#8",
+          "onMoveEnd#8",
+          "onBeforeDelete#1",
+          "onEdgesDelete#1",
+          "onEdgesChange#1",
+          "onNodesDelete#1",
+          "onNodesChange#2",
+          "onDelete#1"
+        ]
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "target"
+        ],
+        "left": null,
+        "right": []
+      }
+    ]
+  },
+  {
+    "scenario": "wheel-zooms-to-changed-limits",
+    "round": 1,
+    "interpretable": false,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "wheel-zooms-to-changed-limits",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [
+          {
+            "kind": "left-only",
+            "path": [
+              "callbacks",
+              14
+            ],
+            "left": {
+              "name": "onMoveEnd",
+              "args": [
+                {
+                  "@class": "WheelEvent",
+                  "isTrusted": true
+                },
+                {
+                  "x": 40,
+                  "y": -584,
+                  "zoom": 8
+                }
+              ]
+            }
+          }
+        ],
+        "consistent": false
+      },
+      {
+        "side": "psflow",
+        "scenario": "wheel-zooms-to-changed-limits",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [
+      "self-inconsistent",
+      "unclaimed-difference"
+    ],
+    "differences": null
+  },
+  {
+    "scenario": "wheel-zooms-to-changed-limits",
+    "round": 2,
+    "interpretable": false,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "wheel-zooms-to-changed-limits",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [
+          {
+            "kind": "left-only",
+            "path": [
+              "callbacks",
+              14
+            ],
+            "left": {
+              "name": "onMoveEnd",
+              "args": [
+                {
+                  "@class": "WheelEvent",
+                  "isTrusted": true
+                },
+                {
+                  "x": 40,
+                  "y": -584,
+                  "zoom": 8
+                }
+              ]
+            }
+          }
+        ],
+        "consistent": false
+      },
+      {
+        "side": "psflow",
+        "scenario": "wheel-zooms-to-changed-limits",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [
+      "self-inconsistent",
+      "unclaimed-difference"
+    ],
+    "differences": null
+  }
+]

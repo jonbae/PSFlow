@@ -1,0 +1,126 @@
+$ node --test parity/boundary/consumer-objects.test.mjs
+TAP version 13
+# Subtest: addEdge matches React-layer development warnings and propagates consumer errors
+ok 1 - addEdge matches React-layer development warnings and propagates consumer errors
+  ---
+  duration_ms: 523.180215
+  type: 'test'
+  ...
+# Subtest: addEdge copies the consumer edge/connection and retains untouched edges
+ok 2 - addEdge copies the consumer edge/connection and retains untouched edges
+  ---
+  duration_ms: 30.50198
+  type: 'test'
+  ...
+# Subtest: addEdge uses the original array concat operation after validation
+not ok 3 - addEdge uses the original array concat operation after validation
+  ---
+  duration_ms: 13.617715
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/consumer-objects.test.mjs:55:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+    +   events: [],
+    -   events: [
+    -     true,
+    -     1
+    -   ],
+        result: [
+    +     {
+    +       custom: 1,
+    +       id: 'xy-edge__a-b',
+    +       source: 'a',
+    +       target: 'b'
+    +     }
+    -     'consumer concat result'
+        ]
+      }
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    result:
+      0: 'consumer concat result'
+    events:
+      0: true
+      1: 1
+  actual:
+    result:
+      0:
+        source: 'a'
+        target: 'b'
+        custom: 1
+        id: 'xy-edge__a-b'
+    events:
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/consumer-objects.test.mjs:65:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: addEdge keeps duplicate/invalid arrays and calls options with upstream arguments and receiver
+ok 4 - addEdge keeps duplicate/invalid arrays and calls options with upstream arguments and receiver
+  ---
+  duration_ms: 17.131182
+  type: 'test'
+  ...
+# Subtest: consumer helpers preserve enumerable symbols and __proto__ without copying inherited/nonenumerable fields
+ok 5 - consumer helpers preserve enumerable symbols and __proto__ without copying inherited/nonenumerable fields
+  ---
+  duration_ms: 14.326084
+  type: 'test'
+  ...
+# Subtest: consumer helpers preserve getter, generator and validation order
+ok 6 - consumer helpers preserve getter, generator and validation order
+  ---
+  duration_ms: 15.580743
+  type: 'test'
+  ...
+# Subtest: applyNodeChanges retains untouched consumer references and keys
+ok 7 - applyNodeChanges retains untouched consumer references and keys
+  ---
+  duration_ms: 3.826548
+  type: 'test'
+  ...
+# Subtest: applyEdgeChanges retains untouched consumer references and keys
+ok 8 - applyEdgeChanges retains untouched consumer references and keys
+  ---
+  duration_ms: 1.778951
+  type: 'test'
+  ...
+# Subtest: applyNodeChanges preserves raw position, dimensions, attributes and resizing semantics
+ok 9 - applyNodeChanges preserves raw position, dimensions, attributes and resizing semantics
+  ---
+  duration_ms: 48.564569
+  type: 'test'
+  ...
+# Subtest: applyNodeChanges shallow-copies touched/add/replace items and preserves change ordering
+ok 10 - applyNodeChanges shallow-copies touched/add/replace items and preserves change ordering
+  ---
+  duration_ms: 29.573997
+  type: 'test'
+  ...
+# Subtest: applyEdgeChanges shallow-copies touched/add/replace items and preserves change ordering
+ok 11 - applyEdgeChanges shallow-copies touched/add/replace items and preserves change ordering
+  ---
+  duration_ms: 4.562099
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 10
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 10783.866346

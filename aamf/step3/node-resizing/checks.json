@@ -1,0 +1,259 @@
+[
+  {
+    "name": "build-proxy",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T21:09:14.283Z",
+    "finishedAt": "2026-11-10T21:09:19.650Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/node-resizing/build-proxy.log"
+  },
+  {
+    "name": "red-store-flag",
+    "command": [
+      "node",
+      "--input-type=module",
+      "-e",
+      "import {runNodeResizingTests} from \"./output/Test.Boundary.NodeResizing/index.js\";runNodeResizingTests();"
+    ],
+    "startedAt": "2026-11-10T21:09:40.397Z",
+    "finishedAt": "2026-11-10T21:09:40.885Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/node-resizing/red-store-flag.log"
+  },
+  {
+    "name": "build-store-flag",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T21:10:01.014Z",
+    "finishedAt": "2026-11-10T21:10:23.735Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/node-resizing/build-store-flag.log"
+  },
+  {
+    "name": "build-store-flag-layout",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T21:11:51.954Z",
+    "finishedAt": "2026-11-10T21:14:38.122Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/node-resizing/build-store-flag-layout.log"
+  },
+  {
+    "name": "build-node-constructors",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T21:15:22.149Z",
+    "finishedAt": "2026-11-10T21:15:28.573Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/node-resizing/build-node-constructors.log"
+  },
+  {
+    "name": "build-node-constructors-final",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T21:15:45.558Z",
+    "finishedAt": "2026-11-10T21:15:52.784Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/node-resizing/build-node-constructors-final.log"
+  },
+  {
+    "name": "green-store-flag",
+    "command": [
+      "node",
+      "--input-type=module",
+      "-e",
+      "import {runNodeResizingTests} from \"./output/Test.Boundary.NodeResizing/index.js\";runNodeResizingTests();"
+    ],
+    "startedAt": "2026-11-10T21:15:53.197Z",
+    "finishedAt": "2026-11-10T21:15:54.263Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/node-resizing/green-store-flag.log"
+  },
+  {
+    "name": "surface",
+    "command": [
+      "npm",
+      "run",
+      "parity:surface"
+    ],
+    "startedAt": "2026-11-10T21:17:25.859Z",
+    "finishedAt": "2026-11-10T21:17:32.230Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/node-resizing/surface.log"
+  },
+  {
+    "name": "surface-final",
+    "command": [
+      "npm",
+      "run",
+      "parity:surface"
+    ],
+    "startedAt": "2026-11-10T21:26:05.091Z",
+    "finishedAt": "2026-11-10T21:26:30.359Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/node-resizing/surface-final.log"
+  },
+  {
+    "name": "boundary-final",
+    "command": [
+      "npm",
+      "run",
+      "parity:boundary"
+    ],
+    "startedAt": "2026-11-10T21:26:15.823Z",
+    "finishedAt": "2026-11-10T21:26:36.794Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/node-resizing/boundary-final.log"
+  },
+  {
+    "name": "boundary-tests-final",
+    "command": [
+      "npm",
+      "run",
+      "test:boundary"
+    ],
+    "startedAt": "2026-11-10T21:26:15.821Z",
+    "finishedAt": "2026-11-10T21:26:38.333Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/node-resizing/boundary-tests-final.log"
+  },
+  {
+    "name": "function-final",
+    "command": [
+      "spago",
+      "test"
+    ],
+    "startedAt": "2026-11-10T21:26:15.831Z",
+    "finishedAt": "2026-11-10T21:26:44.044Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/node-resizing/function-final.log"
+  },
+  {
+    "name": "system-wave",
+    "command": [
+      "npm",
+      "run",
+      "parity:system"
+    ],
+    "startedAt": "2026-11-10T21:24:54.480Z",
+    "finishedAt": "2026-11-10T21:30:53.796Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "../../../../../../../Users/jonathanbae/repos/PSFlow/aamf/step3/node-resizing/system-wave.log"
+  },
+  {
+    "name": "conformance-wave",
+    "command": [
+      "npm",
+      "run",
+      "test:conformance"
+    ],
+    "startedAt": "2026-11-10T21:30:55.021Z",
+    "finishedAt": "2026-11-10T21:32:22.904Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "../../../../../../../Users/jonathanbae/repos/PSFlow/aamf/step3/node-resizing/conformance-wave.log"
+  },
+  {
+    "name": "smoke-wave",
+    "command": [
+      "npm",
+      "run",
+      "test:smoke"
+    ],
+    "startedAt": "2026-11-10T21:32:23.092Z",
+    "finishedAt": "2026-11-10T21:32:35.562Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "../../../../../../../Users/jonathanbae/repos/PSFlow/aamf/step3/node-resizing/smoke-wave.log"
+  },
+  {
+    "name": "function-after-surface",
+    "command": [
+      "spago",
+      "test"
+    ],
+    "startedAt": "2026-11-10T21:32:39.930Z",
+    "finishedAt": "2026-11-10T21:32:49.275Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/node-resizing/function-after-surface.log"
+  },
+  {
+    "name": "driver",
+    "command": [
+      "npm",
+      "run",
+      "build:driver"
+    ],
+    "startedAt": "2026-11-10T21:32:49.554Z",
+    "finishedAt": "2026-11-10T21:32:59.193Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/node-resizing/driver.log"
+  },
+  {
+    "name": "coverage-current",
+    "command": [
+      "npm",
+      "run",
+      "parity:coverage"
+    ],
+    "startedAt": "2026-11-10T21:37:34.084Z",
+    "finishedAt": "2026-11-10T21:37:37.494Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/node-resizing/coverage-current.log"
+  },
+  {
+    "name": "active-resize-independent-repeat",
+    "command": [
+      "node",
+      "parity/system/net.mjs",
+      "--scenario",
+      "resize-node-after-active-limit-change"
+    ],
+    "startedAt": "2026-11-10T21:39:02.697Z",
+    "finishedAt": "2026-11-10T21:39:16.055Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "../../../../../../../Users/jonathanbae/repos/PSFlow/aamf/step3/node-resizing/active-resize-independent-repeat.log"
+  },
+  {
+    "name": "active-resize-repeat-witness",
+    "command": [
+      "node",
+      "aamf/step3/resize-witness/verify.mjs",
+      "captures-repeat",
+      "resize-node-after-active-limit-change"
+    ],
+    "startedAt": "2026-11-10T21:39:16.205Z",
+    "finishedAt": "2026-11-10T21:39:16.547Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/node-resizing/active-resize-repeat-witness.log"
+  }
+]

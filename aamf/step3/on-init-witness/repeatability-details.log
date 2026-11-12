@@ -1,0 +1,126 @@
+$ node aamf/step3/on-init-witness/classify-repeatability.mjs
+{
+  "unstableScenarios": 34,
+  "unstableSides": {
+    "upstream": 34,
+    "psflow": 4
+  }
+}
+[
+  {
+    "scenario": "mount-baseline--edges-general",
+    "side": "upstream",
+    "paths": [
+      [
+        "callbacks"
+      ]
+    ],
+    "callbackSequences": [
+      [
+        "onSelectionChange",
+        "onMoveStart",
+        "onViewportChange",
+        "onMove",
+        "onNodesChange",
+        "onInit",
+        "onMoveEnd"
+      ],
+      [
+        "onSelectionChange",
+        "onMoveStart",
+        "onViewportChange",
+        "onMove",
+        "onNodesChange",
+        "onMoveEnd",
+        "onInit"
+      ]
+    ]
+  },
+  {
+    "scenario": "mount-baseline--node-toolbar-general",
+    "side": "upstream",
+    "paths": [
+      [
+        "callbacks"
+      ]
+    ],
+    "callbackSequences": [
+      [
+        "onSelectionChange",
+        "onMoveStart",
+        "onViewportChange",
+        "onMove",
+        "onNodesChange",
+        "onInit",
+        "onMoveEnd"
+      ],
+      [
+        "onSelectionChange",
+        "onMoveStart",
+        "onViewportChange",
+        "onMove",
+        "onNodesChange",
+        "onMoveEnd",
+        "onInit"
+      ]
+    ]
+  },
+  {
+    "scenario": "mount-baseline--chrome-background",
+    "side": "upstream",
+    "paths": [
+      [
+        "callbacks"
+      ]
+    ],
+    "callbackSequences": [
+      [
+        "onSelectionChange",
+        "onMoveStart",
+        "onViewportChange",
+        "onMove",
+        "onNodesChange",
+        "onInit",
+        "onMoveEnd"
+      ],
+      [
+        "onSelectionChange",
+        "onMoveStart",
+        "onViewportChange",
+        "onMove",
+        "onNodesChange",
+        "onMoveEnd",
+        "onInit"
+      ]
+    ]
+  },
+  {
+    "scenario": "mount-baseline--chrome-panels",
+    "side": "upstream",
+    "paths": [
+      [
+        "callbacks"
+      ]
+    ],
+    "callbackSequences": [
+      [
+        "onSelectionChange",
+        "onMoveStart",
+        "onViewportChange",
+        "onMove",
+        "onNodesChange",
+        "onMoveEnd",
+        "onInit"
+      ],
+      [
+        "onSelectionChange",
+        "onMoveStart",
+        "onViewportChange",
+        "onMove",
+        "onNodesChange",
+        "onInit",
+        "onMoveEnd"
+      ]
+    ]
+  }
+]

@@ -1,0 +1,129 @@
+$ node --test parity/driver/callbacks.test.mjs
+TAP version 13
+# Subtest: a prop is a callback exactly when its type is callable, whatever it is named
+ok 1 - a prop is a callback exactly when its type is callable, whatever it is named
+  ---
+  duration_ms: 1390.260988
+  type: 'test'
+  ...
+# Subtest: a member inherited from outside the library's own source is not one of its callbacks
+ok 2 - a member inherited from outside the library's own source is not one of its callbacks
+  ---
+  duration_ms: 767.608629
+  type: 'test'
+  ...
+# Subtest: a source file that is not there fails, naming the vendored tree
+ok 3 - a source file that is not there fails, naming the vendored tree
+  ---
+  duration_ms: 3.783224
+  type: 'test'
+  ...
+# Subtest: a props type that is no longer declared fails rather than deriving nothing
+ok 4 - a props type that is no longer declared fails rather than deriving nothing
+  ---
+  duration_ms: 556.858211
+  type: 'test'
+  ...
+# Subtest: CallbackDerivationError is what the derivation throws
+ok 5 - CallbackDerivationError is what the derivation throws
+  ---
+  duration_ms: 2.03599
+  type: 'test'
+  ...
+# Subtest: a withheld prop that upstream no longer declares as a callback is stale
+ok 6 - a withheld prop that upstream no longer declares as a callback is stale
+  ---
+  duration_ms: 2.357278
+  type: 'test'
+  ...
+# Subtest: an unset-answer entry that upstream no longer declares as a callback is stale
+ok 7 - an unset-answer entry that upstream no longer declares as a callback is stale
+  ---
+  duration_ms: 4.456314
+  type: 'test'
+  ...
+# Subtest: registers that name real callback props are not stale
+ok 8 - registers that name real callback props are not stale
+  ---
+  duration_ms: 1.286906
+  type: 'test'
+  ...
+# Subtest: an answer for a prop nothing installs is a contradiction, not a filter
+ok 9 - an answer for a prop nothing installs is a contradiction, not a filter
+  ---
+  duration_ms: 2.272636
+  type: 'test'
+  ...
+# Subtest: every hole carries a reason and the issue that lands it
+ok 10 - every hole carries a reason and the issue that lands it
+  ---
+  duration_ms: 2.217215
+  type: 'test'
+  ...
+# Subtest: the withheld props are the holes that name one
+ok 11 - the withheld props are the holes that name one
+  ---
+  duration_ms: 0.783816
+  type: 'test'
+  ...
+# Subtest: the census still assigns this section the exports the holes are counted against
+ok 12 - the census still assigns this section the exports the holes are counted against
+  ---
+  duration_ms: 0.438415
+  type: 'test'
+  ...
+# Subtest: every declared hole names an export the census assigns to this section
+ok 13 - every declared hole names an export the census assigns to this section
+  ---
+  duration_ms: 0.778629
+  type: 'test'
+  ...
+# Subtest: the exports outside ReactFlowProps are the ones declared
+ok 14 - the exports outside ReactFlowProps are the ones declared
+  ---
+  duration_ms: 0.58354
+  type: 'test'
+  ...
+# Subtest: upstream's own callback props are what the driver installs, minus the withheld ones
+not ok 15 - upstream's own callback props are what the driver installs, minus the withheld ones
+  ---
+  duration_ms: 1274.477575
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/driver/callbacks.test.mjs:207:1'
+  failureType: 'testCodeFailure'
+  error: 'the crossed instance must reach the observation log'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/driver/callbacks.test.mjs:213:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: no prop is both installed and withheld
+ok 16 - no prop is both installed and withheld
+  ---
+  duration_ms: 781.349245
+  type: 'test'
+  ...
+# Subtest: both registers name props upstream still declares as callbacks
+ok 17 - both registers name props upstream still declares as callbacks
+  ---
+  duration_ms: 657.135661
+  type: 'test'
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 16
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6538.259948

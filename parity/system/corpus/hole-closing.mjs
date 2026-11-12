@@ -43,10 +43,34 @@ const PROPS_CHANGE = routeOf("./flow/props-change.ts");
 const CONTROLLED_VIEWPORT = routeOf("./viewport/controlled.ts");
 const PAN_ON_SCROLL = routeOf("./viewport/pan-on-scroll.ts");
 const NOT_SELECTABLE = routeOf("./flow/not-selectable.ts");
+const RESIZE_LIFECYCLE = routeOf("./resize/lifecycle.ts");
 
 const control = (name) => `[data-testid="${name}"]`;
 
 const holeClosing = [
+  // W05/W12: a real public resize control, and consumer-rendered receipts for
+  // start/resize/end. Geometry and callback payloads remain in the full trace.
+  {
+    id: "resize-node-with-direct-control",
+    route: RESIZE_LIFECYCLE,
+    run: (a) => a.dragNode(".resize-direct", { dx: 60, dy: 30, steps: 3 }),
+  },
+  {
+    id: "resize-node-with-resizer",
+    route: RESIZE_LIFECYCLE,
+    run: (a) => a.dragNode(".react-flow__resize-control.top.left.handle", { dx: -45, dy: -30, steps: 3 }),
+  },
+  {
+    id: "resize-node-after-active-limit-change",
+    route: RESIZE_LIFECYCLE,
+    async run(a) {
+      await a.pointerDown(".resize-direct");
+      await a.pointerMove(null, { dx: 15, dy: 10 });
+      await a.key("l");
+      await a.pointerMove(null, { dx: 45, dy: 20 });
+      await a.pointerUp(null);
+    },
+  },
   // The class: a zoom limit changed after mount, then a gesture against the new
   // bound. Ticket #105, off #103.
   //

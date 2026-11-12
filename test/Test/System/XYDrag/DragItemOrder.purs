@@ -26,6 +26,9 @@ module Test.System.XYDrag.DragItemOrder
 
 import Prelude
 
+import Record as Record
+import Type.Proxy (Proxy(..))
+
 import Data.Array (fromFoldable) as Array
 import Data.Map as Map
 import Data.Maybe (Maybe(..))
@@ -47,42 +50,48 @@ assert label cond =
 -- | A selected, draggable 50 × 25 node at `at`.
 nodeAt :: NodeId -> XYPosition -> InternalNodeBase Unit
 nodeAt id at =
-  { id
-  , position: at
-  , data: unit
-  , sourcePosition: Nothing
-  , targetPosition: Nothing
-  , hidden: Nothing
-  , selected: Just true
-  , dragging: Nothing
-  , draggable: Just true
-  , selectable: Nothing
-  , connectable: Nothing
-  , deletable: Nothing
-  , dragHandle: Nothing
-  , width: Just 50.0
-  , height: Just 25.0
-  , initialWidth: Nothing
-  , initialHeight: Nothing
-  , parentId: Nothing
-  , zIndex: Nothing
-  , extent: Nothing
-  , expandParent: Nothing
-  , ariaLabel: Nothing
-  , origin: Nothing
-  , handles: Nothing
-  , measured: { width: Just 50.0, height: Just 25.0 }
-  , nodeType: Nothing
-  , className: Nothing
-  , style: Nothing
-  , internals:
+  let
+    originalUserNode =
+      { id
+      , position: at
+      , data: unit
+      , sourcePosition: Nothing
+      , targetPosition: Nothing
+      , hidden: Nothing
+      , selected: Just true
+      , dragging: Nothing
+      , draggable: Just true
+      , selectable: Nothing
+      , connectable: Nothing
+      , deletable: Nothing
+      , dragHandle: Nothing
+      , width: Just 50.0
+      , height: Just 25.0
+      , initialWidth: Nothing
+      , initialHeight: Nothing
+      , parentId: Nothing
+      , zIndex: Nothing
+      , extent: Nothing
+      , expandParent: Nothing
+      , resizing: Nothing
+      , ariaLabel: Nothing
+      , origin: Nothing
+      , handles: Nothing
+      , measured: { width: Just 50.0, height: Just 25.0 }
+      , nodeType: Nothing
+      , className: Nothing
+      , style: Nothing
+      }
+  in
+    Record.insert (Proxy :: Proxy "internals")
       { positionAbsolute: at
       , z: 0.0
       , rootParentIndex: Nothing
       , handleBounds: Nothing
       , bounds: Nothing
+      , userNode: originalUserNode
       }
-  }
+      originalUserNode
 
 idA :: NodeId
 idA = NodeId "a"

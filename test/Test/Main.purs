@@ -2,6 +2,9 @@ module Test.Main where
 
 import Prelude
 
+import Record as Record
+import Type.Proxy (Proxy(..))
+
 import Data.Array (any, fromFoldable, length) as Array
 import Data.Array.NonEmpty as NEA
 import Data.Map as Map
@@ -38,6 +41,7 @@ import Data.Either (Either(..))
 import Data.Number (abs) as Number
 import Data.Tuple (Tuple(..))
 import React.Container.Pane.Internal (buildPaneClass, paneIsDraggable)
+import Test.React.Node.ArrowKeyMessage (runArrowKeyMessageTests)
 import Test.Parity.Changes (runChangesParity)
 import Test.Parity.Connections (runConnectionsParity)
 import Test.Parity.Edges (runEdgeParity)
@@ -48,6 +52,10 @@ import Test.Parity.Toolbar (runToolbarParity)
 import Test.Boundary.ConnectionNullHandle (runConnectionNullHandleTests)
 import Test.Boundary.EdgeAnimated (runEdgeAnimatedTests)
 import Test.Boundary.EdgeHidden (runEdgeHiddenTests)
+import Test.Boundary.ConsumerObjects (runConsumerObjectsTests)
+import Test.Boundary.UserNode (runUserNodeTests)
+import Test.React.Hook.OnInitTiming (runOnInitTimingTests)
+import Test.React.Hook.ViewportListeners (runViewportListenerTests)
 import Test.Boundary.EdgeSelected (runEdgeSelectedTests)
 import Test.Boundary.NodeDragging (runNodeDraggingTests)
 import Test.Boundary.NodeHidden (runNodeHiddenTests)
@@ -66,6 +74,7 @@ import Test.React.Component.NodesSelectionRect (runNodesSelectionRectTests)
 import Test.React.Hook.ConnectionTo (runConnectionToTests)
 import Test.React.Additional.BackgroundOffset (runBackgroundOffsetTests)
 import Test.System.Utils.MathRound (runMathRoundTests)
+import Test.System.Utils.NumericParity (runNumericParityTests)
 import Test.React.Node.HandleNodeClick (runHandleNodeClickTests)
 import Test.React.Hook.MoveSelectedNodes (runMoveSelectedNodesTests)
 import Test.React.Component.EdgeComponentProps (runEdgeComponentPropsTests)
@@ -81,6 +90,8 @@ import Test.Boundary.FlowWrapperAttributes (runFlowWrapperAttributesTests)
 import Test.React.Additional.MiniMapMask (runMiniMapMaskTests)
 import Test.React.Additional.BackgroundPattern (runBackgroundPatternTests)
 import Test.System.Utils.MeasurementOrder (runMeasurementOrderTests)
+import Test.System.Utils.HandleBoundsNull (runHandleBoundsNullTests)
+import Test.System.XYPanZoom.EndTiming (runEndTimingTests)
 import Test.React.Hook.DeleteKey (runDeleteKeyTests)
 import Test.React.HandleNativeEvent (runHandleNativeEventTests)
 import Test.React.Hook.DragRebind (runDragRebindTests)
@@ -111,6 +122,8 @@ import Test.System.Utils.ConnectionOrder (runConnectionOrderTests)
 import Test.System.Utils.MeasuredDimensions (runMeasuredDimensionsTests)
 import Test.System.Utils.StorePanBy (runStorePanByTests)
 import Test.System.XYDrag (runXYDragTests)
+import Test.System.XYResizer (runXYResizerTests)
+import Test.Boundary.NodeResizing (runNodeResizingTests)
 import Test.System.XYDrag.DragItemOrder (runDragItemOrderTests)
 import Test.System.XYHandle (runXYHandleTests)
 import Test.System.XYPanZoom.EventHandler (runEventHandlerTests)
@@ -123,6 +136,11 @@ assert label cond =
 
 main :: Effect Unit
 main = do
+  runArrowKeyMessageTests
+  runViewportListenerTests
+  runOnInitTimingTests
+  runUserNodeTests
+  runConsumerObjectsTests
   -- 001: oppositePosition round-trip across all four constructors.
   let positions = [ PosLeft, PosTop, PosRight, PosBottom ]
   assert "oppositePosition is involutive"
@@ -536,6 +554,7 @@ main = do
       , zIndex: Nothing
       , extent: Nothing
       , expandParent: Nothing
+      , resizing: Nothing
       , ariaLabel: Nothing
       , origin: Nothing
       , handles: Nothing
@@ -675,42 +694,48 @@ main = do
       -> XYPosition
       -> InternalNodeBase Unit
     mkInternal nid selected draggable parentId positionAbsolute =
-      { id: NodeId nid
-      , position: { x: 0.0, y: 0.0 }
-      , data: unit
-      , sourcePosition: Nothing
-      , targetPosition: Nothing
-      , hidden: Nothing
-      , selected: Just selected
-      , dragging: Nothing
-      , draggable
-      , selectable: Nothing
-      , connectable: Nothing
-      , deletable: Nothing
-      , dragHandle: Nothing
-      , width: Just 50.0
-      , height: Just 25.0
-      , initialWidth: Nothing
-      , initialHeight: Nothing
-      , parentId
-      , zIndex: Nothing
-      , extent: Nothing
-      , expandParent: Nothing
-      , ariaLabel: Nothing
-      , origin: Nothing
-      , handles: Nothing
-      , measured: { width: Just 50.0, height: Just 25.0 }
-      , nodeType: Nothing
-      , className: Nothing
-      , style: Nothing
-      , internals:
+      let
+        originalUserNode =
+          { id: NodeId nid
+          , position: { x: 0.0, y: 0.0 }
+          , data: unit
+          , sourcePosition: Nothing
+          , targetPosition: Nothing
+          , hidden: Nothing
+          , selected: Just selected
+          , dragging: Nothing
+          , draggable
+          , selectable: Nothing
+          , connectable: Nothing
+          , deletable: Nothing
+          , dragHandle: Nothing
+          , width: Just 50.0
+          , height: Just 25.0
+          , initialWidth: Nothing
+          , initialHeight: Nothing
+          , parentId
+          , zIndex: Nothing
+          , extent: Nothing
+          , expandParent: Nothing
+          , resizing: Nothing
+          , ariaLabel: Nothing
+          , origin: Nothing
+          , handles: Nothing
+          , measured: { width: Just 50.0, height: Just 25.0 }
+          , nodeType: Nothing
+          , className: Nothing
+          , style: Nothing
+          }
+      in
+        Record.insert (Proxy :: Proxy "internals")
           { positionAbsolute
           , z: 0.0
           , rootParentIndex: Nothing
           , handleBounds: Nothing
           , bounds: Nothing
+          , userNode: originalUserNode
           }
-      }
+          originalUserNode
 
     parent = mkInternal "p" false Nothing Nothing { x: 0.0, y: 0.0 }
     parentSelected = parent { selected = Just true }
@@ -870,8 +895,8 @@ main = do
     nodeWithHandles' = nodeWithHandles
       { internals = nodeWithHandles.internals
           { handleBounds = Just
-              { source: [ SourceHandle handleS ]
-              , target: [ TargetHandle handleT ]
+              { source: Just [ SourceHandle handleS ]
+              , target: Just [ TargetHandle handleT ]
               }
           }
       }
@@ -1132,6 +1157,8 @@ main = do
   runZoomLimitsTests
   runVisibleIdsTests
   runXYDragTests
+  runXYResizerTests
+  runNodeResizingTests
   runDragItemOrderTests
   runXYHandleTests
   runEventHandlerTests
@@ -1161,6 +1188,8 @@ main = do
   runMiniMapMaskTests
   runBackgroundPatternTests
   runMeasurementOrderTests
+  runHandleBoundsNullTests
+  runEndTimingTests
   runDeleteKeyTests
   runHandleNativeEventTests
   runDragRebindTests
@@ -1174,6 +1203,7 @@ main = do
   runConnectionToTests
   runBackgroundOffsetTests
   runMathRoundTests
+  runNumericParityTests
   runHandleNodeClickTests
   runMoveSelectedNodesTests
   runEdgeAriaLabelTests

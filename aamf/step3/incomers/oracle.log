@@ -1,0 +1,22 @@
+$ npm run build:oracle
+
+> ps-flow@0.0.0 build:oracle
+> node oracle/esbuild.mjs
+
+▲ [WARNING] Cannot find base config file "@xyflow/tsconfig/base.json" [tsconfig.json]
+
+    xyflow/packages/system/tsconfig.json:3:13:
+      3 │   "extends": "@xyflow/tsconfig/base.json",
+        ╵              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+▲ [WARNING] Cannot find base config file "@xyflow/tsconfig/react.json" [tsconfig.json]
+
+    xyflow/packages/react/tsconfig.json:2:13:
+      2 │   "extends": "@xyflow/tsconfig/react.json",
+        ╵              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+2 warnings
+
+  oracle/index.js  33.5kb
+
+⚡ Done in 115ms

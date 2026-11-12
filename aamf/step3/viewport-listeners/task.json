@@ -1,0 +1,34 @@
+{
+  "id": "psflow-w08b-viewport-listeners",
+  "status": "complete",
+  "startedAt": "2026-11-10T17:28:47.701512+00:00",
+  "source": "React hooks/useOnViewportChange.ts; useStoreApi setState",
+  "seam": "Actual useOnViewportChange with real store/reducer and two React-dispatcher component runtimes; observe installed callbacks, invocation, prop removal, same handlers in new options objects, second caller and unmount",
+  "allowedOutputs": [
+    "src/React/Hook/Listeners.purs",
+    "src/React/Store/Reduce.purs",
+    "src/React/Store/Action.purs",
+    "test/Test/Main.purs",
+    "test/Test/React/Hook/ViewportListeners.purs",
+    "test/Test/React/Hook/ViewportListeners.js",
+    "AAMF_PORTING_PLAN.md",
+    "AAMF_STEP3_RESULTS.md",
+    "aamf/step3/README.md",
+    "aamf/step3/SHA256SUMS",
+    "parity/driver/dist/psflow.js",
+    "parity/surface/report.md",
+    "aamf/step3/viewport-listeners/",
+    "src/Boundary/Hooks.purs",
+    "src/Boundary/Hooks.js"
+  ],
+  "acceptance": [
+    "Red-capable local public-hook/store proxy before source diagnosis",
+    "Set each slot including undefined; callback replacement/removal; second partial caller",
+    "No unmount cleanup or overwrite when unchanged callback dependencies are rerendered in a new options record",
+    "Function/surface/boundary and frozen browser/checkpoint validation with W08a"
+  ],
+  "aamfInvoked": false,
+  "mechanismClarification": "Source inspection confirms three independent useEffects and store updates, each depending on its own handler. Replace atomic install/uninstall actions with three named slot setters; no cleanup. A later, previously unreached proxy assertion initially assumed a changed handler reinstalls all slots; corrected to independent source behavior before implementing.",
+  "scopeExpansion": "Also test normal JS handlers through index.js. If repeat conversion changes callback identity, preserve each converter result using a native function-keyed weak association at Boundary.Hooks; retain the actual callback conversion logic.",
+  "completedAt": "2026-11-10T18:04:26.059420+00:00"
+}

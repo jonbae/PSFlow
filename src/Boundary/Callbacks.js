@@ -1,6 +1,5 @@
-// FFI for `Boundary.Callbacks`. Two things, both about a value the consumer
-// handed *back* — which is what makes them different from every other crossing
-// in this directory, where ps-flow is the one producing the value.
+// Platform operations for Boundary.Callbacks: Promise/array interop and native
+// weak associations for stable callback adapters and shared resize payloads.
 //
 //   * `awaitPromise` — `onBeforeDelete` answers with
 //     `Promise<boolean | { nodes, edges }>`, and ps-flow's own type is an
@@ -11,6 +10,15 @@
 //     is iterated, and `Array.isArray` is not expressible in PureScript.
 
 export const isArrayOf = (value) => Array.isArray(value);
+
+// Native reference association; the conversion itself remains PureScript.
+export const cacheByReference = convert => {
+  const values = new WeakMap();
+  return value => {
+    if (!values.has(value)) values.set(value, convert(value));
+    return values.get(value);
+  };
+};
 
 // `Promise.resolve` rather than `value.then`: upstream `await`s the result, so
 // a consumer returning the value itself instead of a promise is following

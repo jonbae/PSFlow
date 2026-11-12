@@ -17,7 +17,7 @@ import Prelude
 
 import Data.Array (filter) as Array
 import Data.Foldable (for_, traverse_)
-import Data.Maybe (Maybe(..))
+import Data.Maybe (Maybe(..), fromMaybe)
 import Effect (Effect)
 import Effect.Aff (launchAff_)
 import Effect.Aff.AVar as AffAVar
@@ -122,11 +122,19 @@ createStore opts = do
               , triggerFitView: dopts.triggerFitView
               }
           )
-      RunSetCenter _ _ _ ->
-        -- The hook in ticket 030 implements the returning Aff with its
-        -- own AVar. This descriptor exists so middleware observers see
-        -- the intent.
-        pure unit
+      RunSetCenter x y opts -> do
+        -- The store's setCenter is also used by NodeWrapper's focus path.
+        -- Reading and invoking panZoom happens before its async continuation,
+        -- just as in the upstream store action.
+        s <- Ref.read stateRef
+        for_ s.panZoom \pz -> do
+          let zoom = fromMaybe s.maxZoom opts.zoom
+          launchAff_ $ void $ pz.setViewport
+            { x: s.width / 2.0 - x * zoom
+            , y: s.height / 2.0 - y * zoom
+            , zoom
+            }
+            (Just { duration: opts.duration, ease: opts.ease, interpolate: opts.interpolate })
       RunSetScaleExtent mn mx -> do
         -- No instance yet means the flow has not mounted its pane, and
         -- `createXYPanZoom` seeds the extent from the same state when it

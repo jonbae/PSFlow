@@ -1,0 +1,7 @@
+$ python3 aamf/step3/initialization-driving/write-results.py
+{
+  "status": "complete (bounded initialization/native-frame driving); Step 3 E and G\u2013I remain open",
+  "failed": 95,
+  "unstable": 5,
+  "libraryChanges": []
+}

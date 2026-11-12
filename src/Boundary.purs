@@ -17,7 +17,7 @@
 -- |
 -- | ## Staging
 -- |
--- | The surface crossed in four stages, ordered by how detectable a mistake in
+-- | The surface crossed in five stages, ordered by how detectable a mistake in
 -- | each is. Anything that had not yet crossed was re-exported **unchanged** —
 -- | it resolved, but its shape was still the PureScript one. The `manifest`
 -- | says which is which, and is the only place that answer is written down.
@@ -34,17 +34,13 @@
 -- | there is nothing to get wrong but member names, which the record types
 -- | check.
 -- |
--- | **What is left in `passthrough` is seven pure functions.** Stage 5
--- | (`tickets/082-boundary-stage-5-pure-functions.md`) crosses the fourteen
--- | that stage 4 left, and its first half has landed: the six edge-path
--- | helpers a custom edge component calls, in `Boundary.EdgePaths`, and since
--- | then `getViewportForBounds`, in `Boundary.Utils`. The seven left are the
--- | five other graph utilities, which are curried where upstream takes
--- | every argument at once, and `isNode` and `isEdge`, which agree with
--- | upstream on every call surface parity makes. `parity/surface/allowlist.json`
--- | carries one entry per difference they publish, and surface parity calls
--- | all of them and compares the results, so the differences are measured
--- | rather than assumed.
+-- | **Stage 5 is complete: `passthrough` is empty.** The fourteen standalone
+-- | functions left by stage 4 now have JS-native call and value conventions.
+-- | Edge paths live in `Boundary.EdgePaths`; viewport, traversal, bounds,
+-- | reconnection and native shape guards live in `Boundary.Utils`.
+-- | Direct JS-entry regressions observe their source branches and original
+-- | consumer references. Crossing is independent of full parity: the earlier
+-- | change/add helpers still have consumer-object exceptions owned by #150.
 -- |
 -- | The converters are the rest, and they live in nineteen modules beneath
 -- | this one, none of them on the PureScript surface:
@@ -113,8 +109,7 @@
 -- | consumer mutating a shared enum is a bug in every case and PureScript's own
 -- | reasoning assumes these are immutable.
 module Boundary
-  ( module PublicSurface
-  , module CrossedSurface
+  ( module CrossedSurface
   , BackgroundVariantEnum
   , ConnectionLineTypeEnum
   , ConnectionModeEnum
@@ -145,7 +140,7 @@ module Boundary
 -- six arguments upstream takes in one call and whose `padding` is an untagged
 -- value; `Boundary.Utils` crosses both.
 import Boundary.Flow (reactFlow, reactFlowProvider) as CrossedSurface
-import Boundary.Utils (addEdge, applyEdgeChanges, applyNodeChanges, getViewportForBounds) as CrossedSurface
+import Boundary.Utils (addEdge, applyEdgeChanges, applyNodeChanges, getConnectedEdges, getIncomers, getNodesBounds, getOutgoers, getViewportForBounds, isEdge, isNode, reconnectEdge) as CrossedSurface
 
 -- The four chrome components upstream's drivers mount. `Boundary.Chrome` says
 -- why each needed a wrapper at all; the short version is that a JavaScript
@@ -227,23 +222,8 @@ import Boundary.NodeChrome (handle, nodeToolbar) as CrossedSurface
 -- and a callback cannot cross without the record it hangs off.
 import Boundary.Resizer (nodeResizeControl, nodeResizer) as CrossedSurface
 
--- The rest of the public surface, passing through raw. How many that is, is
--- `manifest.passthrough`'s to say and not this comment's, but what *kind* of
--- thing they are is worth writing here: they are all pure functions, and not
--- one of them is a component. Ordered to mirror
--- `xyflow/packages/react/src/index.ts`, as `index.js` is, so future audits
--- stay mechanical.
-import React
-  ( -- Utilities
-    isNode
-  , isEdge
-  -- System functions
-  , getNodesBounds
-  , getIncomers
-  , getOutgoers
-  , reconnectEdge
-  , getConnectedEdges
-  ) as PublicSurface
+-- No value is re-exported raw from React after stage 5. The PureScript
+-- surface itself stays in React; these crossings belong only to index.js.
 
 -- | `Object.freeze`. The enum objects are built above it in PureScript so the
 -- | record type checks their members; this only stops a consumer writing to one.

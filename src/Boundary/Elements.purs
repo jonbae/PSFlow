@@ -113,6 +113,7 @@ import Data.Int (round, toNumber) as Int
 import Data.Maybe (Maybe(..), fromMaybe', maybe)
 import Data.Newtype (unwrap, wrap)
 import Data.Nullable (Nullable, toMaybe, toNullable)
+import Data.Function.Uncurried (runFn2)
 import Effect.Exception.Unsafe (unsafeThrow)
 import Effect.Uncurried (mkEffectFn1)
 import Foreign (Foreign, unsafeToForeign)
@@ -135,6 +136,8 @@ import System.Types.Node
   , NodeHandle
   , NodeHandleBounds
   , NodeInternals
+  , originalUserNode
+  , rememberUserNode
   )
 import Unsafe.Coerce (unsafeCoerce)
 
@@ -195,6 +198,7 @@ type JsNodeRow =
   , hidden :: Undefinable Boolean
   , selected :: Undefinable Boolean
   , dragging :: Undefinable Boolean
+  , resizing :: Undefinable Boolean
   , draggable :: Undefinable Boolean
   , selectable :: Undefinable Boolean
   , connectable :: Undefinable Boolean
@@ -224,29 +228,21 @@ type JsNode = { | JsNodeRow }
 -- | handed, which is the only place on this surface an internal node crosses.
 type JsInternalNode = { internals :: JsNodeInternals | JsNodeRow }
 
--- | Upstream's `internals` bag, minus `userNode`.
--- |
--- | `userNode` holds upstream's reference to the object the consumer passed in,
--- | as a reference-equality optimisation. `System.Types.Node.NodeInternals`
--- | omits it on purpose — PureScript has no reference equality — so there is
--- | nothing here to emit it from, and a consumer reading `internals.userNode`
--- | gets `undefined` rather than their own node. A gap in the internals rather
--- | than something a converter can close.
+-- | Upstream's internals, including the actual original consumer node.
 type JsNodeInternals =
   { positionAbsolute :: JsXYPosition
   , z :: Number
   , rootParentIndex :: Undefinable Number
   , handleBounds :: Undefinable JsNodeHandleBounds
   , bounds :: Undefinable JsNodeBounds
+  , userNode :: JsNode
   }
 
--- | Upstream types both arrays `Handle[] | null`, where `null` means "not
--- | measured yet". `System.Types.Node.NodeHandleBounds` collapsed that
--- | distinction into the outer `Maybe` and left the arrays total, so there is
--- | no `null` to emit and this side says so by not claiming one.
+-- | A measured node with no handle of a side holds `null` there, as the
+-- | upstream DOM query returns. The bounds object itself is separately optional.
 type JsNodeHandleBounds =
-  { source :: Array JsHandle
-  , target :: Array JsHandle
+  { source :: Nullable (Array JsHandle)
+  , target :: Nullable (Array JsHandle)
   }
 
 type JsNodeBounds =
@@ -493,7 +489,7 @@ readKey field raw = case asString raw of
 -- ────────────────────────────────────────────────────────────────────────
 
 nodeIn :: JsNode -> NodeBase Foreign
-nodeIn n =
+nodeIn n = runFn2 rememberUserNode (unsafeCoerce n)
   { id: wrap n.id
   , position: n.position
   , data: n.data
@@ -502,6 +498,7 @@ nodeIn n =
   , hidden: fromUndefinable n.hidden
   , selected: fromUndefinable n.selected
   , dragging: fromUndefinable n.dragging
+  , resizing: fromUndefinable n.resizing
   , draggable: fromUndefinable n.draggable
   , selectable: fromUndefinable n.selectable
   , connectable: fromUndefinable n.connectable
@@ -541,6 +538,7 @@ nodeOut n = pruneUndefined
   , hidden: toUndefinable n.hidden
   , selected: toUndefinable n.selected
   , dragging: toUndefinable n.dragging
+  , resizing: toUndefinable n.resizing
   , draggable: toUndefinable n.draggable
   , selectable: toUndefinable n.selectable
   , connectable: toUndefinable n.connectable
@@ -581,6 +579,7 @@ internalNodeOut n = pruneUndefined
   , hidden: toUndefinable n.hidden
   , selected: toUndefinable n.selected
   , dragging: toUndefinable n.dragging
+  , resizing: toUndefinable n.resizing
   , draggable: toUndefinable n.draggable
   , selectable: toUndefinable n.selectable
   , connectable: toUndefinable n.connectable
@@ -608,19 +607,20 @@ internalNodeOut n = pruneUndefined
 -- | `rootParentIndex` is written only on a parent node, and `bounds` never
 -- | is. So the two optional keys are pruned, and `handleBounds` is set on the
 -- | pruned record whether or not it holds a value.
-nodeInternalsOut :: NodeInternals -> JsNodeInternals
+nodeInternalsOut :: NodeInternals Foreign -> JsNodeInternals
 nodeInternalsOut i =
   unsafeSet "handleBounds" (toUndefinable (map handleBoundsOut i.handleBounds)) $ pruneUndefined
     { positionAbsolute: i.positionAbsolute
     , z: i.z
     , rootParentIndex: toUndefinable (map Int.toNumber i.rootParentIndex)
     , bounds: toUndefinable (map nodeBoundsOut i.bounds)
+    , userNode: maybe (nodeOut i.userNode) unsafeCoerce (toMaybe (originalUserNode i.userNode))
     }
 
 handleBoundsOut :: NodeHandleBounds -> JsNodeHandleBounds
 handleBoundsOut b =
-  { source: map (handleOut <<< unSourceHandle) b.source
-  , target: map (handleOut <<< unTargetHandle) b.target
+  { source: toNullable (map (map (handleOut <<< unSourceHandle)) b.source)
+  , target: toNullable (map (map (handleOut <<< unTargetHandle)) b.target)
   }
 
 nodeBoundsOut :: NodeBounds -> JsNodeBounds

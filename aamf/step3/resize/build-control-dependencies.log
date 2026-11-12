@@ -1,0 +1,20 @@
+$ spago build
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[1 of 7] Compiling React.Additional.NodeResizer.Control
+[2 of 7] Compiling Test.React.DomNumbers
+[3 of 7] Compiling React.Additional.NodeResizer
+[4 of 7] Compiling React
+[5 of 7] Compiling Boundary.Resizer
+[7 of 7] Compiling Test.Main
+[6 of 7] Compiling Boundary
+           Src   Lib   All
+Warnings     0     0     0
+Errors       0     0     0
+
+✓ Build succeeded.
+

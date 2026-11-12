@@ -1,0 +1,42 @@
+{
+  "rows": [
+    {
+      "scenario": "mount-baseline--edges-general",
+      "round": 1,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "mount-baseline--edges-general",
+      "round": 2,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "mount-baseline--pane-non-defaults",
+      "round": 1,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "mount-baseline--pane-non-defaults",
+      "round": 2,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "mount-baseline--node-toolbar-general",
+      "round": 1,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "mount-baseline--node-toolbar-general",
+      "round": 2,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    }
+  ],
+  "handleFaultRejected": true,
+  "callbackOrderFaultRejected": true
+}

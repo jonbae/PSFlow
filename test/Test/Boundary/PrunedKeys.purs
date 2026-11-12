@@ -19,6 +19,9 @@ module Test.Boundary.PrunedKeys
 
 import Prelude
 
+import Record as Record
+import Type.Proxy (Proxy(..))
+
 import Boundary.Elements (edgeChangeOut, edgeOut, internalNodeOut, nodeChangeOut, nodeOut)
 import Data.Maybe (Maybe(..))
 import Effect (Effect)
@@ -64,6 +67,7 @@ node =
   , zIndex: Nothing
   , extent: Nothing
   , expandParent: Nothing
+  , resizing: Nothing
   , ariaLabel: Nothing
   , origin: Nothing
   , handles: Nothing
@@ -75,42 +79,48 @@ node =
 
 internalNode :: InternalNodeBase Foreign
 internalNode =
-  { id: node.id
-  , position: node.position
-  , data: node.data
-  , sourcePosition: Nothing
-  , targetPosition: Nothing
-  , hidden: Nothing
-  , selected: Nothing
-  , dragging: Nothing
-  , draggable: Nothing
-  , selectable: Nothing
-  , connectable: Nothing
-  , deletable: Nothing
-  , dragHandle: Nothing
-  , width: Nothing
-  , height: Nothing
-  , initialWidth: Nothing
-  , initialHeight: Nothing
-  , parentId: Nothing
-  , zIndex: Nothing
-  , extent: Nothing
-  , expandParent: Nothing
-  , ariaLabel: Nothing
-  , origin: Nothing
-  , handles: Nothing
-  , measured: { width: Nothing, height: Nothing }
-  , nodeType: Nothing
-  , className: Nothing
-  , style: Nothing
-  , internals:
+  let
+    originalUserNode =
+      { id: node.id
+      , position: node.position
+      , data: node.data
+      , sourcePosition: Nothing
+      , targetPosition: Nothing
+      , hidden: Nothing
+      , selected: Nothing
+      , dragging: Nothing
+      , draggable: Nothing
+      , selectable: Nothing
+      , connectable: Nothing
+      , deletable: Nothing
+      , dragHandle: Nothing
+      , width: Nothing
+      , height: Nothing
+      , initialWidth: Nothing
+      , initialHeight: Nothing
+      , parentId: Nothing
+      , zIndex: Nothing
+      , extent: Nothing
+      , expandParent: Nothing
+      , resizing: Nothing
+      , ariaLabel: Nothing
+      , origin: Nothing
+      , handles: Nothing
+      , measured: { width: Nothing, height: Nothing }
+      , nodeType: Nothing
+      , className: Nothing
+      , style: Nothing
+      }
+  in
+    Record.insert (Proxy :: Proxy "internals")
       { positionAbsolute: { x: 0.0, y: 0.0 }
       , z: 0.0
       , rootParentIndex: Nothing
       , handleBounds: Nothing
       , bounds: Nothing
+      , userNode: originalUserNode
       }
-  }
+      originalUserNode
 
 -- | An edge with a custom marker that sets only its type, and an aria label
 -- | turned off with `null`.
@@ -181,4 +191,4 @@ runPrunedKeysTests = do
   assert "an internal node keeps measured's keys before measurement, as upstream does"
     (sortedKeys (markerOf "measured" jsInternal) == [ "height", "width" ])
   assert "an internal node's internals keep handleBounds before measurement, and nothing else unset"
-    (sortedKeys (markerOf "internals" jsInternal) == [ "handleBounds", "positionAbsolute", "z" ])
+    (sortedKeys (markerOf "internals" jsInternal) == [ "handleBounds", "positionAbsolute", "userNode", "z" ])

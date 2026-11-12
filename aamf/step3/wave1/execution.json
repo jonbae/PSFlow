@@ -1,0 +1,58 @@
+{
+  "startedAt": "2026-11-10T03:10:29.875Z",
+  "baseCommit": "98a3f77ab1bb17d481c6dec4fed2e23174448e45",
+  "workingTree": "Includes all uncommitted Step 3 boundary crossings; inputs.json identifies the actual frozen stage-5 implementation and apparatus",
+  "stage": 5,
+  "crossed": 68,
+  "passthrough": 0,
+  "aamfInvoked": false,
+  "inputFiles": 531,
+  "inputsSha256": "9e4cf9cdf0ca4abf1ad8e1baf870d0483bf2a7c5a6d041d08e2391955ef47e4e",
+  "sourceFiles": 171,
+  "sourceMismatches": 0,
+  "toolchain": {
+    "node": "v22.18.0",
+    "purescript": "0.15.16",
+    "spago": "1.0.4",
+    "playwright": "1.60.0",
+    "chromium": "148.0.7778.96"
+  },
+  "preservedW00": {
+    "archive": "aamf/step3/wave1/w00-capture.tar.gz",
+    "sha256": "c1f05fcbc99a720034bc7704c38f47077b4f618122c32fa96ef1cf45f92430a7",
+    "traces": 412
+  },
+  "scope": "Stage 3 B checkpoint: builds/gates/reports/traces only; no source, fixtures, comparator, normalization, regions, weakenings or registers change during capture",
+  "completedAt": "2026-11-10T03:20:21.635Z",
+  "frozenInputAudit": {
+    "files": 531,
+    "changedInputs": [],
+    "sourceCaptureValid": true
+  },
+  "artifacts": [
+    {
+      "path": "oracle/index.js",
+      "sha256": "a9898087c595d4a1b9d3bfad88ecedb4c355d5ea64e9bea511100e22fb58506f"
+    },
+    {
+      "path": "parity/driver/dist/psflow.js",
+      "sha256": "9484bbadc35f20aedab96260d68816809633409558495fcc2b26e24a46ad1ee3"
+    },
+    {
+      "path": "parity/surface/report.md",
+      "sha256": "a9a2a4a892ea22b705764a6ff187e6d9a4fd34b91358042b164ce14cc488cb3c"
+    },
+    {
+      "path": "parity/system/report.md",
+      "sha256": "d214069d6458b4674ed42965bc8c2dcaf2697dd0450cd3ac495cd71a8a0f300a"
+    },
+    {
+      "path": "parity/system/coverage.md",
+      "sha256": "120866a6fab22b90cdf94c0e134646ff167bc4a18e25649609eb078cbd8c0295"
+    },
+    {
+      "path": "parity/changelog-audit/report.md",
+      "sha256": "54ae6d8c10f863a304d056a01842da70432baf728df93565ac13a6fec1d4e4b9"
+    }
+  ]
+}

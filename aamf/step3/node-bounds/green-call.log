@@ -1,0 +1,17 @@
+$ node --test parity/boundary/node-bounds.test.mjs
+TAP version 13
+# Subtest: getNodesBounds returns a rect from one JS call with omitted options
+ok 1 - getNodesBounds returns a rect from one JS call with omitted options
+  ---
+  duration_ms: 2.870333
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 652.863758

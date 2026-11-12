@@ -1,0 +1,2012 @@
+{
+  "completedAt": "2026-11-10T21:51:57.490925+00:00",
+  "head": "98a3f77ab1bb17d481c6dec4fed2e23174448e45",
+  "scope": "W11 bounded remeasurement, W05, W12 resize witnesses, G node.resizing and full fresh wave",
+  "initialInputs": 1125,
+  "changedInputs": [
+    "src/Boundary/Callbacks.purs",
+    "src/Boundary/Resizer.purs",
+    "src/Boundary/Elements.purs",
+    "src/Boundary/Callbacks.js",
+    "src/System/XYResizer.js",
+    "src/System/XYResizer.purs",
+    "src/React/Component/NodeWrapper.purs",
+    "src/React/Store/Changes.purs",
+    "src/React/Additional/NodeResizer/Control.purs",
+    "src/System/Types/Node.purs",
+    "src/System/XYResizer/Utils.purs",
+    "src/System/Utils/Store.purs",
+    "test/Test/Properties.purs",
+    "test/Test/Main.purs",
+    "test/Test/Boundary/PrunedKeys.purs",
+    "test/Test/Parity/Builders.purs",
+    "test/Test/System/XYDrag.purs",
+    "test/Test/System/FinalConnectionState.purs",
+    "test/Test/React/Component/NodesSelectionRect.purs",
+    "test/Test/React/Component/AriaDescribedBy.purs",
+    "test/Test/React/Component/EdgeAriaLabel.purs",
+    "test/Test/React/Component/EdgeComponentProps.purs",
+    "test/Test/React/Node/HandleNodeClick.purs",
+    "test/Test/React/Hook/NodeObserver.purs",
+    "test/Test/React/Hook/ConnectionTo.purs",
+    "test/Test/React/Hook/VisibleIds.purs",
+    "test/Test/React/Hook/NodeRenderOrder.purs",
+    "test/Test/React/Hook/DeleteKey.purs",
+    "test/Test/React/Hook/MoveSelectedNodes.purs",
+    "test/Test/React/Store/MergeNodeInternals.purs",
+    "test/Test/React/Store/InPlaceSelection.purs",
+    "test/Test/React/Store/Reduce.purs",
+    "test/Test/React/Store/UpdateNodePositions.purs",
+    "test/Test/React/Store/ResetSelection.purs",
+    "test/Test/System/Utils/MeasurementOrder.purs",
+    "test/Test/System/Utils/Store.purs",
+    "test/Test/System/Utils/MeasuredDimensions.purs",
+    "test/Test/System/XYDrag/DragSelection.purs",
+    "test/Test/System/XYDrag/DragUserNodes.purs",
+    "test/Test/System/XYDrag/DragErrors.purs",
+    "test/Test/System/XYDrag/DragItemOrder.purs",
+    "parity/boundary/drift.mjs",
+    "parity/system/report.md",
+    "parity/system/coverage.md",
+    "parity/changelog-audit/report.md",
+    "parity/changelog-audit/verdicts.json",
+    "parity/system/traces/connect-to-unconnectable-handle.upstream.capture1.json",
+    "parity/system/traces/probe-node-connections.upstream.capture1.json",
+    "parity/system/traces/controls-default-zoom.psflow.capture1.json",
+    "parity/system/traces/drag-does-not-move-undraggable-node.psflow.capture2.json",
+    "parity/system/traces/connect-second-touch-point.upstream.capture1.json",
+    "parity/system/traces/selection-box-mid-gesture.psflow.capture1.json",
+    "parity/system/traces/ctrl-wheel-pinches-with-panonscroll.upstream.capture1.json",
+    "parity/system/traces/click-unselectable-node.upstream.capture2.json",
+    "parity/system/traces/flow-custom-testid.upstream.capture1.json",
+    "parity/system/traces/connect-output-to-output-handle.upstream.capture1.json",
+    "parity/system/traces/uncontrolled-update-node.psflow.capture1.json",
+    "parity/system/traces/selection-box-touch.upstream.capture1.json",
+    "parity/system/traces/click-unselectable-edge.psflow.capture2.json",
+    "parity/system/traces/probe-node-connections.psflow.capture2.json",
+    "parity/system/traces/selection-box-mid-gesture.upstream.capture1.json",
+    "parity/system/traces/drag-node-reports-changes.upstream.capture2.json",
+    "parity/system/traces/mount-baseline--chrome-minimap-colors.psflow.capture1.json",
+    "parity/system/traces/wheel-zooms-to-changed-limits.psflow.capture1.json",
+    "parity/system/traces/wheel-zoom-from-identity-viewport.psflow.capture1.json",
+    "parity/system/traces/drag-node-escape-mid-gesture.psflow.capture1.json",
+    "parity/system/traces/selection-box-then-click-node.upstream.capture2.json",
+    "parity/system/traces/mount-baseline--flow-props-change.psflow.capture2.json",
+    "parity/system/traces/mount-baseline--edges-general--probe-edge.psflow.capture2.json",
+    "parity/system/traces/drag-pans-into-changed-extent.upstream.capture1.json",
+    "parity/system/traces/selection-box-from-node.upstream.capture2.json",
+    "parity/system/traces/click-unselectable-node.psflow.capture1.json",
+    "parity/system/traces/click-selects-node--probe-flow-node.psflow.capture2.json",
+    "parity/system/traces/wheel-zooms-the-pane--probe-flow-node.upstream.capture2.json",
+    "parity/system/traces/drag-moves-node.upstream.capture1.json",
+    "parity/system/traces/connect-source-handle-to-target-handle.upstream.capture1.json",
+    "parity/system/traces/drag-child-expand-parent.psflow.capture2.json",
+    "parity/system/traces/mount-baseline--nodes-autopan.psflow.capture2.json",
+    "parity/system/traces/flow-props-change-after-mount.upstream.capture1.json",
+    "parity/system/traces/drag-node-escape-mid-gesture.upstream.capture1.json",
+    "parity/system/traces/connect-then-keyboard-move.psflow.capture1.json",
+    "parity/system/traces/delete-key-spares-undeletable-edge.upstream.capture1.json",
+    "parity/system/traces/node-props-record-parented.psflow.capture2.json",
+    "parity/system/traces/custom-edge-baseedge-path.psflow.capture1.json",
+    "parity/system/traces/flow-custom-testid.psflow.capture1.json",
+    "parity/system/traces/controls-horizontal.psflow.capture1.json",
+    "parity/system/traces/mount-baseline--nodes-unmeasured.psflow.capture2.json",
+    "parity/system/traces/node-props-record-parented.upstream.capture1.json",
+    "parity/system/traces/drag-by-custom-drag-handle.psflow.capture2.json",
+    "parity/system/traces/mount-baseline--chrome-minimap-hidden-nodes.psflow.capture1.json",
+    "parity/system/traces/delete-key-removes-edge.upstream.capture1.json",
+    "parity/system/traces/click-selects-node.upstream.capture2.json",
+    "parity/system/traces/mount-in-display-none.psflow.capture1.json",
+    "parity/system/traces/drag-by-custom-drag-handle.upstream.capture1.json",
+    "parity/system/traces/mount-baseline--flow-custom-testid.psflow.capture2.json",
+    "parity/system/traces/click-inside-interaction-width.upstream.capture1.json",
+    "parity/system/traces/drag-pans-the-pane.upstream.capture1.json",
+    "parity/system/traces/mount-baseline--chrome-background.psflow.capture1.json",
+    "parity/system/traces/mount-baseline--viewport-helpers.psflow.capture1.json",
+    "parity/system/traces/delete-key-spares-undeletable-node.psflow.capture1.json",
+    "parity/system/traces/drag-unmeasured-node.upstream.capture2.json",
+    "parity/system/traces/pan-gesture-complete.psflow.capture2.json",
+    "parity/system/traces/click-selects-node--probe-flow-node.upstream.capture1.json",
+    "parity/system/traces/pinch-over-nowheel-node.psflow.capture1.json",
+    "parity/system/traces/drag-unmeasured-node.psflow.capture1.json",
+    "parity/system/traces/wheel-pans-with-panonscroll.upstream.capture2.json",
+    "parity/system/traces/connect-drag-holding-source.upstream.capture2.json",
+    "parity/system/traces/click-reveals-default-toolbar.psflow.capture1.json",
+    "parity/system/traces/pan-after-controlled-viewport-change.upstream.capture2.json",
+    "parity/system/traces/mount-baseline--pane-general.psflow.capture2.json",
+    "parity/system/traces/mount-baseline--flow-display-none.psflow.capture1.json",
+    "parity/system/traces/drag-node-autopan.psflow.capture2.json",
+    "parity/system/traces/wheel-zooms-out-to-min.upstream.capture1.json",
+    "parity/system/traces/drag-does-not-move-undraggable-node.upstream.capture2.json",
+    "parity/system/traces/delete-key-spares-undeletable-edge.psflow.capture2.json",
+    "parity/system/traces/mount-baseline--viewport-controlled.psflow.capture1.json",
+    "parity/system/traces/drag-moves-node.psflow.capture1.json",
+    "parity/system/traces/shift-drag-selects-nodes.psflow.capture2.json",
+    "parity/system/traces/mount-baseline--edges-general.psflow.capture1.json",
+    "parity/system/traces/mount-baseline--chrome-controls.psflow.capture1.json",
+    "parity/system/traces/mount-baseline--nodes-expand-parent.psflow.capture1.json",
+    "parity/system/traces/mount-baseline--pane-non-defaults.psflow.capture1.json",
+    "parity/system/traces/wheel-pans-with-panonscroll.psflow.capture2.json",
+    "parity/system/traces/connect-drag-holding-source.psflow.capture1.json",
+    "parity/system/traces/delete-key-spares-undeletable-node.upstream.capture1.json",
+    "parity/system/traces/arrow-key-selected-node.upstream.capture2.json",
+    "parity/system/traces/wheel-zooms-the-pane.psflow.capture2.json",
+    "parity/system/traces/shift-drag-selects-nodes.upstream.capture1.json",
+    "parity/system/traces/minimap-default-click.psflow.capture1.json",
+    "parity/system/traces/mount-baseline--chrome-panels.psflow.capture2.json",
+    "parity/system/traces/click-selects-edge.upstream.capture2.json",
+    "parity/system/traces/multi-select-edges-with-modifier.upstream.capture1.json",
+    "parity/system/traces/fitview-onnodeschange-variants.psflow.capture1.json",
+    "parity/system/traces/mount-baseline--flow-not-selectable.psflow.capture1.json",
+    "parity/system/traces/mount-baseline--nodes-props-record.psflow.capture2.json",
+    "parity/system/traces/selection-box-then-click-node.psflow.capture2.json",
+    "parity/system/traces/connect-input-to-input-handle.psflow.capture2.json",
+    "parity/system/traces/click-selects-edge.psflow.capture2.json",
+    "parity/system/traces/connect-handle-to-handle.upstream.capture2.json",
+    "parity/system/traces/mount-baseline--flow-limits-change.psflow.capture2.json",
+    "parity/system/traces/drag-node-reports-changes.psflow.capture1.json",
+    "parity/system/traces/connect-source-handle-to-target-handle--probe-connection-line.upstream.capture2.json",
+    "parity/system/traces/mount-baseline--fitview-uncontrolled.psflow.capture1.json",
+    "parity/system/traces/wheel-zooms-in-to-max.psflow.capture2.json",
+    "parity/system/traces/pane-drag-from-identity-viewport.psflow.capture1.json",
+    "parity/system/traces/mount-baseline--viewport-pan-on-scroll.psflow.capture2.json",
+    "parity/system/traces/pan-gesture-complete.upstream.capture1.json",
+    "parity/system/traces/mount-baseline--flow-chrome-defaults.psflow.capture1.json",
+    "parity/system/traces/connect-drag-released-on-pane.upstream.capture2.json",
+    "parity/system/traces/delete-key-removes-node-and-edges.psflow.capture1.json",
+    "parity/system/traces/pane-click-keeps-selection-when-not-selectable.upstream.capture1.json",
+    "parity/system/traces/mount-baseline--nodes-connections.psflow.capture1.json",
+    "parity/system/traces/connect-to-unconnectable-handle.psflow.capture2.json",
+    "parity/system/traces/click-reveals-default-toolbar.upstream.capture1.json",
+    "parity/system/traces/drag-node-release.psflow.capture1.json",
+    "parity/system/traces/minimap-custom-mask-colors.upstream.capture1.json",
+    "parity/system/traces/connect-then-keyboard-move.upstream.capture1.json",
+    "parity/system/traces/selection-box-touch.psflow.capture1.json",
+    "parity/system/traces/connect-drag-released-on-pane.psflow.capture2.json",
+    "parity/system/traces/background-custom-bgcolor.upstream.capture1.json",
+    "parity/system/traces/click-selects-node.psflow.capture1.json",
+    "parity/system/traces/click-connect-reverse-direction.upstream.capture1.json",
+    "parity/system/traces/pinch-over-nowheel-node.upstream.capture1.json",
+    "parity/system/traces/minimap-all-nodes-hidden.psflow.capture2.json",
+    "parity/system/traces/connect-handle-to-handle.psflow.capture1.json",
+    "parity/system/traces/connect-source-handle-to-target-handle--probe-connection-line.psflow.capture1.json",
+    "parity/system/traces/wheel-zooms-the-pane.upstream.capture2.json",
+    "parity/system/traces/mount-baseline--nodes-tall.psflow.capture2.json",
+    "parity/system/traces/drag-pans-the-pane.psflow.capture2.json",
+    "parity/system/traces/fitview-onnodeschange-variants.upstream.capture1.json",
+    "parity/system/traces/delete-key-removes-edge.psflow.capture2.json",
+    "parity/system/traces/connect-output-to-output-handle.psflow.capture2.json",
+    "parity/system/traces/arrow-key-selected-node.psflow.capture2.json",
+    "parity/system/traces/click-unselectable-edge.upstream.capture2.json",
+    "parity/system/traces/ctrl-wheel-pinches-with-panonscroll.psflow.capture2.json",
+    "parity/system/traces/selection-box-from-node.psflow.capture2.json",
+    "parity/system/traces/drag-node-no-select-on-drag.psflow.capture2.json",
+    "parity/system/traces/wheel-zooms-in-to-max.upstream.capture1.json",
+    "parity/system/traces/delete-key-removes-node-and-edges.upstream.capture1.json",
+    "parity/system/traces/pane-drag-from-identity-viewport.upstream.capture2.json",
+    "parity/system/traces/drag-child-expand-parent.upstream.capture1.json",
+    "parity/system/traces/wheel-zooms-the-pane--probe-flow-node.psflow.capture1.json",
+    "parity/system/traces/flow-props-change-after-mount.psflow.capture1.json",
+    "parity/system/traces/drag-pans-into-changed-extent.psflow.capture2.json",
+    "parity/system/traces/background-custom-bgcolor.psflow.capture1.json",
+    "parity/system/traces/wheel-zooms-to-changed-limits.upstream.capture2.json",
+    "parity/system/traces/drag-node-no-select-on-drag.upstream.capture1.json",
+    "parity/system/traces/keyboard-focus-node.psflow.capture2.json",
+    "parity/system/traces/wheel-zooms-out-to-min.psflow.capture2.json",
+    "parity/system/traces/pane-click-keeps-selection-when-not-selectable.psflow.capture2.json",
+    "parity/system/traces/drag-node-autopan.upstream.capture1.json",
+    "parity/system/traces/panel-center-positions.psflow.capture2.json",
+    "parity/system/traces/click-connect-reverse-direction.psflow.capture2.json",
+    "parity/system/traces/minimap-custom-mask-colors.psflow.capture1.json",
+    "parity/system/traces/connect-source-handle-to-target-handle.psflow.capture1.json",
+    "parity/system/traces/wheel-zoom-from-identity-viewport.upstream.capture2.json",
+    "parity/system/traces/drag-node-release.upstream.capture2.json",
+    "parity/system/traces/connect-second-touch-point.psflow.capture1.json",
+    "parity/system/traces/mount-baseline--node-toolbar-general.psflow.capture2.json",
+    "parity/system/traces/mount-baseline--nodes-general.psflow.capture2.json",
+    "parity/system/traces/pan-after-controlled-viewport-change.psflow.capture2.json",
+    "parity/system/traces/mount-baseline--nodes-nowheel.psflow.capture1.json",
+    "parity/system/traces/viewport-helpers-with-options.psflow.capture1.json",
+    "parity/system/traces/connect-input-to-input-handle.upstream.capture1.json",
+    "parity/system/traces/mount-baseline--nodes-no-select-on-drag.psflow.capture1.json",
+    "parity/system/traces/click-inside-interaction-width.psflow.capture2.json",
+    "parity/system/traces/mount-baseline--edges-base-edge-path.psflow.capture1.json",
+    "parity/system/traces/multi-select-edges-with-modifier.psflow.capture2.json",
+    "parity/system/traces/custom-edge-baseedge-path.upstream.capture2.json",
+    "parity/system/traces/connect-source-handle-to-target-handle.psflow.capture2.json",
+    "parity/system/traces/minimap-custom-mask-colors.psflow.capture2.json",
+    "parity/system/traces/wheel-zoom-from-identity-viewport.upstream.capture1.json",
+    "parity/system/traces/drag-node-release.upstream.capture1.json",
+    "parity/system/traces/mount-baseline--nodes-general.psflow.capture1.json",
+    "parity/system/traces/mount-baseline--node-toolbar-general.psflow.capture1.json",
+    "parity/system/traces/connect-second-touch-point.psflow.capture2.json",
+    "parity/system/traces/pan-after-controlled-viewport-change.psflow.capture1.json",
+    "parity/system/traces/mount-baseline--nodes-nowheel.psflow.capture2.json",
+    "parity/system/traces/connect-input-to-input-handle.upstream.capture2.json",
+    "parity/system/traces/mount-baseline--nodes-no-select-on-drag.psflow.capture2.json",
+    "parity/system/traces/viewport-helpers-with-options.psflow.capture2.json",
+    "parity/system/traces/click-inside-interaction-width.psflow.capture1.json",
+    "parity/system/traces/multi-select-edges-with-modifier.psflow.capture1.json",
+    "parity/system/traces/mount-baseline--edges-base-edge-path.psflow.capture2.json",
+    "parity/system/traces/custom-edge-baseedge-path.upstream.capture1.json",
+    "parity/system/traces/mount-baseline--nodes-tall.psflow.capture1.json",
+    "parity/system/traces/drag-pans-the-pane.psflow.capture1.json",
+    "parity/system/traces/fitview-onnodeschange-variants.upstream.capture2.json",
+    "parity/system/traces/delete-key-removes-edge.psflow.capture1.json",
+    "parity/system/traces/connect-output-to-output-handle.psflow.capture1.json",
+    "parity/system/traces/arrow-key-selected-node.psflow.capture1.json",
+    "parity/system/traces/click-unselectable-edge.upstream.capture1.json",
+    "parity/system/traces/ctrl-wheel-pinches-with-panonscroll.psflow.capture1.json",
+    "parity/system/traces/drag-node-no-select-on-drag.psflow.capture1.json",
+    "parity/system/traces/selection-box-from-node.psflow.capture1.json",
+    "parity/system/traces/delete-key-removes-node-and-edges.upstream.capture2.json",
+    "parity/system/traces/wheel-zooms-in-to-max.upstream.capture2.json",
+    "parity/system/traces/flow-props-change-after-mount.psflow.capture2.json",
+    "parity/system/traces/drag-child-expand-parent.upstream.capture2.json",
+    "parity/system/traces/pane-drag-from-identity-viewport.upstream.capture1.json",
+    "parity/system/traces/wheel-zooms-the-pane--probe-flow-node.psflow.capture2.json",
+    "parity/system/traces/drag-pans-into-changed-extent.psflow.capture1.json",
+    "parity/system/traces/wheel-zooms-to-changed-limits.upstream.capture1.json",
+    "parity/system/traces/background-custom-bgcolor.psflow.capture2.json",
+    "parity/system/traces/keyboard-focus-node.psflow.capture1.json",
+    "parity/system/traces/drag-node-no-select-on-drag.upstream.capture2.json",
+    "parity/system/traces/wheel-zooms-out-to-min.psflow.capture1.json",
+    "parity/system/traces/pane-click-keeps-selection-when-not-selectable.psflow.capture1.json",
+    "parity/system/traces/panel-center-positions.psflow.capture1.json",
+    "parity/system/traces/click-connect-reverse-direction.psflow.capture1.json",
+    "parity/system/traces/drag-node-autopan.upstream.capture2.json",
+    "parity/system/traces/pan-gesture-complete.upstream.capture2.json",
+    "parity/system/traces/mount-baseline--flow-chrome-defaults.psflow.capture2.json",
+    "parity/system/traces/connect-drag-released-on-pane.upstream.capture1.json",
+    "parity/system/traces/delete-key-removes-node-and-edges.psflow.capture2.json",
+    "parity/system/traces/pane-click-keeps-selection-when-not-selectable.upstream.capture2.json",
+    "parity/system/traces/mount-baseline--nodes-connections.psflow.capture2.json",
+    "parity/system/traces/click-reveals-default-toolbar.upstream.capture2.json",
+    "parity/system/traces/connect-to-unconnectable-handle.psflow.capture1.json",
+    "parity/system/traces/drag-node-release.psflow.capture2.json",
+    "parity/system/traces/selection-box-touch.psflow.capture2.json",
+    "parity/system/traces/minimap-custom-mask-colors.upstream.capture2.json",
+    "parity/system/traces/connect-then-keyboard-move.upstream.capture2.json",
+    "parity/system/traces/connect-drag-released-on-pane.psflow.capture1.json",
+    "parity/system/traces/background-custom-bgcolor.upstream.capture2.json",
+    "parity/system/traces/click-connect-reverse-direction.upstream.capture2.json",
+    "parity/system/traces/pinch-over-nowheel-node.upstream.capture2.json",
+    "parity/system/traces/click-selects-node.psflow.capture2.json",
+    "parity/system/traces/connect-source-handle-to-target-handle--probe-connection-line.psflow.capture2.json",
+    "parity/system/traces/connect-handle-to-handle.psflow.capture2.json",
+    "parity/system/traces/minimap-all-nodes-hidden.psflow.capture1.json",
+    "parity/system/traces/wheel-zooms-the-pane.upstream.capture1.json",
+    "parity/system/traces/mount-baseline--edges-general.psflow.capture2.json",
+    "parity/system/traces/mount-baseline--nodes-expand-parent.psflow.capture2.json",
+    "parity/system/traces/mount-baseline--pane-non-defaults.psflow.capture2.json",
+    "parity/system/traces/mount-baseline--chrome-controls.psflow.capture2.json",
+    "parity/system/traces/delete-key-spares-undeletable-node.upstream.capture2.json",
+    "parity/system/traces/connect-drag-holding-source.psflow.capture2.json",
+    "parity/system/traces/wheel-pans-with-panonscroll.psflow.capture1.json",
+    "parity/system/traces/wheel-zooms-the-pane.psflow.capture1.json",
+    "parity/system/traces/arrow-key-selected-node.upstream.capture1.json",
+    "parity/system/traces/shift-drag-selects-nodes.upstream.capture2.json",
+    "parity/system/traces/minimap-default-click.psflow.capture2.json",
+    "parity/system/traces/multi-select-edges-with-modifier.upstream.capture2.json",
+    "parity/system/traces/mount-baseline--chrome-panels.psflow.capture1.json",
+    "parity/system/traces/click-selects-edge.upstream.capture1.json",
+    "parity/system/traces/fitview-onnodeschange-variants.psflow.capture2.json",
+    "parity/system/traces/mount-baseline--flow-not-selectable.psflow.capture2.json",
+    "parity/system/traces/click-selects-edge.psflow.capture1.json",
+    "parity/system/traces/selection-box-then-click-node.psflow.capture1.json",
+    "parity/system/traces/connect-input-to-input-handle.psflow.capture1.json",
+    "parity/system/traces/mount-baseline--nodes-props-record.psflow.capture1.json",
+    "parity/system/traces/connect-handle-to-handle.upstream.capture1.json",
+    "parity/system/traces/mount-baseline--flow-limits-change.psflow.capture1.json",
+    "parity/system/traces/connect-source-handle-to-target-handle--probe-connection-line.upstream.capture1.json",
+    "parity/system/traces/drag-node-reports-changes.psflow.capture2.json",
+    "parity/system/traces/mount-baseline--fitview-uncontrolled.psflow.capture2.json",
+    "parity/system/traces/pane-drag-from-identity-viewport.psflow.capture2.json",
+    "parity/system/traces/wheel-zooms-in-to-max.psflow.capture1.json",
+    "parity/system/traces/mount-baseline--viewport-pan-on-scroll.psflow.capture1.json",
+    "parity/system/traces/click-selects-node--probe-flow-node.upstream.capture2.json",
+    "parity/system/traces/drag-unmeasured-node.psflow.capture2.json",
+    "parity/system/traces/pinch-over-nowheel-node.psflow.capture2.json",
+    "parity/system/traces/connect-drag-holding-source.upstream.capture1.json",
+    "parity/system/traces/wheel-pans-with-panonscroll.upstream.capture1.json",
+    "parity/system/traces/click-reveals-default-toolbar.psflow.capture2.json",
+    "parity/system/traces/pan-after-controlled-viewport-change.upstream.capture1.json",
+    "parity/system/traces/mount-baseline--flow-display-none.psflow.capture2.json",
+    "parity/system/traces/drag-node-autopan.psflow.capture1.json",
+    "parity/system/traces/mount-baseline--pane-general.psflow.capture1.json",
+    "parity/system/traces/wheel-zooms-out-to-min.upstream.capture2.json",
+    "parity/system/traces/drag-does-not-move-undraggable-node.upstream.capture1.json",
+    "parity/system/traces/mount-baseline--viewport-controlled.psflow.capture2.json",
+    "parity/system/traces/delete-key-spares-undeletable-edge.psflow.capture1.json",
+    "parity/system/traces/drag-moves-node.psflow.capture2.json",
+    "parity/system/traces/shift-drag-selects-nodes.psflow.capture1.json",
+    "parity/system/traces/delete-key-spares-undeletable-edge.upstream.capture2.json",
+    "parity/system/traces/node-props-record-parented.psflow.capture1.json",
+    "parity/system/traces/mount-baseline--nodes-unmeasured.psflow.capture1.json",
+    "parity/system/traces/node-props-record-parented.upstream.capture2.json",
+    "parity/system/traces/controls-horizontal.psflow.capture2.json",
+    "parity/system/traces/flow-custom-testid.psflow.capture2.json",
+    "parity/system/traces/custom-edge-baseedge-path.psflow.capture2.json",
+    "parity/system/traces/click-selects-node.upstream.capture1.json",
+    "parity/system/traces/drag-by-custom-drag-handle.psflow.capture1.json",
+    "parity/system/traces/mount-baseline--chrome-minimap-hidden-nodes.psflow.capture2.json",
+    "parity/system/traces/delete-key-removes-edge.upstream.capture2.json",
+    "parity/system/traces/mount-in-display-none.psflow.capture2.json",
+    "parity/system/traces/drag-by-custom-drag-handle.upstream.capture2.json",
+    "parity/system/traces/mount-baseline--flow-custom-testid.psflow.capture1.json",
+    "parity/system/traces/click-inside-interaction-width.upstream.capture2.json",
+    "parity/system/traces/mount-baseline--viewport-helpers.psflow.capture2.json",
+    "parity/system/traces/mount-baseline--chrome-background.psflow.capture2.json",
+    "parity/system/traces/drag-pans-the-pane.upstream.capture2.json",
+    "parity/system/traces/drag-unmeasured-node.upstream.capture1.json",
+    "parity/system/traces/delete-key-spares-undeletable-node.psflow.capture2.json",
+    "parity/system/traces/pan-gesture-complete.psflow.capture1.json",
+    "parity/system/traces/mount-baseline--chrome-minimap-colors.psflow.capture2.json",
+    "parity/system/traces/wheel-zooms-to-changed-limits.psflow.capture2.json",
+    "parity/system/traces/drag-node-escape-mid-gesture.psflow.capture2.json",
+    "parity/system/traces/wheel-zoom-from-identity-viewport.psflow.capture2.json",
+    "parity/system/traces/selection-box-then-click-node.upstream.capture1.json",
+    "parity/system/traces/drag-pans-into-changed-extent.upstream.capture2.json",
+    "parity/system/traces/mount-baseline--edges-general--probe-edge.psflow.capture1.json",
+    "parity/system/traces/mount-baseline--flow-props-change.psflow.capture1.json",
+    "parity/system/traces/selection-box-from-node.upstream.capture1.json",
+    "parity/system/traces/click-selects-node--probe-flow-node.psflow.capture1.json",
+    "parity/system/traces/click-unselectable-node.psflow.capture2.json",
+    "parity/system/traces/wheel-zooms-the-pane--probe-flow-node.upstream.capture1.json",
+    "parity/system/traces/connect-source-handle-to-target-handle.upstream.capture2.json",
+    "parity/system/traces/drag-moves-node.upstream.capture2.json",
+    "parity/system/traces/mount-baseline--nodes-autopan.psflow.capture1.json",
+    "parity/system/traces/drag-child-expand-parent.psflow.capture1.json",
+    "parity/system/traces/drag-node-escape-mid-gesture.upstream.capture2.json",
+    "parity/system/traces/flow-props-change-after-mount.upstream.capture2.json",
+    "parity/system/traces/connect-then-keyboard-move.psflow.capture2.json",
+    "parity/system/traces/connect-to-unconnectable-handle.upstream.capture2.json",
+    "parity/system/traces/probe-node-connections.upstream.capture2.json",
+    "parity/system/traces/controls-default-zoom.psflow.capture2.json",
+    "parity/system/traces/drag-does-not-move-undraggable-node.psflow.capture1.json",
+    "parity/system/traces/connect-second-touch-point.upstream.capture2.json",
+    "parity/system/traces/selection-box-mid-gesture.psflow.capture2.json",
+    "parity/system/traces/ctrl-wheel-pinches-with-panonscroll.upstream.capture2.json",
+    "parity/system/traces/click-unselectable-node.upstream.capture1.json",
+    "parity/system/traces/flow-custom-testid.upstream.capture2.json",
+    "parity/system/traces/uncontrolled-update-node.psflow.capture2.json",
+    "parity/system/traces/connect-output-to-output-handle.upstream.capture2.json",
+    "parity/system/traces/click-unselectable-edge.psflow.capture1.json",
+    "parity/system/traces/selection-box-touch.upstream.capture2.json",
+    "parity/system/traces/probe-node-connections.psflow.capture1.json",
+    "parity/system/traces/selection-box-mid-gesture.upstream.capture2.json",
+    "parity/system/traces/drag-node-reports-changes.upstream.capture1.json",
+    "parity/system/corpus/hole-closing.mjs",
+    "parity/system/fixtures/README.md",
+    "parity/system/coverage/holes.json"
+  ],
+  "newInputs": [
+    "src/System/XYResizer/Types.purs",
+    "test/Test/Boundary/NodeResizing.js",
+    "test/Test/Boundary/NodeResizing.purs",
+    "test/Test/System/XYResizer.js",
+    "test/Test/System/XYResizer.purs",
+    "parity/system/traces/resize-node-with-resizer.psflow.capture1.json",
+    "parity/system/traces/mount-baseline--resize-lifecycle.psflow.capture1.json",
+    "parity/system/traces/resize-node-with-direct-control.psflow.capture2.json",
+    "parity/system/traces/resize-node-with-direct-control.upstream.capture2.json",
+    "parity/system/traces/mount-baseline--resize-lifecycle.upstream.capture2.json",
+    "parity/system/traces/resize-node-with-resizer.upstream.capture1.json",
+    "parity/system/traces/resize-node-after-active-limit-change.upstream.capture1.json",
+    "parity/system/traces/resize-node-after-active-limit-change.psflow.capture2.json",
+    "parity/system/traces/mount-baseline--resize-lifecycle.upstream.capture1.json",
+    "parity/system/traces/resize-node-with-resizer.upstream.capture2.json",
+    "parity/system/traces/resize-node-after-active-limit-change.upstream.capture2.json",
+    "parity/system/traces/resize-node-after-active-limit-change.psflow.capture1.json",
+    "parity/system/traces/resize-node-with-direct-control.upstream.capture1.json",
+    "parity/system/traces/mount-baseline--resize-lifecycle.psflow.capture2.json",
+    "parity/system/traces/resize-node-with-direct-control.psflow.capture1.json",
+    "parity/system/traces/resize-node-with-resizer.psflow.capture2.json",
+    "parity/system/fixtures/resize/lifecycle.ts",
+    "parity/system/fixtures/resize/components/ResizeNode.tsx"
+  ],
+  "unexpectedChanges": [],
+  "previousEvidenceChanges": [],
+  "vendorFiles": 171,
+  "vendorChanges": [],
+  "canonicalRefresh": {
+    "scenarios": 107,
+    "traces": 428,
+    "priorFilesArchived": 414,
+    "priorArchive": "before-canonical-checkpoint.tar.gz"
+  },
+  "outputs": [
+    {
+      "path": "parity/boundary/drift.mjs",
+      "sha256": "7b26c5c464385e18ff9921181db93db26c45241803ec0b33ab12b1b48cee9802"
+    },
+    {
+      "path": "parity/changelog-audit/report.md",
+      "sha256": "90715054bbe59c339e1f057c532dc8f37d2163d2730bcb5e239b129d5f8e79c6"
+    },
+    {
+      "path": "parity/changelog-audit/verdicts.json",
+      "sha256": "6670f2591b3a5bf5dc23be181a33bbf0384c44f51fed4cbbc6ae7c7644016de8"
+    },
+    {
+      "path": "parity/system/corpus/hole-closing.mjs",
+      "sha256": "8e0d4ba1416e3766de034830bd7b7cecc3b9c0bfe8e16524613a02cce5414d1e"
+    },
+    {
+      "path": "parity/system/coverage.md",
+      "sha256": "b4c2afd23c64c4c4a76c02e852bf5cd2636401b51389652e4550b27139ebdfd1"
+    },
+    {
+      "path": "parity/system/coverage/holes.json",
+      "sha256": "d2797efdf1e8eea02b058d4f7013b4acbc4861da70ea1d7532f6671f3e3ab012"
+    },
+    {
+      "path": "parity/system/fixtures/README.md",
+      "sha256": "8c2ce72992b3415dbdc5851a74a9b347f633db8d48ecbf7735411b3bfe901424"
+    },
+    {
+      "path": "parity/system/fixtures/resize/components/ResizeNode.tsx",
+      "sha256": "38c806ef3e7d5c4bdaec6eb58ef748063177b8d6a609b286dfbf728191b19aee"
+    },
+    {
+      "path": "parity/system/fixtures/resize/lifecycle.ts",
+      "sha256": "743d018ef9dcb2c48797dc66ce5f274abf2f1d7c0318a9854423017b8237282c"
+    },
+    {
+      "path": "parity/system/report.md",
+      "sha256": "c6a956a9fc445500ea1ce485c45d9b68fe30708472649bcea5af133df28eb1ca"
+    },
+    {
+      "path": "parity/system/traces/arrow-key-selected-node.psflow.capture1.json",
+      "sha256": "7b5415107b8c27870823df695b796fc5e92b453575c138f018e317cf9a7ae353"
+    },
+    {
+      "path": "parity/system/traces/arrow-key-selected-node.psflow.capture2.json",
+      "sha256": "b1b44dbe8120588e57822da00a82a5137264926535bad951f3f64e3e0ffbff0f"
+    },
+    {
+      "path": "parity/system/traces/arrow-key-selected-node.upstream.capture1.json",
+      "sha256": "9afe931570f878e5d8b29ec23d413ff88dc4ed58fe58b4ae6088e761b721c32f"
+    },
+    {
+      "path": "parity/system/traces/arrow-key-selected-node.upstream.capture2.json",
+      "sha256": "5aa29fcb8356232b48f8a196b81070581196f974949dea752625cd1fe6c63e36"
+    },
+    {
+      "path": "parity/system/traces/background-custom-bgcolor.psflow.capture1.json",
+      "sha256": "3b66621bcdb6f0ddc8c744c81fb236bee8889888723781affe9ccbe112f849ce"
+    },
+    {
+      "path": "parity/system/traces/background-custom-bgcolor.psflow.capture2.json",
+      "sha256": "ff15617f50f637ddc2fd436779423a32c4f3a5887e61a051d76bf1ba173f1971"
+    },
+    {
+      "path": "parity/system/traces/background-custom-bgcolor.upstream.capture1.json",
+      "sha256": "b599da94f903527eade54890e242fdc145f168a36b86e95b677c5e14c519e4bf"
+    },
+    {
+      "path": "parity/system/traces/background-custom-bgcolor.upstream.capture2.json",
+      "sha256": "08980cc381529c0f42296da301f6b092cf88a7877ce982aeb01015b41ed02cc6"
+    },
+    {
+      "path": "parity/system/traces/click-connect-reverse-direction.psflow.capture1.json",
+      "sha256": "1980a232cd87d8acad2c2ef559433aadfe286851847abedb24ce83134278bdf5"
+    },
+    {
+      "path": "parity/system/traces/click-connect-reverse-direction.psflow.capture2.json",
+      "sha256": "244e01891c54c161b564bc293fba66e199bfc81af92a2f791bfbb5238534f9fe"
+    },
+    {
+      "path": "parity/system/traces/click-connect-reverse-direction.upstream.capture1.json",
+      "sha256": "20c823cd5f31fad4460a6c77a3902d5d3616a9d0d7a0519abfa0c0f24b90899b"
+    },
+    {
+      "path": "parity/system/traces/click-connect-reverse-direction.upstream.capture2.json",
+      "sha256": "527ea88c8b1e71c10ff816ebd3d2ff28f80f60f5315e8d669dc1fdb8d2838be8"
+    },
+    {
+      "path": "parity/system/traces/click-inside-interaction-width.psflow.capture1.json",
+      "sha256": "f774f4fd173d4f90223018fa2015bf042a256bdb70d576359497b3219a18b47a"
+    },
+    {
+      "path": "parity/system/traces/click-inside-interaction-width.psflow.capture2.json",
+      "sha256": "7954d22ba2644a70ca21c1dd3ca05206e2891e829f8c9998dae8af88595a4ea8"
+    },
+    {
+      "path": "parity/system/traces/click-inside-interaction-width.upstream.capture1.json",
+      "sha256": "cd9c34ee7ca1c6a09bf0ea770c0f8cc96292b82ced543300e3bf1b24f1a9ac24"
+    },
+    {
+      "path": "parity/system/traces/click-inside-interaction-width.upstream.capture2.json",
+      "sha256": "8eecc7876652b4ed592e8a62e1d1e3faf7a269e7f9132910258332863f0c0a4f"
+    },
+    {
+      "path": "parity/system/traces/click-reveals-default-toolbar.psflow.capture1.json",
+      "sha256": "7b8bb3c4b445e7860cc20eaf089b87bc84c97cc2bfa7f7c5c8b8db17adab38e0"
+    },
+    {
+      "path": "parity/system/traces/click-reveals-default-toolbar.psflow.capture2.json",
+      "sha256": "a7bb55f32dbdb05ddae2a7af343e25f309ff58f79e7128b7f81ae2196eff103e"
+    },
+    {
+      "path": "parity/system/traces/click-reveals-default-toolbar.upstream.capture1.json",
+      "sha256": "2b2b431822941ef3013d07eff335e54a431fb554f05c2a6ea725cd070552cb23"
+    },
+    {
+      "path": "parity/system/traces/click-reveals-default-toolbar.upstream.capture2.json",
+      "sha256": "65a05f8f75fd53db57b5ab7b7bdf3abcafa849831a0b37b1b9433e17639b0b0c"
+    },
+    {
+      "path": "parity/system/traces/click-selects-edge.psflow.capture1.json",
+      "sha256": "f5112395a7c0d15234dc7bed560342b993dcc3e53de2329ae92593202b808b84"
+    },
+    {
+      "path": "parity/system/traces/click-selects-edge.psflow.capture2.json",
+      "sha256": "5d9541e659b0120415f845274a0905fa37441d0c9083a9c124ccb52aae0674be"
+    },
+    {
+      "path": "parity/system/traces/click-selects-edge.upstream.capture1.json",
+      "sha256": "7a3272f9bdba642e084f4f5830108f4fe20764f285fd67480f80a5560b4cf116"
+    },
+    {
+      "path": "parity/system/traces/click-selects-edge.upstream.capture2.json",
+      "sha256": "ec021f7f1ec13681866413788a612f74a841d0610c5be0a6708def4819a3df82"
+    },
+    {
+      "path": "parity/system/traces/click-selects-node--probe-flow-node.psflow.capture1.json",
+      "sha256": "7b70d4ee864192d063333612bbc94d64360aa78d702a21410e48017c5dc30b5c"
+    },
+    {
+      "path": "parity/system/traces/click-selects-node--probe-flow-node.psflow.capture2.json",
+      "sha256": "c41dc1a28a2ada71018e59e2bdd1007f575d3d87742482d42d211cf6f3ba3361"
+    },
+    {
+      "path": "parity/system/traces/click-selects-node--probe-flow-node.upstream.capture1.json",
+      "sha256": "4ae575a2a8455d2504d64eff07b7ba880356c32c99e1bedeb7cf6318aaf3a8b1"
+    },
+    {
+      "path": "parity/system/traces/click-selects-node--probe-flow-node.upstream.capture2.json",
+      "sha256": "fc2e228808a6cc62e6aa60bc4572682cdf72c0e358235ff916696c0499f3cbbb"
+    },
+    {
+      "path": "parity/system/traces/click-selects-node.psflow.capture1.json",
+      "sha256": "25db27f39cb583deda1a0a19a37fa0f9846813684ad861d4e895c1c18ac1ee7a"
+    },
+    {
+      "path": "parity/system/traces/click-selects-node.psflow.capture2.json",
+      "sha256": "2b0a6e39e88b6287c763cd552580fd4d19ff7f8640fcbcf8e2a52967059f8ebf"
+    },
+    {
+      "path": "parity/system/traces/click-selects-node.upstream.capture1.json",
+      "sha256": "173105f0b4064115b0180efffcce9f5a81a6dbe2a104524dacd2c673b9e91353"
+    },
+    {
+      "path": "parity/system/traces/click-selects-node.upstream.capture2.json",
+      "sha256": "1246087587d314e29a40f027aed69ff48c7f011d83f231e21791290b06706fb9"
+    },
+    {
+      "path": "parity/system/traces/click-unselectable-edge.psflow.capture1.json",
+      "sha256": "2c5052cc5da5144d33d71f47311ee35f04ba13caa3a9f8bb00d13701c18034bd"
+    },
+    {
+      "path": "parity/system/traces/click-unselectable-edge.psflow.capture2.json",
+      "sha256": "26fc51e88bdc89c71db1d269e518d6e8b5c342c399d85cea66f5537085911253"
+    },
+    {
+      "path": "parity/system/traces/click-unselectable-edge.upstream.capture1.json",
+      "sha256": "d899c31e3010318fb2e190792124a315cca23dd74c24ed4c7f684db419e6d54b"
+    },
+    {
+      "path": "parity/system/traces/click-unselectable-edge.upstream.capture2.json",
+      "sha256": "f6ad94e91c54ec1b2d4415ef807230d412088a844bc7935537579fd7f723a24e"
+    },
+    {
+      "path": "parity/system/traces/click-unselectable-node.psflow.capture1.json",
+      "sha256": "3ba0599d3f94f25112dad7d009c9991fc5ebd7a587bbd3d05f85f94148bb7176"
+    },
+    {
+      "path": "parity/system/traces/click-unselectable-node.psflow.capture2.json",
+      "sha256": "f6bab034cf0e849e879216e3f0cf77b5ea1f899cd195d1d1f15c653679f148cf"
+    },
+    {
+      "path": "parity/system/traces/click-unselectable-node.upstream.capture1.json",
+      "sha256": "657b1cd91e7deffe01d6a0fb306040038a5f4c2773fc97270787f55d867ffa52"
+    },
+    {
+      "path": "parity/system/traces/click-unselectable-node.upstream.capture2.json",
+      "sha256": "a47803671f8dbb189a29d10edb36c9e7603ebcb50a10bf3d9c092e89a4675058"
+    },
+    {
+      "path": "parity/system/traces/connect-drag-holding-source.psflow.capture1.json",
+      "sha256": "ece022198ffca70fe98049f6afbd3542be97f2f2bcb8126641bc34662e433120"
+    },
+    {
+      "path": "parity/system/traces/connect-drag-holding-source.psflow.capture2.json",
+      "sha256": "7d9c07c06556969d487ae9a7e0e3fc4d746853dc101cdb20f0dbdec7617c6d9e"
+    },
+    {
+      "path": "parity/system/traces/connect-drag-holding-source.upstream.capture1.json",
+      "sha256": "de82db2a22b6333b16e4c8f507e8fdeae5fcb7e7934e4876f18ea556b1e34016"
+    },
+    {
+      "path": "parity/system/traces/connect-drag-holding-source.upstream.capture2.json",
+      "sha256": "fb23171144e7d895b494c4e002c341365ebf4e29769f4fe7637c45f8fd49dc11"
+    },
+    {
+      "path": "parity/system/traces/connect-drag-released-on-pane.psflow.capture1.json",
+      "sha256": "31e7c4368503f3ee2498672361cb7f8c7e16ccddc5781b7a26cf5e49f3a9abeb"
+    },
+    {
+      "path": "parity/system/traces/connect-drag-released-on-pane.psflow.capture2.json",
+      "sha256": "fd21df214e334030aa3d3f220156fe9b5249c139865c507023d2b2b4200495de"
+    },
+    {
+      "path": "parity/system/traces/connect-drag-released-on-pane.upstream.capture1.json",
+      "sha256": "12ba042e81181ef7840b1bf7850da7d98c88e8018e9310837a64099e9b4efc3a"
+    },
+    {
+      "path": "parity/system/traces/connect-drag-released-on-pane.upstream.capture2.json",
+      "sha256": "dd5e037c275850ee6e943ae76beab7ddaf2d2c56c23dd1952f5b6027017a50f3"
+    },
+    {
+      "path": "parity/system/traces/connect-handle-to-handle.psflow.capture1.json",
+      "sha256": "18a18f6a7ca5694c53a68b4a92204a5426e9dbf424526f74bc71317db52020aa"
+    },
+    {
+      "path": "parity/system/traces/connect-handle-to-handle.psflow.capture2.json",
+      "sha256": "bbadf1268c0cf085f7f332f1666588c72861ff5ae7a2a3d95c64a03dfeb98d20"
+    },
+    {
+      "path": "parity/system/traces/connect-handle-to-handle.upstream.capture1.json",
+      "sha256": "0729b76fc57c03cdcf6c2e385a9dc79beb15f27a167c5254781a3a9599e1afe8"
+    },
+    {
+      "path": "parity/system/traces/connect-handle-to-handle.upstream.capture2.json",
+      "sha256": "3186fc2f7ba5d354420b1626b9bdd105ad4e48c9c40765222fb46407aea99fe4"
+    },
+    {
+      "path": "parity/system/traces/connect-input-to-input-handle.psflow.capture1.json",
+      "sha256": "cadb20aa56c56602579a18b5ea3f2d1783d0e3c9080387a2c2b8906d736e7e0a"
+    },
+    {
+      "path": "parity/system/traces/connect-input-to-input-handle.psflow.capture2.json",
+      "sha256": "eaf6e88700d33f848ce6611ed469fd1fc65179f26a516d19b04b866d3198b531"
+    },
+    {
+      "path": "parity/system/traces/connect-input-to-input-handle.upstream.capture1.json",
+      "sha256": "5bb296b27d246e2cc1751aebf19d633f4ad167c18131580acdbe34645e5d1717"
+    },
+    {
+      "path": "parity/system/traces/connect-input-to-input-handle.upstream.capture2.json",
+      "sha256": "2ae0c27081b7ce364277d8ed416de1ac3b3221562934e28f92951c0089d80b2d"
+    },
+    {
+      "path": "parity/system/traces/connect-output-to-output-handle.psflow.capture1.json",
+      "sha256": "1987c5aef3bfc76329dafd6706142e9f5d9fd6c488bdb7592ca8ac76bd8ae42d"
+    },
+    {
+      "path": "parity/system/traces/connect-output-to-output-handle.psflow.capture2.json",
+      "sha256": "6ab7e861f4cb39d239e1192b4bb990f0ed3e018b3362f0ccea612dfbf22f6aaa"
+    },
+    {
+      "path": "parity/system/traces/connect-output-to-output-handle.upstream.capture1.json",
+      "sha256": "62d3c0427dbb76f8d3b31157ac9d68b120a46c0b0b1ca3c777cfee7dfac63162"
+    },
+    {
+      "path": "parity/system/traces/connect-output-to-output-handle.upstream.capture2.json",
+      "sha256": "b50bbb7e3734a81229c2f85f50d8ce471da927cfe9b8471409b2002ed2fe4b49"
+    },
+    {
+      "path": "parity/system/traces/connect-second-touch-point.psflow.capture1.json",
+      "sha256": "44def8b47fe43c99229a6ca8820e501290309490dad226db09a334e56ec64632"
+    },
+    {
+      "path": "parity/system/traces/connect-second-touch-point.psflow.capture2.json",
+      "sha256": "d33078c5b28575b6a52c8ea20bf72e29d9c73b74ac85bdb3f09547500f490b89"
+    },
+    {
+      "path": "parity/system/traces/connect-second-touch-point.upstream.capture1.json",
+      "sha256": "ebf9ecfefdda2777a5751ea8fb55f191d430f747b6ccd608ab0930acc14bb079"
+    },
+    {
+      "path": "parity/system/traces/connect-second-touch-point.upstream.capture2.json",
+      "sha256": "7374e666125df24fb814dd39e2ecacdf685712d62d4093537d0e612b06368f04"
+    },
+    {
+      "path": "parity/system/traces/connect-source-handle-to-target-handle--probe-connection-line.psflow.capture1.json",
+      "sha256": "c97aa9e0e093cb1896fd9456d6f00d9de357485665671df117f4d394f886acbb"
+    },
+    {
+      "path": "parity/system/traces/connect-source-handle-to-target-handle--probe-connection-line.psflow.capture2.json",
+      "sha256": "ae648a4db66a3699723df25e9bfef71563af4220df45af1ea6e2d225236cc9d0"
+    },
+    {
+      "path": "parity/system/traces/connect-source-handle-to-target-handle--probe-connection-line.upstream.capture1.json",
+      "sha256": "93a988d55ed58bdb30fc4d70df262417bf1c88f57761acc6697ecd1fdaee191a"
+    },
+    {
+      "path": "parity/system/traces/connect-source-handle-to-target-handle--probe-connection-line.upstream.capture2.json",
+      "sha256": "5a1ab66199a11a2478aad888c1a1e410f9ca1237e2c2fb5f0710b929f65da3bf"
+    },
+    {
+      "path": "parity/system/traces/connect-source-handle-to-target-handle.psflow.capture1.json",
+      "sha256": "2321261d9b23ee068e055b874c2b1d67411e8f847656334f4eadc23eddc30799"
+    },
+    {
+      "path": "parity/system/traces/connect-source-handle-to-target-handle.psflow.capture2.json",
+      "sha256": "e962576e51c4e4d366bdbfc024bc0bec351245ca9f7f422eedf84e57e341c5db"
+    },
+    {
+      "path": "parity/system/traces/connect-source-handle-to-target-handle.upstream.capture1.json",
+      "sha256": "014f33066e48f4425bf9ee8329122cb0ee6d19a0fcd1b16996d2664d13300c0c"
+    },
+    {
+      "path": "parity/system/traces/connect-source-handle-to-target-handle.upstream.capture2.json",
+      "sha256": "d57b52e2e4a9a416d87f3837680573522b961097351c4281f7dab3e499d122fa"
+    },
+    {
+      "path": "parity/system/traces/connect-then-keyboard-move.psflow.capture1.json",
+      "sha256": "9e3d47301dd8687607bf15e73d197296969ec8849c99554c3619cdd5cfa866c7"
+    },
+    {
+      "path": "parity/system/traces/connect-then-keyboard-move.psflow.capture2.json",
+      "sha256": "7723bc999e758f131b891251fb898eba941532813c98bdb6b49e2c78275cec13"
+    },
+    {
+      "path": "parity/system/traces/connect-then-keyboard-move.upstream.capture1.json",
+      "sha256": "18122d2ec9b69bd35e0be19529c3cc3b7b4abd994d53a961df03d276e54a9d8b"
+    },
+    {
+      "path": "parity/system/traces/connect-then-keyboard-move.upstream.capture2.json",
+      "sha256": "8018c84dfde8aa4b01c3958259e4608c8a07c30fcdb57e910f6e2d2504b920dd"
+    },
+    {
+      "path": "parity/system/traces/connect-to-unconnectable-handle.psflow.capture1.json",
+      "sha256": "111d2059a182633c53ae62c31da2a532c380b3d9b33635d5c418735971999ea1"
+    },
+    {
+      "path": "parity/system/traces/connect-to-unconnectable-handle.psflow.capture2.json",
+      "sha256": "0041cb2e1054273136349c28ed394221d5991fecca97dab9b86a16d05cd4af96"
+    },
+    {
+      "path": "parity/system/traces/connect-to-unconnectable-handle.upstream.capture1.json",
+      "sha256": "a8f6d69f6677bb2c24abf0b5a52a7971d61b5f151135300d9a8bf5f01efb1ec7"
+    },
+    {
+      "path": "parity/system/traces/connect-to-unconnectable-handle.upstream.capture2.json",
+      "sha256": "62e79e1833c0d20e49e05b8495817c8cd625d40fffefec10f0548d3ca6a4d683"
+    },
+    {
+      "path": "parity/system/traces/controls-default-zoom.psflow.capture1.json",
+      "sha256": "90b3aedd2a62d5901c7cdd96a5d93a152919af4278d903ae29406d01596d7117"
+    },
+    {
+      "path": "parity/system/traces/controls-default-zoom.psflow.capture2.json",
+      "sha256": "d9837b1382edc9c2caf03f397dde5bc477aa2f8068f947abed32db5bfc87d1ba"
+    },
+    {
+      "path": "parity/system/traces/controls-horizontal.psflow.capture1.json",
+      "sha256": "51f8552daacfe683c8260c7becefb0a45f7191f27d2bd3b8dcb44d6b42beb546"
+    },
+    {
+      "path": "parity/system/traces/controls-horizontal.psflow.capture2.json",
+      "sha256": "00912e4091f73dfeb0d4e11137585affa6c90ffca4be234a4af71f75fdfa737e"
+    },
+    {
+      "path": "parity/system/traces/ctrl-wheel-pinches-with-panonscroll.psflow.capture1.json",
+      "sha256": "6d3a16418626e6db5dd4bd8ca72f5fabdebf1a287643f82c12a1f4afd19133f7"
+    },
+    {
+      "path": "parity/system/traces/ctrl-wheel-pinches-with-panonscroll.psflow.capture2.json",
+      "sha256": "0f37849648cd67e71b62e6012923af3d0c98faeb249a2ce797468d23a2c54a89"
+    },
+    {
+      "path": "parity/system/traces/ctrl-wheel-pinches-with-panonscroll.upstream.capture1.json",
+      "sha256": "ee9ef03c97b21b49d98443799f471b297b706877f6ca70235f09174f5b3210eb"
+    },
+    {
+      "path": "parity/system/traces/ctrl-wheel-pinches-with-panonscroll.upstream.capture2.json",
+      "sha256": "61839828a8c43227c8c61c22173a1f7df89cea21bd3a066605ab0a8ef0ec8d00"
+    },
+    {
+      "path": "parity/system/traces/custom-edge-baseedge-path.psflow.capture1.json",
+      "sha256": "1b2327c9ace9f31eb035c5094c4594487a397fe3d9cf1c1c855829dec01424e3"
+    },
+    {
+      "path": "parity/system/traces/custom-edge-baseedge-path.psflow.capture2.json",
+      "sha256": "761e8a13033ee7e3f4570c06dc4498957896039e6fd080380e1c37bff878d1ac"
+    },
+    {
+      "path": "parity/system/traces/custom-edge-baseedge-path.upstream.capture1.json",
+      "sha256": "3acfc8148b8ccab5e2cdfba2d7c163a027ebd359c053a932ebbd9a3b92db8d27"
+    },
+    {
+      "path": "parity/system/traces/custom-edge-baseedge-path.upstream.capture2.json",
+      "sha256": "87e847f3a6620bb193df99b21460d2dff383319de8aad4daaca365b9ae857205"
+    },
+    {
+      "path": "parity/system/traces/delete-key-removes-edge.psflow.capture1.json",
+      "sha256": "7e12bc2d2ec8c227f47a4cf5413419e5b2d044853ba55e550267baba154a14a2"
+    },
+    {
+      "path": "parity/system/traces/delete-key-removes-edge.psflow.capture2.json",
+      "sha256": "890742c223e5bfc3f26c6c11f2e771b38301152ab31a333d8b73bcce36f15db9"
+    },
+    {
+      "path": "parity/system/traces/delete-key-removes-edge.upstream.capture1.json",
+      "sha256": "ea5a5619f7048b653f6375b3347c2d1a13a46ec1f41e38afc2298e216038ce26"
+    },
+    {
+      "path": "parity/system/traces/delete-key-removes-edge.upstream.capture2.json",
+      "sha256": "0434f1f3819d5cc60ebbdb1ab2eb16195173aa900d1b4fc1a190e1f2515e3f92"
+    },
+    {
+      "path": "parity/system/traces/delete-key-removes-node-and-edges.psflow.capture1.json",
+      "sha256": "7be5ec620826cc552f27f968c67c768f336cd6c464bb78f2abb21e1c09c1c3bb"
+    },
+    {
+      "path": "parity/system/traces/delete-key-removes-node-and-edges.psflow.capture2.json",
+      "sha256": "43077fb0bac0dc96ef69319f412f98a3fdf6c903d7655e9f901a9e42c2215784"
+    },
+    {
+      "path": "parity/system/traces/delete-key-removes-node-and-edges.upstream.capture1.json",
+      "sha256": "5b6ac9876905124e7cf193270fe15db619aa366fdec2818a9e0a7f4da4ab12f8"
+    },
+    {
+      "path": "parity/system/traces/delete-key-removes-node-and-edges.upstream.capture2.json",
+      "sha256": "f245b7feacabbb52d0c657e445167092e191e6376b2b83b00097e373c1d39500"
+    },
+    {
+      "path": "parity/system/traces/delete-key-spares-undeletable-edge.psflow.capture1.json",
+      "sha256": "6370dc2cda9d5738ee1f9b7461813d8de025572190c21ce6fec6ae617afce7d6"
+    },
+    {
+      "path": "parity/system/traces/delete-key-spares-undeletable-edge.psflow.capture2.json",
+      "sha256": "ffe92f3f2c4f9d2f8583ea92a023b84a5883e3e7195a151c50e7f12656858f6f"
+    },
+    {
+      "path": "parity/system/traces/delete-key-spares-undeletable-edge.upstream.capture1.json",
+      "sha256": "a1086aaf85457542d09cf829368a0e8d4ea884c5a875d427667cc96ab5f87597"
+    },
+    {
+      "path": "parity/system/traces/delete-key-spares-undeletable-edge.upstream.capture2.json",
+      "sha256": "8d69ce639e30c09f3db12a888b0c3bdd49f5e4f5b37c968b71b33af66beb9bcc"
+    },
+    {
+      "path": "parity/system/traces/delete-key-spares-undeletable-node.psflow.capture1.json",
+      "sha256": "49da54d0365ab44b98f51d08a8e87d342791ecf11f7fb00a6eaecac53a4b8371"
+    },
+    {
+      "path": "parity/system/traces/delete-key-spares-undeletable-node.psflow.capture2.json",
+      "sha256": "d70499456f42a5d342b4f65490d770d1bca84e68173a911b5ae829a1146ee19a"
+    },
+    {
+      "path": "parity/system/traces/delete-key-spares-undeletable-node.upstream.capture1.json",
+      "sha256": "a62898eed1b5be56f2d78d90c21080d5a124a354efb02464f544962d0b8dbf77"
+    },
+    {
+      "path": "parity/system/traces/delete-key-spares-undeletable-node.upstream.capture2.json",
+      "sha256": "ae06454409b2ce11a37d5d7bcab17c2e86cbd6d979e4f2b885aa1a5e8d18f503"
+    },
+    {
+      "path": "parity/system/traces/drag-by-custom-drag-handle.psflow.capture1.json",
+      "sha256": "c00a3fe575232ca80c183544e41553ab64d9ac3dfe936423f72a7a2af2991350"
+    },
+    {
+      "path": "parity/system/traces/drag-by-custom-drag-handle.psflow.capture2.json",
+      "sha256": "bee564f367de3a9e28bae3b06cbdaaeab5279be034f87a44dab1f981b7a0b9bc"
+    },
+    {
+      "path": "parity/system/traces/drag-by-custom-drag-handle.upstream.capture1.json",
+      "sha256": "ed2da0dbe76f20b927ecdaf5ed87e07c9d4853a112758511960f8901f5285f72"
+    },
+    {
+      "path": "parity/system/traces/drag-by-custom-drag-handle.upstream.capture2.json",
+      "sha256": "e35217d170168e46890cdc519fb8e9c601b05d5b74e3c4118ab2c9a384a14c55"
+    },
+    {
+      "path": "parity/system/traces/drag-child-expand-parent.psflow.capture1.json",
+      "sha256": "df763c991d416d5ece2c7a3c9eda54b80a08e9298ebdf9a4667fabdf1325816f"
+    },
+    {
+      "path": "parity/system/traces/drag-child-expand-parent.psflow.capture2.json",
+      "sha256": "00205509c65a820906e21b58d00bf2f437162a0e4aab9cdd097bb265b17de194"
+    },
+    {
+      "path": "parity/system/traces/drag-child-expand-parent.upstream.capture1.json",
+      "sha256": "feb99c092686722756b3a5e27779337debf2ae1f1597ad1e8e5f0469be253e65"
+    },
+    {
+      "path": "parity/system/traces/drag-child-expand-parent.upstream.capture2.json",
+      "sha256": "0df6ae77bace43f82c193e2256ae19ed1d60a25d4702bfe47976b700de7866f6"
+    },
+    {
+      "path": "parity/system/traces/drag-does-not-move-undraggable-node.psflow.capture1.json",
+      "sha256": "cb1ec379195aadfb654b03d2cc0333440bf21436d456df5730b32844696f188d"
+    },
+    {
+      "path": "parity/system/traces/drag-does-not-move-undraggable-node.psflow.capture2.json",
+      "sha256": "6a057ffd2b4bbd0d9609263daefb0f60aad3baf269f39d5c5cb43cc413a25f55"
+    },
+    {
+      "path": "parity/system/traces/drag-does-not-move-undraggable-node.upstream.capture1.json",
+      "sha256": "7ebe4d39a4e4fcdff25aae2e718e9650d70cea81f93f982e6165445cc3b5c3b9"
+    },
+    {
+      "path": "parity/system/traces/drag-does-not-move-undraggable-node.upstream.capture2.json",
+      "sha256": "d31fa229170c01c5a6c1fc17da59452c8eb231c18618c72e0a54123a21e74c04"
+    },
+    {
+      "path": "parity/system/traces/drag-moves-node.psflow.capture1.json",
+      "sha256": "c512ec629185014e60fded929058eef3e5c94b4c685bc2077300746acd0477ad"
+    },
+    {
+      "path": "parity/system/traces/drag-moves-node.psflow.capture2.json",
+      "sha256": "d25efedd6a9d04a81801ccf8778ae59f044e0bfe328538d1eb4af76be03d7dbd"
+    },
+    {
+      "path": "parity/system/traces/drag-moves-node.upstream.capture1.json",
+      "sha256": "023b958ba6d8e6182f3b9260cc84332f715d630d4540f0f1612edc96bb237abf"
+    },
+    {
+      "path": "parity/system/traces/drag-moves-node.upstream.capture2.json",
+      "sha256": "0929302ea12e81bcbda258d69f65c3ef044351bdfd2d843652e1ec32b9274a86"
+    },
+    {
+      "path": "parity/system/traces/drag-node-autopan.psflow.capture1.json",
+      "sha256": "dec8089864d79a5a5452c27808ccc9cc042fefbb9b45ef2c481f8c67b2b22ec6"
+    },
+    {
+      "path": "parity/system/traces/drag-node-autopan.psflow.capture2.json",
+      "sha256": "e3a3a9852fb8363e3f43ec8f33876aa39e546753499153b1b896f04df6837147"
+    },
+    {
+      "path": "parity/system/traces/drag-node-autopan.upstream.capture1.json",
+      "sha256": "b195c761f0275dbec745ab93e322490d083d392b2aabf8b840ef9607c00e3b8d"
+    },
+    {
+      "path": "parity/system/traces/drag-node-autopan.upstream.capture2.json",
+      "sha256": "132a526f37efa2113dde86538de8cdd719af31ee1b5eff3e90cd6e0ac8133417"
+    },
+    {
+      "path": "parity/system/traces/drag-node-escape-mid-gesture.psflow.capture1.json",
+      "sha256": "d93e6ec554de576ba16b1d90c43df680e2f1280cd58186d0da634f83e0a27344"
+    },
+    {
+      "path": "parity/system/traces/drag-node-escape-mid-gesture.psflow.capture2.json",
+      "sha256": "24c75c8dc9ea8737f53a4ef17b367082da00bd8ae8226ba7d50d330312d36c3a"
+    },
+    {
+      "path": "parity/system/traces/drag-node-escape-mid-gesture.upstream.capture1.json",
+      "sha256": "ffe9c7cb31b93428cefdc645323d02b2e86cdbd079bc5d91101ab906a16323d7"
+    },
+    {
+      "path": "parity/system/traces/drag-node-escape-mid-gesture.upstream.capture2.json",
+      "sha256": "a4f3de522b1b354209bc34d2f401873e572dd4c430137792792b0a8367e5faa7"
+    },
+    {
+      "path": "parity/system/traces/drag-node-no-select-on-drag.psflow.capture1.json",
+      "sha256": "9ae9cf0f04d3dfedc431ddc3dc55a59f7e45fd346b0844742ebb2d60ca2dba00"
+    },
+    {
+      "path": "parity/system/traces/drag-node-no-select-on-drag.psflow.capture2.json",
+      "sha256": "c6d122396a289cdd3746905e15cff85c4c71937525ba79fbdada1a29f36362e3"
+    },
+    {
+      "path": "parity/system/traces/drag-node-no-select-on-drag.upstream.capture1.json",
+      "sha256": "6e4805d228332cac2b89e88cefd4a16e8fa99bf38538d11a51a4498214bae0ee"
+    },
+    {
+      "path": "parity/system/traces/drag-node-no-select-on-drag.upstream.capture2.json",
+      "sha256": "0a57ab3056a0613c526e67f285f75e52c6a639e0e4ad5425fac12ad6e90b1964"
+    },
+    {
+      "path": "parity/system/traces/drag-node-release.psflow.capture1.json",
+      "sha256": "c2cfe08aef6ae47e66ce3ae2c7207a396627a44fe77b5dcf810fe0fa2b2bcc4a"
+    },
+    {
+      "path": "parity/system/traces/drag-node-release.psflow.capture2.json",
+      "sha256": "ccbfdf020b8f24ccb890ca69ee2a98d6cbf0868411f11a1f6f11dbafddc0b5d7"
+    },
+    {
+      "path": "parity/system/traces/drag-node-release.upstream.capture1.json",
+      "sha256": "b551f216f129f905dcc04b0a91791ab42567f4b742c72a97e6db82c8cfc49ddc"
+    },
+    {
+      "path": "parity/system/traces/drag-node-release.upstream.capture2.json",
+      "sha256": "4649ba91c52169337be7efd5ff4f0b0a0710f50bb8bff3414d1c72a8e14bfa23"
+    },
+    {
+      "path": "parity/system/traces/drag-node-reports-changes.psflow.capture1.json",
+      "sha256": "616c8400fe9e3b5572f5d9d6388ea33852d27d5347cddb6671136e412633c616"
+    },
+    {
+      "path": "parity/system/traces/drag-node-reports-changes.psflow.capture2.json",
+      "sha256": "c395bf6b7b14565ccbe825d73cee2d36dc10bc8fe01e391c2b8878cc412bbee8"
+    },
+    {
+      "path": "parity/system/traces/drag-node-reports-changes.upstream.capture1.json",
+      "sha256": "0a3d0ff879e152759543c698bf7922c64af63da8171e181ee84ea0b7099b3aa7"
+    },
+    {
+      "path": "parity/system/traces/drag-node-reports-changes.upstream.capture2.json",
+      "sha256": "9b3fe21e616b3119a92fc61868ef4449cc60b12f5a817c9ee93c10aa3b100f20"
+    },
+    {
+      "path": "parity/system/traces/drag-pans-into-changed-extent.psflow.capture1.json",
+      "sha256": "f88a4ac1b507f61f006124ea09b7f4ffaed60f9bb38a7027dd1fb00ec3133850"
+    },
+    {
+      "path": "parity/system/traces/drag-pans-into-changed-extent.psflow.capture2.json",
+      "sha256": "efb49673b82b6de336f596db6164900f8bda16103f254db7ccca761c8d4afcb6"
+    },
+    {
+      "path": "parity/system/traces/drag-pans-into-changed-extent.upstream.capture1.json",
+      "sha256": "403e1e05c038de17cdfea7e1c590a69fbb99c78830b349878cef0f874d373ea4"
+    },
+    {
+      "path": "parity/system/traces/drag-pans-into-changed-extent.upstream.capture2.json",
+      "sha256": "ef883dcbd06e2dde2622eadf08fe65a44ecf8a4375b4260887ac3e0b76fb54c7"
+    },
+    {
+      "path": "parity/system/traces/drag-pans-the-pane.psflow.capture1.json",
+      "sha256": "7f4b6802b2e43915f78b4b03f58da938b40edc934e2348c89b3158b8b5bcce28"
+    },
+    {
+      "path": "parity/system/traces/drag-pans-the-pane.psflow.capture2.json",
+      "sha256": "a8c49bb84028ad3a28ce0f6d5c5b09b5c6856d73c9e330c45619477555c3a975"
+    },
+    {
+      "path": "parity/system/traces/drag-pans-the-pane.upstream.capture1.json",
+      "sha256": "d97c838e2b08b43e9966a3ad1593e3e4f44f56b10c9c49175211547c94af966b"
+    },
+    {
+      "path": "parity/system/traces/drag-pans-the-pane.upstream.capture2.json",
+      "sha256": "3ff71bf06a26fff65e2703a2fac4f358133df83a094ec883b80be60b2d67281c"
+    },
+    {
+      "path": "parity/system/traces/drag-unmeasured-node.psflow.capture1.json",
+      "sha256": "b96b218f6f493bdecca559b6659215ffd390ebe309c425bbffa03d243108523a"
+    },
+    {
+      "path": "parity/system/traces/drag-unmeasured-node.psflow.capture2.json",
+      "sha256": "435a39c2cf02fe9885580ba925a6fcbcfd8a05c9152c64c89b2d6b95f1d5dd88"
+    },
+    {
+      "path": "parity/system/traces/drag-unmeasured-node.upstream.capture1.json",
+      "sha256": "e49a58f38801bba44444ed048dace91117dd960520eabb9dc2530c31d6e037e8"
+    },
+    {
+      "path": "parity/system/traces/drag-unmeasured-node.upstream.capture2.json",
+      "sha256": "3e527be1cf4a9f378bbc151a4cd013ad423af1c4f6f8c737707e3f62742b042c"
+    },
+    {
+      "path": "parity/system/traces/fitview-onnodeschange-variants.psflow.capture1.json",
+      "sha256": "4e7b698a6a4fefd1be16cc1d612bd43f95d3a613d1f901e317b1579aef266ff1"
+    },
+    {
+      "path": "parity/system/traces/fitview-onnodeschange-variants.psflow.capture2.json",
+      "sha256": "dfd6b5c6b8db50e493d693ba9256b456d57c579a93367891755a5bafafd0cc78"
+    },
+    {
+      "path": "parity/system/traces/fitview-onnodeschange-variants.upstream.capture1.json",
+      "sha256": "7140fb8967c8a3f4616002a692cadbc95c94563059c18053bb60839323fa86ec"
+    },
+    {
+      "path": "parity/system/traces/fitview-onnodeschange-variants.upstream.capture2.json",
+      "sha256": "2f14f44300c8d84ed45e4009f646b0da7eef140237702daf44880b55696f711e"
+    },
+    {
+      "path": "parity/system/traces/flow-custom-testid.psflow.capture1.json",
+      "sha256": "e8fa12c4a39d8486b7bba4f1806240f841e4f84144d8b9a72480679560160337"
+    },
+    {
+      "path": "parity/system/traces/flow-custom-testid.psflow.capture2.json",
+      "sha256": "078fda4364a08479f04a4bb268d65dcaaedc9bd43c9cd9c62d414941f77d0517"
+    },
+    {
+      "path": "parity/system/traces/flow-custom-testid.upstream.capture1.json",
+      "sha256": "a3e16a8e2f143137fef3d0d83b27b8d56850147783fd32c84b02aa13a5b58bc5"
+    },
+    {
+      "path": "parity/system/traces/flow-custom-testid.upstream.capture2.json",
+      "sha256": "2894b8fdfc253515d2cce411272c69a6d0c20832b44fb95e103b32c20b5c6f58"
+    },
+    {
+      "path": "parity/system/traces/flow-props-change-after-mount.psflow.capture1.json",
+      "sha256": "5824d001d1fb6ad3f8e2060ba05bd9efc81f789f399096932832bfde5f142e69"
+    },
+    {
+      "path": "parity/system/traces/flow-props-change-after-mount.psflow.capture2.json",
+      "sha256": "9b1a7282350c7a71b6596a40cabcaf93e1494e28d1cb6e4aa1443c645fd3c538"
+    },
+    {
+      "path": "parity/system/traces/flow-props-change-after-mount.upstream.capture1.json",
+      "sha256": "9a7997e651ffe3070b26d4b5065b2db3363075631138145b3509d56fba7408ab"
+    },
+    {
+      "path": "parity/system/traces/flow-props-change-after-mount.upstream.capture2.json",
+      "sha256": "57378b2ee567a63df7e4ddd609d5a416ea013585c6d60f65e3cdb1d388e7f817"
+    },
+    {
+      "path": "parity/system/traces/keyboard-focus-node.psflow.capture1.json",
+      "sha256": "a3d869d321c2f569044c0b9d8c906df2adbecc1020b693f15e2cff67c33c7412"
+    },
+    {
+      "path": "parity/system/traces/keyboard-focus-node.psflow.capture2.json",
+      "sha256": "0b5681ce117cdd70bf983c54c5d47f62fa0bbbcf83b029727e61f723d349e675"
+    },
+    {
+      "path": "parity/system/traces/minimap-all-nodes-hidden.psflow.capture1.json",
+      "sha256": "528617834df9b36f822b4b2885ad0fb8757ad0149c2a40cc4625a133086a9d65"
+    },
+    {
+      "path": "parity/system/traces/minimap-all-nodes-hidden.psflow.capture2.json",
+      "sha256": "44ba1a7db4a7d3a0ff3fdfe0999c4583fc063d65a0e68bf25b5c98efd91094cf"
+    },
+    {
+      "path": "parity/system/traces/minimap-custom-mask-colors.psflow.capture1.json",
+      "sha256": "5784210e70f68da985a3542e261a792319b0a0eb881891ffa20a225be5eaccba"
+    },
+    {
+      "path": "parity/system/traces/minimap-custom-mask-colors.psflow.capture2.json",
+      "sha256": "a803e3a69ea2320ff5d1b771c80b03f2086869d10562703f04bb350987e7de37"
+    },
+    {
+      "path": "parity/system/traces/minimap-custom-mask-colors.upstream.capture1.json",
+      "sha256": "43df476aa1bf52f8bd92bf1d5ef46cc540c5d72768a042f58b78797a316f8fcc"
+    },
+    {
+      "path": "parity/system/traces/minimap-custom-mask-colors.upstream.capture2.json",
+      "sha256": "b9fbf6f457a069968725be687c07fb56856bad973a3d2dfc6dff0b1fa9b394a5"
+    },
+    {
+      "path": "parity/system/traces/minimap-default-click.psflow.capture1.json",
+      "sha256": "96c7b9efee4ae77513c92976db7225669c48c7bfeb17da0924690bccd60d6742"
+    },
+    {
+      "path": "parity/system/traces/minimap-default-click.psflow.capture2.json",
+      "sha256": "ac60053272fa84f0090b3e5eccfe5aa186e34ed9bc274314fa8529fbed791357"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--chrome-background.psflow.capture1.json",
+      "sha256": "a03e7c6243566adf1c0c6d436ad07e9dcccede582f8c556be606e282393c8e39"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--chrome-background.psflow.capture2.json",
+      "sha256": "b6f84b7f3d8893d109e933280afd97999a8f5f669a3f4d3eec283c7bd438e524"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--chrome-controls.psflow.capture1.json",
+      "sha256": "a4502e3a6d451df14edfeb479980812e7d2aeb30deb86b7c85f0781be223caa2"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--chrome-controls.psflow.capture2.json",
+      "sha256": "0ee70818e59195c68b4137630778852831c5b3e7126ef52ddc3f4ffbeb84f19a"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--chrome-minimap-colors.psflow.capture1.json",
+      "sha256": "0973fa91d5c3ada0f7d83ac2ec9c2b98c9545fb337fc5c14591f2894820c2a18"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--chrome-minimap-colors.psflow.capture2.json",
+      "sha256": "0a937aced086a29029ec6119232e14928fa58d9a8429263e34b9f528a1433ba7"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--chrome-minimap-hidden-nodes.psflow.capture1.json",
+      "sha256": "3459d9dd4ac94fdf28f7b5951624b2ffc54d815f0c85d4b83777167c89490828"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--chrome-minimap-hidden-nodes.psflow.capture2.json",
+      "sha256": "c995c87889e3b6897bc12d95b7b26e94c2e67c040a83ed1723b73cf0e11aedf2"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--chrome-panels.psflow.capture1.json",
+      "sha256": "ded398d13329506c8a2f94d1f905619a1eacc03f26caa3e8afff57f841da5b74"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--chrome-panels.psflow.capture2.json",
+      "sha256": "255306e6c1989d0dc1a29ec9093b0761b7cf2afb5259e706a9ad108627487dd9"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--edges-base-edge-path.psflow.capture1.json",
+      "sha256": "0daa1441e3610c5095c3c315319d41c44d143384acb0b84e5b0b3e2993ea07dc"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--edges-base-edge-path.psflow.capture2.json",
+      "sha256": "de8c097682963012a7ba73dad55d8dfb9875055174fe2e3694ed0ed06c3176fa"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--edges-general--probe-edge.psflow.capture1.json",
+      "sha256": "10107bc282a188750be1908e8cdafaf56eb1828c8a2d1674bc29a10862f4deda"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--edges-general--probe-edge.psflow.capture2.json",
+      "sha256": "8aa1d56ca024bd92fb08d264a1778d49186024a4076889f2918065d9d9ecda1d"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--edges-general.psflow.capture1.json",
+      "sha256": "e40b622f9f98eb5c8c615a648d83aa6216f48ab690c7dca5983e13d987e5dbe6"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--edges-general.psflow.capture2.json",
+      "sha256": "b1f63dd1e259be93acd636e32200633a95cd0c82d7327d55a6eae2cb4b09d1ac"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--fitview-uncontrolled.psflow.capture1.json",
+      "sha256": "4f17fadda9f4e2f7203f45b753f939b1375e0c9bc2b74156a12ff5ade0e7fe68"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--fitview-uncontrolled.psflow.capture2.json",
+      "sha256": "9040dee7524b0088aef5320edc51e18b6127f3f398bcbc9bc7254fac00584795"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--flow-chrome-defaults.psflow.capture1.json",
+      "sha256": "19199d11c54e81f24c6cee7df742e135294bdc0b6eabf2961d7845b442b135a1"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--flow-chrome-defaults.psflow.capture2.json",
+      "sha256": "c0ca018932820783e608c315b23abf73d5874f33e02ee32508ec562d1b2f99ba"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--flow-custom-testid.psflow.capture1.json",
+      "sha256": "3eef39334ff68bfb1ed6d48a42b55b4099270964f9c51006c60eca48ceb800b2"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--flow-custom-testid.psflow.capture2.json",
+      "sha256": "0f5eb468f085d90d379c10a2b4d60d29f665b75a6d639dc65cf7a9bbec3daee1"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--flow-display-none.psflow.capture1.json",
+      "sha256": "72dad14bdb9fb099b30d9225e52a60394f494879cc6ed05c14e6677465f114ae"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--flow-display-none.psflow.capture2.json",
+      "sha256": "c8e28fe36b3a48e0b0c67d147a2a33754e0bdf9a6f37b9cea5797f9ce48c5595"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--flow-limits-change.psflow.capture1.json",
+      "sha256": "97b248804e79cd7f08bdd08683c73f9824dc962b8f436e26ecc9125b5c3acd31"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--flow-limits-change.psflow.capture2.json",
+      "sha256": "5d50697f1054b008933a80e532a80eb25866aa2e6979f96398de2fbbccc1675c"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--flow-not-selectable.psflow.capture1.json",
+      "sha256": "d470137e98ed2a20e3077ea5b67be0636039575a9c7c53209c19cd3bdb941f7f"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--flow-not-selectable.psflow.capture2.json",
+      "sha256": "6bd0ac4e0f8be83ce89496ef5b0fc0f41848439924778601b591c30832a1a520"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--flow-props-change.psflow.capture1.json",
+      "sha256": "3e5598f421a3f53993f31a1265e8ea9032d4ada7b08eaec2943251a4f438d00b"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--flow-props-change.psflow.capture2.json",
+      "sha256": "047145940cd82f0ba415df3ec65462d7f073e68c0b6daebc759d8bd09424ab08"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--node-toolbar-general.psflow.capture1.json",
+      "sha256": "bf3d2b8009b815418005b374adfd8b25f3444d429bfe1040ae63726b95709340"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--node-toolbar-general.psflow.capture2.json",
+      "sha256": "17a8d2c7e04a1bdf5d57c32f705952b2d4f87f71a22ff12acc6f3fa9afe00ee6"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--nodes-autopan.psflow.capture1.json",
+      "sha256": "7fdc701b4b91ce4f67bb70d5c8ed2fc5e649f9111ac35c75a8c6af45a9b6b8b7"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--nodes-autopan.psflow.capture2.json",
+      "sha256": "a9c326c418d8e03da54ba32460fc77b19c0c8e6488bc04b955acb0c7a5b23701"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--nodes-connections.psflow.capture1.json",
+      "sha256": "a9f440ad165c50154fd4868ff654c06f7196c11f35123961634a5ba912296399"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--nodes-connections.psflow.capture2.json",
+      "sha256": "aa82b0c96ba5686286d212e55a318ec7661aecf23194f89b11a2fa91f4ba31db"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--nodes-expand-parent.psflow.capture1.json",
+      "sha256": "95be5803cf3fae322e17d5d533f2a6e59948897adb35ba8c5c7b04fd550eba6c"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--nodes-expand-parent.psflow.capture2.json",
+      "sha256": "6ef07179e6f69f3ec50b19e4dbca17701e7a055cab010b75739fc59f46da00c0"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--nodes-general.psflow.capture1.json",
+      "sha256": "84c9e86caacf733a1670dcb181b0a1ec4a17ae3817055aa2a26f7d9755b62cc9"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--nodes-general.psflow.capture2.json",
+      "sha256": "14fd993df0b0f82c3a16197ee6446c665e2e83642a3b0e33b05ffce578c6bf63"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--nodes-no-select-on-drag.psflow.capture1.json",
+      "sha256": "23ce89e9713a2c5c3e3a574f32d85c7dfc7a88745165cf6b6b1b318ed152ce7b"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--nodes-no-select-on-drag.psflow.capture2.json",
+      "sha256": "1b7941c18b744989a205ada6423c9f1857ad48eab0f5f6989b5e38f9638bcf12"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--nodes-nowheel.psflow.capture1.json",
+      "sha256": "d9a65594a7403b0b49ef03726c8da318828bd8984fb9d8c4ad906cf1b1e0f76a"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--nodes-nowheel.psflow.capture2.json",
+      "sha256": "9eedab2c4cc139f9d153b6d5b62223a67d7f72dcac9e1ec4c843b51aa15f5404"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--nodes-props-record.psflow.capture1.json",
+      "sha256": "e4128e865bddb664b9cd95f2c23ee2d5c620c963c5c46b59675ebbb4ff442794"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--nodes-props-record.psflow.capture2.json",
+      "sha256": "87a785c40d78b1d073201931cdee4b523f4a527210bbddc544188fe0236b60ce"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--nodes-tall.psflow.capture1.json",
+      "sha256": "05a1afe6deda613ff4ae162fd9050b37ea3907d5797c31e9137d511c114cf4ca"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--nodes-tall.psflow.capture2.json",
+      "sha256": "e3cdba284380944fb673613dc4d4fc4e3749a460a5be227cc42c9af4bf760671"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--nodes-unmeasured.psflow.capture1.json",
+      "sha256": "b99e52a5a6da340f404dae342036501f8aee2cce4544baf1cc3228f7212e8860"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--nodes-unmeasured.psflow.capture2.json",
+      "sha256": "6803c41b691756e6b1bd28e35f83a279726320df3da31033bcd3cf8fb8defff9"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--pane-general.psflow.capture1.json",
+      "sha256": "c389331404df91e4b4d58d87ee5d451a33eee5e0817c73c0541044b0cf6524d6"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--pane-general.psflow.capture2.json",
+      "sha256": "c0470519972e1f2290f97a6a99ae77c223af49b7b9e1dbc6088c5f824402a781"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--pane-non-defaults.psflow.capture1.json",
+      "sha256": "32cf0c6853d0954c36604fbf9d804762e07e26f44ae9b015c221362070f7ec3a"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--pane-non-defaults.psflow.capture2.json",
+      "sha256": "9cb785956993c76ef9dc427039427ed29df144a5c5996bc589d6770b3abf7f26"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--resize-lifecycle.psflow.capture1.json",
+      "sha256": "1b8bb83a2c522edef9c15b7c46a6397d13ac86356619e892836b3a969c23997d"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--resize-lifecycle.psflow.capture2.json",
+      "sha256": "b9a48bc9bf931889a847c9b120715b960dd8bbbe28145af86b00dbc64c7bff92"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--resize-lifecycle.upstream.capture1.json",
+      "sha256": "9f4a68fe9d88413c7a2113d00d39cec804edcae92f3c7c58de137f366718d4a2"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--resize-lifecycle.upstream.capture2.json",
+      "sha256": "91654c39d1139d77f21d251a1b7b10b8192727639f033f48d90e295a50a0d769"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--viewport-controlled.psflow.capture1.json",
+      "sha256": "df47c61d0a49bb9d39a8969e788d7496a12c455977eb8c34715a081a92c3a836"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--viewport-controlled.psflow.capture2.json",
+      "sha256": "37990182c06faac25082488b1a345599cf9a42afa74d99f871995b2e71ee2697"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--viewport-helpers.psflow.capture1.json",
+      "sha256": "c45cc328d2cbbe7422c6c01195f8ec1d9fddf6525af00062e9162ec0fd094aa9"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--viewport-helpers.psflow.capture2.json",
+      "sha256": "88df4ff846a32bff52c24c5eb94c997aa701e4204b3f019f99ede380dbe890af"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--viewport-pan-on-scroll.psflow.capture1.json",
+      "sha256": "6107a9a9824c9c5a9599a284ac6fe8362bb5e674f07be63d378eb7186fb97d7b"
+    },
+    {
+      "path": "parity/system/traces/mount-baseline--viewport-pan-on-scroll.psflow.capture2.json",
+      "sha256": "f65edb49e08971721985c6717420265038b9800c34a4a1675378d433b7f81ad3"
+    },
+    {
+      "path": "parity/system/traces/mount-in-display-none.psflow.capture1.json",
+      "sha256": "a64f84278c0f1950e69e97320b294b2c93ef9be10da69f7897363c60cf49bced"
+    },
+    {
+      "path": "parity/system/traces/mount-in-display-none.psflow.capture2.json",
+      "sha256": "24c32949ec7b4a9ddaaa62f82b2a7fffdf5dce84fcd620135adfb3604450f933"
+    },
+    {
+      "path": "parity/system/traces/multi-select-edges-with-modifier.psflow.capture1.json",
+      "sha256": "3597b854b69461d0dd0a0eebd29d35665335168bf31cca3cad570b4d03d388a6"
+    },
+    {
+      "path": "parity/system/traces/multi-select-edges-with-modifier.psflow.capture2.json",
+      "sha256": "17418bb1ee1963faa79a4179ea649c9defc9171c9faddbf5c2fe79ea643bba6a"
+    },
+    {
+      "path": "parity/system/traces/multi-select-edges-with-modifier.upstream.capture1.json",
+      "sha256": "f618a1bcdd3659c57ba373044c6864419942592362c39e99da8a58d4945ce586"
+    },
+    {
+      "path": "parity/system/traces/multi-select-edges-with-modifier.upstream.capture2.json",
+      "sha256": "cc2732884e1500bd1c01ae27d532b6e4d303f34865ce8f5ada834633944d0fa6"
+    },
+    {
+      "path": "parity/system/traces/node-props-record-parented.psflow.capture1.json",
+      "sha256": "5b3f6d5199a8cd66c4823862df8f453212a2fd6d628739378808ee706013b6cf"
+    },
+    {
+      "path": "parity/system/traces/node-props-record-parented.psflow.capture2.json",
+      "sha256": "2a5cbe3477869fcb57e08f7aaec3959c9fcdb7e41b281aae8eeedf53ad7a2181"
+    },
+    {
+      "path": "parity/system/traces/node-props-record-parented.upstream.capture1.json",
+      "sha256": "cbc0168b3bf6c33ed988106bd56b0f36db26cd2afbec8ffd409c854c9b5012d9"
+    },
+    {
+      "path": "parity/system/traces/node-props-record-parented.upstream.capture2.json",
+      "sha256": "5bbf4ad6a12fbb3985f8ad6f6ade2cdfc24edaeb3ae39d06763fc23e55c9c5a0"
+    },
+    {
+      "path": "parity/system/traces/pan-after-controlled-viewport-change.psflow.capture1.json",
+      "sha256": "61e6c512b2c9d5af1efcde1995a2e69ffcff0829ac0aae6cc2c64c7151aa0fb4"
+    },
+    {
+      "path": "parity/system/traces/pan-after-controlled-viewport-change.psflow.capture2.json",
+      "sha256": "ea2c0206d5f1c08755515608d78744148f11f88191dfb7af23a573acecdf4cb5"
+    },
+    {
+      "path": "parity/system/traces/pan-after-controlled-viewport-change.upstream.capture1.json",
+      "sha256": "303068b8fa725ac81ff293a4c92ab4a58ba17937ff5bd86d5271a42d305d5e75"
+    },
+    {
+      "path": "parity/system/traces/pan-after-controlled-viewport-change.upstream.capture2.json",
+      "sha256": "47f0f95ae0fe5101c4a497abbaae0ab0bf62b3badad4376c4273c8f65a82f41f"
+    },
+    {
+      "path": "parity/system/traces/pan-gesture-complete.psflow.capture1.json",
+      "sha256": "ed4e38bb750dfe889d7361ee6ca7f39a3f97fba34c9fcc9651ff7a95b30bd39c"
+    },
+    {
+      "path": "parity/system/traces/pan-gesture-complete.psflow.capture2.json",
+      "sha256": "e7f5856c1c7799d1ba8a32fad2b39f0387a5d35217aae4be98db625254ba40a0"
+    },
+    {
+      "path": "parity/system/traces/pan-gesture-complete.upstream.capture1.json",
+      "sha256": "bd8faa2a6558aba16f1a9c7a99c5daaa4615ce65b5fd5f5009b0c43744aa5500"
+    },
+    {
+      "path": "parity/system/traces/pan-gesture-complete.upstream.capture2.json",
+      "sha256": "a5851a16df665c13d07c4d5605339b57cd5fda0b104e675fa122cf8d20133283"
+    },
+    {
+      "path": "parity/system/traces/pane-click-keeps-selection-when-not-selectable.psflow.capture1.json",
+      "sha256": "9af6b53f7fcca856ba615c6c2fa31378f3534cd9d43a5938ba9650ed65c64a3f"
+    },
+    {
+      "path": "parity/system/traces/pane-click-keeps-selection-when-not-selectable.psflow.capture2.json",
+      "sha256": "278d01d19af8c3a2105bcff28ebe8e9b13f63b44491803726af8b45f9fd955f7"
+    },
+    {
+      "path": "parity/system/traces/pane-click-keeps-selection-when-not-selectable.upstream.capture1.json",
+      "sha256": "02fe97402c42263626ec4cbac0a8102172eaa506b1059d0a9030552107fa458a"
+    },
+    {
+      "path": "parity/system/traces/pane-click-keeps-selection-when-not-selectable.upstream.capture2.json",
+      "sha256": "62542a05c07ef1f055e2fc4509d6fe453edd99667ee67ba741fb40fe90fb13c9"
+    },
+    {
+      "path": "parity/system/traces/pane-drag-from-identity-viewport.psflow.capture1.json",
+      "sha256": "f739cf323ce37b78312dc64f7f7a96d8407f64c0519ded53d1ca1eb63c40e310"
+    },
+    {
+      "path": "parity/system/traces/pane-drag-from-identity-viewport.psflow.capture2.json",
+      "sha256": "d714f89ec8dfb3881a0b2a24bfaa95a656164d5053908a73b4c8f4b6e0bbce46"
+    },
+    {
+      "path": "parity/system/traces/pane-drag-from-identity-viewport.upstream.capture1.json",
+      "sha256": "95345f64f796a5ca4a253d90ac8b168cb50cffd7685a737a9b0e6ddc3744e251"
+    },
+    {
+      "path": "parity/system/traces/pane-drag-from-identity-viewport.upstream.capture2.json",
+      "sha256": "3708d8a938373b7750ea046db9ab7dacd1aa02bf10008d56e9bfb6b9029d44fa"
+    },
+    {
+      "path": "parity/system/traces/panel-center-positions.psflow.capture1.json",
+      "sha256": "74f7750bc5675d5f1b56e1e514937c2b6aa6e9bb0dbfac6e8ae755b0d417034a"
+    },
+    {
+      "path": "parity/system/traces/panel-center-positions.psflow.capture2.json",
+      "sha256": "bea6ef6e190a338aa766a41ce42ccaf68e12546474b498b0b8dc1c5975d90ff0"
+    },
+    {
+      "path": "parity/system/traces/pinch-over-nowheel-node.psflow.capture1.json",
+      "sha256": "1cdaa8c49e839ab68ec3aff5a8a1a8aa084efa9177e69ca941fbda541cd529fe"
+    },
+    {
+      "path": "parity/system/traces/pinch-over-nowheel-node.psflow.capture2.json",
+      "sha256": "3f998709af9ebf639d091d3a81463e62ac57feb8e7115b0ddd074460f7e0ab02"
+    },
+    {
+      "path": "parity/system/traces/pinch-over-nowheel-node.upstream.capture1.json",
+      "sha256": "d8bd9f3582c8baf4a35e0e45461ab36cdd6de0bb74a6c405919160e7663cb06d"
+    },
+    {
+      "path": "parity/system/traces/pinch-over-nowheel-node.upstream.capture2.json",
+      "sha256": "ac824b7b9bef4088aa6a67708b9824c07e45d7902084e1d235ed171fbec9a0fb"
+    },
+    {
+      "path": "parity/system/traces/probe-node-connections.psflow.capture1.json",
+      "sha256": "a1e3eed99bf2eb56e995c00df9bb672e46b782eebf8c01c6e81a25cb68bbd4ea"
+    },
+    {
+      "path": "parity/system/traces/probe-node-connections.psflow.capture2.json",
+      "sha256": "ef1978e361569547fefb22992192238280d8038b928a9e673bcb1fbfafdcb66c"
+    },
+    {
+      "path": "parity/system/traces/probe-node-connections.upstream.capture1.json",
+      "sha256": "a8f561552b5727503847d9fc696f627b7c5e2a7f7fa2dba7f10e0e251be1d416"
+    },
+    {
+      "path": "parity/system/traces/probe-node-connections.upstream.capture2.json",
+      "sha256": "c4b1365cbe9d9e71ffd9e890365b154f56a87853baf61604265a0534bf321618"
+    },
+    {
+      "path": "parity/system/traces/resize-node-after-active-limit-change.psflow.capture1.json",
+      "sha256": "4684abc31a0a610480ace4745a88c5da0ed352726a5afd95a17c04bbc50f6b18"
+    },
+    {
+      "path": "parity/system/traces/resize-node-after-active-limit-change.psflow.capture2.json",
+      "sha256": "c6a3e9a81df9a02777e22ee40ca29e61b7be18dc20968dd3ee9512c2c80bbe32"
+    },
+    {
+      "path": "parity/system/traces/resize-node-after-active-limit-change.upstream.capture1.json",
+      "sha256": "ef9e62f910bae9abaef6ae2a06bcffabcdd4ef000708513ba68601b3177c3736"
+    },
+    {
+      "path": "parity/system/traces/resize-node-after-active-limit-change.upstream.capture2.json",
+      "sha256": "d0d9eff2e8a9dc2d0c56c7847bca8a6852955555df21c151cf741b9b127e6620"
+    },
+    {
+      "path": "parity/system/traces/resize-node-with-direct-control.psflow.capture1.json",
+      "sha256": "7bb85d0df7f5651651db9f20e5444c98a854018286e61593059d6f03b03d6613"
+    },
+    {
+      "path": "parity/system/traces/resize-node-with-direct-control.psflow.capture2.json",
+      "sha256": "6419456ae94900d6a17c8ca82146904206fb6bcb2b5f83379ee2748182684ccd"
+    },
+    {
+      "path": "parity/system/traces/resize-node-with-direct-control.upstream.capture1.json",
+      "sha256": "278454d7b6cd00428667eab79fd0091110b8bd74abfa4270d5d703d50c872b92"
+    },
+    {
+      "path": "parity/system/traces/resize-node-with-direct-control.upstream.capture2.json",
+      "sha256": "2f01bf03882df446e2bb8a8cc4732c5c2ae9268ec3d83d8195837a95d39e47b6"
+    },
+    {
+      "path": "parity/system/traces/resize-node-with-resizer.psflow.capture1.json",
+      "sha256": "8c746da29286098584d999378177892498a5749cf20e8e80e300dda9d356a8ff"
+    },
+    {
+      "path": "parity/system/traces/resize-node-with-resizer.psflow.capture2.json",
+      "sha256": "cb5142fc843466f7595471200bcba9781d7841f55f66408d1592ced6b6629e4e"
+    },
+    {
+      "path": "parity/system/traces/resize-node-with-resizer.upstream.capture1.json",
+      "sha256": "7ec833433a3e84db8d08bb72ee96664aaf617d049ffb6bce751b9ee8c88f5aae"
+    },
+    {
+      "path": "parity/system/traces/resize-node-with-resizer.upstream.capture2.json",
+      "sha256": "be4202ab79c075c61319cef3cbb03004516e2a4f390098eb9ae67fc32e0bcff7"
+    },
+    {
+      "path": "parity/system/traces/selection-box-from-node.psflow.capture1.json",
+      "sha256": "3772920f7d9b5bff9be1d0b72e7c04cc66acc6b86eb94ffca628499b709089df"
+    },
+    {
+      "path": "parity/system/traces/selection-box-from-node.psflow.capture2.json",
+      "sha256": "b862d4391cc5cb9123a60ca760ed389c62fb60daa2c3217b51d6f13fb29903e2"
+    },
+    {
+      "path": "parity/system/traces/selection-box-from-node.upstream.capture1.json",
+      "sha256": "40d8fbf52a45c084f285b30d563ffd23b7ca6ef2214cfa179cc4ae00adb0bcb4"
+    },
+    {
+      "path": "parity/system/traces/selection-box-from-node.upstream.capture2.json",
+      "sha256": "8684b4e14d77d397d58b63c2da059ff033de92da1d6195405a57940a2fb73827"
+    },
+    {
+      "path": "parity/system/traces/selection-box-mid-gesture.psflow.capture1.json",
+      "sha256": "b4addd3b44382b5c00ced50f28986c7c015617abdfd64e8c6f03944cdc9d9059"
+    },
+    {
+      "path": "parity/system/traces/selection-box-mid-gesture.psflow.capture2.json",
+      "sha256": "e16eeaef2bf5ffe3e5a011811f427d91ff0e7fc19100ee51e0fa167e2eb6b85e"
+    },
+    {
+      "path": "parity/system/traces/selection-box-mid-gesture.upstream.capture1.json",
+      "sha256": "476476ec2f01828233b5e44cf51ade00f9eb15205b5c300c64a013605cbae207"
+    },
+    {
+      "path": "parity/system/traces/selection-box-mid-gesture.upstream.capture2.json",
+      "sha256": "c453bccf19f945d133a2f58fecf955aacae02e001cb0a7e3ff60d5313fcee50a"
+    },
+    {
+      "path": "parity/system/traces/selection-box-then-click-node.psflow.capture1.json",
+      "sha256": "e512d50d1e295f0804375f28be7833932e3048e8cda907d9c2404ce841e27014"
+    },
+    {
+      "path": "parity/system/traces/selection-box-then-click-node.psflow.capture2.json",
+      "sha256": "2c1cc8fe6d0f19bf9cffa2b28e01c9fc75884e992b0249eeb45a93dfcdd3dccf"
+    },
+    {
+      "path": "parity/system/traces/selection-box-then-click-node.upstream.capture1.json",
+      "sha256": "607971b61fb4600507bd57e3829aa80a2f28a9ab75f4df21317b98e7fed18cc5"
+    },
+    {
+      "path": "parity/system/traces/selection-box-then-click-node.upstream.capture2.json",
+      "sha256": "fa1c1b4c2958a864e294efa8d68cb24ca2cdfc9e725bb1e16011db915792bab7"
+    },
+    {
+      "path": "parity/system/traces/selection-box-touch.psflow.capture1.json",
+      "sha256": "8f8830c2748262b049799b45f20373429aad356579ff8071e63050dadd910ff9"
+    },
+    {
+      "path": "parity/system/traces/selection-box-touch.psflow.capture2.json",
+      "sha256": "e96badba52a4d3de922ee6b541297693c259101f30ad3245d805edaa12421cfc"
+    },
+    {
+      "path": "parity/system/traces/selection-box-touch.upstream.capture1.json",
+      "sha256": "cdb312aacdb34cd51832bf43383c869a83e7c79c457bc2473a0ce04255cefd49"
+    },
+    {
+      "path": "parity/system/traces/selection-box-touch.upstream.capture2.json",
+      "sha256": "dc87e79eb4deae6eeaa3ec66c5ac13ef20bfb7d4610ed865b0e66ea32b3cf849"
+    },
+    {
+      "path": "parity/system/traces/shift-drag-selects-nodes.psflow.capture1.json",
+      "sha256": "be02c606925be3ca2ab8f43d5455c7ade18c396f09dab3b6ef2492f5b240e1f0"
+    },
+    {
+      "path": "parity/system/traces/shift-drag-selects-nodes.psflow.capture2.json",
+      "sha256": "09c3a9d860341bb01320d321cfa669a9629fa5e029514f0823817fd4fc6b3770"
+    },
+    {
+      "path": "parity/system/traces/shift-drag-selects-nodes.upstream.capture1.json",
+      "sha256": "45a28411e2b7e4bf3951305b4f2307c8bfe2ce2c057166465c9e20d8d7369168"
+    },
+    {
+      "path": "parity/system/traces/shift-drag-selects-nodes.upstream.capture2.json",
+      "sha256": "8703d59fd848e435c3db20e83b69beeaa59dba656ef93551dbdccd59bd3ba4d4"
+    },
+    {
+      "path": "parity/system/traces/uncontrolled-update-node.psflow.capture1.json",
+      "sha256": "8a139eb8eb32f0dc57d55d21ad259719ffd06a8c6287e5a2a250858f8c6ee77e"
+    },
+    {
+      "path": "parity/system/traces/uncontrolled-update-node.psflow.capture2.json",
+      "sha256": "1a424fadf7121a6342a2ccfe66cdc692f1d8e84b266035dfd4f9f8aa62bbf32e"
+    },
+    {
+      "path": "parity/system/traces/viewport-helpers-with-options.psflow.capture1.json",
+      "sha256": "5b7219240d5621dedcbbf9c3c325a4cebe9d2a487f8969a76d4e2d496d11daea"
+    },
+    {
+      "path": "parity/system/traces/viewport-helpers-with-options.psflow.capture2.json",
+      "sha256": "95138123463174c92d33569776acd5b750b6b76e687d28217d952d8c56c24148"
+    },
+    {
+      "path": "parity/system/traces/wheel-pans-with-panonscroll.psflow.capture1.json",
+      "sha256": "f54edbc8565615911b78fceac339135f5ed4f11f53a4b57a8dbb54514d226868"
+    },
+    {
+      "path": "parity/system/traces/wheel-pans-with-panonscroll.psflow.capture2.json",
+      "sha256": "ed6926c206b9c3f4b805714fc672a16aaaf4c189fc1f659039ec91be475f5015"
+    },
+    {
+      "path": "parity/system/traces/wheel-pans-with-panonscroll.upstream.capture1.json",
+      "sha256": "fed596762fe18982e24787e32138931eca9c6445ca61a29873ab0822d5b8765f"
+    },
+    {
+      "path": "parity/system/traces/wheel-pans-with-panonscroll.upstream.capture2.json",
+      "sha256": "bdc1d3d1112571fd14415f3a1ab9b51b0e8af6d65755fd9a69d560a0477dfb6e"
+    },
+    {
+      "path": "parity/system/traces/wheel-zoom-from-identity-viewport.psflow.capture1.json",
+      "sha256": "78e40b0e209f9c283df27521b792c397b1bfb7204ee1a2162d836313cc4daea6"
+    },
+    {
+      "path": "parity/system/traces/wheel-zoom-from-identity-viewport.psflow.capture2.json",
+      "sha256": "48e3759df7159e9c0c56bb081aeac94984f2182b3a9a10d5e8afc9c932bdf89d"
+    },
+    {
+      "path": "parity/system/traces/wheel-zoom-from-identity-viewport.upstream.capture1.json",
+      "sha256": "95140ffe5b1c9ab2b11c311cd3661971b04613e88b10e48f299aa3eaf1499925"
+    },
+    {
+      "path": "parity/system/traces/wheel-zoom-from-identity-viewport.upstream.capture2.json",
+      "sha256": "39606158aba58bfdf5cd878fc1567effa3a0b7f0ba014167ed7c8ef264559142"
+    },
+    {
+      "path": "parity/system/traces/wheel-zooms-in-to-max.psflow.capture1.json",
+      "sha256": "a3ff98f48b40a9c4f12eb90ef8ea219956e1e562791cd1951035a910e6160ac3"
+    },
+    {
+      "path": "parity/system/traces/wheel-zooms-in-to-max.psflow.capture2.json",
+      "sha256": "c94fca05a42f0a61007620b65c4e87fd86ca3997a4100de17ca6ce98a452285f"
+    },
+    {
+      "path": "parity/system/traces/wheel-zooms-in-to-max.upstream.capture1.json",
+      "sha256": "81a87028d82633b6241c46a419e2a669ee9673627d57cd52aacd260ea2eca99e"
+    },
+    {
+      "path": "parity/system/traces/wheel-zooms-in-to-max.upstream.capture2.json",
+      "sha256": "6f315408dc0e6c6e2e9f8e5baf388fc3c756cf12a87ea52ab1fe5c866a9544b1"
+    },
+    {
+      "path": "parity/system/traces/wheel-zooms-out-to-min.psflow.capture1.json",
+      "sha256": "828a47941617c224bfb63ff5845b24079aa3d8fe0fea8e0b054bf32e98c71043"
+    },
+    {
+      "path": "parity/system/traces/wheel-zooms-out-to-min.psflow.capture2.json",
+      "sha256": "4fd662ab7a4cd6dd3cdbffb2b346e98e4c9aaf2a0e30bc3a09f330e56ece0fbc"
+    },
+    {
+      "path": "parity/system/traces/wheel-zooms-out-to-min.upstream.capture1.json",
+      "sha256": "499c50a0da1a582de935f997485ecad254127b6553a1a48d3040b50af84c52af"
+    },
+    {
+      "path": "parity/system/traces/wheel-zooms-out-to-min.upstream.capture2.json",
+      "sha256": "a36f97e6881a52d3b51f33cda27f9d5bfb23e174f8f7b913b6ff7d1738b57d61"
+    },
+    {
+      "path": "parity/system/traces/wheel-zooms-the-pane--probe-flow-node.psflow.capture1.json",
+      "sha256": "67a23b6696108825ae9c3a5f32579cd4e5e835b943c0a1117489e47f6ee40302"
+    },
+    {
+      "path": "parity/system/traces/wheel-zooms-the-pane--probe-flow-node.psflow.capture2.json",
+      "sha256": "a8b08e1a3fd40fec6582e1d6211625d392bb7fa868693ffb0a079a2948455533"
+    },
+    {
+      "path": "parity/system/traces/wheel-zooms-the-pane--probe-flow-node.upstream.capture1.json",
+      "sha256": "9ba717fa3eeca83e7997c01e85e320836fe2d809f64a047dd00dc4e8c491f66a"
+    },
+    {
+      "path": "parity/system/traces/wheel-zooms-the-pane--probe-flow-node.upstream.capture2.json",
+      "sha256": "f6b139f953ad1758da65ff41b884ba9457b6d61617e73329e7096a6d41c47bf0"
+    },
+    {
+      "path": "parity/system/traces/wheel-zooms-the-pane.psflow.capture1.json",
+      "sha256": "f7ec8333a79f1111a695524b1220e991c6b49347fb1d5b176ea97223c19f8828"
+    },
+    {
+      "path": "parity/system/traces/wheel-zooms-the-pane.psflow.capture2.json",
+      "sha256": "0f6237c7cd90afb74a8794119ddf4adbe31cb685b858deff87dd587f85aba9ac"
+    },
+    {
+      "path": "parity/system/traces/wheel-zooms-the-pane.upstream.capture1.json",
+      "sha256": "d7e80c62e74ecaeeb2dfbf61a4954ef1695f9ce706e7078dd2426f5bbfc6ae47"
+    },
+    {
+      "path": "parity/system/traces/wheel-zooms-the-pane.upstream.capture2.json",
+      "sha256": "d934cbb41134e0ef40bbe9edca2fb9efe101ea511fb5e03ed8c66451c6dde0a8"
+    },
+    {
+      "path": "parity/system/traces/wheel-zooms-to-changed-limits.psflow.capture1.json",
+      "sha256": "fb19f82fcafd5c8813ee9406df66474418b02af0ff6af132401caeead7de9161"
+    },
+    {
+      "path": "parity/system/traces/wheel-zooms-to-changed-limits.psflow.capture2.json",
+      "sha256": "3f32eccc26d5f6cd32938c18f99721089f149f7588526cb29202984dde6605b8"
+    },
+    {
+      "path": "parity/system/traces/wheel-zooms-to-changed-limits.upstream.capture1.json",
+      "sha256": "5bf7438a2c03d773076e3562673ec2f472ba75c97a279d9e09229821e89e7920"
+    },
+    {
+      "path": "parity/system/traces/wheel-zooms-to-changed-limits.upstream.capture2.json",
+      "sha256": "16ac9e50c2086ed318532c7a790f4f56a2afc646ba0d15293d4f24d027a66f3b"
+    },
+    {
+      "path": "src/Boundary/Callbacks.js",
+      "sha256": "a13c73a2f0fd9ec522ef587c0da75a3e09a5a75e62ade8b654f9e02b3a1a6b2d"
+    },
+    {
+      "path": "src/Boundary/Callbacks.purs",
+      "sha256": "73745c86c62d8d4863f667f115f9aee706a7bd3459320cda32d028edd34b386d"
+    },
+    {
+      "path": "src/Boundary/Elements.purs",
+      "sha256": "72bcdea112cf1fa55e35682adc18164577c9328b82ddea8457407e1361af1211"
+    },
+    {
+      "path": "src/Boundary/Resizer.purs",
+      "sha256": "9dac6ee946344e863cb2d4f4d63b12a5edbb889e5f9cba3b534f367d115819f9"
+    },
+    {
+      "path": "src/React/Additional/NodeResizer/Control.purs",
+      "sha256": "e8e99e353caa4bac9bc5ef3b1db4640f2374e17dc6bfd23a1b1c24b4a099fb9b"
+    },
+    {
+      "path": "src/React/Component/NodeWrapper.purs",
+      "sha256": "92ec691cc932a444da98a0af0e8095467ec050c4da61f8165dec3bd23c9a02d9"
+    },
+    {
+      "path": "src/React/Store/Changes.purs",
+      "sha256": "3a1b201b040509cae5eae05d66c26ab97057bf21ce4ce3382d6364cb50279209"
+    },
+    {
+      "path": "src/System/Types/Node.purs",
+      "sha256": "61cc7ea1f4780eab41f609718af2e0975c25f60ef9b9a69a5c4f5bb63aaf72d1"
+    },
+    {
+      "path": "src/System/Utils/Store.purs",
+      "sha256": "d88226137cf16a195ec3a0d815dd7cc7a1e7732abc71efbc60a100f18cee68b8"
+    },
+    {
+      "path": "src/System/XYResizer.js",
+      "sha256": "75005567fd2cc3fb8d524173a7153574ef8fc70a97e3deb4b9eb251722d73055"
+    },
+    {
+      "path": "src/System/XYResizer.purs",
+      "sha256": "259d2f8b69d7f14b30b2c47ef7dad6065bb1f9120ac55df593bbd1ef2fdde314"
+    },
+    {
+      "path": "src/System/XYResizer/Types.purs",
+      "sha256": "750397deb27aa7851920f1f08b9a1fa963ce080386cac30b502c06b45d37bd73"
+    },
+    {
+      "path": "src/System/XYResizer/Utils.purs",
+      "sha256": "a37ae1f6f641137e0dabed673305da737acf00eb2e838ebd86ed67092bd1350f"
+    },
+    {
+      "path": "test/Test/Boundary/NodeResizing.js",
+      "sha256": "7aa1dedc0485b3e40a065db61932631d6d43bc100ca92c0844e1099b13057512"
+    },
+    {
+      "path": "test/Test/Boundary/NodeResizing.purs",
+      "sha256": "95d102c4d65d11df9ae8a8b296e1d3d90c01694fca5e0bbad39c34bc75a00ccf"
+    },
+    {
+      "path": "test/Test/Boundary/PrunedKeys.purs",
+      "sha256": "fce8753e08cc235f2e3cc44b1bd4c5659d87d6a21ff6af52661ff76bf38e5695"
+    },
+    {
+      "path": "test/Test/Main.purs",
+      "sha256": "d74a47e6d26a14553ff32f3762311bec92bb1f6d289870eab72bde0ef82ebf79"
+    },
+    {
+      "path": "test/Test/Parity/Builders.purs",
+      "sha256": "40c4d4994f09e0e6df345573d7ebe2696c2dcb4b67e640603d299786fe03929e"
+    },
+    {
+      "path": "test/Test/Properties.purs",
+      "sha256": "94d1d4a7b806f007a6af2d2cf46d35cad07cab1052369bb7ebb43b0ca6cf88b9"
+    },
+    {
+      "path": "test/Test/React/Component/AriaDescribedBy.purs",
+      "sha256": "9d45172ab6240570315f516721971702020a5189801c2f7b49c6bf286be66dd9"
+    },
+    {
+      "path": "test/Test/React/Component/EdgeAriaLabel.purs",
+      "sha256": "f3b043cd3c69429e1557fcc846ca229611de29309f7e03c106f38952ef985a15"
+    },
+    {
+      "path": "test/Test/React/Component/EdgeComponentProps.purs",
+      "sha256": "9e69179f7b5f4777ef32862cf61116ede2d88d67d5e888ee91668d9b6c6dd45b"
+    },
+    {
+      "path": "test/Test/React/Component/NodesSelectionRect.purs",
+      "sha256": "eff5cf4aadd40626fb8c1d595f0bea1be91fdbdac8a66af6b05286dd7d274c9d"
+    },
+    {
+      "path": "test/Test/React/Hook/ConnectionTo.purs",
+      "sha256": "40f69cc8ef933e5bab71edc354f917d7fb067e42dca2ee7651cd2250a80a9168"
+    },
+    {
+      "path": "test/Test/React/Hook/DeleteKey.purs",
+      "sha256": "576fca4b87afcc334658611e2c46d56d28ef46ad068b696297e91223909aa92c"
+    },
+    {
+      "path": "test/Test/React/Hook/MoveSelectedNodes.purs",
+      "sha256": "5eafc63fd84a2b374bdc4575cbcece95ef260c18f1d54468f9f5f61f82854740"
+    },
+    {
+      "path": "test/Test/React/Hook/NodeObserver.purs",
+      "sha256": "a857197da4261fb9d1838497e863510006f3ec88ada517e10bd8f7169eba916f"
+    },
+    {
+      "path": "test/Test/React/Hook/NodeRenderOrder.purs",
+      "sha256": "6b1fa524f73e7d1640b8ecb3362d221ea2b63b0831630bb0abb11f5fc5a7b60c"
+    },
+    {
+      "path": "test/Test/React/Hook/VisibleIds.purs",
+      "sha256": "98d69520bacef8cd69ecf411b65e8c661ffbc74fb0b623388ea3ea5f734b459e"
+    },
+    {
+      "path": "test/Test/React/Node/HandleNodeClick.purs",
+      "sha256": "d44d70ee077f44874706b8532d1ded983d5a49cc0f3c336dda42774c85e1819e"
+    },
+    {
+      "path": "test/Test/React/Store/InPlaceSelection.purs",
+      "sha256": "cfd1d81ea9014cc6f641635609afd0fca8b7a7b666f62f7a3e08f1a3afa70ea2"
+    },
+    {
+      "path": "test/Test/React/Store/MergeNodeInternals.purs",
+      "sha256": "eec4c5f936210a8b5f0293b51570ba0d4a706f5ce762736ef3d916018538c9da"
+    },
+    {
+      "path": "test/Test/React/Store/Reduce.purs",
+      "sha256": "7b7c1f6d34269c7c0333fc41629e241cef842b11d486db2c01d3f7eec92a27a7"
+    },
+    {
+      "path": "test/Test/React/Store/ResetSelection.purs",
+      "sha256": "bc80c07edaee70dcfa539305c7ff62314b207a3607be30924cec1e5211e8ab23"
+    },
+    {
+      "path": "test/Test/React/Store/UpdateNodePositions.purs",
+      "sha256": "71e766889d1616f1a9815780e184289097336bd8c3d4497c310602bb13c6eb51"
+    },
+    {
+      "path": "test/Test/System/FinalConnectionState.purs",
+      "sha256": "826801c5e59a158b79fdb99ec531190cfb7b587c848f20ffc455cc60a3f90bf6"
+    },
+    {
+      "path": "test/Test/System/Utils/MeasuredDimensions.purs",
+      "sha256": "586b351724224e6d54257153fcaf6c4a311494235a4aa4a4eefbd0924b22470e"
+    },
+    {
+      "path": "test/Test/System/Utils/MeasurementOrder.purs",
+      "sha256": "de4557baba3204756bf141de141788c2fca327fa8f55adf41e8ce05ca75dbcf0"
+    },
+    {
+      "path": "test/Test/System/Utils/Store.purs",
+      "sha256": "4ec2a8cf0ba7177da16f6e8b7d10c59aaf04ec6bec6803c40e3efd92d24ff311"
+    },
+    {
+      "path": "test/Test/System/XYDrag.purs",
+      "sha256": "9f477bf8afabadbadbc8bb13d10db23001fd93b3903d520f9920947b61bbd772"
+    },
+    {
+      "path": "test/Test/System/XYDrag/DragErrors.purs",
+      "sha256": "daf4807917df632718d9709f0b771e17acc8b04be168ff589b1bac71a1574aea"
+    },
+    {
+      "path": "test/Test/System/XYDrag/DragItemOrder.purs",
+      "sha256": "dfec04beb3c4a49641810d62b5f027073ac7feacbf1c380d127afd8791962f3c"
+    },
+    {
+      "path": "test/Test/System/XYDrag/DragSelection.purs",
+      "sha256": "a6294a598aa5840c10dfbcfc3033b7a5f4c0b60b5050c8a3b0aaf5cb85e6ffd8"
+    },
+    {
+      "path": "test/Test/System/XYDrag/DragUserNodes.purs",
+      "sha256": "6a7b197cc09658b1c66f0a369d2b0eb282c83ed70e9e46913d9bc1a0725084c8"
+    },
+    {
+      "path": "test/Test/System/XYResizer.js",
+      "sha256": "610223522acfdb094a58ae0f19acebda4bbd085784ec7ca4d3bb212afb3896dd"
+    },
+    {
+      "path": "test/Test/System/XYResizer.purs",
+      "sha256": "61604e513e7c2da5a795c4b9c760d58d91b3a13b739263bd98347bc839ab73ad"
+    }
+  ]
+}

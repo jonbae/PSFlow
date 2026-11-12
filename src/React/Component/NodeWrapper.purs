@@ -37,11 +37,6 @@
 -- |     typed accessor yet).
 -- |   * `node.domAttributes` spread and `node.ariaRole` aren't carried on
 -- |     `NodeBase` yet.
--- |   * Keyboard `:focus-visible` guard is dropped (no PS Web binding);
--- |     auto-pan fires on any focus when `autoPanOnNodeFocus` is on.
--- |   * `ariaLiveMessage` on arrow-key nudges is deferred (the
--- |     `AriaLabelConfig` method isn't surfaced through the wrapper
--- |     in a form that's ready for this call site).
 module React.Component.NodeWrapper
   ( nodeWrapper
   , mkDragStoreItems
@@ -49,11 +44,15 @@ module React.Component.NodeWrapper
 
 import Prelude
 
+import Record as Record
+import Type.Proxy (Proxy(..))
+
 import Data.Array (elem, null) as Array
 import Data.Foldable (for_)
 import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isJust)
 import Data.Newtype (unwrap)
+import Data.Nullable (toMaybe)
 import Effect (Effect)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign, unsafeToForeign)
@@ -71,7 +70,7 @@ import React.Hook.Drag (useDrag)
 import React.Hook.MoveSelectedNodes (useMoveSelectedNodes)
 import React.Hook.NodeObserver (useNodeObserver)
 import React.Hook.Store (UseStoreApi, useStore, useStoreApi)
-import React.Node.Util (handleNodeClick)
+import React.Node.Util (handleNodeClick, moveNodesByArrowKey)
 import React.Store.Action (Action(..))
 import React.Store.PanBy as StorePanBy
 import React.Store.Shell (Store)
@@ -93,6 +92,8 @@ import System.Utils.General (getNodeDimensions, nodeHasDimensions)
 import System.Utils.Graph (getNodesInside)
 import System.XYDrag (DragStoreItems)
 import Unsafe.Coerce (unsafeCoerce)
+import Web.DOM.Element as Element
+import Web.DOM.ParentNode (QuerySelector(..))
 import Web.Event.Event (preventDefault)
 import Web.HTML.HTMLDivElement (toElement)
 import Web.UIEvent.KeyboardEvent (KeyboardEvent)
@@ -134,42 +135,48 @@ selectNodeSlice nodeId state =
 
 placeholderNode :: forall n. NodeId -> InternalNode n
 placeholderNode nodeId =
-  { id: nodeId
-  , position: { x: 0.0, y: 0.0 }
-  , data: (unsafeCoerce {} :: n)
-  , sourcePosition: Nothing
-  , targetPosition: Nothing
-  , hidden: Just true
-  , selected: Nothing
-  , dragging: Nothing
-  , draggable: Nothing
-  , selectable: Nothing
-  , connectable: Nothing
-  , deletable: Nothing
-  , dragHandle: Nothing
-  , width: Nothing
-  , height: Nothing
-  , initialWidth: Nothing
-  , initialHeight: Nothing
-  , parentId: Nothing
-  , zIndex: Nothing
-  , extent: Nothing
-  , expandParent: Nothing
-  , ariaLabel: Nothing
-  , origin: Nothing
-  , handles: Nothing
-  , measured: { width: Nothing, height: Nothing }
-  , nodeType: Nothing
-  , className: Nothing
-  , style: Nothing
-  , internals:
+  let
+    originalUserNode =
+      { id: nodeId
+      , position: { x: 0.0, y: 0.0 }
+      , data: (unsafeCoerce {} :: n)
+      , sourcePosition: Nothing
+      , targetPosition: Nothing
+      , hidden: Just true
+      , selected: Nothing
+      , dragging: Nothing
+      , draggable: Nothing
+      , selectable: Nothing
+      , connectable: Nothing
+      , deletable: Nothing
+      , dragHandle: Nothing
+      , width: Nothing
+      , height: Nothing
+      , initialWidth: Nothing
+      , initialHeight: Nothing
+      , parentId: Nothing
+      , zIndex: Nothing
+      , extent: Nothing
+      , expandParent: Nothing
+      , resizing: Nothing
+      , ariaLabel: Nothing
+      , origin: Nothing
+      , handles: Nothing
+      , measured: { width: Nothing, height: Nothing }
+      , nodeType: Nothing
+      , className: Nothing
+      , style: Nothing
+      }
+  in
+    Record.insert (Proxy :: Proxy "internals")
       { positionAbsolute: { x: 0.0, y: 0.0 }
       , z: 0.0
       , rootParentIndex: Nothing
       , handleBounds: Nothing
       , bounds: Nothing
+      , userNode: originalUserNode
       }
-  }
+      originalUserNode
 
 nodeTypesAsObject
   :: Maybe NodeTypesMap
@@ -452,7 +459,15 @@ nodeWrapper =
               Just delta
                 | isDraggable && node.selected == Just true -> do
                     preventDefault (KE.toEvent ke)
-                    moveSelectedNodes delta (if shift then 4.0 else 1.0)
+                    moveNodesByArrowKey
+                      { id: NodeId props.id
+                      , store
+                      , key: k
+                      , direction: delta
+                      , factor: if shift then 4.0 else 1.0
+                      , positionAbsolute: node.internals.positionAbsolute
+                      , moveSelectedNodes
+                      }
               _ -> pure unit
 
         onKeyDownEventHandler :: EventHandler
@@ -462,29 +477,34 @@ nodeWrapper =
         onFocusHandler :: EventHandler
         onFocusHandler = handler_ do
           unless props.disableKeyboardA11y do
-            st <- store.getState
-            when st.autoPanOnNodeFocus do
-              let
-                Transform t = st.transform
-                paneRect =
-                  { x: 0.0, y: 0.0, width: st.width, height: st.height }
-                visible = getNodesInside
-                  [ node ]
-                  paneRect
-                  st.transform
-                  { partially: true, excludeNonSelectable: false }
-              when (Array.null visible) do
+            current <- toMaybe <$> React.readRef nodeRef
+            focusVisible <- case current of
+              Nothing -> pure false
+              Just el -> Element.matches (QuerySelector ":focus-visible") (toElement el)
+            when focusVisible do
+              st <- store.getState
+              when st.autoPanOnNodeFocus do
                 let
-                  cx = node.position.x + dims.width / 2.0
-                  cy = node.position.y + dims.height / 2.0
-                store.dispatch
-                  ( SetCenter cx cy
-                      { duration: Nothing
-                      , ease: Nothing
-                      , interpolate: Nothing
-                      , zoom: Just t.scale
-                      }
-                  )
+                  Transform t = st.transform
+                  paneRect =
+                    { x: 0.0, y: 0.0, width: st.width, height: st.height }
+                  visible = getNodesInside
+                    [ node ]
+                    paneRect
+                    st.transform
+                    { partially: true, excludeNonSelectable: false }
+                when (Array.null visible) do
+                  let
+                    cx = node.position.x + dims.width / 2.0
+                    cy = node.position.y + dims.height / 2.0
+                  store.dispatch
+                    ( SetCenter cx cy
+                        { duration: Nothing
+                        , ease: Nothing
+                        , interpolate: Nothing
+                        , zoom: Just t.scale
+                        }
+                    )
 
       pure $
         if node.hidden == Just true then mempty

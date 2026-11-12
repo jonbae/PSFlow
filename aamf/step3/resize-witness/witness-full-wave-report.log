@@ -1,0 +1,66 @@
+$ node aamf/step3/resize-witness/verify.mjs
+[
+  {
+    "scenario": "resize-node-with-direct-control",
+    "interpretable": true,
+    "resize": {
+      "width": 180,
+      "height": 110
+    },
+    "callbacks": [
+      "control:start",
+      "control:resize",
+      "control:resize",
+      "control:resize",
+      "control:end"
+    ],
+    "fullGatePassed": false,
+    "witnessPassed": true,
+    "remainingDifferences": 2
+  },
+  {
+    "scenario": "resize-node-with-resizer",
+    "interpretable": true,
+    "resize": {
+      "width": 165,
+      "height": 110
+    },
+    "callbacks": [
+      "resizer:start",
+      "resizer:resize",
+      "resizer:resize",
+      "resizer:resize",
+      "resizer:end"
+    ],
+    "fullGatePassed": false,
+    "witnessPassed": true,
+    "remainingDifferences": 2
+  },
+  {
+    "scenario": "resize-node-after-active-limit-change",
+    "interpretable": false,
+    "fullGatePassed": false,
+    "witnessPassed": false,
+    "remainingDifferences": null
+  }
+]
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: all selected witness experiments must reproduce and match
+
+1 !== 0
+
+    at file:///Users/jonathanbae/repos/PSFlow/aamf/step3/resize-witness/verify.mjs:47:8
+    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:647:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 1,
+  expected: 0,
+  operator: 'strictEqual'
+}
+
+Node.js v22.18.0

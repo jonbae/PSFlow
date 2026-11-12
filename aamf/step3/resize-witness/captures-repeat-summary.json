@@ -1,0 +1,20 @@
+[
+  {
+    "scenario": "resize-node-after-active-limit-change",
+    "interpretable": false,
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": false
+      },
+      {
+        "side": "psflow",
+        "consistent": true
+      }
+    ],
+    "fullGatePassed": false,
+    "remainingDifferences": null,
+    "witnessPassed": false,
+    "failure": "resize-node-after-active-limit-change: selected experiment must reproduce before interpretation"
+  }
+]

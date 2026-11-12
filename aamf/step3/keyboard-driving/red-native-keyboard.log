@@ -1,0 +1,66 @@
+$ npx playwright test --config parity/system/harness/playwright.config.mjs --grep keyboard actions finish
+[2m[WebServer] [22m(node:77879) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:77914) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:77914) [DEP0066] DeprecationWarning: OutgoingMessage.prototype._headers is deprecated
+
+Running 1 test using 1 worker
+
+(node:77927) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:77927) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [harness] › parity/system/harness/live.spec.mjs:54:1 › keyboard actions finish the native frame work and retain held modifiers (761ms)
+
+
+  1) [harness] › parity/system/harness/live.spec.mjs:54:1 › keyboard actions finish the native frame work and retain held modifiers 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 10[39m
+    [31m+ Received  +  0[39m
+
+    [33m@@ -2,16 +2,6 @@[39m
+    [2m    Array [[22m
+    [2m      "keydown",[22m
+    [2m      "Shift",[22m
+    [2m      true,[22m
+    [2m    ],[22m
+    [32m-   Array [[39m
+    [32m-     "keydown",[39m
+    [32m-     "ArrowRight",[39m
+    [32m-     true,[39m
+    [32m-   ],[39m
+    [32m-   Array [[39m
+    [32m-     "keyup",[39m
+    [32m-     "ArrowRight",[39m
+    [32m-     true,[39m
+    [32m-   ],[39m
+    [2m  ][22m
+
+      77 |     // Read once, without Playwright's retrying assertions: a later receipt
+      78 |     // would conceal the port returning before the browser work completed.
+    > 79 |     expect(JSON.parse(await page.locator("output").textContent() || "[]")).toEqual(receipts);
+         |                                                                            ^
+      80 |   }
+      81 | });
+      82 |
+        at /Users/jonathanbae/repos/PSFlow/parity/system/harness/live.spec.mjs:79:76
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/live-keyboard-actions-fini-31f98-k-and-retain-held-modifiers-harness/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/live-keyboard-actions-fini-31f98-k-and-retain-held-modifiers-harness/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/live-keyboard-actions-fini-31f98-k-and-retain-held-modifiers-harness/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/live-keyboard-actions-fini-31f98-k-and-retain-held-modifiers-harness/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [harness] › parity/system/harness/live.spec.mjs:54:1 › keyboard actions finish the native frame work and retain held modifiers 

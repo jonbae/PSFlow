@@ -1,0 +1,83 @@
+$ node aamf/step3/initialization-driving/verify-captures.mjs
+[
+  {
+    "phase": "candidate",
+    "round": 1,
+    "preservedGeometry": true,
+    "missingCallbackRejected": true,
+    "fullGatePassed": false,
+    "unclaimed": 2
+  },
+  {
+    "phase": "candidate",
+    "round": 2,
+    "preservedGeometry": true,
+    "missingCallbackRejected": true,
+    "fullGatePassed": false,
+    "unclaimed": 2
+  },
+  {
+    "phase": "candidate",
+    "round": 3,
+    "preservedGeometry": true,
+    "missingCallbackRejected": true,
+    "fullGatePassed": false,
+    "unclaimed": 2
+  },
+  {
+    "phase": "candidate",
+    "round": 4,
+    "preservedGeometry": true,
+    "missingCallbackRejected": true,
+    "fullGatePassed": false,
+    "unclaimed": 2
+  },
+  {
+    "phase": "candidate",
+    "round": 5,
+    "preservedGeometry": true,
+    "missingCallbackRejected": true,
+    "fullGatePassed": false,
+    "unclaimed": 2
+  },
+  {
+    "phase": "repeat",
+    "round": 1,
+    "preservedGeometry": true,
+    "missingCallbackRejected": true,
+    "fullGatePassed": false,
+    "unclaimed": 2
+  },
+  {
+    "phase": "repeat",
+    "round": 2,
+    "preservedGeometry": true,
+    "missingCallbackRejected": true,
+    "fullGatePassed": false,
+    "unclaimed": 2
+  },
+  {
+    "phase": "repeat",
+    "round": 3,
+    "preservedGeometry": true,
+    "missingCallbackRejected": true,
+    "fullGatePassed": false,
+    "unclaimed": 2
+  },
+  {
+    "phase": "repeat",
+    "round": 4,
+    "preservedGeometry": true,
+    "missingCallbackRejected": true,
+    "fullGatePassed": false,
+    "unclaimed": 2
+  },
+  {
+    "phase": "repeat",
+    "round": 5,
+    "preservedGeometry": true,
+    "missingCallbackRejected": true,
+    "fullGatePassed": false,
+    "unclaimed": 2
+  }
+]

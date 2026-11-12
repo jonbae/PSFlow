@@ -1,0 +1,4 @@
+$ spago test
+
+✘ Failed to find purs. Have you installed it, and is it in your PATH?
+

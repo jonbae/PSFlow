@@ -1,0 +1,141 @@
+[
+  {
+    "name": "red",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/connected-edges.test.mjs"
+    ],
+    "startedAt": "2026-11-10T01:34:57.150Z",
+    "finishedAt": "2026-11-10T01:34:57.975Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/w02/red.log"
+  },
+  {
+    "name": "build",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T01:35:11.980Z",
+    "finishedAt": "2026-11-10T01:35:17.618Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/w02/build.log"
+  },
+  {
+    "name": "green",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/connected-edges.test.mjs"
+    ],
+    "startedAt": "2026-11-10T01:35:24.994Z",
+    "finishedAt": "2026-11-10T01:35:25.934Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/w02/green.log"
+  },
+  {
+    "name": "build-final",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T01:36:36.641Z",
+    "finishedAt": "2026-11-10T01:36:41.906Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/w02/build-final.log"
+  },
+  {
+    "name": "surface",
+    "command": [
+      "npm",
+      "run",
+      "parity:surface"
+    ],
+    "startedAt": "2026-11-10T01:36:54.900Z",
+    "finishedAt": "2026-11-10T01:36:59.462Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/w02/surface.log"
+  },
+  {
+    "name": "purescript",
+    "command": [
+      "spago",
+      "test"
+    ],
+    "startedAt": "2026-11-10T01:37:05.505Z",
+    "finishedAt": "2026-11-10T01:37:05.847Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/w02/purescript.log"
+  },
+  {
+    "name": "surface-tests",
+    "command": [
+      "npm",
+      "run",
+      "test:surface"
+    ],
+    "startedAt": "2026-11-10T01:37:18.678Z",
+    "finishedAt": "2026-11-10T01:37:20.408Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/w02/surface-tests.log"
+  },
+  {
+    "name": "boundary-tests",
+    "command": [
+      "npm",
+      "run",
+      "test:boundary"
+    ],
+    "startedAt": "2026-11-10T01:37:17.473Z",
+    "finishedAt": "2026-11-10T01:37:20.982Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/w02/boundary-tests.log"
+  },
+  {
+    "name": "boundary",
+    "command": [
+      "npm",
+      "run",
+      "parity:boundary"
+    ],
+    "startedAt": "2026-11-10T01:37:16.239Z",
+    "finishedAt": "2026-11-10T01:37:21.147Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/w02/boundary.log"
+  },
+  {
+    "name": "purescript-retry",
+    "command": [
+      "spago",
+      "test"
+    ],
+    "startedAt": "2026-11-10T01:37:14.856Z",
+    "finishedAt": "2026-11-10T01:37:21.886Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/w02/purescript-retry.log"
+  },
+  {
+    "name": "driver",
+    "command": [
+      "npm",
+      "run",
+      "build:driver"
+    ],
+    "startedAt": "2026-11-10T01:38:08.228Z",
+    "finishedAt": "2026-11-10T01:38:13.694Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/w02/driver.log"
+  }
+]

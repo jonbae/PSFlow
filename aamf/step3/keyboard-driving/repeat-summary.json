@@ -1,0 +1,762 @@
+[
+  {
+    "scenario": "arrow-key-selected-node",
+    "round": 1,
+    "interpretable": true,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "failureClasses": [
+      "unclaimed-difference"
+    ],
+    "differences": [
+      {
+        "kind": "left-only",
+        "path": [
+          "dom",
+          "root",
+          "children",
+          "react-flow__aria-live-1",
+          "text"
+        ],
+        "left": "Moved selected node right. New position, x: 5, y: 20"
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "target"
+        ],
+        "left": null,
+        "right": []
+      }
+    ]
+  },
+  {
+    "scenario": "arrow-key-selected-node",
+    "round": 2,
+    "interpretable": true,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "failureClasses": [
+      "unclaimed-difference"
+    ],
+    "differences": [
+      {
+        "kind": "left-only",
+        "path": [
+          "dom",
+          "root",
+          "children",
+          "react-flow__aria-live-1",
+          "text"
+        ],
+        "left": "Moved selected node right. New position, x: 5, y: 20"
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "target"
+        ],
+        "left": null,
+        "right": []
+      }
+    ]
+  },
+  {
+    "scenario": "arrow-key-selected-node",
+    "round": 3,
+    "interpretable": true,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "failureClasses": [
+      "unclaimed-difference"
+    ],
+    "differences": [
+      {
+        "kind": "left-only",
+        "path": [
+          "dom",
+          "root",
+          "children",
+          "react-flow__aria-live-1",
+          "text"
+        ],
+        "left": "Moved selected node right. New position, x: 5, y: 20"
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "target"
+        ],
+        "left": null,
+        "right": []
+      }
+    ]
+  },
+  {
+    "scenario": "arrow-key-selected-node",
+    "round": 4,
+    "interpretable": true,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "failureClasses": [
+      "unclaimed-difference"
+    ],
+    "differences": [
+      {
+        "kind": "left-only",
+        "path": [
+          "dom",
+          "root",
+          "children",
+          "react-flow__aria-live-1",
+          "text"
+        ],
+        "left": "Moved selected node right. New position, x: 5, y: 20"
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "target"
+        ],
+        "left": null,
+        "right": []
+      }
+    ]
+  },
+  {
+    "scenario": "arrow-key-selected-node",
+    "round": 5,
+    "interpretable": true,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "failureClasses": [
+      "unclaimed-difference"
+    ],
+    "differences": [
+      {
+        "kind": "left-only",
+        "path": [
+          "dom",
+          "root",
+          "children",
+          "react-flow__aria-live-1",
+          "text"
+        ],
+        "left": "Moved selected node right. New position, x: 5, y: 20"
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "target"
+        ],
+        "left": null,
+        "right": []
+      }
+    ]
+  },
+  {
+    "scenario": "resize-node-after-active-limit-change",
+    "round": 1,
+    "interpretable": true,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "resize-node-after-active-limit-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "resize-node-after-active-limit-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "failureClasses": [
+      "unclaimed-difference"
+    ],
+    "differences": [
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "source"
+        ],
+        "left": null,
+        "right": []
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "target"
+        ],
+        "left": null,
+        "right": []
+      }
+    ]
+  },
+  {
+    "scenario": "resize-node-after-active-limit-change",
+    "round": 2,
+    "interpretable": true,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "resize-node-after-active-limit-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "resize-node-after-active-limit-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "failureClasses": [
+      "unclaimed-difference"
+    ],
+    "differences": [
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "source"
+        ],
+        "left": null,
+        "right": []
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "target"
+        ],
+        "left": null,
+        "right": []
+      }
+    ]
+  },
+  {
+    "scenario": "resize-node-after-active-limit-change",
+    "round": 3,
+    "interpretable": true,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "resize-node-after-active-limit-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "resize-node-after-active-limit-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "failureClasses": [
+      "unclaimed-difference"
+    ],
+    "differences": [
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "source"
+        ],
+        "left": null,
+        "right": []
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "target"
+        ],
+        "left": null,
+        "right": []
+      }
+    ]
+  },
+  {
+    "scenario": "resize-node-after-active-limit-change",
+    "round": 4,
+    "interpretable": true,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "resize-node-after-active-limit-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "resize-node-after-active-limit-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "failureClasses": [
+      "unclaimed-difference"
+    ],
+    "differences": [
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "source"
+        ],
+        "left": null,
+        "right": []
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "target"
+        ],
+        "left": null,
+        "right": []
+      }
+    ]
+  },
+  {
+    "scenario": "resize-node-after-active-limit-change",
+    "round": 5,
+    "interpretable": true,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "resize-node-after-active-limit-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "resize-node-after-active-limit-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "failureClasses": [
+      "unclaimed-difference"
+    ],
+    "differences": [
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "source"
+        ],
+        "left": null,
+        "right": []
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "target"
+        ],
+        "left": null,
+        "right": []
+      }
+    ]
+  }
+]

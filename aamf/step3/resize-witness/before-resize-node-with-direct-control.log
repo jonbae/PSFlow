@@ -1,0 +1,19 @@
+$ node parity/system/net.mjs --scenario resize-node-with-direct-control
+fork: 54 upstream unit(s) affirmed — 30 of 48 spec unit(s) lifted, 18 declined with a reason, and 6 depended-on source(s).
+driver [psflow]: 30 fixtures + 1 direct component(s), 48 observed callback props, library from `// output/Boundary/` → dist/psflow.js
+driver [upstream]: 30 fixtures + 1 direct component(s), 48 observed callback props, library from `// xyflow/packages/react/src/` → dist/upstream.js
+captured resize-node-with-direct-control
+
+1 of 1 scenario(s) failed:
+  resize-node-with-direct-control: unclaimed-difference
+coverage is not affirmed.
+1 hole entr(ies) no longer correspond to anything: something drove the
+export after all, or it left the surface. Split the entry or delete it — a hole is a written reason,
+and this one stopped being true of what it names:
+  NodeResizer, NodeResizerProps, NodeResizeControl, ControlLinePosition, ControlPosition — no fixture mounts a resizer. parity:boundary mounts both components with no props inside a node component, which is below the net and asserts no DOM; nothing in the corpus renders a resize control, and ticket 073 (XYResizer drag lifecycle) is what a scenario driving one would be measuring against. The two components had already crossed in boundary stage 2; boundary stage 4 (#62) read this entry and left them alone, which is the register working — the reason here is about a fixture, not about a wrapper.
+3 scenario(s) in the corpus have no stored trace, so nothing they would have driven
+counts here. Capture them (`npm run parity:system`):
+  mount-baseline--resize-lifecycle
+  resize-node-with-resizer
+  resize-node-after-active-limit-change
+The report is parity/system/report.md and the coverage artifact is parity/system/coverage.md.

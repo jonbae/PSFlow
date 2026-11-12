@@ -1,0 +1,47 @@
+$ spago build
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[1 of 7] Compiling Boundary.Utils
+[2 of 7] Compiling Test.Boundary.EdgeAnimated
+[3 of 7] Compiling Test.Boundary.NodeDragging
+[4 of 7] Compiling Test.Boundary.EdgeSelected
+[5 of 7] Compiling Test.Boundary.EdgeHidden
+[6 of 7] Compiling Boundary
+[7 of 7] Compiling Test.Main
+[WARNING 1/2 UnusedExplicitImport] src/Boundary/Utils.purs:61:1
+
+      v
+  61  import Boundary.Elements
+  62    ( JsConnection
+  63    , JsEdge
+      ...
+  73    , nodeIn
+  74    , nodeOut
+  75    )
+        ^
+
+  The import of module Boundary.Elements contains the following unused references:
+    edgeChangeIn
+    nodeChangeIn
+    nodeIn
+    nodeOut
+  It could be replaced with:
+    import Boundary.Elements (JsConnection, JsEdge, JsEdgeChange, JsNode, JsNodeChange, connectionIn, connectionOut, edgeIn, edgeOut)
+
+[WARNING 2/2 UnusedImport] src/Boundary/Utils.purs:92:1
+
+  92  import React.Store.Changes (applyEdgeChanges, applyNodeChanges) as PS
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  The qualified import of React.Store.Changes as PS is redundant
+
+           Src   Lib   All
+Warnings     2     0     2
+Errors       0     0     0
+
+✓ Build succeeded.
+

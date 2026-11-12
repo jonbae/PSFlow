@@ -1,0 +1,552 @@
+$ npm run test:harness:live -- --grep resets held keyboard|complete drag-node-autopan
+
+> ps-flow@0.0.0 test:harness:live
+> playwright test --config parity/system/harness/playwright.config.mjs --grep resets held keyboard|complete drag-node-autopan
+
+[2m[WebServer] [22m(node:48979) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:49062) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:49062) [DEP0066] DeprecationWarning: OutgoingMessage.prototype._headers is deprecated
+
+Running 4 tests using 1 worker
+
+(node:49076) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:49076) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [harness] › parity/system/harness/timing.spec.mjs:26:5 › upstream reproduces the complete drag-node-autopan trace across independent captures (9.4s)
+(node:49336) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:49336) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [harness] › parity/system/harness/timing.spec.mjs:26:5 › psflow reproduces the complete drag-node-autopan trace across independent captures (10.4s)
+  ✓  3 [harness] › parity/system/harness/timing.spec.mjs:98:3 › upstream resets held keyboard modifiers on the blank document between captures (3.5s)
+  ✓  4 [harness] › parity/system/harness/timing.spec.mjs:98:3 › psflow resets held keyboard modifiers on the blank document between captures (4.3s)
+
+
+  1) [harness] › parity/system/harness/timing.spec.mjs:26:5 › upstream reproduces the complete drag-node-autopan trace across independent captures 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  -   1[39m
+    [31m+ Received  + 490[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   Object {[39m
+    [31m+     "kind": "right-only",[39m
+    [31m+     "left": undefined,[39m
+    [31m+     "path": Array [[39m
+    [31m+       "callbacks",[39m
+    [31m+       63,[39m
+    [31m+     ],[39m
+    [31m+     "right": Object {[39m
+    [31m+       "args": Array [[39m
+    [31m+         Object {[39m
+    [31m+           "@class": "SyntheticBaseEvent",[39m
+    [31m+           "_reactName": "onMouseLeave",[39m
+    [31m+           "_targetInst": Object {[39m
+    [31m+             "@ref": "React fiber",[39m
+    [31m+           },[39m
+    [31m+           "altKey": false,[39m
+    [31m+           "bubbles": true,[39m
+    [31m+           "button": 0,[39m
+    [31m+           "buttons": 1,[39m
+    [31m+           "cancelable": true,[39m
+    [31m+           "clientX": 6,[39m
+    [31m+           "clientY": 5,[39m
+    [31m+           "ctrlKey": false,[39m
+    [31m+           "currentTarget": Object {[39m
+    [31m+             "@ref": "DIV",[39m
+    [31m+           },[39m
+    [31m+           "defaultPrevented": false,[39m
+    [31m+           "detail": 0,[39m
+    [31m+           "eventPhase": 3,[39m
+    [31m+           "getModifierState": Object {[39m
+    [31m+             "@ref": "function",[39m
+    [31m+           },[39m
+    [31m+           "isDefaultPrevented": Object {[39m
+    [31m+             "@ref": "function",[39m
+    [31m+           },[39m
+    [31m+           "isPropagationStopped": Object {[39m
+    [31m+             "@ref": "function",[39m
+    [31m+           },[39m
+    [31m+           "isTrusted": true,[39m
+    [31m+           "metaKey": false,[39m
+    [31m+           "movementX": 0,[39m
+    [31m+           "movementY": 0,[39m
+    [31m+           "nativeEvent": Object {[39m
+    [31m+             "@class": "MouseEvent",[39m
+    [31m+             "isTrusted": true,[39m
+    [31m+           },[39m
+    [31m+           "pageX": 6,[39m
+    [31m+           "pageY": 5,[39m
+    [31m+           "relatedTarget": Object {[39m
+    [31m+             "@ref": "DIV",[39m
+    [31m+           },[39m
+    [31m+           "screenX": 6,[39m
+    [31m+           "screenY": 5,[39m
+    [31m+           "shiftKey": false,[39m
+    [31m+           "target": Object {[39m
+    [31m+             "@ref": "DIV",[39m
+    [31m+           },[39m
+    [31m+           "type": "mouseleave",[39m
+    [31m+           "view": Object {[39m
+    [31m+             "@ref": "Window",[39m
+    [31m+           },[39m
+    [31m+         },[39m
+    [31m+         Object {[39m
+    [31m+           "data": Object {[39m
+    [31m+             "label": "Node-1",[39m
+    [31m+           },[39m
+    [31m+           "dragging": true,[39m
+    [31m+           "id": "Node-1",[39m
+    [31m+           "measured": Object {[39m
+    [31m+             "height": 36,[39m
+    [31m+             "width": 150,[39m
+    [31m+           },[39m
+    [31m+           "position": Object {[39m
+    [31m+             "x": -2129,[39m
+    [31m+             "y": -2293,[39m
+    [31m+           },[39m
+    [31m+           "selected": true,[39m
+    [31m+           "type": "input",[39m
+    [31m+         },[39m
+    [31m+       ],[39m
+    [31m+       "name": "onNodeMouseLeave",[39m
+    [31m+     },[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "kind": "right-only",[39m
+    [31m+     "left": undefined,[39m
+    [31m+     "path": Array [[39m
+    [31m+       "callbacks",[39m
+    [31m+       67,[39m
+    [31m+     ],[39m
+    [31m+     "right": Object {[39m
+    [31m+       "args": Array [[39m
+    [31m+         Object {[39m
+    [31m+           "@class": "SyntheticBaseEvent",[39m
+    [31m+           "_reactName": "onMouseEnter",[39m
+    [31m+           "_targetInst": Object {[39m
+    [31m+             "@ref": "React fiber",[39m
+    [31m+           },[39m
+    [31m+           "altKey": false,[39m
+    [31m+           "bubbles": true,[39m
+    [31m+           "button": 0,[39m
+    [31m+           "buttons": 1,[39m
+    [31m+           "cancelable": true,[39m
+    [31m+           "clientX": 5,[39m
+    [31m+           "clientY": 5,[39m
+    [31m+           "ctrlKey": false,[39m
+    [31m+           "currentTarget": Object {[39m
+    [31m+             "@ref": "DIV",[39m
+    [31m+           },[39m
+    [31m+           "defaultPrevented": false,[39m
+    [31m+           "detail": 0,[39m
+    [31m+           "eventPhase": 3,[39m
+    [31m+           "getModifierState": Object {[39m
+    [31m+             "@ref": "function",[39m
+    [31m+           },[39m
+    [31m+           "isDefaultPrevented": Object {[39m
+    [31m+             "@ref": "function",[39m
+    [31m+           },[39m
+    [31m+           "isPropagationStopped": Object {[39m
+    [31m+             "@ref": "function",[39m
+    [31m+           },[39m
+    [31m+           "isTrusted": true,[39m
+    [31m+           "metaKey": false,[39m
+    [31m+           "movementX": 0,[39m
+    [31m+           "movementY": 0,[39m
+    [31m+           "nativeEvent": Object {[39m
+    [31m+             "@class": "MouseEvent",[39m
+    [31m+             "isTrusted": true,[39m
+    [31m+           },[39m
+    [31m+           "pageX": 5,[39m
+    [31m+           "pageY": 5,[39m
+    [31m+           "relatedTarget": Object {[39m
+    [31m+             "@ref": "DIV",[39m
+    [31m+           },[39m
+    [31m+           "screenX": 5,[39m
+    [31m+           "screenY": 5,[39m
+    [31m+           "shiftKey": false,[39m
+    [31m+           "target": Object {[39m
+    [31m+             "@ref": "DIV",[39m
+    [31m+           },[39m
+    [31m+           "type": "mouseenter",[39m
+    [31m+           "view": Object {[39m
+    [31m+             "@ref": "Window",[39m
+    [31m+           },[39m
+    [31m+         },[39m
+    [31m+         Object {[39m
+    [31m+           "data": Object {[39m
+    [31m+             "label": "Node-1",[39m
+    [31m+           },[39m
+    [31m+           "dragging": true,[39m
+    [31m+           "id": "Node-1",[39m
+    [31m+           "measured": Object {[39m
+    [31m+             "height": 36,[39m
+    [31m+             "width": 150,[39m
+    [31m+           },[39m
+    [31m+           "position": Object {[39m
+    [31m+             "x": -2070,[39m
+    [31m+             "y": -2013,[39m
+    [31m+           },[39m
+    [31m+           "selected": true,[39m
+    [31m+           "type": "input",[39m
+    [31m+         },[39m
+    [31m+       ],[39m
+    [31m+       "name": "onNodeMouseEnter",[39m
+    [31m+     },[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "kind": "order",[39m
+    [31m+     "left": Array [[39m
+    [31m+       "onSelectionChange#1",[39m
+    [31m+       "onNodesChange#1",[39m
+    [31m+       "onInit#1",[39m
+    [31m+       "onPaneMouseEnter#1",[39m
+    [31m+       "onNodeMouseEnter#1",[39m
+    [31m+       "onPaneMouseMove#1",[39m
+    [31m+       "onNodeMouseMove#1",[39m
+    [31m+       "onNodesChange#2",[39m
+    [31m+       "onNodeDragStart#1",[39m
+    [31m+       "onSelectionChange#2",[39m
+    [31m+       "onPaneMouseMove#2",[39m
+    [31m+       "onMoveStart#1",[39m
+    [31m+       "onViewportChange#1",[39m
+    [31m+       "onMove#1",[39m
+    [31m+       "onNodesChange#3",[39m
+    [31m+       "onNodeDrag#1",[39m
+    [31m+       "onNodeMouseLeave#1",[39m
+    [31m+       "onMoveEnd#1",[39m
+    [31m+       "onMoveStart#2",[39m
+    [31m+       "onViewportChange#2",[39m
+    [31m+       "onMove#2",[39m
+    [31m+       "onNodesChange#4",[39m
+    [31m+       "onNodeDrag#2",[39m
+    [31m+       "onMoveEnd#2",[39m
+    [31m+       "onMoveStart#3",[39m
+    [31m+       "onViewportChange#3",[39m
+    [31m+       "onMove#3",[39m
+    [31m+       "onNodesChange#5",[39m
+    [31m+       "onNodeDrag#3",[39m
+    [31m+       "onMoveEnd#3",[39m
+    [31m+       "onPaneMouseMove#3",[39m
+    [31m+       "onNodesChange#6",[39m
+    [31m+       "onNodeDrag#4",[39m
+    [31m+       "onNodeMouseEnter#2",[39m
+    [31m+       "onMoveStart#4",[39m
+    [31m+       "onViewportChange#4",[39m
+    [31m+       "onMove#4",[39m
+    [31m+       "onNodesChange#7",[39m
+    [31m+       "onNodeDrag#5",[39m
+    [31m+       "onMoveEnd#4",[39m
+    [31m+       "onMoveStart#5",[39m
+    [31m+       "onViewportChange#5",[39m
+    [31m+       "onMove#5",[39m
+    [31m+       "onNodesChange#8",[39m
+    [31m+       "onNodeDrag#6",[39m
+    [31m+       "onMoveEnd#5",[39m
+    [31m+       "onPaneMouseMove#4",[39m
+    [31m+       "onNodesChange#9",[39m
+    [31m+       "onNodeDrag#7",[39m
+    [31m+       "onMoveStart#6",[39m
+    [31m+       "onViewportChange#6",[39m
+    [31m+       "onMove#6",[39m
+    [31m+       "onNodesChange#10",[39m
+    [31m+       "onNodeDrag#8",[39m
+    [31m+       "onMoveEnd#6",[39m
+    [31m+       "onMoveStart#7",[39m
+    [31m+       "onViewportChange#7",[39m
+    [31m+       "onMove#7",[39m
+    [31m+       "onNodesChange#11",[39m
+    [31m+       "onNodeDrag#9",[39m
+    [31m+       "onMoveEnd#7",[39m
+    [31m+       "onNodeMouseLeave#2",[39m
+    [31m+       "onPaneMouseMove#5",[39m
+    [31m+       "onNodesChange#12",[39m
+    [31m+       "onNodeDrag#10",[39m
+    [31m+       "onNodeMouseEnter#3",[39m
+    [31m+       "onMoveStart#8",[39m
+    [31m+       "onViewportChange#8",[39m
+    [31m+       "onMove#8",[39m
+    [31m+       "onMoveEnd#8",[39m
+    [31m+       "onMoveStart#9",[39m
+    [31m+       "onViewportChange#9",[39m
+    [31m+       "onMove#9",[39m
+    [31m+       "onMoveEnd#9",[39m
+    [31m+       "onNodesChange#13",[39m
+    [31m+       "onNodeDragStop#1",[39m
+    [31m+     ],[39m
+    [31m+     "path": Array [[39m
+    [31m+       "callbacks",[39m
+    [31m+     ],[39m
+    [31m+     "right": Array [[39m
+    [31m+       "onSelectionChange#1",[39m
+    [31m+       "onNodesChange#1",[39m
+    [31m+       "onInit#1",[39m
+    [31m+       "onPaneMouseEnter#1",[39m
+    [31m+       "onNodeMouseEnter#1",[39m
+    [31m+       "onPaneMouseMove#1",[39m
+    [31m+       "onNodeMouseMove#1",[39m
+    [31m+       "onNodesChange#2",[39m
+    [31m+       "onNodeDragStart#1",[39m
+    [31m+       "onSelectionChange#2",[39m
+    [31m+       "onPaneMouseMove#2",[39m
+    [31m+       "onMoveStart#1",[39m
+    [31m+       "onViewportChange#1",[39m
+    [31m+       "onMove#1",[39m
+    [31m+       "onNodesChange#3",[39m
+    [31m+       "onNodeDrag#1",[39m
+    [31m+       "onNodeMouseLeave#1",[39m
+    [31m+       "onMoveEnd#1",[39m
+    [31m+       "onMoveStart#2",[39m
+    [31m+       "onViewportChange#2",[39m
+    [31m+       "onMove#2",[39m
+    [31m+       "onNodesChange#4",[39m
+    [31m+       "onNodeDrag#2",[39m
+    [31m+       "onMoveEnd#2",[39m
+    [31m+       "onMoveStart#3",[39m
+    [31m+       "onViewportChange#3",[39m
+    [31m+       "onMove#3",[39m
+    [31m+       "onNodesChange#5",[39m
+    [31m+       "onNodeDrag#3",[39m
+    [31m+       "onMoveEnd#3",[39m
+    [31m+       "onPaneMouseMove#3",[39m
+    [31m+       "onNodesChange#6",[39m
+    [31m+       "onNodeDrag#4",[39m
+    [31m+       "onNodeMouseEnter#2",[39m
+    [31m+       "onMoveStart#4",[39m
+    [31m+       "onViewportChange#4",[39m
+    [31m+       "onMove#4",[39m
+    [31m+       "onNodesChange#7",[39m
+    [31m+       "onNodeDrag#5",[39m
+    [31m+       "onMoveEnd#4",[39m
+    [31m+       "onMoveStart#5",[39m
+    [31m+       "onViewportChange#5",[39m
+    [31m+       "onMove#5",[39m
+    [31m+       "onNodesChange#8",[39m
+    [31m+       "onNodeDrag#6",[39m
+    [31m+       "onNodeMouseLeave#2",[39m
+    [31m+       "onMoveEnd#5",[39m
+    [31m+       "onNodeMouseEnter#3",[39m
+    [31m+       "onPaneMouseMove#4",[39m
+    [31m+       "onNodesChange#9",[39m
+    [31m+       "onNodeDrag#7",[39m
+    [31m+       "onMoveStart#6",[39m
+    [31m+       "onViewportChange#6",[39m
+    [31m+       "onMove#6",[39m
+    [31m+       "onNodesChange#10",[39m
+    [31m+       "onNodeDrag#8",[39m
+    [31m+       "onMoveEnd#6",[39m
+    [31m+       "onMoveStart#7",[39m
+    [31m+       "onViewportChange#7",[39m
+    [31m+       "onMove#7",[39m
+    [31m+       "onNodesChange#11",[39m
+    [31m+       "onNodeDrag#9",[39m
+    [31m+       "onMoveEnd#7",[39m
+    [31m+       "onPaneMouseMove#5",[39m
+    [31m+       "onNodesChange#12",[39m
+    [31m+       "onNodeDrag#10",[39m
+    [31m+       "onMoveStart#8",[39m
+    [31m+       "onViewportChange#8",[39m
+    [31m+       "onMove#8",[39m
+    [31m+       "onMoveEnd#8",[39m
+    [31m+       "onMoveStart#9",[39m
+    [31m+       "onViewportChange#9",[39m
+    [31m+       "onMove#9",[39m
+    [31m+       "onMoveEnd#9",[39m
+    [31m+       "onNodesChange#13",[39m
+    [31m+       "onNodeDragStop#1",[39m
+    [31m+     ],[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "kind": "changed",[39m
+    [31m+     "left": 6,[39m
+    [31m+     "path": Array [[39m
+    [31m+       "callbacks",[39m
+    [31m+       61,[39m
+    [31m+       "args",[39m
+    [31m+       0,[39m
+    [31m+       "screenX",[39m
+    [31m+     ],[39m
+    [31m+     "right": 5,[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "kind": "changed",[39m
+    [31m+     "left": 5,[39m
+    [31m+     "path": Array [[39m
+    [31m+       "callbacks",[39m
+    [31m+       61,[39m
+    [31m+       "args",[39m
+    [31m+       0,[39m
+    [31m+       "screenY",[39m
+    [31m+     ],[39m
+    [31m+     "right": 6,[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "kind": "changed",[39m
+    [31m+     "left": 6,[39m
+    [31m+     "path": Array [[39m
+    [31m+       "callbacks",[39m
+    [31m+       61,[39m
+    [31m+       "args",[39m
+    [31m+       0,[39m
+    [31m+       "clientX",[39m
+    [31m+     ],[39m
+    [31m+     "right": 5,[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "kind": "changed",[39m
+    [31m+     "left": 5,[39m
+    [31m+     "path": Array [[39m
+    [31m+       "callbacks",[39m
+    [31m+       61,[39m
+    [31m+       "args",[39m
+    [31m+       0,[39m
+    [31m+       "clientY",[39m
+    [31m+     ],[39m
+    [31m+     "right": 6,[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "kind": "changed",[39m
+    [31m+     "left": 6,[39m
+    [31m+     "path": Array [[39m
+    [31m+       "callbacks",[39m
+    [31m+       61,[39m
+    [31m+       "args",[39m
+    [31m+       0,[39m
+    [31m+       "pageX",[39m
+    [31m+     ],[39m
+    [31m+     "right": 5,[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "kind": "changed",[39m
+    [31m+     "left": 5,[39m
+    [31m+     "path": Array [[39m
+    [31m+       "callbacks",[39m
+    [31m+       61,[39m
+    [31m+       "args",[39m
+    [31m+       0,[39m
+    [31m+       "pageY",[39m
+    [31m+     ],[39m
+    [31m+     "right": 6,[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "kind": "changed",[39m
+    [31m+     "left": -2129,[39m
+    [31m+     "path": Array [[39m
+    [31m+       "callbacks",[39m
+    [31m+       61,[39m
+    [31m+       "args",[39m
+    [31m+       1,[39m
+    [31m+       "position",[39m
+    [31m+       "x",[39m
+    [31m+     ],[39m
+    [31m+     "right": -1100,[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "kind": "changed",[39m
+    [31m+     "left": -2293,[39m
+    [31m+     "path": Array [[39m
+    [31m+       "callbacks",[39m
+    [31m+       61,[39m
+    [31m+       "args",[39m
+    [31m+       1,[39m
+    [31m+       "position",[39m
+    [31m+       "y",[39m
+    [31m+     ],[39m
+    [31m+     "right": -1252,[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "kind": "changed",[39m
+    [31m+     "left": 5,[39m
+    [31m+     "path": Array [[39m
+    [31m+       "callbacks",[39m
+    [31m+       65,[39m
+    [31m+       "args",[39m
+    [31m+       0,[39m
+    [31m+       "screenY",[39m
+    [31m+     ],[39m
+    [31m+     "right": 6,[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "kind": "changed",[39m
+    [31m+     "left": 5,[39m
+    [31m+     "path": Array [[39m
+    [31m+       "callbacks",[39m
+    [31m+       65,[39m
+    [31m+       "args",[39m
+    [31m+       0,[39m
+    [31m+       "clientY",[39m
+    [31m+     ],[39m
+    [31m+     "right": 6,[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "kind": "changed",[39m
+    [31m+     "left": 5,[39m
+    [31m+     "path": Array [[39m
+    [31m+       "callbacks",[39m
+    [31m+       65,[39m
+    [31m+       "args",[39m
+    [31m+       0,[39m
+    [31m+       "pageY",[39m
+    [31m+     ],[39m
+    [31m+     "right": 6,[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "kind": "changed",[39m
+    [31m+     "left": -2070,[39m
+    [31m+     "path": Array [[39m
+    [31m+       "callbacks",[39m
+    [31m+       65,[39m
+    [31m+       "args",[39m
+    [31m+       1,[39m
+    [31m+       "position",[39m
+    [31m+       "x",[39m
+    [31m+     ],[39m
+    [31m+     "right": -1450,[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "kind": "changed",[39m
+    [31m+     "left": -2013,[39m
+    [31m+     "path": Array [[39m
+    [31m+       "callbacks",[39m
+    [31m+       65,[39m
+    [31m+       "args",[39m
+    [31m+       1,[39m
+    [31m+       "position",[39m
+    [31m+       "y",[39m
+    [31m+     ],[39m
+    [31m+     "right": -1592,[39m
+    [31m+   },[39m
+    [31m+ ][39m
+
+      34 |       }
+      35 |       for (const trace of traces.slice(1)) {
+    > 36 |         expect(checkSelfConsistency(traces[0], trace, {rules}).differences).toEqual([]);
+         |                                                                             ^
+      37 |       }
+      38 |     });
+      39 |   }
+        at /Users/jonathanbae/repos/PSFlow/parity/system/harness/timing.spec.mjs:36:77
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/timing-upstream-reproduces-d5126-across-independent-captures-harness/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/timing-upstream-reproduces-d5126-across-independent-captures-harness/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/timing-upstream-reproduces-d5126-across-independent-captures-harness/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/timing-upstream-reproduces-d5126-across-independent-captures-harness/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [harness] › parity/system/harness/timing.spec.mjs:26:5 › upstream reproduces the complete drag-node-autopan trace across independent captures 
+  3 passed (36.8s)

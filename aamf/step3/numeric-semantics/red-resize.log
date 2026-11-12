@@ -1,0 +1,36 @@
+$ node --input-type=module -e import { runNumericParityTests } from "./output/Test.System.Utils.NumericParity/index.js"; runNumericParityTests();
+numeric clamp: 2744 exact source comparisons; zero/NaN faults rejected
+numeric bounds: 784 exact source comparisons
+numeric geometry: 3136 rectangle pairs (union and overlap), 840 positions, 126 viewports
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: resize propagates a NaN size boundary
++ actual - expected
+
+  {
+    height: 110,
++   width: 120,
++   x: 10,
+-   width: NaN,
+-   x: NaN,
+    y: 20
+  }
+
+    at same (file:///Users/jonathanbae/repos/PSFlow/output/Test.System.Utils.NumericParity/foreign.js:7:50)
+    at Module.checkResize (file:///Users/jonathanbae/repos/PSFlow/output/Test.System.Utils.NumericParity/foreign.js:91:3)
+    at __do (file:///Users/jonathanbae/repos/PSFlow/output/Test.System.Utils.NumericParity/index.js:28:21)
+    at file:///Users/jonathanbae/repos/PSFlow/[eval1]:1:92
+    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:269:26)
+    at async ModuleLoader.executeModuleJob (node:internal/modules/esm/loader:265:20)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: { width: 120, height: 110, x: 10, y: 20 },
+  expected: { width: NaN, height: 110, x: NaN, y: 20 },
+  operator: 'deepStrictEqual'
+}
+
+Node.js v22.18.0

@@ -1,0 +1,22 @@
+$ npm run build:driver
+
+> ps-flow@0.0.0 build:driver
+> spago build && node parity/driver/build.mjs
+
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+           Src   Lib   All
+Warnings     0     0     0
+Errors       0     0     0
+
+✓ Build succeeded.
+
+
+  parity/driver/dist/psflow.js  2.8mb ⚠️
+
+⚡ Done in 536ms
+driver [psflow]: 29 fixtures + 1 direct component(s), 48 observed callback props, library from `// output/Boundary/` → dist/psflow.js

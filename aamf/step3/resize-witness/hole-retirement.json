@@ -1,0 +1,17 @@
+{
+  "recordedAt": "2026-11-10T20:59:31.935457+00:00",
+  "retired": [
+    {
+      "exports": [
+        "NodeResizer",
+        "NodeResizerProps",
+        "NodeResizeControl",
+        "ControlLinePosition",
+        "ControlPosition"
+      ],
+      "reason": "no fixture mounts a resizer. parity:boundary mounts both components with no props inside a node component, which is below the net and asserts no DOM; nothing in the corpus renders a resize control, and ticket 073 (XYResizer drag lifecycle) is what a scenario driving one would be measuring against. The two components had already crossed in boundary stage 2; boundary stage 4 (#62) read this entry and left them alone, which is the register working \u2014 the reason here is about a fixture, not about a wrapper."
+    }
+  ],
+  "evidence": "before-captures/resize-node-with-direct-control and resize-node-with-resizer; all four traces each contain the controls and nonzero start/resize/end. The unchanged coverage check reports this exact hole as stale. Existing source witnesses are unchanged.",
+  "runtimeParity": "The hole only states whether the exports were driven. Active-limit and callback property-order differences remain red until their fixes are validated."
+}

@@ -10,15 +10,10 @@
 -- |
 -- | ## The lifecycle this crossing exposes
 -- |
--- | `onResizeStart`, `onResize` and `onResizeEnd` are one of the two
--- | divergences that were known before any of this apparatus existed:
--- | `System.XYResizer`'s drag lifecycle is a typed scaffold, so `onResize`
--- | emits literal zeros and `onResizeEnd` fires whether or not the node was
--- | resized (`tickets/073-*`). Crossing the handlers does not fix that and is
--- | not meant to — what it does is make the divergence **reachable from
--- | JavaScript**, which is what a gate needs before it can report it. A handler
--- | ps-flow never calls and a handler it calls with zeros are the same green
--- | run while the prop throws at mount.
+-- | The controller maintains source gesture state and uses the shared resize
+-- | solver. W05's local proxies and W12's mounted fixture cover lifecycle
+-- | callbacks, changing limits during a drag, and the shared predicate payload.
+-- | Callback adapters retain reference identity across repeated conversion.
 -- |
 -- | ## Wrapper kinds are upstream's here
 -- |

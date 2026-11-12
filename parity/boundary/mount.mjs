@@ -584,11 +584,17 @@ check("edges come back JS-shaped, so they can go straight back into `edges`", ()
   assert(!("edgeType" in e), "the edge still carries `edgeType`");
 });
 
-throws(
-  "a change whose type nothing knows is refused, not dropped",
-  () => applyNodeChanges([{ type: "nonsense", id: "a" }], jsNodes),
-  "nonsense"
-);
+// Raw helpers retain upstream's default switch branch. This used to assert
+// the typed converter's extra refusal; W03's oracle regression established
+// that a matching unrecognized change still makes a shallow copy upstream.
+check("an unrecognized raw change keeps fields and copies only the touched node", () => {
+  const out = applyNodeChanges([{ type: "nonsense", id: "a" }], jsNodes);
+  assert(Array.isArray(out), "did not return nodes");
+  assert(out[0] !== jsNodes[0], "the touched node was not copied");
+  assert(out[0].data === jsNodes[0].data, "the copy was not shallow");
+  assert(out[0].type === jsNodes[0].type, "the copy lost its type");
+  assert(out[1] === jsNodes[1], "the untouched node was copied");
+});
 
 // `Edge | Connection` is untagged, and the narrowing is this module's: an
 // `Edge` keeps the id it arrived with, a `Connection` is handed to the id

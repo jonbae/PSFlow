@@ -39,12 +39,11 @@ export const manifest = Object.freeze({
   // move no number here and are the largest single piece of work in the
   // staging.
   //
-  // Stage 4 emptied the component half of `passthrough` and left fourteen
-  // pure functions. Stage 5 (`tickets/082-boundary-stage-5-pure-functions.md`)
-  // crosses them, and this number moves when the last of them has: its first
-  // half, the six edge-path helpers, is listed below as crossed, and so is
-  // `getViewportForBounds`; the seven it leaves are still in `passthrough`.
-  stage: 4,
+  // Stage 5 crossed the fourteen standalone pure exports left by stage 4,
+  // including graph/bounds/reconnection and native shape-guard behavior.
+  // Every value now has a boundary converter; behavior debt and explicit
+  // refusals are tracked separately by the gates and their registers.
+  stage: 5,
 
   // The eight TS enums are plain data on both sides, so crossing them was the
   // whole conversion: no wrapper, no arity change, no representation to
@@ -130,11 +129,18 @@ export const manifest = Object.freeze({
     "experimental_useOnNodesChangeMiddleware",
     "getBezierEdgeCenter",
     "getBezierPath",
+    "getConnectedEdges",
     "getEdgeCenter",
+    "getIncomers",
+    "getNodesBounds",
+    "getOutgoers",
     "getSimpleBezierPath",
     "getSmoothStepPath",
     "getStraightPath",
     "getViewportForBounds",
+    "isEdge",
+    "isNode",
+    "reconnectEdge",
     "useConnection",
     "useEdges",
     "useEdgesState",
@@ -156,20 +162,7 @@ export const manifest = Object.freeze({
     "useViewport",
   ]),
 
-  // What is left, and it is one kind of thing: the seven pure functions stage
-  // 5 has yet to cross. The five graph utilities resolve and return the right
-  // answer behind a curried call, and `isNode` and `isEdge` agree with
-  // upstream on every call surface parity makes. Surface parity's
-  // call-and-compare measures each difference rather than assuming it, which
-  // is what makes their entries in `parity/surface/allowlist.json` claims
-  // instead of excuses.
-  passthrough: Object.freeze([
-    "getConnectedEdges",
-    "getIncomers",
-    "getNodesBounds",
-    "getOutgoers",
-    "isEdge",
-    "isNode",
-    "reconnectEdge",
-  ]),
+  // Stage 5 has no raw value exports. Crossed remains independent of gated:
+  // the earlier change/add helpers still have consumer-object debt (#150).
+  passthrough: Object.freeze([]),
 });

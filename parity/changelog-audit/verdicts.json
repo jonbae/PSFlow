@@ -591,10 +591,10 @@
     "pkg": "react",
     "version": "12.5.4",
     "title": "Pass dimensions to final resize change event",
-    "bucket": "not-ported",
-    "evidence": "",
-    "ticket": "073",
-    "note": "src/System/XYResizer.purs:336-338 onEnd passes initResizeParams (zeros) instead of the final prevValues."
+    "bucket": "unit",
+    "evidence": "test/Test/System/XYResizer.purs runXYResizerTests with paired JS: nonzero controller onEnd payload and the mounted control final dimension change (including resizing:false).",
+    "ticket": null,
+    "note": "W05 completion; browser captures and full-system checkpoint are recorded separately in AAMF_STEP3_RESULTS.md. This unit classification does not claim the full system net passes."
   },
   "5148": {
     "pkg": "system",
@@ -1024,10 +1024,10 @@
     "pkg": "react",
     "version": "12.7.0",
     "title": "Prevent NodeResizer controls to become too small when zooming out",
-    "bucket": "not-ported",
-    "evidence": "",
-    "ticket": "073",
-    "note": "NodeResizer control auto-scaling exists at src/React/Additional/NodeResizer/Control.purs:83 but the resize lifecycle it feeds is a scaffold."
+    "bucket": "unit",
+    "evidence": "test/Test/System/XYResizer.purs runXYResizerTests with paired JS: mounted control autoScale at zoom 0.5 and 2, plus disabled autoScale, while the active resize reaches its updated bound.",
+    "ticket": null,
+    "note": "W05 completion; browser captures and full-system checkpoint are recorded separately in AAMF_STEP3_RESULTS.md. This unit classification does not claim the full system net passes."
   },
   "5333": {
     "pkg": "react",
@@ -1330,10 +1330,10 @@
     "pkg": "react",
     "version": "12.8.5",
     "title": "Prevent calling onResizeEnd if node was not resized",
-    "bucket": "not-ported",
-    "evidence": "",
-    "ticket": "073",
-    "note": "src/System/XYResizer.purs:336-338 calls onResizeEnd unconditionally; upstream XYResizer.ts guards on `resizeDetected`. PSFlow allocates the Ref (:234,266) but never writes it."
+    "bucket": "unit",
+    "evidence": "test/Test/System/XYResizer.purs runXYResizerTests with paired JS: no-op and completely vetoed gestures emit no resize end, and accepted gestures emit exactly one end.",
+    "ticket": null,
+    "note": "W05 completion; browser captures and full-system checkpoint are recorded separately in AAMF_STEP3_RESULTS.md. This unit classification does not claim the full system net passes."
   },
   "5511": {
     "pkg": "react",
@@ -1371,10 +1371,10 @@
     "pkg": "react",
     "version": "12.9.0",
     "title": "Let `NodeResizer` props change during ongoing resize",
-    "bucket": "not-ported",
-    "evidence": "",
-    "ticket": "073",
-    "note": "The XYResizer drag lifecycle (onStart/onDrag/onEnd, src/System/XYResizer.purs:301-338) is a typed scaffold — onDrag emits literal zeros — so mid-resize prop updates cannot take effect."
+    "bucket": "unit",
+    "evidence": "test/Test/System/XYResizer.purs runXYResizerTests with paired JS: factory active-gesture closure/options comparison and mounted JS control width-limit update (180 becomes 145).",
+    "ticket": null,
+    "note": "W05 completion; browser captures and full-system checkpoint are recorded separately in AAMF_STEP3_RESULTS.md. This unit classification does not claim the full system net passes."
   },
   "5530": {
     "pkg": "react",
@@ -1727,10 +1727,10 @@
     "pkg": "react",
     "version": "12.11.0",
     "title": "Fix node resizing possible beyond absolute extents",
-    "bucket": "not-ported",
-    "evidence": "",
-    "ticket": "073",
-    "note": "Absolute-extent clamping during resize is unreachable while the resizer lifecycle is a scaffold (src/System/XYResizer.purs:301-338)."
+    "bucket": "unit",
+    "evidence": "test/Test/System/XYResizer.purs runXYResizerTests with paired JS: source-differential coordinate/parent/child extent constraint cases through the actual controller.",
+    "ticket": null,
+    "note": "W05 completion; browser captures and full-system checkpoint are recorded separately in AAMF_STEP3_RESULTS.md. This unit classification does not claim the full system net passes."
   },
   "5791": {
     "pkg": "react",

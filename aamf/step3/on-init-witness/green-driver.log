@@ -1,0 +1,159 @@
+$ node --test parity/driver/callbacks.test.mjs
+TAP version 13
+# Subtest: a prop is a callback exactly when its type is callable, whatever it is named
+ok 1 - a prop is a callback exactly when its type is callable, whatever it is named
+  ---
+  duration_ms: 2861.933939
+  type: 'test'
+  ...
+# Subtest: a member inherited from outside the library's own source is not one of its callbacks
+ok 2 - a member inherited from outside the library's own source is not one of its callbacks
+  ---
+  duration_ms: 1588.50877
+  type: 'test'
+  ...
+# Subtest: a source file that is not there fails, naming the vendored tree
+ok 3 - a source file that is not there fails, naming the vendored tree
+  ---
+  duration_ms: 7.005836
+  type: 'test'
+  ...
+# Subtest: a props type that is no longer declared fails rather than deriving nothing
+ok 4 - a props type that is no longer declared fails rather than deriving nothing
+  ---
+  duration_ms: 1390.76742
+  type: 'test'
+  ...
+# Subtest: CallbackDerivationError is what the derivation throws
+ok 5 - CallbackDerivationError is what the derivation throws
+  ---
+  duration_ms: 2.779712
+  type: 'test'
+  ...
+# Subtest: a withheld prop that upstream no longer declares as a callback is stale
+ok 6 - a withheld prop that upstream no longer declares as a callback is stale
+  ---
+  duration_ms: 1.566719
+  type: 'test'
+  ...
+# Subtest: an unset-answer entry that upstream no longer declares as a callback is stale
+ok 7 - an unset-answer entry that upstream no longer declares as a callback is stale
+  ---
+  duration_ms: 1.597798
+  type: 'test'
+  ...
+# Subtest: registers that name real callback props are not stale
+ok 8 - registers that name real callback props are not stale
+  ---
+  duration_ms: 0.572989
+  type: 'test'
+  ...
+# Subtest: an answer for a prop nothing installs is a contradiction, not a filter
+ok 9 - an answer for a prop nothing installs is a contradiction, not a filter
+  ---
+  duration_ms: 1.510479
+  type: 'test'
+  ...
+# Subtest: every hole carries a reason and the issue that lands it
+ok 10 - every hole carries a reason and the issue that lands it
+  ---
+  duration_ms: 2.009907
+  type: 'test'
+  ...
+# Subtest: the withheld props are the holes that name one
+ok 11 - the withheld props are the holes that name one
+  ---
+  duration_ms: 1.015288
+  type: 'test'
+  ...
+# Subtest: the census still assigns this section the exports the holes are counted against
+ok 12 - the census still assigns this section the exports the holes are counted against
+  ---
+  duration_ms: 0.513618
+  type: 'test'
+  ...
+# Subtest: every declared hole names an export the census assigns to this section
+ok 13 - every declared hole names an export the census assigns to this section
+  ---
+  duration_ms: 0.551663
+  type: 'test'
+  ...
+# Subtest: the exports outside ReactFlowProps are the ones declared
+not ok 14 - the exports outside ReactFlowProps are the ones declared
+  ---
+  duration_ms: 5.691881
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/driver/callbacks.test.mjs:187:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    -   'OnInit',
+        'OnResize',
+        'OnResizeEnd',
+        'OnResizeStart',
+        'ResizeDragEvent',
+        'ResizeParams',
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'OnInit'
+    1: 'OnResize'
+    2: 'OnResizeEnd'
+    3: 'OnResizeStart'
+    4: 'ResizeDragEvent'
+    5: 'ResizeParams'
+    6: 'ResizeParamsWithDirection'
+    7: 'ShouldResize'
+    8: 'UseOnSelectionChangeOptions'
+    9: 'UseOnViewportChangeOptions'
+  actual:
+    0: 'OnResize'
+    1: 'OnResizeEnd'
+    2: 'OnResizeStart'
+    3: 'ResizeDragEvent'
+    4: 'ResizeParams'
+    5: 'ResizeParamsWithDirection'
+    6: 'ShouldResize'
+    7: 'UseOnSelectionChangeOptions'
+    8: 'UseOnViewportChangeOptions'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/driver/callbacks.test.mjs:188:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: upstream's own callback props are what the driver installs, minus the withheld ones
+ok 15 - upstream's own callback props are what the driver installs, minus the withheld ones
+  ---
+  duration_ms: 2123.572771
+  type: 'test'
+  ...
+# Subtest: no prop is both installed and withheld
+ok 16 - no prop is both installed and withheld
+  ---
+  duration_ms: 1555.061878
+  type: 'test'
+  ...
+# Subtest: both registers name props upstream still declares as callbacks
+ok 17 - both registers name props upstream still declares as callbacks
+  ---
+  duration_ms: 1115.285739
+  type: 'test'
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 16
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 12261.908963

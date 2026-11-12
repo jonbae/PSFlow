@@ -9,6 +9,9 @@ module Test.React.Hook.VisibleIds
 
 import Prelude
 
+import Record as Record
+import Type.Proxy (Proxy(..))
+
 import Data.Array (length, sort) as Array
 import Data.Map as Map
 import Data.Maybe (Maybe(..))
@@ -33,42 +36,48 @@ assert label ok =
 -- | short-circuit via `forceInitialRender`.
 mkNode :: String -> Number -> Number -> Number -> Number -> InternalNodeBase Unit
 mkNode nodeId px py w h =
-  { id: NodeId nodeId
-  , position: { x: px, y: py }
-  , data: unit
-  , sourcePosition: Nothing
-  , targetPosition: Nothing
-  , hidden: Nothing
-  , selected: Nothing
-  , dragging: Nothing
-  , draggable: Nothing
-  , selectable: Nothing
-  , connectable: Nothing
-  , deletable: Nothing
-  , dragHandle: Nothing
-  , width: Nothing
-  , height: Nothing
-  , initialWidth: Nothing
-  , initialHeight: Nothing
-  , parentId: Nothing
-  , zIndex: Nothing
-  , extent: Nothing
-  , expandParent: Nothing
-  , ariaLabel: Nothing
-  , origin: Nothing
-  , handles: Nothing
-  , measured: { width: Just w, height: Just h }
-  , nodeType: Nothing
-  , className: Nothing
-  , style: Nothing
-  , internals:
+  let
+    originalUserNode =
+      { id: NodeId nodeId
+      , position: { x: px, y: py }
+      , data: unit
+      , sourcePosition: Nothing
+      , targetPosition: Nothing
+      , hidden: Nothing
+      , selected: Nothing
+      , dragging: Nothing
+      , draggable: Nothing
+      , selectable: Nothing
+      , connectable: Nothing
+      , deletable: Nothing
+      , dragHandle: Nothing
+      , width: Nothing
+      , height: Nothing
+      , initialWidth: Nothing
+      , initialHeight: Nothing
+      , parentId: Nothing
+      , zIndex: Nothing
+      , extent: Nothing
+      , expandParent: Nothing
+      , resizing: Nothing
+      , ariaLabel: Nothing
+      , origin: Nothing
+      , handles: Nothing
+      , measured: { width: Just w, height: Just h }
+      , nodeType: Nothing
+      , className: Nothing
+      , style: Nothing
+      }
+  in
+    Record.insert (Proxy :: Proxy "internals")
       { positionAbsolute: { x: px, y: py }
       , z: 0.0
       , rootParentIndex: Nothing
-      , handleBounds: Just { source: [], target: [] }
+      , handleBounds: Just { source: Just [], target: Just [] }
       , bounds: Nothing
+      , userNode: originalUserNode
       }
-  }
+      originalUserNode
 
 mkEdge :: String -> String -> String -> EdgeBase Unit
 mkEdge edgeId src tgt =

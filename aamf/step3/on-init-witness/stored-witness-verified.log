@@ -1,0 +1,2 @@
+$ node aamf/step3/on-init-witness/verify.mjs
+OnInit: all four real captures carry one initialized instance; the unchanged witness rejects missing receipts.

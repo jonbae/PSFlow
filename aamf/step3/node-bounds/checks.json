@@ -1,0 +1,218 @@
+[
+  {
+    "name": "red-call",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/node-bounds.test.mjs"
+    ],
+    "startedAt": "2026-11-10T02:36:09.551Z",
+    "finishedAt": "2026-11-10T02:36:10.233Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/node-bounds/red-call.log"
+  },
+  {
+    "name": "build-call",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T02:36:34.473Z",
+    "finishedAt": "2026-11-10T02:36:39.717Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/node-bounds/build-call.log"
+  },
+  {
+    "name": "green-call",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/node-bounds.test.mjs"
+    ],
+    "startedAt": "2026-11-10T02:37:00.027Z",
+    "finishedAt": "2026-11-10T02:37:00.750Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/node-bounds/green-call.log"
+  },
+  {
+    "name": "red-lookup",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/node-bounds.test.mjs"
+    ],
+    "startedAt": "2026-11-10T02:37:01.617Z",
+    "finishedAt": "2026-11-10T02:37:02.429Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/node-bounds/red-lookup.log"
+  },
+  {
+    "name": "build-lookup",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T02:39:25.530Z",
+    "finishedAt": "2026-11-10T02:39:30.829Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/node-bounds/build-lookup.log"
+  },
+  {
+    "name": "green-lookup",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/node-bounds.test.mjs"
+    ],
+    "startedAt": "2026-11-10T02:39:36.787Z",
+    "finishedAt": "2026-11-10T02:39:37.531Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/node-bounds/green-lookup.log"
+  },
+  {
+    "name": "red-numeric",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/node-bounds.test.mjs"
+    ],
+    "startedAt": "2026-11-10T02:40:10.757Z",
+    "finishedAt": "2026-11-10T02:40:11.549Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/node-bounds/red-numeric.log"
+  },
+  {
+    "name": "build-numeric",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T02:40:35.452Z",
+    "finishedAt": "2026-11-10T02:40:40.698Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/node-bounds/build-numeric.log"
+  },
+  {
+    "name": "green-numeric",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/node-bounds.test.mjs"
+    ],
+    "startedAt": "2026-11-10T02:42:29.076Z",
+    "finishedAt": "2026-11-10T02:42:29.786Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/node-bounds/green-numeric.log"
+  },
+  {
+    "name": "cases",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/node-bounds.test.mjs"
+    ],
+    "startedAt": "2026-11-10T02:42:30.705Z",
+    "finishedAt": "2026-11-10T02:42:31.516Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/node-bounds/cases.log"
+  },
+  {
+    "name": "build",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T02:43:40.050Z",
+    "finishedAt": "2026-11-10T02:43:45.384Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/node-bounds/build.log"
+  },
+  {
+    "name": "surface",
+    "command": [
+      "npm",
+      "run",
+      "parity:surface"
+    ],
+    "startedAt": "2026-11-10T02:44:00.861Z",
+    "finishedAt": "2026-11-10T02:44:05.171Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/node-bounds/surface.log"
+  },
+  {
+    "name": "surface-tests",
+    "command": [
+      "npm",
+      "run",
+      "test:surface"
+    ],
+    "startedAt": "2026-11-10T02:44:36.383Z",
+    "finishedAt": "2026-11-10T02:44:38.259Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/node-bounds/surface-tests.log"
+  },
+  {
+    "name": "boundary-tests",
+    "command": [
+      "npm",
+      "run",
+      "test:boundary"
+    ],
+    "startedAt": "2026-11-10T02:44:36.377Z",
+    "finishedAt": "2026-11-10T02:44:42.406Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/node-bounds/boundary-tests.log"
+  },
+  {
+    "name": "boundary",
+    "command": [
+      "npm",
+      "run",
+      "parity:boundary"
+    ],
+    "startedAt": "2026-11-10T02:44:36.381Z",
+    "finishedAt": "2026-11-10T02:44:43.955Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/node-bounds/boundary.log"
+  },
+  {
+    "name": "purescript",
+    "command": [
+      "spago",
+      "test"
+    ],
+    "startedAt": "2026-11-10T02:44:36.374Z",
+    "finishedAt": "2026-11-10T02:44:46.562Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/node-bounds/purescript.log"
+  },
+  {
+    "name": "driver",
+    "command": [
+      "npm",
+      "run",
+      "build:driver"
+    ],
+    "startedAt": "2026-11-10T02:45:17.895Z",
+    "finishedAt": "2026-11-10T02:45:23.608Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/node-bounds/driver.log"
+  }
+]

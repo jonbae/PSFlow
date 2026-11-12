@@ -14,12 +14,13 @@ module System.XYResizer.Utils
   , getDimensionsAfterResize
   ) where
 
-import Prelude
+import Prelude hiding (max)
 
 import Data.Maybe (Maybe(..))
 import Data.Number (floor) as Number
 import System.Types.Geometry (CoordinateExtent(..), NodeOrigin(..))
-import System.XYResizer
+import System.Utils.Number (max)
+import System.XYResizer.Types
   ( ControlLinePosition(..)
   , ControlPosition(..)
   , CornerPosition(..)

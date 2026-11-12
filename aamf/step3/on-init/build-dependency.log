@@ -1,0 +1,25 @@
+$ spago build
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[ 1 of 12] Compiling React.Hook.Listeners
+[ 2 of 12] Compiling Boundary.Hooks
+[ 3 of 12] Compiling Test.React.Hook.OnInitTiming
+[ 4 of 12] Compiling React.Container.GraphView
+[ 5 of 12] Compiling Test.Boundary.UserNode
+[ 6 of 12] Compiling React.Container.ReactFlow
+[ 8 of 12] Compiling React
+[ 7 of 12] Compiling Boundary.Flow
+[ 9 of 12] Compiling Test.Boundary.FlowWrapperAttributes
+[10 of 12] Compiling Boundary
+[11 of 12] Compiling Test.React.Additional.BackgroundPattern
+[12 of 12] Compiling Test.Main
+           Src   Lib   All
+Warnings     0     0     0
+Errors       0     0     0
+
+✓ Build succeeded.
+

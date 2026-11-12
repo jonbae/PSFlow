@@ -1,0 +1,736 @@
+$ npm run test:boundary
+
+> ps-flow@0.0.0 test:boundary
+> node --test "parity/boundary/**/*.test.mjs"
+
+TAP version 13
+# Subtest: getConnectedEdges accepts both arrays and returns the consumer edges
+ok 1 - getConnectedEdges accepts both arrays and returns the consumer edges
+  ---
+  duration_ms: 21.379552
+  type: 'test'
+  ...
+# Subtest: getConnectedEdges matches upstream: empty nodes
+ok 2 - getConnectedEdges matches upstream: empty nodes
+  ---
+  duration_ms: 2.792363
+  type: 'test'
+  ...
+# Subtest: getConnectedEdges matches upstream: empty edges
+ok 3 - getConnectedEdges matches upstream: empty edges
+  ---
+  duration_ms: 1.318837
+  type: 'test'
+  ...
+# Subtest: getConnectedEdges matches upstream: both endpoints, self-loops and input order
+ok 4 - getConnectedEdges matches upstream: both endpoints, self-loops and input order
+  ---
+  duration_ms: 0.909778
+  type: 'test'
+  ...
+# Subtest: getConnectedEdges matches upstream: duplicate node and edge ids
+ok 5 - getConnectedEdges matches upstream: duplicate node and edge ids
+  ---
+  duration_ms: 1.70836
+  type: 'test'
+  ...
+# Subtest: getConnectedEdges matches upstream: empty string ids
+ok 6 - getConnectedEdges matches upstream: empty string ids
+  ---
+  duration_ms: 0.738475
+  type: 'test'
+  ...
+# Subtest: getConnectedEdges preserves frozen consumer objects, symbols and present undefined
+ok 7 - getConnectedEdges preserves frozen consumer objects, symbols and present undefined
+  ---
+  duration_ms: 25.902943
+  type: 'test'
+  ...
+# Subtest: addEdge matches React-layer development warnings and propagates consumer errors
+ok 8 - addEdge matches React-layer development warnings and propagates consumer errors
+  ---
+  duration_ms: 419.195651
+  type: 'test'
+  ...
+# Subtest: addEdge copies the consumer edge/connection and retains untouched edges
+ok 9 - addEdge copies the consumer edge/connection and retains untouched edges
+  ---
+  duration_ms: 32.397717
+  type: 'test'
+  ...
+# Subtest: addEdge uses the original array concat operation after validation
+ok 10 - addEdge uses the original array concat operation after validation
+  ---
+  duration_ms: 35.303514
+  type: 'test'
+  ...
+# Subtest: addEdge keeps duplicate/invalid arrays and calls options with upstream arguments and receiver
+ok 11 - addEdge keeps duplicate/invalid arrays and calls options with upstream arguments and receiver
+  ---
+  duration_ms: 10.511127
+  type: 'test'
+  ...
+# Subtest: consumer helpers preserve enumerable symbols and __proto__ without copying inherited/nonenumerable fields
+ok 12 - consumer helpers preserve enumerable symbols and __proto__ without copying inherited/nonenumerable fields
+  ---
+  duration_ms: 10.731955
+  type: 'test'
+  ...
+# Subtest: consumer helpers preserve getter, generator and validation order
+ok 13 - consumer helpers preserve getter, generator and validation order
+  ---
+  duration_ms: 19.513667
+  type: 'test'
+  ...
+# Subtest: applyNodeChanges retains untouched consumer references and keys
+ok 14 - applyNodeChanges retains untouched consumer references and keys
+  ---
+  duration_ms: 1.79005
+  type: 'test'
+  ...
+# Subtest: applyEdgeChanges retains untouched consumer references and keys
+ok 15 - applyEdgeChanges retains untouched consumer references and keys
+  ---
+  duration_ms: 13.411789
+  type: 'test'
+  ...
+# Subtest: applyNodeChanges preserves raw position, dimensions, attributes and resizing semantics
+ok 16 - applyNodeChanges preserves raw position, dimensions, attributes and resizing semantics
+  ---
+  duration_ms: 17.770561
+  type: 'test'
+  ...
+# Subtest: applyNodeChanges shallow-copies touched/add/replace items and preserves change ordering
+ok 17 - applyNodeChanges shallow-copies touched/add/replace items and preserves change ordering
+  ---
+  duration_ms: 10.249489
+  type: 'test'
+  ...
+# Subtest: applyEdgeChanges shallow-copies touched/add/replace items and preserves change ordering
+ok 18 - applyEdgeChanges shallow-copies touched/add/replace items and preserves change ordering
+  ---
+  duration_ms: 21.406911
+  type: 'test'
+  ...
+# Subtest: getIncomers accepts all three JS arguments and returns original nodes in node-array order
+ok 19 - getIncomers accepts all three JS arguments and returns original nodes in node-array order
+  ---
+  duration_ms: 28.441868
+  type: 'test'
+  ...
+# Subtest: getIncomers returns early for empty or absent ids without reading the other arguments
+ok 20 - getIncomers returns early for empty or absent ids without reading the other arguments
+  ---
+  duration_ms: 1.479744
+  type: 'test'
+  ...
+# Subtest: getIncomers matches upstream: empty nodes
+ok 21 - getIncomers matches upstream: empty nodes
+  ---
+  duration_ms: 1.071153
+  type: 'test'
+  ...
+# Subtest: getIncomers matches upstream: empty edges
+ok 22 - getIncomers matches upstream: empty edges
+  ---
+  duration_ms: 0.926679
+  type: 'test'
+  ...
+# Subtest: getIncomers matches upstream: unmatched target
+ok 23 - getIncomers matches upstream: unmatched target
+  ---
+  duration_ms: 1.309404
+  type: 'test'
+  ...
+# Subtest: getIncomers matches upstream: outgoing edges do not count
+ok 24 - getIncomers matches upstream: outgoing edges do not count
+  ---
+  duration_ms: 1.100649
+  type: 'test'
+  ...
+# Subtest: getIncomers matches upstream: duplicates and self-loops preserve node-array order
+ok 25 - getIncomers matches upstream: duplicates and self-loops preserve node-array order
+  ---
+  duration_ms: 10.645295
+  type: 'test'
+  ...
+# Subtest: getIncomers matches upstream: empty string source id
+ok 26 - getIncomers matches upstream: empty string source id
+  ---
+  duration_ms: 1.068953
+  type: 'test'
+  ...
+# Subtest: getIncomers preserves frozen consumer nodes, custom keys, symbols and present undefined
+ok 27 - getIncomers preserves frozen consumer nodes, custom keys, symbols and present undefined
+  ---
+  duration_ms: 17.088552
+  type: 'test'
+  ...
+# Subtest: isEdge preserves upstream native errors for primitive inputs
+ok 28 - isEdge preserves upstream native errors for primitive inputs
+  ---
+  duration_ms: 75.820283
+  type: 'test'
+  ...
+# Subtest: isEdge checks key presence across inherited fields and function objects
+ok 29 - isEdge checks key presence across inherited fields and function objects
+  ---
+  duration_ms: 30.178984
+  type: 'test'
+  ...
+# Subtest: isEdge preserves short-circuit presence-check order without reading values
+ok 30 - isEdge preserves short-circuit presence-check order without reading values
+  ---
+  duration_ms: 11.256584
+  type: 'test'
+  ...
+# Subtest: isNode preserves upstream native errors for primitive inputs
+ok 31 - isNode preserves upstream native errors for primitive inputs
+  ---
+  duration_ms: 55.996721
+  type: 'test'
+  ...
+# Subtest: isNode uses presence across inherited keys and function objects
+ok 32 - isNode uses presence across inherited keys and function objects
+  ---
+  duration_ms: 9.188377
+  type: 'test'
+  ...
+# Subtest: isNode preserves short-circuit presence-check order without reading values
+ok 33 - isNode preserves short-circuit presence-check order without reading values
+  ---
+  duration_ms: 9.976586
+  type: 'test'
+  ...
+# Subtest: getNodesBounds returns a rect from one JS call with omitted options
+ok 34 - getNodesBounds returns a rect from one JS call with omitted options
+  ---
+  duration_ms: 44.790871
+  type: 'test'
+  ...
+# Subtest: getNodesBounds resolves ids and plain nodes through the lookup, keeps internal inputs, and includes a zero box for misses
+ok 35 - getNodesBounds resolves ids and plain nodes through the lookup, keeps internal inputs, and includes a zero box for misses
+  ---
+  duration_ms: 2.910662
+  type: 'test'
+  ...
+# Subtest: getNodesBounds propagates NaN through every box merge in either input order
+ok 36 - getNodesBounds propagates NaN through every box merge in either input order
+  ---
+  duration_ms: 19.279045
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: empty nodes
+ok 37 - getNodesBounds matches upstream: empty nodes
+  ---
+  duration_ms: 1.118052
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: explicit undefined options
+ok 38 - getNodesBounds matches upstream: explicit undefined options
+  ---
+  duration_ms: 1.57188
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: empty options
+ok 39 - getNodesBounds matches upstream: empty options
+  ---
+  duration_ms: 2.197639
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: ids without a lookup contribute zero boxes
+ok 40 - getNodesBounds matches upstream: ids without a lookup contribute zero boxes
+  ---
+  duration_ms: 6.430962
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: global origin
+ok 41 - getNodesBounds matches upstream: global origin
+  ---
+  duration_ms: 46.930908
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: own origin overrides global origin
+ok 42 - getNodesBounds matches upstream: own origin overrides global origin
+  ---
+  duration_ms: 4.557771
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: partial measured dimensions and independent fallbacks
+ok 43 - getNodesBounds matches upstream: partial measured dimensions and independent fallbacks
+  ---
+  duration_ms: 3.201307
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: missing dimensions default to zero
+ok 44 - getNodesBounds matches upstream: missing dimensions default to zero
+  ---
+  duration_ms: 3.022111
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: internal nodes use absolute positions and ignore origins
+ok 45 - getNodesBounds matches upstream: internal nodes use absolute positions and ignore origins
+  ---
+  duration_ms: 8.563629
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: lookup miss for a plain node contributes zero instead of falling back
+ok 46 - getNodesBounds matches upstream: lookup miss for a plain node contributes zero instead of falling back
+  ---
+  duration_ms: 1.130884
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: nullish measured fields fall back independently
+ok 47 - getNodesBounds matches upstream: nullish measured fields fall back independently
+  ---
+  duration_ms: 0.90532
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches signed zero, infinities and negative dimensions
+ok 48 - getNodesBounds matches signed zero, infinities and negative dimensions
+  ---
+  duration_ms: 28.666661
+  type: 'test'
+  ...
+# Subtest: getNodesBounds reads only used geometry fields and short-circuits dimension fallbacks
+ok 49 - getNodesBounds reads only used geometry fields and short-circuits dimension fallbacks
+  ---
+  duration_ms: 1.040054
+  type: 'test'
+  ...
+# Subtest: getNodesBounds leaves frozen nodes, options and lookup entries unchanged
+ok 50 - getNodesBounds leaves frozen nodes, options and lookup entries unchanged
+  ---
+  duration_ms: 1.14945
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches malformed-option error and empty-input timing
+ok 51 - getNodesBounds matches malformed-option error and empty-input timing
+  ---
+  duration_ms: 13.829042
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches the vendored development warning before the empty-input return
+ok 52 - getNodesBounds matches the vendored development warning before the empty-input return
+  ---
+  duration_ms: 446.585717
+  type: 'test'
+  ...
+# Subtest: getOutgoers accepts three JS arguments and returns original nodes in node-array order
+ok 53 - getOutgoers accepts three JS arguments and returns original nodes in node-array order
+  ---
+  duration_ms: 42.554618
+  type: 'test'
+  ...
+# Subtest: getOutgoers returns early for empty or absent ids without reading the other arguments
+ok 54 - getOutgoers returns early for empty or absent ids without reading the other arguments
+  ---
+  duration_ms: 1.44319
+  type: 'test'
+  ...
+# Subtest: getOutgoers matches upstream: empty nodes
+ok 55 - getOutgoers matches upstream: empty nodes
+  ---
+  duration_ms: 44.917287
+  type: 'test'
+  ...
+# Subtest: getOutgoers matches upstream: empty edges
+ok 56 - getOutgoers matches upstream: empty edges
+  ---
+  duration_ms: 0.808436
+  type: 'test'
+  ...
+# Subtest: getOutgoers matches upstream: unmatched source
+ok 57 - getOutgoers matches upstream: unmatched source
+  ---
+  duration_ms: 3.273876
+  type: 'test'
+  ...
+# Subtest: getOutgoers matches upstream: incoming edges do not count
+ok 58 - getOutgoers matches upstream: incoming edges do not count
+  ---
+  duration_ms: 3.071304
+  type: 'test'
+  ...
+# Subtest: getOutgoers matches upstream: duplicates and self-loops preserve node-array order
+ok 59 - getOutgoers matches upstream: duplicates and self-loops preserve node-array order
+  ---
+  duration_ms: 1.677033
+  type: 'test'
+  ...
+# Subtest: getOutgoers matches upstream: empty string target id
+ok 60 - getOutgoers matches upstream: empty string target id
+  ---
+  duration_ms: 6.849671
+  type: 'test'
+  ...
+# Subtest: getOutgoers preserves frozen consumer nodes, custom keys, symbols and present undefined
+ok 61 - getOutgoers preserves frozen consumer nodes, custom keys, symbols and present undefined
+  ---
+  duration_ms: 19.722391
+  type: 'test'
+  ...
+# Subtest: a record written as one literal reads back as itself
+ok 62 - a record written as one literal reads back as itself
+  ---
+  duration_ms: 33.683436
+  type: 'test'
+  ...
+# Subtest: a record composed from a row is expanded, tail last
+ok 63 - a record composed from a row is expanded, tail last
+  ---
+  duration_ms: 31.181727
+  type: 'test'
+  ...
+# Subtest: `{ label :: T | Row }` is a composition too, not a one-field record
+ok 64 - `{ label :: T | Row }` is a composition too, not a one-field record
+  ---
+  duration_ms: 6.857418
+  type: 'test'
+  ...
+# Subtest: two rows compose, and a synonym in between is followed
+ok 65 - two rows compose, and a synonym in between is followed
+  ---
+  duration_ms: 23.282483
+  type: 'test'
+  ...
+# Subtest: a parameterised record synonym is applied, not just named
+ok 66 - a parameterised record synonym is applied, not just named
+  ---
+  duration_ms: 8.05313
+  type: 'test'
+  ...
+# Subtest: an argument is read in the scope that passed it, not the one that uses it
+ok 67 - an argument is read in the scope that passed it, not the one that uses it
+  ---
+  duration_ms: 10.345521
+  type: 'test'
+  ...
+# Subtest: a synonym sees only its own parameters — an enclosing one is not in scope
+ok 68 - a synonym sees only its own parameters — an enclosing one is not in scope
+  ---
+  duration_ms: 4.707822
+  type: 'test'
+  ...
+# Subtest: an unapplied tail contributes nothing rather than failing
+ok 69 - an unapplied tail contributes nothing rather than failing
+  ---
+  duration_ms: 6.486854
+  type: 'test'
+  ...
+# Subtest: field types come back alongside the labels, whitespace collapsed
+ok 70 - field types come back alongside the labels, whitespace collapsed
+  ---
+  duration_ms: 6.860524
+  type: 'test'
+  ...
+# Subtest: a quoted label survives, and a `--` inside one is not a comment
+ok 71 - a quoted label survives, and a `--` inside one is not a comment
+  ---
+  duration_ms: 91.972459
+  type: 'test'
+  ...
+# Subtest: ReactFlowInstance reads as all thirty-two members
+ok 72 - ReactFlowInstance reads as all thirty-two members
+  ---
+  duration_ms: 33.320859
+  type: 'test'
+  ...
+# Subtest: InternalNodeBase carries the node's own fields, not just `internals`
+ok 73 - InternalNodeBase carries the node's own fields, not just `internals`
+  ---
+  duration_ms: 3.146052
+  type: 'test'
+  ...
+# Subtest: a path-shaped edge props record is its shared row plus pathOptions
+ok 74 - a path-shaped edge props record is its shared row plus pathOptions
+  ---
+  duration_ms: 26.53116
+  type: 'test'
+  ...
+# Subtest: reconnectEdge accepts JS arguments, preserves untouched references and consumer keys on the replacement
+ok 75 - reconnectEdge accepts JS arguments, preserves untouched references and consumer keys on the replacement
+  ---
+  duration_ms: 18.104463
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: omitted
+ok 76 - reconnectEdge matches option/default behavior: omitted
+  ---
+  duration_ms: 1.853397
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: empty options
+ok 77 - reconnectEdge matches option/default behavior: empty options
+  ---
+  duration_ms: 1.752688
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: replace true
+ok 78 - reconnectEdge matches option/default behavior: replace true
+  ---
+  duration_ms: 0.995653
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: replace false
+ok 79 - reconnectEdge matches option/default behavior: replace false
+  ---
+  duration_ms: 1.275727
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: replace undefined
+ok 80 - reconnectEdge matches option/default behavior: replace undefined
+  ---
+  duration_ms: 0.715803
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: replace null
+ok 81 - reconnectEdge matches option/default behavior: replace null
+  ---
+  duration_ms: 1.038476
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: custom generator
+ok 82 - reconnectEdge matches option/default behavior: custom generator
+  ---
+  duration_ms: 1.287366
+  type: 'test'
+  ...
+# Subtest: reconnectEdge preserves null/undefined/empty handles and writes missing handles as own keys
+ok 83 - reconnectEdge preserves null/undefined/empty handles and writes missing handles as own keys
+  ---
+  duration_ms: 7.312427
+  type: 'test'
+  ...
+# Subtest: reconnectEdge removes every matching id, preserves other order and copies the supplied old edge
+ok 84 - reconnectEdge removes every matching id, preserves other order and copies the supplied old edge
+  ---
+  duration_ms: 2.501285
+  type: 'test'
+  ...
+# Subtest: reconnectEdge gives the generator the original connection and reads mutations afterward
+ok 85 - reconnectEdge gives the generator the original connection and reads mutations afterward
+  ---
+  duration_ms: 2.394424
+  type: 'test'
+  ...
+# Subtest: reconnectEdge keeps the exact input array and reports the right callback on both error branches
+ok 86 - reconnectEdge keeps the exact input array and reports the right callback on both error branches
+  ---
+  duration_ms: 3.237546
+  type: 'test'
+  ...
+# Subtest: reconnectEdge preserves getter, find, generator and replacement-read order
+ok 87 - reconnectEdge preserves getter, find, generator and replacement-read order
+  ---
+  duration_ms: 2.231144
+  type: 'test'
+  ...
+# Subtest: reconnectEdge copies enumerable own keys safely and leaves frozen inputs untouched
+ok 88 - reconnectEdge copies enumerable own keys safely and leaves frozen inputs untouched
+  ---
+  duration_ms: 1.37284
+  type: 'test'
+  ...
+# Subtest: reconnectEdge propagates callback exceptions and null-option errors
+ok 89 - reconnectEdge propagates callback exceptions and null-option errors
+  ---
+  duration_ms: 1.648661
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches React-layer default development warnings
+ok 90 - reconnectEdge matches React-layer default development warnings
+  ---
+  duration_ms: 261.973047
+  type: 'test'
+  ...
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Subtest: getInternalNode and useInternalNode retain the original consumer node
+ok 91 - getInternalNode and useInternalNode retain the original consumer node
+  ---
+  duration_ms: 544.403951
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds accepts all six JS arguments
+ok 92 - getViewportForBounds accepts all six JS arguments
+  ---
+  duration_ms: 17.173242
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: ratio
+ok 93 - getViewportForBounds matches upstream: ratio
+  ---
+  duration_ms: 3.173526
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: zero
+ok 94 - getViewportForBounds matches upstream: zero
+  ---
+  duration_ms: 0.986101
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: pixels
+ok 95 - getViewportForBounds matches upstream: pixels
+  ---
+  duration_ms: 1.813281
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: percent
+ok 96 - getViewportForBounds matches upstream: percent
+  ---
+  duration_ms: 1.279059
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: directional
+ok 97 - getViewportForBounds matches upstream: directional
+  ---
+  duration_ms: 3.138158
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: axis fallback
+ok 98 - getViewportForBounds matches upstream: axis fallback
+  ---
+  duration_ms: 1.920389
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: asymmetric
+ok 99 - getViewportForBounds matches upstream: asymmetric
+  ---
+  duration_ms: 1.308413
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: empty
+ok 100 - getViewportForBounds matches upstream: empty
+  ---
+  duration_ms: 3.473785
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: explicit undefined
+ok 101 - getViewportForBounds matches upstream: explicit undefined
+  ---
+  duration_ms: 2.943526
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: null
+ok 102 - getViewportForBounds matches upstream: null
+  ---
+  duration_ms: 1.58425
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: boolean
+ok 103 - getViewportForBounds matches upstream: boolean
+  ---
+  duration_ms: 0.753126
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: function
+ok 104 - getViewportForBounds matches upstream: function
+  ---
+  duration_ms: 3.136513
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: array
+ok 105 - getViewportForBounds matches upstream: array
+  ---
+  duration_ms: 1.679449
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: invalid scalar
+ok 106 - getViewportForBounds matches upstream: invalid scalar
+  ---
+  duration_ms: 1.349822
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: invalid side
+ok 107 - getViewportForBounds matches upstream: invalid side
+  ---
+  duration_ms: 1.182573
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: parseFloat suffix
+ok 108 - getViewportForBounds matches upstream: parseFloat suffix
+  ---
+  duration_ms: 0.591423
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: negative pixels
+ok 109 - getViewportForBounds matches upstream: negative pixels
+  ---
+  duration_ms: 0.49186
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: infinite pixels
+ok 110 - getViewportForBounds matches upstream: infinite pixels
+  ---
+  duration_ms: 0.624888
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: NaN
+ok 111 - getViewportForBounds matches upstream: NaN
+  ---
+  duration_ms: 0.528236
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: infinity
+ok 112 - getViewportForBounds matches upstream: infinity
+  ---
+  duration_ms: 0.513743
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: NaN horizontal padding
+ok 113 - getViewportForBounds matches upstream: NaN horizontal padding
+  ---
+  duration_ms: 0.625022
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: NaN vertical padding
+ok 114 - getViewportForBounds matches upstream: NaN vertical padding
+  ---
+  duration_ms: 0.527642
+  type: 'test'
+  ...
+# Subtest: omitted padding has no caller-specific default
+ok 115 - omitted padding has no caller-specific default
+  ---
+  duration_ms: 0.620003
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds respects min clamp
+ok 116 - getViewportForBounds respects min clamp
+  ---
+  duration_ms: 0.775412
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds respects max clamp
+ok 117 - getViewportForBounds respects max clamp
+  ---
+  duration_ms: 0.621062
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds propagates NaN minZoom
+ok 118 - getViewportForBounds propagates NaN minZoom
+  ---
+  duration_ms: 0.660501
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds propagates NaN maxZoom
+ok 119 - getViewportForBounds propagates NaN maxZoom
+  ---
+  duration_ms: 0.476644
+  type: 'test'
+  ...
+1..119
+# tests 119
+# suites 0
+# pass 119
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 21708.502778

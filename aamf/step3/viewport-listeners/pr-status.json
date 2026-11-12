@@ -1,0 +1,11 @@
+{
+  "194": {
+    "state": "OPEN",
+    "head": "c208d600246258508c17319974e965d1a7569e3d"
+  },
+  "195": {
+    "state": "OPEN",
+    "head": "aa11373670d52f5bbb61b9c44dda58be64fe9b6d"
+  },
+  "note": "Rechecked read-only at the W08 checkpoint; neither was merged."
+}

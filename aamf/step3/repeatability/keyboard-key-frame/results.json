@@ -1,0 +1,102 @@
+[
+  {
+    "round": 1,
+    "side": "upstream",
+    "scenario": "arrow-key-selected-node",
+    "captures": [
+      1,
+      2
+    ],
+    "scope": [
+      "driving",
+      "dom",
+      "callbacks",
+      "hooks",
+      "api",
+      "props",
+      "console"
+    ],
+    "differences": [],
+    "consistent": true
+  },
+  {
+    "round": 2,
+    "side": "upstream",
+    "scenario": "arrow-key-selected-node",
+    "captures": [
+      1,
+      2
+    ],
+    "scope": [
+      "driving",
+      "dom",
+      "callbacks",
+      "hooks",
+      "api",
+      "props",
+      "console"
+    ],
+    "differences": [],
+    "consistent": true
+  },
+  {
+    "round": 3,
+    "side": "upstream",
+    "scenario": "arrow-key-selected-node",
+    "captures": [
+      1,
+      2
+    ],
+    "scope": [
+      "driving",
+      "dom",
+      "callbacks",
+      "hooks",
+      "api",
+      "props",
+      "console"
+    ],
+    "differences": [],
+    "consistent": true
+  },
+  {
+    "round": 4,
+    "side": "upstream",
+    "scenario": "arrow-key-selected-node",
+    "captures": [
+      1,
+      2
+    ],
+    "scope": [
+      "driving",
+      "dom",
+      "callbacks",
+      "hooks",
+      "api",
+      "props",
+      "console"
+    ],
+    "differences": [],
+    "consistent": true
+  },
+  {
+    "round": 5,
+    "side": "upstream",
+    "scenario": "arrow-key-selected-node",
+    "captures": [
+      1,
+      2
+    ],
+    "scope": [
+      "driving",
+      "dom",
+      "callbacks",
+      "hooks",
+      "api",
+      "props",
+      "console"
+    ],
+    "differences": [],
+    "consistent": true
+  }
+]

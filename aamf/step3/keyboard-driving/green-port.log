@@ -1,0 +1,47 @@
+$ node --test parity/system/harness/port.test.mjs
+TAP version 13
+# Subtest: the real port and its double answer the same methods
+ok 1 - the real port and its double answer the same methods
+  ---
+  duration_ms: 5.248451
+  type: 'test'
+  ...
+# Subtest: the port is only ever the twelve the harness above it uses
+ok 2 - the port is only ever the twelve the harness above it uses
+  ---
+  duration_ms: 0.527867
+  type: 'test'
+  ...
+# Subtest: the real port refuses to dispatch touch before emulation is on
+ok 3 - the real port refuses to dispatch touch before emulation is on
+  ---
+  duration_ms: 1.754067
+  type: 'test'
+  ...
+# Subtest: keyboard press completes after dispatch and the browser frame cycle
+ok 4 - keyboard press completes after dispatch and the browser frame cycle
+  ---
+  duration_ms: 14.514259
+  type: 'test'
+  ...
+# Subtest: keyboard down completes after dispatch and the browser frame cycle
+ok 5 - keyboard down completes after dispatch and the browser frame cycle
+  ---
+  duration_ms: 1.401583
+  type: 'test'
+  ...
+# Subtest: keyboard up completes after dispatch and the browser frame cycle
+ok 6 - keyboard up completes after dispatch and the browser frame cycle
+  ---
+  duration_ms: 2.190276
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 397.798413

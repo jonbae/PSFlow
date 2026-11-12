@@ -1,0 +1,57 @@
+{
+  "completedAt": "2026-11-10T20:38:05.786231+00:00",
+  "status": "bounded remeasurement complete; E and W11 follow-up work remain open",
+  "sourceAndCompiledOutputChangesInMirror": [],
+  "canonicalTracesChanged": false,
+  "comparisonPolicyChanged": false,
+  "runtimeChanged": false,
+  "experiments": [
+    {
+      "scenario": "arrow-key-selected-node",
+      "firstInterpretable": false,
+      "independentRepeatInterpretable": true
+    },
+    {
+      "scenario": "drag-moves-node",
+      "firstInterpretable": false,
+      "independentRepeatInterpretable": true
+    },
+    {
+      "scenario": "drag-node-autopan",
+      "firstInterpretable": false,
+      "independentRepeatInterpretable": false
+    },
+    {
+      "scenario": "drag-node-reports-changes",
+      "firstInterpretable": false,
+      "independentRepeatInterpretable": false
+    },
+    {
+      "scenario": "pan-after-controlled-viewport-change",
+      "firstInterpretable": true,
+      "independentRepeatInterpretable": false
+    },
+    {
+      "scenario": "pan-gesture-complete",
+      "firstInterpretable": true,
+      "independentRepeatInterpretable": true
+    }
+  ],
+  "keyboardDiagnostic": {
+    "baseline": {
+      "consistentPairs": 3,
+      "pairs": 5
+    },
+    "key-frame": {
+      "consistentPairs": 5,
+      "pairs": 5
+    },
+    "after-click": {
+      "consistentPairs": 3,
+      "pairs": 5
+    }
+  },
+  "interpretation": "Only pan-gesture-complete reproduced within both new runs. All six remain red; exclude each self-inconsistent experiment from cross-side triage. Keyboard key-frame dispatch improves repeatability in five pairs; settling only after the click fails twice in five, as baseline does. This supports per-key browser work as the next harness investigation; no production or gate policy changed and no library timing cause is established.",
+  "next": "Explicitly scope deterministic per-action/frame driving, with local and live harness regression; auto-pan needs a frame-count witness rather than more wall-clock delay. Continue independent W05 resize work.",
+  "aamfInvoked": false
+}

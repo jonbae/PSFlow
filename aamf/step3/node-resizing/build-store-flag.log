@@ -1,0 +1,136 @@
+$ spago build
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[  1 of 214] Compiling System.Types.Node
+[  2 of 214] Compiling System.XYResizer.Types
+[  3 of 214] Compiling Test.Parity.Builders
+[  4 of 214] Compiling React.Types.Nodes
+[  6 of 214] Compiling System.Utils.Toolbar
+[  5 of 214] Compiling System.Utils.General
+[  7 of 214] Compiling React.Types.Edges
+[  8 of 214] Compiling React.Node.Group
+[  9 of 214] Compiling React.Edge.Text
+[ 10 of 214] Compiling System.XYResizer.Utils
+[ 11 of 214] Compiling React.Edge.Base
+[ 12 of 214] Compiling System.Utils.Edges.Positions
+[ 13 of 214] Compiling System.Utils.Dom
+[ 14 of 214] Compiling System.XYMinimap
+[ 15 of 214] Compiling System.Utils.Edges.General
+[ 16 of 214] Compiling Test.System.Utils.MathRound
+[ 17 of 214] Compiling System.XYDrag.Utils
+[ 18 of 214] Compiling System.XYPanZoom.Utils
+[ 19 of 214] Compiling System.Utils.Graph
+[ 20 of 214] Compiling System.XYPanZoom.EventHandler
+[ 21 of 214] Compiling System.XYPanZoom.Filter
+[ 22 of 214] Compiling System.XYResizer
+[ 23 of 214] Compiling React.Container.Pane.Internal
+[ 24 of 214] Compiling React.Hook.KeyPress
+[ 25 of 214] Compiling System.Utils.Store
+[ 26 of 214] Compiling System.XYHandle.Utils
+[ 27 of 214] Compiling Test.System.XYDrag.DragItemOrder
+[ 28 of 214] Compiling Test.React.Container.Pane
+[ 29 of 214] Compiling Test.Parity.Util
+[ 30 of 214] Compiling System.Utils.Edges.SmoothStep
+[ 31 of 214] Compiling System.Utils.Edges.Bezier
+[ 32 of 214] Compiling System.Utils.Edges.Straight
+[ 33 of 214] Compiling System.XYPanZoom
+[ 34 of 214] Compiling Test.System.XYPanZoom.EventHandler
+[ 35 of 214] Compiling System.XYHandle
+[ 37 of 214] Compiling React.Util.General
+[ 36 of 214] Compiling Test.Properties
+[ 38 of 214] Compiling System.XYDrag
+[ 39 of 214] Compiling React.Types.General
+[ 40 of 214] Compiling React.Edge.Straight
+[ 41 of 214] Compiling React.Edge.Bezier
+[ 42 of 214] Compiling System.Utils.Edges.SimpleBezier
+[ 43 of 214] Compiling React.Types.Instance
+[ 44 of 214] Compiling React.Edge.SmoothStep
+[ 45 of 214] Compiling System.Utils.Edges
+[ 46 of 214] Compiling Test.Oracle
+[ 47 of 214] Compiling React.Edge.SimpleBezier
+[ 48 of 214] Compiling React.Edge.Step
+[ 49 of 214] Compiling Test.System.XYPanZoom.SourceEvents
+[ 50 of 214] Compiling React.Component.EdgeWrapper.Util
+[ 51 of 214] Compiling Test.Parity.Toolbar
+[ 52 of 214] Compiling Test.Parity.Marker
+[ 53 of 214] Compiling Test.Parity.Graph
+[ 54 of 214] Compiling Test.Parity.Geometry
+[ 55 of 214] Compiling Test.Parity.Edges
+[ 56 of 214] Compiling Test.Parity.Connections
+[ 57 of 214] Compiling React.Types.Component
+[ 58 of 214] Compiling Test.System.Utils.ConnectionOrder
+[ 59 of 214] Compiling Test.System.Utils.StorePanBy
+[ 60 of 214] Compiling Test.System.Utils.Store
+[ 61 of 214] Compiling React.Additional.MiniMap.Node
+[ 62 of 214] Compiling React.Additional.Controls.Button
+[ 63 of 214] Compiling Boundary.Enums
+[ 64 of 214] Compiling React.Additional.Background.Patterns
+[ 65 of 214] Compiling React.Portal.Panel
+[ 66 of 214] Compiling React.Container.Attribution
+[ 67 of 214] Compiling Test.React.Container.AttributionPanel
+[ 68 of 214] Compiling Boundary.EdgePaths
+[ 70 of 214] Compiling Boundary.FitView
+[ 69 of 214] Compiling Boundary.Elements
+[ 71 of 214] Compiling Test.Boundary.EdgePaths
+[ 73 of 214] Compiling React.Types.Store
+[ 72 of 214] Compiling React.Hook.Drag
+[ 74 of 214] Compiling Test.System.XYDrag
+[ 75 of 214] Compiling React.Store.InitialState
+[ 76 of 214] Compiling React.Store.Action
+[ 77 of 214] Compiling React.Hook.VisibleIds.Pure
+[ 78 of 214] Compiling React.Types
+[ 79 of 214] Compiling Test.System.Utils.MeasurementOrder
+[ 80 of 214] Compiling Test.React.Hook.DragRebind
+[ 81 of 214] Compiling Test.React.Hook.Drag
+[ 82 of 214] Compiling Test.System.XYHandle
+[ 84 of 214] Compiling Test.React.Hook.NodeRenderOrder
+[ 83 of 214] Compiling Test.React.Hook.VisibleIds
+[ 85 of 214] Compiling Boundary.Instance
+[ 86 of 214] Compiling Test.Boundary.HandleIdNull
+[ 87 of 214] Compiling Test.Boundary.NodeHidden
+[ 88 of 214] Compiling Test.Boundary.NodeExpandParent
+[ 89 of 214] Compiling Test.Boundary.PrunedKeys
+[ 90 of 214] Compiling Test.Boundary.DimensionResizing
+[ 92 of 214] Compiling Test.Boundary.ConnectionNullHandle
+[ 91 of 214] Compiling Boundary.Callbacks
+[ 93 of 214] Compiling Boundary.Utils
+[ 94 of 214] Compiling Test.Boundary.ConsumerObjects
+[ 95 of 214] Compiling Test.Boundary.NodeDragging
+[WARNING 1/2 UnusedExplicitImport] src/System/Utils/Store.purs:66:1
+
+  66  import System.Types.Ids (ParentId, parentToNode, nodeToParent)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  The import of module System.Types.Ids contains the following unused references:
+    nodeToParent
+  It could be replaced with:
+    import System.Types.Ids (ParentId, parentToNode)
+
+[WARNING 2/2 UnusedExplicitImport] src/System/XYDrag/Utils.purs:27:1
+
+  27  import System.Types.Ids (NodeId, ParentId, parentToNode, nodeToParent)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  The import of module System.Types.Ids contains the following unused references:
+    nodeToParent
+  It could be replaced with:
+    import System.Types.Ids (NodeId, ParentId, parentToNode)
+
+[ERROR 1/1 ErrorParsingModule] src/React/Store/Changes.purs:108:7
+
+  108        Nothing -> node
+             ^^^^^^^
+
+  Unable to parse module:
+  Unexpected token 'Nothing'
+
+           Src   Lib   All
+Warnings     2     0     2
+Errors       1     0     1
+
+✘ Failed to build.
+

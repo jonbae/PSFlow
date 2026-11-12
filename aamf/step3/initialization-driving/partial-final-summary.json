@@ -1,0 +1,9 @@
+{
+  "provisional": true,
+  "captured": 73,
+  "unstable": [
+    "mount-baseline--viewport-controlled",
+    "drag-node-autopan"
+  ],
+  "driving": []
+}

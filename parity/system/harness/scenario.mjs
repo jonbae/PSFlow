@@ -175,6 +175,7 @@ export const runScenario = async (
   const onPageError = (error) => consoleEntries.push({ level: "pageerror", text: String(error?.message ?? error) });
   page.on("console", onConsole);
   page.on("pageerror", onPageError);
+  let mounting = false;
 
   try {
     // Before the navigation, and only for a scenario that asked: touch
@@ -191,6 +192,8 @@ export const runScenario = async (
     // caught it against a real page, where a drag's second capture resolved the
     // node 100px further right than its first.
     await page.goto("about:blank");
+    const advanceMount = await port.prepareMount();
+    mounting = true;
 
     // And the pointer parked, for the same reason one level down. The cursor
     // belongs to the browser rather than to the document, so it stays where the
@@ -213,18 +216,27 @@ export const runScenario = async (
     // where the first recorded `0` and `0`. Capture 2 was mounting under a
     // press capture 1 had left held. Releasing a button nobody pressed is
     // dispatched all the same and seen by nothing, here on a blank page.
+    // Modifiers belong to the browser too. A preceding capture may leave a
+    // key held, and a new document does not clear it or its hover metadata.
+    // Release on the blank page before parking, so no flow observes a reset.
+    for (const key of ["Shift", "Control", "Alt", "Meta"]) await port.keyboard("up", key);
     await port.mouse("move", { x: -1, y: -1 });
     await port.mouse("up", { x: -1, y: -1 });
 
     await page.goto(driverUrl(scenario.route, side, scenario.variant, scenario.probeCallback));
 
-    // Waited for, then settled, then measured. Each side waits on its own clock
-    // — polling until consecutive snapshots agree, never a duration — because
+    // Settle native layout with application timers held, then settle again
+    // while stepping those timers. ResizeObserver/React work must land before
+    // the short initialization timers are allowed to race it. Each side waits
+    // for consecutive snapshots to agree rather than a wall-clock duration,
+    // because
     // selectors resolve against each side's own render, and anything aimed at a
     // flow still mounting is aimed at a layout about to move. The measurement is
     // taken afterwards for the same reason: it is the container box `fitView` is
     // computed from, and it lands in the one section that carries no tolerance.
     const appeared = await port.box(FLOW_ROOT, { timeout: mountTimeout });
+    if (appeared) await settleDom(port, FLOW_ROOT, settle);
+    await advanceMount();
     if (appeared) await settleDom(port, FLOW_ROOT, settle);
     const box = appeared ? await port.box(FLOW_ROOT) : null;
 
@@ -237,6 +249,9 @@ export const runScenario = async (
         ? { action: "mount", target: FLOW_ROOT, resolved: true, box, dispatched: { route: scenario.route } }
         : { action: "mount", target: FLOW_ROOT, resolved: false }
     );
+
+    await port.finishMount();
+    mounting = false;
 
     // The vocabulary, and nothing else. No page, no side, no library handle.
     await scenario.run(createVocabulary(port, log, apiCalls));
@@ -276,6 +291,7 @@ export const runScenario = async (
       `${scenario.id} (${side}, capture ${capture})`
     );
   } finally {
+    if (mounting) await port.finishMount();
     // A page is reused across captures, and a listener left behind would file
     // the first capture's console output under the second.
     page.off("console", onConsole);

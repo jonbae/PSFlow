@@ -1,0 +1,10 @@
+[
+  {
+    "path": "src/React/Hook/Listeners.purs",
+    "sha256": "8fe792d53cf15d7cfaf4f785fc12686e77413814bd412c61d5d6bd1bf262dc92"
+  },
+  {
+    "path": "test/Test/Main.purs",
+    "sha256": "ebf8a5d4e9365c7fb04fd5b608266ce6ebef1b0df805a0dba72f7bc948f813a1"
+  }
+]

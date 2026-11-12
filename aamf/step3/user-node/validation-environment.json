@@ -1,0 +1,1 @@
+{"nodeVersion":"v22.18.0","nodeBin":"/Users/jonathanbae/.nvm/versions/node/v22.18.0/bin","initialSetupFailure":"The temporary mirror did not inherit the repository Node selection; its default v18.7.0 could not load Playwright ESM. Retried with explicit Node 22.18.0 PATH; no library or fixture changed."}

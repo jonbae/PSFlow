@@ -1,0 +1,31 @@
+$ node aamf/step3/numeric-semantics/verify-repeatability.mjs final viewport-helpers-with-options 2
+[
+  {
+    "round": 1,
+    "side": "upstream",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 1,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 2,
+    "side": "upstream",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 2,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": 0
+  }
+]

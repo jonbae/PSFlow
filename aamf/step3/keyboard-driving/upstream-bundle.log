@@ -1,0 +1,31 @@
+$ node parity/driver/build.mjs --side upstream
+▲ [WARNING] Cannot find base config file "@xyflow/tsconfig/react.json" [tsconfig.json]
+
+    ../../../../../../../Users/jonathanbae/repos/PSFlow/xyflow/packages/react/tsconfig.json:2:13:
+      2 │   "extends": "@xyflow/tsconfig/react.json",
+        ╵              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+▲ [WARNING] Cannot find base config file "@xyflow/tsconfig/react.json" [tsconfig.json]
+
+    ../../../../../../../Users/jonathanbae/repos/PSFlow/xyflow/packages/react/tsconfig.json:2:13:
+      2 │   "extends": "@xyflow/tsconfig/react.json",
+        ╵              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+▲ [WARNING] Cannot find base config file "@xyflow/tsconfig/base.json" [tsconfig.json]
+
+    ../../../../../../../Users/jonathanbae/repos/PSFlow/xyflow/packages/system/tsconfig.json:3:13:
+      3 │   "extends": "@xyflow/tsconfig/base.json",
+        ╵              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+▲ [WARNING] Cannot find base config file "@xyflow/tsconfig/base.json" [tsconfig.json]
+
+    ../../../../../../../Users/jonathanbae/repos/PSFlow/xyflow/packages/system/tsconfig.json:3:13:
+      3 │   "extends": "@xyflow/tsconfig/base.json",
+        ╵              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+4 warnings
+
+  parity/driver/dist/upstream.js  1.5mb ⚠️
+
+⚡ Done in 354ms
+the upstream bundle contains no `// xyflow/packages/react/src/` module — `@xyflow/react` did not resolve to /private/var/folders/r4/_xzh5pld0kx6_p9h_pxqjgkm0000gn/T/psflow-keyboard-driving-fhniaa_q/xyflow/packages/react/src/index.ts, so this bundle proves nothing about it.

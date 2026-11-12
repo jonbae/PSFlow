@@ -1,0 +1,12 @@
+$ node --input-type=module -e import {runHandleBoundsNullTests} from "./output/Test.System.Utils.HandleBoundsNull/index.js"; runHandleBoundsNullTests();
+
+=== updateNodeInternals: a side with no handle is null, as upstream's getHandleBounds returns ===
+ok  a node with only a source handle reads back target: null
+ok  a node with only a target handle reads back source: null
+ok  a node with no handles reads back both sides null
+ok  a node's own handles give both sides as arrays, as parseHandles does
+ok  an edge still finds its handles across the null sides, in strict mode
+ok  and in loose mode
+ok  an edge out of a null source side, into a null target side, finds no handles
+ok  getHandle finds no handle on a null side in strict mode
+ok  and finds the other side's handle in loose mode, as the spread with ?? [] does

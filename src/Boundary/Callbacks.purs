@@ -327,16 +327,20 @@ type JsResizeParamsWithDirection =
   }
 
 resizeParamsOut :: ResizeParams -> JsResizeParams
-resizeParamsOut p = { x: p.x, y: p.y, width: p.width, height: p.height }
+resizeParamsOut p = { width: p.width, height: p.height, x: p.x, y: p.y }
 
 resizeParamsWithDirectionOut :: ResizeParamsWithDirection -> JsResizeParamsWithDirection
-resizeParamsWithDirectionOut p =
-  { x: p.x
-  , y: p.y
-  , width: p.width
+resizeParamsWithDirectionOut = cacheByReference \p ->
+  { width: p.width
   , height: p.height
+  , x: p.x
+  , y: p.y
   , direction: [ Int.toNumber p.direction.dx, Int.toNumber p.direction.dy ]
   }
+
+-- The predicate and notification observe one source object. Keep its converted
+-- representation shared, including consumer mutations made by shouldResize.
+foreign import cacheByReference :: forall a b. (a -> b) -> a -> b
 
 -- ────────────────────────────────────────────────────────────────────────
 -- The handler types, and their converters
@@ -648,19 +652,19 @@ badBeforeDeleteResult raw =
 type JsOnResizeStart = EffectFn2 Foreign JsResizeParams Unit
 
 onResizeStartIn :: JsOnResizeStart -> OnResizeStart
-onResizeStartIn f = \event params ->
+onResizeStartIn = cacheByReference \f event params ->
   runEffectFn2 f (resizeDragEventOut event) (resizeParamsOut params)
 
 type JsOnResize = EffectFn2 Foreign JsResizeParamsWithDirection Unit
 
 onResizeIn :: JsOnResize -> OnResize
-onResizeIn f = \event params ->
+onResizeIn = cacheByReference \f event params ->
   runEffectFn2 f (resizeDragEventOut event) (resizeParamsWithDirectionOut params)
 
 type JsOnResizeEnd = EffectFn2 Foreign JsResizeParams Unit
 
 onResizeEndIn :: JsOnResizeEnd -> OnResizeEnd
-onResizeEndIn f = \event params ->
+onResizeEndIn = cacheByReference \f event params ->
   runEffectFn2 f (resizeDragEventOut event) (resizeParamsOut params)
 
 -- | `(event, params) => boolean`, and a predicate rather than a notification —
@@ -675,7 +679,7 @@ onResizeEndIn f = \event params ->
 type JsShouldResize = Fn2 Foreign JsResizeParamsWithDirection Boolean
 
 shouldResizeIn :: JsShouldResize -> ShouldResize
-shouldResizeIn f = \event params ->
+shouldResizeIn = cacheByReference \f event params ->
   pure (runFn2 f (resizeDragEventOut event) (resizeParamsWithDirectionOut params))
 
 -- | `ResizeDragEvent` is a newtype over the d3 drag event, so unwrapping is

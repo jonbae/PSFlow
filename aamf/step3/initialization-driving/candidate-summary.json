@@ -1,0 +1,442 @@
+[
+  {
+    "scenario": "mount-baseline--edges-general",
+    "round": 1,
+    "interpretable": true,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "mount-baseline--edges-general",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "mount-baseline--edges-general",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "differences": [
+      {
+        "kind": "order",
+        "path": [
+          "callbacks"
+        ],
+        "left": [
+          "onSelectionChange#1",
+          "onMoveStart#1",
+          "onViewportChange#1",
+          "onMove#1",
+          "onNodesChange#1",
+          "onMoveEnd#1",
+          "onInit#1"
+        ],
+        "right": [
+          "onSelectionChange#1",
+          "onMoveStart#1",
+          "onViewportChange#1",
+          "onMove#1",
+          "onMoveEnd#1",
+          "onNodesChange#1",
+          "onInit#1"
+        ]
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "target"
+        ],
+        "left": null,
+        "right": []
+      }
+    ]
+  },
+  {
+    "scenario": "mount-baseline--edges-general",
+    "round": 2,
+    "interpretable": true,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "mount-baseline--edges-general",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "mount-baseline--edges-general",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "differences": [
+      {
+        "kind": "order",
+        "path": [
+          "callbacks"
+        ],
+        "left": [
+          "onSelectionChange#1",
+          "onMoveStart#1",
+          "onViewportChange#1",
+          "onMove#1",
+          "onNodesChange#1",
+          "onMoveEnd#1",
+          "onInit#1"
+        ],
+        "right": [
+          "onSelectionChange#1",
+          "onMoveStart#1",
+          "onViewportChange#1",
+          "onMove#1",
+          "onMoveEnd#1",
+          "onNodesChange#1",
+          "onInit#1"
+        ]
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "target"
+        ],
+        "left": null,
+        "right": []
+      }
+    ]
+  },
+  {
+    "scenario": "mount-baseline--edges-general",
+    "round": 3,
+    "interpretable": true,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "mount-baseline--edges-general",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "mount-baseline--edges-general",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "differences": [
+      {
+        "kind": "order",
+        "path": [
+          "callbacks"
+        ],
+        "left": [
+          "onSelectionChange#1",
+          "onMoveStart#1",
+          "onViewportChange#1",
+          "onMove#1",
+          "onNodesChange#1",
+          "onMoveEnd#1",
+          "onInit#1"
+        ],
+        "right": [
+          "onSelectionChange#1",
+          "onMoveStart#1",
+          "onViewportChange#1",
+          "onMove#1",
+          "onMoveEnd#1",
+          "onNodesChange#1",
+          "onInit#1"
+        ]
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "target"
+        ],
+        "left": null,
+        "right": []
+      }
+    ]
+  },
+  {
+    "scenario": "mount-baseline--edges-general",
+    "round": 4,
+    "interpretable": true,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "mount-baseline--edges-general",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "mount-baseline--edges-general",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "differences": [
+      {
+        "kind": "order",
+        "path": [
+          "callbacks"
+        ],
+        "left": [
+          "onSelectionChange#1",
+          "onMoveStart#1",
+          "onViewportChange#1",
+          "onMove#1",
+          "onNodesChange#1",
+          "onMoveEnd#1",
+          "onInit#1"
+        ],
+        "right": [
+          "onSelectionChange#1",
+          "onMoveStart#1",
+          "onViewportChange#1",
+          "onMove#1",
+          "onMoveEnd#1",
+          "onNodesChange#1",
+          "onInit#1"
+        ]
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "target"
+        ],
+        "left": null,
+        "right": []
+      }
+    ]
+  },
+  {
+    "scenario": "mount-baseline--edges-general",
+    "round": 5,
+    "interpretable": true,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "mount-baseline--edges-general",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "mount-baseline--edges-general",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "differences": [
+      {
+        "kind": "order",
+        "path": [
+          "callbacks"
+        ],
+        "left": [
+          "onSelectionChange#1",
+          "onMoveStart#1",
+          "onViewportChange#1",
+          "onMove#1",
+          "onNodesChange#1",
+          "onMoveEnd#1",
+          "onInit#1"
+        ],
+        "right": [
+          "onSelectionChange#1",
+          "onMoveStart#1",
+          "onViewportChange#1",
+          "onMove#1",
+          "onMoveEnd#1",
+          "onNodesChange#1",
+          "onInit#1"
+        ]
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "target"
+        ],
+        "left": null,
+        "right": []
+      }
+    ]
+  }
+]

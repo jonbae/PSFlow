@@ -1,0 +1,7 @@
+$ npm run parity:coverage
+
+> ps-flow@0.0.0 parity:coverage
+> node parity/system/coverage.mjs
+
+coverage: 127 of 156 export-bearing entries driven, 29 declared hole(s), across 107 scenario(s) that ran — and 50 hand-declared behavior(s), counted apart.
+The artifact is parity/system/coverage.md.

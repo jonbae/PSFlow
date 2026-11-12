@@ -1,0 +1,75 @@
+# System parity
+
+The dual-run net over 1 scenario(s), against vendored `@xyflow/react` 12.11.0.
+
+Captured by this run: both sides mounted the same unmodified fixtures through the same driver, bundled twice.
+
+**1 of 1 scenario(s) failed.**
+
+A failing net is the expected state while the divergence backlog is being worked: the scenarios below
+are recording what the two implementations actually do, and a difference is fixed in the port or
+claimed by a region — never by loosening what the net looks at.
+
+| scenario | verdict | failure classes | differences |
+|---|---|---|---|
+| `resize-node-after-active-limit-change` | **failed** | self-inconsistent, unclaimed-difference | 4 |
+
+Every trace behind this report is on disk under `parity/system/traces` — four per scenario, two sides captured
+twice each. They are the artifact: re-diffing them costs seconds and no browser.
+
+---
+
+# System parity run — resize-node-after-active-limit-change
+
+**Failed:** self-inconsistent, unclaimed-difference.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
+## Self-consistency
+
+Each side is captured twice and compared against itself **before** the sides are compared at all: a
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
+
+| side | captures | verdict | differences |
+|---|---|---|---|
+| upstream | 1, 2 | **disagrees with itself** | 2 |
+| psflow | 1, 2 | reproduced | 0 |
+
+### upstream disagrees with itself
+
+| path | kind | capture 1 | capture 2 |
+|---|---|---|---|
+| `callbacks/8` | left only | {"name":"onNodeMouseEnter","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseEnter","_targetInst":{"@ref":"React fiber"},"type":"mouseenter","nativeE… | — |
+| `callbacks/9` | left only | {"name":"onNodeMouseLeave","args":[{"@class":"SyntheticBaseEvent","_reactName":"onMouseLeave","_targetInst":{"@ref":"React fiber"},"type":"mouseleave","nativeE… | — |
+
+**upstream did not reproduce.** The comparison below ran anyway —
+capture-everything applies to a failed run as much as to a passing one — but a difference it reports
+cannot yet be attributed to either implementation. Fix the reproducibility, then read it.
+
+---
+
+# Comparison report — resize-node-after-active-limit-change
+
+upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
+
+**Failed:** 2 unclaimed difference(s).
+
+## Unclaimed differences
+
+### api (2)
+
+| path | kind | upstream | psflow |
+|---|---|---|---|
+| `api/queries/getInternalNode/internals/handleBounds/source` | differs | null | [] |
+| `api/queries/getInternalNode/internals/handleBounds/target` | differs | null | [] |
+
+## Normalization
+
+18 field(s) deleted by name and therefore **unobserved** — not passing:
+
+- `callbacks/**/timeStamp` (9) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+

@@ -1,0 +1,43 @@
+{
+  "id": "psflow-w04-user-node",
+  "status": "complete",
+  "startedAt": "2026-11-10T16:59:31.937046+00:00",
+  "source": "system utils/store.ts::adoptUserNodes; React useReactFlow and useInternalNode",
+  "seams": [
+    "JS index.js instance and hook results",
+    "PureScript local proxy through store creation/SetNodes and crossed hooks, plus adoptUserNodes identity when checkEquality is false"
+  ],
+  "representation": "NodeInternals becomes parameterized by node data and retains the actual typed original NodeBase. A native weak association records the original JS object when decoding; core equality compares original references through that association, with the typed node itself as fallback for PS callers. Outbound userNode resolves the actual JS original, never a fabricated equivalent. No value cache and no caching stale decoded objects.",
+  "scopeExpansion": "A required NodeInternals field requires mechanical constructor updates in NodeWrapper fallback and existing test fixtures. Add System.Types.Node.js for native WeakMap primitives and Boundary.Elements.js only if needed for representation interop. Preserve other fixture assertions.",
+  "allowedOutputs": [
+    "src/System/Types/Node.purs",
+    "src/System/Utils/Store.purs",
+    "src/Boundary/Elements.purs",
+    "test/Test/Main.purs",
+    "src/System/Types/Node.js",
+    "src/Boundary/Elements.js",
+    "src/React/Component/NodeWrapper.purs",
+    "test/Test/Boundary/UserNode.purs",
+    "test/Test/Boundary/UserNode.js",
+    "parity/boundary/user-node.test.mjs",
+    "existing test node constructor fixtures (mechanical required-field updates only)",
+    "parity/surface/report.md",
+    "parity/driver/dist/psflow.js",
+    "AAMF_STEP3_RESULTS.md",
+    "AAMF_PORTING_PLAN.md",
+    "aamf/step3/README.md",
+    "aamf/step3/SHA256SUMS",
+    "aamf/step3/user-node/",
+    "test/Test/Boundary/PrunedKeys.purs internals key assertion (add required userNode key; retain all other assertions)"
+  ],
+  "acceptance": [
+    "Red before fix at original-reference seam",
+    "Initial adoption, unchanged re-adoption, same-id replacement, raw custom and explicit undefined keys",
+    "Store initial and SetNodes query results through crossed instance/hook; PS original typed reference retained",
+    "Honor checkEquality true/false without caching decoded values",
+    "Surface/function/boundary and relevant browser checks, source inventory unchanged"
+  ],
+  "aamfInvoked": false,
+  "completedAt": "2026-11-10T17:24:29.245910+00:00",
+  "validationScope": "Browser runs and two focused system recaptures use the isolated frozen mirror. Reports/captures copied into this task directory; canonical stage-5 traces remain untouched."
+}

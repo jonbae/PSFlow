@@ -1,0 +1,65 @@
+$ node aamf/step3/shared-handle-timing/summarize-wave.mjs
+{
+  "previous": {
+    "scenarios": 107,
+    "passed": 12,
+    "failed": 95,
+    "selfInconsistent": [
+      "mount-baseline--viewport-controlled",
+      "drag-node-autopan",
+      "wheel-zoom-from-identity-viewport",
+      "drag-node-reports-changes",
+      "pan-after-controlled-viewport-change"
+    ],
+    "drivingDivergence": [],
+    "reproducibleFailed": 90,
+    "handleScenarios": 82,
+    "handleDifferences": 100,
+    "callbackOrderScenarios": 72,
+    "initialMeasurementOrderScenarios": 71
+  },
+  "current": {
+    "scenarios": 107,
+    "passed": 99,
+    "failed": 8,
+    "selfInconsistent": [
+      "drag-node-autopan",
+      "wheel-zoom-from-identity-viewport",
+      "drag-node-reports-changes",
+      "ctrl-wheel-pinches-with-panonscroll"
+    ],
+    "drivingDivergence": [],
+    "reproducibleFailed": 4,
+    "handleScenarios": 0,
+    "handleDifferences": 0,
+    "callbackOrderScenarios": 1,
+    "initialMeasurementOrderScenarios": 0
+  },
+  "changed": 87,
+  "remainingStableFailures": [
+    {
+      "scenario": "arrow-key-selected-node",
+      "unclaimed": 1,
+      "handleDifferences": 0,
+      "callbackOrderDifferences": 0
+    },
+    {
+      "scenario": "pan-after-controlled-viewport-change",
+      "unclaimed": 1,
+      "handleDifferences": 0,
+      "callbackOrderDifferences": 1
+    },
+    {
+      "scenario": "click-selects-node--probe-flow-node",
+      "unclaimed": 25,
+      "handleDifferences": 0,
+      "callbackOrderDifferences": 0
+    },
+    {
+      "scenario": "wheel-zooms-the-pane--probe-flow-node",
+      "unclaimed": 22,
+      "handleDifferences": 0,
+      "callbackOrderDifferences": 0
+    }
+  ]
+}

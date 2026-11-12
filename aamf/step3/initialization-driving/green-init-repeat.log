@@ -1,0 +1,16 @@
+$ npx playwright test --config parity/system/harness/playwright.config.mjs --grep initialization order reproduces
+[2m[WebServer] [22m(node:90048) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:90083) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:90083) [DEP0066] DeprecationWarning: OutgoingMessage.prototype._headers is deprecated
+
+Running 1 test using 1 worker
+
+(node:90096) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:90096) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [harness] › parity/system/harness/live.spec.mjs:254:1 › initialization order reproduces across repeated fit-view mounts (26.8s)
+
+  1 passed (32.6s)

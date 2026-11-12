@@ -1,0 +1,198 @@
+[
+  {
+    "scenario": "mount-baseline--viewport-controlled",
+    "round": 1,
+    "interpretable": false,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "mount-baseline--viewport-controlled",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [
+          {
+            "kind": "order",
+            "path": [
+              "callbacks"
+            ],
+            "left": [
+              "onSelectionChange#1",
+              "onMoveStart#1",
+              "onMove#1",
+              "onMoveEnd#1",
+              "onNodesChange#1",
+              "onInit#1"
+            ],
+            "right": [
+              "onSelectionChange#1",
+              "onMoveStart#1",
+              "onMove#1",
+              "onNodesChange#1",
+              "onMoveEnd#1",
+              "onInit#1"
+            ]
+          }
+        ],
+        "consistent": false
+      },
+      {
+        "side": "psflow",
+        "scenario": "mount-baseline--viewport-controlled",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [
+      "self-inconsistent",
+      "unclaimed-difference"
+    ],
+    "differences": null
+  },
+  {
+    "scenario": "mount-baseline--viewport-controlled",
+    "round": 2,
+    "interpretable": true,
+    "fullGatePassed": true,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "mount-baseline--viewport-controlled",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "mount-baseline--viewport-controlled",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [],
+    "differences": []
+  },
+  {
+    "scenario": "mount-baseline--viewport-controlled",
+    "round": 3,
+    "interpretable": false,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "mount-baseline--viewport-controlled",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [
+          {
+            "kind": "order",
+            "path": [
+              "callbacks"
+            ],
+            "left": [
+              "onSelectionChange#1",
+              "onMoveStart#1",
+              "onMove#1",
+              "onMoveEnd#1",
+              "onNodesChange#1",
+              "onInit#1"
+            ],
+            "right": [
+              "onSelectionChange#1",
+              "onMoveStart#1",
+              "onMove#1",
+              "onNodesChange#1",
+              "onMoveEnd#1",
+              "onInit#1"
+            ]
+          }
+        ],
+        "consistent": false
+      },
+      {
+        "side": "psflow",
+        "scenario": "mount-baseline--viewport-controlled",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [
+      "self-inconsistent",
+      "unclaimed-difference"
+    ],
+    "differences": null
+  }
+]

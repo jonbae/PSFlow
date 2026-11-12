@@ -3,6 +3,9 @@ module System.Types.Node
   , NodeBase
   , InternalNodeBase
   , NodeInternals
+  , rememberUserNode
+  , originalUserNode
+  , userNodeIdentity
   , NodeHandleBounds
   , NodeBounds
   , NodeDragItem
@@ -24,11 +27,15 @@ import Prelude
 import Data.Enum (class BoundedEnum, class Enum, Cardinality(..))
 import Data.Enum.Generic (genericFromEnum, genericPred, genericSucc, genericToEnum)
 import Data.Generic.Rep (class Generic)
+import Data.Function.Uncurried (Fn2)
 import Data.Map (Map)
-import Data.Maybe (Maybe)
+import Data.Maybe (Maybe, fromMaybe)
+import Data.Nullable (Nullable, toMaybe)
 import Data.Show.Generic (genericShow)
 import Effect (Effect)
 import Foreign.Object (Object)
+import Foreign (Foreign)
+import Unsafe.Coerce (unsafeCoerce)
 import Web.HTML.HTMLDivElement (HTMLDivElement)
 import System.Types.Geometry
   ( CoordinateExtent
@@ -68,6 +75,8 @@ type NodeBaseRow nodeData =
   -- | Absent until a position change that carries it sets it, as upstream's
   -- | optional field is. Every reader treats absent as `false`.
   , dragging :: Maybe Boolean
+  -- | React Node resizing state; absent until supplied or changed by a resize.
+  , resizing :: Maybe Boolean
   , draggable :: Maybe Boolean
   , selectable :: Maybe Boolean
   , connectable :: Maybe Boolean
@@ -95,28 +104,34 @@ type NodeBaseRow nodeData =
 
 type NodeBase nodeData = { | NodeBaseRow nodeData }
 
--- | The TS reference-equality `userNode` field is intentionally omitted —
--- | PureScript has no reference equality. Functions that need the original
--- | user node should accept it as a separate parameter.
-type NodeInternals =
+-- | Retain the actual original typed node. JS boundary decoding additionally
+-- | associates that record with its original JS object, so equality compares
+-- | consumer references rather than freshly allocated decoded records.
+type NodeInternals nodeData =
   { positionAbsolute :: XYPosition
   , z :: Number
   , rootParentIndex :: Maybe Int
   , handleBounds :: Maybe NodeHandleBounds
   , bounds :: Maybe NodeBounds
+  , userNode :: NodeBase nodeData
   }
+
+foreign import rememberUserNode :: forall n. Fn2 Foreign (NodeBase n) (NodeBase n)
+foreign import originalUserNode :: forall n. NodeBase n -> Nullable Foreign
+
+userNodeIdentity :: forall n. NodeBase n -> Foreign
+userNodeIdentity node = fromMaybe (unsafeCoerce node) (toMaybe (originalUserNode node))
 
 -- | The same shape as `NodeBase` plus an `internals` field. Defined as a
 -- | row-extension of `NodeBaseRow` to avoid the 26-field duplication that
 -- | the previous flat encoding required.
 type InternalNodeBase nodeData =
-  { internals :: NodeInternals | NodeBaseRow nodeData }
+  { internals :: NodeInternals nodeData | NodeBaseRow nodeData }
 
--- | Source/target handle bounds. The outer optionality on `NodeHandleBounds`
--- | itself (`Maybe NodeHandleBounds`) carries the "not yet parsed"
--- | distinction; the inner arrays use the empty case for "parsed, no
--- | handles of this side". Three nesting levels of optionality collapsed
--- | to one.
+-- | Source/target handle bounds. The outer `Maybe NodeHandleBounds` means
+-- | not measured yet. An inner `Nothing` preserves the `null` returned by
+-- | the DOM query when a measured node has no handle of that side. Explicit
+-- | user-declared handles always produce both arrays, even if empty.
 -- |
 -- | The inner arrays are typed with the phantom newtypes `SourceHandle` /
 -- | `TargetHandle` so that consumers can't accidentally pass the target
@@ -125,8 +140,8 @@ type InternalNodeBase nodeData =
 -- | boundary (`parseHandles`, `toHandleBounds`, the DOM-driven
 -- | `processUpdate`).
 type NodeHandleBounds =
-  { source :: Array SourceHandle
-  , target :: Array TargetHandle
+  { source :: Maybe (Array SourceHandle)
+  , target :: Maybe (Array TargetHandle)
   }
 
 type NodeBounds =

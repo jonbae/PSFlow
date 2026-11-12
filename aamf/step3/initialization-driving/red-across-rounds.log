@@ -1,0 +1,90 @@
+$ node aamf/step3/initialization-driving/verify-repeatability.mjs affected arrow-key-selected-node
+[
+  {
+    "round": 1,
+    "side": "upstream",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 1,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 2,
+    "side": "upstream",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 2,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 3,
+    "side": "upstream",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 3,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 4,
+    "side": "upstream",
+    "within": true,
+    "across": false,
+    "differences": 2
+  },
+  {
+    "round": 4,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 5,
+    "side": "upstream",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 5,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": 0
+  }
+]
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: all original captures must reproduce across independent rounds
+    at file:///Users/jonathanbae/repos/PSFlow/aamf/step3/initialization-driving/verify-repeatability.mjs:22:8
+    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:647:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '=='
+}
+
+Node.js v22.18.0

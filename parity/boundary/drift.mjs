@@ -191,13 +191,13 @@ const pairs = [
   },
   {
     what: "ResizeParams",
-    ps: { file: "src/System/XYResizer.purs", type: "ResizeParams" },
+    ps: { file: "src/System/XYResizer/Types.purs", type: "ResizeParams" },
     js: { file: "src/Boundary/Callbacks.purs", type: "JsResizeParams" },
     renames: {},
   },
   {
     what: "ResizeParamsDir",
-    ps: { file: "src/System/XYResizer.purs", type: "ResizeParamsWithDirection" },
+    ps: { file: "src/System/XYResizer/Types.purs", type: "ResizeParamsWithDirection" },
     js: { file: "src/Boundary/Callbacks.purs", type: "JsResizeParamsWithDirection" },
     renames: {},
   },

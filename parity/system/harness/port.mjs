@@ -1,3 +1,4 @@
+import { installTimerObserver } from "./platform-timers.mjs";
 // The page port — the only file in the harness that knows what a browser is.
 //
 // Everything above it (the vocabulary, the gestures, the driving log) is plain
@@ -14,6 +15,8 @@ import { domSection } from "./dom.mjs";
 import { OBSERVATIONS } from "../../driver/observations.mjs";
 
 const CDP_TOUCH = { touchStart: 1, touchMove: 1, touchEnd: 1, touchCancel: 1 };
+const clockContexts = new WeakSet();
+const timerPages = new WeakSet();
 
 /**
  * `resolveTimeout` bounds how long a selector is given before it counts as
@@ -46,13 +49,106 @@ export const createPagePort = (page, { resolveTimeout = 1_000 } = {}) => {
   // `Input.dispatchTouchEvent`: no new browser target, no second Playwright
   // project, no config change.
   let cdp = null;
+  let frameSession = null;
+  let mountPhase = null;
+  let clockPrepared = false;
+
+  // Clock emulation controls JS timers, not native layout/ResizeObserver work.
+  // This isolated world retains the browser's animation-frame clock while the
+  // application's clock is paused. It reads no application data and mutates no
+  // DOM. Both sides use the same native frame and virtual timer protocol.
+  const nativeFrame = async () => {
+    const persistent = Boolean(mountPhase);
+    const session = persistent
+      ? (frameSession ??= await page.context().newCDPSession(page))
+      : await page.context().newCDPSession(page);
+    try {
+      const { frameTree } = await session.send("Page.getFrameTree");
+      const { executionContextId } = await session.send("Page.createIsolatedWorld", {
+        frameId: frameTree.frame.id,
+        worldName: "psflow-native-frame",
+      });
+      const result = await session.send("Runtime.evaluate", {
+        contextId: executionContextId,
+        expression: "new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(() => setTimeout(resolve, 0))))",
+        awaitPromise: true,
+        returnByValue: true,
+      });
+      if (result.exceptionDetails) throw new Error("native frame failed");
+    } finally {
+      if (!persistent) await session.detach();
+    }
+  };
 
   const moveTo = async ({ x, y }) => {
     await page.mouse.move(x, y);
     at = { x, y };
+    if (clockPrepared && !mountPhase) await tick();
+  };
+
+  const tick = async () => {
+    if (mountPhase) {
+      await nativeFrame();
+      if (mountPhase === "timers") await page.clock.runFor(32);
+      return;
+    }
+    if (clockPrepared) {
+      await nativeFrame();
+      for (let frame = 0; frame < 2; frame++) {
+        const now = await page.evaluate(() => performance.now());
+        await page.clock.runFor(16 - (now % 16));
+        await nativeFrame();
+      }
+      return;
+    }
+    await page.evaluate(
+      () =>
+        new Promise((resolve) => {
+          requestAnimationFrame(() => requestAnimationFrame(() => setTimeout(resolve, 0)));
+        })
+    );
   };
 
   return {
+    /**
+     * Called on the blank document, before application clock use. Timers stay
+     * paused while the caller observes native layout; the returned function
+     * starts two-frame timer steps after that layout has settled.
+     */
+    async prepareMount() {
+      const context = page.context();
+      if (!clockContexts.has(context)) {
+        await page.clock.install({ time: Date.UTC(2026, 0, 1) });
+        clockContexts.add(context);
+      }
+      await page.clock.pauseAt(await page.evaluate(() => Date.now()) + 1000);
+      if (!timerPages.has(page)) {
+        await page.addInitScript(installTimerObserver);
+        timerPages.add(page);
+      }
+      await page.evaluate(installTimerObserver);
+      // A replayed pause on navigation leaves Playwright's initial native
+      // zero-delay dispatcher alive. Cancel it through the public clock API
+      // before any library code executes, identically for either bundle.
+      await page.route(/\.m?js(?:\?|$)/, async route => {
+        await page.clock.pauseAt(await page.evaluate(() => Date.now()));
+        await route.continue();
+      }, { times: 1 });
+      clockPrepared = true;
+      mountPhase = "layout";
+      return async () => { mountPhase = "timers"; };
+    },
+
+    /** Switch to paced actions; held gestures keep receiving virtual frames. */
+    async finishMount() {
+      // Keep time held between input commands. tick advances it explicitly.
+      mountPhase = null;
+      if (frameSession) {
+        await frameSession.detach();
+        frameSession = null;
+      }
+    },
+
     /**
      * Turns on touch emulation, and must be called **before the page is
      * navigated**. `runScenario` does it for a scenario declaring `touch: true`.
@@ -68,32 +164,46 @@ export const createPagePort = (page, { resolveTimeout = 1_000 } = {}) => {
      * the mount, which waits on a bundle downloading and a flow rendering.
      */
     async box(selector, { timeout = resolveTimeout } = {}) {
+      let pending;
       try {
         // `.first()`: a selector matching several elements resolves to one, the
         // same one on both sides, rather than being a strict-mode error that
         // would read as an infrastructure fault instead of a target choice.
-        return await page.locator(selector).first().boundingBox({ timeout });
+        pending = page.locator(selector).first().boundingBox({ timeout });
       } catch {
         // Not attached, not visible, or gone before it could be measured. All
         // three are "did not resolve", and the difference between them is not
         // something the driving log claims to record.
         return null;
       }
+      let done = false;
+      const box = pending.catch(() => null).finally(() => { done = true; });
+      // Locator misses are unresolved targets. A failed frame/clock protocol
+      // must still throw, rather than masquerading as the same miss on both sides.
+      for (let frame = 0; mountPhase && !done && frame < 200; frame++) {
+        await nativeFrame();
+        if (mountPhase === "timers") await page.clock.runFor(16);
+      }
+      return box;
     },
 
     async mouse(type, { x, y, button = "left" }) {
       if (type === "move") return moveTo({ x, y });
       if (x !== at.x || y !== at.y) await moveTo({ x, y });
-      if (type === "down") return page.mouse.down({ button });
-      if (type === "up") return page.mouse.up({ button });
-      throw new Error(`unknown mouse action ${JSON.stringify(type)}`);
+      if (type !== "down" && type !== "up") throw new Error(`unknown mouse action ${JSON.stringify(type)}`);
+      await page.mouse[type]({ button });
+      if (clockPrepared && !mountPhase) await tick();
     },
 
     async keyboard(action, key) {
-      if (action === "press") return page.keyboard.press(key);
-      if (action === "down") return page.keyboard.down(key);
-      if (action === "up") return page.keyboard.up(key);
-      throw new Error(`unknown key action ${JSON.stringify(action)}`);
+      if (action === "press") await page.keyboard.press(key);
+      else if (action === "down") await page.keyboard.down(key);
+      else if (action === "up") await page.keyboard.up(key);
+      else throw new Error(`unknown key action ${JSON.stringify(action)}`);
+      // Dispatch completion does not include frame work caused by the key.
+      // Let it land before the next action, on both sides, without releasing
+      // held keys or pacing a press's own keydown/keyup separately.
+      await tick();
     },
 
     async focus(selector) {
@@ -103,6 +213,16 @@ export const createPagePort = (page, { resolveTimeout = 1_000 } = {}) => {
     async wheel(point, { deltaX, deltaY }) {
       if (point.x !== at.x || point.y !== at.y) await moveTo(point);
       await page.mouse.wheel(deltaX, deltaY);
+      if (clockPrepared) {
+        await nativeFrame();
+        for (let turn = 0; turn < 200; turn++) {
+          const {now, due} = await page.evaluate(() => globalThis.__psflowPlatformTimers());
+          if (!due.length) return;
+          await page.clock.runFor(Math.max(1, Math.ceil(Math.min(...due) - now)));
+          await nativeFrame();
+        }
+        throw new Error('wheel timeout queue did not become idle');
+      }
     },
 
     async touch(type, points) {
@@ -121,6 +241,7 @@ export const createPagePort = (page, { resolveTimeout = 1_000 } = {}) => {
         type,
         touchPoints: points.map(({ x, y, id }) => ({ x, y, id })),
       });
+      if (clockPrepared && !mountPhase) await tick();
     },
 
     /**
@@ -132,7 +253,7 @@ export const createPagePort = (page, { resolveTimeout = 1_000 } = {}) => {
      * a missing element gets, for the same reason.
      */
     async call(method, args) {
-      return page.evaluate(
+      const pending = page.evaluate(
         async ([key, m, a]) => {
           const bridge = window[key];
           if (!bridge || typeof bridge.call !== "function") return { installed: false, result: null };
@@ -140,6 +261,18 @@ export const createPagePort = (page, { resolveTimeout = 1_000 } = {}) => {
         },
         [OBSERVATIONS, method, args]
       );
+      if (clockPrepared) {
+        // An animated imperative call resolves from application RAFs. Native
+        // work alone cannot complete it while the virtual clock is held.
+        let complete = false;
+        pending.then(() => { complete = true; }, () => { complete = true; });
+        for (let frame = 0; !complete && frame < 200; frame++) {
+          await nativeFrame();
+          if (!complete) await tick();
+        }
+        if (!complete) throw new Error("imperative call did not complete in 200 application frame steps");
+      }
+      return pending;
     },
 
     /**
@@ -186,29 +319,11 @@ export const createPagePort = (page, { resolveTimeout = 1_000 } = {}) => {
     },
 
     /**
-     * Yields until the page's own frame loop has come round — which is what
-     * `settle.mjs` puts between two polls.
-     *
-     * Two frames and then a turn of the task queue, in that order, because that
-     * is the order the work lands in: a rendering frame runs its animation
-     * callbacks, lays out, and *then* runs the resize observers that xyflow
-     * measures nodes with, so the second frame is the first one that can see
-     * what the first one caused. The trailing `setTimeout` is a yield to the
-     * task queue rather than a wait — zero delay, and what it collects is the
-     * continuation a `then` or a timer scheduled during those frames.
-     *
-     * None of that is a duration. Waiting a fixed number of milliseconds is a
-     * bet that neither implementation is slower than the number, and the harness
-     * makes no such bet: each side settles when it has stopped changing, on its
-     * own clock.
+     * Two application frames between native render/task barriers. While initial
+     * layout settles, only the native barriers run. Actions and subsequent DOM
+     * polls step the held application clock, so elapsed host time cannot add
+     * auto-pan frames or race a key's native hover delivery.
      */
-    async tick() {
-      await page.evaluate(
-        () =>
-          new Promise((resolve) => {
-            requestAnimationFrame(() => requestAnimationFrame(() => setTimeout(resolve, 0)));
-          })
-      );
-    },
+    tick,
   };
 };

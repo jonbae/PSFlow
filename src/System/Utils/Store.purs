@@ -74,8 +74,10 @@ import System.Types.Node
   , NodeLookup
   , ParentExpandChild
   , ParentLookup
+  , userNodeIdentity
   )
 import System.Types.PanZoom (PanZoomInstance)
+import Unsafe.Reference (unsafeRefEq)
 import System.Utils.Dom
   ( elementBoundingRect
   , findViewportZoom
@@ -386,47 +388,52 @@ adoptUserNodes nodes prev _prevParent options =
           { width: Just dims.width, height: Just dims.height }
         oldInternal = Map.lookup userNodeWithDefaults.id prev
         internalNode :: InternalNodeBase n
-        internalNode =
-          { id: userNodeWithDefaults.id
-          , position: userNodeWithDefaults.position
-          , data: userNodeWithDefaults.data
-          , sourcePosition: userNodeWithDefaults.sourcePosition
-          , targetPosition: userNodeWithDefaults.targetPosition
-          , hidden: userNodeWithDefaults.hidden
-          , selected: userNodeWithDefaults.selected
-          , dragging: userNodeWithDefaults.dragging
-          , draggable: userNodeWithDefaults.draggable
-          , selectable: userNodeWithDefaults.selectable
-          , connectable: userNodeWithDefaults.connectable
-          , deletable: userNodeWithDefaults.deletable
-          , dragHandle: userNodeWithDefaults.dragHandle
-          , width: userNodeWithDefaults.width
-          , height: userNodeWithDefaults.height
-          , initialWidth: userNodeWithDefaults.initialWidth
-          , initialHeight: userNodeWithDefaults.initialHeight
-          , parentId: userNodeWithDefaults.parentId
-          , zIndex: userNodeWithDefaults.zIndex
-          , extent: userNodeWithDefaults.extent
-          , expandParent: userNodeWithDefaults.expandParent
-          , ariaLabel: userNodeWithDefaults.ariaLabel
-          , origin: userNodeWithDefaults.origin
-          , handles: userNodeWithDefaults.handles
-          , measured: userNodeWithDefaults.measured
-          , nodeType: userNodeWithDefaults.nodeType
-          , className: userNodeWithDefaults.className
-          , style: userNodeWithDefaults.style
-          , internals:
-              { positionAbsolute: clamped
-              , z: calculateZ userNodeWithDefaults selZ options.zIndexMode
-              , rootParentIndex: case oldInternal of
-                  Just o -> o.internals.rootParentIndex
-                  Nothing -> Nothing
-              , handleBounds: parseHandles userNodeWithDefaults oldInternal
-              , bounds: case oldInternal of
-                  Just o -> o.internals.bounds
-                  Nothing -> Nothing
+        internalNode = case oldInternal of
+          Just old | options.checkEquality
+            && unsafeRefEq (userNodeIdentity userNode) (userNodeIdentity old.internals.userNode) -> old
+          _ ->
+              { id: userNodeWithDefaults.id
+              , position: userNodeWithDefaults.position
+              , data: userNodeWithDefaults.data
+              , sourcePosition: userNodeWithDefaults.sourcePosition
+              , targetPosition: userNodeWithDefaults.targetPosition
+              , hidden: userNodeWithDefaults.hidden
+              , selected: userNodeWithDefaults.selected
+              , dragging: userNodeWithDefaults.dragging
+              , draggable: userNodeWithDefaults.draggable
+              , selectable: userNodeWithDefaults.selectable
+              , connectable: userNodeWithDefaults.connectable
+              , deletable: userNodeWithDefaults.deletable
+              , dragHandle: userNodeWithDefaults.dragHandle
+              , width: userNodeWithDefaults.width
+              , height: userNodeWithDefaults.height
+              , initialWidth: userNodeWithDefaults.initialWidth
+              , initialHeight: userNodeWithDefaults.initialHeight
+              , parentId: userNodeWithDefaults.parentId
+              , zIndex: userNodeWithDefaults.zIndex
+              , extent: userNodeWithDefaults.extent
+              , expandParent: userNodeWithDefaults.expandParent
+              , resizing: userNodeWithDefaults.resizing
+              , ariaLabel: userNodeWithDefaults.ariaLabel
+              , origin: userNodeWithDefaults.origin
+              , handles: userNodeWithDefaults.handles
+              , measured: userNodeWithDefaults.measured
+              , nodeType: userNodeWithDefaults.nodeType
+              , className: userNodeWithDefaults.className
+              , style: userNodeWithDefaults.style
+              , internals:
+                  { positionAbsolute: clamped
+                  , userNode
+                  , z: calculateZ userNodeWithDefaults selZ options.zIndexMode
+                  , rootParentIndex: case oldInternal of
+                      Just o -> o.internals.rootParentIndex
+                      Nothing -> Nothing
+                  , handleBounds: parseHandles userNodeWithDefaults oldInternal
+                  , bounds: case oldInternal of
+                      Just o -> o.internals.bounds
+                      Nothing -> Nothing
+                  }
               }
-          }
 
         nodeLookup1 =
           Map.insert userNodeWithDefaults.id internalNode st.nodeLookup
@@ -484,7 +491,7 @@ parseHandles userNode internalNode = case userNode.handles of
         Nothing -> Nothing
   Just handles ->
     let
-      empty :: NodeHandleBounds
+      empty :: { source :: Array SourceHandle, target :: Array TargetHandle }
       empty = { source: [], target: [] }
 
       go acc h =
@@ -507,7 +514,8 @@ parseHandles userNode internalNode = case userNode.handles of
             Source -> acc { source = Array.snoc acc.source (SourceHandle bounds) }
             Target -> acc { target = Array.snoc acc.target (TargetHandle bounds) }
     in
-      Just (Foldable.foldl go empty handles)
+      let parsed = Foldable.foldl go empty handles
+      in Just { source: Just parsed.source, target: Just parsed.target }
 
 handleExpandParent
   :: forall n
@@ -809,10 +817,8 @@ processUpdate update acc zoom origin extent zMode =
               , internals = node.internals
                   { positionAbsolute = positionAbsoluteAdjusted
                   , handleBounds = Just
-                      { source: Array.mapMaybe mkSourceHandle
-                          (fromMaybe [] sourceHandles)
-                      , target: Array.mapMaybe mkTargetHandle
-                          (fromMaybe [] targetHandles)
+                      { source: Array.mapMaybe mkSourceHandle <$> sourceHandles
+                      , target: Array.mapMaybe mkTargetHandle <$> targetHandles
                       }
                   }
               }

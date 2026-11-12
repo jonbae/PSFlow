@@ -33,6 +33,9 @@ module Test.System.XYDrag
 
 import Prelude
 
+import Record as Record
+import Type.Proxy (Proxy(..))
+
 import Data.Array as Array
 import Data.Either (Either(..))
 import Data.Foldable (for_)
@@ -87,42 +90,48 @@ nodeId = NodeId "n"
 
 draggedNode :: InternalNodeBase Unit
 draggedNode =
-  { id: nodeId
-  , position: { x: 100.0, y: 100.0 }
-  , data: unit
-  , sourcePosition: Nothing
-  , targetPosition: Nothing
-  , hidden: Nothing
-  , selected: Just true
-  , dragging: Nothing
-  , draggable: Just true
-  , selectable: Nothing
-  , connectable: Nothing
-  , deletable: Nothing
-  , dragHandle: Nothing
-  , width: Just 50.0
-  , height: Just 25.0
-  , initialWidth: Nothing
-  , initialHeight: Nothing
-  , parentId: Nothing
-  , zIndex: Nothing
-  , extent: Nothing
-  , expandParent: Nothing
-  , ariaLabel: Nothing
-  , origin: Nothing
-  , handles: Nothing
-  , measured: { width: Just 50.0, height: Just 25.0 }
-  , nodeType: Nothing
-  , className: Nothing
-  , style: Nothing
-  , internals:
+  let
+    originalUserNode =
+      { id: nodeId
+      , position: { x: 100.0, y: 100.0 }
+      , data: unit
+      , sourcePosition: Nothing
+      , targetPosition: Nothing
+      , hidden: Nothing
+      , selected: Just true
+      , dragging: Nothing
+      , draggable: Just true
+      , selectable: Nothing
+      , connectable: Nothing
+      , deletable: Nothing
+      , dragHandle: Nothing
+      , width: Just 50.0
+      , height: Just 25.0
+      , initialWidth: Nothing
+      , initialHeight: Nothing
+      , parentId: Nothing
+      , zIndex: Nothing
+      , extent: Nothing
+      , expandParent: Nothing
+      , resizing: Nothing
+      , ariaLabel: Nothing
+      , origin: Nothing
+      , handles: Nothing
+      , measured: { width: Just 50.0, height: Just 25.0 }
+      , nodeType: Nothing
+      , className: Nothing
+      , style: Nothing
+      }
+  in
+    Record.insert (Proxy :: Proxy "internals")
       { positionAbsolute: { x: 100.0, y: 100.0 }
       , z: 0.0
       , rootParentIndex: Nothing
       , handleBounds: Nothing
       , bounds: Nothing
+      , userNode: originalUserNode
       }
-  }
+      originalUserNode
 
 lookup :: NodeLookup Unit
 lookup = Map.singleton nodeId draggedNode

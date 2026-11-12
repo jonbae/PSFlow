@@ -1,0 +1,14 @@
+$ node parity/system/net.mjs --scenario mount-baseline--nodes-general --out aamf/step3/on-init-witness/target-report.md
+fork: 54 upstream unit(s) affirmed — 30 of 48 spec unit(s) lifted, 18 declined with a reason, and 6 depended-on source(s).
+driver [psflow]: 30 fixtures + 1 direct component(s), 49 observed callback props, library from `// output/Boundary/` → dist/psflow.js
+driver [upstream]: 30 fixtures + 1 direct component(s), 49 observed callback props, library from `// xyflow/packages/react/src/` → dist/upstream.js
+captured mount-baseline--nodes-general
+
+1 of 1 scenario(s) failed:
+  mount-baseline--nodes-general: unclaimed-difference
+coverage is not affirmed.
+1 hole entr(ies) no longer correspond to anything: something drove the
+export after all, or it left the surface. Split the entry or delete it — a hole is a written reason,
+and this one stopped being true of what it names:
+  OnInit — the driver withholds the prop (`parity/driver/callbacks.mjs`, HOLES), so no page installs it and no trace can record it. The reason recorded there — that onInit's ReactFlowInstance argument had not crossed the boundary — no longer holds: boundary stage 3 crosses `onInitIn` (`src/Boundary/Callbacks.purs`). Installing it and re-capturing the corpus is what closes this, and it is the first thing this artifact found that its own registers cannot fix.
+The report is parity/system/report.md and the coverage artifact is parity/system/coverage.md.

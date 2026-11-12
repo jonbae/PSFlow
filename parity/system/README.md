@@ -62,6 +62,23 @@ event's own `timeStamp`, on every serialized event argument in `callbacks`. It
 breaks self-consistency exactly as predicted, which is why normalization deletes
 it (see the delete rule below); nothing writes one.
 
+Mount driving uses a controlled clock on both sides. On the blank document the
+port installs the browser clock, holds application timers, and lets native layout
+and resize observers settle. It then steps the timer queue by two virtual frames
+between native frame barriers, observing DOM stability again. A public clock
+pause is reasserted before the bundle executes: Playwright's replayed pause can
+otherwise leave a native zero-delay dispatcher alive after navigation. Application
+time stays held between actions. Mouse, keyboard and touch dispatches advance two
+virtual frames, each ending at a frame boundary followed by native rendering, so host scheduling cannot add
+auto-pan frames or move hover delivery into the next key's modifier state.
+Wheel dispatch drains its actual pending timeout chain, including nested end
+notifications; it never bets on a fixed sleep. Imperative calls that await animated
+work receive frame steps until their promise completes.
+No callback is removed, sorted or normalized by this protocol.
+The separate native frame clock matters: controlling timers alone leaves the
+initialization/viewport-end ordering race intact. Captures made under an earlier
+driving protocol remain separate experiments; their archives retain that protocol.
+
 ### The seven sections
 
 Five carry exports, totalling 156; two carry none. A section is **always
@@ -727,3 +744,13 @@ never about the registers, which are content and go red on their own.
   ([#60](https://github.com/jonbae/PSFlow/issues/60)), the retirement debt
   ([#61](https://github.com/jonbae/PSFlow/issues/61)) and the probe variants
   derived from issue 59's retired holes; `corpus/` has its own README.
+
+Capture preconditions release Shift, Control, Alt and Meta on the blank document
+before parking the pointer. A held key survives navigation just like a held mouse
+button; releases happen before the driver loads and are absent from its log.
+
+For captures isolated from macOS physical modifier activity, use
+`node parity/system/linux.mjs npm run parity:system` after compiling PureScript.
+The runner selects the official Linux image from the locked Playwright version
+and keeps Linux dependencies in a separate volume.
+[The harness guide](harness/README.md) records the platform cause and protocol.

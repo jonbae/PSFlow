@@ -1,4 +1,4 @@
-// FFI for `Boundary.Hooks`. One thing lives here: the tuple.
+// FFI for `Boundary.Hooks`: native tuples and callback identity association.
 //
 // `useNodesState` returns `[nodes, setNodes, onNodesChange]` — an array whose
 // three slots have three different types, which PureScript's `Array` cannot
@@ -8,3 +8,13 @@
 // it.
 
 export const mkTriple = (first, second, third) => [first, second, third];
+
+// Generic representation interop. PureScript still owns the conversion;
+// native weak keys keep a consumer callback's adapter reference stable.
+export const cacheCallback = convert => {
+  const callbacks = new WeakMap();
+  return callback => {
+    if (!callbacks.has(callback)) callbacks.set(callback, convert(callback));
+    return callbacks.get(callback);
+  };
+};

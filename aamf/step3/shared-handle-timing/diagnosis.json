@@ -1,0 +1,25 @@
+{
+  "handleBounds": {
+    "red": "red-handles.log",
+    "hypotheses": [
+      "DOM measurement discards the missing-side value",
+      "JS conversion changes the missing-side value",
+      "DOM query differs from source"
+    ],
+    "finding": "Existing DOM helper already returns Maybe. Shared NodeHandleBounds makes sides total arrays; processUpdate discards Nothing and converter has no null representation. Preserve optional sides end to end; explicit declared handles still use both arrays.",
+    "adaptedFrom": "PR195 focused source/test patches, not its stacked commits",
+    "green": "green-handles.log"
+  },
+  "callbackOrder": {
+    "red": "red-end-timing.log",
+    "hypotheses": [
+      "Non-scroll end omits the source zero-delay timer",
+      "fit-view Promise/Aff continuation order changes callbacks",
+      "React measurement/subscription timing changes callbacks"
+    ],
+    "finding": "The exported handler alone reproduces the inversion on native tasks/microtasks. Restoring the source zero/150 ms timer and cancellation fixes it, without changing fitView/store/React code. Real d3 transforms reproduce the corrected measurement/end order.",
+    "green": "green-end-timing.log",
+    "priorTestCorrection": "The old dispatch test asserted every back-to-back non-scroll end survives, contrary to source cancellation. Put its source-shape checks on separate turns; new source differential retains explicit coalescing tests for both timer paths."
+  },
+  "setupFailure": "build-handle-model.log contains the four expected fixture type errors from replacing total arrays with optional arrays; the adapted fixture build then passes."
+}

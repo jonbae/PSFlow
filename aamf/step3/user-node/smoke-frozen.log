@@ -1,0 +1,21 @@
+$ npm run test:smoke
+
+> ps-flow@0.0.0 test:smoke
+> playwright test --config examples/react-smoke/playwright.config.ts --project=smoke
+
+[2m[WebServer] [22m(node:52458) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:52488) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:52488) [DEP0066] DeprecationWarning: OutgoingMessage.prototype._headers is deprecated
+
+Running 2 tests using 1 worker
+
+(node:52501) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:52501) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [smoke] › examples/react-smoke/tests/smoke.spec.ts:45:3 › ps-flow smoke test › the driver page mounts and renders its fixture (2.0s)
+  ✓  2 [smoke] › examples/react-smoke/tests/smoke.spec.ts:54:3 › ps-flow smoke test › no console errors during a 5-second interaction session (3.7s)
+
+  2 passed (16.6s)

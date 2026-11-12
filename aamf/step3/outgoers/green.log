@@ -1,0 +1,17 @@
+$ node --test parity/boundary/outgoers.test.mjs
+TAP version 13
+# Subtest: getOutgoers accepts three JS arguments and returns original nodes in node-array order
+ok 1 - getOutgoers accepts three JS arguments and returns original nodes in node-array order
+  ---
+  duration_ms: 2.676429
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 743.014887

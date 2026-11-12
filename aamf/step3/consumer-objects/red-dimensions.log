@@ -1,0 +1,100 @@
+$ node --test parity/boundary/consumer-objects.test.mjs
+TAP version 13
+# Subtest: applyNodeChanges retains untouched consumer references and keys
+ok 1 - applyNodeChanges retains untouched consumer references and keys
+  ---
+  duration_ms: 14.531493
+  type: 'test'
+  ...
+# Subtest: applyEdgeChanges retains untouched consumer references and keys
+ok 2 - applyEdgeChanges retains untouched consumer references and keys
+  ---
+  duration_ms: 1.222202
+  type: 'test'
+  ...
+# Subtest: applyNodeChanges preserves raw position, dimensions, attributes and resizing semantics
+not ok 3 - applyNodeChanges preserves raw position, dimensions, attributes and resizing semantics
+  ---
+  duration_ms: 16.554783
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/consumer-objects.test.mjs:20:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+        {
+          data: {},
+    -     dragging: true,
+          id: 'a',
+          measured: {
+            height: 10,
+            previous: true,
+            width: 10
+          },
+          position: {
+    +       x: 0,
+    +       y: 0
+    -       x: 5,
+    -       y: 10
+          }
+        }
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0:
+      id: 'a'
+      position:
+        x: 5
+        y: 10
+      data:
+      measured:
+        width: 10
+        height: 10
+        previous: true
+      dragging: true
+  actual:
+    0:
+      id: 'a'
+      position:
+        x: 0
+        y: 0
+      data:
+      measured:
+        width: 10
+        height: 10
+        previous: true
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/consumer-objects.test.mjs:35:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: applyNodeChanges shallow-copies touched/add/replace items and preserves change ordering
+ok 4 - applyNodeChanges shallow-copies touched/add/replace items and preserves change ordering
+  ---
+  duration_ms: 10.75692
+  type: 'test'
+  ...
+# Subtest: applyEdgeChanges shallow-copies touched/add/replace items and preserves change ordering
+ok 5 - applyEdgeChanges shallow-copies touched/add/replace items and preserves change ordering
+  ---
+  duration_ms: 7.911823
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 4
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4432.499897

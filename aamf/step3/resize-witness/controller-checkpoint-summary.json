@@ -1,0 +1,366 @@
+[
+  {
+    "scenario": "resize-node-with-direct-control",
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "consistent": true
+      }
+    ],
+    "resize": {
+      "width": 180,
+      "height": 110
+    },
+    "callbacks": [
+      "control:start",
+      "control:resize",
+      "control:resize",
+      "control:resize",
+      "control:end"
+    ],
+    "fullGatePassed": false,
+    "remainingDifferences": [
+      {
+        "kind": "left-only",
+        "path": [
+          "callbacks",
+          12,
+          "args",
+          1,
+          "resizing"
+        ],
+        "left": true
+      },
+      {
+        "kind": "left-only",
+        "path": [
+          "api",
+          "queries",
+          "getNodes",
+          0,
+          "resizing"
+        ],
+        "left": false
+      },
+      {
+        "kind": "left-only",
+        "path": [
+          "api",
+          "queries",
+          "getNode",
+          "resizing"
+        ],
+        "left": false
+      },
+      {
+        "kind": "left-only",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "resizing"
+        ],
+        "left": false
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "source"
+        ],
+        "left": null,
+        "right": []
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "target"
+        ],
+        "left": null,
+        "right": []
+      },
+      {
+        "kind": "left-only",
+        "path": [
+          "api",
+          "queries",
+          "getIntersectingNodes",
+          0,
+          "resizing"
+        ],
+        "left": false
+      },
+      {
+        "kind": "left-only",
+        "path": [
+          "api",
+          "queries",
+          "toObject",
+          "nodes",
+          0,
+          "resizing"
+        ],
+        "left": false
+      }
+    ]
+  },
+  {
+    "scenario": "resize-node-with-resizer",
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "consistent": true
+      }
+    ],
+    "resize": {
+      "width": 165,
+      "height": 110
+    },
+    "callbacks": [
+      "resizer:start",
+      "resizer:resize",
+      "resizer:resize",
+      "resizer:resize",
+      "resizer:end"
+    ],
+    "fullGatePassed": false,
+    "remainingDifferences": [
+      {
+        "kind": "left-only",
+        "path": [
+          "callbacks",
+          12,
+          "args",
+          1,
+          "resizing"
+        ],
+        "left": true
+      },
+      {
+        "kind": "left-only",
+        "path": [
+          "api",
+          "queries",
+          "getNodes",
+          0,
+          "resizing"
+        ],
+        "left": false
+      },
+      {
+        "kind": "left-only",
+        "path": [
+          "api",
+          "queries",
+          "getNode",
+          "resizing"
+        ],
+        "left": false
+      },
+      {
+        "kind": "left-only",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "resizing"
+        ],
+        "left": false
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "source"
+        ],
+        "left": null,
+        "right": []
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "target"
+        ],
+        "left": null,
+        "right": []
+      },
+      {
+        "kind": "left-only",
+        "path": [
+          "api",
+          "queries",
+          "getIntersectingNodes",
+          0,
+          "resizing"
+        ],
+        "left": false
+      },
+      {
+        "kind": "left-only",
+        "path": [
+          "api",
+          "queries",
+          "toObject",
+          "nodes",
+          0,
+          "resizing"
+        ],
+        "left": false
+      }
+    ]
+  },
+  {
+    "scenario": "resize-node-after-active-limit-change",
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "consistent": true
+      }
+    ],
+    "resize": {
+      "width": 145,
+      "height": 110
+    },
+    "callbacks": [
+      "control:start",
+      "control:resize",
+      "control:resize",
+      "control:end"
+    ],
+    "fullGatePassed": false,
+    "remainingDifferences": [
+      {
+        "kind": "left-only",
+        "path": [
+          "callbacks",
+          8,
+          "args",
+          1,
+          "resizing"
+        ],
+        "left": true
+      },
+      {
+        "kind": "left-only",
+        "path": [
+          "callbacks",
+          9,
+          "args",
+          1,
+          "resizing"
+        ],
+        "left": true
+      },
+      {
+        "kind": "left-only",
+        "path": [
+          "api",
+          "queries",
+          "getNodes",
+          0,
+          "resizing"
+        ],
+        "left": false
+      },
+      {
+        "kind": "left-only",
+        "path": [
+          "api",
+          "queries",
+          "getNode",
+          "resizing"
+        ],
+        "left": false
+      },
+      {
+        "kind": "left-only",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "resizing"
+        ],
+        "left": false
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "source"
+        ],
+        "left": null,
+        "right": []
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "target"
+        ],
+        "left": null,
+        "right": []
+      },
+      {
+        "kind": "left-only",
+        "path": [
+          "api",
+          "queries",
+          "getIntersectingNodes",
+          0,
+          "resizing"
+        ],
+        "left": false
+      },
+      {
+        "kind": "left-only",
+        "path": [
+          "api",
+          "queries",
+          "toObject",
+          "nodes",
+          0,
+          "resizing"
+        ],
+        "left": false
+      }
+    ]
+  }
+]

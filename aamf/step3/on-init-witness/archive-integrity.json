@@ -1,0 +1,18 @@
+{
+  "verifiedAt": "2026-11-11T04:26:30.956455+00:00",
+  "archives": [
+    {
+      "task": "keyboard-driving",
+      "verifiedSourceAndCompiledJsInputs": 1486,
+      "compilerCacheArtifactsDeliberatelyNotArchived": 2903,
+      "mismatches": []
+    },
+    {
+      "task": "on-init-witness",
+      "verifiedSourceAndCompiledJsInputs": 1490,
+      "compilerCacheArtifactsDeliberatelyNotArchived": 0,
+      "mismatches": []
+    }
+  ],
+  "freshCanonicalCheckpointFiles": 430
+}

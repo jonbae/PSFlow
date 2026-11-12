@@ -1,0 +1,66 @@
+$ npm exec --yes --package=purescript@0.15.16 -- spago test
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[ 1 of 17] Compiling React.Node.Util
+[ 2 of 17] Compiling Test.React.Node.ArrowKeyMessage
+[ 3 of 17] Compiling React.Component.NodeWrapper
+[ 4 of 17] Compiling Test.React.Node.HandleNodeClick
+[ 5 of 17] Compiling React.Container.NodeRenderer
+[ 6 of 17] Compiling Test.System.XYDrag.DragSelection
+[ 7 of 17] Compiling Test.System.XYDrag.DragUserNodes
+[ 8 of 17] Compiling Test.System.XYDrag.DragErrors
+[ 9 of 17] Compiling Test.React.Component.AriaDescribedBy
+[10 of 17] Compiling React.Container.GraphView
+[11 of 17] Compiling React.Container.ReactFlow
+[12 of 17] Compiling React
+[13 of 17] Compiling Boundary.Flow
+[14 of 17] Compiling Test.Boundary.FlowWrapperAttributes
+[15 of 17] Compiling Boundary
+[16 of 17] Compiling Test.React.Additional.BackgroundPattern
+[17 of 17] Compiling Test.Main
+[WARNING 1/1 UnusedName] src/React/Node/Util.purs:154:5
+
+           v
+  154      message = state.ariaLabelConfig.nodeA11yDescriptionAriaLiveMessage
+  155        { direction: toLower (replace (Pattern "Arrow") (Replacement "") args.key)
+  156        , x: toInt32 at.x
+  157        , y: toInt32 at.y
+  158        }
+             ^
+
+  Name message was introduced but not used.
+  in value declaration moveNodesByArrowKey
+
+           Src   Lib   All
+Warnings     1     0     1
+Errors       0     0     0
+
+✓ Build succeeded.
+
+Running tests for package: ps-flow
+
+=== NodeWrapper's arrow keys: what a move announces in the aria-live region ===
+file:///Users/jonathanbae/repos/PSFlow/output/Partial/foreign.js:4
+  throw new Error(msg);
+        ^
+
+Error: FAIL a press announces the direction and the position before the move, and moves the node
+    at _crashWith (file:///Users/jonathanbae/repos/PSFlow/output/Partial/foreign.js:4:9)
+    at file:///Users/jonathanbae/repos/PSFlow/output/Partial.Unsafe/index.js:8:16
+    at _unsafePartial (file:///Users/jonathanbae/repos/PSFlow/output/Partial.Unsafe/foreign.js:4:10)
+    at Module.unsafeCrashWith (file:///Users/jonathanbae/repos/PSFlow/output/Partial.Unsafe/index.js:7:12)
+    at file:///Users/jonathanbae/repos/PSFlow/output/Test.React.Node.ArrowKeyMessage/index.js:240:31
+    at Module.__do (file:///Users/jonathanbae/repos/PSFlow/output/Test.React.Node.ArrowKeyMessage/index.js:252:99)
+    at __do (file:///Users/jonathanbae/repos/PSFlow/output/Test.Main/index.js:248:37)
+    at file:///Users/jonathanbae/repos/PSFlow/.spago/run/run.js:3:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:647:26)
+
+Node.js v22.18.0
+
+✘ Tests failed for package "ps-flow".
+

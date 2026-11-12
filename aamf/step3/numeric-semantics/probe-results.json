@@ -1,0 +1,38 @@
+{
+  "red-clamp.log": {
+    "expectedExit": 1,
+    "symptom": "clamp(NaN,0,1) returns 1 instead of NaN"
+  },
+  "red-bounds.log": {
+    "expectedExit": 1,
+    "symptom": "box union drops NaN x coordinate"
+  },
+  "red-resize.log": {
+    "expectedExit": 1,
+    "symptom": "resize NaN minimum width becomes finite"
+  },
+  "red-child-extent-top-left.log": {
+    "expectedExit": 1,
+    "symptom": "top-left resize discards a later child NaN lower bound"
+  },
+  "red-child-extent.log": {
+    "expectedExit": 0,
+    "notRed": true,
+    "reason": "Early invocation still loaded the prior copied FFI, which reported 65 source cases; not proof for the new case"
+  },
+  "red-child-extent-current.log": {
+    "expectedExit": 0,
+    "notRed": true,
+    "reason": "New bottom-right child-extent case reported 66 source cases but exercised the upper bound, which already retained NaN. Changing only controlPosition to top-left supplied the actual red lower-bound regression"
+  },
+  "red-direction.log": {
+    "expectedExit": 0,
+    "notRed": true,
+    "reason": "NaN resize direction already agrees with source, because the Int output preserves the observable zero; no direction logic change justified"
+  },
+  "build-bounds-red.log": {
+    "expectedExit": 1,
+    "notRed": true,
+    "reason": "Overlapping build retry was manually terminated; final checks are run after successful completed build"
+  }
+}

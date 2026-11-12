@@ -1,0 +1,198 @@
+{
+  "scenario": "pan-after-controlled-viewport-change",
+  "rawTraces": 12,
+  "sides": [
+    {
+      "side": "upstream",
+      "measurementBeforeEnd": 2,
+      "endBeforeMeasurement": 4,
+      "pairs": [
+        {
+          "round": 1,
+          "consistent": true,
+          "differences": []
+        },
+        {
+          "round": 2,
+          "consistent": false,
+          "differences": [
+            {
+              "kind": "order",
+              "path": [
+                "callbacks"
+              ],
+              "left": [
+                "onSelectionChange#1",
+                "onMoveStart#1",
+                "onMove#1",
+                "onMoveEnd#1",
+                "onNodesChange#1",
+                "onInit#1",
+                "onMoveStart#2",
+                "onMove#2",
+                "onMoveEnd#2",
+                "onPaneMouseEnter#1",
+                "onPaneMouseMove#1",
+                "onMoveStart#3",
+                "onPaneMouseMove#2",
+                "onViewportChange#1",
+                "onMove#3",
+                "onPaneMouseMove#3",
+                "onViewportChange#2",
+                "onMove#4",
+                "onMoveEnd#3"
+              ],
+              "right": [
+                "onSelectionChange#1",
+                "onMoveStart#1",
+                "onMove#1",
+                "onNodesChange#1",
+                "onMoveEnd#1",
+                "onInit#1",
+                "onMoveStart#2",
+                "onMove#2",
+                "onMoveEnd#2",
+                "onPaneMouseEnter#1",
+                "onPaneMouseMove#1",
+                "onMoveStart#3",
+                "onPaneMouseMove#2",
+                "onViewportChange#1",
+                "onMove#3",
+                "onPaneMouseMove#3",
+                "onViewportChange#2",
+                "onMove#4",
+                "onMoveEnd#3"
+              ]
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "consistent": false,
+          "differences": [
+            {
+              "kind": "order",
+              "path": [
+                "callbacks"
+              ],
+              "left": [
+                "onSelectionChange#1",
+                "onMoveStart#1",
+                "onMove#1",
+                "onMoveEnd#1",
+                "onNodesChange#1",
+                "onInit#1",
+                "onMoveStart#2",
+                "onMove#2",
+                "onMoveEnd#2",
+                "onPaneMouseEnter#1",
+                "onPaneMouseMove#1",
+                "onMoveStart#3",
+                "onPaneMouseMove#2",
+                "onViewportChange#1",
+                "onMove#3",
+                "onPaneMouseMove#3",
+                "onViewportChange#2",
+                "onMove#4",
+                "onMoveEnd#3"
+              ],
+              "right": [
+                "onSelectionChange#1",
+                "onMoveStart#1",
+                "onMove#1",
+                "onNodesChange#1",
+                "onMoveEnd#1",
+                "onInit#1",
+                "onMoveStart#2",
+                "onMove#2",
+                "onMoveEnd#2",
+                "onPaneMouseEnter#1",
+                "onPaneMouseMove#1",
+                "onMoveStart#3",
+                "onPaneMouseMove#2",
+                "onViewportChange#1",
+                "onMove#3",
+                "onPaneMouseMove#3",
+                "onViewportChange#2",
+                "onMove#4",
+                "onMoveEnd#3"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "side": "psflow",
+      "measurementBeforeEnd": 5,
+      "endBeforeMeasurement": 1,
+      "pairs": [
+        {
+          "round": 1,
+          "consistent": true,
+          "differences": []
+        },
+        {
+          "round": 2,
+          "consistent": false,
+          "differences": [
+            {
+              "kind": "order",
+              "path": [
+                "callbacks"
+              ],
+              "left": [
+                "onSelectionChange#1",
+                "onMoveStart#1",
+                "onMove#1",
+                "onNodesChange#1",
+                "onMoveEnd#1",
+                "onInit#1",
+                "onMoveStart#2",
+                "onMove#2",
+                "onMoveEnd#2",
+                "onPaneMouseEnter#1",
+                "onPaneMouseMove#1",
+                "onMoveStart#3",
+                "onPaneMouseMove#2",
+                "onViewportChange#1",
+                "onMove#3",
+                "onPaneMouseMove#3",
+                "onViewportChange#2",
+                "onMove#4",
+                "onMoveEnd#3"
+              ],
+              "right": [
+                "onSelectionChange#1",
+                "onMoveStart#1",
+                "onMove#1",
+                "onMoveEnd#1",
+                "onNodesChange#1",
+                "onInit#1",
+                "onMoveStart#2",
+                "onMove#2",
+                "onMoveEnd#2",
+                "onPaneMouseEnter#1",
+                "onPaneMouseMove#1",
+                "onMoveStart#3",
+                "onPaneMouseMove#2",
+                "onViewportChange#1",
+                "onMove#3",
+                "onPaneMouseMove#3",
+                "onViewportChange#2",
+                "onMove#4",
+                "onMoveEnd#3"
+              ]
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "consistent": true,
+          "differences": []
+        }
+      ]
+    }
+  ],
+  "conclusion": "The full-wave pair happened to reproduce one upstream order. Independent source captures reproduce both orders; no deterministic cross-side order claim is supported for this scenario. Full-wave raw traces/report remain unchanged."
+}

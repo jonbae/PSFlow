@@ -1,0 +1,8 @@
+{
+  "sourceAndCompiledOutputChanges": [],
+  "regeneratedBundles": [
+    "parity/driver/dist/psflow.js",
+    "parity/driver/dist/upstream.js"
+  ],
+  "note": "System net rebuilds both bundles with the same frozen source/output and checks library provenance. Canonical root traces were not overwritten."
+}

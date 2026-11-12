@@ -1,0 +1,14 @@
+$ python3 aamf/step3/shared-handle-timing/audit.py
+{
+  "verifiedAt": "2026-11-12T00:15:58.042282+00:00",
+  "changedExistingInputs": 349,
+  "newOwnedInputs": 104,
+  "generatedBrowserOutputs": 0,
+  "unexpectedChanges": 0,
+  "unexpectedNewInputs": 0,
+  "frozenRuntimeChanges": 0,
+  "certifiedVendoredFiles": 171,
+  "vendoredChanges": 0,
+  "priorCanonicalArchiveFilesVerified": 430,
+  "priorEvidenceChanges": 0
+}

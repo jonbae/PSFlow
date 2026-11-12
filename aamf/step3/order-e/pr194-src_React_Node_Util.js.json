@@ -1,0 +1,15 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "Action completed."
+    }
+  ],
+  "structuredContent": {
+    "patch": {
+      "filename": "src/React/Node/Util.js",
+      "patch": "@@ -0,0 +1,2 @@\n+// JavaScript's `~~n`.\n+export const toInt32 = (n) => ~~n;"
+    }
+  },
+  "isError": false
+}

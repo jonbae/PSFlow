@@ -1,0 +1,21 @@
+$ docker pull mcr.microsoft.com/playwright:v1.60.0-noble
+v1.60.0-noble: Pulling from playwright
+2f7571f14c6f: Pulling fs layer
+fa8b403e795a: Pulling fs layer
+b65c1dc0211a: Pulling fs layer
+74b3a9973195: Pulling fs layer
+74b3a9973195: Waiting
+b65c1dc0211a: Download complete
+2f7571f14c6f: Verifying Checksum
+2f7571f14c6f: Download complete
+fa8b403e795a: Verifying Checksum
+fa8b403e795a: Download complete
+2f7571f14c6f: Pull complete
+74b3a9973195: Verifying Checksum
+74b3a9973195: Download complete
+fa8b403e795a: Pull complete
+b65c1dc0211a: Pull complete
+74b3a9973195: Pull complete
+Digest: sha256:9bd26ad900bb5e0f4dee75839e957a89ae89c2b7ab1e76050e559790e946b948
+Status: Downloaded newer image for mcr.microsoft.com/playwright:v1.60.0-noble
+mcr.microsoft.com/playwright:v1.60.0-noble

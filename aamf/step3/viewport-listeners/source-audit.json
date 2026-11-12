@@ -1,0 +1,54 @@
+{
+  "capturedAt": "2026-11-10T17:43:18.190973+00:00",
+  "changedInputs": [
+    "src/React/Hook/Listeners.purs",
+    "src/React/Store/Reduce.purs",
+    "src/React/Store/Action.purs",
+    "test/Test/Main.purs",
+    "src/Boundary/Hooks.purs",
+    "src/Boundary/Hooks.js"
+  ],
+  "unexpectedChanges": [],
+  "outputs": [
+    {
+      "path": "src/React/Hook/Listeners.purs",
+      "sha256": "8e027cda5de29d1630044c1489801d98383405e54344687e1ee2a80ddfc363f7"
+    },
+    {
+      "path": "src/React/Store/Reduce.purs",
+      "sha256": "74511b069f6c0e2166a6925db66e735c79ef2764203cd5529651ffe7f2f6da4a"
+    },
+    {
+      "path": "src/React/Store/Action.purs",
+      "sha256": "cbd3998786cb6b257563fcb05c00e623b5b83b4cdf5984792d348a7d8f872d3c"
+    },
+    {
+      "path": "src/Boundary/Hooks.purs",
+      "sha256": "9ae0a4ab2025b1510342efc8ca3031e36df2cab8c24366476e55eb6c02bb988f"
+    },
+    {
+      "path": "src/Boundary/Hooks.js",
+      "sha256": "dafd60d44595dfdfbe3ae90f61bb7752cad34a57f04ec830cb4e69d4dc0298a3"
+    },
+    {
+      "path": "test/Test/Main.purs",
+      "sha256": "7f0a649031e55c69b56ff5577d43d41daa334acfa7cd84fe2a2eaf2b32912954"
+    },
+    {
+      "path": "test/Test/React/Hook/ViewportListeners.purs",
+      "sha256": "ca9ddce3f945ff26af9624508ab41420488876dcfb337c60c5053b062eda0694"
+    },
+    {
+      "path": "test/Test/React/Hook/ViewportListeners.js",
+      "sha256": "4d4860fd79727c33d95b71c745f08d30fee569e90b68385e7c936159a5c3b4d7"
+    },
+    {
+      "path": "parity/driver/dist/psflow.js",
+      "sha256": "6717eb54444fe357259dce17772a42e7b52f4dcb7b876674f096f8edebdd4417"
+    },
+    {
+      "path": "parity/surface/report.md",
+      "sha256": "0e7c5e549dbbb45337625e348de401f928598974cdf060bb98f04f621569813f"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "path": "src/React/Hook/Listeners.purs",
+    "sha256": "430bb6979fd585882dc52fd2e9f7e3cbdadebb2acae8bb008233b7812ee0f620"
+  },
+  {
+    "path": "src/React/Store/Reduce.purs",
+    "sha256": "a2490af3356cd5e2d764ad810deb47c49bb0d46de9c612800926082e9044546e"
+  },
+  {
+    "path": "src/React/Store/Action.purs",
+    "sha256": "a2706a9b75c60a78329cd0e480e8acf6d0951e376900e38b3e5d42f3decc2dac"
+  },
+  {
+    "path": "test/Test/Main.purs",
+    "sha256": "5898adcddef027bb9c013ddd81721704f8d3114269830c510babad5fa10f6b80"
+  },
+  {
+    "path": "src/Boundary/Hooks.purs",
+    "sha256": "1770783589740af17aa6974a9c0fa197453c5ecc62738d03b1e1771a12f59ebd"
+  },
+  {
+    "path": "src/Boundary/Hooks.js",
+    "sha256": "c497f10f60859f25439d2d8db4ff8460c07a90b8533c112844762299aff814c5"
+  }
+]

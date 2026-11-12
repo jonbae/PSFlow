@@ -1,0 +1,131 @@
+$ spago build
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[  1 of 111] Compiling React.Store.Reduce
+[  2 of 111] Compiling Test.React.Store.EmptyChanges
+[  3 of 111] Compiling Test.React.Store.Reduce
+[  4 of 111] Compiling Test.React.Store.MergeNodeInternals
+[  5 of 111] Compiling Test.React.Store.ResetSelection
+[  6 of 111] Compiling Test.React.Store.UpdateNodePositions
+[  7 of 111] Compiling React.Store.Shell
+[  8 of 111] Compiling Test.React.Provider.InitPrevValues
+[  9 of 111] Compiling Test.React.Store.Shell
+[ 10 of 111] Compiling Test.React.Store.ZoomLimits
+[ 11 of 111] Compiling React.Store.PanBy
+[ 12 of 111] Compiling React.Hook.Store
+[ 13 of 111] Compiling React.Node.Util
+[ 14 of 111] Compiling Test.React.Node.HandleNodeClick
+[ 15 of 111] Compiling React.Container.Viewport
+[ 16 of 111] Compiling React.Portal.EdgeLabelRenderer
+[ 17 of 111] Compiling React.Hook.Middleware
+[ 18 of 111] Compiling React.Hook.Selectors
+[ 19 of 111] Compiling React.Component.EdgeWrapper.UpdateAnchors
+[ 20 of 111] Compiling React.Additional.MiniMap.Nodes
+[ 21 of 111] Compiling React.Provider.Batch
+[ 22 of 111] Compiling React.Hook.ViewportSync
+[ 23 of 111] Compiling React.Hook.ViewportHelper
+[ 24 of 111] Compiling React.Additional.NodeResizer.Control
+[ 25 of 111] Compiling Test.React.Hook.Store
+[ 26 of 111] Compiling React.Hook.UpdateNodeInternals
+[ 27 of 111] Compiling React.Container.MarkerDefinitions
+[ 28 of 111] Compiling React.Additional.NodeToolbar.Portal
+[ 29 of 111] Compiling React.Hook.NodeConnections
+[ 30 of 111] Compiling React.Provider.StoreUpdater
+[ 31 of 111] Compiling React.Container.A11yDescriptions
+[ 32 of 111] Compiling React.Hook.MoveSelectedNodes
+[ 33 of 111] Compiling React.Hook.NodeOrEdgeTypesWarning
+[ 34 of 111] Compiling React.Portal.ViewportPortal
+[ 35 of 111] Compiling React.Hook.NodeObserver
+[ 36 of 111] Compiling React.Provider.SelectionListener
+[ 37 of 111] Compiling React.Additional.Background
+[ 38 of 111] Compiling React.Hook.VisibleIds
+[ 39 of 111] Compiling React.Hook.StylesLoadedWarning
+[ 40 of 111] Compiling React.Handle
+[ 41 of 111] Compiling React.Component.UserSelection
+[ 42 of 111] Compiling React.Hook.ResizeHandler
+[ 43 of 111] Compiling React.Additional.EdgeToolbar
+[ 44 of 111] Compiling React.Hook.HandleConnections
+[ 45 of 111] Compiling React.Additional.MiniMap
+[ 46 of 111] Compiling Test.React.Hook.ViewportSync
+[ 47 of 111] Compiling Test.React.Provider.BatchQueue
+[ 48 of 111] Compiling React.Provider
+[ 49 of 111] Compiling React.Additional.NodeToolbar
+[ 50 of 111] Compiling React.Additional.NodeResizer
+[ 51 of 111] Compiling React.Component.EdgeWrapper
+[ 52 of 111] Compiling Test.React.Container.NodeA11yDescription
+[ 53 of 111] Compiling React.Component.ConnectionLine
+[ 54 of 111] Compiling Boundary.Portals
+[ 55 of 111] Compiling Test.React.Hook.NodeObserver
+[ 56 of 111] Compiling Test.React.Additional.BackgroundOffset
+[ 57 of 111] Compiling Test.React.Hook.MoveSelectedNodes
+[ 58 of 111] Compiling React.Container.Pane
+[ 59 of 111] Compiling Boundary.Edges
+[ 60 of 111] Compiling React.Hook.ReactFlow
+[ 61 of 111] Compiling React.Container.ZoomPane
+[ 62 of 111] Compiling Boundary.Resizer
+[ 63 of 111] Compiling Test.React.Additional.NodeToolbarPortal
+[ 64 of 111] Compiling React.Container.Wrapper
+[ 65 of 111] Compiling Test.React.Additional.MiniMap
+[ 66 of 111] Compiling Test.React.Additional.MiniMapMask
+[ 67 of 111] Compiling Test.React.Hook.ConnectionTo
+[ 68 of 111] Compiling Test.Boundary.Wrapper
+[ 69 of 111] Compiling Test.Boundary.BaseEdgeAttributes
+[ 70 of 111] Compiling Test.React.Component.EdgeComponentProps
+[ 71 of 111] Compiling Test.React.Component.EdgeAriaLabel
+[ 72 of 111] Compiling React.Container.EdgeRenderer
+[ 73 of 111] Compiling Test.Boundary.EdgeHidden
+[ 74 of 111] Compiling Test.Boundary.EdgeAnimated
+[ 75 of 111] Compiling Boundary.NodeChrome
+[ 76 of 111] Compiling Test.React.Component.HandleDataId
+[ 77 of 111] Compiling React.Node.Output
+[ 78 of 111] Compiling Test.React.HandleNativeEvent
+[ 79 of 111] Compiling React.Node.Input
+[ 80 of 111] Compiling React.Node.Default
+[ 81 of 111] Compiling Test.System.FinalConnectionState
+[ 82 of 111] Compiling React.Component.NodeWrapper.Util
+[ 83 of 111] Compiling Test.React.Component.NodeInlineDimensions
+[ 84 of 111] Compiling React.Component.NodeWrapper
+[ 85 of 111] Compiling Test.React.DomNumbers
+[ 86 of 111] Compiling React.Component.NodesSelection
+[ 87 of 111] Compiling Test.React.Store.InPlaceSelection
+[ 88 of 111] Compiling Test.React.Component.NodesSelectionRect
+[ 89 of 111] Compiling React.Additional.Controls
+[ 91 of 111] Compiling React.Hook.GlobalKeyHandler
+[ 90 of 111] Compiling React.Hook.Listeners
+[ 92 of 111] Compiling Test.System.XYDrag.DragErrors
+[ 93 of 111] Compiling Test.System.XYDrag.DragUserNodes
+[ 94 of 111] Compiling Test.React.Component.AriaDescribedBy
+[ 95 of 111] Compiling Test.System.XYDrag.DragSelection
+[ 96 of 111] Compiling React.Container.NodeRenderer
+[ 97 of 111] Compiling Boundary.Chrome
+[ 98 of 111] Compiling Test.React.Hook.OnInitTiming
+[ 99 of 111] Compiling Boundary.Hooks
+[100 of 111] Compiling Test.React.Hook.DeleteKey
+[101 of 111] Compiling React.Container.FlowRenderer
+[102 of 111] Compiling Test.React.Hook.ViewportListeners
+[103 of 111] Compiling Test.Boundary.UserNode
+[104 of 111] Compiling React.Container.GraphView
+[105 of 111] Compiling React.Container.ReactFlow
+[107 of 111] Compiling React
+[106 of 111] Compiling Boundary.Flow
+[108 of 111] Compiling Test.React.Additional.BackgroundPattern
+[109 of 111] Compiling Test.Boundary.FlowWrapperAttributes
+[110 of 111] Compiling Boundary
+[111 of 111] Compiling Test.Main
+[WARNING 1/1 UnusedImport] test/Test/React/Store/Shell.purs:25:1
+
+  25  import Data.Maybe (Maybe(..))
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  The import of Data.Maybe is redundant
+
+           Src   Lib   All
+Warnings     1     0     1
+Errors       0     0     0
+
+✓ Build succeeded.
+

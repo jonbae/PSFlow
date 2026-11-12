@@ -1,0 +1,1 @@
+$ node --input-type=module -e import { runNumericParityTests } from "./output/Test.System.Utils.NumericParity/index.js"; runNumericParityTests();

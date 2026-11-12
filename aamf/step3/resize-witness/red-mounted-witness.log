@@ -1,0 +1,79 @@
+$ node aamf/step3/resize-witness/verify.mjs before-captures
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: resize-node-after-active-limit-change: lifecycle receipts
++ actual - expected
+... Skipped lines
+
+  [
+    {
+      name: 'control:start',
+      values: {
+        height: 80,
+...
+        height: 110,
++       width: 180,
+-       width: 145,
+        x: 240,
+        y: 180
+      }
+    },
+    {
+...
+        height: 110,
++       width: 180,
+-       width: 145,
+        x: 240,
+        y: 180
+      }
+    }
+  ]
+
+    at file:///Users/jonathanbae/repos/PSFlow/aamf/step3/resize-witness/verify.mjs:31:36
+    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:647:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: [
+    {
+      name: 'control:start',
+      values: { x: 240, y: 180, width: 120, height: 80 }
+    },
+    {
+      name: 'control:resize',
+      values: { x: 240, y: 180, width: 135, height: 90, direction: [ 1, 1 ] }
+    },
+    {
+      name: 'control:resize',
+      values: { x: 240, y: 180, width: 180, height: 110, direction: [ 1, 1 ] }
+    },
+    {
+      name: 'control:end',
+      values: { x: 240, y: 180, width: 180, height: 110 }
+    }
+  ],
+  expected: [
+    {
+      name: 'control:start',
+      values: { width: 120, height: 80, x: 240, y: 180 }
+    },
+    {
+      name: 'control:resize',
+      values: { width: 135, height: 90, x: 240, y: 180, direction: [ 1, 1 ] }
+    },
+    {
+      name: 'control:resize',
+      values: { width: 145, height: 110, x: 240, y: 180, direction: [ 1, 1 ] }
+    },
+    {
+      name: 'control:end',
+      values: { width: 145, height: 110, x: 240, y: 180 }
+    }
+  ],
+  operator: 'deepStrictEqual'
+}
+
+Node.js v22.18.0

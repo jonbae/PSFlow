@@ -1,0 +1,5 @@
+$ node --input-type=module -e import { runNumericParityTests } from "./output/Test.System.Utils.NumericParity/index.js"; runNumericParityTests();
+numeric clamp: 2744 exact source comparisons; zero/NaN faults rejected
+numeric bounds: 784 exact source comparisons
+numeric geometry: 3136 rectangle pairs (union and overlap), 840 positions, 126 viewports
+numeric resize: 5168 exact vendored-source comparisons; width fault rejected

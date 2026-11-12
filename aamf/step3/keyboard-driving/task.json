@@ -1,0 +1,26 @@
+{
+  "id": "psflow-w11-keyboard-driving",
+  "status": "complete (bounded keyboard dispatch)",
+  "startedAt": "2026-11-11T04:00:23.219084+00:00",
+  "scope": "Make each public keyboard dispatch yield to the browser frame/task cycle before the next action. Preserve event count, modifier lifetime, key press/down/up semantics, driving logs and every observed callback. No library timing, mouse/touch pacing, policy, tolerance or fixture changes.",
+  "seam": "Plan E/W11-authorized createPagePort public browser port, native browser regression, and unchanged official corpus/checkSelfConsistency.",
+  "allowedOutputs": [
+    "parity/system/harness/port.mjs",
+    "parity/system/harness/port.test.mjs",
+    "parity/system/harness/live.spec.mjs",
+    "aamf/step3/keyboard-driving/",
+    "AAMF_PORTING_PLAN.md",
+    "AAMF_STEP3_RESULTS.md",
+    "aamf/step3/README.md",
+    "aamf/step3/SHA256SUMS",
+    "parity/surface/report.md"
+  ],
+  "acceptance": [
+    "Demonstrate a public-port frame completion regression red before the implementation and green afterward",
+    "Repeat affected official keyboard and active-resize scenarios on each side, preserving complete traces and self-inconsistency verdicts",
+    "Run harness, coverage, comparison, fork and applicable build/surface/function/boundary gates",
+    "No claim that a consistent but cross-side red scenario passes parity; remaining auto-pan repeatability stays open"
+  ],
+  "aamfInvoked": false,
+  "completedAt": "2026-11-11T04:14:00.709643+00:00"
+}

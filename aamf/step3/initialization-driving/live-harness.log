@@ -1,0 +1,44 @@
+$ npm run test:harness:live
+
+> ps-flow@0.0.0 test:harness:live
+> playwright test --config parity/system/harness/playwright.config.mjs
+
+[2m[WebServer] [22m(node:91842) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:91877) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:91877) [DEP0066] DeprecationWarning: OutgoingMessage.prototype._headers is deprecated
+
+Running 25 tests using 1 worker
+
+(node:91890) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:91890) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [harness] › parity/system/harness/live.spec.mjs:54:1 › keyboard actions finish the native frame work and retain held modifiers (1.4s)
+  ✓   2 [harness] › parity/system/harness/live.spec.mjs:84:3 › psflow records onInit with its initialized JS instance (3.4s)
+  ✓   3 [harness] › parity/system/harness/live.spec.mjs:84:3 › upstream records onInit with its initialized JS instance (2.6s)
+  ✓   4 [harness] › parity/system/harness/live.spec.mjs:100:1 › a mount resolves the container, and the trace it produces is a valid trace (2.9s)
+  ✓   5 [harness] › parity/system/harness/live.spec.mjs:119:1 › the dom section carries the flow's own element tree, nested (3.2s)
+  ✓   6 [harness] › parity/system/harness/live.spec.mjs:144:1 › a real flow settles, and the transform it settles at is measured, not zero (3.4s)
+  ✓   7 [harness] › parity/system/harness/live.spec.mjs:165:1 › dragNode moves the node it grabbed, by the distance it was told (4.7s)
+  ✓   8 [harness] › parity/system/harness/live.spec.mjs:183:1 › an unresolved target is recorded and driving continues — never a timeout (4.1s)
+  ✓   9 [harness] › parity/system/harness/live.spec.mjs:226:1 › a side reproduces its own boxes and its own render across two captures (7.3s)
+  ✓  10 [harness] › parity/system/harness/live.spec.mjs:240:1 › upstream reproduces its whole trace, call log included, across two captures (6.2s)
+  ✓  11 [harness] › parity/system/harness/live.spec.mjs:254:1 › initialization order reproduces across repeated fit-view mounts (32.7s)
+  ✓  12 [harness] › parity/system/harness/live.spec.mjs:273:1 › mount scheduling delivers native resize work before timers and resumes time afterward (1.4s)
+  ✓  13 [harness] › parity/system/harness/live.spec.mjs:303:1 › a real library firing real handlers lands in the callbacks section, in order (4.5s)
+  ✓  14 [harness] › parity/system/harness/live.spec.mjs:320:1 › what a handler was handed arrives as trace content, addressable field by field (5.6s)
+  ✓  15 [harness] › parity/system/harness/live.spec.mjs:339:1 › upstream's synthetic event reaches the trace with its own fields on it (4.3s)
+  ✓  16 [harness] › parity/system/harness/live.spec.mjs:362:1 › a handler no fixture ever set is installed, and fires (5.7s)
+  ✓  17 [harness] › parity/system/harness/live.spec.mjs:372:1 › a page with no call log fails the capture rather than recording nothing (11.2s)
+  ✓  18 [harness] › parity/system/harness/live.spec.mjs:392:1 › a fixture driver wraps nothing unless the URL asks, and every capture asks (2.8s)
+  ✓  19 [harness] › parity/system/harness/live.spec.mjs:411:1 › observing changes what the page renders, which is why the other gates do not ask for it (2.6s)
+  ✓  20 [harness] › parity/system/harness/live.spec.mjs:428:1 › a key reaches the page, and a targeted one focuses first (2.6s)
+  ✓  21 [harness] › parity/system/harness/live.spec.mjs:446:1 › a scenario that does not declare touch runs on a page without it (2.9s)
+  ✓  22 [harness] › parity/system/harness/live.spec.mjs:452:1 › declaring touch puts emulation on, and the pinch gesture completes (3.7s)
+  ✓  23 [harness] › parity/system/harness/live.spec.mjs:473:1 › reaching for touch without declaring it fails loudly rather than dispatching nothing (3.0s)
+  ✓  24 [harness] › parity/system/harness/live.spec.mjs:494:1 › a touch drag moves upstream's node, which is what proves the events arrive (3.2s)
+  ✓  25 [harness] › parity/system/harness/live.spec.mjs:530:1 › the same scenario drives the upstream bundle through the same page (3.7s)
+
+  25 passed (2.3m)

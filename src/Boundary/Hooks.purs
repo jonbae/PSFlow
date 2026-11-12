@@ -91,6 +91,7 @@ module Boundary.Hooks
   ) where
 
 import Prelude
+import React.Types.General (OnViewportChange)
 
 import Boundary.Callbacks
   ( JsConnectionState
@@ -431,11 +432,18 @@ useOnViewportChange :: EffectFn1 JsUseOnViewportChangeOptions Unit
 useOnViewportChange = mkEffectFn1 \options ->
   runHook
     ( PS.useOnViewportChange
-        { onStart: map onViewportChangeIn (fromUndefinable options.onStart)
-        , onChange: map onViewportChangeIn (fromUndefinable options.onChange)
-        , onEnd: map onViewportChangeIn (fromUndefinable options.onEnd)
+        { onStart: map stableViewportChangeIn (fromUndefinable options.onStart)
+        , onChange: map stableViewportChangeIn (fromUndefinable options.onChange)
+        , onEnd: map stableViewportChangeIn (fromUndefinable options.onEnd)
         }
     )
+
+-- | Dependency identity belongs to the consumer callback. Preserve the
+-- | existing conversion while giving the same function the same adapter.
+stableViewportChangeIn :: JsOnViewportChange -> OnViewportChange
+stableViewportChangeIn = cacheCallback onViewportChangeIn
+
+foreign import cacheCallback :: forall a b. (a -> b) -> a -> b
 
 useOnSelectionChange :: EffectFn1 JsUseOnSelectionChangeOptions Unit
 useOnSelectionChange = mkEffectFn1 \options ->

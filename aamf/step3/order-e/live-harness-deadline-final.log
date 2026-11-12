@@ -1,0 +1,16 @@
+$ /Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node parity/system/linux.mjs npm run test:harness:live -- --grep psflow reproduces the complete drag-node-reports-changes
+
+> ps-flow@0.0.0 test:harness:live
+> playwright test --config parity/system/harness/playwright.config.mjs --grep psflow reproduces the complete drag-node-reports-changes
+
+
+Running 1 test using 1 worker
+
+  ✓  1 [harness] › parity/system/harness/timing.spec.mjs:26:5 › psflow reproduces the complete drag-node-reports-changes trace across independent captures (22.0s)
+
+  1 passed (25.6s)
+npm notice
+npm notice New major version of npm available! 11.12.1 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

@@ -176,10 +176,10 @@ Two things it cannot derive sit beside it, and both **fail stale** — a build
 whose register names a prop upstream no longer declares as a callback exits 2
 rather than excluding nothing:
 
-- **`onInit` is not installed.** Its argument is the imperative
-  `ReactFlowInstance`, which ps-flow refuses at mount until boundary stage 3
-  ([#56](https://github.com/jonbae/PSFlow/issues/56)). It is a declared **hole**
-  in the section, carrying its reason and the ticket that closes it.
+- **Withheld callback props.** None are withheld now. `onInit` is installed
+  with its crossed `ReactFlowInstance`; the live harness checks its initialized
+  instance receipt on both sides. A future withheld prop must carry its reason
+  and owning issue in `NOT_INSTALLED`.
 - **What an installed-but-unset handler answers.** `onBeforeDelete` and
   `isValidConnection` are read for their return value, so answering `undefined`
   would cancel every deletion and refuse every connection — the two answer `true`,

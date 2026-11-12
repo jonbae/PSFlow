@@ -1,0 +1,91 @@
+$ node --test parity/boundary/consumer-objects.test.mjs
+TAP version 13
+# Subtest: addEdge copies the consumer edge/connection and retains untouched edges
+ok 1 - addEdge copies the consumer edge/connection and retains untouched edges
+  ---
+  duration_ms: 12.074282
+  type: 'test'
+  ...
+# Subtest: addEdge keeps duplicate/invalid arrays and calls options with upstream arguments and receiver
+ok 2 - addEdge keeps duplicate/invalid arrays and calls options with upstream arguments and receiver
+  ---
+  duration_ms: 9.432007
+  type: 'test'
+  ...
+# Subtest: consumer helpers preserve enumerable symbols and __proto__ without copying inherited/nonenumerable fields
+ok 3 - consumer helpers preserve enumerable symbols and __proto__ without copying inherited/nonenumerable fields
+  ---
+  duration_ms: 2.734824
+  type: 'test'
+  ...
+# Subtest: consumer helpers preserve getter, generator and validation order
+not ok 4 - consumer helpers preserve getter, generator and validation order
+  ---
+  duration_ms: 9.298167
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/consumer-objects.test.mjs:74:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    oracle is self-consistent
+    + actual - expected
+    ... Skipped lines
+    
+      {
+        events: [
+          [
+            'options',
+            'keys'
+    ...
+            'get',
+    +       'constructor'
+    +     ],
+    +     [
+    +       'existing',
+    +       'get',
+            'Symbol(Symbol.toStringTag)'
+          ],
+          [
+            'existing',
+            'keys'
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: applyNodeChanges retains untouched consumer references and keys
+ok 5 - applyNodeChanges retains untouched consumer references and keys
+  ---
+  duration_ms: 0.523885
+  type: 'test'
+  ...
+# Subtest: applyEdgeChanges retains untouched consumer references and keys
+ok 6 - applyEdgeChanges retains untouched consumer references and keys
+  ---
+  duration_ms: 0.293271
+  type: 'test'
+  ...
+# Subtest: applyNodeChanges preserves raw position, dimensions, attributes and resizing semantics
+ok 7 - applyNodeChanges preserves raw position, dimensions, attributes and resizing semantics
+  ---
+  duration_ms: 3.013169
+  type: 'test'
+  ...
+# Subtest: applyNodeChanges shallow-copies touched/add/replace items and preserves change ordering
+ok 8 - applyNodeChanges shallow-copies touched/add/replace items and preserves change ordering
+  ---
+  duration_ms: 4.792468
+  type: 'test'
+  ...
+# Subtest: applyEdgeChanges shallow-copies touched/add/replace items and preserves change ordering
+ok 9 - applyEdgeChanges shallow-copies touched/add/replace items and preserves change ordering
+  ---
+  duration_ms: 3.338373
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 8
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3598.204157

@@ -1,0 +1,246 @@
+[
+  {
+    "name": "red-js-entry",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/user-node.test.mjs"
+    ],
+    "startedAt": "2026-11-10T17:00:17.747Z",
+    "finishedAt": "2026-11-10T17:00:33.764Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/user-node/red-js-entry.log"
+  },
+  {
+    "name": "red-local-proxy",
+    "command": [
+      "spago",
+      "test"
+    ],
+    "startedAt": "2026-11-10T17:01:40.725Z",
+    "finishedAt": "2026-11-10T17:01:53.853Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/user-node/red-local-proxy.log"
+  },
+  {
+    "name": "red-local-proxy-parse-fixed",
+    "command": [
+      "spago",
+      "test"
+    ],
+    "startedAt": "2026-11-10T17:02:17.877Z",
+    "finishedAt": "2026-11-10T17:03:00.735Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/user-node/red-local-proxy-parse-fixed.log"
+  },
+  {
+    "name": "build-provenance",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T17:04:54.968Z",
+    "finishedAt": "2026-11-10T17:08:24.428Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/user-node/build-provenance.log"
+  },
+  {
+    "name": "build-provenance-fixtures",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T17:08:58.162Z",
+    "finishedAt": "2026-11-10T17:09:47.027Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/user-node/build-provenance-fixtures.log"
+  },
+  {
+    "name": "green-js-entry",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/user-node.test.mjs"
+    ],
+    "startedAt": "2026-11-10T17:10:03.894Z",
+    "finishedAt": "2026-11-10T17:10:09.037Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/user-node/green-js-entry.log"
+  },
+  {
+    "name": "build-final",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T17:10:02.365Z",
+    "finishedAt": "2026-11-10T17:10:13.565Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/user-node/build-final.log"
+  },
+  {
+    "name": "green-local-proxy",
+    "command": [
+      "node",
+      "--input-type=module",
+      "-e",
+      "import {runUserNodeTests} from \"./output/Test.Boundary.UserNode/index.js\"; runUserNodeTests();"
+    ],
+    "startedAt": "2026-11-10T17:10:44.355Z",
+    "finishedAt": "2026-11-10T17:10:47.023Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/user-node/green-local-proxy.log"
+  },
+  {
+    "name": "driver",
+    "command": [
+      "npm",
+      "run",
+      "build:driver"
+    ],
+    "startedAt": "2026-11-10T17:10:42.884Z",
+    "finishedAt": "2026-11-10T17:11:01.967Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/user-node/driver.log"
+  },
+  {
+    "name": "surface",
+    "command": [
+      "npm",
+      "run",
+      "parity:surface"
+    ],
+    "startedAt": "2026-11-10T17:10:42.877Z",
+    "finishedAt": "2026-11-10T17:11:02.691Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/user-node/surface.log"
+  },
+  {
+    "name": "boundary",
+    "command": [
+      "npm",
+      "run",
+      "parity:boundary"
+    ],
+    "startedAt": "2026-11-10T17:11:34.349Z",
+    "finishedAt": "2026-11-10T17:11:57.720Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/user-node/boundary.log"
+  },
+  {
+    "name": "boundary-tests",
+    "command": [
+      "npm",
+      "run",
+      "test:boundary"
+    ],
+    "startedAt": "2026-11-10T17:11:34.308Z",
+    "finishedAt": "2026-11-10T17:11:59.897Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/user-node/boundary-tests.log"
+  },
+  {
+    "name": "function",
+    "command": [
+      "spago",
+      "test"
+    ],
+    "startedAt": "2026-11-10T17:11:34.280Z",
+    "finishedAt": "2026-11-10T17:12:08.204Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/user-node/function.log"
+  },
+  {
+    "name": "changelog",
+    "command": [
+      "npm",
+      "run",
+      "parity:changelog"
+    ],
+    "startedAt": "2026-11-10T17:13:13.189Z",
+    "finishedAt": "2026-11-10T17:13:14.930Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/user-node/changelog.log"
+  },
+  {
+    "name": "conformance-frozen",
+    "command": [
+      "npm",
+      "run",
+      "test:conformance"
+    ],
+    "startedAt": "2026-11-10T17:14:11.387Z",
+    "finishedAt": "2026-11-10T17:14:19.087Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "../../../../../../../Users/jonathanbae/repos/PSFlow/aamf/step3/user-node/conformance-frozen.log"
+  },
+  {
+    "name": "conformance-frozen-node22",
+    "command": [
+      "npm",
+      "run",
+      "test:conformance"
+    ],
+    "startedAt": "2026-11-10T17:16:17.616Z",
+    "finishedAt": "2026-11-10T17:18:06.552Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "../../../../../../../Users/jonathanbae/repos/PSFlow/aamf/step3/user-node/conformance-frozen-node22.log"
+  },
+  {
+    "name": "smoke-frozen",
+    "command": [
+      "npm",
+      "run",
+      "test:smoke"
+    ],
+    "startedAt": "2026-11-10T17:19:07.165Z",
+    "finishedAt": "2026-11-10T17:19:29.948Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "../../../../../../../Users/jonathanbae/repos/PSFlow/aamf/step3/user-node/smoke-frozen.log"
+  },
+  {
+    "name": "system-parented-frozen",
+    "command": [
+      "node",
+      "parity/system/net.mjs",
+      "--scenario",
+      "node-props-record-parented"
+    ],
+    "startedAt": "2026-11-10T17:20:30.500Z",
+    "finishedAt": "2026-11-10T17:21:24.893Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "../../../../../../../Users/jonathanbae/repos/PSFlow/aamf/step3/user-node/system-parented-frozen.log"
+  },
+  {
+    "name": "system-unmeasured-frozen",
+    "command": [
+      "node",
+      "parity/system/net.mjs",
+      "--scenario",
+      "mount-baseline--nodes-unmeasured"
+    ],
+    "startedAt": "2026-11-10T17:21:41.188Z",
+    "finishedAt": "2026-11-10T17:22:24.297Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "../../../../../../../Users/jonathanbae/repos/PSFlow/aamf/step3/user-node/system-unmeasured-frozen.log"
+  }
+]

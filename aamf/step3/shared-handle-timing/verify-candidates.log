@@ -1,0 +1,2 @@
+$ node aamf/step3/shared-handle-timing/verify-candidates.mjs
+All six complete candidate runs pass; both sides reproduce across rounds; both restored-defect faults rejected

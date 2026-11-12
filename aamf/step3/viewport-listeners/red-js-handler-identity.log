@@ -1,0 +1,39 @@
+$ node --input-type=module -e import {runViewportListenerTests} from "./output/Test.React.Hook.ViewportListeners/index.js"; runViewportListenerTests();
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: JS conversion preserves unchanged handler dependencies
++ actual - expected
+
+  {
++   onChange: [Function (anonymous)],
++   onEnd: [Function (anonymous)],
+-   onChange: undefined,
+-   onEnd: undefined,
+    onStart: [Function (anonymous)]
+  }
+
+    at Module.checkListeners (file:///Users/jonathanbae/repos/PSFlow/output/Test.React.Hook.ViewportListeners/foreign.js:58:10)
+    at runViewportListenerTests (file:///Users/jonathanbae/repos/PSFlow/output/Test.React.Hook.ViewportListeners/index.js:31:21)
+    at file:///Users/jonathanbae/repos/PSFlow/[eval1]:1:95
+    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:269:26)
+    at async ModuleLoader.executeModuleJob (node:internal/modules/esm/loader:265:20)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: {
+    onStart: [Function (anonymous)],
+    onChange: [Function (anonymous)],
+    onEnd: [Function (anonymous)]
+  },
+  expected: {
+    onStart: [Function (anonymous)],
+    onChange: undefined,
+    onEnd: undefined
+  },
+  operator: 'deepStrictEqual'
+}
+
+Node.js v22.18.0

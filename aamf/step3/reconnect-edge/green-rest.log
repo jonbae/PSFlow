@@ -1,0 +1,199 @@
+$ node --test parity/boundary/reconnect-edge.test.mjs
+TAP version 13
+# Subtest: reconnectEdge accepts JS arguments, preserves untouched references and consumer keys on the replacement
+ok 1 - reconnectEdge accepts JS arguments, preserves untouched references and consumer keys on the replacement
+  ---
+  duration_ms: 4.289786
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: omitted
+ok 2 - reconnectEdge matches option/default behavior: omitted
+  ---
+  duration_ms: 0.477831
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: empty options
+ok 3 - reconnectEdge matches option/default behavior: empty options
+  ---
+  duration_ms: 0.299849
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: replace true
+ok 4 - reconnectEdge matches option/default behavior: replace true
+  ---
+  duration_ms: 0.247079
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: replace false
+ok 5 - reconnectEdge matches option/default behavior: replace false
+  ---
+  duration_ms: 0.442205
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: replace undefined
+ok 6 - reconnectEdge matches option/default behavior: replace undefined
+  ---
+  duration_ms: 0.280276
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: replace null
+ok 7 - reconnectEdge matches option/default behavior: replace null
+  ---
+  duration_ms: 0.33129
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: custom generator
+ok 8 - reconnectEdge matches option/default behavior: custom generator
+  ---
+  duration_ms: 0.254452
+  type: 'test'
+  ...
+# Subtest: reconnectEdge preserves null/undefined/empty handles and writes missing handles as own keys
+ok 9 - reconnectEdge preserves null/undefined/empty handles and writes missing handles as own keys
+  ---
+  duration_ms: 1.620554
+  type: 'test'
+  ...
+# Subtest: reconnectEdge removes every matching id, preserves other order and copies the supplied old edge
+ok 10 - reconnectEdge removes every matching id, preserves other order and copies the supplied old edge
+  ---
+  duration_ms: 0.615146
+  type: 'test'
+  ...
+# Subtest: reconnectEdge gives the generator the original connection and reads mutations afterward
+ok 11 - reconnectEdge gives the generator the original connection and reads mutations afterward
+  ---
+  duration_ms: 0.403058
+  type: 'test'
+  ...
+# Subtest: reconnectEdge keeps the exact input array and reports the right callback on both error branches
+ok 12 - reconnectEdge keeps the exact input array and reports the right callback on both error branches
+  ---
+  duration_ms: 0.753942
+  type: 'test'
+  ...
+# Subtest: reconnectEdge preserves getter, find, generator and replacement-read order
+not ok 13 - reconnectEdge preserves getter, find, generator and replacement-read order
+  ---
+  duration_ms: 2.727912
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/reconnect-edge.test.mjs:111:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        events: [
+          'shouldReplaceId',
+          'getEdgeId',
+          'onError',
+          'onError',
+          'id',
+    +     'id',
+          'custom',
+          'source',
+          'target',
+          'id',
+          'id',
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    result:
+      0:
+        id: 'other'
+        source: 'b'
+        target: 'c'
+      1:
+        source: 'c'
+        target: 'd'
+        custom: 'kept'
+        id: 'generated'
+        sourceHandle: ~
+        targetHandle: ~
+    events:
+      0: 'shouldReplaceId'
+      1: 'getEdgeId'
+      2: 'onError'
+      3: 'onError'
+      4: 'id'
+      5: 'custom'
+      6: 'source'
+      7: 'target'
+      8: 'id'
+      9: 'id'
+      10: 'generate-original'
+      11: 'source'
+      12: 'target'
+      13: 'sourceHandle'
+      14: 'targetHandle'
+      15: 'id'
+  actual:
+    result:
+      0:
+        id: 'other'
+        source: 'b'
+        target: 'c'
+      1:
+        source: 'c'
+        target: 'd'
+        custom: 'kept'
+        id: 'generated'
+        sourceHandle: ~
+        targetHandle: ~
+    events:
+      0: 'shouldReplaceId'
+      1: 'getEdgeId'
+      2: 'onError'
+      3: 'onError'
+      4: 'id'
+      5: 'id'
+      6: 'custom'
+      7: 'source'
+      8: 'target'
+      9: 'id'
+      10: 'id'
+      11: 'generate-original'
+      12: 'source'
+      13: 'target'
+      14: 'sourceHandle'
+      15: 'targetHandle'
+      16: 'id'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/reconnect-edge.test.mjs:126:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: reconnectEdge copies enumerable own keys safely and leaves frozen inputs untouched
+ok 14 - reconnectEdge copies enumerable own keys safely and leaves frozen inputs untouched
+  ---
+  duration_ms: 0.350207
+  type: 'test'
+  ...
+# Subtest: reconnectEdge propagates callback exceptions and null-option errors
+ok 15 - reconnectEdge propagates callback exceptions and null-option errors
+  ---
+  duration_ms: 0.515732
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches React-layer default development warnings
+ok 16 - reconnectEdge matches React-layer default development warnings
+  ---
+  duration_ms: 67.850672
+  type: 'test'
+  ...
+1..16
+# tests 16
+# suites 0
+# pass 15
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 825.367906
