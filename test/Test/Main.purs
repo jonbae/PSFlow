@@ -69,6 +69,7 @@ import Test.Boundary.Wrapper (runWrapperTests)
 import Test.Properties (runProperties)
 import Test.React.Additional.MiniMap (runMiniMapSliceTests)
 import Test.React.Component.AriaDescribedBy (runAriaDescribedByTests)
+import Test.React.Component.AriaRoleDomAttributes (runAriaRoleDomAttributesTests)
 import Test.React.Component.EdgeAriaLabel (runEdgeAriaLabelTests)
 import Test.React.Component.TypeFallback (runTypeFallbackTests)
 import Test.React.Store.InPlaceSelection (runInPlaceSelectionTests)
@@ -1218,6 +1219,7 @@ main = do
   runResetSelectionTests
   runAriaDescribedByTests
   runTypeFallbackTests
+  runAriaRoleDomAttributesTests
   runNodeInlineDimensionsTests
   runUpdateNodePositionsTests
   runBatchQueueTests

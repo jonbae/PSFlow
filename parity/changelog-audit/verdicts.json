@@ -988,10 +988,10 @@
     "pkg": "react",
     "version": "12.7.0",
     "title": "Add `ariaRole` prop to nodes and edges",
-    "bucket": "not-ported",
-    "evidence": "",
-    "ticket": "074",
-    "note": "src/React/Component/NodeWrapper.purs:38 and src/React/Component/EdgeWrapper.purs:33 document that ariaRole is not carried; EdgeWrapper substitutes a fixed \"img\"/\"group\"."
+    "bucket": "unit",
+    "ticket": null,
+    "evidence": "`NodeBase` and `EdgeBase` carry `ariaRole`, and `<NodeWrapper />` and `<EdgeWrapper />` set `role` from it, falling back to `\"group\"` for a focusable element and to no role for a node, or `\"img\"` for an edge, otherwise, as upstream's do. Guarded by `test/Test/React/Component/AriaRoleDomAttributes.purs` (run by `spago test`), and `parity/boundary/edge-fields.test.mjs`, which compares both wrappers with upstream's server render through `index.js`.",
+    "note": "Was `not-ported` under ticket 074, until Step 3 Order G added the member."
   },
   "5308": {
     "pkg": "react",
@@ -1006,10 +1006,10 @@
     "pkg": "react",
     "version": "12.7.0",
     "title": "Add `domAttributes` option for nodes and edges",
-    "bucket": "not-ported",
-    "evidence": "",
-    "ticket": "074",
-    "note": "src/React/Component/NodeWrapper.purs:38 and src/React/Component/EdgeWrapper.purs:33 both document that domAttributes is not carried on NodeBase/EdgeBase."
+    "bucket": "unit",
+    "ticket": null,
+    "evidence": "`NodeBase` and `EdgeBase` carry `domAttributes`, and both wrappers spread it onto their element after every attribute they set, as upstream's do. Guarded by `test/Test/React/Component/AriaRoleDomAttributes.purs` (run by `spago test`), and `parity/boundary/edge-fields.test.mjs`, which compares both wrappers with upstream's server render through `index.js`.",
+    "note": "Was `not-ported` under ticket 074, until Step 3 Order G added the member."
   },
   "5321": {
     "pkg": "system",
@@ -1273,10 +1273,11 @@
     "pkg": "react",
     "version": "12.8.4",
     "title": "Remove dangerouslySetInnerHTML from domAttributes",
-    "bucket": "ported-ungated",
+    "bucket": "ts-only",
     "debt": "079",
-    "ticket": "074",
-    "note": "PSFlow never spreads domAttributes at all, so the vulnerability being removed does not exist here. Owned by 074; re-bucket when it lands."
+    "ticket": null,
+    "evidence": "Upstream's change is to the `domAttributes` type alone. Both of its wrappers spread the bag unfiltered at run time (NodeWrapper/index.tsx:226, EdgeWrapper/index.tsx:211), as ps-flow's do. The declarations ps-flow publishes are upstream's, whose `domAttributes` omits `dangerouslySetInnerHTML`, and `parity:package` type-checks a consumer against them.",
+    "note": "Was `ported-ungated` under ticket 074, until Step 3 Order G added `domAttributes`."
   },
   "5480": {
     "pkg": "react",

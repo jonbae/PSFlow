@@ -25,23 +25,23 @@ design (as `parity:surface` does).
 
 ## Summary
 
-- **covered** (no action): 121
-- **gaps** (a gate coming, a ticket, or fixed in-branch): 54
+- **covered** (no action): 124
+- **gaps** (a gate coming, a ticket, or fixed in-branch): 51
 - **accepted** (ungated by decision): 3
 - **n/a**: 2
 
 | Bucket | Kind | Count | Meaning |
 |---|---|---|---|
 | `docs` | covered | 44 | Docs / types / tooling only — no runtime behavior |
-| `ts-only` | covered | 11 | TypeScript-only (type signature, generics, inference) |
+| `ts-only` | covered | 12 | TypeScript-only (type signature, generics, inference) |
 | `surface` | covered | 24 | Surface change — gated by parity:surface |
 | `function` | covered | 14 | Pure-math change — gated by function parity, differential against the @psflow/oracle bundle |
 | `conformance` | covered | 15 | Behavior covered by a spec in the conformance test suite |
-| `unit` | covered | 13 | Behavior covered by a PureScript unit/property test |
+| `unit` | covered | 15 | Behavior covered by a PureScript unit/property test |
 | `system` | covered | 0 | Behavior driven by the dual-run net — gated by parity:system |
 | `gate-pending` | gap | 50 | Ported and ungated, with a named gate coming (a gap, never a covered bucket) |
-| `ported-ungated` | gap | 1 | Ported and correct, but no gate exercises it and none is planned (test debt) |
-| `not-ported` | gap | 3 | Behavior not present in PSFlow |
+| `ported-ungated` | gap | 0 | Ported and correct, but no gate exercises it and none is planned (test debt) |
+| `not-ported` | gap | 1 | Behavior not present in PSFlow |
 | `accepted-ungated` | accepted | 3 | Ported, and deliberately never gated — carries the written reason |
 | `n/a` | na | 2 | No PSFlow analogue (Svelte-only, build tooling, infra) |
 
@@ -57,8 +57,8 @@ Neither number is typed. `debt` marks the rows 076–079 filed, and both counts 
 this file reading the buckets those rows now carry — which is what keeps the
 correction from going stale the next time one moves.
 
-Where the 56 went: `surface` 1, `gate-pending` 50, `ported-ungated` 1, `accepted-ungated` 3, `n/a` 1.
-1 of them has since moved into a covered bucket (#4826); the rest are still gaps, and a gate that is coming is still one.
+Where the 56 went: `ts-only` 1, `surface` 1, `gate-pending` 50, `accepted-ungated` 3, `n/a` 1.
+2 of them have since moved into a covered bucket (#4826, #5472); the rest are still gaps, and a gate that is coming is still one.
 
 ## Gaps
 
@@ -126,17 +126,13 @@ Every `gate-pending` row names a scenario or test that exists.
 
 ### `ported-ungated` — Ported and correct, but no gate exercises it and none is planned (test debt)
 
-| PR | Pkg | Version | Change | Ticket / fix |
-|---|---|---|---|---|
-| [#5472](https://github.com/xyflow/xyflow/pull/5472) | react | 12.8.4 | Remove dangerouslySetInnerHTML from domAttributes | ticket 074 |
+_none._
 
 ### `not-ported` — Behavior not present in PSFlow
 
 | PR | Pkg | Version | Change | Ticket / fix |
 |---|---|---|---|---|
 | [#5276](https://github.com/xyflow/xyflow/pull/5276) | react | 12.7.0 | Add an `ease` and `interpolate` option to all function that alter the viewport | Ported in shape only. The `interpolate` option is threaded (src/System/XYPanZoom.purs:247-251 selects linear against smooth) but completion is not: setViewportImpl resolves immediately at :253, and the comment at :234-236 says outright that d3-zoom's interpolate APIs are not exercised. Upstream's setViewport returns a Promise that settles when the transition finishes; PSFlow's Aff settles when it starts, so `await fitView()` means different things on the two sides. Filed as test debt by 078 and corrected here — it is a divergence, on https://github.com/jonbae/PSFlow/issues/22, and the net could not have caught it: it compares end states, and both sides arrive at the same viewport whatever path they took. |
-| [#5299](https://github.com/xyflow/xyflow/pull/5299) | react | 12.7.0 | Add `ariaRole` prop to nodes and edges | ticket 074 |
-| [#5317](https://github.com/xyflow/xyflow/pull/5317) | react | 12.7.0 | Add `domAttributes` option for nodes and edges | ticket 074 |
 
 ## Accepted
 
@@ -235,6 +231,8 @@ The rule the rest of the table follows — no bucket without a row — is what k
 | [#4968](https://github.com/xyflow/xyflow/pull/4968) | system | 0.0.50 | Make internal nodes immutable | PureScript records are immutable by construction, so `make internal nodes immutable` has no PSFlow analogue to port; src/System/Utils/Store.purs rebuilds node records per update, exercised by test/Test/System/Utils/Store.purs runStoreProperties (adoptUserNodes idempotence). |
 | [#5147](https://github.com/xyflow/xyflow/pull/5147) | react | 12.5.4 | Pass dimensions to final resize change event | test/Test/System/XYResizer.purs runXYResizerTests with paired JS: nonzero controller onEnd payload and the mounted control final dimension change (including resizing:false). |
 | [#5192](https://github.com/xyflow/xyflow/pull/5192) | react | 12.5.6 | Optimize performance of nodesInitialized | test/Test/React/Hook/VisibleIds.purs + src/React/Hook/VisibleIds/Pure.purs cover the initialization/visibility computation. |
+| [#5299](https://github.com/xyflow/xyflow/pull/5299) | react | 12.7.0 | Add `ariaRole` prop to nodes and edges | `NodeBase` and `EdgeBase` carry `ariaRole`, and `<NodeWrapper />` and `<EdgeWrapper />` set `role` from it, falling back to `"group"` for a focusable element and to no role for a node, or `"img"` for an edge, otherwise, as upstream's do. Guarded by `test/Test/React/Component/AriaRoleDomAttributes.purs` (run by `spago test`), and `parity/boundary/edge-fields.test.mjs`, which compares both wrappers with upstream's server render through `index.js`. |
+| [#5317](https://github.com/xyflow/xyflow/pull/5317) | react | 12.7.0 | Add `domAttributes` option for nodes and edges | `NodeBase` and `EdgeBase` carry `domAttributes`, and both wrappers spread it onto their element after every attribute they set, as upstream's do. Guarded by `test/Test/React/Component/AriaRoleDomAttributes.purs` (run by `spago test`), and `parity/boundary/edge-fields.test.mjs`, which compares both wrappers with upstream's server render through `index.js`. |
 | [#5326](https://github.com/xyflow/xyflow/pull/5326) | react | 12.7.0 | Prevent NodeResizer controls to become too small when zooming out | test/Test/System/XYResizer.purs runXYResizerTests with paired JS: mounted control autoScale at zoom 0.5 and 2, plus disabled autoScale, while the active resize reaches its updated bound. |
 | [#5370](https://github.com/xyflow/xyflow/pull/5370) | system | 0.0.65 | Only fire connection end events if connection was started | test/Test/Main.purs `handleConnectionChange` cases (Nothing callback, empty diff, non-empty diff) assert the callback fires only on a real change. |
 | [#5384](https://github.com/xyflow/xyflow/pull/5384) | react | 12.8.2 | Fix node fallback to respect custom default node type when unknown node type is encountered | `resolveNodeComponent` in src/React/Component/NodeWrapper.purs falls back to `nodeTypes.default` before the built-in default, as upstream's NodeWrapper/index.tsx:61 does. Guarded by `test/Test/React/Component/TypeFallback.purs` (run by `spago test`), and `parity/boundary/type-fallback.test.mjs`, which compares the same cases with upstream through `index.js`. |
@@ -262,6 +260,7 @@ _none._
 | [#5353](https://github.com/xyflow/xyflow/pull/5353) | react | 12.7.1 | Add missing `FinalConnectionState` parameter to `onReconnectEnd` prop types | TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently, and their names are gated on the PureScript surface by surface parity. |
 | [#5420](https://github.com/xyflow/xyflow/pull/5420) | react | 12.8.3 | Omit `defaultValue` from `Node`'s `domAttributes` to fix type incompatibility when using `WritableDraft` | TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently, and their names are gated on the PureScript surface by surface parity. |
 | [#5448](https://github.com/xyflow/xyflow/pull/5448) | react | 12.8.3 | Use correct HandleConnection type for Handle onConnect | TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently, and their names are gated on the PureScript surface by surface parity. |
+| [#5472](https://github.com/xyflow/xyflow/pull/5472) | react | 12.8.4 | Remove dangerouslySetInnerHTML from domAttributes | Upstream's change is to the `domAttributes` type alone. Both of its wrappers spread the bag unfiltered at run time (NodeWrapper/index.tsx:226, EdgeWrapper/index.tsx:211), as ps-flow's do. The declarations ps-flow publishes are upstream's, whose `domAttributes` omits `dangerouslySetInnerHTML`, and `parity:package` type-checks a consumer against them. |
 | [#5703](https://github.com/xyflow/xyflow/pull/5703) | react | 12.10.1 | Improve return type of useNodesData. Now you can narrow down the data type by checking the node type. | TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently, and their names are gated on the PureScript surface by surface parity. |
 | [#5791](https://github.com/xyflow/xyflow/pull/5791) | react | 12.11.0 | Adds a type error when `handleId` is used without `handleType` in `useNodeConnections` | TypeScript type-level only (signature/generics/inference). PSFlow's types are written independently, and their names are gated on the PureScript surface by surface parity. |
 
