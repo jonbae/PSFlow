@@ -69,7 +69,8 @@ package for JavaScript and TypeScript consumers: one ES module bundled from
 upstream's stylesheets. `npm run parity:package` holds the packed package to
 `index.js`, and the declarations exposed two runtime differences, both fixed;
 see [Order I results](AAMF_STEP3_RESULTS.md#order-i-completion-november-13-utc).
-Overall port completion remains open.
+Overall port completion remains open; [Step 4](#step-4-close-the-completion-criteria)
+lists what is left.
 
 
 **H / bounded W13 numeric work is implemented, November 11:** shared geometry
@@ -393,6 +394,55 @@ Respect [reserved scenario IDs](parity/system/corpus/reserved.mjs), the fork
 register, and per-test retirement evidence. A scenario that merely has a
 relevant name is not proof it reaches the intended branch.
 
+## Step 4: close the completion criteria
+
+**Status: open, 2026-11-13 UTC.** Step 3 finished its queue, but three of the
+six [completion criteria](#completion-criteria) still have open work. The
+other three hold. The gates and the full net pass from fresh output, with no
+transitional claim in any register. Stage 5 has no passthrough exports. And
+`index.js`, `React`, and the package give consumers the compatibility they
+claim.
+
+| Completion criterion | Rows that close it |
+|---|---|
+| Every relevant upstream unit has a reviewed disposition | 10 and 11 |
+| Behavior debt is implemented, gated, or explicitly accepted | 3 through 9 |
+| The pilot, task graph, revisions, validation results, and resume procedure are recorded for the next baseline | 12 |
+
+Rows 1 and 2 are housekeeping that no criterion names. Run the rows in this
+order: behavior fixes come before the evidence rows that depend on their
+traces, and the map refresh comes last because it records everything before
+it. Each task follows the [verification contract](#verification-contract-for-aamf-tasks).
+
+The rough size counts the fresh tokens one Claude Code session reads and
+writes, estimated on 2026-11-13. Billed tokens run higher, because each turn
+rereads the conversation. Rows 5 through 12 come to roughly 1.5 million to 3.3
+million tokens, and row 8 is about half of that.
+
+| Order | Work and starting point | Acceptance | Rough size |
+|---|---|---|---|
+| 1 | **Open; the decisions are the owner's.** Land Step 3 and its follow-ups: merge [#196](https://github.com/jonbae/PSFlow/pull/196), then [#197](https://github.com/jonbae/PSFlow/pull/197) and [#198](https://github.com/jonbae/PSFlow/pull/198), which stack on it. Close [#194](https://github.com/jonbae/PSFlow/pull/194) and [#195](https://github.com/jonbae/PSFlow/pull/195), which Step 3 adapted without merging. The destination of [Close the divergence backlog](https://github.com/jonbae/PSFlow/issues/93) holds, but the issue also tracks open questions, so decide whether it closes. | `master` holds Steps 1–3 and both follow-ups, and the superseded PRs are closed. | Under 20k |
+| 2 | **Partly complete.** Settle what CI runs. #196 added the boundary and package checks after the four gates and pinned the runner to Ubuntu 24.04. Still open: whether the full net runs per PR, nightly, or only on a baseline bump. README and `gates.yml` exclude it because it was red on purpose. It passes now, and a Linux wave takes 13–15 minutes. README's system-parity section still describes a red net and 124 of 156 exports driven, and `test:boundary` doesn't run in CI. | README and `gates.yml` record the schedule, `test:ci` holds the workflow to it, and README describes the passing net. | 30k–100k |
+| 3 | **Complete in [#197](https://github.com/jonbae/PSFlow/pull/197).** Fall back to the consumer's own `default` node and edge types, as upstream does (upstream #5384 and #5735). | Rows #5384 and #5735 are in `unit`, and `parity/boundary/type-fallback.test.mjs` matches upstream. | Done |
+| 4 | **In review in [#198](https://github.com/jonbae/PSFlow/pull/198).** Rebucket the three rows Order G resolved: #5299 (`ariaRole`), #5317 (`domAttributes`), and #5472 (type-only). | Each row is in a covered bucket with evidence, and `ported-ungated` is empty. | Done |
+| 5 | Animate viewport transitions (upstream #5276, the last `not-ported` row). `setViewportImpl`, `scaleToImpl`, and `scaleByImpl` in `src/System/XYPanZoom.purs` ignore `duration` and `ease`. They jump to the target and resolve their promise at once. Upstream hands d3 a transition from `getD3Transition` and resolves when the transition ends. Port that through the d3 FFI, and keep the decisions in PureScript. | A red/green test runs upstream's `XYPanZoom` beside the port on native timers. A mounted scenario with a `duration` matches upstream's `onMove` sequence frame by frame. Row #5276 leaves `not-ported`, and the full wave passes. | 150k–300k |
+| 6 | Compare selector results by upstream's equality (Step 2's W09). `useNodesData` (`src/React/Hook/Selectors.purs:142`) compares whole internal nodes by value. Upstream's `shallowNodeData` compares only `id`, `type`, and `data`, and compares `data` by reference. `useNodes`, `useEdges`, `useInternalNode`, and the toolbar selectors need the same direct comparison. Do this before row 8, because a fix changes captured traces. | The [W09 contract](AAMF_STEP2_RESULTS.md#w09--compare-selector-results-by-upstreams-equality): a probe against upstream observes returned projections and render counts, and only a demonstrated mismatch is fixed. | 100k–250k |
+| 7 | Gate the five `unit` rows and three `function` rows. One `isInputDOMNode` predicate test covers #4880, #5090, #5118, and #5263, and a handle-id parsing test covers #5515. The function rows need checks against the oracle bundle for the selection helpers (#4929), connection snapping (#5266), and the parent-chain walk (#5550). | Each row moves to its covered bucket with evidence, and a falsification probe turns each new test red. | 140k–260k |
+| 8 | Retire the 42 `system` rows. Each names one of 30 written, passing scenarios, but a passing scenario isn't proof it reaches the change's branch. For each row, revert that change's port in a scratch copy and watch the scenario fail, or show that the trace holds the branch's observable. Then move the row to `system`. Batch the rows by scenario, 8–10 per session, after rows 5 and 6 settle. If a scenario doesn't reach its branch, change it in a task that owns the corpus change. | All 42 rows are in `system` with evidence, and no `gate-pending` row names the net. | 700k–1.5M |
+| 9 | Add function parity for `getInternalNodesBounds` and `getNodesInside`. Both take internal nodes, which the oracle doesn't build. Teach the oracle to build them the way upstream adopts user nodes. | Both functions are under differential function parity with a falsification probe, and [ticket 059](tickets/059-layer1-behavioral-parity-coverage.md) lists them as covered. | 80k–200k |
+| 10 | Audit the type contracts field by field (Step 2's W10). Scope it first, because Orders G and H already compared many of the 14 E02 units' fields with upstream. Write `AAMF_TYPE_CONTRACT_REVIEW.md` one field and its callers at a time. | The [W10 contract](AAMF_STEP2_RESULTS.md#w10--audit-remaining-type-and-boundary-contracts-by-field): each guard, default, and absence branch is compared with an oracle call or a falsifying test, and each demonstrated gap is fixed in its own task. | 200k–500k |
+| 11 | Refresh the reconciliation map. `aamf/step2/reconciliation.json` and [the mapping](AAMF_STEP2_MAPPING.md) still hold Step 2's dispositions: 42 Reuse, 99 Add evidence, 25 Fix behavior, 4 Finish conversion, and 1 Accepted difference. Update them from Steps 3 and 4 by profile. Use a script, because the JSON file is 16,673 lines. | Every unit's disposition and evidence describe the current code. No unit says Fix behavior or Finish conversion unless a row here owns it. | 60k–150k |
+| 12 | Record the procedure for the next baseline. Steps 1 and 2 recorded their AAMF runs. Steps 3 and 4 ran through PSFlow's own workflow, with the AAMF inventory as context rather than as an autonomous AAMF migration. Record that, and record what a baseline bump reruns. | Someone holding only the repository can redo the inventory, the reconciliation, and the gates against a new baseline. | 40k–100k |
+
+None of the following is required by the completion criteria:
+
+- **Publishing the package.** `package.json` stays `private`, and publishing
+  is a separate decision.
+- **The declared coverage hole.** `UnselectNodesAndEdgesParams` already has a
+  specific written reason, which satisfies the coverage criterion. Driving it
+  means changing what the `api` witness can name, which is a change to the
+  register, not to the corpus.
+
 ## Verification contract for AAMF tasks
 
 Preserve upstream's mechanism as [PORTING.md](PORTING.md) requires: missing vs
@@ -460,5 +510,5 @@ viewport/gesture reproducibility. G is complete: the JS store view and the
 default-edge, edge and node members. H is complete: the witnesses, reference
 reads and numeric call sites. I is complete: the package, its declarations and
 stylesheets, and `parity:package`. A–I are complete. Overall port completion
-remains open: 50 behavior-debt rows await their gates, and
-`getInternalNodesBounds` and `getNodesInside` have no function parity.
+remains open; [Step 4](#step-4-close-the-completion-criteria) lists the
+remaining work in order.
