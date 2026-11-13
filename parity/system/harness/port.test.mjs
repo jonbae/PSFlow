@@ -86,3 +86,67 @@ for (const action of ["press", "down", "up"]) {
     assert.equal(completed, true);
   });
 }
+
+// The mount pauses application time wherever the clock had run to, so a call
+// that dispatched at once would start its frames at a different point inside
+// a frame in every capture. A transition timed from the call would then draw
+// different frames, and one side would disagree with itself.
+const clockPage = (start) => {
+  const steps = [];
+  let now = start;
+  const session = {
+    send: async (method) =>
+      method === "Page.getFrameTree"
+        ? { frameTree: { frame: { id: "main" } } }
+        : method === "Page.createIsolatedWorld"
+          ? { executionContextId: 1 }
+          : {},
+    detach: async () => {},
+  };
+  const context = {
+    newCDPSession: async () => {
+      steps.push("native frame");
+      return session;
+    },
+  };
+  const page = {
+    context: () => context,
+    clock: {
+      install: async () => {},
+      pauseAt: async () => {},
+      runFor: async (ms) => {
+        steps.push(["runFor", ms]);
+        now += ms;
+      },
+    },
+    addInitScript: async () => {},
+    route: async () => {},
+    evaluate: async (fn, arg) => {
+      if (String(fn) === "() => performance.now()") return now;
+      if (String(fn) === "() => Date.now()") return 0;
+      if (Array.isArray(arg) && arg.length === 3) {
+        steps.push(["call", arg[1], now]);
+        return { installed: true, result: true };
+      }
+      return undefined;
+    },
+  };
+  return { page, steps };
+};
+
+for (const [start, expected] of [
+  [1003.25, [["runFor", 4.75], "native frame", ["call", "fitView", 1008], "native frame"]],
+  [1024, [["call", "fitView", 1024], "native frame"]],
+]) {
+  test(`a call at ${start}ms starts on the frame boundary at or after it`, async () => {
+    const { page, steps } = clockPage(start);
+    const port = createPagePort(page);
+    await port.prepareMount();
+    await port.finishMount();
+    steps.length = 0;
+
+    await port.call("fitView", [{ duration: 200 }]);
+
+    assert.deepEqual(steps, expected);
+  });
+}

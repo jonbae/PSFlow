@@ -72,8 +72,9 @@ time stays held between actions. Mouse, keyboard and touch dispatches advance tw
 virtual frames, each ending at a frame boundary followed by native rendering, so host scheduling cannot add
 auto-pan frames or move hover delivery into the next key's modifier state.
 Wheel dispatch drains its actual pending timeout chain, including nested end
-notifications; it never bets on a fixed sleep. Imperative calls that await animated
-work receive frame steps until their promise completes.
+notifications; it never bets on a fixed sleep. An imperative call starts on a frame
+boundary, so a transition it starts draws the same frames in every capture. Calls
+that await animated work receive frame steps until their promise completes.
 No callback is removed, sorted or normalized by this protocol.
 The separate native frame clock matters: controlling timers alone leaves the
 initialization/viewport-end ordering race intact. Captures made under an earlier

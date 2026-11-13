@@ -422,8 +422,11 @@ makes an auto-pan dwell a fixed number of frames without changing its events or
 releasing a held gesture. Each side still resolves and settles against its own DOM.
 Wheel dispatch observes the platform's pending timeout queue and steps to each
 next deadline until the finite chain completes, including nested end callbacks.
-No callback log or application store is inspected to decide completion. Animated
-imperative calls receive frame steps until their returned promise settles.
+No callback log or application store is inspected to decide completion. An
+imperative call first steps application time to the next frame boundary, because
+the mount pauses it wherever the clock had run to. A transition the call starts
+then draws the same frames in every capture. Animated imperative calls receive
+frame steps until their returned promise settles.
 
 Before the bundle request is released, the port reasserts the public clock pause
 in the new document. A pause replayed during navigation leaves an initial native
