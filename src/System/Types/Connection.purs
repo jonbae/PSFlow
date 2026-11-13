@@ -315,20 +315,20 @@ instance showPadding :: Show Padding where
   show = genericShow
 
 type ViewportHelperFunctionOptions =
-  { duration :: Maybe Int
+  { duration :: Maybe Number
   , ease :: Maybe (Number -> Number)
   , interpolate :: Maybe InterpolateMode
   }
 
 type SetCenterOptions =
-  { duration :: Maybe Int
+  { duration :: Maybe Number
   , ease :: Maybe (Number -> Number)
   , interpolate :: Maybe InterpolateMode
   , zoom :: Maybe Number
   }
 
 type FitBoundsOptions =
-  { duration :: Maybe Int
+  { duration :: Maybe Number
   , ease :: Maybe (Number -> Number)
   , interpolate :: Maybe InterpolateMode
   , padding :: Maybe Number

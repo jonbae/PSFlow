@@ -109,6 +109,16 @@ export const createPagePort = (page, { resolveTimeout = 1_000 } = {}) => {
     );
   };
 
+  // Each step `tick` takes ends on a frame boundary. Application time can
+  // still sit between two: the mount pauses it wherever the clock had run to,
+  // and a wheel's timeout chain stops where its last timeout fell.
+  const toFrameBoundary = async () => {
+    const rest = (await page.evaluate(() => performance.now())) % 16;
+    if (!rest) return;
+    await page.clock.runFor(16 - rest);
+    await nativeFrame();
+  };
+
   return {
     /**
      * Called on the blank document, before application clock use. Timers stay
@@ -253,6 +263,10 @@ export const createPagePort = (page, { resolveTimeout = 1_000 } = {}) => {
      * a missing element gets, for the same reason.
      */
     async call(method, args) {
+      // A call can start time-based work, such as a viewport transition, whose
+      // frames are timed from the call. Starting on a frame boundary gives that
+      // work the same frames in every capture.
+      if (clockPrepared && !mountPhase) await toFrameBoundary();
       const pending = page.evaluate(
         async ([key, m, a]) => {
           const bridge = window[key];

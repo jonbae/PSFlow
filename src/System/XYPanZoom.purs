@@ -22,7 +22,9 @@ import Effect.Ref as Ref
 import Foreign (Foreign)
 import System.FFI.D3Selection (D3Selection, d3Select)
 import System.FFI.D3Zoom
-  ( D3ZoomBehavior
+  ( D3Interpolate
+  , D3ZoomBehavior
+  , ZoomTarget
   , ZoomTransform
   , currentZoomTransform
   , linearInterpolate
@@ -32,6 +34,8 @@ import System.FFI.D3Zoom
   , selectionSetDblClickHandler
   , selectionSetDblClickNull
   , selectionSetWheelHandler
+  , selectionTarget
+  , selectionTransition
   , setClickDistance
   , setInterpolate
   , setScaleExtent
@@ -50,6 +54,7 @@ import System.FFI.D3Zoom
   , zoomTransformX
   , zoomTransformY
   )
+import System.FFI.Microtask (awaitMicrotask)
 import System.Types.Connection (InterpolateMode(..), Viewport)
 import System.Types.Geometry (CoordinateExtent(..))
 import System.Types.PanZoom
@@ -72,6 +77,7 @@ import System.XYPanZoom.EventHandler
 import System.XYPanZoom.Filter (createFilter)
 import System.XYPanZoom.Utils
   ( transformToViewport
+  , transitionTiming
   , viewportToTransform
   , wheelDelta
   )
@@ -238,29 +244,58 @@ destroyImpl zoomInst = void (setZoomOn "zoom" (\_ -> pure unit) zoomInst)
 -- viewport setters / scale operations
 -- ----------------------------------------------------------------------------
 
--- | TS uses Promise; PS uses Aff. The `makeAff` form lets us hand d3 a
--- | resolver callback. For the typed-scaffold pass we resolve immediately —
--- | d3-zoom's interpolate APIs aren't exercised in the test harness.
+-- | Upstream's `setTransform`, `scaleTo` and `scaleBy` differ only in the d3
+-- | call. Each picks the behavior's interpolator, hands the call
+-- | `getD3Transition`'s target, and settles when the change has been drawn.
+-- |
+-- | Without a duration, d3 draws the change before `change` returns, and the
+-- | `Aff` settles right after it. A transition draws over later frames and
+-- | settles the `Aff` when it ends. A transition that a later change
+-- | interrupts never ends, so its `Aff` never settles, as upstream's promise
+-- | never does. Upstream resolves inside the end listener, and its `await`
+-- | resumes on the microtask queue, after d3's own end handlers. The
+-- | animated branch resumes there too.
+animate
+  :: D3ZoomBehavior
+  -> D3Selection
+  -> Maybe PanZoomTransformOptions
+  -> (ZoomTarget -> Effect Unit)
+  -> Aff Unit
+animate zoomInst d3Sel mOpts change = do
+  animated <- Aff.makeAff \settle -> do
+    _ <- setInterpolate (interpolatorFor (mOpts >>= _.interpolate)) zoomInst
+    case transitionTiming (mOpts >>= _.duration) (mOpts >>= _.ease) of
+      Nothing -> do
+        change (selectionTarget d3Sel)
+        settle (Right false)
+      Just timing -> do
+        transition <- selectionTransition d3Sel timing.duration timing.ease
+          (settle (Right true))
+        change transition
+    pure nonCanceler
+  when animated awaitMicrotask
+
+-- | Upstream chooses d3's straight-line interpolator for `'linear'` and its
+-- | smooth zoom otherwise, on every change, so a change made without options
+-- | puts the smooth zoom back for d3's own double-click animation.
+interpolatorFor :: Maybe InterpolateMode -> D3Interpolate
+interpolatorFor = case _ of
+  Just Linear -> linearInterpolate
+  _ -> smoothZoomInterpolate
+
 setViewportImpl
   :: D3ZoomBehavior
   -> D3Selection
   -> Viewport
   -> Maybe PanZoomTransformOptions
   -> Aff (Maybe ZoomTransform)
-setViewportImpl zoomInst d3Sel viewport mOpts =
-  Aff.makeAff \resolve -> do
-    let nextTransform = viewportToTransform viewport
-    case mOpts of
-      Just opts -> do
-        let interp = case opts.interpolate of
-              Just Linear -> linearInterpolate
-              _ -> smoothZoomInterpolate
-        _ <- setInterpolate interp zoomInst
-        zoomBehaviorTransform zoomInst d3Sel nextTransform
-      Nothing -> zoomBehaviorTransform zoomInst d3Sel nextTransform
-    resolve (Right (Just nextTransform))
-    pure nonCanceler
+setViewportImpl zoomInst d3Sel viewport mOpts = do
+  let nextTransform = viewportToTransform viewport
+  animate zoomInst d3Sel mOpts \target ->
+    zoomBehaviorTransform zoomInst target nextTransform
+  pure (Just nextTransform)
 
+-- | Upstream's `setTransform(constrainedTransform)`, with no options.
 setViewportConstrainedImpl
   :: D3ZoomBehavior
   -> D3Selection
@@ -268,18 +303,17 @@ setViewportConstrainedImpl
   -> CoordinateExtent
   -> CoordinateExtent
   -> Aff (Maybe ZoomTransform)
-setViewportConstrainedImpl zoomInst d3Sel viewport extent translateExtent =
-  Aff.makeAff \resolve -> do
-    let
-      next = viewportToTransform viewport
-      CoordinateExtent e = extent
-      CoordinateExtent t = translateExtent
-      constrained = zoomBehaviorConstrain zoomInst next
-        e.minX e.minY e.maxX e.maxY
-        t.minX t.minY t.maxX t.maxY
-    zoomBehaviorTransform zoomInst d3Sel constrained
-    resolve (Right (Just constrained))
-    pure nonCanceler
+setViewportConstrainedImpl zoomInst d3Sel viewport extent translateExtent = do
+  let
+    next = viewportToTransform viewport
+    CoordinateExtent e = extent
+    CoordinateExtent t = translateExtent
+    constrained = zoomBehaviorConstrain zoomInst next
+      e.minX e.minY e.maxX e.maxY
+      t.minX t.minY t.maxX t.maxY
+  animate zoomInst d3Sel Nothing \target ->
+    zoomBehaviorTransform zoomInst target constrained
+  pure (Just constrained)
 
 scaleToImpl
   :: D3ZoomBehavior
@@ -287,17 +321,9 @@ scaleToImpl
   -> Number
   -> Maybe PanZoomTransformOptions
   -> Aff Boolean
-scaleToImpl zoomInst d3Sel zoom mOpts = Aff.makeAff \resolve -> do
-  case mOpts of
-    Just opts -> do
-      let interp = case opts.interpolate of
-            Just Linear -> linearInterpolate
-            _ -> smoothZoomInterpolate
-      _ <- setInterpolate interp zoomInst
-      zoomBehaviorScaleTo zoomInst d3Sel zoom
-    Nothing -> zoomBehaviorScaleTo zoomInst d3Sel zoom
-  resolve (Right true)
-  pure nonCanceler
+scaleToImpl zoomInst d3Sel zoom mOpts = do
+  animate zoomInst d3Sel mOpts \target -> zoomBehaviorScaleTo zoomInst target zoom
+  pure true
 
 scaleByImpl
   :: D3ZoomBehavior
@@ -305,17 +331,9 @@ scaleByImpl
   -> Number
   -> Maybe PanZoomTransformOptions
   -> Aff Boolean
-scaleByImpl zoomInst d3Sel factor mOpts = Aff.makeAff \resolve -> do
-  case mOpts of
-    Just opts -> do
-      let interp = case opts.interpolate of
-            Just Linear -> linearInterpolate
-            _ -> smoothZoomInterpolate
-      _ <- setInterpolate interp zoomInst
-      zoomBehaviorScaleBy zoomInst d3Sel factor
-    Nothing -> zoomBehaviorScaleBy zoomInst d3Sel factor
-  resolve (Right true)
-  pure nonCanceler
+scaleByImpl zoomInst d3Sel factor mOpts = do
+  animate zoomInst d3Sel mOpts \target -> zoomBehaviorScaleBy zoomInst target factor
+  pure true
 
 syncViewportImpl
   :: D3ZoomBehavior

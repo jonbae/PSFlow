@@ -152,10 +152,20 @@ const section = (bucket, columns) =>
 // thing that goes quietly stale the next time a row moves. `debt` is separate
 // from `ticket` because the two answer different questions: which ticket filed
 // the row, and who owns the work now. Seven rows disagree, which is why one
-// field cannot serve as the other.
+// field cannot serve as the other. `misfiled` marks a filed row the audit found
+// was never ported, and it outlives the port, so the correction is read from it
+// rather than from the row's bucket.
 const filed = prs.filter((pr) => verdicts[pr]?.debt);
-const debt = filed.filter((pr) => verdicts[pr].bucket !== "not-ported");
-const misfiled = filed.filter((pr) => verdicts[pr].bucket === "not-ported");
+const debt = filed.filter((pr) => !verdicts[pr].misfiled);
+const misfiled = filed.filter((pr) => verdicts[pr].misfiled);
+const misfiledNow = misfiled
+  .map((pr) => {
+    const row = misfiled.length === 1 ? "It" : prLink(pr);
+    return verdicts[pr].bucket === "not-ported"
+      ? `${row} is \`not-ported\`, and what was found is in its entry under \`not-ported\` below.`
+      : `${row} has since been ported, and its entry under \`${verdicts[pr].bucket}\` below says what proves it.`;
+  })
+  .join(" ");
 const debtBuckets = Object.keys(BUCKETS)
   .map((bucket) => [bucket, debt.filter((pr) => verdicts[pr].bucket === bucket).length])
   .filter(([, n]) => n > 0);
@@ -220,17 +230,16 @@ becomes of each. **${debt.length} of them are the debt.**
 ${
   misfiled.length
     ? `${misfiled.length === 1 ? "One row is not" : `${misfiled.length} rows are not`}: ` +
-      `${misfiled.map(prLink).join(", ")}. Filed as ported and correct and found to be neither, so ` +
-      `\`not-ported\` — what was found is in the row's own entry under \`not-ported\` below, and on the ` +
-      `[divergence backlog](https://github.com/jonbae/PSFlow/issues/22). ` +
+      `${misfiled.map(prLink).join(", ")}. Filed as ported and correct and found to be neither. ` +
+      `${misfiledNow} ` +
       `A row that was never ported was never test debt, which is the whole of the difference between ` +
       `${filed.length} and ${debt.length}.`
     : `Every row those four tickets filed is still ported, so the two counts agree.`
 }
 
-Neither number is typed. \`debt\` marks the rows 076–079 filed, and both counts are
-this file reading the buckets those rows now carry — which is what keeps the
-correction from going stale the next time one moves.
+Neither number is typed. \`debt\` marks the rows 076–079 filed and \`misfiled\` the ones
+found never ported, and both counts are this file reading those two fields — which is
+what keeps the correction from going stale the next time one moves.
 
 Where the ${debt.length} went: ${debtBuckets.map(([b, n]) => `\`${b}\` ${n}`).join(", ")}.
 ${
@@ -273,8 +282,13 @@ being called covered that is not. The reason is the whole record.
 ${section("accepted-ungated")}
 ## Covered
 
-\`${NET}\` is empty and is carried anyway, which no other bucket is: ${netBound.length} rows name it
-as the gate they graduate into, so it is pointed at even while it holds nothing.
+${
+  rows(NET).length
+    ? `\`${NET}\` holds ${rows(NET).length} row${rows(NET).length === 1 ? "" : "s"}, and ${netBound.length} \`gate-pending\` rows name ` +
+      `it as the gate they graduate into.`
+    : `\`${NET}\` is empty and is carried anyway, which no other bucket is: ${netBound.length} rows name it ` +
+      `as the gate they graduate into, so it is pointed at even while it holds nothing.`
+}
 The rule the rest of the table follows — no bucket without a row — is what keeps
 \`smoke\` out, since no in-range PR is covered by \`smoke.spec.ts\`.
 

@@ -306,7 +306,7 @@ type FitViewOptions =
   , includeHiddenNodes :: Boolean
   , minZoom :: Maybe Number
   , maxZoom :: Maybe Number
-  , duration :: Maybe Int
+  , duration :: Maybe Number
   , ease :: Maybe (Number -> Number)
   , interpolate :: Maybe InterpolateMode
   , nodes :: Maybe (Array { id :: NodeId })

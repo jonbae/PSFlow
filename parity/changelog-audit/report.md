@@ -25,8 +25,8 @@ design (as `parity:surface` does).
 
 ## Summary
 
-- **covered** (no action): 124
-- **gaps** (a gate coming, a ticket, or fixed in-branch): 51
+- **covered** (no action): 125
+- **gaps** (a gate coming, a ticket, or fixed in-branch): 50
 - **accepted** (ungated by decision): 3
 - **n/a**: 2
 
@@ -38,10 +38,10 @@ design (as `parity:surface` does).
 | `function` | covered | 14 | Pure-math change — gated by function parity, differential against the @psflow/oracle bundle |
 | `conformance` | covered | 15 | Behavior covered by a spec in the conformance test suite |
 | `unit` | covered | 15 | Behavior covered by a PureScript unit/property test |
-| `system` | covered | 0 | Behavior driven by the dual-run net — gated by parity:system |
+| `system` | covered | 1 | Behavior driven by the dual-run net — gated by parity:system |
 | `gate-pending` | gap | 50 | Ported and ungated, with a named gate coming (a gap, never a covered bucket) |
 | `ported-ungated` | gap | 0 | Ported and correct, but no gate exercises it and none is planned (test debt) |
-| `not-ported` | gap | 1 | Behavior not present in PSFlow |
+| `not-ported` | gap | 0 | Behavior not present in PSFlow |
 | `accepted-ungated` | accepted | 3 | Ported, and deliberately never gated — carries the written reason |
 | `n/a` | na | 2 | No PSFlow analogue (Svelte-only, build tooling, infra) |
 
@@ -51,11 +51,11 @@ Tickets 076–079 filed **57 rows** as ported-but-ungated after the
 12.3.5 → 12.11.0 sweep, and `tickets/080-test-debt-dispositions.md` decided what
 becomes of each. **56 of them are the debt.**
 
-One row is not: [#5276](https://github.com/xyflow/xyflow/pull/5276). Filed as ported and correct and found to be neither, so `not-ported` — what was found is in the row's own entry under `not-ported` below, and on the [divergence backlog](https://github.com/jonbae/PSFlow/issues/22). A row that was never ported was never test debt, which is the whole of the difference between 57 and 56.
+One row is not: [#5276](https://github.com/xyflow/xyflow/pull/5276). Filed as ported and correct and found to be neither. It has since been ported, and its entry under `system` below says what proves it. A row that was never ported was never test debt, which is the whole of the difference between 57 and 56.
 
-Neither number is typed. `debt` marks the rows 076–079 filed, and both counts are
-this file reading the buckets those rows now carry — which is what keeps the
-correction from going stale the next time one moves.
+Neither number is typed. `debt` marks the rows 076–079 filed and `misfiled` the ones
+found never ported, and both counts are this file reading those two fields — which is
+what keeps the correction from going stale the next time one moves.
 
 Where the 56 went: `ts-only` 1, `surface` 1, `gate-pending` 50, `accepted-ungated` 3, `n/a` 1.
 2 of them have since moved into a covered bucket (#4826, #5472); the rest are still gaps, and a gate that is coming is still one.
@@ -130,9 +130,7 @@ _none._
 
 ### `not-ported` — Behavior not present in PSFlow
 
-| PR | Pkg | Version | Change | Ticket / fix |
-|---|---|---|---|---|
-| [#5276](https://github.com/xyflow/xyflow/pull/5276) | react | 12.7.0 | Add an `ease` and `interpolate` option to all function that alter the viewport | Ported in shape only. The `interpolate` option is threaded (src/System/XYPanZoom.purs:247-251 selects linear against smooth) but completion is not: setViewportImpl resolves immediately at :253, and the comment at :234-236 says outright that d3-zoom's interpolate APIs are not exercised. Upstream's setViewport returns a Promise that settles when the transition finishes; PSFlow's Aff settles when it starts, so `await fitView()` means different things on the two sides. Filed as test debt by 078 and corrected here — it is a divergence, on https://github.com/jonbae/PSFlow/issues/22, and the net could not have caught it: it compares end states, and both sides arrive at the same viewport whatever path they took. |
+_none._
 
 ## Accepted
 
@@ -150,8 +148,7 @@ being called covered that is not. The reason is the whole record.
 
 ## Covered
 
-`system` is empty and is carried anyway, which no other bucket is: 42 rows name it
-as the gate they graduate into, so it is pointed at even while it holds nothing.
+`system` holds 1 row, and 42 `gate-pending` rows name it as the gate they graduate into.
 The rule the rest of the table follows — no bucket without a row — is what keeps
 `smoke` out, since no in-range PR is covered by `smoke.spec.ts`.
 
@@ -245,7 +242,9 @@ The rule the rest of the table follows — no bucket without a row — is what k
 
 ### `system` — Behavior driven by the dual-run net — gated by parity:system
 
-_none._
+| PR | Pkg | Version | Change | Evidence |
+|---|---|---|---|---|
+| [#5276](https://github.com/xyflow/xyflow/pull/5276) | react | 12.7.0 | Add an `ease` and `interpolate` option to all function that alter the viewport | `viewport-helpers-animated` calls six viewport helpers with a `duration`, two of them with linear interpolation, and compares every `onMove` frame in order: 68 on each side. Against the unanimated port it failed with 169 unclaimed differences, and with linear interpolation ignored it fails with 108. `Test.System.XYPanZoom.Transitions` runs upstream's vendored `XYPanZoom` beside the port on Node's own timers and compares 13 cases frame by frame, including custom eases, fractional and non-number durations, an interrupted transition, and the interpolator a constrained change leaves for d3's double-click zoom. |
 
 ### `ts-only` — TypeScript-only (type signature, generics, inference)
 

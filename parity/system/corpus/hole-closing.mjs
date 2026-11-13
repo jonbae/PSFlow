@@ -49,6 +49,7 @@ const EDGE_TYPES = routeOf("./edges/types.ts");
 const DEFAULT_EDGE_OPTIONS = routeOf("./edges/default-options.ts");
 const NODES = routeOf("./nodes/general.ts");
 const AUTOPAN = routeOf("./nodes/autopan.ts");
+const VIEWPORT_HELPERS = routeOf("./viewport/helpers.ts");
 
 const control = (name) => `[data-testid="${name}"]`;
 
@@ -319,6 +320,33 @@ holeClosing.push(
     async run(a) {
       await a.call("addEdges", [{ id: "added-edge", source: "4", target: "5" }]);
       await a.call("updateEdge", ["edge-with-style", { label: "updated edge" }]);
+    },
+  },
+
+  // Upstream #5276: a viewport helper given a `duration` animates. d3 draws the
+  // change over frames, with one `onMove` for each, and the helper's promise
+  // settles after the last. ps-flow drew the end state at once and settled
+  // immediately. The corpus could not see the difference because
+  // `viewport-helpers-with-options` passes `duration: 0` to every helper, and
+  // both sides reach the same end state whichever way they get there.
+  //
+  // `call` steps the application's frames until each promise settles, so both
+  // sides draw on the same frames and the `onMove` sequence compares frame by
+  // frame. Each helper takes its own route to d3: `setViewport`, `setCenter`
+  // and `fitBounds` through `panZoom.setViewport`, `zoomTo` through `scaleTo`,
+  // `zoomIn` through `scaleBy`, and `fitView` through the store. Two of them
+  // interpolate linearly. `ease` is a function, which the bridge cannot carry,
+  // so these frames use the default ease; the unit test compares custom ones.
+  {
+    id: "viewport-helpers-animated",
+    route: VIEWPORT_HELPERS,
+    async run(a) {
+      await a.call("setViewport", [{ x: 40, y: -20, zoom: 1.5 }, { duration: 200 }]);
+      await a.call("zoomTo", [0.8, { duration: 150, interpolate: "linear" }]);
+      await a.call("zoomIn", [{ duration: 120 }]);
+      await a.call("setCenter", [120, 80, { zoom: 2, duration: 180 }]);
+      await a.call("fitBounds", [{ x: -100, y: -100, width: 400, height: 300 }, { padding: 0.2, duration: 160, interpolate: "linear" }]);
+      await a.call("fitView", [{ padding: 0.3, duration: 220 }]);
     },
   }
 );

@@ -12,11 +12,15 @@ module System.XYPanZoom.Utils
   , isWrappedWithClass
   , wheelDelta
   , defaultEase
+  , TransitionTiming
+  , transitionTiming
   ) where
 
 import Prelude
 
+import Control.Alternative (guard)
 import Data.Array (elem) as Array
+import Data.Maybe (Maybe, fromMaybe)
 import Effect (Effect)
 import Foreign (Foreign)
 import System.FFI.D3Zoom
@@ -95,6 +99,19 @@ defaultEase t0 =
     else
       let t' = t - 2.0
       in (t' * t' * t' + 2.0) / 2.0
+
+-- | How d3 animates a viewport change.
+type TransitionTiming = { duration :: Number, ease :: Number -> Number }
+
+-- | The decision upstream's `getD3Transition` makes: d3 animates a change only
+-- | when `duration` is positive, with the cubic ease above unless the caller
+-- | passed one. `Nothing` is upstream's bare selection, which takes the change
+-- | at once. `NaN` is not positive, so it animates nothing either.
+transitionTiming :: Maybe Number -> Maybe (Number -> Number) -> Maybe TransitionTiming
+transitionTiming duration ease = do
+  ms <- duration
+  guard (ms > 0.0)
+  pure { duration: ms, ease: fromMaybe defaultEase ease }
 
 foreign import foreignCtrlKey :: Foreign -> Effect Boolean
 foreign import foreignDeltaY :: Foreign -> Effect Number

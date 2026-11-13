@@ -3,6 +3,8 @@
 import { zoom, zoomTransform, zoomIdentity as _zoomIdentity } from "d3-zoom";
 import { interpolate as _interpolate, interpolateZoom } from "d3-interpolate";
 import { pointer } from "d3-selection";
+// Adds `transition()` to d3 selections, as upstream's own import does.
+import "d3-transition";
 
 // ZoomTransform accessors — the value is the d3 ZoomTransform itself.
 export const zoomTransformX = (t) => t.x;
@@ -46,6 +48,11 @@ export const setZoomFilter = (predicate) => (b) => () => {
   b.filter((event) => predicate(event)());
   return b;
 };
+
+export const selectionTarget = (sel) => sel;
+
+export const selectionTransition = (sel) => (duration) => (ease) => (onEnd) => () =>
+  sel.transition().duration(duration).ease(ease).on("end", () => onEnd());
 
 export const setInterpolate = (interp) => (b) => () => {
   b.interpolate(interp);

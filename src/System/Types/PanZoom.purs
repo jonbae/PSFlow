@@ -50,7 +50,7 @@ type PanZoomParams =
   }
 
 type PanZoomTransformOptions =
-  { duration :: Maybe Int
+  { duration :: Maybe Number
   , ease :: Maybe (Number -> Number)
   , interpolate :: Maybe InterpolateMode
   }

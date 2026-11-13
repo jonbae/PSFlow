@@ -109,9 +109,8 @@ import Boundary.FitView (JsFitViewOptions, fitViewOptionsIn)
 import Boundary.Promise (Promise, toPromise)
 import Boundary.SetState (setStateOut)
 import Boundary.Undefined (Undefinable, fromUndefinable, toUndefinable)
-import Boundary.Untagged (asFunction, asString, oneOrMany, typeName)
+import Boundary.Untagged (asFunction, asNumber, asString, oneOrMany, typeName)
 import Data.Either (Either(..))
-import Data.Int (round) as Int
 import Data.Maybe (Maybe(..), maybe)
 import Data.Newtype (unwrap, wrap)
 import Data.Nullable (Nullable, toNullable)
@@ -178,14 +177,14 @@ type JsUpdateOptions = { replace :: Boolean }
 -- | Upstream `ViewportHelperFunctionOptions`, shared by `zoomIn`, `zoomOut`,
 -- | `zoomTo` and `setViewport`.
 type JsViewportHelperOptions =
-  { duration :: Undefinable Number
+  { duration :: Undefinable Foreign
   , ease :: Undefinable (Number -> Number)
   , interpolate :: Undefinable String
   }
 
 -- | `ViewportHelperFunctionOptions & { zoom?: number }`.
 type JsSetCenterOptions =
-  { duration :: Undefinable Number
+  { duration :: Undefinable Foreign
   , ease :: Undefinable (Number -> Number)
   , interpolate :: Undefinable String
   , zoom :: Undefinable Number
@@ -193,7 +192,7 @@ type JsSetCenterOptions =
 
 -- | `ViewportHelperFunctionOptions & { padding?: number }`.
 type JsFitBoundsOptions =
-  { duration :: Undefinable Number
+  { duration :: Undefinable Foreign
   , ease :: Undefinable (Number -> Number)
   , interpolate :: Undefinable String
   , padding :: Undefinable Number
@@ -568,10 +567,10 @@ screenToFlowOptionsIn options =
 member :: forall bag a. Undefinable bag -> (bag -> Undefinable a) -> Maybe a
 member bag get = fromUndefinable bag >>= (get >>> fromUndefinable)
 
--- | `duration` is milliseconds, `number` upstream and `Int` in ps-flow. The
--- | rounding is the one `Boundary.FitView` applies to the option of this name.
-durationIn :: forall bag. Undefinable bag -> (bag -> Undefinable Number) -> Maybe Int
-durationIn bag get = map Int.round (member bag get)
+-- | Milliseconds, as d3 reads them, unrounded. Upstream animates only a
+-- | `typeof duration === 'number'`, so anything else crosses as no duration.
+durationIn :: forall bag. Undefinable bag -> (bag -> Undefinable Foreign) -> Maybe Number
+durationIn bag get = member bag get >>= asNumber
 
 interpolateIn
   :: forall bag
