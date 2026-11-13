@@ -1,0 +1,38 @@
+diff --git a/.changeset/silly-beans-remain.md b/.changeset/silly-beans-remain.md
+new file mode 100644
+index 0000000000..42c8b49e8c
+--- /dev/null
++++ b/.changeset/silly-beans-remain.md
+@@ -0,0 +1,5 @@
++---
++'@xyflow/react': patch
++---
++
++Prevent default scrolling behavior when nodes or a selection is moved with an arrow key press.
+diff --git a/packages/react/src/components/NodeWrapper/index.tsx b/packages/react/src/components/NodeWrapper/index.tsx
+index 5f52848614..a54a49939f 100644
+--- a/packages/react/src/components/NodeWrapper/index.tsx
++++ b/packages/react/src/components/NodeWrapper/index.tsx
+@@ -138,6 +138,9 @@ export function NodeWrapper<NodeType extends Node>({
+         nodeRef,
+       });
+     } else if (isDraggable && node.selected && Object.prototype.hasOwnProperty.call(arrowKeyDiffs, event.key)) {
++      // prevent default scrolling behavior on arrow key press when node is moved
++      event.preventDefault();
++
+       store.setState({
+         ariaLiveMessage: `Moved selected node ${event.key
+           .replace('Arrow', '')
+diff --git a/packages/react/src/components/NodesSelection/index.tsx b/packages/react/src/components/NodesSelection/index.tsx
+index e2bcd238c1..ecaef17b0e 100644
+--- a/packages/react/src/components/NodesSelection/index.tsx
++++ b/packages/react/src/components/NodesSelection/index.tsx
+@@ -68,6 +68,8 @@ export function NodesSelection<NodeType extends Node>({
+ 
+   const onKeyDown = (event: KeyboardEvent) => {
+     if (Object.prototype.hasOwnProperty.call(arrowKeyDiffs, event.key)) {
++      event.preventDefault();
++
+       moveSelectedNodes({
+         direction: arrowKeyDiffs[event.key],
+         factor: event.shiftKey ? 4 : 1,

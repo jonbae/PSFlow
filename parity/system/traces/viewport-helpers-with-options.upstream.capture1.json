@@ -920,6 +920,20 @@
     "hooks": {},
     "api": {
       "queries": {
+        "screenToFlowPositionOptions": {
+          "inherited": {
+            "x": -150,
+            "y": -75
+          },
+          "unsnapped": {
+            "x": -151.5,
+            "y": -83.5
+          },
+          "custom": {
+            "x": -153,
+            "y": -92
+          }
+        },
         "getNodes": [
           {
             "id": "1",

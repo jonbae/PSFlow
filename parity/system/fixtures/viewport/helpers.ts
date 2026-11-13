@@ -1,25 +1,11 @@
-// A flow that snaps, so a viewport helper called with no options says something
-// (#5012, #5722, #5723).
-//
-// Two of the three rows are about `screenToFlowPosition` taking a `snapGrid`
-// option and defaulting `snapToGrid` to **false** rather than inheriting the
-// flow's setting. That default is only observable against a flow whose own
-// setting is the opposite, which is why this fixture snaps and upstream's
-// `pane/general.ts` does not: on a flow that never snapped, a helper that
-// inherited the setting and one that ignored it answer identically.
-//
-// It matters that the observation is of the *no-options* call. The imperative
-// `call` primitive drives mutators only — read-only members are sampled
-// together after the scenario settles, so that a query can never become an
-// intermediate checkpoint — and `screenToFlowPosition` is a query. So the
-// option cannot be passed from a scenario at all, and what is compared is the
-// answer the settled snapshot took, on a flow where the default is the whole
-// question.
-//
-// The nodes are spread wide enough that `fitBounds` and `setCenter` have
-// somewhere to go that `fitView` would not have chosen for them.
+// A snapping flow with settled query observations for #5012 and #5722.
+// ViewportQueries samples the inherited store grid, an explicit disabled snap,
+// and a distinct custom grid. The mutator scenarios separately exercise #5723
+// with non-default interpolation over multiple frames.
 
+import { ViewportQueries } from '../shared/DebtWitnesses';
 export default {
+  witness: ViewportQueries,
   flowProps: {
     fitView: true,
     minZoom: 0.1,

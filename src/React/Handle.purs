@@ -36,7 +36,7 @@ import Data.Function.Uncurried (runFn2)
 import Foreign (Foreign, unsafeToForeign)
 import React.Basic (ReactComponent)
 import React.Basic.Events (EventHandler, SyntheticEvent, handler, syntheticEvent)
-import React.Basic.Hooks (memo, reactComponent)
+import React.Basic.Hooks (memo, reactComponentWithChildren, reactChildrenToArray)
 import React.Basic.Hooks as React
 import React.Context.NodeId (useNodeId)
 import React.FFI.DOM (div_, opt)
@@ -358,7 +358,7 @@ clickConnectEndState = case _ of
   ConnectionInProgress p -> Just p { toPosition = map _.position p.toHandle }
 
 handle :: ReactComponent HandleProps
-handle = unsafePerformEffect $ memo $ reactComponent "Handle" \(props :: HandleProps) -> React.do
+handle = unsafePerformEffect $ memo $ reactComponentWithChildren "Handle" \(props :: HandleProps) -> React.do
   slice <- useStore selectHandleSlice
   store <- (useStoreApi :: React.Hook UseStoreApi _)
   nodeIdM <- useNodeId
@@ -424,14 +424,21 @@ handle = unsafePerformEffect $ memo $ reactComponent "Handle" \(props :: HandleP
             , cancelConnection: store.dispatch CancelConnection
             , onConnectStart: state.onConnectStart
             , onConnect: Just (onConnectExtended store props.onConnect)
-            , onConnectEnd: state.onConnectEnd
+            , onConnectEnd: Just \endEvent final -> do
+                current <- store.getState
+                for_ current.onConnectEnd \cb -> cb endEvent final
             , isValidConnection: case props.isValidConnection of
                 Just iv -> liftValidConn iv
-                Nothing -> case state.isValidConnection of
-                  Just iv -> liftValidConn iv
-                  Nothing -> \_ -> true
+                -- The system predicate is synchronous. Read the live store
+                -- when it runs, as upstream's closure does during a gesture.
+                Nothing -> \connection -> unsafePerformEffect do
+                  current <- store.getState
+                  pure case current.isValidConnection of
+                    Just iv -> liftValidConn iv connection
+                    Nothing -> true
             , onReconnectEnd: Nothing
             , getTransform: _.transform <$> store.getState
+            , getNodeLookup: _.nodeLookup <$> store.getState
             , getFromHandle: do
                 s <- store.getState
                 pure (extractFromHandle s.connection)
@@ -509,4 +516,4 @@ handle = unsafePerformEffect $ memo $ reactComponent "Handle" \(props :: HandleP
     , onTouchStart: onPointerDown
     , onClick: if slice.connectOnClick then onClick else handler syntheticEvent \_ -> pure unit
     }
-    []
+    (reactChildrenToArray props.children)

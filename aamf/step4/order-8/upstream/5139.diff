@@ -1,0 +1,47 @@
+diff --git a/.changeset/silly-buckets-relate.md b/.changeset/silly-buckets-relate.md
+new file mode 100644
+index 0000000000..99e6bc91e9
+--- /dev/null
++++ b/.changeset/silly-buckets-relate.md
+@@ -0,0 +1,6 @@
++---
++'@xyflow/svelte': patch
++'@xyflow/system': patch
++---
++
++fix: use `rgba` for colors with opacity instead of `rgb`
+diff --git a/packages/svelte/src/lib/container/SvelteFlow/SvelteFlow.svelte b/packages/svelte/src/lib/container/SvelteFlow/SvelteFlow.svelte
+index f1a7a44411..d9bee5d30c 100644
+--- a/packages/svelte/src/lib/container/SvelteFlow/SvelteFlow.svelte
++++ b/packages/svelte/src/lib/container/SvelteFlow/SvelteFlow.svelte
+@@ -297,7 +297,7 @@
+     --background-color-default: #fff;
+     --background-pattern-color-default: #ddd;
+ 
+-    --minimap-mask-color-default: rgb(240, 240, 240, 0.6);
++    --minimap-mask-color-default: rgba(240, 240, 240, 0.6);
+     --minimap-mask-stroke-color-default: none;
+     --minimap-mask-stroke-width-default: 1;
+ 
+diff --git a/packages/system/src/styles/init.css b/packages/system/src/styles/init.css
+index b0651116a0..ca4d6de78f 100644
+--- a/packages/system/src/styles/init.css
++++ b/packages/system/src/styles/init.css
+@@ -13,7 +13,7 @@
+   --xy-attribution-background-color-default: rgba(255, 255, 255, 0.5);
+ 
+   --xy-minimap-background-color-default: #fff;
+-  --xy-minimap-mask-background-color-default: rgb(240, 240, 240, 0.6);
++  --xy-minimap-mask-background-color-default: rgba(240, 240, 240, 0.6);
+   --xy-minimap-mask-stroke-color-default: transparent;
+   --xy-minimap-mask-stroke-width-default: 1;
+   --xy-minimap-node-background-color-default: #e2e2e2;
+@@ -37,7 +37,7 @@
+   --xy-attribution-background-color-default: rgba(150, 150, 150, 0.25);
+ 
+   --xy-minimap-background-color-default: #141414;
+-  --xy-minimap-mask-background-color-default: rgb(60, 60, 60, 0.6);
++  --xy-minimap-mask-background-color-default: rgba(60, 60, 60, 0.6);
+   --xy-minimap-mask-stroke-color-default: transparent;
+   --xy-minimap-mask-stroke-width-default: 1;
+   --xy-minimap-node-background-color-default: #2b2b2b;

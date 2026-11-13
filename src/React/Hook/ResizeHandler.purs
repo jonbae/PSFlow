@@ -16,6 +16,7 @@ import Data.Maybe (Maybe(..))
 import Data.Newtype (class Newtype)
 import Data.Nullable (Nullable, toMaybe)
 import Effect (Effect)
+import Effect.Uncurried (EffectFn1, runEffectFn1)
 import React.Basic (Ref)
 import React.Basic.Hooks (Hook, UnsafeReference(..), UseEffect, coerceHook, readRef, useEffect)
 import React.Basic.Hooks as React
@@ -23,7 +24,16 @@ import React.FFI.ResizeObserver (createResizeObserver, disconnect, observe)
 import React.Hook.Store (UseStoreApi, useStoreApi)
 import React.Store.Action (Action(..))
 import System.Utils.Dom (getDimensions)
+import System.Constants (ErrorCode(..), errorMessage)
+import Data.Foldable (for_)
+import Web.DOM.Element (Element)
+import Web.Event.Event (EventType(..))
+import Web.Event.EventTarget (eventListener, addEventListener, removeEventListener)
+import Web.HTML (window)
+import Web.HTML.Window (toEventTarget)
 import Web.HTML.HTMLDivElement (HTMLDivElement, toElement)
+
+foreign import checkVisibility :: EffectFn1 Element Boolean
 
 newtype UseResizeHandlerHook hooks =
   UseResizeHandlerHook
@@ -52,19 +62,29 @@ useResizeHandler divRef onResize = coerceHook React.do
           -- otherwise produce a broken initial `fitView` viewport.
           updateDimensions :: Effect Unit
           updateDimensions = do
-            { width: w, height: h } <- getDimensions divEl
-            let
-              w' = if w == 0.0 then 500.0 else w
-              h' = if h == 0.0 then 500.0 else h
-            store.dispatch (PatchState \s -> s { width = w', height = h' })
-            case onResize of
-              Just cb -> cb w' h'
-              Nothing -> pure unit
+            visible <- runEffectFn1 checkVisibility (toElement divEl)
+            when visible do
+              { width: w, height: h } <- getDimensions divEl
+              when (w == 0.0 || h == 0.0) do
+                state <- store.getState
+                for_ state.onError \cb -> cb "004" (errorMessage E004)
+              let
+                w' = if w == 0.0 then 500.0 else w
+                h' = if h == 0.0 then 500.0 else h
+              store.dispatch (PatchState \s -> s { width = w', height = h' })
+              case onResize of
+                Just cb -> cb w' h'
+                Nothing -> pure unit
         -- Synchronous initial measurement on mount (upstream line 29):
         -- seeds `width`/`height` *before* the node ResizeObservers fire
         -- and resolve the queued initial `fitView`. Without this the fit
         -- runs against a ~0 container and positions nodes off-screen.
         updateDimensions
+        target <- toEventTarget <$> window
+        listener <- eventListener \_ -> updateDimensions
+        addEventListener (EventType "resize") listener false target
         observer <- createResizeObserver \_ -> updateDimensions
         observe observer (toElement divEl)
-        pure (disconnect observer)
+        pure do
+          removeEventListener (EventType "resize") listener false target
+          disconnect observer

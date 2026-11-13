@@ -17,7 +17,7 @@ import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign, readString)
 import Foreign.Index ((!))
 import React.Basic (JSX, ReactComponent, element)
-import React.Basic.Hooks (reactComponent)
+import React.Basic.Hooks (reactChildrenFromArray, reactComponent)
 import React.FFI.DOM (textContent)
 import React.Handle (handle)
 import React.Types.Nodes (NodeProps)
@@ -44,6 +44,7 @@ inputNode = unsafePerformEffect $ reactComponent "InputNode" \(props :: NodeProp
           , id: Nothing
           , isConnectable: Just props.isConnectable
           , isConnectableStart: Nothing
+          , children: reactChildrenFromArray []
           , isConnectableEnd: Nothing
           , onConnect: Nothing
           , isValidConnection: Nothing

@@ -1,0 +1,229 @@
+diff --git a/.changeset/selfish-tables-tie.md b/.changeset/selfish-tables-tie.md
+new file mode 100644
+index 0000000000..8ac759cfcd
+--- /dev/null
++++ b/.changeset/selfish-tables-tie.md
+@@ -0,0 +1,5 @@
++---
++'@xyflow/react': patch
++---
++
++Support passing `path` element attributes to `BaseEdge` component.
+diff --git a/examples/react/src/examples/Edges/CustomEdge3.css b/examples/react/src/examples/Edges/CustomEdge3.css
+new file mode 100644
+index 0000000000..570b7c75c3
+--- /dev/null
++++ b/examples/react/src/examples/Edges/CustomEdge3.css
+@@ -0,0 +1,14 @@
++@keyframes react-flow-edge-dash {
++  from {
++    stroke-dashoffset: 100;
++  }
++  to {
++    stroke-dashoffset: 0;
++  }
++}
++
++.react-flow__edge-custom3 {
++  stroke-dasharray: 100;
++  stroke-dashoffset: 100;
++  animation: react-flow-edge-dash 1s linear forwards;
++}
+diff --git a/examples/react/src/examples/Edges/CustomEdge3.tsx b/examples/react/src/examples/Edges/CustomEdge3.tsx
+new file mode 100644
+index 0000000000..37a3d40f59
+--- /dev/null
++++ b/examples/react/src/examples/Edges/CustomEdge3.tsx
+@@ -0,0 +1,38 @@
++import { FC } from 'react';
++import { BaseEdge, EdgeProps, EdgeText, getSmoothStepPath } from '@xyflow/react';
++import './CustomEdge3.css';
++
++const CustomEdge: FC<EdgeProps> = ({
++  id,
++  sourceX,
++  sourceY,
++  targetX,
++  targetY,
++  sourcePosition,
++  targetPosition,
++  data,
++}) => {
++  const [edgePath, labelX, labelY] = getSmoothStepPath({
++    sourceX,
++    sourceY,
++    sourcePosition,
++    targetX,
++    targetY,
++    targetPosition,
++  });
++
++  return (
++    <>
++      <BaseEdge id={id} path={edgePath} pathLength={100} />
++      <EdgeText
++        x={labelX}
++        y={labelY - 5}
++        label={data.text}
++        labelBgStyle={{ fill: 'transparent' }}
++        onClick={() => console.log(data)}
++      />
++    </>
++  );
++};
++
++export default CustomEdge;
+diff --git a/examples/react/src/examples/Edges/index.tsx b/examples/react/src/examples/Edges/index.tsx
+index bbba30fb35..6e18d24a8e 100644
+--- a/examples/react/src/examples/Edges/index.tsx
++++ b/examples/react/src/examples/Edges/index.tsx
+@@ -16,6 +16,7 @@ import {
+ 
+ import CustomEdge from './CustomEdge';
+ import CustomEdge2 from './CustomEdge2';
++import CustomEdge3 from './CustomEdge3';
+ 
+ const onNodeDragStop = (_: MouseEvent, node: Node) => console.log('drag stop', node);
+ const onNodeClick = (_: MouseEvent, node: Node) => console.log('click', node);
+@@ -63,6 +64,12 @@ const initialNodes: Node[] = [
+     data: { label: 'Output 9' },
+     position: { x: 675, y: 500 },
+   },
++  {
++    id: '10',
++    type: 'output',
++    data: { label: 'Output 10' },
++    position: { x: 50, y: 400 },
++  },
+ ];
+ 
+ const initialEdges: Edge[] = [
+@@ -137,6 +144,13 @@ const initialEdges: Edge[] = [
+     type: 'custom2',
+     data: { text: 'custom edge 2' },
+   },
++  {
++    id: 'e3a-10',
++    source: '3a',
++    target: '10',
++    type: 'custom3',
++    data: { text: 'custom edge 3' },
++  },
+   {
+     id: 'e5-6',
+     source: '5',
+@@ -173,6 +187,7 @@ const initialEdges: Edge[] = [
+ const edgeTypes: EdgeTypes = {
+   custom: CustomEdge,
+   custom2: CustomEdge2,
++  custom3: CustomEdge3,
+ };
+ 
+ const defaultEdgeOptions = {
+diff --git a/packages/react/src/components/Edges/BaseEdge.tsx b/packages/react/src/components/Edges/BaseEdge.tsx
+index fab062206d..3d951796b1 100644
+--- a/packages/react/src/components/Edges/BaseEdge.tsx
++++ b/packages/react/src/components/Edges/BaseEdge.tsx
+@@ -5,7 +5,6 @@ import { EdgeText } from './EdgeText';
+ import type { BaseEdgeProps } from '../../types';
+ 
+ export function BaseEdge({
+-  id,
+   path,
+   labelX,
+   labelY,
+@@ -15,23 +14,12 @@ export function BaseEdge({
+   labelBgStyle,
+   labelBgPadding,
+   labelBgBorderRadius,
+-  style,
+-  markerEnd,
+-  markerStart,
+-  className,
+   interactionWidth = 20,
++  ...props
+ }: BaseEdgeProps) {
+   return (
+     <>
+-      <path
+-        id={id}
+-        style={style}
+-        d={path}
+-        fill="none"
+-        className={cc(['react-flow__edge-path', className])}
+-        markerEnd={markerEnd}
+-        markerStart={markerStart}
+-      />
++      <path {...props} d={path} fill="none" className={cc(['react-flow__edge-path', props.className])} />
+       {interactionWidth && (
+         <path
+           d={path}
+diff --git a/packages/react/src/types/edges.ts b/packages/react/src/types/edges.ts
+index 8b0cebabda..ce21e84f88 100644
+--- a/packages/react/src/types/edges.ts
++++ b/packages/react/src/types/edges.ts
+@@ -1,6 +1,6 @@
+ /* eslint-disable @typescript-eslint/no-explicit-any */
+ 
+-import type { CSSProperties, HTMLAttributes, ReactNode, MouseEvent as ReactMouseEvent, ComponentType } from 'react';
++import type { CSSProperties, SVGAttributes, ReactNode, MouseEvent as ReactMouseEvent, ComponentType } from 'react';
+ import type {
+   EdgeBase,
+   BezierPathOptions,
+@@ -14,7 +14,6 @@ import type {
+   EdgePosition,
+   StepPathOptions,
+   OnError,
+-  ConnectionState,
+   FinalConnectionState,
+ } from '@xyflow/system';
+ 
+@@ -94,7 +93,7 @@ export type EdgeWrapperProps<EdgeType extends Edge = Edge> = {
+ 
+ export type DefaultEdgeOptions = DefaultEdgeOptionsBase<Edge>;
+ 
+-export type EdgeTextProps = HTMLAttributes<SVGElement> &
++export type EdgeTextProps = SVGAttributes<SVGElement> &
+   EdgeLabelOptions & {
+     x: number;
+     y: number;
+@@ -123,28 +122,17 @@ export type EdgeProps<EdgeType extends Edge = Edge> = Pick<
+  * BaseEdge component props
+  * @public
+  */
+-export type BaseEdgeProps = EdgeLabelOptions & {
+-  /** Unique id of edge */
+-  id?: string;
+-  /** Additional padding where interacting with an edge is still possible */
+-  interactionWidth?: number;
+-  className?: string;
+-  /** The x position of edge label */
+-  labelX?: number;
+-  /** The y position of edge label */
+-  labelY?: number;
+-  /** Marker at start of edge
+-   * @example 'url(#arrow)'
+-   */
+-  markerStart?: string;
+-  /** Marker at end of edge
+-   * @example 'url(#arrow)'
+-   */
+-  markerEnd?: string;
+-  /** SVG path of the edge */
+-  path: string;
+-  style?: CSSProperties;
+-};
++export type BaseEdgeProps = Omit<SVGAttributes<SVGPathElement>, 'd'> &
++  EdgeLabelOptions & {
++    /** Additional padding where interacting with an edge is still possible */
++    interactionWidth?: number;
++    /** The x position of edge label */
++    labelX?: number;
++    /** The y position of edge label */
++    labelY?: number;
++    /** SVG path of the edge */
++    path: string;
++  };
+ 
+ /**
+  * Helper type for edge components that get exported by the library

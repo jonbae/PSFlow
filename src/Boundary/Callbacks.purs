@@ -167,6 +167,7 @@ import Effect.Uncurried
   , runEffectFn4
   )
 import Foreign (Foreign, unsafeToForeign)
+import React.Basic.Events (SyntheticEvent)
 import React.Types.Edges (EdgeMouseHandler, OnReconnect)
 import React.Types.General
   ( IsValidConnection
@@ -387,29 +388,11 @@ type JsMouseEventHandler = EffectFn1 Foreign Unit
 mouseEventHandlerIn :: JsMouseEventHandler -> (MouseEvent -> Effect Unit)
 mouseEventHandlerIn f = \event -> runEffectFn1 f (eventOut event)
 
--- | `onScroll` on the flow's outer wrapper, and the one handler on this surface
--- | that loses an argument.
--- |
--- | Upstream's is `(event: React.UIEvent) => void`.
--- | `React.Types.Component.ReactFlowProps` declares ps-flow's as a bare
--- | `Effect Unit` and its own comment says why: the synthetic event is dropped
--- | so the prop stays callable from PureScript without an FFI bridge. There is
--- | therefore no event here to hand over, and a consumer's `(event) => …` is
--- | called with none — a gap in the internals, not something a converter can
--- | close. It is crossed rather than refused because refusing would make a
--- | working handler an error.
--- |
--- | **Nothing records it.** The census counts exports and this is a prop of
--- | one, so no entry of it says the argument is missing; the net's `callbacks`
--- | section is what will see it, by comparing what each side's handler was
--- | handed. Until then this comment is the only place it is written down.
--- |
--- | A PureScript `Effect Unit` is a nullary function at runtime and so is the
--- | consumer's, which is why this needs no wrapper at all.
-type JsOnScroll = Effect Unit
+-- | The wrapper resets scroll before handing the same synthetic event over.
+type JsOnScroll = EffectFn1 Foreign Unit
 
-onScrollIn :: JsOnScroll -> Effect Unit
-onScrollIn = identity
+onScrollIn :: JsOnScroll -> (SyntheticEvent -> Effect Unit)
+onScrollIn f event = runEffectFn1 f (eventOut event)
 
 -- | `(event?: React.WheelEvent) => void` — upstream's argument is optional, and
 -- | it is `undefined` rather than `null` when the pane scrolled without one.

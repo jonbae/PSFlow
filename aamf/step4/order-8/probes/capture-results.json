@@ -1,0 +1,3222 @@
+[
+  {
+    "scenario": "debt-focus-wrapper-scroll",
+    "ok": false,
+    "failures": [
+      {
+        "class": "unclaimed-difference",
+        "differences": [
+          {
+            "kind": "left-only",
+            "path": [
+              "callbacks",
+              4
+            ],
+            "left": {
+              "name": "wrapperScroll",
+              "args": [
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "callbacks",
+              3,
+              "args",
+              0
+            ],
+            "left": 0,
+            "right": 520
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "callbacks",
+              3,
+              "args",
+              1
+            ],
+            "left": 0,
+            "right": 670
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "wrapperScroll",
+              "top"
+            ],
+            "left": 0,
+            "right": 520
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "wrapperScroll",
+              "left"
+            ],
+            "left": 0,
+            "right": 670
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "scenario": "debt-live-expand-parent",
+    "ok": false,
+    "failures": [
+      {
+        "class": "unclaimed-difference",
+        "differences": [
+          {
+            "kind": "changed",
+            "path": [
+              "dom",
+              "root",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "children",
+              "div[2]",
+              "children",
+              "parent",
+              "attrs",
+              "style"
+            ],
+            "left": "background-color: rgba(80, 120, 200, 0.12); height: 220px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 320px; z-index: 0;",
+            "right": "background-color: rgba(80, 120, 200, 0.12); height: 220px; pointer-events: all; transform: translate(0px, 0px); visibility: visible; width: 350px; z-index: 0;"
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "callbacks",
+              25,
+              "args",
+              0,
+              1
+            ],
+            "right": {
+              "type": "dimensions",
+              "id": "parent",
+              "dimensions": {
+                "width": 350,
+                "height": 220
+              },
+              "setAttributes": true
+            }
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "callbacks",
+              27,
+              "args",
+              1,
+              "measured",
+              "width"
+            ],
+            "left": 320,
+            "right": 350
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "callbacks",
+              27,
+              "args",
+              1,
+              "width"
+            ],
+            "right": 350
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "callbacks",
+              27,
+              "args",
+              1,
+              "height"
+            ],
+            "right": 220
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "getNodes",
+              0,
+              "measured",
+              "width"
+            ],
+            "left": 320,
+            "right": 350
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "api",
+              "queries",
+              "getNodes",
+              0,
+              "width"
+            ],
+            "right": 350
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "api",
+              "queries",
+              "getNodes",
+              0,
+              "height"
+            ],
+            "right": 220
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "getNode",
+              "measured",
+              "width"
+            ],
+            "left": 320,
+            "right": 350
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "api",
+              "queries",
+              "getNode",
+              "width"
+            ],
+            "right": 350
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "api",
+              "queries",
+              "getNode",
+              "height"
+            ],
+            "right": 220
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "getInternalNode",
+              "measured",
+              "width"
+            ],
+            "left": 320,
+            "right": 350
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "getInternalNode",
+              "internals",
+              "handleBounds",
+              "source",
+              0,
+              "x"
+            ],
+            "left": 156,
+            "right": 171
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "getInternalNode",
+              "internals",
+              "handleBounds",
+              "target",
+              0,
+              "x"
+            ],
+            "left": 156,
+            "right": 171
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "getInternalNode",
+              "internals",
+              "userNode",
+              "measured",
+              "width"
+            ],
+            "left": 320,
+            "right": 350
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "api",
+              "queries",
+              "getInternalNode",
+              "internals",
+              "userNode",
+              "width"
+            ],
+            "right": 350
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "api",
+              "queries",
+              "getInternalNode",
+              "internals",
+              "userNode",
+              "height"
+            ],
+            "right": 220
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "api",
+              "queries",
+              "getInternalNode",
+              "width"
+            ],
+            "right": 350
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "api",
+              "queries",
+              "getInternalNode",
+              "height"
+            ],
+            "right": 220
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "getIntersectingNodes",
+              0,
+              "measured",
+              "width"
+            ],
+            "left": 320,
+            "right": 350
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "api",
+              "queries",
+              "getIntersectingNodes",
+              0,
+              "width"
+            ],
+            "right": 350
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "api",
+              "queries",
+              "getIntersectingNodes",
+              0,
+              "height"
+            ],
+            "right": 220
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "toObject",
+              "nodes",
+              0,
+              "measured",
+              "width"
+            ],
+            "left": 320,
+            "right": 350
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "api",
+              "queries",
+              "toObject",
+              "nodes",
+              0,
+              "width"
+            ],
+            "right": 350
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "api",
+              "queries",
+              "toObject",
+              "nodes",
+              0,
+              "height"
+            ],
+            "right": 220
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "scenario": "debt-detached-handle",
+    "ok": false,
+    "failures": [
+      {
+        "class": "unclaimed-difference",
+        "differences": [
+          {
+            "kind": "left-only",
+            "path": [
+              "dom",
+              "root",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "children",
+              "svg[0]"
+            ],
+            "left": {
+              "tag": "svg",
+              "attrs": {
+                "style": "z-index: 0;"
+              },
+              "children": [
+                {
+                  "tag": "g",
+                  "attrs": {
+                    "class": "nopan react-flow__edge react-flow__edge-default selectable",
+                    "tabindex": "0",
+                    "role": "group",
+                    "aria-roledescription": "edge",
+                    "data-id": "xy-edge__sourceout-targetin",
+                    "data-testid": "rf__edge-xy-edge__sourceout-targetin",
+                    "aria-label": "Edge from source to target",
+                    "aria-describedby": "react-flow__edge-desc-1"
+                  },
+                  "children": [
+                    {
+                      "tag": "path",
+                      "attrs": {
+                        "d": "M260,164 C260,280 560,280 560,396",
+                        "fill": "none",
+                        "class": "react-flow__edge-path"
+                      },
+                      "children": []
+                    },
+                    {
+                      "tag": "path",
+                      "attrs": {
+                        "d": "M260,164 C260,280 560,280 560,396",
+                        "fill": "none",
+                        "stroke-opacity": "0",
+                        "stroke-width": "20",
+                        "class": "react-flow__edge-interaction"
+                      },
+                      "children": []
+                    },
+                    {
+                      "tag": "circle",
+                      "attrs": {
+                        "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                        "cx": "260",
+                        "cy": "174",
+                        "r": "10",
+                        "stroke": "transparent",
+                        "fill": "transparent"
+                      },
+                      "children": []
+                    },
+                    {
+                      "tag": "circle",
+                      "attrs": {
+                        "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                        "cx": "560",
+                        "cy": "386",
+                        "r": "10",
+                        "stroke": "transparent",
+                        "fill": "transparent"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "callbacks",
+              9
+            ],
+            "left": {
+              "name": "onConnectStart",
+              "args": [
+                {
+                  "@class": "MouseEvent",
+                  "isTrusted": true
+                },
+                {
+                  "nodeId": "source",
+                  "handleId": "out",
+                  "handleType": "source"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "callbacks",
+              14
+            ],
+            "left": {
+              "name": "isValidConnection",
+              "args": [
+                {
+                  "source": "source",
+                  "sourceHandle": "out",
+                  "target": "target",
+                  "targetHandle": "in"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "callbacks",
+              15
+            ],
+            "left": {
+              "name": "onConnect",
+              "args": [
+                {
+                  "source": "source",
+                  "sourceHandle": "out",
+                  "target": "target",
+                  "targetHandle": "in"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "callbacks",
+              16
+            ],
+            "left": {
+              "name": "onConnectEnd",
+              "args": [
+                {
+                  "@class": "MouseEvent",
+                  "isTrusted": true
+                },
+                {
+                  "isValid": true,
+                  "from": {
+                    "x": 260,
+                    "y": 160
+                  },
+                  "fromHandle": {
+                    "id": "out",
+                    "type": "source",
+                    "nodeId": "source",
+                    "position": "bottom",
+                    "x": 56,
+                    "y": 56,
+                    "width": 8,
+                    "height": 8
+                  },
+                  "fromPosition": "bottom",
+                  "fromNode": {
+                    "id": "source",
+                    "type": "detached",
+                    "position": {
+                      "x": 200,
+                      "y": 100
+                    },
+                    "data": {
+                      "label": "source"
+                    },
+                    "measured": {
+                      "width": 120,
+                      "height": 60
+                    },
+                    "internals": {
+                      "positionAbsolute": {
+                        "x": 200,
+                        "y": 100
+                      },
+                      "handleBounds": {
+                        "source": [
+                          {
+                            "id": "out",
+                            "type": "source",
+                            "nodeId": "source",
+                            "position": "bottom",
+                            "x": 56,
+                            "y": 56,
+                            "width": 8,
+                            "height": 8
+                          }
+                        ],
+                        "target": [
+                          {
+                            "id": "in",
+                            "type": "target",
+                            "nodeId": "source",
+                            "position": "top",
+                            "x": 56,
+                            "y": -4,
+                            "width": 8,
+                            "height": 8
+                          }
+                        ]
+                      },
+                      "z": 0,
+                      "userNode": {
+                        "id": "source",
+                        "type": "detached",
+                        "position": {
+                          "x": 200,
+                          "y": 100
+                        },
+                        "data": {
+                          "label": "source"
+                        },
+                        "measured": {
+                          "width": 120,
+                          "height": 60
+                        }
+                      }
+                    }
+                  },
+                  "to": {
+                    "x": 560,
+                    "y": 400
+                  },
+                  "toHandle": {
+                    "id": "in",
+                    "type": "target",
+                    "nodeId": "target",
+                    "position": "top",
+                    "x": 560,
+                    "y": 400,
+                    "width": 8,
+                    "height": 8
+                  },
+                  "toPosition": "top",
+                  "toNode": {
+                    "id": "target",
+                    "type": "detached",
+                    "position": {
+                      "x": 500,
+                      "y": 400
+                    },
+                    "data": {
+                      "label": "target"
+                    },
+                    "measured": {
+                      "width": 120,
+                      "height": 60
+                    },
+                    "internals": {
+                      "positionAbsolute": {
+                        "x": 500,
+                        "y": 400
+                      },
+                      "handleBounds": {
+                        "source": [
+                          {
+                            "id": "out",
+                            "type": "source",
+                            "nodeId": "target",
+                            "position": "bottom",
+                            "x": 56,
+                            "y": 56,
+                            "width": 8,
+                            "height": 8
+                          }
+                        ],
+                        "target": [
+                          {
+                            "id": "in",
+                            "type": "target",
+                            "nodeId": "target",
+                            "position": "top",
+                            "x": 56,
+                            "y": -4,
+                            "width": 8,
+                            "height": 8
+                          }
+                        ]
+                      },
+                      "z": 0,
+                      "userNode": {
+                        "id": "target",
+                        "type": "detached",
+                        "position": {
+                          "x": 500,
+                          "y": 400
+                        },
+                        "data": {
+                          "label": "target"
+                        },
+                        "measured": {
+                          "width": 120,
+                          "height": 60
+                        }
+                      }
+                    }
+                  },
+                  "pointer": {
+                    "x": 560,
+                    "y": 400
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getEdges",
+              0
+            ],
+            "left": {
+              "source": "source",
+              "sourceHandle": "out",
+              "target": "target",
+              "targetHandle": "in",
+              "id": "xy-edge__sourceout-targetin"
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getEdge",
+              "source"
+            ],
+            "left": "source"
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getEdge",
+              "sourceHandle"
+            ],
+            "left": "out"
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getEdge",
+              "target"
+            ],
+            "left": "target"
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getEdge",
+              "targetHandle"
+            ],
+            "left": "in"
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getEdge",
+              "id"
+            ],
+            "left": "xy-edge__sourceout-targetin"
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "api",
+              "queries",
+              "getEdge",
+              "@undefined"
+            ],
+            "right": true
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getHandleConnections",
+              0
+            ],
+            "left": {
+              "edgeId": "xy-edge__sourceout-targetin",
+              "source": "source",
+              "target": "target",
+              "sourceHandle": "out",
+              "targetHandle": "in"
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getNodeConnections",
+              0
+            ],
+            "left": {
+              "edgeId": "xy-edge__sourceout-targetin",
+              "source": "source",
+              "target": "target",
+              "sourceHandle": "out",
+              "targetHandle": "in"
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "toObject",
+              "edges",
+              0
+            ],
+            "left": {
+              "source": "source",
+              "sourceHandle": "out",
+              "target": "target",
+              "targetHandle": "in",
+              "id": "xy-edge__sourceout-targetin"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "scenario": "mount-in-display-none",
+    "ok": false,
+    "failures": [
+      {
+        "class": "unclaimed-difference",
+        "differences": [
+          {
+            "kind": "right-only",
+            "path": [
+              "callbacks",
+              7
+            ],
+            "right": {
+              "name": "onError",
+              "args": [
+                "004",
+                "The React Flow parent container needs a width and a height to render the graph."
+              ]
+            }
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "storeState",
+              "width"
+            ],
+            "left": 1280,
+            "right": 500
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "storeState",
+              "height"
+            ],
+            "left": 720,
+            "right": 500
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "scenario": "debt-keyboard-connection-origin",
+    "ok": false,
+    "failures": [
+      {
+        "class": "unclaimed-difference",
+        "differences": [
+          {
+            "kind": "changed",
+            "path": [
+              "dom",
+              "root",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "children",
+              "svg[0]",
+              "children",
+              "g[0]",
+              "children",
+              "path[0]",
+              "attrs",
+              "d"
+            ],
+            "left": "M275,170 C275,177.5 285,177.5 285,185",
+            "right": "M260,160 C260,172.5 285,172.5 285,185"
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "dom",
+              "root",
+              "children",
+              "output[0]",
+              "attrs",
+              "data-connection-state"
+            ],
+            "left": "{\"inProgress\":true,\"from\":{\"x\":275,\"y\":170},\"to\":{\"x\":285,\"y\":185},\"pointer\":{\"x\":285,\"y\":185},\"fromId\":\"source\"}",
+            "right": "{\"inProgress\":true,\"from\":{\"x\":260,\"y\":160},\"to\":{\"x\":285,\"y\":185},\"pointer\":{\"x\":285,\"y\":185},\"fromId\":\"source\"}"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "scenario": "debt-minimap-missing-node",
+    "ok": false,
+    "failures": [
+      {
+        "class": "unclaimed-difference",
+        "differences": [
+          {
+            "kind": "changed",
+            "path": [
+              "dom",
+              "root"
+            ],
+            "left": {
+              "tag": "div",
+              "attrs": {
+                "data-testid": "rf__wrapper",
+                "class": "light react-flow",
+                "role": "application",
+                "style": "height: 100%; overflow: hidden; position: relative; width: 100%; z-index: 0;"
+              },
+              "children": [
+                {
+                  "tag": "div",
+                  "attrs": {
+                    "class": "react-flow__renderer",
+                    "style": "height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
+                  },
+                  "children": [
+                    {
+                      "tag": "div",
+                      "attrs": {
+                        "class": "draggable react-flow__pane",
+                        "style": "height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
+                      },
+                      "children": [
+                        {
+                          "tag": "div",
+                          "attrs": {
+                            "class": "react-flow__container react-flow__viewport xyflow__viewport",
+                            "style": "transform: translate(490px, 123px) scale(2);"
+                          },
+                          "children": [
+                            {
+                              "tag": "div",
+                              "attrs": {
+                                "class": "react-flow__edges"
+                              },
+                              "children": [
+                                {
+                                  "tag": "svg",
+                                  "attrs": {
+                                    "style": "z-index: 0;"
+                                  },
+                                  "children": [
+                                    {
+                                      "tag": "g",
+                                      "attrs": {
+                                        "class": "nopan react-flow__edge react-flow__edge-default selectable",
+                                        "tabindex": "0",
+                                        "role": "group",
+                                        "aria-roledescription": "edge",
+                                        "data-id": "1-2",
+                                        "data-testid": "rf__edge-1-2",
+                                        "aria-label": "Edge from Node-1 to Node-2",
+                                        "aria-describedby": "react-flow__edge-desc-1"
+                                      },
+                                      "children": [
+                                        {
+                                          "tag": "path",
+                                          "attrs": {
+                                            "d": "M75,40 C75,68.5 -25,68.5 -25,97",
+                                            "fill": "none",
+                                            "class": "react-flow__edge-path"
+                                          },
+                                          "children": []
+                                        },
+                                        {
+                                          "tag": "path",
+                                          "attrs": {
+                                            "d": "M75,40 C75,68.5 -25,68.5 -25,97",
+                                            "fill": "none",
+                                            "stroke-opacity": "0",
+                                            "stroke-width": "20",
+                                            "class": "react-flow__edge-interaction"
+                                          },
+                                          "children": []
+                                        },
+                                        {
+                                          "tag": "g",
+                                          "attrs": {
+                                            "transform": "translate(15.53076171875 62.75)",
+                                            "class": "react-flow__edge-textwrapper",
+                                            "visibility": "visible"
+                                          },
+                                          "children": [
+                                            {
+                                              "tag": "rect",
+                                              "attrs": {
+                                                "width": "22.9384765625",
+                                                "x": "-2",
+                                                "y": "-4",
+                                                "height": "19.5",
+                                                "class": "react-flow__edge-textbg",
+                                                "rx": "2",
+                                                "ry": "2"
+                                              },
+                                              "children": []
+                                            },
+                                            {
+                                              "tag": "text",
+                                              "attrs": {
+                                                "class": "react-flow__edge-text",
+                                                "y": "5.75",
+                                                "dy": "0.3em"
+                                              },
+                                              "text": "edge",
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "tag": "circle",
+                                          "attrs": {
+                                            "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                            "cx": "75",
+                                            "cy": "50",
+                                            "r": "10",
+                                            "stroke": "transparent",
+                                            "fill": "transparent"
+                                          },
+                                          "children": []
+                                        },
+                                        {
+                                          "tag": "circle",
+                                          "attrs": {
+                                            "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                            "cx": "-25",
+                                            "cy": "87",
+                                            "r": "10",
+                                            "stroke": "transparent",
+                                            "fill": "transparent"
+                                          },
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "tag": "svg",
+                                  "attrs": {
+                                    "style": "z-index: 0;"
+                                  },
+                                  "children": [
+                                    {
+                                      "tag": "g",
+                                      "attrs": {
+                                        "class": "nopan react-flow__edge react-flow__edge-default selectable",
+                                        "tabindex": "0",
+                                        "role": "group",
+                                        "aria-roledescription": "edge",
+                                        "data-id": "1-3",
+                                        "data-testid": "rf__edge-1-3",
+                                        "aria-label": "Edge from Node-1 to Node-3",
+                                        "aria-describedby": "react-flow__edge-desc-1"
+                                      },
+                                      "children": [
+                                        {
+                                          "tag": "path",
+                                          "attrs": {
+                                            "d": "M75,40 C75,68.5 175,68.5 175,97",
+                                            "fill": "none",
+                                            "class": "react-flow__edge-path"
+                                          },
+                                          "children": []
+                                        },
+                                        {
+                                          "tag": "path",
+                                          "attrs": {
+                                            "d": "M75,40 C75,68.5 175,68.5 175,97",
+                                            "fill": "none",
+                                            "stroke-opacity": "0",
+                                            "stroke-width": "20",
+                                            "class": "react-flow__edge-interaction"
+                                          },
+                                          "children": []
+                                        },
+                                        {
+                                          "tag": "g",
+                                          "attrs": {
+                                            "transform": "translate(115.53076171875 62.75)",
+                                            "class": "react-flow__edge-textwrapper",
+                                            "visibility": "visible"
+                                          },
+                                          "children": [
+                                            {
+                                              "tag": "rect",
+                                              "attrs": {
+                                                "width": "22.9384765625",
+                                                "x": "-2",
+                                                "y": "-4",
+                                                "height": "19.5",
+                                                "class": "react-flow__edge-textbg",
+                                                "rx": "2",
+                                                "ry": "2"
+                                              },
+                                              "children": []
+                                            },
+                                            {
+                                              "tag": "text",
+                                              "attrs": {
+                                                "class": "react-flow__edge-text",
+                                                "y": "5.75",
+                                                "dy": "0.3em"
+                                              },
+                                              "text": "edge",
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "tag": "circle",
+                                          "attrs": {
+                                            "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                            "cx": "75",
+                                            "cy": "50",
+                                            "r": "10",
+                                            "stroke": "transparent",
+                                            "fill": "transparent"
+                                          },
+                                          "children": []
+                                        },
+                                        {
+                                          "tag": "circle",
+                                          "attrs": {
+                                            "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                            "cx": "175",
+                                            "cy": "87",
+                                            "r": "10",
+                                            "stroke": "transparent",
+                                            "fill": "transparent"
+                                          },
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "tag": "div",
+                              "attrs": {
+                                "class": "react-flow__edgelabel-renderer"
+                              },
+                              "children": []
+                            },
+                            {
+                              "tag": "div",
+                              "attrs": {
+                                "class": "react-flow__nodes",
+                                "style": "height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
+                              },
+                              "children": [
+                                {
+                                  "tag": "div",
+                                  "attrs": {
+                                    "class": "draggable nopan react-flow__node react-flow__node-input selectable",
+                                    "data-id": "Node-1",
+                                    "data-testid": "rf__node-Node-1",
+                                    "tabindex": "0",
+                                    "role": "group",
+                                    "aria-roledescription": "node",
+                                    "aria-describedby": "react-flow__node-desc-1",
+                                    "style": "pointer-events: all; transform: translate(0px, 0px); visibility: visible; z-index: 0;"
+                                  },
+                                  "text": "Node-1",
+                                  "children": [
+                                    {
+                                      "tag": "div",
+                                      "attrs": {
+                                        "data-nodeid": "Node-1",
+                                        "data-handlepos": "bottom",
+                                        "data-id": "1-Node-1-null-source",
+                                        "class": "connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source"
+                                      },
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "tag": "div",
+                                  "attrs": {
+                                    "class": "draggable nopan react-flow__node react-flow__node-output selectable",
+                                    "data-id": "Node-2",
+                                    "data-testid": "rf__node-Node-2",
+                                    "tabindex": "0",
+                                    "role": "group",
+                                    "aria-roledescription": "node",
+                                    "aria-describedby": "react-flow__node-desc-1",
+                                    "style": "pointer-events: all; transform: translate(-100px, 100px); visibility: visible; z-index: 0;"
+                                  },
+                                  "text": "Node-2",
+                                  "children": [
+                                    {
+                                      "tag": "div",
+                                      "attrs": {
+                                        "data-nodeid": "Node-2",
+                                        "data-handlepos": "top",
+                                        "data-id": "1-Node-2-null-target",
+                                        "class": "connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target"
+                                      },
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "tag": "div",
+                                  "attrs": {
+                                    "class": "draggable nopan react-flow__node react-flow__node-default selectable",
+                                    "data-id": "Node-3",
+                                    "data-testid": "rf__node-Node-3",
+                                    "tabindex": "0",
+                                    "role": "group",
+                                    "aria-roledescription": "node",
+                                    "aria-describedby": "react-flow__node-desc-1",
+                                    "style": "pointer-events: all; transform: translate(100px, 100px); visibility: visible; z-index: 0;"
+                                  },
+                                  "text": "Node-3",
+                                  "children": [
+                                    {
+                                      "tag": "div",
+                                      "attrs": {
+                                        "data-nodeid": "Node-3",
+                                        "data-handlepos": "top",
+                                        "data-id": "1-Node-3-null-target",
+                                        "class": "connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target"
+                                      },
+                                      "children": []
+                                    },
+                                    {
+                                      "tag": "div",
+                                      "attrs": {
+                                        "data-nodeid": "Node-3",
+                                        "data-handlepos": "bottom",
+                                        "data-id": "1-Node-3-null-source",
+                                        "class": "connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-bottom source"
+                                      },
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "tag": "div",
+                                  "attrs": {
+                                    "class": "draggable nopan react-flow__node react-flow__node-output selectable",
+                                    "data-id": "Node-4",
+                                    "data-testid": "rf__node-Node-4",
+                                    "tabindex": "0",
+                                    "role": "group",
+                                    "aria-roledescription": "node",
+                                    "aria-describedby": "react-flow__node-desc-1",
+                                    "style": "pointer-events: all; transform: translate(0px, 200px); visibility: visible; z-index: 0;"
+                                  },
+                                  "text": "Node-4",
+                                  "children": [
+                                    {
+                                      "tag": "div",
+                                      "attrs": {
+                                        "data-nodeid": "Node-4",
+                                        "data-handlepos": "top",
+                                        "data-id": "1-Node-4-null-target",
+                                        "class": "connectable connectableend connectablestart connectionindicator nodrag nopan react-flow__handle react-flow__handle-top target"
+                                      },
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "tag": "div",
+                              "attrs": {
+                                "class": "react-flow__viewport-portal"
+                              },
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "tag": "div",
+                  "attrs": {
+                    "class": "bottom react-flow__minimap react-flow__panel right",
+                    "data-testid": "rf__minimap"
+                  },
+                  "children": [
+                    {
+                      "tag": "svg",
+                      "attrs": {
+                        "width": "200",
+                        "height": "150",
+                        "viewBox": "-261 -137.5 672 512",
+                        "class": "react-flow__minimap-svg",
+                        "role": "img",
+                        "aria-labelledby": "react-flow__minimap-desc-1"
+                      },
+                      "children": [
+                        {
+                          "tag": "title",
+                          "attrs": {
+                            "id": "react-flow__minimap-desc-1"
+                          },
+                          "text": "Mini Map",
+                          "children": []
+                        },
+                        {
+                          "tag": "rect",
+                          "attrs": {
+                            "class": "react-flow__minimap-node",
+                            "x": "0",
+                            "y": "0",
+                            "rx": "5",
+                            "ry": "5",
+                            "width": "150",
+                            "height": "37",
+                            "shape-rendering": "geometricPrecision"
+                          },
+                          "children": []
+                        },
+                        {
+                          "tag": "rect",
+                          "attrs": {
+                            "class": "react-flow__minimap-node",
+                            "x": "-100",
+                            "y": "100",
+                            "rx": "5",
+                            "ry": "5",
+                            "width": "150",
+                            "height": "37",
+                            "shape-rendering": "geometricPrecision"
+                          },
+                          "children": []
+                        },
+                        {
+                          "tag": "rect",
+                          "attrs": {
+                            "class": "react-flow__minimap-node",
+                            "x": "100",
+                            "y": "100",
+                            "rx": "5",
+                            "ry": "5",
+                            "width": "150",
+                            "height": "37",
+                            "shape-rendering": "geometricPrecision"
+                          },
+                          "children": []
+                        },
+                        {
+                          "tag": "rect",
+                          "attrs": {
+                            "class": "react-flow__minimap-node",
+                            "x": "0",
+                            "y": "200",
+                            "rx": "5",
+                            "ry": "5",
+                            "width": "150",
+                            "height": "37",
+                            "shape-rendering": "geometricPrecision"
+                          },
+                          "children": []
+                        },
+                        {
+                          "tag": "path",
+                          "attrs": {
+                            "class": "react-flow__minimap-mask",
+                            "d": "M-277,-153.5h704v544h-704z\n        M-245,-61.5h640v360h-640z",
+                            "fill-rule": "evenodd",
+                            "pointer-events": "none"
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "tag": "div",
+                  "attrs": {
+                    "class": "bottom react-flow__attribution react-flow__panel right",
+                    "data-message": "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
+                  },
+                  "children": [
+                    {
+                      "tag": "a",
+                      "attrs": {
+                        "href": "https://reactflow.dev",
+                        "target": "_blank",
+                        "rel": "noopener noreferrer",
+                        "aria-label": "React Flow attribution"
+                      },
+                      "text": "React Flow",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "tag": "div",
+                  "attrs": {
+                    "id": "react-flow__node-desc-1",
+                    "style": "display: none;"
+                  },
+                  "text": "Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel.",
+                  "children": []
+                },
+                {
+                  "tag": "div",
+                  "attrs": {
+                    "id": "react-flow__edge-desc-1",
+                    "style": "display: none;"
+                  },
+                  "text": "Press enter or space to select an edge. You can then press delete to remove it or escape to cancel.",
+                  "children": []
+                },
+                {
+                  "tag": "div",
+                  "attrs": {
+                    "id": "react-flow__aria-live-1",
+                    "aria-live": "assertive",
+                    "aria-atomic": "true",
+                    "style": "border: 0px; clip-path: inset(100%); clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px;"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            "right": null
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "callbacks",
+              7
+            ],
+            "right": {
+              "name": "onError",
+              "args": [
+                "004",
+                "The React Flow parent container needs a width and a height to render the graph."
+              ]
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getNodes",
+              0
+            ],
+            "left": {
+              "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "type": "input",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getNodes",
+              1
+            ],
+            "left": {
+              "id": "Node-2",
+              "data": {
+                "label": "Node-2"
+              },
+              "position": {
+                "x": -100,
+                "y": 100
+              },
+              "type": "output",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getNodes",
+              2
+            ],
+            "left": {
+              "id": "Node-3",
+              "data": {
+                "label": "Node-3"
+              },
+              "position": {
+                "x": 100,
+                "y": 100
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getNodes",
+              3
+            ],
+            "left": {
+              "id": "Node-4",
+              "data": {
+                "label": "Node-4"
+              },
+              "position": {
+                "x": 0,
+                "y": 200
+              },
+              "type": "output",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getNode",
+              "id"
+            ],
+            "left": "Node-1"
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getNode",
+              "data"
+            ],
+            "left": {
+              "label": "Node-1"
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getNode",
+              "position"
+            ],
+            "left": {
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getNode",
+              "type"
+            ],
+            "left": "input"
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getNode",
+              "measured"
+            ],
+            "left": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "api",
+              "queries",
+              "getNode",
+              "@undefined"
+            ],
+            "right": true
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getInternalNode",
+              "id"
+            ],
+            "left": "Node-1"
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getInternalNode",
+              "data"
+            ],
+            "left": {
+              "label": "Node-1"
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getInternalNode",
+              "position"
+            ],
+            "left": {
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getInternalNode",
+              "type"
+            ],
+            "left": "input"
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getInternalNode",
+              "measured"
+            ],
+            "left": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getInternalNode",
+              "internals"
+            ],
+            "left": {
+              "positionAbsolute": {
+                "x": 0,
+                "y": 0
+              },
+              "handleBounds": {
+                "source": [
+                  {
+                    "id": null,
+                    "type": "source",
+                    "nodeId": "Node-1",
+                    "position": "bottom",
+                    "x": 71,
+                    "y": 32,
+                    "width": 8,
+                    "height": 8
+                  }
+                ],
+                "target": null
+              },
+              "z": 0,
+              "userNode": {
+                "id": "Node-1",
+                "data": {
+                  "label": "Node-1"
+                },
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "type": "input",
+                "measured": {
+                  "width": 150,
+                  "height": 37
+                }
+              }
+            }
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "api",
+              "queries",
+              "getInternalNode",
+              "@undefined"
+            ],
+            "right": true
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getEdges",
+              0
+            ],
+            "left": {
+              "id": "1-2",
+              "type": "default",
+              "source": "Node-1",
+              "target": "Node-2",
+              "label": "edge"
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getEdges",
+              1
+            ],
+            "left": {
+              "id": "1-3",
+              "type": "default",
+              "source": "Node-1",
+              "target": "Node-3",
+              "label": "edge"
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getEdge",
+              "id"
+            ],
+            "left": "1-2"
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getEdge",
+              "type"
+            ],
+            "left": "default"
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getEdge",
+              "source"
+            ],
+            "left": "Node-1"
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getEdge",
+              "target"
+            ],
+            "left": "Node-2"
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getEdge",
+              "label"
+            ],
+            "left": "edge"
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "api",
+              "queries",
+              "getEdge",
+              "@undefined"
+            ],
+            "right": true
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getIntersectingNodes",
+              0
+            ],
+            "left": {
+              "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "type": "input",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getIntersectingNodes",
+              1
+            ],
+            "left": {
+              "id": "Node-2",
+              "data": {
+                "label": "Node-2"
+              },
+              "position": {
+                "x": -100,
+                "y": 100
+              },
+              "type": "output",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getIntersectingNodes",
+              2
+            ],
+            "left": {
+              "id": "Node-3",
+              "data": {
+                "label": "Node-3"
+              },
+              "position": {
+                "x": 100,
+                "y": 100
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getIntersectingNodes",
+              3
+            ],
+            "left": {
+              "id": "Node-4",
+              "data": {
+                "label": "Node-4"
+              },
+              "position": {
+                "x": 0,
+                "y": 200
+              },
+              "type": "output",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "isNodeIntersecting"
+            ],
+            "left": true,
+            "right": false
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "getNodesBounds",
+              "x"
+            ],
+            "left": -100,
+            "right": 0
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "getNodesBounds",
+              "width"
+            ],
+            "left": 350,
+            "right": 0
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "getNodesBounds",
+              "height"
+            ],
+            "left": 237,
+            "right": 0
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getHandleConnections",
+              0
+            ],
+            "left": {
+              "edgeId": "1-2",
+              "source": "Node-1",
+              "target": "Node-2",
+              "sourceHandle": null,
+              "targetHandle": null
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getHandleConnections",
+              1
+            ],
+            "left": {
+              "edgeId": "1-3",
+              "source": "Node-1",
+              "target": "Node-3",
+              "sourceHandle": null,
+              "targetHandle": null
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getNodeConnections",
+              0
+            ],
+            "left": {
+              "edgeId": "1-2",
+              "source": "Node-1",
+              "target": "Node-2",
+              "sourceHandle": null,
+              "targetHandle": null
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getNodeConnections",
+              1
+            ],
+            "left": {
+              "edgeId": "1-3",
+              "source": "Node-1",
+              "target": "Node-3",
+              "sourceHandle": null,
+              "targetHandle": null
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "toObject",
+              "nodes",
+              0
+            ],
+            "left": {
+              "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "type": "input",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "toObject",
+              "nodes",
+              1
+            ],
+            "left": {
+              "id": "Node-2",
+              "data": {
+                "label": "Node-2"
+              },
+              "position": {
+                "x": -100,
+                "y": 100
+              },
+              "type": "output",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "toObject",
+              "nodes",
+              2
+            ],
+            "left": {
+              "id": "Node-3",
+              "data": {
+                "label": "Node-3"
+              },
+              "position": {
+                "x": 100,
+                "y": 100
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "toObject",
+              "nodes",
+              3
+            ],
+            "left": {
+              "id": "Node-4",
+              "data": {
+                "label": "Node-4"
+              },
+              "position": {
+                "x": 0,
+                "y": 200
+              },
+              "type": "output",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "toObject",
+              "edges",
+              0
+            ],
+            "left": {
+              "id": "1-2",
+              "type": "default",
+              "source": "Node-1",
+              "target": "Node-2",
+              "label": "edge"
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "toObject",
+              "edges",
+              1
+            ],
+            "left": {
+              "id": "1-3",
+              "type": "default",
+              "source": "Node-1",
+              "target": "Node-3",
+              "label": "edge"
+            }
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "toObject",
+              "viewport",
+              "x"
+            ],
+            "left": 490,
+            "right": 0
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "toObject",
+              "viewport",
+              "y"
+            ],
+            "left": 123,
+            "right": 0
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "toObject",
+              "viewport",
+              "zoom"
+            ],
+            "left": 2,
+            "right": 1
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "getZoom"
+            ],
+            "left": 2,
+            "right": 1
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "getViewport",
+              "x"
+            ],
+            "left": 490,
+            "right": 0
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "getViewport",
+              "y"
+            ],
+            "left": 123,
+            "right": 0
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "getViewport",
+              "zoom"
+            ],
+            "left": 2,
+            "right": 1
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "screenToFlowPosition",
+              "x"
+            ],
+            "left": -245,
+            "right": 0
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "screenToFlowPosition",
+              "y"
+            ],
+            "left": -61.5,
+            "right": 0
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "flowToScreenPosition",
+              "x"
+            ],
+            "left": 490,
+            "right": 0
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "flowToScreenPosition",
+              "y"
+            ],
+            "left": 123,
+            "right": 0
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "console",
+              1
+            ],
+            "right": {
+              "level": "pageerror",
+              "text": "Failed pattern match at Data.Maybe (line 288, column 1 - line 288, column 46): Nothing2"
+            }
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "console",
+              2
+            ],
+            "right": {
+              "level": "pageerror",
+              "text": "Failed pattern match at Data.Maybe (line 288, column 1 - line 288, column 46): Nothing2"
+            }
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "console",
+              3
+            ],
+            "right": {
+              "level": "error",
+              "text": "The above error occurred in the <MiniMapNodes> component:\n\n    at http://127.0.0.1:34559/parity/driver/dist/psflow.js:32889:61\n    at svg\n    at div\n    at http://127.0.0.1:34559/parity/driver/dist/psflow.js:32889:45\n    at http://127.0.0.1:34559/parity/driver/dist/psflow.js:32889:61\n    at http://127.0.0.1:34559/parity/driver/dist/psflow.js:32889:45\n    at http://127.0.0.1:34559/parity/driver/dist/psflow.js:32889:61\n    at http://127.0.0.1:34559/parity/driver/dist/psflow.js:32889:61\n    at http://127.0.0.1:34559/parity/driver/dist/psflow.js:32889:61\n    at div\n    at http://127.0.0.1:34559/parity/driver/dist/psflow.js:32889:45\n    at http://127.0.0.1:34559/parity/driver/dist/psflow.js:42924:64\n    at div\n    at Flow_default (http://127.0.0.1:34559/parity/driver/dist/psflow.js:72256:23)\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
+            }
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "console",
+              4
+            ],
+            "right": {
+              "level": "pageerror",
+              "text": "Failed pattern match at Data.Maybe (line 288, column 1 - line 288, column 46): Nothing2"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "scenario": "debt-live-connection-handlers",
+    "ok": false,
+    "failures": [
+      {
+        "class": "unclaimed-difference",
+        "differences": [
+          {
+            "kind": "right-only",
+            "path": [
+              "dom",
+              "root",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "children",
+              "svg[0]"
+            ],
+            "right": {
+              "tag": "svg",
+              "attrs": {
+                "style": "z-index: 0;"
+              },
+              "children": [
+                {
+                  "tag": "g",
+                  "attrs": {
+                    "class": "nopan react-flow__edge react-flow__edge-default selectable",
+                    "tabindex": "0",
+                    "role": "group",
+                    "aria-roledescription": "edge",
+                    "data-id": "xy-edge__sourceout-targetin",
+                    "data-testid": "rf__edge-xy-edge__sourceout-targetin",
+                    "aria-label": "Edge from source to target",
+                    "aria-describedby": "react-flow__edge-desc-1"
+                  },
+                  "children": [
+                    {
+                      "tag": "path",
+                      "attrs": {
+                        "d": "M260,164 C260,280 560,280 560,396",
+                        "fill": "none",
+                        "class": "react-flow__edge-path"
+                      },
+                      "children": []
+                    },
+                    {
+                      "tag": "path",
+                      "attrs": {
+                        "d": "M260,164 C260,280 560,280 560,396",
+                        "fill": "none",
+                        "stroke-opacity": "0",
+                        "stroke-width": "20",
+                        "class": "react-flow__edge-interaction"
+                      },
+                      "children": []
+                    },
+                    {
+                      "tag": "circle",
+                      "attrs": {
+                        "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                        "cx": "260",
+                        "cy": "174",
+                        "r": "10",
+                        "stroke": "transparent",
+                        "fill": "transparent"
+                      },
+                      "children": []
+                    },
+                    {
+                      "tag": "circle",
+                      "attrs": {
+                        "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                        "cx": "560",
+                        "cy": "386",
+                        "r": "10",
+                        "stroke": "transparent",
+                        "fill": "transparent"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "callbacks",
+              13
+            ],
+            "left": {
+              "name": "currentIsValidConnection",
+              "args": [
+                false
+              ]
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "callbacks",
+              14
+            ],
+            "left": {
+              "name": "currentOnConnectEnd",
+              "args": [
+                false,
+                {
+                  "@class": "MouseEvent",
+                  "isTrusted": true
+                },
+                {
+                  "isValid": false,
+                  "from": {
+                    "x": 260,
+                    "y": 160
+                  },
+                  "fromHandle": {
+                    "id": "out",
+                    "type": "source",
+                    "nodeId": "source",
+                    "position": "bottom",
+                    "x": 56,
+                    "y": 56,
+                    "width": 8,
+                    "height": 8
+                  },
+                  "fromPosition": "bottom",
+                  "fromNode": {
+                    "id": "source",
+                    "type": "detached",
+                    "position": {
+                      "x": 200,
+                      "y": 100
+                    },
+                    "data": {
+                      "label": "source"
+                    },
+                    "measured": {
+                      "width": 120,
+                      "height": 60
+                    },
+                    "internals": {
+                      "positionAbsolute": {
+                        "x": 200,
+                        "y": 100
+                      },
+                      "handleBounds": {
+                        "source": [
+                          {
+                            "id": "out",
+                            "type": "source",
+                            "nodeId": "source",
+                            "position": "bottom",
+                            "x": 56,
+                            "y": 56,
+                            "width": 8,
+                            "height": 8
+                          }
+                        ],
+                        "target": [
+                          {
+                            "id": "in",
+                            "type": "target",
+                            "nodeId": "source",
+                            "position": "top",
+                            "x": 56,
+                            "y": -4,
+                            "width": 8,
+                            "height": 8
+                          }
+                        ]
+                      },
+                      "z": 0,
+                      "userNode": {
+                        "id": "source",
+                        "type": "detached",
+                        "position": {
+                          "x": 200,
+                          "y": 100
+                        },
+                        "data": {
+                          "label": "source"
+                        },
+                        "measured": {
+                          "width": 120,
+                          "height": 60
+                        }
+                      }
+                    }
+                  },
+                  "to": {
+                    "x": 560,
+                    "y": 400
+                  },
+                  "toHandle": {
+                    "id": "in",
+                    "type": "target",
+                    "nodeId": "target",
+                    "position": "top",
+                    "x": 560,
+                    "y": 400,
+                    "width": 8,
+                    "height": 8
+                  },
+                  "toPosition": "top",
+                  "toNode": {
+                    "id": "target",
+                    "type": "detached",
+                    "position": {
+                      "x": 500,
+                      "y": 400
+                    },
+                    "data": {
+                      "label": "target"
+                    },
+                    "measured": {
+                      "width": 120,
+                      "height": 60
+                    },
+                    "internals": {
+                      "positionAbsolute": {
+                        "x": 500,
+                        "y": 400
+                      },
+                      "handleBounds": {
+                        "source": [
+                          {
+                            "id": "out",
+                            "type": "source",
+                            "nodeId": "target",
+                            "position": "bottom",
+                            "x": 56,
+                            "y": 56,
+                            "width": 8,
+                            "height": 8
+                          }
+                        ],
+                        "target": [
+                          {
+                            "id": "in",
+                            "type": "target",
+                            "nodeId": "target",
+                            "position": "top",
+                            "x": 56,
+                            "y": -4,
+                            "width": 8,
+                            "height": 8
+                          }
+                        ]
+                      },
+                      "z": 0,
+                      "userNode": {
+                        "id": "target",
+                        "type": "detached",
+                        "position": {
+                          "x": 500,
+                          "y": 400
+                        },
+                        "data": {
+                          "label": "target"
+                        },
+                        "measured": {
+                          "width": 120,
+                          "height": 60
+                        }
+                      }
+                    }
+                  },
+                  "pointer": {
+                    "x": 560,
+                    "y": 400
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "callbacks",
+              13
+            ],
+            "right": {
+              "name": "isValidConnection",
+              "args": [
+                {
+                  "source": "source",
+                  "target": "target",
+                  "sourceHandle": "out",
+                  "targetHandle": "in"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "callbacks",
+              14
+            ],
+            "right": {
+              "name": "onConnect",
+              "args": [
+                {
+                  "source": "source",
+                  "target": "target",
+                  "sourceHandle": "out",
+                  "targetHandle": "in"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "callbacks",
+              15
+            ],
+            "right": {
+              "name": "onConnectEnd",
+              "args": [
+                {
+                  "@class": "MouseEvent",
+                  "isTrusted": true
+                },
+                {
+                  "isValid": true,
+                  "from": {
+                    "x": 260,
+                    "y": 160
+                  },
+                  "fromHandle": {
+                    "id": "out",
+                    "nodeId": "source",
+                    "x": 56,
+                    "y": 56,
+                    "position": "bottom",
+                    "type": "source",
+                    "width": 8,
+                    "height": 8
+                  },
+                  "fromPosition": "bottom",
+                  "fromNode": {
+                    "id": "source",
+                    "type": "detached",
+                    "position": {
+                      "x": 200,
+                      "y": 100
+                    },
+                    "data": {
+                      "label": "source"
+                    },
+                    "measured": {
+                      "width": 120,
+                      "height": 60
+                    },
+                    "internals": {
+                      "positionAbsolute": {
+                        "x": 200,
+                        "y": 100
+                      },
+                      "z": 0,
+                      "userNode": {
+                        "id": "source",
+                        "type": "detached",
+                        "position": {
+                          "x": 200,
+                          "y": 100
+                        },
+                        "data": {
+                          "label": "source"
+                        },
+                        "measured": {
+                          "width": 120,
+                          "height": 60
+                        }
+                      },
+                      "handleBounds": {
+                        "source": [
+                          {
+                            "id": "out",
+                            "nodeId": "source",
+                            "x": 56,
+                            "y": 56,
+                            "position": "bottom",
+                            "type": "source",
+                            "width": 8,
+                            "height": 8
+                          }
+                        ],
+                        "target": [
+                          {
+                            "id": "in",
+                            "nodeId": "source",
+                            "x": 56,
+                            "y": -4,
+                            "position": "top",
+                            "type": "target",
+                            "width": 8,
+                            "height": 8
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "to": {
+                    "x": 560,
+                    "y": 400
+                  },
+                  "toHandle": {
+                    "id": "in",
+                    "nodeId": "target",
+                    "x": 560,
+                    "y": 400,
+                    "position": "top",
+                    "type": "target",
+                    "width": 8,
+                    "height": 8
+                  },
+                  "toPosition": "top",
+                  "toNode": {
+                    "id": "target",
+                    "type": "detached",
+                    "position": {
+                      "x": 500,
+                      "y": 400
+                    },
+                    "data": {
+                      "label": "target"
+                    },
+                    "measured": {
+                      "width": 120,
+                      "height": 60
+                    },
+                    "internals": {
+                      "positionAbsolute": {
+                        "x": 500,
+                        "y": 400
+                      },
+                      "z": 0,
+                      "userNode": {
+                        "id": "target",
+                        "type": "detached",
+                        "position": {
+                          "x": 500,
+                          "y": 400
+                        },
+                        "data": {
+                          "label": "target"
+                        },
+                        "measured": {
+                          "width": 120,
+                          "height": 60
+                        }
+                      },
+                      "handleBounds": {
+                        "source": [
+                          {
+                            "id": "out",
+                            "nodeId": "target",
+                            "x": 56,
+                            "y": 56,
+                            "position": "bottom",
+                            "type": "source",
+                            "width": 8,
+                            "height": 8
+                          }
+                        ],
+                        "target": [
+                          {
+                            "id": "in",
+                            "nodeId": "target",
+                            "x": 56,
+                            "y": -4,
+                            "position": "top",
+                            "type": "target",
+                            "width": 8,
+                            "height": 8
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "pointer": {
+                    "x": 560,
+                    "y": 400
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "api",
+              "queries",
+              "getEdges",
+              0
+            ],
+            "right": {
+              "source": "source",
+              "target": "target",
+              "sourceHandle": "out",
+              "targetHandle": "in",
+              "id": "xy-edge__sourceout-targetin"
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getEdge",
+              "@undefined"
+            ],
+            "left": true
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "api",
+              "queries",
+              "getEdge",
+              "source"
+            ],
+            "right": "source"
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "api",
+              "queries",
+              "getEdge",
+              "target"
+            ],
+            "right": "target"
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "api",
+              "queries",
+              "getEdge",
+              "sourceHandle"
+            ],
+            "right": "out"
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "api",
+              "queries",
+              "getEdge",
+              "targetHandle"
+            ],
+            "right": "in"
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "api",
+              "queries",
+              "getEdge",
+              "id"
+            ],
+            "right": "xy-edge__sourceout-targetin"
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "api",
+              "queries",
+              "getHandleConnections",
+              0
+            ],
+            "right": {
+              "edgeId": "xy-edge__sourceout-targetin",
+              "source": "source",
+              "target": "target",
+              "sourceHandle": "out",
+              "targetHandle": "in"
+            }
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "api",
+              "queries",
+              "getNodeConnections",
+              0
+            ],
+            "right": {
+              "edgeId": "xy-edge__sourceout-targetin",
+              "source": "source",
+              "target": "target",
+              "sourceHandle": "out",
+              "targetHandle": "in"
+            }
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "api",
+              "queries",
+              "toObject",
+              "edges",
+              0
+            ],
+            "right": {
+              "source": "source",
+              "target": "target",
+              "sourceHandle": "out",
+              "targetHandle": "in",
+              "id": "xy-edge__sourceout-targetin"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "scenario": "debt-selection-cleared-by-nodes",
+    "ok": false,
+    "failures": [
+      {
+        "class": "unclaimed-difference",
+        "differences": [
+          {
+            "kind": "right-only",
+            "path": [
+              "dom",
+              "root",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "children",
+              "div[1]"
+            ],
+            "right": {
+              "tag": "div",
+              "attrs": {
+                "class": "nopan react-flow__container react-flow__nodesselection",
+                "style": "transform: translate(490px, 123px) scale(2) translate(0px, 0px);"
+              },
+              "children": [
+                {
+                  "tag": "div",
+                  "attrs": {
+                    "class": "react-flow__nodesselection-rect",
+                    "tabindex": "-1",
+                    "style": "height: 0px; width: 0px;"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "storeState",
+              "nodesSelectionActive"
+            ],
+            "left": false,
+            "right": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "scenario": "debt-abort-touch-drag",
+    "ok": false,
+    "failures": [
+      {
+        "class": "unclaimed-difference",
+        "differences": [
+          {
+            "kind": "left-only",
+            "path": [
+              "callbacks",
+              21
+            ],
+            "left": {
+              "name": "onNodesChange",
+              "args": [
+                [
+                  {
+                    "id": "Node-1",
+                    "type": "position",
+                    "position": {
+                      "x": 10,
+                      "y": 10
+                    },
+                    "dragging": false
+                  }
+                ]
+              ]
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "callbacks",
+              23
+            ],
+            "left": {
+              "name": "onNodesChange",
+              "args": [
+                [
+                  {
+                    "id": "Node-3",
+                    "type": "position",
+                    "position": {
+                      "x": 100,
+                      "y": 100
+                    },
+                    "dragging": false
+                  }
+                ]
+              ]
+            }
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "getNodes",
+              0,
+              "dragging"
+            ],
+            "left": false,
+            "right": true
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getNodes",
+              2,
+              "dragging"
+            ],
+            "left": false
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "getNode",
+              "dragging"
+            ],
+            "left": false,
+            "right": true
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "getInternalNode",
+              "dragging"
+            ],
+            "left": false,
+            "right": true
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "getInternalNode",
+              "internals",
+              "userNode",
+              "dragging"
+            ],
+            "left": false,
+            "right": true
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "getIntersectingNodes",
+              0,
+              "dragging"
+            ],
+            "left": false,
+            "right": true
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "getIntersectingNodes",
+              2,
+              "dragging"
+            ],
+            "left": false
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "api",
+              "queries",
+              "toObject",
+              "nodes",
+              0,
+              "dragging"
+            ],
+            "left": false,
+            "right": true
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "api",
+              "queries",
+              "toObject",
+              "nodes",
+              2,
+              "dragging"
+            ],
+            "left": false
+          }
+        ]
+      }
+    ]
+  }
+]

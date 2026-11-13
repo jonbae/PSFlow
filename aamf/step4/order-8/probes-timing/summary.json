@@ -1,0 +1,14 @@
+{
+  "probes": 1,
+  "rejected": 1,
+  "survivors": [],
+  "results": [
+    {
+      "scenario": "debt-store-effect-timing",
+      "ok": false,
+      "failures": [
+        "unclaimed-difference"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+diff --git a/.changeset/itchy-pumas-share.md b/.changeset/itchy-pumas-share.md
+new file mode 100644
+index 0000000000..09c4dc6ef1
+--- /dev/null
++++ b/.changeset/itchy-pumas-share.md
+@@ -0,0 +1,5 @@
++---
++'@xyflow/system': patch
++---
++
++Center panel correctly when bottom-center or top-center position is used
+diff --git a/packages/system/src/styles/init.css b/packages/system/src/styles/init.css
+index ca4d6de78f..5f082ff889 100644
+--- a/packages/system/src/styles/init.css
++++ b/packages/system/src/styles/init.css
+@@ -282,7 +282,7 @@ svg.xy-flow__connectionline {
+   &.bottom {
+     &.center {
+       left: 50%;
+-      transform: translateX(-50%);
++      transform: translateX(-15px) translateX(-50%);
+     }
+   }
+ 
+@@ -298,7 +298,7 @@ svg.xy-flow__connectionline {
+   &.right {
+     &.center {
+       top: 50%;
+-      transform: translateY(-50%);
++      transform: translateY(-15px) translateY(-50%);
+     }
+   }
+ }

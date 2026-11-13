@@ -393,6 +393,9 @@ onEnd
 onEnd params upd ev = do
   src <- liftEffect (dragSourceEvent ev)
   s0 <- get
+  when (s0.abortDrag && Array.length s0.dragItems > 0) do
+    store <- liftEffect params.getStoreItems
+    liftEffect (store.updateNodePositions s0.dragItems false)
   unless (not s0.dragStarted || s0.abortDrag) do
     liftEffect (for_ s0.autoPanId cancelAnimationFrame)
     modify_ _

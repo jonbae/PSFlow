@@ -50,7 +50,7 @@
 -- | this, browser tab-focus logic can scroll the wrapper when a focused
 -- | node is offscreen — leaving the canvas misaligned with its
 -- | transform. The user can observe the scroll via the optional
--- | `onScroll :: Maybe (Effect Unit)` prop.
+-- | `onScroll :: Maybe (SyntheticEvent -> Effect Unit)` prop.
 -- |
 -- | **Skipped from TS.** The `id` prop: not present on `ReactFlowProps`
 -- | in the PS port; `rfId` is always `InitValues.defaultRfId`, `"1"`. Add
@@ -381,7 +381,7 @@ reactFlow =
           , children: reactChildrenFromArray innerChildren
           }
 
-        wrapperOnScroll = scrollResetHandler (fromMaybe (pure unit) props.onScroll)
+        wrapperOnScroll = scrollResetHandler (fromMaybe (const (pure unit)) props.onScroll)
         -- Upstream's `<div data-testid="rf__wrapper" {...rest} onScroll …>`:
         -- the rest replaces the test id, and the attributes set after it
         -- replace the rest.

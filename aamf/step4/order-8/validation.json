@@ -1,0 +1,90 @@
+{
+  "status": "complete",
+  "dateUTC": "2026-11-13",
+  "startingRevision": "65ff5ab70f86f2280f8ebfcfb6339660015365ab",
+  "baseline": {
+    "react": "12.11.0",
+    "system": "0.0.77"
+  },
+  "runtime": {
+    "hostNode": "22.18.0",
+    "purescript": "0.15.16",
+    "spago": "1.0.4",
+    "browserImage": "mcr.microsoft.com/playwright:v1.60.0-noble",
+    "captureNode": "24.15.0",
+    "chromium": "148.0.7778.96",
+    "capturePlatform": "linux/x64",
+    "imageId": "sha256:ab853f51b03036cd52e74771c2dd07ee1471c408645048e928af67db6beae6d7",
+    "imageDigest": "mcr.microsoft.com/playwright@sha256:9bd26ad900bb5e0f4dee75839e957a89ae89c2b7ab1e76050e559790e946b948"
+  },
+  "acceptance": {
+    "reviewedRows": 42,
+    "reviewedRowsInSystem": 42,
+    "systemRowsIncluding5276": 43,
+    "gatePending": 0,
+    "scenarios": 151,
+    "passed": 151,
+    "selfInconsistent": 0,
+    "drivingDivergences": 0,
+    "exportBearingEntries": 156,
+    "driven": 155,
+    "declaredHoles": 1,
+    "focusedRefresh": 27,
+    "focusedPassed": 27,
+    "rejectedPortFaults": 19,
+    "traceMismatches": 17,
+    "apiNoncompletions": 2,
+    "additionalExploratorySurvivors": 1
+  },
+  "checks": {
+    "spago build": "pass, zero warnings/errors in final package build",
+    "build:oracle": "pass; SHA-256 unchanged from the bundle the function tests read",
+    "parity:surface": "pass, stage 5, 68 crossed, zero passthroughs",
+    "spago test": "pass",
+    "test:conformance": "41 passed",
+    "test:smoke": "2 passed",
+    "parity:boundary": "pass",
+    "test:boundary": "248 passed",
+    "test:harness": "281 passed",
+    "test:coverage": "39 passed",
+    "test:compare": "109 passed",
+    "parity:fork": "54 source units affirmed",
+    "parity:system": "151 passed in the full Linux wave, followed by 27 owned refreshes and a full stored-trace comparison",
+    "test:audit": "96 passed, including 86 branch-receipt tests",
+    "parity:changelog": "180 PRs; 175 covered, zero gaps, 3 accepted, 2 n/a",
+    "build:package": "pass",
+    "parity:package": "10 checks passed"
+  },
+  "captureSequence": [
+    "node parity/system/linux.mjs npm run parity:system",
+    "node parity/system/linux.mjs node aamf/step4/order-8/final-capture.mjs",
+    "node parity/system/net.mjs --compare-only",
+    "npm run parity:coverage",
+    "npm run parity:changelog",
+    "npm run test:audit"
+  ],
+  "comparisonPolicy": {
+    "parity/system/normalization.json": "84f5642fb384cb0dded67b85cfc11b6c8afba4cc25a2c0359bc5370fcd3cb18c",
+    "parity/system/regions.json": "c426880339668a0a4cf8ee69bf70d6dc31e4cbe835d92de51b6d1de5fc17b71d",
+    "parity/system/weakenings.json": "97881163b126ff6c9feae49f7cc0af148f1beabd2521feeb399cc1154a30a90d"
+  },
+  "runtimeSourceSHA256": {
+    "src/Boundary/Callbacks.purs": "430a2696f6891ba1678e1d9ddcc12bb124d55ff2dc3e54975445f1befa983cc0",
+    "src/Boundary/NodeChrome.purs": "9a7da71737e97ee193bc1e6b7fdbd0436973df3e35e57212069d39d4c47c6fea",
+    "src/React/Component/EdgeWrapper/UpdateAnchors.purs": "9b035683de4d9e81bdca9be60bca299d7d59992854678917665584a6881dc8a6",
+    "src/React/Container/ReactFlow.purs": "f95c2c4df5d528143f261adea322d6129be914946f5ea91ac5f566704ebdc3b2",
+    "src/React/FFI/DOM.js": "9af2c6b4cd218de2d5a53be30ce2ef1fcaa01494bf2561623c28d5439346bd70",
+    "src/React/FFI/DOM.purs": "16c2def334961aa18ff59f4f186d1b0a1854e3c0a2d4a408818f412ec72c6f69",
+    "src/React/Handle.purs": "d23a7fd9cbe2837377ee1c7d38dedd816e9412d457b0043ba3c2b93b085d289f",
+    "src/React/Hook/ResizeHandler.purs": "44308c8eaebb07ba34b5765c83c62a693595fa8f60805553ffb350f676032d57",
+    "src/React/Node/Default.purs": "b885e0a914cdea8249109e76700ab7d54106af0b6c753f315a5e0b7363ffa271",
+    "src/React/Node/Input.purs": "16c894017423eb014302826f3e17a012abf5a6b6587533a68f98a29bef8fa5aa",
+    "src/React/Node/Output.purs": "0bebc333eda5771aa1d0f26eb8dfa069f40019811f631d5fd46697a2de433aa2",
+    "src/React/Store/Reduce.purs": "8ba842118bc8ca524f7949d6e00dd27348046bbd8203a50390af1eeb0b226770",
+    "src/React/Types/Component.purs": "eb03a5354a2d1063f8ef237c85065316779b907aad57e5442d0ff1d710e8d860",
+    "src/System/XYDrag.purs": "11b1b2cdad655ed2b0e3ce86602ac4a405de993bc32cd846bfb7123a5c7612bf",
+    "src/System/XYHandle.purs": "f39dc1e7d8a98de0646f1e2f3062f802746c9afc6d81a352eef1e2a279cbf8a3",
+    "src/React/Hook/ResizeHandler.js": "3c593a9cd645b68f11145b50d896e3f9509b6a9a94707bcc0c2cde7f2a28f1f5"
+  },
+  "packageLockSHA256": "5e87a70a827515dceef7e450996685cf193a894f624ad43e16ebb36a01601aca"
+}

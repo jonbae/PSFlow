@@ -1,0 +1,120 @@
+diff --git a/.changeset/red-cycles-wonder.md b/.changeset/red-cycles-wonder.md
+new file mode 100644
+index 0000000000..6241d12682
+--- /dev/null
++++ b/.changeset/red-cycles-wonder.md
+@@ -0,0 +1,5 @@
++---
++'@xyflow/react': patch
++---
++
++Reset selection box when user selects a node
+diff --git a/examples/svelte/src/routes/examples/figma/+page.svelte b/examples/svelte/src/routes/examples/figma/+page.svelte
+index 9c448353c7..33de11ea38 100644
+--- a/examples/svelte/src/routes/examples/figma/+page.svelte
++++ b/examples/svelte/src/routes/examples/figma/+page.svelte
+@@ -39,6 +39,7 @@
+ 	bind:edges
+ 	fitView
+ 	selectionMode={SelectionMode.Partial}
++	multiSelectionKey={['Meta', 'Shift']}
+ 	selectionOnDrag
+ 	panOnScroll
+ 	paneClickDistance={100}
+diff --git a/packages/react/src/container/Pane/index.tsx b/packages/react/src/container/Pane/index.tsx
+index 94f23c351d..32a0e6df37 100644
+--- a/packages/react/src/container/Pane/index.tsx
++++ b/packages/react/src/container/Pane/index.tsx
+@@ -121,7 +121,7 @@ export function Pane({
+   // We are using capture here in order to prevent other pointer events
+   // to be able to create a selection above a node or an edge
+   const onPointerDownCapture = (event: ReactPointerEvent): void => {
+-    const { resetSelectedElements, domNode } = store.getState();
++    const { domNode } = store.getState();
+     containerBounds.current = domNode?.getBoundingClientRect();
+     if (!containerBounds.current) return;
+ 
+@@ -155,13 +155,6 @@ export function Pane({
+       event.stopPropagation();
+       event.preventDefault();
+     }
+-
+-    if (paneClickDistance === 0 || selectionKeyPressed) {
+-      resetSelectedElements();
+-
+-      onSelectionStart?.(event);
+-      selectionInProgress.current = true;
+-    }
+   };
+ 
+   const onPointerMove = (event: ReactPointerEvent): void => {
+@@ -184,14 +177,10 @@ export function Pane({
+     const { x: mouseX, y: mouseY } = getEventPosition(event.nativeEvent, containerBounds.current);
+     const { startX, startY } = userSelectionRect;
+ 
+-    if (
+-      !selectionInProgress.current &&
+-      event.target === container.current &&
+-      !selectionKeyPressed &&
+-      paneClickDistance > 0
+-    ) {
++    if (!selectionInProgress.current) {
++      const requiredDistance = selectionKeyPressed ? 0 : paneClickDistance;
+       const distance = Math.hypot(mouseX - startX, mouseY - startY);
+-      if (distance <= paneClickDistance) {
++      if (distance <= requiredDistance) {
+         return;
+       }
+       resetSelectedElements();
+@@ -268,11 +257,14 @@ export function Pane({
+     store.setState({
+       userSelectionActive: false,
+       userSelectionRect: null,
+-      nodesSelectionActive: selectedNodeIds.current.size > 0,
+     });
+ 
+     if (selectionInProgress.current) {
+       onSelectionEnd?.(event);
++
++      store.setState({
++        nodesSelectionActive: selectedNodeIds.current.size > 0,
++      });
+     }
+   };
+ 
+diff --git a/packages/svelte/src/lib/container/Pane/Pane.svelte b/packages/svelte/src/lib/container/Pane/Pane.svelte
+index d2fdec9dba..b7de8cfac6 100644
+--- a/packages/svelte/src/lib/container/Pane/Pane.svelte
++++ b/packages/svelte/src/lib/container/Pane/Pane.svelte
+@@ -120,13 +120,6 @@
+       event.stopPropagation();
+       event.preventDefault();
+     }
+-
+-    if (paneClickDistance === 0 || store.selectionKeyPressed) {
+-      store.unselectNodesAndEdges();
+-
+-      onselectionstart?.(event);
+-      selectionInProgress = true;
+-    }
+   }
+ 
+   function onPointerMove(event: PointerEvent) {
+@@ -137,14 +130,10 @@
+     const mousePos = getEventPosition(event, containerBounds);
+     const { startX = 0, startY = 0 } = store.selectionRect;
+ 
+-    if (
+-      !selectionInProgress &&
+-      event.target === container &&
+-      !store.selectionKeyPressed &&
+-      paneClickDistance > 0
+-    ) {
++    if (!selectionInProgress) {
++      const requiredDistance = store.selectionKeyPressed ? 0 : paneClickDistance;
+       const distance = Math.hypot(mousePos.x - startX, mousePos.y - startY);
+-      if (distance <= paneClickDistance) {
++      if (distance <= requiredDistance) {
+         return;
+       }
+       store.unselectNodesAndEdges();

@@ -6,7 +6,8 @@
 // sides, while a boundary mistake is a real bug the net exists to catch. That
 // is why this is hand-written and the fixtures are not.
 //
-// Everything below is upstream's, with seven named differences. Two are forced:
+// The core below mirrors upstream; the driver additions are listed here.
+// Two are forced:
 //
 //   * `FlowConfig` is declared here rather than being the ambient global
 //     upstream's `app.d.ts` supplies, because that file's types come from
@@ -70,12 +71,17 @@
 // or not the consumer feeds anything back. `fixtures/nodes/unmeasured.ts` says
 // what does leave a node unmeasured.
 //
+// Step 4 order 8 also adds fixture-owned consumer witnesses, a persistent
+// provider for keyed flow remounts, and controlled flows that ignore changes
+// or literally omit onNodesChange. These are inputs to both libraries. The
+// optional callback omission applies only where the fixture explicitly asks.
+//
 // `@xyflow/react` is a build-level alias (see `../build.mjs`). It resolves to
 // ps-flow's `index.js` for the conformance run and to the vendored upstream for
 // the net's other run; this file cannot tell which, and that is the point — one
 // driver bundled twice means a driver difference can never be mistaken for a
 // library difference.
-import { useState, useCallback } from 'react';
+import { useState, useCallback, type ComponentType } from 'react';
 import {
   ReactFlow,
   applyNodeChanges,
@@ -85,6 +91,7 @@ import {
   Panel,
   MiniMap,
   Background,
+  ReactFlowProvider,
 } from '@xyflow/react';
 
 import { useObservedHandlers } from './callbacks';
@@ -101,6 +108,11 @@ export type FlowConfig = {
   controlsProps?: ChromeProps;
   minimapProps?: ChromeProps;
   afterMount?: Record<string, unknown>;
+  // Consumer witnesses are fixture-owned and run unchanged on both sides.
+  witness?: ComponentType<{ changed: boolean }>;
+  persistentProvider?: boolean;
+  omitObservedCallbacks?: string[];
+  nodeChanges?: 'ignore' | 'absent';
 };
 
 // One entry, several, or none. The four chrome components each render once per
@@ -108,6 +120,7 @@ export type FlowConfig = {
 // two says so by writing a list.
 const asList = (props: ChromeProps | undefined): Record<string, unknown>[] =>
   props === undefined ? [] : Array.isArray(props) ? props : [props];
+const ignoreChanges = () => undefined;
 
 type FlowProps = {
   flowConfig: FlowConfig;
@@ -129,7 +142,8 @@ export default ({ flowConfig }: FlowProps) => {
   // `nodes` and `edges` off `<ReactFlow>` altogether, so `defaultNodes` decides.
   const controlled = derived.flowProps?.nodes !== undefined;
   const graph = controlled
-    ? { nodes, edges, onNodesChange, onEdgesChange, onConnect }
+    ? { nodes, edges, onNodesChange: flowConfig.nodeChanges === 'absent' ? undefined :
+        flowConfig.nodeChanges === 'ignore' ? ignoreChanges : onNodesChange, onEdgesChange, onConnect }
     : { onConnect };
 
   // `afterMount` is read off `flowConfig` rather than `derived`, as the chrome
@@ -137,15 +151,17 @@ export default ({ flowConfig }: FlowProps) => {
   // `deriveProbeGraph` to have replaced. A fixture that put nodes in here would
   // hand a probe variant an underived graph, which is why no fixture does.
   const props = { ...derived.flowProps, ...graph, ...(changed ? flowConfig.afterMount : null) };
+  const { key: flowKey, ...flowProps } = props;
 
   // Every callback prop upstream declares, each recording its call into the
   // in-page log and then deferring to whatever `props` held under the same
   // name — including the three above. Spread *after* `props`, which is what
   // makes that true of the fixture's own handlers as well as of the 45 no
   // fixture sets.
-  const observed = useObservedHandlers(props);
+  const observed = useObservedHandlers(props, flowConfig.omitObservedCallbacks);
+  const Witness = flowConfig.witness;
 
-  return (
+  const content = (
     <div style={{ height: '100%' }}>
       {flowConfig.afterMount && (
         <button
@@ -157,7 +173,8 @@ export default ({ flowConfig }: FlowProps) => {
           after mount
         </button>
       )}
-      <ReactFlow {...props} {...observed}>
+      <ReactFlow key={flowKey} {...flowProps} {...observed}>
+        {Witness && <Witness changed={changed} />}
         {new URLSearchParams(window.location.search).get('observe') === 'callbacks' && (
           <NetObserver nodeId={(nodes?.[0] as { id?: string } | undefined)?.id} probes={variant === 'flow-node'} />
         )}
@@ -176,4 +193,5 @@ export default ({ flowConfig }: FlowProps) => {
       </ReactFlow>
     </div>
   );
+  return flowConfig.persistentProvider ? <ReactFlowProvider>{content}</ReactFlowProvider> : content;
 };

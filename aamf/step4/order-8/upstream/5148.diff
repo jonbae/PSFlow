@@ -1,0 +1,34 @@
+diff --git a/.changeset/sweet-chicken-lie.md b/.changeset/sweet-chicken-lie.md
+new file mode 100644
+index 0000000000..eccb0db03c
+--- /dev/null
++++ b/.changeset/sweet-chicken-lie.md
+@@ -0,0 +1,5 @@
++---
++'@xyflow/system': patch
++---
++
++Prevent browser zoom for pinch zoom gestures on nowheel elements
+diff --git a/packages/system/src/xypanzoom/eventhandler.ts b/packages/system/src/xypanzoom/eventhandler.ts
+index 751a31c5e7..e6dda42524 100644
+--- a/packages/system/src/xypanzoom/eventhandler.ts
++++ b/packages/system/src/xypanzoom/eventhandler.ts
+@@ -141,10 +141,17 @@ export function createPanOnScrollHandler({
+ 
+ export function createZoomOnScrollHandler({ noWheelClassName, preventScrolling, d3ZoomHandler }: ZoomOnScrollParams) {
+   return function (this: Element, event: any, d: unknown) {
++    const isWheel = event.type === 'wheel';
+     // we still want to enable pinch zooming even if preventScrolling is set to false
+-    const preventZoom = !preventScrolling && event.type === 'wheel' && !event.ctrlKey;
++    const preventZoom = !preventScrolling && isWheel && !event.ctrlKey;
++    const hasNoWheelClass = isWrappedWithClass(event, noWheelClassName);
+ 
+-    if (preventZoom || isWrappedWithClass(event, noWheelClassName)) {
++    // if user is pinch zooming above a nowheel element, we don't want the browser to zoom
++    if (event.ctrlKey && isWheel && hasNoWheelClass) {
++      event.preventDefault();
++    }
++
++    if (preventZoom || hasNoWheelClass) {
+       return null;
+     }

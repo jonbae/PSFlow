@@ -1,0 +1,91 @@
+[
+  {
+    "scenario": "debt-programmatic-selection-drag",
+    "ok": false,
+    "failures": [
+      {
+        "class": "unclaimed-difference",
+        "differences": [
+          {
+            "kind": "left-only",
+            "path": [
+              "callbacks",
+              65
+            ],
+            "left": {
+              "name": "onNodeClick",
+              "args": [
+                {
+                  "@class": "SyntheticBaseEvent",
+                  "_reactName": "onClick",
+                  "_targetInst": null,
+                  "type": "click",
+                  "nativeEvent": {
+                    "@class": "PointerEvent",
+                    "isTrusted": true
+                  },
+                  "target": {
+                    "@ref": "DIV"
+                  },
+                  "currentTarget": {
+                    "@ref": "DIV"
+                  },
+                  "eventPhase": 3,
+                  "bubbles": true,
+                  "cancelable": true,
+                  "defaultPrevented": false,
+                  "isTrusted": true,
+                  "view": {
+                    "@ref": "Window"
+                  },
+                  "detail": 1,
+                  "screenX": 648,
+                  "screenY": 560,
+                  "clientX": 648,
+                  "clientY": 560,
+                  "pageX": 648,
+                  "pageY": 560,
+                  "ctrlKey": false,
+                  "shiftKey": false,
+                  "altKey": false,
+                  "metaKey": false,
+                  "getModifierState": {
+                    "@ref": "function"
+                  },
+                  "button": 0,
+                  "buttons": 0,
+                  "relatedTarget": null,
+                  "movementX": 0,
+                  "movementY": 0,
+                  "isDefaultPrevented": {
+                    "@ref": "function"
+                  },
+                  "isPropagationStopped": {
+                    "@ref": "function"
+                  }
+                },
+                {
+                  "id": "Node-4",
+                  "data": {
+                    "label": "Node-4"
+                  },
+                  "position": {
+                    "x": 4,
+                    "y": 200
+                  },
+                  "type": "output",
+                  "measured": {
+                    "width": 150,
+                    "height": 37
+                  },
+                  "selected": true,
+                  "dragging": false
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

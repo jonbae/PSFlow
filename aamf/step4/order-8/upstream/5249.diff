@@ -1,0 +1,103 @@
+diff --git a/.changeset/eight-buses-admire.md b/.changeset/eight-buses-admire.md
+new file mode 100644
+index 0000000000..b678a287e0
+--- /dev/null
++++ b/.changeset/eight-buses-admire.md
+@@ -0,0 +1,5 @@
++---
++'@xyflow/react': patch
++---
++
++Call `onNodesChange` for uncontrolled flows that use `updateNode`
+diff --git a/examples/react/src/examples/Basic/index.tsx b/examples/react/src/examples/Basic/index.tsx
+index 5754fd6235..168bcff6ac 100644
+--- a/examples/react/src/examples/Basic/index.tsx
++++ b/examples/react/src/examples/Basic/index.tsx
+@@ -11,6 +11,7 @@ import {
+   useReactFlow,
+   Panel,
+   OnNodeDrag,
++  FitViewOptions,
+ } from '@xyflow/react';
+ 
+ const onNodeDrag: OnNodeDrag = (_, node: Node, nodes: Node[]) => console.log('drag', node, nodes);
+@@ -54,6 +55,9 @@ const initialEdges: Edge[] = [
+ ];
+ 
+ const defaultEdgeOptions = {};
++const fitViewOptions: FitViewOptions = {
++  padding: { top: '100px', left: '0%', right: '10%', bottom: 0.1 },
++};
+ 
+ const BasicFlow = () => {
+   const {
+@@ -135,6 +139,7 @@ const BasicFlow = () => {
+     <ReactFlow
+       defaultNodes={initialNodes}
+       defaultEdges={initialEdges}
++      onNodesChange={console.log}
+       onNodeClick={onNodeClick}
+       onNodeDragStop={onNodeDragStop}
+       onNodeDragStart={onNodeDragStart}
+@@ -146,9 +151,7 @@ const BasicFlow = () => {
+       minZoom={0.2}
+       maxZoom={4}
+       fitView
+-      fitViewOptions={{
+-        padding: { top: '100px', left: '0%', right: '10%', bottom: 0.1 },
+-      }}
++      fitViewOptions={fitViewOptions}
+       defaultEdgeOptions={defaultEdgeOptions}
+       selectNodesOnDrag={false}
+       elevateEdgesOnSelect
+diff --git a/packages/react/src/components/BatchProvider/index.tsx b/packages/react/src/components/BatchProvider/index.tsx
+index f41b79a8b3..b2ed270fce 100644
+--- a/packages/react/src/components/BatchProvider/index.tsx
++++ b/packages/react/src/components/BatchProvider/index.tsx
+@@ -40,28 +40,27 @@ export function BatchProvider<NodeType extends Node = Node, EdgeType extends Edg
+       next = typeof payload === 'function' ? payload(next) : payload;
+     }
+ 
++    const changes = getElementsDiffChanges({
++      items: next,
++      lookup: nodeLookup,
++    }) as NodeChange<NodeType>[];
++
+     if (hasDefaultNodes) {
+       setNodes(next);
+-    } else {
+-      // When a controlled flow is used we need to collect the changes
+-      const changes = getElementsDiffChanges({
+-        items: next,
+-        lookup: nodeLookup,
+-      }) as NodeChange<NodeType>[];
+-
+-      // We only want to fire onNodesChange if there are changes to the nodes
+-      if (changes.length > 0) {
+-        onNodesChange?.(changes);
+-      } else if (fitViewQueued) {
+-        // If there are no changes to the nodes, we still need to call setNodes
+-        // to trigger a re-render and fitView.
+-        window.requestAnimationFrame(() => {
+-          const { fitViewQueued, nodes, setNodes } = store.getState();
+-          if (fitViewQueued) {
+-            setNodes(nodes);
+-          }
+-        });
+-      }
++    }
++
++    // We only want to fire onNodesChange if there are changes to the nodes
++    if (changes.length > 0) {
++      onNodesChange?.(changes);
++    } else if (fitViewQueued) {
++      // If there are no changes to the nodes, we still need to call setNodes
++      // to trigger a re-render and fitView.
++      window.requestAnimationFrame(() => {
++        const { fitViewQueued, nodes, setNodes } = store.getState();
++        if (fitViewQueued) {
++          setNodes(nodes);
++        }
++      });
+     }
+   }, []);

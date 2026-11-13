@@ -1,0 +1,195 @@
+diff --git a/.changeset/chilled-tigers-compare.md b/.changeset/chilled-tigers-compare.md
+new file mode 100644
+index 0000000000..74a4f7e572
+--- /dev/null
++++ b/.changeset/chilled-tigers-compare.md
+@@ -0,0 +1,7 @@
++---
++'@xyflow/react': patch
++'@xyflow/svelte': patch
++'@xyflow/system': patch
++---
++
++Prevent multi-touch events while making a new connection
+diff --git a/packages/react/src/container/ZoomPane/index.tsx b/packages/react/src/container/ZoomPane/index.tsx
+index 61af78e61f..bce2b2b781 100644
+--- a/packages/react/src/container/ZoomPane/index.tsx
++++ b/packages/react/src/container/ZoomPane/index.tsx
+@@ -25,6 +25,7 @@ type ZoomPaneProps = Omit<
+ const selector = (s: ReactFlowState) => ({
+   userSelectionActive: s.userSelectionActive,
+   lib: s.lib,
++  connectionInProgress: s.connection.inProgress,
+ });
+ 
+ export function ZoomPane({
+@@ -51,7 +52,7 @@ export function ZoomPane({
+ }: ZoomPaneProps) {
+   const store = useStoreApi();
+   const zoomPane = useRef<HTMLDivElement>(null);
+-  const { userSelectionActive, lib } = useStore(selector, shallow);
++  const { userSelectionActive, lib, connectionInProgress } = useStore(selector, shallow);
+   const zoomActivationKeyPressed = useKeyPress(zoomActivationKeyCode);
+   const panZoom = useRef<PanZoomInstance>();
+ 
+@@ -126,6 +127,7 @@ export function ZoomPane({
+       noWheelClassName,
+       lib,
+       onTransformChange,
++      connectionInProgress,
+     });
+   }, [
+     onPaneContextMenu,
+@@ -143,6 +145,7 @@ export function ZoomPane({
+     noWheelClassName,
+     lib,
+     onTransformChange,
++    connectionInProgress,
+   ]);
+ 
+   return (
+diff --git a/packages/svelte/src/lib/actions/zoom/index.ts b/packages/svelte/src/lib/actions/zoom/index.ts
+index 34ead520d3..27d7328fab 100644
+--- a/packages/svelte/src/lib/actions/zoom/index.ts
++++ b/packages/svelte/src/lib/actions/zoom/index.ts
+@@ -37,6 +37,7 @@ type ZoomParams = {
+   paneClickDistance: number;
+   onTransformChange: (transform: Transform) => void;
+   onDraggingChange: (dragging: boolean) => void;
++  connectionInProgress: boolean;
+ };
+ 
+ export default function zoom(domNode: Element, params: ZoomParams) {
+diff --git a/packages/svelte/src/lib/container/Zoom/Zoom.svelte b/packages/svelte/src/lib/container/Zoom/Zoom.svelte
+index 42a644a679..9c159c9917 100644
+--- a/packages/svelte/src/lib/container/Zoom/Zoom.svelte
++++ b/packages/svelte/src/lib/container/Zoom/Zoom.svelte
+@@ -70,7 +70,8 @@
+     paneClickDistance,
+     onTransformChange: (transform: Transform) => {
+       store.viewport = { x: transform[0], y: transform[1], zoom: transform[2] };
+-    }
++    },
++    connectionInProgress: store.connection.inProgress
+   }}
+ >
+   {@render children()}
+diff --git a/packages/system/src/types/panzoom.ts b/packages/system/src/types/panzoom.ts
+index ae968fc858..7fa54e971d 100644
+--- a/packages/system/src/types/panzoom.ts
++++ b/packages/system/src/types/panzoom.ts
+@@ -42,6 +42,7 @@ export type PanZoomUpdateOptions = {
+   zoomActivationKeyPressed: boolean;
+   lib: string;
+   onTransformChange: OnTransformChange;
++  connectionInProgress: boolean;
+ };
+ 
+ export type PanZoomInstance = {
+diff --git a/packages/system/src/xyhandle/XYHandle.ts b/packages/system/src/xyhandle/XYHandle.ts
+index aa71d49daf..82de2f8a6f 100644
+--- a/packages/system/src/xyhandle/XYHandle.ts
++++ b/packages/system/src/xyhandle/XYHandle.ts
+@@ -207,6 +207,11 @@ function onPointerDown(
+   }
+ 
+   function onPointerUp(event: MouseEvent | TouchEvent) {
++    // Prevent multi-touch aborting connection
++    if ('touches' in event && event.touches.length > 0) {
++      return;
++    }
++
+     if (connectionStarted) {
+       if ((closestHandle || resultHandleDomNode) && connection && isValid) {
+         onConnect?.(connection);
+diff --git a/packages/system/src/xypanzoom/XYPanZoom.ts b/packages/system/src/xypanzoom/XYPanZoom.ts
+index 09d28dc271..85b8ba1c59 100644
+--- a/packages/system/src/xypanzoom/XYPanZoom.ts
++++ b/packages/system/src/xypanzoom/XYPanZoom.ts
+@@ -108,6 +108,7 @@ export function XYPanZoom({
+     zoomActivationKeyPressed,
+     lib,
+     onTransformChange,
++    connectionInProgress,
+   }: PanZoomUpdateOptions) {
+     if (userSelectionActive && !zoomPanValues.isZoomingOrPanning) {
+       destroy();
+@@ -178,6 +179,7 @@ export function XYPanZoom({
+       noPanClassName,
+       noWheelClassName,
+       lib,
++      connectionInProgress,
+     });
+     d3ZoomInstance.filter(filter);
+ 
+diff --git a/packages/system/src/xypanzoom/filter.ts b/packages/system/src/xypanzoom/filter.ts
+index 57f9248688..3822f7aa17 100644
+--- a/packages/system/src/xypanzoom/filter.ts
++++ b/packages/system/src/xypanzoom/filter.ts
+@@ -12,6 +12,7 @@ export type FilterParams = {
+   noWheelClassName: string;
+   noPanClassName: string;
+   lib: string;
++  connectionInProgress: boolean;
+ };
+ 
+ export function createFilter({
+@@ -25,10 +26,12 @@ export function createFilter({
+   noWheelClassName,
+   noPanClassName,
+   lib,
++  connectionInProgress,
+ }: FilterParams) {
+   return (event: any): boolean => {
+     const zoomScroll = zoomActivationKeyPressed || zoomOnScroll;
+     const pinchZoom = zoomOnPinch && event.ctrlKey;
++    const isWheelEvent = event.type === 'wheel';
+ 
+     if (
+       event.button === 1 &&
+@@ -48,20 +51,25 @@ export function createFilter({
+       return false;
+     }
+ 
++    // we want to disable pinch-zooming while making a connection
++    if (connectionInProgress && !isWheelEvent) {
++      return false;
++    }
++
+     // if the target element is inside an element with the nowheel class, we prevent zooming
+-    if (isWrappedWithClass(event, noWheelClassName) && event.type === 'wheel') {
++    if (isWrappedWithClass(event, noWheelClassName) && isWheelEvent) {
+       return false;
+     }
+ 
+     // if the target element is inside an element with the nopan class, we prevent panning
+     if (
+       isWrappedWithClass(event, noPanClassName) &&
+-      (event.type !== 'wheel' || (panOnScroll && event.type === 'wheel' && !zoomActivationKeyPressed))
++      (!isWheelEvent || (panOnScroll && isWheelEvent && !zoomActivationKeyPressed))
+     ) {
+       return false;
+     }
+ 
+-    if (!zoomOnPinch && event.ctrlKey && event.type === 'wheel') {
++    if (!zoomOnPinch && event.ctrlKey && isWheelEvent) {
+       return false;
+     }
+ 
+@@ -71,7 +79,7 @@ export function createFilter({
+     }
+ 
+     // when there is no scroll handling enabled, we prevent all wheel events
+-    if (!zoomScroll && !panOnScroll && !pinchZoom && event.type === 'wheel') {
++    if (!zoomScroll && !panOnScroll && !pinchZoom && isWheelEvent) {
+       return false;
+     }
+ 
+@@ -90,6 +98,6 @@ export function createFilter({
+       (Array.isArray(panOnDrag) && panOnDrag.includes(event.button)) || !event.button || event.button <= 1;
+ 
+     // default filter for d3-zoom
+-    return (!event.ctrlKey || event.type === 'wheel') && buttonAllowed;
++    return (!event.ctrlKey || isWheelEvent) && buttonAllowed;
+   };
+ }

@@ -1,0 +1,111 @@
+{
+  "sources": [
+    {
+      "file": "src/React/FFI/DOM.js",
+      "sha256": "9af2c6b4cd218de2d5a53be30ce2ef1fcaa01494bf2561623c28d5439346bd70"
+    },
+    {
+      "file": "src/React/Store/Reduce.purs",
+      "sha256": "8ba842118bc8ca524f7949d6e00dd27348046bbd8203a50390af1eeb0b226770"
+    },
+    {
+      "file": "src/System/XYHandle.purs",
+      "sha256": "f39dc1e7d8a98de0646f1e2f3062f802746c9afc6d81a352eef1e2a279cbf8a3"
+    },
+    {
+      "file": "src/React/Hook/ResizeHandler.js",
+      "sha256": "3c593a9cd645b68f11145b50d896e3f9509b6a9a94707bcc0c2cde7f2a28f1f5"
+    },
+    {
+      "file": "src/React/Additional/MiniMap/Nodes.purs",
+      "sha256": "34d0d8327877e95cfd7830c4ee97a4b06901a6cc6edbd6da4642c33ad87bb90b"
+    },
+    {
+      "file": "src/React/Handle.purs",
+      "sha256": "661ba7c211343d7a1e0c3cc84c338753c01600f5484627722ae1eac065b40dde"
+    },
+    {
+      "file": "src/System/XYDrag.purs",
+      "sha256": "11b1b2cdad655ed2b0e3ce86602ac4a405de993bc32cd846bfb7123a5c7612bf"
+    }
+  ],
+  "mutations": [
+    {
+      "pr": 4991,
+      "file": "src/React/FFI/DOM.js",
+      "before": "event.currentTarget.scrollTo({ top: 0, left: 0, behavior: \"instant\" });",
+      "after": "/* reverted wrapper scroll reset */",
+      "scenario": "debt-focus-wrapper-scroll"
+    },
+    {
+      "pr": 5043,
+      "file": "src/React/Store/Reduce.purs",
+      "before": "Just node | node.expandParent == Just true -> node.parentId",
+      "after": "Just node | item.expandParent == Just true -> node.parentId",
+      "scenario": "debt-live-expand-parent"
+    },
+    {
+      "pr": 5428,
+      "file": "src/System/XYHandle.purs",
+      "before": "hType <- getHandleType params.edgeUpdaterType (Just params.handleDomNode)",
+      "after": "clicked <- elementFromPointOnDoc doc evPos.x evPos.y\n  hType <- getHandleType params.edgeUpdaterType clicked",
+      "scenario": "debt-detached-handle"
+    },
+    {
+      "pr": 5455,
+      "file": "src/React/Hook/ResizeHandler.js",
+      "before": "element.checkVisibility?.() ?? true",
+      "after": "true",
+      "scenario": "mount-in-display-none"
+    },
+    {
+      "pr": 5635,
+      "file": "src/System/XYHandle.purs",
+      "before": "nodeLookup <- params.getNodeLookup",
+      "after": "let nodeLookup = params.nodeLookup",
+      "scenario": "debt-keyboard-connection-origin"
+    },
+    {
+      "pr": 5692,
+      "file": "src/React/Additional/MiniMap/Nodes.purs",
+      "before": "import Prelude",
+      "after": "import Prelude\nimport Partial.Unsafe (unsafePartial)\nimport Data.Maybe (fromJust)",
+      "scenario": "debt-minimap-missing-node"
+    },
+    {
+      "pr": 5692,
+      "file": "src/React/Additional/MiniMap/Nodes.purs",
+      "before": "mapMaybe (\\node -> Map.lookup node.id s.nodeLookup) s.nodes",
+      "after": "map (\\node -> unsafePartial (fromJust (Map.lookup node.id s.nodeLookup))) s.nodes",
+      "scenario": "debt-minimap-missing-node"
+    },
+    {
+      "pr": 5704,
+      "file": "src/React/Handle.purs",
+      "before": "current <- store.getState\n                for_ current.onConnectEnd",
+      "after": "let current = state\n                for_ current.onConnectEnd",
+      "scenario": "debt-live-connection-handlers"
+    },
+    {
+      "pr": 5704,
+      "file": "src/React/Handle.purs",
+      "before": "current <- store.getState\n                  pure case current.isValidConnection",
+      "after": "let current = state\n                  pure case current.isValidConnection",
+      "scenario": "debt-live-connection-handlers"
+    },
+    {
+      "pr": 5727,
+      "file": "src/React/Store/Reduce.purs",
+      "before": "nodesSelectionActive = state.nodesSelectionActive && r.hasSelectedNodes",
+      "after": "nodesSelectionActive = state.nodesSelectionActive",
+      "scenario": "debt-selection-cleared-by-nodes"
+    },
+    {
+      "pr": 5803,
+      "file": "src/System/XYDrag.purs",
+      "before": "  when (s0.abortDrag && Array.length s0.dragItems > 0) do\n    store <- liftEffect params.getStoreItems\n    liftEffect (store.updateNodePositions s0.dragItems false)\n",
+      "after": "",
+      "scenario": "debt-abort-touch-drag"
+    }
+  ]
+}

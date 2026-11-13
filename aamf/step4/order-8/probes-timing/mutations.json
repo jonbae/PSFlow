@@ -1,0 +1,17 @@
+{
+  "sources": [
+    {
+      "file": "src/React/Provider/StoreUpdater.purs",
+      "sha256": "3778152f20ed5b2c396fc0873d1c9ea7a7e4c001e649f16ad65a97b02c9ded99"
+    }
+  ],
+  "mutations": [
+    {
+      "pr": 5769,
+      "file": "src/React/Provider/StoreUpdater.purs",
+      "before": "useEffect / useEffectOnce / UseEffect",
+      "after": "useLayoutEffect / useLayoutEffectOnce / UseLayoutEffect",
+      "scenario": "debt-store-effect-timing"
+    }
+  ]
+}

@@ -1,0 +1,395 @@
+diff --git a/.changeset/funny-doors-travel.md b/.changeset/funny-doors-travel.md
+new file mode 100644
+index 0000000000..f7ad710c93
+--- /dev/null
++++ b/.changeset/funny-doors-travel.md
+@@ -0,0 +1,7 @@
++---
++'@xyflow/react': patch
++'@xyflow/system': patch
++'@xyflow/svelte': patch
++---
++
++Fix clicking on detached handle elements not initiating drawing of connections
+diff --git a/examples/react/src/App/routes.ts b/examples/react/src/App/routes.ts
+index 4c003ea5ad..52f80979f1 100644
+--- a/examples/react/src/App/routes.ts
++++ b/examples/react/src/App/routes.ts
+@@ -58,6 +58,7 @@ import AddNodeOnEdgeDrop from '../examples/AddNodeOnEdgeDrop';
+ import DevTools from '../examples/DevTools';
+ import Redux from '../examples/Redux';
+ import MovingHandles from '../examples/MovingHandles';
++import DetachedHandle from '../examples/DetachedHandle';
+ 
+ export interface IRoute {
+   name: string;
+@@ -146,6 +147,11 @@ const routes: IRoute[] = [
+     path: 'default-nodes',
+     component: DefaultNodes,
+   },
++  {
++    name: 'DetachedHandle',
++    path: 'detached-handle',
++    component: DetachedHandle,
++  },
+   {
+     name: 'DevTools',
+     path: 'devtools',
+diff --git a/examples/react/src/examples/DetachedHandle/index.tsx b/examples/react/src/examples/DetachedHandle/index.tsx
+new file mode 100644
+index 0000000000..d3ca451573
+--- /dev/null
++++ b/examples/react/src/examples/DetachedHandle/index.tsx
+@@ -0,0 +1,62 @@
++import {
++  ReactFlow,
++  Node,
++  ReactFlowProvider,
++  Background,
++  BackgroundVariant,
++  NodeProps,
++  Handle,
++  Position,
++} from '@xyflow/react';
++
++import './style.css';
++
++const initialNodes: Node[] = [
++  {
++    id: '1',
++    data: { label: 'Node 1' },
++    position: { x: 250, y: 5 },
++  },
++  {
++    id: '2',
++    data: { label: 'Node 2' },
++    position: { x: 50, y: 100 },
++  },
++  {
++    id: '3',
++    data: { label: 'Node 3' },
++    position: { x: 450, y: 100 },
++  },
++];
++
++const CustomNode = (_: NodeProps) => {
++  return (
++    <>
++      <Handle type="target" position={Position.Left} />
++      <div>Custom node</div>
++      <Handle type="source" position={Position.Right}>
++        <button className="detached-handle">➡️</button>
++      </Handle>
++    </>
++  );
++};
++
++const nodeTypes = {
++  default: CustomNode,
++};
++
++const DetachedHandle = () => {
++  return (
++    <ReactFlow defaultNodes={initialNodes} defaultEdges={[]} connectionRadius={10} nodeTypes={nodeTypes} fitView>
++      <Background variant={BackgroundVariant.Lines} />
++    </ReactFlow>
++  );
++};
++
++export default function App() {
++  return (
++    <ReactFlowProvider>
++      <DetachedHandle />
++    </ReactFlowProvider>
++  );
++}
+diff --git a/examples/react/src/examples/DetachedHandle/style.css b/examples/react/src/examples/DetachedHandle/style.css
+new file mode 100644
+index 0000000000..941c9807a6
+--- /dev/null
++++ b/examples/react/src/examples/DetachedHandle/style.css
+@@ -0,0 +1,10 @@
++.detached-handle {
++    position: absolute;
++    top: 50%;
++    left: 1rem;
++    transform: translateY(-50%);
++    width: 2rem;
++    height: 2rem;
++    border: none;
++    border-radius: 50%;
++}
+\ No newline at end of file
+diff --git a/examples/svelte/src/components/Header/Header.svelte b/examples/svelte/src/components/Header/Header.svelte
+index f6260917b5..1db10784a8 100644
+--- a/examples/svelte/src/components/Header/Header.svelte
++++ b/examples/svelte/src/components/Header/Header.svelte
+@@ -1,6 +1,6 @@
+ <script lang="ts">
+ 	import { goto } from '$app/navigation';
+-	import { page } from '$app/stores';
++	import { page } from '$app/state';
+ 
+ 	const routes = [
+ 		'a11y',
+@@ -9,6 +9,7 @@
+ 		'custom-connection-line',
+ 		'customnode',
+ 		'dagre',
++		'detached-handle',
+ 		'drag-n-drop',
+ 		'edges',
+ 		'figma',
+@@ -36,7 +37,7 @@
+ 
+ <header>
+ 	<div class="logo">Svelte Flow</div>
+-	<select onchange={onChange} value={$page.route.id}>
++	<select onchange={onChange} value={page.route.id}>
+ 		{#each routes as route}
+ 			<option value={`/examples/${route}`}>{route}</option>
+ 		{/each}
+diff --git a/examples/svelte/src/routes/examples/detached-handle/+page.svelte b/examples/svelte/src/routes/examples/detached-handle/+page.svelte
+new file mode 100644
+index 0000000000..2f303278de
+--- /dev/null
++++ b/examples/svelte/src/routes/examples/detached-handle/+page.svelte
+@@ -0,0 +1,41 @@
++<script lang="ts">
++	import {
++		SvelteFlow,
++		Background,
++		MiniMap,
++		Position,
++		type Node,
++		type NodeTypes,
++		type Edge
++	} from '@xyflow/svelte';
++	import CustomNode from './CustomNode.svelte';
++
++	import '@xyflow/svelte/dist/style.css';
++
++	const nodeTypes: NodeTypes = {
++		custom: CustomNode
++	};
++
++	let nodes = $state.raw<Node[]>([
++		{
++			id: '1',
++			type: 'custom',
++			data: { label: 'node 1' },
++			position: { x: 0, y: 0 },
++			sourcePosition: Position.Right
++		},
++		{
++			id: '2',
++			type: 'custom',
++			data: { label: 'node 2' },
++			position: { x: 250, y: 250 }
++		}
++	]);
++
++	let edges = $state.raw<Edge[]>([]);
++</script>
++
++<SvelteFlow bind:nodes bind:edges {nodeTypes} fitView>
++	<Background />
++	<MiniMap />
++</SvelteFlow>
+diff --git a/examples/svelte/src/routes/examples/detached-handle/CustomNode.svelte b/examples/svelte/src/routes/examples/detached-handle/CustomNode.svelte
+new file mode 100644
+index 0000000000..02335f7ad8
+--- /dev/null
++++ b/examples/svelte/src/routes/examples/detached-handle/CustomNode.svelte
+@@ -0,0 +1,36 @@
++<script lang="ts">
++	import { Handle, Position, type NodeProps, type Node } from '@xyflow/svelte';
++
++	let { data }: NodeProps<Node> = $props();
++</script>
++
++<div class="custom">
++	<div>
++		{data.label}
++	</div>
++
++	<Handle type="target" position={Position.Left} />
++	<Handle type="source" position={Position.Right}>
++		<button class="detached-handle">➡️</button>
++	</Handle>
++</div>
++
++<style>
++	.custom {
++		background-color: white;
++		padding: 10px;
++		border: 1px solid #777;
++		border-radius: 20px;
++	}
++
++	.detached-handle {
++		position: absolute;
++		top: 50%;
++		left: 1rem;
++		transform: translateY(-50%);
++		width: 2rem;
++		height: 2rem;
++		border: none;
++		border-radius: 50%;
++	}
++</style>
+diff --git a/packages/react/src/components/EdgeWrapper/EdgeUpdateAnchors.tsx b/packages/react/src/components/EdgeWrapper/EdgeUpdateAnchors.tsx
+index c9f3b7f020..36a983aa09 100644
+--- a/packages/react/src/components/EdgeWrapper/EdgeUpdateAnchors.tsx
++++ b/packages/react/src/components/EdgeWrapper/EdgeUpdateAnchors.tsx
+@@ -1,11 +1,11 @@
+ // Reconnectable edges have a anchors around their handles to reconnect the edge.
+ import {
+   XYHandle,
++  type EdgePosition,
++  type FinalConnectionState,
++  type HandleType,
++  type OnConnectStart,
+   type Connection,
+-  EdgePosition,
+-  FinalConnectionState,
+-  HandleType,
+-  OnConnectStart,
+ } from '@xyflow/system';
+ 
+ import { EdgeAnchor } from '../Edges/EdgeAnchor';
+@@ -102,6 +102,7 @@ export function EdgeUpdateAnchors<EdgeType extends Edge = Edge>({
+       getTransform: () => store.getState().transform,
+       getFromHandle: () => store.getState().connection.fromHandle,
+       dragThreshold: store.getState().connectionDragThreshold,
++      handleDomNode: event.currentTarget,
+     });
+   };
+ 
+diff --git a/packages/react/src/components/Handle/index.tsx b/packages/react/src/components/Handle/index.tsx
+index 31615f0ce4..dec2d242e7 100644
+--- a/packages/react/src/components/Handle/index.tsx
++++ b/packages/react/src/components/Handle/index.tsx
+@@ -114,7 +114,6 @@ function HandleComponent(
+     onConnectAction?.(edgeParams);
+     onConnect?.(edgeParams);
+   };
+-
+   const onPointerDown = (event: ReactMouseEvent<HTMLDivElement> | ReactTouchEvent<HTMLDivElement>) => {
+     if (!nodeId) {
+       return;
+@@ -129,6 +128,7 @@ function HandleComponent(
+       const currentStore = store.getState();
+ 
+       XYHandle.onPointerDown(event.nativeEvent, {
++        handleDomNode: event.currentTarget,
+         autoPanOnConnect: currentStore.autoPanOnConnect,
+         connectionMode: currentStore.connectionMode,
+         connectionRadius: currentStore.connectionRadius,
+diff --git a/packages/svelte/src/lib/components/EdgeReconnectAnchor/EdgeReconnectAnchor.svelte b/packages/svelte/src/lib/components/EdgeReconnectAnchor/EdgeReconnectAnchor.svelte
+index c4b95fa554..d18bc2e8f8 100644
+--- a/packages/svelte/src/lib/components/EdgeReconnectAnchor/EdgeReconnectAnchor.svelte
++++ b/packages/svelte/src/lib/components/EdgeReconnectAnchor/EdgeReconnectAnchor.svelte
+@@ -102,7 +102,8 @@
+       updateConnection,
+       getTransform: () => [store.viewport.x, store.viewport.y, store.viewport.zoom],
+       getFromHandle: () => store.connection.fromHandle,
+-      dragThreshold: dragThreshold ?? store.connectionDragThreshold
++      dragThreshold: dragThreshold ?? store.connectionDragThreshold,
++      handleDomNode: event.currentTarget as HTMLElement
+     });
+   };
+ </script>
+diff --git a/packages/svelte/src/lib/components/Handle/Handle.svelte b/packages/svelte/src/lib/components/Handle/Handle.svelte
+index d636f4cf3e..48946d41c3 100644
+--- a/packages/svelte/src/lib/components/Handle/Handle.svelte
++++ b/packages/svelte/src/lib/components/Handle/Handle.svelte
+@@ -111,7 +111,7 @@
+   function onpointerdown(event: MouseEvent | TouchEvent) {
+     const isMouseTriggered = isMouseEvent(event);
+ 
+-    if ((isMouseTriggered && event.button === 0) || !isMouseTriggered) {
++    if (event.currentTarget && ((isMouseTriggered && event.button === 0) || !isMouseTriggered)) {
+       XYHandle.onPointerDown(event, {
+         handleId,
+         nodeId,
+@@ -140,7 +140,8 @@
+         },
+         getTransform: () => [store.viewport.x, store.viewport.y, store.viewport.zoom],
+         getFromHandle: () => store.connection.fromHandle,
+-        dragThreshold: store.connectionDragThreshold
++        dragThreshold: store.connectionDragThreshold,
++        handleDomNode: event.currentTarget as HTMLElement
+       });
+     }
+   }
+diff --git a/packages/system/src/xyhandle/XYHandle.ts b/packages/system/src/xyhandle/XYHandle.ts
+index f6326edea2..aa71d49daf 100644
+--- a/packages/system/src/xyhandle/XYHandle.ts
++++ b/packages/system/src/xyhandle/XYHandle.ts
+@@ -46,6 +46,7 @@ function onPointerDown(
+     getFromHandle,
+     autoPanSpeed,
+     dragThreshold = 1,
++    handleDomNode,
+   }: OnPointerDownParams
+ ) {
+   // when xyflow is used inside a shadow root we can't use document
+@@ -54,8 +55,7 @@ function onPointerDown(
+   let closestHandle: Handle | null;
+ 
+   const { x, y } = getEventPosition(event);
+-  const clickedHandle = doc?.elementFromPoint(x, y);
+-  const handleType = getHandleType(edgeUpdaterType, clickedHandle);
++  const handleType = getHandleType(edgeUpdaterType, handleDomNode);
+   const containerBounds = domNode?.getBoundingClientRect();
+   let connectionStarted = false;
+ 
+@@ -72,7 +72,7 @@ function onPointerDown(
+   let autoPanStarted = false;
+   let connection: Connection | null = null;
+   let isValid: boolean | null = false;
+-  let handleDomNode: Element | null = null;
++  let resultHandleDomNode: Element | null = null;
+ 
+   // when the user is moving the mouse close to the edge of the canvas while connecting we move the canvas
+   function autoPan(): void {
+@@ -167,7 +167,7 @@ function onPointerDown(
+       nodeLookup,
+     });
+ 
+-    handleDomNode = result.handleDomNode;
++    resultHandleDomNode = result.handleDomNode;
+     connection = result.connection;
+     isValid = isConnectionValid(!!closestHandle, result.isValid);
+ 
+@@ -208,7 +208,7 @@ function onPointerDown(
+ 
+   function onPointerUp(event: MouseEvent | TouchEvent) {
+     if (connectionStarted) {
+-      if ((closestHandle || handleDomNode) && connection && isValid) {
++      if ((closestHandle || resultHandleDomNode) && connection && isValid) {
+         onConnect?.(connection);
+       }
+ 
+@@ -235,7 +235,7 @@ function onPointerDown(
+     autoPanStarted = false;
+     isValid = false;
+     connection = null;
+-    handleDomNode = null;
++    resultHandleDomNode = null;
+ 
+     doc.removeEventListener('mousemove', onPointerMove as EventListener);
+     doc.removeEventListener('mouseup', onPointerUp as EventListener);
+diff --git a/packages/system/src/xyhandle/types.ts b/packages/system/src/xyhandle/types.ts
+index baa8cf0a8e..11d553ff44 100644
+--- a/packages/system/src/xyhandle/types.ts
++++ b/packages/system/src/xyhandle/types.ts
+@@ -38,6 +38,7 @@ export type OnPointerDownParams = {
+   getFromHandle: () => Handle | null;
+   autoPanSpeed?: number;
+   dragThreshold?: number;
++  handleDomNode: Element;
+ };
+ 
+ export type IsValidParams = {

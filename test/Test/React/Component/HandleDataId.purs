@@ -20,6 +20,7 @@ module Test.React.Component.HandleDataId
 import Prelude
 
 import Data.Maybe (Maybe(..))
+import React.Basic.Hooks (reactChildrenFromArray)
 import Data.Nullable (null)
 import Data.String (Pattern(..), contains)
 import Effect (Effect)
@@ -61,6 +62,7 @@ renderHandle handleType id = do
                 , id
                 , isConnectable: Nothing
                 , isConnectableStart: Nothing
+                , children: reactChildrenFromArray []
                 , isConnectableEnd: Nothing
                 , onConnect: Nothing
                 , isValidConnection: Nothing

@@ -1,0 +1,17 @@
+{
+  "sources": [
+    {
+      "file": "src/React/Hook/Drag.purs",
+      "sha256": "b3e35bb92fb6b2646f3680a724be91ce5f2a737ed6d47943d9ef2968e6c1f4ea"
+    }
+  ],
+  "mutations": [
+    {
+      "pr": 5684,
+      "file": "src/React/Hook/Drag.purs",
+      "before": ", nodeClickDistance: opts.nodeClickDistance\n  }",
+      "after": ", nodeClickDistance: 0.0\n  }",
+      "scenario": "debt-programmatic-selection-drag"
+    }
+  ]
+}

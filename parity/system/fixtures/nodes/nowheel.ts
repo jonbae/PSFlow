@@ -15,7 +15,9 @@
 // both sides load the same stylesheet, so the class attribute reaching the
 // element is equality of behaviour as well as of markup.
 
+import { WheelWitness } from '../shared/DebtWitnesses';
 export default {
+  witness: WheelWitness,
   flowProps: {
     fitView: true,
     nodes: [

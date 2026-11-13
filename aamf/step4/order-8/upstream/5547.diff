@@ -1,0 +1,58 @@
+diff --git a/.changeset/ripe-paths-dream.md b/.changeset/ripe-paths-dream.md
+new file mode 100644
+index 0000000000..bb525fb550
+--- /dev/null
++++ b/.changeset/ripe-paths-dream.md
+@@ -0,0 +1,5 @@
++---
++'@xyflow/system': patch
++---
++
++Always call onMoveEnd when onMoveStart was called
+diff --git a/packages/system/src/xypanzoom/eventhandler.ts b/packages/system/src/xypanzoom/eventhandler.ts
+index 583563a389..38f90aa51b 100644
+--- a/packages/system/src/xypanzoom/eventhandler.ts
++++ b/packages/system/src/xypanzoom/eventhandler.ts
+@@ -12,7 +12,7 @@ import {
+   type OnDraggingChange,
+   type OnTransformChange,
+ } from '../types';
+-import { isRightClickPan, isWrappedWithClass, transformToViewport, viewChanged, wheelDelta } from './utils';
++import { isRightClickPan, isWrappedWithClass, transformToViewport, wheelDelta } from './utils';
+ import { isMacOs } from '../utils';
+ import { ZoomPanValues } from './XYPanZoom';
+ 
+@@ -128,9 +128,7 @@ export function createPanOnScrollHandler({
+       zoomPanValues.isPanScrolling = true;
+ 
+       onPanZoomStart?.(event, nextViewport);
+-    }
+-
+-    if (zoomPanValues.isPanScrolling) {
++    } else {
+       onPanZoom?.(event, nextViewport);
+ 
+       zoomPanValues.panScrollTimeout = setTimeout(() => {
+@@ -236,7 +234,7 @@ export function createPanZoomEndHandler({
+ 
+     onDraggingChange(false);
+ 
+-    if (onPanZoomEnd && viewChanged(zoomPanValues.prevViewport, event.transform)) {
++    if (onPanZoomEnd) {
+       const viewport = transformToViewport(event.transform);
+       zoomPanValues.prevViewport = viewport;
+ 
+diff --git a/packages/system/src/xypanzoom/utils.ts b/packages/system/src/xypanzoom/utils.ts
+index e8c8369424..27190aa9a1 100644
+--- a/packages/system/src/xypanzoom/utils.ts
++++ b/packages/system/src/xypanzoom/utils.ts
+@@ -6,9 +6,6 @@ import { transition } from 'd3-transition';
+ import { type D3SelectionInstance, type Viewport } from '../types';
+ import { isMacOs } from '../utils';
+ 
+-export const viewChanged = (prevViewport: Viewport, eventViewport: any): boolean =>
+-  prevViewport.x !== eventViewport.x || prevViewport.y !== eventViewport.y || prevViewport.zoom !== eventViewport.k;
+-
+ export const transformToViewport = (transform: ZoomTransform): Viewport => ({
+   x: transform.x,
+   y: transform.y,

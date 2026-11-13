@@ -1,0 +1,118 @@
+diff --git a/.changeset/young-roses-shout.md b/.changeset/young-roses-shout.md
+new file mode 100644
+index 0000000000..f1f6a8880f
+--- /dev/null
++++ b/.changeset/young-roses-shout.md
+@@ -0,0 +1,7 @@
++---
++'@xyflow/react': patch
++'@xyflow/svelte': patch
++'@xyflow/system': patch
++---
++
++Update an ongoing connection when user moves node with keyboard.
+diff --git a/packages/react/src/store/index.ts b/packages/react/src/store/index.ts
+index 3254bdfabe..d6ff3b6086 100644
+--- a/packages/react/src/store/index.ts
++++ b/packages/react/src/store/index.ts
+@@ -14,6 +14,8 @@ import {
+   NodeOrigin,
+   CoordinateExtent,
+   fitViewport,
++  getHandlePosition,
++  Position,
+ } from '@xyflow/system';
+ 
+ import { applyEdgeChanges, applyNodeChanges, createSelectionChange, getSelectionChanges } from '../utils/changes';
+@@ -176,7 +178,7 @@ const createStore = ({
+       updateNodePositions: (nodeDragItems, dragging = false) => {
+         const parentExpandChildren: ParentExpandChild[] = [];
+         const changes = [];
+-        const { nodeLookup, triggerNodeChanges } = get();
++        const { nodeLookup, triggerNodeChanges, connection, updateConnection } = get();
+ 
+         for (const [id, dragItem] of nodeDragItems) {
+           // we are using the nodelookup to be sure to use the current expandParent and parentId value
+@@ -195,6 +197,11 @@ const createStore = ({
+             dragging,
+           };
+ 
++          if (node && connection.inProgress && connection.fromNode.id === node.id) {
++            const updatedFrom = getHandlePosition(node, connection.fromHandle, Position.Left, true);
++            updateConnection({ ...connection, from: updatedFrom });
++          }
++
+           if (expandParent && node.parentId) {
+             parentExpandChildren.push({
+               id,
+diff --git a/packages/svelte/src/lib/store/index.ts b/packages/svelte/src/lib/store/index.ts
+index 798e87d8e2..30bcafc16a 100644
+--- a/packages/svelte/src/lib/store/index.ts
++++ b/packages/svelte/src/lib/store/index.ts
+@@ -15,7 +15,9 @@ import {
+   updateAbsolutePositions,
+   snapPosition,
+   calculateNodePosition,
+-  type SetCenterOptions
++  type SetCenterOptions,
++  getHandlePosition,
++  Position
+ } from '@xyflow/system';
+ 
+ import type { EdgeTypes, NodeTypes, Node, Edge, FitViewOptions } from '$lib/types';
+@@ -51,6 +53,15 @@ export function createStore<NodeType extends Node = Node, EdgeType extends Edge
+ 
+   const updateNodePositions: UpdateNodePositions = (nodeDragItems, dragging = false) => {
+     store.nodes = store.nodes.map((node) => {
++      if (store.connection.inProgress && store.connection.fromNode.id === node.id) {
++        const internalNode = store.nodeLookup.get(node.id);
++        if (internalNode) {
++          store.connection = {
++            ...store.connection,
++            from: getHandlePosition(internalNode, store.connection.fromHandle, Position.Left, true)
++          };
++        }
++      }
+       const dragItem = nodeDragItems.get(node.id);
+       return dragItem ? { ...node, position: dragItem.position, dragging } : node;
+     });
+diff --git a/packages/system/src/xyhandle/XYHandle.ts b/packages/system/src/xyhandle/XYHandle.ts
+index 2e714e8b42..b8edf7674f 100644
+--- a/packages/system/src/xyhandle/XYHandle.ts
++++ b/packages/system/src/xyhandle/XYHandle.ts
+@@ -93,8 +93,8 @@ function onPointerDown(
+     position: fromHandleInternal.position,
+   };
+ 
+-  const fromNodeInternal = nodeLookup.get(nodeId)!;
+-  const from = getHandlePosition(fromNodeInternal, fromHandle, Position.Left, true);
++  const fromInternalNode = nodeLookup.get(nodeId)!;
++  const from = getHandlePosition(fromInternalNode, fromHandle, Position.Left, true);
+ 
+   let previousConnection: ConnectionInProgress = {
+     inProgress: true,
+@@ -103,7 +103,7 @@ function onPointerDown(
+     from,
+     fromHandle,
+     fromPosition: fromHandle.position,
+-    fromNode: fromNodeInternal,
++    fromNode: fromInternalNode,
+ 
+     to: position,
+     toHandle: null,
+@@ -172,9 +172,14 @@ function onPointerDown(
+     connection = result.connection;
+     isValid = isConnectionValid(!!closestHandle, result.isValid);
+ 
++    const fromInternalNode = nodeLookup.get(nodeId);
++    const from = fromInternalNode
++      ? getHandlePosition(fromInternalNode, fromHandle, Position.Left, true)
++      : previousConnection.from;
++
+     const newConnection: ConnectionInProgress = {
+-      // from stays the same
+       ...previousConnection,
++      from,
+       isValid,
+       to:
+         result.toHandle && isValid

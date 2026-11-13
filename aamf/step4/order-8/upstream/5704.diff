@@ -1,0 +1,105 @@
+diff --git a/.changeset/blue-shirts-beg.md b/.changeset/blue-shirts-beg.md
+new file mode 100644
+index 0000000000..21713fb514
+--- /dev/null
++++ b/.changeset/blue-shirts-beg.md
+@@ -0,0 +1,6 @@
++---
++'@xyflow/react': patch
++'@xyflow/svelte': patch
++---
++
++Keep `onConnectEnd` and `isValidConnection` up to date in an ongoing connection
+diff --git a/packages/react/src/components/EdgeWrapper/EdgeUpdateAnchors.tsx b/packages/react/src/components/EdgeWrapper/EdgeUpdateAnchors.tsx
+index 36a983aa09..87504702cb 100644
+--- a/packages/react/src/components/EdgeWrapper/EdgeUpdateAnchors.tsx
++++ b/packages/react/src/components/EdgeWrapper/EdgeUpdateAnchors.tsx
+@@ -53,12 +53,10 @@ export function EdgeUpdateAnchors<EdgeType extends Edge = Edge>({
+     const {
+       autoPanOnConnect,
+       domNode,
+-      isValidConnection,
+       connectionMode,
+       connectionRadius,
+       lib,
+       onConnectStart,
+-      onConnectEnd,
+       cancelConnection,
+       nodeLookup,
+       rfId: flowId,
+@@ -93,10 +91,10 @@ export function EdgeUpdateAnchors<EdgeType extends Edge = Edge>({
+       flowId,
+       cancelConnection,
+       panBy,
+-      isValidConnection,
++      isValidConnection: (...args) => store.getState().isValidConnection?.(...args) ?? true,
+       onConnect: onConnectEdge,
+       onConnectStart: _onConnectStart,
+-      onConnectEnd,
++      onConnectEnd: (...args) => store.getState().onConnectEnd?.(...args),
+       onReconnectEnd: _onReconnectEnd,
+       updateConnection,
+       getTransform: () => store.getState().transform,
+diff --git a/packages/react/src/components/Handle/index.tsx b/packages/react/src/components/Handle/index.tsx
+index dec2d242e7..1f0dc83413 100644
+--- a/packages/react/src/components/Handle/index.tsx
++++ b/packages/react/src/components/Handle/index.tsx
+@@ -142,10 +142,10 @@ function HandleComponent(
+         panBy: currentStore.panBy,
+         cancelConnection: currentStore.cancelConnection,
+         onConnectStart: currentStore.onConnectStart,
+-        onConnectEnd: currentStore.onConnectEnd,
++        onConnectEnd: (...args) => store.getState().onConnectEnd?.(...args),
+         updateConnection: currentStore.updateConnection,
+         onConnect: onConnectExtended,
+-        isValidConnection: isValidConnection || currentStore.isValidConnection,
++        isValidConnection: isValidConnection || ((...args) => store.getState().isValidConnection?.(...args) ?? true),
+         getTransform: () => store.getState().transform,
+         getFromHandle: () => store.getState().connection.fromHandle,
+         autoPanSpeed: currentStore.autoPanSpeed,
+diff --git a/packages/svelte/src/lib/components/EdgeReconnectAnchor/EdgeReconnectAnchor.svelte b/packages/svelte/src/lib/components/EdgeReconnectAnchor/EdgeReconnectAnchor.svelte
+index 2a4975df3b..dbca1acf17 100644
+--- a/packages/svelte/src/lib/components/EdgeReconnectAnchor/EdgeReconnectAnchor.svelte
++++ b/packages/svelte/src/lib/components/EdgeReconnectAnchor/EdgeReconnectAnchor.svelte
+@@ -79,9 +79,9 @@
+       flowId,
+       cancelConnection,
+       panBy,
+-      isValidConnection,
++      isValidConnection: (...args) => store.isValidConnection?.(...args) ?? true,
+       onConnectStart: _onConnectStart,
+-      onConnectEnd: onconnectend,
++      onConnectEnd: (...args) => store.onconnectend?.(...args),
+       onConnect: (connection) => {
+         const reconnectedEdge = { ...edge, ...connection };
+         const newEdge = onbeforereconnect
+diff --git a/packages/svelte/src/lib/components/Handle/Handle.svelte b/packages/svelte/src/lib/components/Handle/Handle.svelte
+index 15f811b1a5..e77562891d 100644
+--- a/packages/svelte/src/lib/components/Handle/Handle.svelte
++++ b/packages/svelte/src/lib/components/Handle/Handle.svelte
+@@ -125,21 +125,14 @@
+         autoPanOnConnect: store.autoPanOnConnect,
+         autoPanSpeed: store.autoPanSpeed,
+         flowId: store.flowId,
+-        isValidConnection: isValidConnection ?? store.isValidConnection,
++        isValidConnection:
++          isValidConnection || ((...args) => store.isValidConnection?.(...args) ?? true),
+         updateConnection: store.updateConnection,
+         cancelConnection: store.cancelConnection,
+         panBy: store.panBy,
+         onConnect: onConnectExtended,
+-        onConnectStart: (event, startParams) => {
+-          store.onconnectstart?.(event, {
+-            nodeId: startParams.nodeId,
+-            handleId: startParams.handleId,
+-            handleType: startParams.handleType
+-          });
+-        },
+-        onConnectEnd: (event, connectionState) => {
+-          store.onconnectend?.(event, connectionState);
+-        },
++        onConnectStart: store.onconnectstart,
++        onConnectEnd: (...args) => store.onconnectend?.(...args),
+         getTransform: () => [store.viewport.x, store.viewport.y, store.viewport.zoom],
+         getFromHandle: () => store.connection.fromHandle,
+         dragThreshold: store.connectionDragThreshold,

@@ -1,0 +1,222 @@
+diff --git a/.changeset/giant-foxes-roll.md b/.changeset/giant-foxes-roll.md
+new file mode 100644
+index 0000000000..14d73c64ce
+--- /dev/null
++++ b/.changeset/giant-foxes-roll.md
+@@ -0,0 +1,6 @@
++---
++'@xyflow/svelte': patch
++'@xyflow/system': patch
++---
++
++Do not crash minimap if all nodes are hidden
+diff --git a/examples/react/src/examples/CustomMiniMapNode/index.tsx b/examples/react/src/examples/CustomMiniMapNode/index.tsx
+index 21b1d07384..5766d109f1 100644
+--- a/examples/react/src/examples/CustomMiniMapNode/index.tsx
++++ b/examples/react/src/examples/CustomMiniMapNode/index.tsx
+@@ -1,4 +1,4 @@
+-import { MouseEvent, CSSProperties, useCallback } from 'react';
++import { MouseEvent, CSSProperties, useCallback, useState } from 'react';
+ 
+ import {
+   ReactFlow,
+@@ -14,19 +14,13 @@ import {
+   ReactFlowInstance,
+   useEdgesState,
+   useNodesState,
++  Panel,
+ } from '@xyflow/react';
+ 
+ const onInit = (reactFlowInstance: ReactFlowInstance) => console.log('flow loaded:', reactFlowInstance);
+ const onNodeClick = (_: MouseEvent, node: Node) => console.log('click', node);
+ const onNodeDragStop = (_: MouseEvent, node: Node) => console.log('drag stop', node);
+ 
+-const buttonStyle: CSSProperties = {
+-  position: 'absolute',
+-  left: 10,
+-  top: 10,
+-  zIndex: 4,
+-};
+-
+ const CustomMiniMapNode = ({ x, y, width, height }: MiniMapNodeProps) => {
+   return <circle cx={x} cy={y} r={Math.max(width, height) / 2} fill="#ffcc00" />;
+ };
+@@ -34,6 +28,7 @@ const CustomMiniMapNode = ({ x, y, width, height }: MiniMapNodeProps) => {
+ const CustomMiniMapNodeFlow = () => {
+   const [nodes, setNodes, onNodesChange] = useNodesState<Node>([]);
+   const [edges, setEdges, onEdgesChange] = useEdgesState<Edge>([]);
++  const [hideAllNodes, setHideAllNodes] = useState(false);
+ 
+   const onConnect = useCallback((params: Connection | Edge) => setEdges((els) => addEdge(params, els)), [setEdges]);
+   const addRandomNode = () => {
+@@ -45,10 +40,20 @@ const CustomMiniMapNodeFlow = () => {
+         x: Math.random() * window.innerWidth,
+         y: Math.random() * window.innerHeight,
+       },
++      hidden: hideAllNodes,
+     };
+     setNodes((nds) => nds.concat(newNode));
+   };
+ 
++  const toggleHideAllNodes = () => {
++    setHideAllNodes(prev => {
++      const next = !prev;
++      setNodes(nds => nds.map(n => ({ ...n, hidden: next })));
++      setEdges(eds => eds.map(e => ({ ...e, hidden: next })));
++      return next;
++    });
++  };
++
+   return (
+     <ReactFlow
+       nodes={nodes}
+@@ -65,9 +70,14 @@ const CustomMiniMapNodeFlow = () => {
+       <Background variant={BackgroundVariant.Lines} />
+       <MiniMap nodeComponent={CustomMiniMapNode} />
+ 
+-      <button type="button" onClick={addRandomNode} style={buttonStyle}>
+-        add node
+-      </button>
++      <Panel position="top-left">
++        <button type="button" onClick={addRandomNode}>
++          add node
++        </button>
++        <button type="button" onClick={toggleHideAllNodes}>
++          {hideAllNodes ? 'show all nodes' : 'hide all nodes'}
++        </button>
++      </Panel>
+     </ReactFlow>
+   );
+ };
+diff --git a/examples/svelte/src/routes/examples/custom-minimap/+page.svelte b/examples/svelte/src/routes/examples/custom-minimap/+page.svelte
+index 1e9c96ca14..0a0c734c0d 100644
+--- a/examples/svelte/src/routes/examples/custom-minimap/+page.svelte
++++ b/examples/svelte/src/routes/examples/custom-minimap/+page.svelte
+@@ -4,15 +4,17 @@
+ 		Background,
+ 		Controls,
+ 		MiniMap,
++		Panel,
+ 		type Node,
+-		type Edge,
++		type Edge
+ 	} from '@xyflow/svelte';
+-	
++
+ 	import '@xyflow/svelte/dist/style.css';
+ 	import CustomMiniMapNode from './CustomMiniMapNode.svelte';
+ 
+ 	let nodes = $state.raw<Node[]>([]);
+ 	let edges = $state.raw<Edge[]>([]);
++	let hideAllNodes = $state(false);
+ 
+ 	function addRandomNode() {
+ 		const nodeId = (nodes.length + 1).toString();
+@@ -21,28 +23,33 @@
+ 			data: { label: `Node: ${nodeId}` },
+ 			position: {
+ 				x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 800),
+-				y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 600),
++				y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 600)
+ 			},
+-			type: 'default'
++			type: 'default',
++			hidden: hideAllNodes
+ 		};
+ 		nodes = [...nodes, newNode];
+ 	}
++
++	function toggleHideAllNodes() {
++		hideAllNodes = !hideAllNodes;
++		nodes = nodes.map((node) => ({
++			...node,
++			hidden: hideAllNodes
++		}));
++	}
+ </script>
+ 
+-<SvelteFlow
+-	bind:nodes
+-	bind:edges
+-	onlyRenderVisibleElements={true}
+->
++<SvelteFlow bind:nodes bind:edges onlyRenderVisibleElements={true}>
+ 	<Controls />
+ 	<Background />
+ 	<MiniMap nodeComponent={CustomMiniMapNode} />
+ 
+-	<button 
+-		type="button" 
+-		onclick={addRandomNode}
+-		style="position: absolute; left: 10px; top: 10px; z-index: 4;"
+-	>
+-		add node
+-	</button>
++	<Panel position="top-left">
++		<button type="button" onclick={addRandomNode}> add node </button>
++
++		<button type="button" onclick={toggleHideAllNodes}>
++			{hideAllNodes ? 'show all nodes' : 'hide all nodes'}
++		</button>
++	</Panel>
+ </SvelteFlow>
+diff --git a/packages/svelte/src/lib/plugins/Minimap/Minimap.svelte b/packages/svelte/src/lib/plugins/Minimap/Minimap.svelte
+index 33209dcb5c..90c6abb4bb 100644
+--- a/packages/svelte/src/lib/plugins/Minimap/Minimap.svelte
++++ b/packages/svelte/src/lib/plugins/Minimap/Minimap.svelte
+@@ -60,14 +60,11 @@
+     width: store.width / store.viewport.zoom,
+     height: store.height / store.viewport.zoom
+   });
++
+   let boundingRect = $derived(
+-    store.nodeLookup.size > 0
+-      ? getBoundsOfRects(
+-          getInternalNodesBounds(store.nodeLookup, { filter: (n) => !n.hidden }),
+-          viewBB
+-        )
+-      : viewBB
++    getBoundsOfRects(getInternalNodesBounds(store.nodeLookup, { filter: (n) => !n.hidden }), viewBB)
+   );
++
+   let scaledWidth = $derived(boundingRect.width / width);
+   let scaledHeight = $derived(boundingRect.height / height);
+   let viewScale = $derived(Math.max(scaledWidth, scaledHeight));
+@@ -121,7 +118,7 @@
+ 
+       {#each store.nodes as userNode (userNode.id)}
+         {@const node = store.nodeLookup.get(userNode.id)}
+-        {#if node && nodeHasDimensions(node)}
++        {#if node && nodeHasDimensions(node) && !node.hidden}
+           {@const nodeDimesions = getNodeDimensions(node)}
+           <MinimapNode
+             x={node.internals.positionAbsolute.x}
+diff --git a/packages/system/src/utils/graph.ts b/packages/system/src/utils/graph.ts
+index d859265e7e..df32a1651b 100644
+--- a/packages/system/src/utils/graph.ts
++++ b/packages/system/src/utils/graph.ts
+@@ -241,20 +241,17 @@ export const getInternalNodesBounds = <NodeType extends InternalNodeBase | NodeD
+   nodeLookup: Map<string, NodeType>,
+   params: GetInternalNodesBoundsParams<NodeType> = {}
+ ): Rect => {
+-  if (nodeLookup.size === 0) {
+-    return { x: 0, y: 0, width: 0, height: 0 };
+-  }
+-
+   let box = { x: Infinity, y: Infinity, x2: -Infinity, y2: -Infinity };
++  let hasVisibleNodes = false;
+ 
+   nodeLookup.forEach((node) => {
+     if (params.filter === undefined || params.filter(node)) {
+-      const nodeBox = nodeToBox(node as InternalNodeBase);
+-      box = getBoundsOfBoxes(box, nodeBox);
++      box = getBoundsOfBoxes(box, nodeToBox(node as InternalNodeBase));
++      hasVisibleNodes = true;
+     }
+   });
+ 
+-  return boxToRect(box);
++  return hasVisibleNodes ? boxToRect(box) : { x: 0, y: 0, width: 0, height: 0 };
+ };
+ 
+ export const getNodesInside = <NodeType extends NodeBase = NodeBase>(

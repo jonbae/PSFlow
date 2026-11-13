@@ -1,0 +1,28 @@
+diff --git a/.changeset/old-lobsters-cover.md b/.changeset/old-lobsters-cover.md
+new file mode 100644
+index 0000000000..82795889a2
+--- /dev/null
++++ b/.changeset/old-lobsters-cover.md
+@@ -0,0 +1,5 @@
++---
++'@xyflow/react': patch
++---
++
++Allow custom data-testid for ReactFlow component
+diff --git a/packages/react/src/container/ReactFlow/index.tsx b/packages/react/src/container/ReactFlow/index.tsx
+index 962b684610..82206fc895 100644
+--- a/packages/react/src/container/ReactFlow/index.tsx
++++ b/packages/react/src/container/ReactFlow/index.tsx
+@@ -153,11 +153,11 @@ function ReactFlow<NodeType extends Node = Node, EdgeType extends Edge = Edge>(
+ 
+   return (
+     <div
++      data-testid="rf__wrapper"
+       {...rest}
+       style={{ ...style, ...wrapperStyle }}
+       ref={ref}
+       className={cc(['react-flow', className, colorModeClassName])}
+-      data-testid="rf__wrapper"
+       id={id}
+     >
+       <Wrapper

@@ -1,0 +1,610 @@
+{
+  "traceFormat": 2,
+  "scenario": "debt-focus-wrapper-scroll",
+  "side": "psflow",
+  "capture": 1,
+  "baseline": "12.11.0",
+  "sections": {
+    "dom": {
+      "page": {
+        "scrollX": 0,
+        "scrollY": 0,
+        "visualViewportScale": 1
+      },
+      "root": {
+        "tag": "div",
+        "attrs": {
+          "data-testid": "rf__wrapper",
+          "class": "react-flow light",
+          "role": "application",
+          "style": "width: 100%; height: 100%; overflow: hidden; position: relative; z-index: 0;"
+        },
+        "children": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__renderer",
+              "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+            },
+            "children": [
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__pane draggable",
+                  "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                },
+                "children": [
+                  {
+                    "tag": "div",
+                    "attrs": {
+                      "class": "react-flow__viewport xyflow__viewport react-flow__container",
+                      "style": "transform: translate(0px, 0px) scale(1);"
+                    },
+                    "children": [
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edges"
+                        },
+                        "children": []
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edgelabel-renderer"
+                        },
+                        "children": []
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__nodes",
+                          "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                        },
+                        "children": [
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-default nopan selectable draggable",
+                              "data-id": "near",
+                              "data-testid": "rf__node-near",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(10px, 10px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "near",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "near",
+                                  "data-handlepos": "top",
+                                  "data-id": "1-near-null-target"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "near",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-near-null-source"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-default nopan selectable draggable",
+                              "data-id": "far",
+                              "data-testid": "rf__node-far",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(1800px, 1200px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "far",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "far",
+                                  "data-handlepos": "top",
+                                  "data-id": "1-far-null-target"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "far",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-far-null-source"
+                                },
+                                "children": []
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__viewport-portal"
+                        },
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__panel react-flow__attribution bottom right",
+              "data-message": "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
+            },
+            "children": [
+              {
+                "tag": "a",
+                "attrs": {
+                  "href": "https://reactflow.dev",
+                  "target": "_blank",
+                  "rel": "noopener noreferrer",
+                  "aria-label": "React Flow attribution"
+                },
+                "text": "React Flow",
+                "children": []
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__node-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__edge-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select an edge. You can then press delete to remove it or escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__aria-live-1",
+              "aria-live": "assertive",
+              "aria-atomic": "true",
+              "style": "position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(100%);"
+            },
+            "children": []
+          }
+        ]
+      }
+    },
+    "callbacks": [
+      {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": []
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "type": "dimensions",
+              "id": "near",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "far",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onInit",
+        "args": [
+          {
+            "getNodes": {
+              "@ref": "function"
+            },
+            "setNodes": {
+              "@ref": "function"
+            },
+            "addNodes": {
+              "@ref": "function"
+            },
+            "getNode": {
+              "@ref": "function"
+            },
+            "getInternalNode": {
+              "@ref": "function"
+            },
+            "getEdges": {
+              "@ref": "function"
+            },
+            "setEdges": {
+              "@ref": "function"
+            },
+            "addEdges": {
+              "@ref": "function"
+            },
+            "getEdge": {
+              "@ref": "function"
+            },
+            "toObject": {
+              "@ref": "function"
+            },
+            "deleteElements": {
+              "@ref": "function"
+            },
+            "getIntersectingNodes": {
+              "@ref": "function"
+            },
+            "isNodeIntersecting": {
+              "@ref": "function"
+            },
+            "updateNode": {
+              "@ref": "function"
+            },
+            "updateNodeData": {
+              "@ref": "function"
+            },
+            "updateEdge": {
+              "@ref": "function"
+            },
+            "updateEdgeData": {
+              "@ref": "function"
+            },
+            "getNodesBounds": {
+              "@ref": "function"
+            },
+            "getHandleConnections": {
+              "@ref": "function"
+            },
+            "getNodeConnections": {
+              "@ref": "function"
+            },
+            "fitView": {
+              "@ref": "function"
+            },
+            "zoomIn": {
+              "@ref": "function"
+            },
+            "zoomOut": {
+              "@ref": "function"
+            },
+            "zoomTo": {
+              "@ref": "function"
+            },
+            "getZoom": {
+              "@ref": "function"
+            },
+            "setViewport": {
+              "@ref": "function"
+            },
+            "getViewport": {
+              "@ref": "function"
+            },
+            "setCenter": {
+              "@ref": "function"
+            },
+            "fitBounds": {
+              "@ref": "function"
+            },
+            "screenToFlowPosition": {
+              "@ref": "function"
+            },
+            "flowToScreenPosition": {
+              "@ref": "function"
+            },
+            "viewportInitialized": true
+          }
+        ]
+      },
+      {
+        "name": "wrapperScroll",
+        "args": [
+          0,
+          0
+        ]
+      },
+      {
+        "name": "wrapperScroll",
+        "args": [
+          0,
+          0
+        ]
+      }
+    ],
+    "hooks": {},
+    "api": {
+      "queries": {
+        "wrapperScroll": {
+          "top": 0,
+          "left": 0
+        },
+        "getNodes": [
+          {
+            "id": "near",
+            "position": {
+              "x": 10,
+              "y": 10
+            },
+            "data": {
+              "label": "near"
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "far",
+            "position": {
+              "x": 1800,
+              "y": 1200
+            },
+            "data": {
+              "label": "far"
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          }
+        ],
+        "getNode": {
+          "id": "near",
+          "position": {
+            "x": 10,
+            "y": 10
+          },
+          "data": {
+            "label": "near"
+          },
+          "measured": {
+            "width": 150,
+            "height": 37
+          }
+        },
+        "getInternalNode": {
+          "id": "near",
+          "position": {
+            "x": 10,
+            "y": 10
+          },
+          "data": {
+            "label": "near"
+          },
+          "measured": {
+            "width": 150,
+            "height": 37
+          },
+          "internals": {
+            "positionAbsolute": {
+              "x": 10,
+              "y": 10
+            },
+            "z": 0,
+            "userNode": {
+              "id": "near",
+              "position": {
+                "x": 10,
+                "y": 10
+              },
+              "data": {
+                "label": "near"
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            "handleBounds": {
+              "source": [
+                {
+                  "id": null,
+                  "nodeId": "near",
+                  "x": 71,
+                  "y": 32,
+                  "position": "bottom",
+                  "type": "source",
+                  "width": 8,
+                  "height": 8
+                }
+              ],
+              "target": [
+                {
+                  "id": null,
+                  "nodeId": "near",
+                  "x": 71,
+                  "y": -3,
+                  "position": "top",
+                  "type": "target",
+                  "width": 8,
+                  "height": 8
+                }
+              ]
+            }
+          }
+        },
+        "getEdges": [],
+        "getEdge": {
+          "@undefined": true
+        },
+        "getIntersectingNodes": [
+          {
+            "id": "near",
+            "position": {
+              "x": 10,
+              "y": 10
+            },
+            "data": {
+              "label": "near"
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "far",
+            "position": {
+              "x": 1800,
+              "y": 1200
+            },
+            "data": {
+              "label": "far"
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          }
+        ],
+        "isNodeIntersecting": true,
+        "getNodesBounds": {
+          "x": 10,
+          "y": 10,
+          "width": 1940,
+          "height": 1227
+        },
+        "getHandleConnections": [],
+        "getNodeConnections": [],
+        "toObject": {
+          "nodes": [
+            {
+              "id": "near",
+              "position": {
+                "x": 10,
+                "y": 10
+              },
+              "data": {
+                "label": "near"
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "far",
+              "position": {
+                "x": 1800,
+                "y": 1200
+              },
+              "data": {
+                "label": "far"
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          ],
+          "edges": [],
+          "viewport": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        },
+        "getZoom": 1,
+        "getViewport": {
+          "x": 0,
+          "y": 0,
+          "zoom": 1
+        },
+        "screenToFlowPosition": {
+          "x": 0,
+          "y": 0
+        },
+        "flowToScreenPosition": {
+          "x": 0,
+          "y": 0
+        },
+        "viewportInitialized": true
+      },
+      "calls": []
+    },
+    "props": {},
+    "console": [
+      {
+        "level": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      }
+    ],
+    "driving": [
+      {
+        "index": 0,
+        "action": "mount",
+        "target": ".react-flow",
+        "resolved": true,
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "dispatched": {
+          "route": "/tests/generic/nodes/focus-overflow"
+        }
+      },
+      {
+        "index": 1,
+        "action": "key",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "key": "Tab",
+          "action": "press"
+        }
+      },
+      {
+        "index": 2,
+        "action": "key",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "key": "Tab",
+          "action": "press"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,149 @@
+diff --git a/.changeset/sharp-toys-cheer.md b/.changeset/sharp-toys-cheer.md
+new file mode 100644
+index 0000000000..885eebcc50
+--- /dev/null
++++ b/.changeset/sharp-toys-cheer.md
+@@ -0,0 +1,7 @@
++---
++'@xyflow/react': minor
++'@xyflow/svelte': minor
++'@xyflow/system': patch
++---
++
++Pass current pointer position to connection
+diff --git a/examples/react/src/examples/CustomConnectionLine/ConnectionLine.tsx b/examples/react/src/examples/CustomConnectionLine/ConnectionLine.tsx
+index ddba960b9e..bf6a82d7d3 100644
+--- a/examples/react/src/examples/CustomConnectionLine/ConnectionLine.tsx
++++ b/examples/react/src/examples/CustomConnectionLine/ConnectionLine.tsx
+@@ -1,6 +1,7 @@
+ import { ConnectionLineComponentProps } from '@xyflow/react';
+ 
+-function ConnectionLine({ fromX, fromY, toX, toY }: ConnectionLineComponentProps) {
++function ConnectionLine({ fromX, fromY, toX, toY, pointer }: ConnectionLineComponentProps) {
++  console.log('pointer', pointer);
+   return (
+     <>
+       <path
+diff --git a/examples/svelte/src/routes/examples/custom-connection-line/ConnectionLine.svelte b/examples/svelte/src/routes/examples/custom-connection-line/ConnectionLine.svelte
+index 5c48f62d75..129bf7d3ae 100644
+--- a/examples/svelte/src/routes/examples/custom-connection-line/ConnectionLine.svelte
++++ b/examples/svelte/src/routes/examples/custom-connection-line/ConnectionLine.svelte
+@@ -19,6 +19,8 @@
+ 		}
+ 		return null;
+ 	});
++
++	$inspect(connection.current.pointer);
+ </script>
+ 
+ {#if connection.current.inProgress}
+diff --git a/packages/react/src/components/ConnectionLine/index.tsx b/packages/react/src/components/ConnectionLine/index.tsx
+index c179fae2f7..29463fa4e1 100644
+--- a/packages/react/src/components/ConnectionLine/index.tsx
++++ b/packages/react/src/components/ConnectionLine/index.tsx
+@@ -69,7 +69,7 @@ const ConnectionLine = <NodeType extends Node = Node>({
+   CustomComponent,
+   isValid,
+ }: ConnectionLineProps<NodeType>) => {
+-  const { inProgress, from, fromNode, fromHandle, fromPosition, to, toNode, toHandle, toPosition } =
++  const { inProgress, from, fromNode, fromHandle, fromPosition, to, toNode, toHandle, toPosition, pointer } =
+     useConnection<NodeType>();
+ 
+   if (!inProgress) {
+@@ -92,6 +92,7 @@ const ConnectionLine = <NodeType extends Node = Node>({
+         connectionStatus={getConnectionStatus(isValid)}
+         toNode={toNode}
+         toHandle={toHandle}
++        pointer={pointer}
+       />
+     );
+   }
+diff --git a/packages/react/src/types/edges.ts b/packages/react/src/types/edges.ts
+index dee2650e06..9e563b76fe 100644
+--- a/packages/react/src/types/edges.ts
++++ b/packages/react/src/types/edges.ts
+@@ -22,6 +22,7 @@ import type {
+   OnError,
+   OnReconnect,
+   FinalConnectionState,
++  XYPosition,
+ } from '@xyflow/system';
+ 
+ import { EdgeTypes, InternalNode, Node } from '.';
+@@ -279,6 +280,7 @@ export type ConnectionLineComponentProps<NodeType extends Node = Node> = {
+   connectionStatus: 'valid' | 'invalid' | null;
+   toNode: InternalNode<NodeType> | null;
+   toHandle: Handle | null;
++  pointer: XYPosition;
+ };
+ 
+ export type ConnectionLineComponent<NodeType extends Node = Node> = ComponentType<
+diff --git a/packages/system/src/types/general.ts b/packages/system/src/types/general.ts
+index 15f642629a..d43c50ee3a 100644
+--- a/packages/system/src/types/general.ts
++++ b/packages/system/src/types/general.ts
+@@ -292,6 +292,7 @@ export const initialConnection: NoConnection = {
+   toHandle: null,
+   toPosition: null,
+   toNode: null,
++  pointer: null,
+ };
+ 
+ export type NoConnection = {
+@@ -305,6 +306,7 @@ export type NoConnection = {
+   toHandle: null;
+   toPosition: null;
+   toNode: null;
++  pointer: null;
+ };
+ export type ConnectionInProgress<NodeType extends InternalNodeBase = InternalNodeBase> = {
+   /** Indicates whether a connection is currently in progress. */
+@@ -330,6 +332,8 @@ export type ConnectionInProgress<NodeType extends InternalNodeBase = InternalNod
+   toPosition: Position;
+   /** Returns the end node or `null` if no connection is in progress. */
+   toNode: NodeType | null;
++  /** Returns the pointer position or `null` if no connection is in progress. */
++  pointer: XYPosition;
+ };
+ 
+ /**
+diff --git a/packages/system/src/xyhandle/XYHandle.ts b/packages/system/src/xyhandle/XYHandle.ts
+index 82de2f8a6f..2e714e8b42 100644
+--- a/packages/system/src/xyhandle/XYHandle.ts
++++ b/packages/system/src/xyhandle/XYHandle.ts
+@@ -109,6 +109,7 @@ function onPointerDown(
+     toHandle: null,
+     toPosition: oppositePosition[fromHandle.position],
+     toNode: null,
++    pointer: position,
+   };
+ 
+   function startConnection() {
+@@ -182,26 +183,9 @@ function onPointerDown(
+       toHandle: result.toHandle,
+       toPosition: isValid && result.toHandle ? result.toHandle.position : oppositePosition[fromHandle.position],
+       toNode: result.toHandle ? nodeLookup.get(result.toHandle.nodeId)! : null,
++      pointer: position,
+     };
+ 
+-    /*
+-     * we don't want to trigger an update when the connection
+-     * is snapped to the same handle as before
+-     */
+-    if (
+-      isValid &&
+-      closestHandle &&
+-      previousConnection.toHandle &&
+-      newConnection.toHandle &&
+-      previousConnection.toHandle.type === newConnection.toHandle.type &&
+-      previousConnection.toHandle.nodeId === newConnection.toHandle.nodeId &&
+-      previousConnection.toHandle.id === newConnection.toHandle.id &&
+-      previousConnection.to.x === newConnection.to.x &&
+-      previousConnection.to.y === newConnection.to.y
+-    ) {
+-      return;
+-    }
+-
+     updateConnection(newConnection);
+     previousConnection = newConnection;
+   }

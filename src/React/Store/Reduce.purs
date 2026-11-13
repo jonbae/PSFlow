@@ -198,6 +198,7 @@ adoptNodesInto state nodes =
       , nodeLookup = r.nodeLookup
       , parentLookup = r.parentLookup
       , nodesInitialized = r.nodesInitialized
+      , nodesSelectionActive = state.nodesSelectionActive && r.hasSelectedNodes
       }
 
 -- SetEdges ---------------------------------------------------------------

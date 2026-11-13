@@ -1,0 +1,70 @@
+{
+  "probes": 9,
+  "rejected": 8,
+  "survivors": [
+    {
+      "scenario": "debt-programmatic-selection-drag",
+      "ok": true,
+      "failures": []
+    }
+  ],
+  "results": [
+    {
+      "scenario": "debt-click-connect-end-only",
+      "ok": false,
+      "failures": [
+        "unclaimed-difference"
+      ]
+    },
+    {
+      "scenario": "debt-fitview-ignored-changes",
+      "ok": false,
+      "error": "Error: imperative call did not complete in 200 application frame steps\n    at Object.call (file:///work/parity/system/harness/port.mjs:287:30)\n    at async call (file:///work/parity/system/harness/actions.mjs:235:37)\n    at async Object.call (file:///work/parity/system/harness/vocabulary.mjs:46:30)\n    at async Object.run (file:///work/parity/system/corpus/order-eight.mjs:26:7)\n    at async runScenario (file:///work/parity/system/harness/scenario.mjs:257:5)\n    at async file:///work/aamf/step4/order-8/capture.mjs:48:57"
+    },
+    {
+      "scenario": "debt-fitview-absent-handler",
+      "ok": false,
+      "error": "Error: imperative call did not complete in 200 application frame steps\n    at Object.call (file:///work/parity/system/harness/port.mjs:287:30)\n    at async call (file:///work/parity/system/harness/actions.mjs:235:37)\n    at async Object.call (file:///work/parity/system/harness/vocabulary.mjs:46:30)\n    at async Object.run (file:///work/parity/system/corpus/order-eight.mjs:26:7)\n    at async runScenario (file:///work/parity/system/harness/scenario.mjs:257:5)\n    at async file:///work/aamf/step4/order-8/capture.mjs:48:57"
+    },
+    {
+      "scenario": "debt-ctrl-wheel-nowheel",
+      "ok": false,
+      "failures": [
+        "unclaimed-difference"
+      ]
+    },
+    {
+      "scenario": "debt-connection-partial-touch-end",
+      "ok": false,
+      "failures": [
+        "unclaimed-difference"
+      ]
+    },
+    {
+      "scenario": "debt-ctrl-wheel-nowheel-pan-on-scroll",
+      "ok": false,
+      "failures": [
+        "unclaimed-difference"
+      ]
+    },
+    {
+      "scenario": "debt-connection-pointer",
+      "ok": false,
+      "failures": [
+        "unclaimed-difference"
+      ]
+    },
+    {
+      "scenario": "debt-programmatic-selection-drag",
+      "ok": true,
+      "failures": []
+    },
+    {
+      "scenario": "debt-store-remount",
+      "ok": false,
+      "failures": [
+        "unclaimed-difference"
+      ]
+    }
+  ]
+}

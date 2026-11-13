@@ -1,18 +1,15 @@
 // A child that pushes its parent open as it is dragged (#5043 — read the
 // *current* `expandParent`, so it can be changed mid-drag).
 //
-// The child starts well inside the parent and the scenario drags it out past
-// one corner, which is the only way `expandParent` does anything at all: a
-// child that stays within its parent's box never asks the parent to grow. The
-// parent's own measured size then changes during the gesture, so the row lands
-// in `dom` — and it lands there *repeatedly*, once per drag step, which is what
-// makes "current value" rather than "value at drag start" observable.
-//
-// `extent: 'parent'` is deliberately **not** set. The two are alternatives in
-// upstream's own position code: an extent clamps the child inside the parent,
-// which would stop it ever reaching the edge this row is about.
+// `debt-live-expand-parent` presses e during a drag. The consumer witness
+// updates the child's expandParent flag through the public instance; later
+// drag steps must consult that current node. The older growth-only scenario
+// retains the constant flag and cannot distinguish the two implementations.
+// No parent extent is set: clamping would prevent expansion altogether.
 
+import { ExpandParentWitness } from '../shared/DebtWitnesses';
 export default {
+  witness: ExpandParentWitness,
   flowProps: {
     fitView: true,
     nodeDragThreshold: 0,

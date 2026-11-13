@@ -35,6 +35,7 @@ import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { BUCKETS, NET, rowProblems } from "./buckets.mjs";
 import { RegistryError, routeSpace } from "../driver/registry.mjs";
 import { scenarioNames } from "../system/corpus/index.mjs";
+import { systemEvidenceProblems } from "./system-evidence.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(here, "..", "..");
@@ -82,6 +83,12 @@ const unbucketed = prs.filter(
 const problems = prs.flatMap((pr) =>
   verdicts[pr] ? rowProblems(pr, verdicts[pr], { scenarios: names }) : [] // absent is gate 1's to report
 );
+problems.push(...systemEvidenceProblems(verdicts, {
+  scenarioIds: names.written,
+  readSections: (id, side, capture) => JSON.parse(readFileSync(
+    join(repoRoot, 'parity/system/traces', `${id}.${side}.capture${capture}.json`), 'utf8'
+  )).sections,
+}));
 
 // Verdicts for PRs that are no longer in range (e.g. the floor moved up) are
 // stale bookkeeping, not a build failure — reported so they can be pruned.

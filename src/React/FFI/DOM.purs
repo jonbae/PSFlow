@@ -43,7 +43,7 @@ import Effect.Uncurried (EffectFn1, mkEffectFn1)
 import Foreign (Foreign)
 import Foreign.Object (Object)
 import React.Basic (JSX)
-import React.Basic.Events (EventHandler)
+import React.Basic.Events (EventHandler, SyntheticEvent)
 import Unsafe.Coerce (unsafeCoerce)
 import Web.DOM.Element (Element)
 
@@ -101,10 +101,10 @@ opt = unsafeCoerce <<< toNullable
 -- | `React.Container.ReactFlow` to undo browser tab-focus scrolling on
 -- | the outer wrapper.
 foreign import scrollResetHandlerImpl
-  :: EffectFn1 Unit Unit -> EventHandler
+  :: EffectFn1 SyntheticEvent Unit -> EventHandler
 
-scrollResetHandler :: Effect Unit -> EventHandler
-scrollResetHandler cb = scrollResetHandlerImpl (mkEffectFn1 (\_ -> cb))
+scrollResetHandler :: (SyntheticEvent -> Effect Unit) -> EventHandler
+scrollResetHandler cb = scrollResetHandlerImpl (mkEffectFn1 cb)
 
 -- | `element.blur()`, at the widest type the DOM will honestly give it.
 -- |

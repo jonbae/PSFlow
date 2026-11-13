@@ -1,0 +1,1591 @@
+{
+  "traceFormat": 2,
+  "scenario": "debt-click-connect-end-only",
+  "side": "psflow",
+  "capture": 1,
+  "baseline": "12.11.0",
+  "sections": {
+    "dom": {
+      "page": {
+        "scrollX": 0,
+        "scrollY": 0,
+        "visualViewportScale": 1
+      },
+      "root": {
+        "tag": "div",
+        "attrs": {
+          "data-testid": "rf__wrapper",
+          "class": "react-flow light",
+          "role": "application",
+          "style": "width: 100%; height: 100%; overflow: hidden; position: relative; z-index: 0;"
+        },
+        "children": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__renderer",
+              "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+            },
+            "children": [
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__pane draggable",
+                  "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                },
+                "children": [
+                  {
+                    "tag": "div",
+                    "attrs": {
+                      "class": "react-flow__viewport xyflow__viewport react-flow__container",
+                      "style": "transform: translate(0px, 0px) scale(1);"
+                    },
+                    "children": [
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edges"
+                        },
+                        "children": [
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 0;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-default nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "xy-edge__sourceout-targetin",
+                                  "data-testid": "rf__edge-xy-edge__sourceout-targetin",
+                                  "aria-label": "Edge from source to target",
+                                  "aria-describedby": "react-flow__edge-desc-1"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M260,164 C260,280 560,280 560,396",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M260,164 C260,280 560,280 560,396",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "260",
+                                      "cy": "174",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "560",
+                                      "cy": "386",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edgelabel-renderer"
+                        },
+                        "children": []
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__nodes",
+                          "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                        },
+                        "children": [
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-detached nopan selectable draggable",
+                              "data-id": "source",
+                              "data-testid": "rf__node-source",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(200px, 100px); pointer-events: all; visibility: visible;"
+                            },
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "style": "width: 120px; height: 60px;"
+                                },
+                                "text": "source",
+                                "children": [
+                                  {
+                                    "tag": "div",
+                                    "attrs": {
+                                      "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectableend",
+                                      "data-handleid": "in",
+                                      "data-nodeid": "source",
+                                      "data-handlepos": "top",
+                                      "data-id": "1-source-in-target"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "div",
+                                    "attrs": {
+                                      "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
+                                      "data-handleid": "out",
+                                      "data-nodeid": "source",
+                                      "data-handlepos": "bottom",
+                                      "data-id": "1-source-out-source"
+                                    },
+                                    "children": [
+                                      {
+                                        "tag": "span",
+                                        "attrs": {
+                                          "data-detached-hit": "source",
+                                          "style": "position: absolute; left: 15px; top: 0px; width: 25px; height: 20px; background: rgb(187, 187, 187);"
+                                        },
+                                        "children": []
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-detached nopan selectable draggable",
+                              "data-id": "target",
+                              "data-testid": "rf__node-target",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(500px, 400px); pointer-events: all; visibility: visible;"
+                            },
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "style": "width: 120px; height: 60px;"
+                                },
+                                "text": "target",
+                                "children": [
+                                  {
+                                    "tag": "div",
+                                    "attrs": {
+                                      "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectableend",
+                                      "data-handleid": "in",
+                                      "data-nodeid": "target",
+                                      "data-handlepos": "top",
+                                      "data-id": "1-target-in-target"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "div",
+                                    "attrs": {
+                                      "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
+                                      "data-handleid": "out",
+                                      "data-nodeid": "target",
+                                      "data-handlepos": "bottom",
+                                      "data-id": "1-target-out-source"
+                                    },
+                                    "children": [
+                                      {
+                                        "tag": "span",
+                                        "attrs": {
+                                          "data-detached-hit": "target",
+                                          "style": "position: absolute; left: 15px; top: 0px; width: 25px; height: 20px; background: rgb(187, 187, 187);"
+                                        },
+                                        "children": []
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__viewport-portal"
+                        },
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "output",
+            "attrs": {
+              "data-connection-state": "{\"inProgress\":false,\"from\":null,\"to\":null,\"pointer\":null}",
+              "style": "display: none;"
+            },
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__panel react-flow__attribution bottom right",
+              "data-message": "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
+            },
+            "children": [
+              {
+                "tag": "a",
+                "attrs": {
+                  "href": "https://reactflow.dev",
+                  "target": "_blank",
+                  "rel": "noopener noreferrer",
+                  "aria-label": "React Flow attribution"
+                },
+                "text": "React Flow",
+                "children": []
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__node-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__edge-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select an edge. You can then press delete to remove it or escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__aria-live-1",
+              "aria-live": "assertive",
+              "aria-atomic": "true",
+              "style": "position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(100%);"
+            },
+            "children": []
+          }
+        ]
+      }
+    },
+    "callbacks": [
+      {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": []
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "type": "dimensions",
+              "id": "source",
+              "dimensions": {
+                "width": 120,
+                "height": 60
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "target",
+              "dimensions": {
+                "width": 120,
+                "height": 60
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onInit",
+        "args": [
+          {
+            "getNodes": {
+              "@ref": "function"
+            },
+            "setNodes": {
+              "@ref": "function"
+            },
+            "addNodes": {
+              "@ref": "function"
+            },
+            "getNode": {
+              "@ref": "function"
+            },
+            "getInternalNode": {
+              "@ref": "function"
+            },
+            "getEdges": {
+              "@ref": "function"
+            },
+            "setEdges": {
+              "@ref": "function"
+            },
+            "addEdges": {
+              "@ref": "function"
+            },
+            "getEdge": {
+              "@ref": "function"
+            },
+            "toObject": {
+              "@ref": "function"
+            },
+            "deleteElements": {
+              "@ref": "function"
+            },
+            "getIntersectingNodes": {
+              "@ref": "function"
+            },
+            "isNodeIntersecting": {
+              "@ref": "function"
+            },
+            "updateNode": {
+              "@ref": "function"
+            },
+            "updateNodeData": {
+              "@ref": "function"
+            },
+            "updateEdge": {
+              "@ref": "function"
+            },
+            "updateEdgeData": {
+              "@ref": "function"
+            },
+            "getNodesBounds": {
+              "@ref": "function"
+            },
+            "getHandleConnections": {
+              "@ref": "function"
+            },
+            "getNodeConnections": {
+              "@ref": "function"
+            },
+            "fitView": {
+              "@ref": "function"
+            },
+            "zoomIn": {
+              "@ref": "function"
+            },
+            "zoomOut": {
+              "@ref": "function"
+            },
+            "zoomTo": {
+              "@ref": "function"
+            },
+            "getZoom": {
+              "@ref": "function"
+            },
+            "setViewport": {
+              "@ref": "function"
+            },
+            "getViewport": {
+              "@ref": "function"
+            },
+            "setCenter": {
+              "@ref": "function"
+            },
+            "fitBounds": {
+              "@ref": "function"
+            },
+            "screenToFlowPosition": {
+              "@ref": "function"
+            },
+            "flowToScreenPosition": {
+              "@ref": "function"
+            },
+            "viewportInitialized": true
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "pointerenter",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 66,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 260,
+            "screenY": 160,
+            "clientX": 260,
+            "clientY": 160,
+            "pageX": 260,
+            "pageY": 160,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 0,
+            "relatedTarget": {
+              "@ref": "Window"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseenter",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 66,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 260,
+            "screenY": 160,
+            "clientX": 260,
+            "clientY": 160,
+            "pageX": 260,
+            "pageY": 160,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": {
+              "@ref": "Window"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "source",
+            "type": "detached",
+            "position": {
+              "x": 200,
+              "y": 100
+            },
+            "data": {
+              "label": "source"
+            },
+            "measured": {
+              "width": 120,
+              "height": 60
+            }
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 66,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 260,
+            "screenY": 160,
+            "clientX": 260,
+            "clientY": 160,
+            "pageX": 260,
+            "pageY": 160,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 0,
+            "relatedTarget": null,
+            "movementX": 261,
+            "movementY": 161,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseMove",
+            "_targetInst": null,
+            "type": "mousemove",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 66,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 260,
+            "screenY": 160,
+            "clientX": 260,
+            "clientY": 160,
+            "pageX": 260,
+            "pageY": 160,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": null,
+            "movementX": 261,
+            "movementY": 161,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "source",
+            "type": "detached",
+            "position": {
+              "x": 200,
+              "y": 100
+            },
+            "data": {
+              "label": "source"
+            },
+            "measured": {
+              "width": 120,
+              "height": 60
+            }
+          }
+        ]
+      },
+      {
+        "name": "onClickConnectStart",
+        "args": [
+          {
+            "@class": "PointerEvent",
+            "isTrusted": true
+          },
+          {
+            "nodeId": "source",
+            "handleId": "out",
+            "handleType": "source"
+          }
+        ]
+      },
+      {
+        "name": "onNodeClick",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onClick",
+            "_targetInst": null,
+            "type": "click",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 128,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 1,
+            "screenX": 260,
+            "screenY": 160,
+            "clientX": 260,
+            "clientY": 160,
+            "pageX": 260,
+            "pageY": 160,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": null,
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "source",
+            "type": "detached",
+            "position": {
+              "x": 200,
+              "y": 100
+            },
+            "data": {
+              "label": "source"
+            },
+            "measured": {
+              "width": 120,
+              "height": 60
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseLeave",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseLeave",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseleave",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 160,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 560,
+            "screenY": 400,
+            "clientX": 560,
+            "clientY": 400,
+            "pageX": 560,
+            "pageY": 400,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": {
+              "@ref": "DIV"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "source",
+            "type": "detached",
+            "position": {
+              "x": 200,
+              "y": 100
+            },
+            "data": {
+              "label": "source"
+            },
+            "measured": {
+              "width": 120,
+              "height": 60
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseenter",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 160,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 560,
+            "screenY": 400,
+            "clientX": 560,
+            "clientY": 400,
+            "pageX": 560,
+            "pageY": 400,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": {
+              "@ref": "DIV"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "target",
+            "type": "detached",
+            "position": {
+              "x": 500,
+              "y": 400
+            },
+            "data": {
+              "label": "target"
+            },
+            "measured": {
+              "width": 120,
+              "height": 60
+            }
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 160,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 560,
+            "screenY": 400,
+            "clientX": 560,
+            "clientY": 400,
+            "pageX": 560,
+            "pageY": 400,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 0,
+            "relatedTarget": null,
+            "movementX": 300,
+            "movementY": 240,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseMove",
+            "_targetInst": null,
+            "type": "mousemove",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 160,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 560,
+            "screenY": 400,
+            "clientX": 560,
+            "clientY": 400,
+            "pageX": 560,
+            "pageY": 400,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": null,
+            "movementX": 300,
+            "movementY": 240,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "target",
+            "type": "detached",
+            "position": {
+              "x": 500,
+              "y": 400
+            },
+            "data": {
+              "label": "target"
+            },
+            "measured": {
+              "width": 120,
+              "height": 60
+            }
+          }
+        ]
+      },
+      {
+        "name": "isValidConnection",
+        "args": [
+          {
+            "source": "source",
+            "target": "target",
+            "sourceHandle": "out",
+            "targetHandle": "in"
+          }
+        ]
+      },
+      {
+        "name": "onConnect",
+        "args": [
+          {
+            "source": "source",
+            "target": "target",
+            "sourceHandle": "out",
+            "targetHandle": "in"
+          }
+        ]
+      },
+      {
+        "name": "onClickConnectEnd",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onClick",
+            "_targetInst": null,
+            "type": "click",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 224,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 1,
+            "screenX": 560,
+            "screenY": 400,
+            "clientX": 560,
+            "clientY": 400,
+            "pageX": 560,
+            "pageY": 400,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": null,
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "isValid": null,
+            "from": null,
+            "fromHandle": null,
+            "fromPosition": null,
+            "fromNode": null,
+            "to": null,
+            "toHandle": null,
+            "toPosition": null,
+            "toNode": null,
+            "pointer": null
+          }
+        ]
+      },
+      {
+        "name": "onNodeClick",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onClick",
+            "_targetInst": null,
+            "type": "click",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 224,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 1,
+            "screenX": 560,
+            "screenY": 400,
+            "clientX": 560,
+            "clientY": 400,
+            "pageX": 560,
+            "pageY": 400,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": null,
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "target",
+            "type": "detached",
+            "position": {
+              "x": 500,
+              "y": 400
+            },
+            "data": {
+              "label": "target"
+            },
+            "measured": {
+              "width": 120,
+              "height": 60
+            }
+          }
+        ]
+      }
+    ],
+    "hooks": {},
+    "api": {
+      "queries": {
+        "getNodes": [
+          {
+            "id": "source",
+            "type": "detached",
+            "position": {
+              "x": 200,
+              "y": 100
+            },
+            "data": {
+              "label": "source"
+            },
+            "measured": {
+              "width": 120,
+              "height": 60
+            }
+          },
+          {
+            "id": "target",
+            "type": "detached",
+            "position": {
+              "x": 500,
+              "y": 400
+            },
+            "data": {
+              "label": "target"
+            },
+            "measured": {
+              "width": 120,
+              "height": 60
+            }
+          }
+        ],
+        "getNode": {
+          "id": "source",
+          "type": "detached",
+          "position": {
+            "x": 200,
+            "y": 100
+          },
+          "data": {
+            "label": "source"
+          },
+          "measured": {
+            "width": 120,
+            "height": 60
+          }
+        },
+        "getInternalNode": {
+          "id": "source",
+          "type": "detached",
+          "position": {
+            "x": 200,
+            "y": 100
+          },
+          "data": {
+            "label": "source"
+          },
+          "measured": {
+            "width": 120,
+            "height": 60
+          },
+          "internals": {
+            "positionAbsolute": {
+              "x": 200,
+              "y": 100
+            },
+            "z": 0,
+            "userNode": {
+              "id": "source",
+              "type": "detached",
+              "position": {
+                "x": 200,
+                "y": 100
+              },
+              "data": {
+                "label": "source"
+              },
+              "measured": {
+                "width": 120,
+                "height": 60
+              }
+            },
+            "handleBounds": {
+              "source": [
+                {
+                  "id": "out",
+                  "nodeId": "source",
+                  "x": 56,
+                  "y": 56,
+                  "position": "bottom",
+                  "type": "source",
+                  "width": 8,
+                  "height": 8
+                }
+              ],
+              "target": [
+                {
+                  "id": "in",
+                  "nodeId": "source",
+                  "x": 56,
+                  "y": -4,
+                  "position": "top",
+                  "type": "target",
+                  "width": 8,
+                  "height": 8
+                }
+              ]
+            }
+          }
+        },
+        "getEdges": [
+          {
+            "source": "source",
+            "target": "target",
+            "sourceHandle": "out",
+            "targetHandle": "in",
+            "id": "xy-edge__sourceout-targetin"
+          }
+        ],
+        "getEdge": {
+          "source": "source",
+          "target": "target",
+          "sourceHandle": "out",
+          "targetHandle": "in",
+          "id": "xy-edge__sourceout-targetin"
+        },
+        "getIntersectingNodes": [
+          {
+            "id": "source",
+            "type": "detached",
+            "position": {
+              "x": 200,
+              "y": 100
+            },
+            "data": {
+              "label": "source"
+            },
+            "measured": {
+              "width": 120,
+              "height": 60
+            }
+          },
+          {
+            "id": "target",
+            "type": "detached",
+            "position": {
+              "x": 500,
+              "y": 400
+            },
+            "data": {
+              "label": "target"
+            },
+            "measured": {
+              "width": 120,
+              "height": 60
+            }
+          }
+        ],
+        "isNodeIntersecting": true,
+        "getNodesBounds": {
+          "x": 200,
+          "y": 100,
+          "width": 420,
+          "height": 360
+        },
+        "getHandleConnections": [
+          {
+            "edgeId": "xy-edge__sourceout-targetin",
+            "source": "source",
+            "target": "target",
+            "sourceHandle": "out",
+            "targetHandle": "in"
+          }
+        ],
+        "getNodeConnections": [
+          {
+            "edgeId": "xy-edge__sourceout-targetin",
+            "source": "source",
+            "target": "target",
+            "sourceHandle": "out",
+            "targetHandle": "in"
+          }
+        ],
+        "toObject": {
+          "nodes": [
+            {
+              "id": "source",
+              "type": "detached",
+              "position": {
+                "x": 200,
+                "y": 100
+              },
+              "data": {
+                "label": "source"
+              },
+              "measured": {
+                "width": 120,
+                "height": 60
+              }
+            },
+            {
+              "id": "target",
+              "type": "detached",
+              "position": {
+                "x": 500,
+                "y": 400
+              },
+              "data": {
+                "label": "target"
+              },
+              "measured": {
+                "width": 120,
+                "height": 60
+              }
+            }
+          ],
+          "edges": [
+            {
+              "source": "source",
+              "target": "target",
+              "sourceHandle": "out",
+              "targetHandle": "in",
+              "id": "xy-edge__sourceout-targetin"
+            }
+          ],
+          "viewport": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        },
+        "getZoom": 1,
+        "getViewport": {
+          "x": 0,
+          "y": 0,
+          "zoom": 1
+        },
+        "screenToFlowPosition": {
+          "x": 0,
+          "y": 0
+        },
+        "flowToScreenPosition": {
+          "x": 0,
+          "y": 0
+        },
+        "viewportInitialized": true
+      },
+      "calls": []
+    },
+    "props": {},
+    "console": [
+      {
+        "level": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      }
+    ],
+    "driving": [
+      {
+        "index": 0,
+        "action": "mount",
+        "target": ".react-flow",
+        "resolved": true,
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "dispatched": {
+          "route": "/tests/generic/nodes/live-connection"
+        }
+      },
+      {
+        "index": 1,
+        "action": "pointerDown",
+        "target": ".react-flow__node[data-id=\"source\"] .react-flow__handle.source",
+        "resolved": true,
+        "box": {
+          "x": 256,
+          "y": 156,
+          "width": 8,
+          "height": 8
+        },
+        "dispatched": {
+          "x": 260,
+          "y": 160,
+          "button": "left"
+        }
+      },
+      {
+        "index": 2,
+        "action": "pointerUp",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "x": 260,
+          "y": 160,
+          "button": "left"
+        }
+      },
+      {
+        "index": 3,
+        "action": "pointerDown",
+        "target": ".react-flow__node[data-id=\"target\"] .react-flow__handle.target",
+        "resolved": true,
+        "box": {
+          "x": 556,
+          "y": 396,
+          "width": 8,
+          "height": 8
+        },
+        "dispatched": {
+          "x": 560,
+          "y": 400,
+          "button": "left"
+        }
+      },
+      {
+        "index": 4,
+        "action": "pointerUp",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "x": 560,
+          "y": 400,
+          "button": "left"
+        }
+      }
+    ]
+  }
+}

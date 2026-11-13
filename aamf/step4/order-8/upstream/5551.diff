@@ -1,0 +1,217 @@
+diff --git a/.changeset/fresh-groups-kneel.md b/.changeset/fresh-groups-kneel.md
+new file mode 100644
+index 0000000000..776c97a154
+--- /dev/null
++++ b/.changeset/fresh-groups-kneel.md
+@@ -0,0 +1,7 @@
++---
++'@xyflow/svelte': minor
++'@xyflow/system': patch
++'@xyflow/react': minor
++---
++
++Allow to start a selection above a node
+diff --git a/examples/react/src/examples/CustomNode/ColorSelectorNode.tsx b/examples/react/src/examples/CustomNode/ColorSelectorNode.tsx
+index 1265d4082b..77bce1c98c 100644
+--- a/examples/react/src/examples/CustomNode/ColorSelectorNode.tsx
++++ b/examples/react/src/examples/CustomNode/ColorSelectorNode.tsx
+@@ -30,7 +30,7 @@ function ColorSelectorNode({ data, isConnectable }: NodeProps<ColorSelectorNode>
+       <div>
+         Custom Color Picker Node: <strong>{data.color}</strong>
+       </div>
+-      <input className="nodrag" type="color" onChange={data.onChange} defaultValue={data.color} />
++      <input className="nodrag nokey" type="color" onChange={data.onChange} defaultValue={data.color} />
+       <Handle
+         type="source"
+         position={Position.Right}
+diff --git a/examples/svelte/src/routes/examples/customnode/CustomNode.svelte b/examples/svelte/src/routes/examples/customnode/CustomNode.svelte
+index 6bc71e2e55..301824183b 100644
+--- a/examples/svelte/src/routes/examples/customnode/CustomNode.svelte
++++ b/examples/svelte/src/routes/examples/customnode/CustomNode.svelte
+@@ -13,7 +13,7 @@
+ 		Custom Color Picker Node: <strong>{bg.color}</strong>
+ 	</div>
+ 	<input
+-		class="nodrag"
++		class="nodrag nokey"
+ 		type="color"
+ 		oninput={(evt) => (bg.color = evt.currentTarget.value)}
+ 		value={bg.color}
+diff --git a/packages/react/src/container/Pane/index.tsx b/packages/react/src/container/Pane/index.tsx
+index 4d2e392a25..ef86be3f2d 100644
+--- a/packages/react/src/container/Pane/index.tsx
++++ b/packages/react/src/container/Pane/index.tsx
+@@ -1,7 +1,3 @@
+-/**
+- * The user selection rectangle gets displayed when a user drags the mouse while pressing shift
+- */
+-
+ import {
+   useRef,
+   type MouseEvent as ReactMouseEvent,
+@@ -119,21 +115,43 @@ export function Pane({
+ 
+   const onWheel = onPaneScroll ? (event: React.WheelEvent) => onPaneScroll(event) : undefined;
+ 
+-  const onPointerDown = (event: ReactPointerEvent): void => {
++  const onClickCapture = (event: ReactMouseEvent) => {
++    const isSelectionOnDragActive =
++      (selectionOnDrag && container.current === event.target) || !selectionOnDrag || selectionKeyPressed;
++
++    if (!isSelectionOnDragActive) {
++      return;
++    }
++
++    event.stopPropagation();
++  };
++
++  // We are using capture here in order to prevent other pointer events
++  // to be able to create a selection above a node or an edge
++  const onPointerDownCapture = (event: ReactPointerEvent): void => {
+     const { resetSelectedElements, domNode } = store.getState();
+     containerBounds.current = domNode?.getBoundingClientRect();
+ 
++    const isNoKeyEvent = event.target !== container.current && !!(event.target as HTMLElement).closest('.nokey');
++    const isSelectionActive =
++      (selectionOnDrag && container.current === event.target) || !selectionOnDrag || selectionKeyPressed;
++
+     if (
+       !elementsSelectable ||
+       !isSelecting ||
+       event.button !== 0 ||
+-      event.target !== container.current ||
+-      !containerBounds.current
++      !containerBounds.current ||
++      isNoKeyEvent ||
++      !isSelectionActive ||
++      !event.isPrimary
+     ) {
+       return;
+     }
+ 
+-    (event.target as Partial<Element> | null)?.setPointerCapture?.(event.pointerId);
++    event.stopPropagation();
++    event.preventDefault();
++
++    (event.target as Partial<Element>)?.setPointerCapture?.(event.pointerId);
+ 
+     selectionStarted.current = true;
+     selectionInProgress.current = false;
+@@ -233,8 +251,8 @@ export function Pane({
+     }
+ 
+     (event.target as Partial<Element>)?.releasePointerCapture?.(event.pointerId);
+-    const { userSelectionRect } = store.getState();
+ 
++    const { userSelectionRect } = store.getState();
+     /*
+      * We only want to trigger click functions when in selection mode if
+      * the user did not move the mouse.
+@@ -270,9 +288,10 @@ export function Pane({
+       onContextMenu={wrapHandler(onContextMenu, container)}
+       onWheel={wrapHandler(onWheel, container)}
+       onPointerEnter={hasActiveSelection ? undefined : onPaneMouseEnter}
+-      onPointerDown={hasActiveSelection ? onPointerDown : onPaneMouseMove}
+       onPointerMove={hasActiveSelection ? onPointerMove : onPaneMouseMove}
+       onPointerUp={hasActiveSelection ? onPointerUp : undefined}
++      onPointerDownCapture={hasActiveSelection ? onPointerDownCapture : undefined}
++      onClickCapture={hasActiveSelection ? onClickCapture : undefined}
+       onPointerLeave={onPaneMouseLeave}
+       ref={container}
+       style={containerStyle}
+diff --git a/packages/svelte/src/lib/container/Pane/Pane.svelte b/packages/svelte/src/lib/container/Pane/Pane.svelte
+index e33e9a55bf..ef77b1de7f 100644
+--- a/packages/svelte/src/lib/container/Pane/Pane.svelte
++++ b/packages/svelte/src/lib/container/Pane/Pane.svelte
+@@ -91,20 +91,33 @@
+   }
+ 
+   // We start the selection process when the user clicks down on the pane
+-  function onPointerDown(event: PointerEvent) {
++  function onPointerDownCapture(event: PointerEvent) {
+     containerBounds = container?.getBoundingClientRect();
+ 
++    const isNoKeyEvent =
++      event.target !== container && !!(event.target as HTMLElement).closest('.nokey');
++
++    const isSelectionActive =
++      (selectionOnDrag && container === event.target) ||
++      !selectionOnDrag ||
++      store.selectionKeyPressed;
++
+     if (
+       !store.elementsSelectable ||
+       !isSelecting ||
+       event.button !== 0 ||
+-      event.target !== container ||
+-      !containerBounds
++      !containerBounds ||
++      isNoKeyEvent ||
++      !isSelectionActive ||
++      !event.isPrimary
+     ) {
+       return;
+     }
+ 
+-    (event.target as Partial<Element> | null)?.setPointerCapture?.(event.pointerId);
++    event.stopPropagation();
++    event.preventDefault();
++
++    (event.target as Partial<Element>)?.setPointerCapture?.(event.pointerId);
+ 
+     const { x, y } = getEventPosition(event, containerBounds);
+ 
+@@ -186,7 +199,7 @@
+       return;
+     }
+ 
+-    (event.target as Partial<Element> | null)?.releasePointerCapture?.(event.pointerId);
++    (event.target as Partial<Element>)?.releasePointerCapture?.(event.pointerId);
+ 
+     // We only want to trigger click functions when in selection mode if
+     // the user did not move the mouse.
+@@ -216,6 +229,19 @@
+ 
+     onpanecontextmenu?.({ event });
+   };
++
++  const onClickCapture = (event: MouseEvent) => {
++    const isSelectionActive =
++      (selectionOnDrag && container === event.target) ||
++      !selectionOnDrag ||
++      store.selectionKeyPressed;
++
++    if (!isSelectionActive) {
++      return;
++    }
++
++    event.stopPropagation();
++  };
+ </script>
+ 
+ <!-- svelte-ignore a11y_no_static_element_interactions -->
+@@ -227,10 +253,11 @@
+   class:dragging={store.dragging}
+   class:selection={isSelecting}
+   onclick={hasActiveSelection ? undefined : wrapHandler(onClick, container)}
+-  onpointerdown={hasActiveSelection ? onPointerDown : undefined}
++  onpointerdowncapture={hasActiveSelection ? onPointerDownCapture : undefined}
+   onpointermove={hasActiveSelection ? onPointerMove : undefined}
+   onpointerup={hasActiveSelection ? onPointerUp : undefined}
+   oncontextmenu={wrapHandler(onContextMenu, container)}
++  onclickcapture={hasActiveSelection ? onClickCapture : undefined}
+ >
+   {@render children()}
+ </div>
+diff --git a/packages/system/src/utils/dom.ts b/packages/system/src/utils/dom.ts
+index 2311153fab..5f92c13698 100644
+--- a/packages/system/src/utils/dom.ts
++++ b/packages/system/src/utils/dom.ts
+@@ -43,7 +43,6 @@ export function isInputDOMNode(event: KeyboardEvent): boolean {
+   if (target?.nodeType !== 1 /* Node.ELEMENT_NODE */) return false;
+ 
+   const isInput = inputTags.includes(target.nodeName) || target.hasAttribute('contenteditable');
+-
+   // when an input field is focused we don't want to trigger deletion or movement of nodes
+   return isInput || !!target.closest('.nokey');
+ }

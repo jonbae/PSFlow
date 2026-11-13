@@ -56,6 +56,7 @@ import Effect (Effect)
 import Foreign (Foreign)
 import Foreign.Object (Object)
 import React.Basic (JSX, ReactComponent)
+import React.Basic.Events (SyntheticEvent)
 import React.Basic.Hooks (ReactChildren)
 import React.Types.Edges
   ( ConnectionLineComponent
@@ -176,9 +177,8 @@ type ReactFlowProps n e =
   -- Outer wrapper handlers (whole `<div className="react-flow">`)
   -- The wrapper installs a `scrollTo(0,0)` reset so browser tab-focus
   -- doesn't scroll the flow into view; `onScroll` is the user's
-  -- post-reset hook. The SyntheticEvent is dropped to keep the prop
-  -- callable from PureScript without an FFI bridge.
-  , onScroll :: Maybe (Effect Unit)
+  -- post-reset hook, receiving the same synthetic event.
+  , onScroll :: Maybe (SyntheticEvent -> Effect Unit)
   -- Pane handlers
   , onPaneScroll :: Maybe (Maybe WheelEvent -> Effect Unit)
   , onPaneClick :: Maybe (MouseEvent -> Effect Unit)
@@ -297,15 +297,12 @@ type ReactFlowProps n e =
 
 -- Ticket 034 — `<Handle />` component.
 -- |
--- | NB: the TS source allows `children` (the handle can wrap an icon).
--- | We omit it here for the initial port — `reactComponent` from
--- | `react-basic-hooks` requires `Lacks "children"` on the props row,
--- | and bridging through `reactComponentWithChildren` (which wraps
--- | children in `ReactChildren JSX`) would force every call site to
--- | construct a `ReactChildren` wrapper. Add back when a real use case
--- | for handle children appears.
+-- | A handle can wrap consumer content, including a detached hit target.
+-- | `reactComponentWithChildren` preserves it; built-in nodes pass an empty
+-- | `ReactChildren` value.
 type HandleProps =
   { handleType :: HandleType
+  , children :: ReactChildren JSX
   , position :: Position
   , id :: Maybe String
   , isConnectable :: Maybe Boolean

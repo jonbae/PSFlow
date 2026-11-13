@@ -1,0 +1,80 @@
+diff --git a/.changeset/old-bikes-wave.md b/.changeset/old-bikes-wave.md
+new file mode 100644
+index 0000000000..7e80293910
+--- /dev/null
++++ b/.changeset/old-bikes-wave.md
+@@ -0,0 +1,7 @@
++---
++'@xyflow/system': patch
++'@xyflow/react': patch
++'@xyflow/svelte': patch
++---
++
++Fix useNodeConnection hook not returning all connected edges.
+diff --git a/examples/react/src/examples/UseNodeConnections/MultiHandleNode.tsx b/examples/react/src/examples/UseNodeConnections/MultiHandleNode.tsx
+index 5d64f81d29..3191221caa 100644
+--- a/examples/react/src/examples/UseNodeConnections/MultiHandleNode.tsx
++++ b/examples/react/src/examples/UseNodeConnections/MultiHandleNode.tsx
+@@ -28,10 +28,11 @@ function CustomHandle({ nodeId, ...handleProps }: HandleProps & { nodeId: string
+ const CustomNode: FC<NodeProps> = ({ id }) => {
+   return (
+     <div style={{ background: '#333', color: '#fff', padding: 10, fontSize: 12, borderRadius: 10 }}>
+-      <CustomHandle nodeId={id} type="target" position={Position.Left} />
++      <CustomHandle nodeId={id} type="target" position={Position.Left} id="t1" style={{ top: 10 }} />
++      <CustomHandle nodeId={id} type="target" position={Position.Left} id="t2" style={{ top: 20 }} />
+       <div>node {id}</div>
+-      <CustomHandle nodeId={id} type="source" position={Position.Right} id="a" style={{ top: 10 }} />
+-      <CustomHandle nodeId={id} type="source" position={Position.Right} id="b" style={{ top: 20 }} />
++      <CustomHandle nodeId={id} type="source" position={Position.Right} id="s1" style={{ top: 10 }} />
++      <CustomHandle nodeId={id} type="source" position={Position.Right} id="s2" style={{ top: 20 }} />
+     </div>
+   );
+ };
+diff --git a/examples/react/src/examples/UseNodeConnections/index.tsx b/examples/react/src/examples/UseNodeConnections/index.tsx
+index c6aa4a684f..6b41018e96 100644
+--- a/examples/react/src/examples/UseNodeConnections/index.tsx
++++ b/examples/react/src/examples/UseNodeConnections/index.tsx
+@@ -69,17 +69,16 @@ const initEdges = [
+     source: '1',
+     target: '3',
+   },
+-
+   {
+     id: 'e4a-5',
+     source: '4',
+-    sourceHandle: 'a',
++    sourceHandle: 's1',
+     target: '5',
+   },
+   {
+     id: 'e4b-5',
+     source: '4',
+-    sourceHandle: 'b',
++    sourceHandle: 's2',
+     target: '6',
+   },
+ ];
+@@ -92,6 +91,8 @@ const CustomNodeFlow = () => {
+   const [nodes, setNodes, onNodesChange] = useNodesState(initNodes);
+   const [edges, setEdges, onEdgesChange] = useEdgesState(initEdges);
+ 
++  console.log(edges);
++
+   const onConnect = useCallback((connection: Connection) => setEdges((eds) => addEdge(connection, eds)), [setEdges]);
+ 
+   return (
+diff --git a/packages/system/src/utils/store.ts b/packages/system/src/utils/store.ts
+index bccb115d17..7eb7ccdbf8 100644
+--- a/packages/system/src/utils/store.ts
++++ b/packages/system/src/utils/store.ts
+@@ -483,8 +483,8 @@ export function updateConnectionLookup(connectionLookup: ConnectionLookup, edgeL
+     const { source: sourceNode, target: targetNode, sourceHandle = null, targetHandle = null } = edge;
+ 
+     const connection = { edgeId: edge.id, source: sourceNode, target: targetNode, sourceHandle, targetHandle };
+-    const sourceKey = `${sourceNode}-${sourceHandle}`;
+-    const targetKey = `${targetNode}-${targetHandle}`;
++    const sourceKey = `${sourceNode}-${sourceHandle}--${targetNode}-${targetHandle}`;
++    const targetKey = `${targetNode}-${targetHandle}--${sourceNode}-${sourceHandle}`;
+ 
+     addConnectionToLookup('source', connection, targetKey, connectionLookup, sourceNode, sourceHandle);
+     addConnectionToLookup('target', connection, sourceKey, connectionLookup, targetNode, targetHandle);

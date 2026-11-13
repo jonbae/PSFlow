@@ -32,7 +32,7 @@ export const scrollResetHandlerImpl = (cb) => (event) => {
   if (event && event.currentTarget && event.currentTarget.scrollTo) {
     event.currentTarget.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }
-  cb();
+  cb(event);
 };
 
 // Unguarded, as TS's `edgeRef.current?.blur()` is: its `?.` guards the ref

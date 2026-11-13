@@ -1,0 +1,35 @@
+diff --git a/.changeset/brown-shrimps-exist.md b/.changeset/brown-shrimps-exist.md
+new file mode 100644
+index 0000000000..269cd85126
+--- /dev/null
++++ b/.changeset/brown-shrimps-exist.md
+@@ -0,0 +1,5 @@
++---
++'@xyflow/react': patch
++---
++
++Add `snapGrid` to `screenToFlowPosition` options
+diff --git a/packages/react/src/types/general.ts b/packages/react/src/types/general.ts
+index d13d11be48..000f8caa80 100644
+--- a/packages/react/src/types/general.ts
++++ b/packages/react/src/types/general.ts
+@@ -14,6 +14,7 @@ import {
+   Connection,
+   NodeChange,
+   EdgeChange,
++  SnapGrid,
+ } from '@xyflow/system';
+ 
+ import type { Node, Edge, ReactFlowInstance, EdgeProps, NodeProps } from '.';
+@@ -203,7 +204,10 @@ export type ViewportHelperFunctions = {
+    * @example
+    * const flowPosition = screenToFlowPosition({ x: event.clientX, y: event.clientY })
+    */
+-  screenToFlowPosition: (clientPosition: XYPosition, options?: { snapToGrid: boolean }) => XYPosition;
++  screenToFlowPosition: (
++    clientPosition: XYPosition,
++    options?: { snapToGrid?: boolean; snapGrid?: SnapGrid }
++  ) => XYPosition;
+   /**
+    * Translate a position inside the flow's canvas to a screen pixel position.
+    *

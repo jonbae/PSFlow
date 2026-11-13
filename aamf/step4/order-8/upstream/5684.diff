@@ -1,0 +1,145 @@
+diff --git a/.changeset/tender-ways-attend.md b/.changeset/tender-ways-attend.md
+new file mode 100644
+index 0000000000..5973788497
+--- /dev/null
++++ b/.changeset/tender-ways-attend.md
+@@ -0,0 +1,5 @@
++---
++'@xyflow/react': patch
++---
++
++Consolidate drag handler effects in useDrag to fix programmatic selection issues
+diff --git a/examples/react/src/App/routes.ts b/examples/react/src/App/routes.ts
+index 055dc9e149..d5bbfe0150 100644
+--- a/examples/react/src/App/routes.ts
++++ b/examples/react/src/App/routes.ts
+@@ -62,6 +62,7 @@ import MovingHandles from '../examples/MovingHandles';
+ import DetachedHandle from '../examples/DetachedHandle';
+ import ZIndexMode from '../examples/ZIndexMode';
+ import Middlewares from '../examples/Middlewares';
++import NodeSelectionBug from '../examples/NodeSelectionBug';
+ 
+ export interface IRoute {
+   name: string;
+@@ -390,6 +391,11 @@ const routes: IRoute[] = [
+     path: 'z-index-mode',
+     component: ZIndexMode,
+   },
++  {
++    name: 'Node Selection Bug',
++    path: 'node-selection-bug',
++    component: NodeSelectionBug,
++  },
+ ];
+ 
+ export default routes;
+diff --git a/examples/react/src/examples/NodeSelectionBug/index.tsx b/examples/react/src/examples/NodeSelectionBug/index.tsx
+new file mode 100644
+index 0000000000..a587cab392
+--- /dev/null
++++ b/examples/react/src/examples/NodeSelectionBug/index.tsx
+@@ -0,0 +1,41 @@
++import { Node, ReactFlow, useNodesState } from '@xyflow/react';
++
++import '@xyflow/react/dist/style.css';
++import { useRef } from 'react';
++
++export default function App() {
++  const [nodes, setNodes, onNodesChange] = useNodesState<Node>([
++    {
++      id: '0',
++      position: { x: 0, y: 0 },
++      data: { label: 'Rectangle Select Me First' },
++    },
++  ]);
++  const id = useRef(0);
++  return (
++    <>
++      <button
++        onClick={() =>
++          setNodes((nodes) => [
++            ...nodes.map((node) => ({ ...node, selected: false })),
++            {
++              id: (++id.current).toString(),
++              position: { x: -100, y: 100 * Math.floor((id.current + 1) / 2) },
++              data: { label: `Button Node ${id.current}` },
++              selected: true,
++            },
++            {
++              id: (++id.current).toString(),
++              position: { x: 100, y: (100 * id.current) / 2 },
++              data: { label: `Button Node ${id.current}` },
++              selected: true,
++            },
++          ])
++        }
++      >
++        Click me to add nodes that are already selected.
++      </button>
++      <ReactFlow nodes={nodes} onNodesChange={onNodesChange} fitView></ReactFlow>
++    </>
++  );
++}
+diff --git a/packages/react/src/components/NodesSelection/index.tsx b/packages/react/src/components/NodesSelection/index.tsx
+index ecaef17b0e..de118a4495 100644
+--- a/packages/react/src/components/NodesSelection/index.tsx
++++ b/packages/react/src/components/NodesSelection/index.tsx
+@@ -51,11 +51,14 @@ export function NodesSelection<NodeType extends Node>({
+     }
+   }, [disableKeyboardA11y]);
+ 
++  const shouldRender = !userSelectionActive && width !== null && height !== null;
++
+   useDrag({
+     nodeRef,
++    disabled: !shouldRender,
+   });
+ 
+-  if (userSelectionActive || !width || !height) {
++  if (!shouldRender) {
+     return null;
+   }
+ 
+diff --git a/packages/react/src/hooks/useDrag.ts b/packages/react/src/hooks/useDrag.ts
+index f7943f9871..6b4c7642bd 100644
+--- a/packages/react/src/hooks/useDrag.ts
++++ b/packages/react/src/hooks/useDrag.ts
+@@ -52,22 +52,23 @@ export function useDrag({
+   }, []);
+ 
+   useEffect(() => {
+-    if (disabled) {
+-      xyDrag.current?.destroy();
+-    } else if (nodeRef.current) {
+-      xyDrag.current?.update({
+-        noDragClassName,
+-        handleSelector,
+-        domNode: nodeRef.current,
+-        isSelectable,
+-        nodeId,
+-        nodeClickDistance,
+-      });
+-      return () => {
+-        xyDrag.current?.destroy();
+-      };
++    if (disabled || !nodeRef.current || !xyDrag.current) {
++      return;
+     }
+-  }, [noDragClassName, handleSelector, disabled, isSelectable, nodeRef, nodeId]);
++
++    xyDrag.current.update({
++      noDragClassName,
++      handleSelector,
++      domNode: nodeRef.current,
++      isSelectable,
++      nodeId,
++      nodeClickDistance,
++    });
++
++    return () => {
++      xyDrag.current?.destroy();
++    };
++  }, [noDragClassName, handleSelector, disabled, isSelectable, nodeRef, nodeId, nodeClickDistance]);
+ 
+   return dragging;
+ }

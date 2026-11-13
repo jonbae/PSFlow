@@ -20,7 +20,7 @@ import Foreign (Foreign, readString)
 import Foreign.Index ((!))
 import Control.Monad.Except (runExcept)
 import React.Basic (JSX, ReactComponent, element)
-import React.Basic.Hooks (reactComponent)
+import React.Basic.Hooks (reactChildrenFromArray, reactComponent)
 import React.FFI.DOM (textContent)
 import React.Handle (handle)
 import React.Types.Nodes (NodeProps)
@@ -47,6 +47,7 @@ defaultNode = unsafePerformEffect $ reactComponent "DefaultNode" \(props :: Node
         , id: Nothing
         , isConnectable: Just props.isConnectable
         , isConnectableStart: Nothing
+        , children: reactChildrenFromArray []
         , isConnectableEnd: Nothing
         , onConnect: Nothing
         , isValidConnection: Nothing
@@ -61,6 +62,7 @@ defaultNode = unsafePerformEffect $ reactComponent "DefaultNode" \(props :: Node
           , id: Nothing
           , isConnectable: Just props.isConnectable
           , isConnectableStart: Nothing
+          , children: reactChildrenFromArray []
           , isConnectableEnd: Nothing
           , onConnect: Nothing
           , isValidConnection: Nothing

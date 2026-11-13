@@ -48,11 +48,12 @@ a hand-written act in `parity/system/corpus/`, which has its own README.
 
 ## What is here
 
-Twenty-seven flows, one per condition no vendored fixture sets. Eighteen were
+Thirty-eight flows, one per condition no vendored fixture sets. Eighteen were
 written for the thirty test-debt scenarios ([#60]), two for the retirement debt
 ([#61]) — the two ps-flow **contract** pages, turned into data when the
 hand-authored assertions they carried retired into the net — and seven for the
-hole-closing scenarios ([#93]), two of them for Step 3 H's witnesses. Grouped by what the
+hole-closing scenarios ([#93]), two of them for Step 3 H's witnesses. Step 4
+order 8 adds eleven branch fixtures, listed below. Grouped by what the
 condition is *about* rather than by which scenario drives it — several are driven
 by more than one, and a fixture named after its first scenario would read wrongly
 the moment a second arrived.
@@ -86,6 +87,17 @@ the moment a second arrived.
 | `viewport/helpers.ts` | a flow that snaps, so a no-options helper says something |
 | `resize/lifecycle.ts` | public resize components, consumer-rendered lifecycle receipts recorded into the call log as well, and a limit changed during an active drag |
 | `viewport/pan-on-scroll.ts` | `panOnScroll`, with a zoom activation key that Control does not press |
+| `chrome/debt-styles.ts` | computed styles over competing background values, default mask, panel axes, horizontal controls and a nested selection panel |
+| `chrome/minimap-missing.ts` | a synchronous missing lookup render, restored before the settled snapshot |
+| `fitview/ignored-changes.ts` | controlled nodes with an early-returning change handler |
+| `fitview/absent-handler.ts` | controlled nodes with a literally absent change handler |
+| `flow/store-timing.ts` | partial aria-label changes and consumer layout/passive store reads |
+| `flow/remount.ts` | GraphView custom-node effects across a keyed flow remount within a persistent provider |
+| `nodes/focus-overflow.ts` | an out-of-viewport node focused by Tab, with a post-reset scroll receipt |
+| `nodes/live-connection.ts` | detached handle children, an end-only handle and current connection/handler reads |
+| `nodes/nowheel-pan-on-scroll.ts` | nowheel with panOnScroll and an activation key that Control does not press |
+| `nodes/selection-state.ts` | group-selection store reads and a click-distance change after mount |
+| `nodes/selection-on-drag.ts` | selectionOnDrag followed by a node click without selection movement |
 
 Each file's own header says why it is shaped the way it is, and several of those
 are the interesting half — `nodes/autopan.ts` in particular, which is where the
@@ -140,3 +152,9 @@ itself to controlled on its first change.
 [#60]: https://github.com/jonbae/PSFlow/issues/60
 [#61]: https://github.com/jonbae/PSFlow/issues/61
 [#93]: https://github.com/jonbae/PSFlow/issues/93
+
+Step 4 order 8 also lets a fixture supply a consumer witness component. A
+persistent provider can outlive a keyed flow remount, and a controlled flow
+can ignore node changes or omit its callback literally. Callback omission
+also skips the observing wrapper, so an absent-handler test really has no
+handler. The same fixture configuration is supplied to both libraries.
