@@ -24,6 +24,7 @@ module System.XYHandle
   , xyHandle
   , endConnection
   -- Public for testing.
+  , connectionEnd
   , HandleDragState
   , AutoPanEnv
   , initialDragState
@@ -185,6 +186,33 @@ endConnection prev = Just prev
 
 xyHandle :: XYHandleInstance
 xyHandle = { onPointerDown, isValid: isValidHandle }
+
+-- | Where a move leaves the connection's end. It snaps to the handle
+-- | `isValidHandle` settled on, not to the closest handle, as upstream's
+-- | `onPointerMove` does since #5266. A handle larger than
+-- | `connectionRadius` can be under the pointer with its centre out of
+-- | reach, so there is no closest handle, and the connection still snaps
+-- | to the handle's centre.
+connectionEnd
+  :: { closest :: Maybe Handle
+     , result :: HandleValidationResult
+     , pointer :: XYPosition
+     , transform :: Transform
+     , fromPosition :: Position
+     }
+  -> { isValid :: Maybe Boolean, to :: XYPosition, toPosition :: Position }
+connectionEnd p =
+  let
+    isValid = isConnectionValid (isJust p.closest) p.result.isValid
+  in
+    case p.result.toHandle, isValid of
+      Just toHandle, Just true ->
+        { isValid
+        , to: rendererPointToPoint { x: toHandle.x, y: toHandle.y } p.transform
+        , toPosition: toHandle.position
+        }
+      _, _ ->
+        { isValid, to: p.pointer, toPosition: oppositePosition p.fromPosition }
 
 -- | Closure state for `onPointerDown`. The TS source threads these values
 -- | through nested handlers via captured locals; here the lifecycle handlers
@@ -433,7 +461,15 @@ onPointerDown event params = do
                     , nodeLookup: params.nodeLookup
                     }
 
-                  let validNow = isConnectionValid (isJust closest) result.isValid
+                  let
+                    end = connectionEnd
+                      { closest
+                      , result
+                      , pointer: curPos
+                      , transform
+                      , fromPosition: fromHandle.position
+                      }
+                    validNow = end.isValid
 
                   runOnRef stateRef $ modify_ _
                     { resultHandleDomNode = result.handleDomNode
@@ -449,15 +485,6 @@ onPointerDown event params = do
                       Just fn -> getHandlePosition fn (Just fromHandle)
                         PosLeft true
                       Nothing -> prev.from
-                    nextTo = case result.toHandle, validNow of
-                      Just toH, Just true ->
-                        rendererPointToPoint
-                          { x: toH.x, y: toH.y }
-                          transform
-                      _, _ -> curPos
-                    nextToPosition = case validNow, result.toHandle of
-                      Just true, Just toH -> toH.position
-                      _, _ -> oppositePosition fromHandle.position
                     nextToNode = case result.toHandle of
                       Just toH -> Map.lookup toH.nodeId params.nodeLookup
                       Nothing -> Nothing
@@ -465,9 +492,9 @@ onPointerDown event params = do
                     next = prev
                       { from = fresh
                       , isValid = validNow
-                      , to = nextTo
+                      , to = end.to
                       , toHandle = result.toHandle
-                      , toPosition = nextToPosition
+                      , toPosition = end.toPosition
                       , toNode = nextToNode
                       , pointer = curPos
                       }

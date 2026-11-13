@@ -20,6 +20,15 @@
 -- |   under all three `zIndexMode`s.
 module Test.Parity.Adoption
   ( runAdoptionParity
+  -- The descriptions and builders `Test.Parity.Handle` adopts with.
+  , HandleSpec
+  , NodeSpec
+  , node
+  , toPSNode
+  , toOracleNode
+  , adoptedHandle
+  , handleIdField
+  , canonicalJson
   ) where
 
 import Prelude
@@ -165,12 +174,12 @@ adoptedHandle h =
   }
 
 adoptedNode :: InternalNodeBase Unit -> AdoptedNode
-adoptedNode node =
-  { id: unwrap node.id
-  , x: node.internals.positionAbsolute.x
-  , y: node.internals.positionAbsolute.y
-  , z: node.internals.z
-  , rootParentIndex: toNullable node.internals.rootParentIndex
+adoptedNode internal =
+  { id: unwrap internal.id
+  , x: internal.internals.positionAbsolute.x
+  , y: internal.internals.positionAbsolute.y
+  , z: internal.internals.z
+  , rootParentIndex: toNullable internal.internals.rootParentIndex
   , handleBounds: toNullable
       ( map
           ( \hb ->
@@ -178,7 +187,7 @@ adoptedNode node =
               , target: toNullable (map (map (adoptedHandle <<< unTargetHandle)) hb.target)
               }
           )
-          node.internals.handleBounds
+          internal.internals.handleBounds
       )
   }
 
