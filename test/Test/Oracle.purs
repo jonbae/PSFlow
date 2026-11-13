@@ -62,6 +62,26 @@ module Test.Oracle
   , setAttributesArg
   , applyNodeChanges
   , applyEdgeChanges
+  , areSetsEqual
+  , DomStandIn
+  , isInputDOMNode
+  , hasSelector
+  , OracleNodeHandle
+  , OracleAdoptNode
+  , OracleAdoptOptions
+  , AdoptedHandle
+  , AdoptedNode
+  , Adoption
+  , adoptUserNodes
+  , FakeElement
+  , FakeDocument
+  , OracleHandleElement
+  , handleElement
+  , plainElement
+  , fakeDocument
+  , OracleIsValidArgs
+  , OracleIsValidResult
+  , isValidHandle
   ) where
 
 import Data.Functor (map)
@@ -614,3 +634,184 @@ foreign import applyEdgeChangesImpl
 applyEdgeChanges
   :: Array OracleEdgeChange -> Array OracleChangeEdge -> Array OracleChangeEdge
 applyEdgeChanges = applyEdgeChangesImpl
+
+-- ─── Set equality ─────────────────────────────────────────────────────────
+
+foreign import areSetsEqualImpl :: Array String -> Array String -> Boolean
+
+-- | Upstream's `areSetsEqual`, over two sets built from the arrays.
+areSetsEqual :: Array String -> Array String -> Boolean
+areSetsEqual = areSetsEqualImpl
+
+-- ─── DOM predicates ───────────────────────────────────────────────────────
+
+-- | A stand-in for a DOM event, element, document or window, built in
+-- | JavaScript by the property's own FFI and handed to both sides.
+foreign import data DomStandIn :: Type
+
+foreign import isInputDOMNodeImpl :: DomStandIn -> String
+
+-- | Upstream's `isInputDOMNode`, as `"true"`, `"false"` or `"throws"`.
+isInputDOMNode :: DomStandIn -> String
+isInputDOMNode = isInputDOMNodeImpl
+
+foreign import hasSelectorImpl :: DomStandIn -> String -> DomStandIn -> String
+
+-- | Upstream's `hasSelector`, as `"true"`, `"false"` or `"throws"`.
+hasSelector :: DomStandIn -> String -> DomStandIn -> String
+hasSelector = hasSelectorImpl
+
+-- ─── Adoption ─────────────────────────────────────────────────────────────
+
+-- | A static handle a user node declares, in the members upstream's
+-- | `parseHandles` reads. `id` is a tag — `"unset"`, `"null"` or
+-- | `"set:<id>"` — because upstream tells an absent id from a `null` one.
+type OracleNodeHandle =
+  { id :: String
+  , type :: String
+  , position :: String
+  , x :: Number
+  , y :: Number
+  , width :: Nullable Number
+  , height :: Nullable Number
+  }
+
+-- | A user node in the members `adoptUserNodes` reads. The JS side omits each
+-- | null member, so upstream sees it absent, as PSFlow's `Nothing` is, and
+-- | builds one node per record, so handing back a record from an earlier
+-- | round hands upstream the same object.
+type OracleAdoptNode =
+  { id :: String
+  , position :: XYPosition
+  , parentId :: Nullable String
+  , zIndex :: Nullable Int
+  , selected :: Nullable Boolean
+  , hidden :: Nullable Boolean
+  , extentParent :: Boolean
+  , measured :: Nullable Dimensions
+  , handles :: Nullable (Array OracleNodeHandle)
+  }
+
+-- | `zIndexMode` is upstream's `'basic' | 'auto' | 'manual'`.
+type OracleAdoptOptions =
+  { nodeOrigin :: Array Number
+  , elevateNodesOnSelect :: Boolean
+  , zIndexMode :: String
+  }
+
+-- | A handle as adoption leaves it in `internals.handleBounds`.
+type AdoptedHandle =
+  { id :: String
+  , nodeId :: String
+  , type :: String
+  , position :: String
+  , x :: Number
+  , y :: Number
+  , width :: Number
+  , height :: Number
+  }
+
+-- | What adoption leaves in one internal node, in the members a reader of
+-- | `nodeLookup` reads.
+type AdoptedNode =
+  { id :: String
+  , x :: Number
+  , y :: Number
+  , z :: Number
+  , rootParentIndex :: Nullable Int
+  , handleBounds ::
+      Nullable
+        { source :: Nullable (Array AdoptedHandle)
+        , target :: Nullable (Array AdoptedHandle)
+        }
+  }
+
+-- | One round's result: the internal nodes and parent lookup, each sorted by
+-- | id, and what `adoptUserNodes` returned.
+type Adoption =
+  { nodes :: Array AdoptedNode
+  , parents :: Array { parentId :: String, children :: Array String }
+  , nodesInitialized :: Boolean
+  , hasSelectedNodes :: Boolean
+  }
+
+foreign import adoptUserNodesImpl
+  :: OracleAdoptOptions -> Array (Array OracleAdoptNode) -> Array Adoption
+
+-- | Adopt each round in turn into the same two lookups, as the store adopts
+-- | every `setNodes`, and report what each round left.
+adoptUserNodes :: OracleAdoptOptions -> Array (Array OracleAdoptNode) -> Array Adoption
+adoptUserNodes = adoptUserNodesImpl
+
+-- ─── Handle validation ────────────────────────────────────────────────────
+
+-- | A stand-in element and document, built here and handed to both sides.
+foreign import data FakeElement :: Type
+foreign import data FakeDocument :: Type
+
+-- | A handle element as upstream's `<Handle />` renders it. `handleId` is
+-- | its `data-handleid`: `id || null`, so an empty id renders as none.
+type OracleHandleElement =
+  { tag :: String
+  , nodeId :: String
+  , handleId :: Nullable String
+  , type :: String
+  , connectable :: Boolean
+  , connectableEnd :: Boolean
+  }
+
+foreign import handleElementImpl :: String -> String -> OracleHandleElement -> FakeElement
+
+handleElement :: String -> String -> OracleHandleElement -> FakeElement
+handleElement = handleElementImpl
+
+foreign import plainElementImpl :: String -> FakeElement
+
+-- | An element that is no handle.
+plainElement :: String -> FakeElement
+plainElement = plainElementImpl
+
+foreign import fakeDocumentImpl :: Array FakeElement -> Nullable FakeElement -> FakeDocument
+
+-- | A document whose `querySelector` finds the handle element with that
+-- | selector, and whose `elementFromPoint` answers with `below`.
+fakeDocument :: Array FakeElement -> Maybe FakeElement -> FakeDocument
+fakeDocument elements below = fakeDocumentImpl elements (toNullable below)
+
+-- | `isValidConnection` accepts a connection whose target is one of
+-- | `validTargets`. `handle` is the closest handle, by the tag convention
+-- | `OracleNodeHandle` uses for its id.
+type OracleIsValidArgs =
+  { handle :: Nullable { nodeId :: String, id :: String, type :: String }
+  , pointer :: XYPosition
+  , connectionMode :: String
+  , fromNodeId :: String
+  , fromHandleId :: Nullable String
+  , fromType :: String
+  , validTargets :: Array String
+  , doc :: FakeDocument
+  , lib :: String
+  , flowId :: String
+  }
+
+-- | `handleDomNode` is the tag of the element the check settled on.
+type OracleIsValidResult =
+  { handleDomNode :: Nullable String
+  , isValid :: Boolean
+  , connection ::
+      Nullable
+        { source :: String
+        , sourceHandle :: Nullable String
+        , target :: String
+        , targetHandle :: Nullable String
+        }
+  , toHandle :: Nullable AdoptedHandle
+  }
+
+foreign import isValidHandleImpl
+  :: Array OracleAdoptNode -> OracleIsValidArgs -> OracleIsValidResult
+
+-- | `XYHandle.isValid` over the internal nodes one adoption of the nodes
+-- | leaves.
+isValidHandle :: Array OracleAdoptNode -> OracleIsValidArgs -> OracleIsValidResult
+isValidHandle = isValidHandleImpl

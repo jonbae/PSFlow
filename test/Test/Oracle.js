@@ -49,6 +49,11 @@ import {
   reconnectEdge,
   applyNodeChanges,
   applyEdgeChanges,
+  areSetsEqual,
+  isInputDOMNode,
+  hasSelector,
+  adoptUserNodes,
+  XYHandle,
 } from "@psflow/oracle";
 
 const pathResult = (t) => ({ path: t[0], labelX: t[1], labelY: t[2], offsetX: t[3], offsetY: t[4] });
@@ -287,3 +292,183 @@ export const applyNodeChangesImpl = (changes) => (nodes) =>
 
 export const applyEdgeChangesImpl = (changes) => (edges) =>
   applyEdgeChanges(changes.map(edgeChangeOut), edges).map(appliedEdgeOut);
+
+// ─── Set equality ─────────────────────────────────────────────────────────
+export const areSetsEqualImpl = (a) => (b) => areSetsEqual(new Set(a), new Set(b));
+
+// ─── DOM predicates ───────────────────────────────────────────────────────
+// Both take stand-ins for the DOM objects they read, which the property builds
+// once and hands to both sides. A predicate that throws is reported as the
+// string `"throws"`, so a side that throws where the other answers is a
+// difference rather than a crashed run.
+const answer = (run) => {
+  try {
+    return run() ? "true" : "false";
+  } catch (_e) {
+    return "throws";
+  }
+};
+
+export const isInputDOMNodeImpl = (event) => answer(() => isInputDOMNode(event));
+export const hasSelectorImpl = (target) => (selector) => (domNode) =>
+  answer(() => hasSelector(target, selector, domNode));
+
+// ─── Adoption ─────────────────────────────────────────────────────────────
+// A handle id arrives as a tag, because upstream tells an absent id from a
+// null one and a PureScript `Nullable` can't: `"unset"`, `"null"` or
+// `"set:<id>"`.
+const handleIdIn = (tag) => (tag === "null" ? null : tag.slice("set:".length));
+const handleIdOut = (id) => (id === undefined ? "unset" : id === null ? "null" : `set:${id}`);
+
+// Each user node is built once per description and remembered, so a round that
+// hands back a description from an earlier round hands upstream the same object,
+// which is what lets `checkEquality` reuse the internal node. Every null member
+// is omitted, so upstream sees it absent, as PSFlow's `Nothing` is.
+const userNodes = new WeakMap();
+const userNode = (spec) => {
+  const known = userNodes.get(spec);
+  if (known) return known;
+  const node = { id: spec.id, position: { ...spec.position }, data: {} };
+  if (spec.parentId !== null) node.parentId = spec.parentId;
+  if (spec.zIndex !== null) node.zIndex = spec.zIndex;
+  if (spec.selected !== null) node.selected = spec.selected;
+  if (spec.hidden !== null) node.hidden = spec.hidden;
+  if (spec.extentParent) node.extent = "parent";
+  if (spec.measured !== null) node.measured = { ...spec.measured };
+  if (spec.handles !== null) {
+    node.handles = spec.handles.map((h) => {
+      const handle = { type: h.type, position: h.position, x: h.x, y: h.y };
+      if (h.id !== "unset") handle.id = handleIdIn(h.id);
+      if (h.width !== null) handle.width = h.width;
+      if (h.height !== null) handle.height = h.height;
+      return handle;
+    });
+  }
+  userNodes.set(spec, node);
+  return node;
+};
+
+const byKey = (key) => (a, b) => (a[key] < b[key] ? -1 : a[key] > b[key] ? 1 : 0);
+
+const adoptedHandles = (handles) =>
+  handles == null
+    ? null
+    : handles.map((h) => ({
+        id: handleIdOut(h.id),
+        nodeId: h.nodeId,
+        type: h.type,
+        position: h.position,
+        x: h.x,
+        y: h.y,
+        width: h.width,
+        height: h.height,
+      }));
+
+const adoption = (nodeLookup, parentLookup, result) => ({
+  nodes: [...nodeLookup.values()]
+    .map((node) => ({
+      id: node.id,
+      x: node.internals.positionAbsolute.x,
+      y: node.internals.positionAbsolute.y,
+      z: node.internals.z,
+      rootParentIndex: node.internals.rootParentIndex ?? null,
+      handleBounds:
+        node.internals.handleBounds == null
+          ? null
+          : {
+              source: adoptedHandles(node.internals.handleBounds.source),
+              target: adoptedHandles(node.internals.handleBounds.target),
+            },
+    }))
+    .sort(byKey("id")),
+  parents: [...parentLookup]
+    .map(([parentId, children]) => ({ parentId, children: [...children.keys()].sort() }))
+    .sort(byKey("parentId")),
+  nodesInitialized: result.nodesInitialized,
+  hasSelectedNodes: result.hasSelectedNodes,
+});
+
+// Each round is adopted into the same two lookups, as the store adopts every
+// `setNodes`, and what it left is read before the next round runs: upstream
+// writes into internal nodes it reuses.
+const adoptRounds = (options, rounds) => {
+  const nodeLookup = new Map();
+  const parentLookup = new Map();
+  const adoptions = rounds.map((round) =>
+    adoption(nodeLookup, parentLookup, adoptUserNodes(round.map(userNode), nodeLookup, parentLookup, options))
+  );
+  return { nodeLookup, adoptions };
+};
+
+export const adoptUserNodesImpl = (options) => (rounds) => adoptRounds(options, rounds).adoptions;
+
+// ─── Handle validation ────────────────────────────────────────────────────
+// `XYHandle.isValid` over the internal nodes one adoption of `nodes` leaves.
+// The document is a stand-in that answers `elementFromPoint` with `below` and
+// `querySelector` with the handle whose selector it is asked for. Each handle
+// element carries the classes and attributes upstream's `<Handle />` renders.
+export const handleElementImpl = (lib) => (flowId) => (h) => {
+  const classes = [`${lib}-flow__handle`, h.type];
+  if (h.connectable) classes.push("connectable");
+  if (h.connectableEnd) classes.push("connectableend");
+  const attributes = { "data-nodeid": h.nodeId, "data-handleid": h.handleId };
+  return {
+    tag: h.tag,
+    selector: `.${lib}-flow__handle[data-id="${flowId}-${h.nodeId}-${h.handleId}-${h.type}"]`,
+    classList: { contains: (name) => classes.includes(name) },
+    getAttribute: (name) => attributes[name] ?? null,
+  };
+};
+
+export const plainElementImpl = (tag) => ({
+  tag,
+  classList: { contains: () => false },
+  getAttribute: () => null,
+});
+
+export const fakeDocumentImpl = (elements) => (below) => ({
+  querySelector: (selector) => elements.find((el) => el.selector === selector) ?? null,
+  elementFromPoint: () => below,
+});
+
+export const isValidHandleImpl = (nodes) => (args) => {
+  const { nodeLookup } = adoptRounds({}, [nodes]);
+  const handle =
+    args.handle === null
+      ? null
+      : { nodeId: args.handle.nodeId, id: handleIdIn(args.handle.id), type: args.handle.type };
+  const result = XYHandle.isValid(
+    { clientX: args.pointer.x, clientY: args.pointer.y },
+    {
+      handle,
+      connectionMode: args.connectionMode,
+      fromNodeId: args.fromNodeId,
+      fromHandleId: args.fromHandleId,
+      fromType: args.fromType,
+      isValidConnection: (connection) => args.validTargets.includes(connection.target),
+      doc: args.doc,
+      lib: args.lib,
+      flowId: args.flowId,
+      nodeLookup,
+    }
+  );
+  const to = result.toHandle;
+  return {
+    handleDomNode: result.handleDomNode === null ? null : result.handleDomNode.tag,
+    isValid: result.isValid,
+    connection: result.connection,
+    toHandle:
+      to === null
+        ? null
+        : {
+            id: handleIdOut(to.id),
+            nodeId: to.nodeId,
+            type: to.type,
+            position: to.position,
+            x: to.x,
+            y: to.y,
+            width: to.width,
+            height: to.height,
+          },
+  };
+};

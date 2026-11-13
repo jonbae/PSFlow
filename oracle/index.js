@@ -27,6 +27,14 @@ var infiniteExtent = [
   [Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY]
 ];
 
+// xyflow/packages/system/src/types/utils.ts
+var oppositePosition = {
+  ["left" /* Left */]: "right" /* Right */,
+  ["right" /* Right */]: "left" /* Left */,
+  ["top" /* Top */]: "bottom" /* Bottom */,
+  ["bottom" /* Bottom */]: "top" /* Top */
+};
+
 // xyflow/packages/system/src/utils/connections.ts
 function getConnectionStatus(isValid) {
   return isValid === null ? null : isValid ? "valid" : "invalid";
@@ -107,6 +115,31 @@ var clampPosition = (position = { x: 0, y: 0 }, extent, dimensions) => ({
   x: clamp(position.x, extent[0][0], extent[1][0] - (dimensions?.width ?? 0)),
   y: clamp(position.y, extent[0][1], extent[1][1] - (dimensions?.height ?? 0))
 });
+function clampPositionToParent(childPosition, childDimensions, parent) {
+  const { width: parentWidth, height: parentHeight } = getNodeDimensions(parent);
+  const { x: parentX, y: parentY } = parent.internals.positionAbsolute;
+  return clampPosition(
+    childPosition,
+    [
+      [parentX, parentY],
+      [parentX + parentWidth, parentY + parentHeight]
+    ],
+    childDimensions
+  );
+}
+var calcAutoPanVelocity = (value, min, max) => {
+  if (value < min) {
+    return clamp(Math.abs(value - min), 1, min) / min;
+  } else if (value > max) {
+    return -clamp(Math.abs(value - max), 1, min) / min;
+  }
+  return 0;
+};
+var calcAutoPan = (pos, bounds, speed = 15, distance2 = 40) => {
+  const xMovement = calcAutoPanVelocity(pos.x, distance2, bounds.width - distance2) * speed;
+  const yMovement = calcAutoPanVelocity(pos.y, distance2, bounds.height - distance2) * speed;
+  return [xMovement, yMovement];
+};
 var getBoundsOfBoxes = (box1, box2) => ({
   x: Math.min(box1.x, box2.x),
   y: Math.min(box1.y, box2.y),
@@ -255,12 +288,46 @@ var getViewportForBounds = (bounds, width, height, minZoom, maxZoom, padding) =>
     zoom: clampedZoom
   };
 };
+function isCoordinateExtent(extent) {
+  return extent !== void 0 && extent !== null && extent !== "parent";
+}
 function getNodeDimensions(node) {
   return {
     width: node.measured?.width ?? node.width ?? node.initialWidth ?? 0,
     height: node.measured?.height ?? node.height ?? node.initialHeight ?? 0
   };
 }
+function areSetsEqual(a, b) {
+  if (a.size !== b.size) {
+    return false;
+  }
+  for (const item of a) {
+    if (!b.has(item)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+// xyflow/packages/system/src/utils/dom.ts
+var getHostForElement = (element) => element?.getRootNode?.() || window?.document;
+var inputTags = ["INPUT", "SELECT", "TEXTAREA"];
+function isInputDOMNode(event) {
+  const target = event.composedPath?.()?.[0] || event.target;
+  if (target?.nodeType !== 1) return false;
+  const isInput = inputTags.includes(target.nodeName) || target.hasAttribute("contenteditable");
+  return isInput || !!target.closest(".nokey");
+}
+var isMouseEvent = (event) => "clientX" in event;
+var getEventPosition = (event, bounds) => {
+  const isMouse = isMouseEvent(event);
+  const evtX = isMouse ? event.clientX : event.touches?.[0].clientX;
+  const evtY = isMouse ? event.clientY : event.touches?.[0].clientY;
+  return {
+    x: evtX - (bounds?.left ?? 0),
+    y: evtY - (bounds?.top ?? 0)
+  };
+};
 
 // xyflow/packages/system/src/utils/edges/bezier-edge.ts
 function getBezierEdgeCenter({
@@ -524,6 +591,27 @@ function getSmoothStepPath({
   return [path, labelX, labelY, offsetX, offsetY];
 }
 
+// xyflow/packages/system/src/utils/edges/positions.ts
+function getHandlePosition(node, handle, fallbackPosition = "left" /* Left */, center = false) {
+  const x = (handle?.x ?? 0) + node.internals.positionAbsolute.x;
+  const y = (handle?.y ?? 0) + node.internals.positionAbsolute.y;
+  const { width, height } = handle ?? getNodeDimensions(node);
+  if (center) {
+    return { x: x + width / 2, y: y + height / 2 };
+  }
+  const position = handle?.position ?? fallbackPosition;
+  switch (position) {
+    case "top" /* Top */:
+      return { x: x + width / 2, y };
+    case "right" /* Right */:
+      return { x: x + width, y: y + height / 2 };
+    case "bottom" /* Bottom */:
+      return { x: x + width / 2, y: y + height };
+    case "left" /* Left */:
+      return { x, y: y + height / 2 };
+  }
+}
+
 // xyflow/packages/system/src/utils/marker.ts
 function getMarkerId(marker, id) {
   if (!marker) {
@@ -586,6 +674,492 @@ var alignYToPercent = {
 function getEdgeToolbarTransform(x, y, zoom, alignX = "center", alignY = "center") {
   return `translate(${x}px, ${y}px) scale(${1 / zoom}) translate(${-(alignXToPercent[alignX] ?? 50)}%, ${-(alignYToPercent[alignY] ?? 50)}%)`;
 }
+
+// xyflow/packages/system/src/utils/store.ts
+var SELECTED_NODE_Z = 1e3;
+var ROOT_PARENT_Z_INCREMENT = 10;
+var defaultOptions = {
+  nodeOrigin: [0, 0],
+  nodeExtent: infiniteExtent,
+  elevateNodesOnSelect: true,
+  zIndexMode: "basic",
+  defaults: {}
+};
+var adoptUserNodesDefaultOptions = {
+  ...defaultOptions,
+  checkEquality: true
+};
+function mergeObjects(base, incoming) {
+  const result = { ...base };
+  for (const key in incoming) {
+    if (incoming[key] !== void 0) {
+      result[key] = incoming[key];
+    }
+  }
+  return result;
+}
+function parseHandles(userNode, internalNode) {
+  if (!userNode.handles) {
+    return !userNode.measured ? void 0 : internalNode?.internals.handleBounds;
+  }
+  const source = [];
+  const target = [];
+  for (const handle of userNode.handles) {
+    const handleBounds = {
+      id: handle.id,
+      width: handle.width ?? 1,
+      height: handle.height ?? 1,
+      nodeId: userNode.id,
+      x: handle.x,
+      y: handle.y,
+      position: handle.position,
+      type: handle.type
+    };
+    if (handle.type === "source") {
+      source.push(handleBounds);
+    } else if (handle.type === "target") {
+      target.push(handleBounds);
+    }
+  }
+  return {
+    source,
+    target
+  };
+}
+function isManualZIndexMode(zIndexMode) {
+  return zIndexMode === "manual";
+}
+function adoptUserNodes(nodes, nodeLookup, parentLookup, options = {}) {
+  const _options = mergeObjects(adoptUserNodesDefaultOptions, options);
+  const rootParentIndex = { i: 0 };
+  const tmpLookup = new Map(nodeLookup);
+  const selectedNodeZ = _options?.elevateNodesOnSelect && !isManualZIndexMode(_options.zIndexMode) ? SELECTED_NODE_Z : 0;
+  let nodesInitialized = nodes.length > 0;
+  let hasSelectedNodes = false;
+  nodeLookup.clear();
+  parentLookup.clear();
+  for (const userNode of nodes) {
+    let internalNode = tmpLookup.get(userNode.id);
+    if (_options.checkEquality && userNode === internalNode?.internals.userNode) {
+      nodeLookup.set(userNode.id, internalNode);
+    } else {
+      const positionWithOrigin = getNodePositionWithOrigin(userNode, _options.nodeOrigin);
+      const extent = isCoordinateExtent(userNode.extent) ? userNode.extent : _options.nodeExtent;
+      const clampedPosition = clampPosition(positionWithOrigin, extent, getNodeDimensions(userNode));
+      internalNode = {
+        ..._options.defaults,
+        ...userNode,
+        measured: {
+          width: userNode.measured?.width,
+          height: userNode.measured?.height
+        },
+        internals: {
+          positionAbsolute: clampedPosition,
+          // if user re-initializes the node or removes `measured` for whatever reason, we reset the handleBounds so that the node gets re-measured
+          handleBounds: parseHandles(userNode, internalNode),
+          z: calculateZ(userNode, selectedNodeZ, _options.zIndexMode),
+          userNode
+        }
+      };
+      nodeLookup.set(userNode.id, internalNode);
+    }
+    if ((internalNode.measured === void 0 || internalNode.measured.width === void 0 || internalNode.measured.height === void 0) && !internalNode.hidden) {
+      nodesInitialized = false;
+    }
+    if (userNode.parentId) {
+      updateChildNode(internalNode, nodeLookup, parentLookup, options, rootParentIndex);
+    }
+    hasSelectedNodes ||= userNode.selected ?? false;
+  }
+  return { nodesInitialized, hasSelectedNodes };
+}
+function updateParentLookup(node, parentLookup) {
+  if (!node.parentId) {
+    return;
+  }
+  const childNodes = parentLookup.get(node.parentId);
+  if (childNodes) {
+    childNodes.set(node.id, node);
+  } else {
+    parentLookup.set(node.parentId, /* @__PURE__ */ new Map([[node.id, node]]));
+  }
+}
+function updateChildNode(node, nodeLookup, parentLookup, options, rootParentIndex) {
+  const { elevateNodesOnSelect, nodeOrigin, nodeExtent, zIndexMode } = mergeObjects(defaultOptions, options);
+  const parentId = node.parentId;
+  const parentNode = nodeLookup.get(parentId);
+  if (!parentNode) {
+    console.warn(
+      `Parent node ${parentId} not found. Please make sure that parent nodes are in front of their child nodes in the nodes array.`
+    );
+    return;
+  }
+  updateParentLookup(node, parentLookup);
+  if (rootParentIndex && !parentNode.parentId && parentNode.internals.rootParentIndex === void 0 && zIndexMode === "auto") {
+    parentNode.internals.rootParentIndex = ++rootParentIndex.i;
+    parentNode.internals.z = parentNode.internals.z + rootParentIndex.i * ROOT_PARENT_Z_INCREMENT;
+  }
+  if (rootParentIndex && parentNode.internals.rootParentIndex !== void 0) {
+    rootParentIndex.i = parentNode.internals.rootParentIndex;
+  }
+  const selectedNodeZ = elevateNodesOnSelect && !isManualZIndexMode(zIndexMode) ? SELECTED_NODE_Z : 0;
+  const { x, y, z } = calculateChildXYZ(node, parentNode, nodeOrigin, nodeExtent, selectedNodeZ, zIndexMode);
+  const { positionAbsolute } = node.internals;
+  const positionChanged = x !== positionAbsolute.x || y !== positionAbsolute.y;
+  if (positionChanged || z !== node.internals.z) {
+    nodeLookup.set(node.id, {
+      ...node,
+      internals: {
+        ...node.internals,
+        positionAbsolute: positionChanged ? { x, y } : positionAbsolute,
+        z
+      }
+    });
+  }
+}
+function calculateZ(node, selectedNodeZ, zIndexMode) {
+  const zIndex = isNumeric(node.zIndex) ? node.zIndex : 0;
+  if (isManualZIndexMode(zIndexMode)) {
+    return zIndex;
+  }
+  return zIndex + (node.selected ? selectedNodeZ : 0);
+}
+function calculateChildXYZ(childNode, parentNode, nodeOrigin, nodeExtent, selectedNodeZ, zIndexMode) {
+  const { x: parentX, y: parentY } = parentNode.internals.positionAbsolute;
+  const childDimensions = getNodeDimensions(childNode);
+  const positionWithOrigin = getNodePositionWithOrigin(childNode, nodeOrigin);
+  const clampedPosition = isCoordinateExtent(childNode.extent) ? clampPosition(positionWithOrigin, childNode.extent, childDimensions) : positionWithOrigin;
+  let absolutePosition = clampPosition(
+    { x: parentX + clampedPosition.x, y: parentY + clampedPosition.y },
+    nodeExtent,
+    childDimensions
+  );
+  if (childNode.extent === "parent") {
+    absolutePosition = clampPositionToParent(absolutePosition, childDimensions, parentNode);
+  }
+  const childZ = calculateZ(childNode, selectedNodeZ, zIndexMode);
+  const parentZ = parentNode.internals.z ?? 0;
+  return {
+    x: absolutePosition.x,
+    y: absolutePosition.y,
+    z: parentZ >= childZ ? parentZ + 1 : childZ
+  };
+}
+
+// xyflow/packages/system/src/xydrag/utils.ts
+function hasSelector(target, selector, domNode) {
+  let current = target;
+  do {
+    if (current?.matches?.(selector)) return true;
+    if (current === domNode) return false;
+    current = current?.parentElement;
+  } while (current);
+  return false;
+}
+
+// xyflow/packages/system/src/xyhandle/utils.ts
+function getNodesWithinDistance(position, nodeLookup, distance2) {
+  const nodes = [];
+  const rect = {
+    x: position.x - distance2,
+    y: position.y - distance2,
+    width: distance2 * 2,
+    height: distance2 * 2
+  };
+  for (const node of nodeLookup.values()) {
+    if (getOverlappingArea(rect, nodeToRect(node)) > 0) {
+      nodes.push(node);
+    }
+  }
+  return nodes;
+}
+var ADDITIONAL_DISTANCE = 250;
+function getClosestHandle(position, connectionRadius, nodeLookup, fromHandle) {
+  let closestHandles = [];
+  let minDistance = Infinity;
+  const closeNodes = getNodesWithinDistance(position, nodeLookup, connectionRadius + ADDITIONAL_DISTANCE);
+  for (const node of closeNodes) {
+    const allHandles = [...node.internals.handleBounds?.source ?? [], ...node.internals.handleBounds?.target ?? []];
+    for (const handle of allHandles) {
+      if (fromHandle.nodeId === handle.nodeId && fromHandle.type === handle.type && fromHandle.id === handle.id) {
+        continue;
+      }
+      const { x, y } = getHandlePosition(node, handle, handle.position, true);
+      const distance2 = Math.sqrt(Math.pow(x - position.x, 2) + Math.pow(y - position.y, 2));
+      if (distance2 > connectionRadius) {
+        continue;
+      }
+      if (distance2 < minDistance) {
+        closestHandles = [{ ...handle, x, y }];
+        minDistance = distance2;
+      } else if (distance2 === minDistance) {
+        closestHandles.push({ ...handle, x, y });
+      }
+    }
+  }
+  if (!closestHandles.length) {
+    return null;
+  }
+  if (closestHandles.length > 1) {
+    const oppositeHandleType = fromHandle.type === "source" ? "target" : "source";
+    return closestHandles.find((handle) => handle.type === oppositeHandleType) ?? closestHandles[0];
+  }
+  return closestHandles[0];
+}
+function getHandle(nodeId, handleType, handleId, nodeLookup, connectionMode, withAbsolutePosition = false) {
+  const node = nodeLookup.get(nodeId);
+  if (!node) {
+    return null;
+  }
+  const handles = connectionMode === "strict" ? node.internals.handleBounds?.[handleType] : [...node.internals.handleBounds?.source ?? [], ...node.internals.handleBounds?.target ?? []];
+  const handle = (handleId ? handles?.find((h) => h.id === handleId) : handles?.[0]) ?? null;
+  return handle && withAbsolutePosition ? { ...handle, ...getHandlePosition(node, handle, handle.position, true) } : handle;
+}
+function getHandleType(edgeUpdaterType, handleDomNode) {
+  if (edgeUpdaterType) {
+    return edgeUpdaterType;
+  } else if (handleDomNode?.classList.contains("target")) {
+    return "target";
+  } else if (handleDomNode?.classList.contains("source")) {
+    return "source";
+  }
+  return null;
+}
+function isConnectionValid(isInsideConnectionRadius, isHandleValid) {
+  let isValid = null;
+  if (isHandleValid) {
+    isValid = true;
+  } else if (isInsideConnectionRadius && !isHandleValid) {
+    isValid = false;
+  }
+  return isValid;
+}
+
+// xyflow/packages/system/src/xyhandle/XYHandle.ts
+var alwaysValid = () => true;
+function onPointerDown(event, {
+  connectionMode,
+  connectionRadius,
+  handleId,
+  nodeId,
+  edgeUpdaterType,
+  isTarget,
+  domNode,
+  nodeLookup,
+  lib,
+  autoPanOnConnect,
+  flowId,
+  panBy,
+  cancelConnection,
+  onConnectStart,
+  onConnect,
+  onConnectEnd,
+  isValidConnection = alwaysValid,
+  onReconnectEnd,
+  updateConnection,
+  getTransform,
+  getFromHandle,
+  autoPanSpeed,
+  dragThreshold = 1,
+  handleDomNode
+}) {
+  const doc = getHostForElement(event.target);
+  let autoPanId = 0;
+  let closestHandle;
+  const { x, y } = getEventPosition(event);
+  const handleType = getHandleType(edgeUpdaterType, handleDomNode);
+  const containerBounds = domNode?.getBoundingClientRect();
+  let connectionStarted = false;
+  if (!containerBounds || !handleType) {
+    return;
+  }
+  const fromHandleInternal = getHandle(nodeId, handleType, handleId, nodeLookup, connectionMode);
+  if (!fromHandleInternal) {
+    return;
+  }
+  let position = getEventPosition(event, containerBounds);
+  let autoPanStarted = false;
+  let connection = null;
+  let isValid = false;
+  let resultHandleDomNode = null;
+  function autoPan() {
+    if (!autoPanOnConnect || !containerBounds) {
+      return;
+    }
+    const [x2, y2] = calcAutoPan(position, containerBounds, autoPanSpeed);
+    panBy({ x: x2, y: y2 });
+    autoPanId = requestAnimationFrame(autoPan);
+  }
+  const fromHandle = {
+    ...fromHandleInternal,
+    nodeId,
+    type: handleType,
+    position: fromHandleInternal.position
+  };
+  const fromInternalNode = nodeLookup.get(nodeId);
+  const from = getHandlePosition(fromInternalNode, fromHandle, "left" /* Left */, true);
+  let previousConnection = {
+    inProgress: true,
+    isValid: null,
+    from,
+    fromHandle,
+    fromPosition: fromHandle.position,
+    fromNode: fromInternalNode,
+    to: position,
+    toHandle: null,
+    toPosition: oppositePosition[fromHandle.position],
+    toNode: null,
+    pointer: position
+  };
+  function startConnection() {
+    connectionStarted = true;
+    updateConnection(previousConnection);
+    onConnectStart?.(event, { nodeId, handleId, handleType });
+  }
+  if (dragThreshold === 0) {
+    startConnection();
+  }
+  function onPointerMove(event2) {
+    if (!connectionStarted) {
+      const { x: evtX, y: evtY } = getEventPosition(event2);
+      const dx = evtX - x;
+      const dy = evtY - y;
+      const nextConnectionStarted = dx * dx + dy * dy > dragThreshold * dragThreshold;
+      if (!nextConnectionStarted) {
+        return;
+      }
+      startConnection();
+    }
+    if (!getFromHandle() || !fromHandle) {
+      onPointerUp(event2);
+      return;
+    }
+    const transform = getTransform();
+    position = getEventPosition(event2, containerBounds);
+    closestHandle = getClosestHandle(
+      pointToRendererPoint(position, transform, false, [1, 1]),
+      connectionRadius,
+      nodeLookup,
+      fromHandle
+    );
+    if (!autoPanStarted) {
+      autoPan();
+      autoPanStarted = true;
+    }
+    const result = isValidHandle(event2, {
+      handle: closestHandle,
+      connectionMode,
+      fromNodeId: nodeId,
+      fromHandleId: handleId,
+      fromType: isTarget ? "target" : "source",
+      isValidConnection,
+      doc,
+      lib,
+      flowId,
+      nodeLookup
+    });
+    resultHandleDomNode = result.handleDomNode;
+    connection = result.connection;
+    isValid = isConnectionValid(!!closestHandle, result.isValid);
+    const fromInternalNode2 = nodeLookup.get(nodeId);
+    const from2 = fromInternalNode2 ? getHandlePosition(fromInternalNode2, fromHandle, "left" /* Left */, true) : previousConnection.from;
+    const newConnection = {
+      ...previousConnection,
+      from: from2,
+      isValid,
+      to: result.toHandle && isValid ? rendererPointToPoint({ x: result.toHandle.x, y: result.toHandle.y }, transform) : position,
+      toHandle: result.toHandle,
+      toPosition: isValid && result.toHandle ? result.toHandle.position : oppositePosition[fromHandle.position],
+      toNode: result.toHandle ? nodeLookup.get(result.toHandle.nodeId) : null,
+      pointer: position
+    };
+    updateConnection(newConnection);
+    previousConnection = newConnection;
+  }
+  function onPointerUp(event2) {
+    if ("touches" in event2 && event2.touches.length > 0) {
+      return;
+    }
+    if (connectionStarted) {
+      if ((closestHandle || resultHandleDomNode) && connection && isValid) {
+        onConnect?.(connection);
+      }
+      const { inProgress, ...connectionState } = previousConnection;
+      const finalConnectionState = {
+        ...connectionState,
+        toPosition: previousConnection.toHandle ? previousConnection.toPosition : null
+      };
+      onConnectEnd?.(event2, finalConnectionState);
+      if (edgeUpdaterType) {
+        onReconnectEnd?.(event2, finalConnectionState);
+      }
+    }
+    cancelConnection();
+    cancelAnimationFrame(autoPanId);
+    autoPanStarted = false;
+    isValid = false;
+    connection = null;
+    resultHandleDomNode = null;
+    doc.removeEventListener("mousemove", onPointerMove);
+    doc.removeEventListener("mouseup", onPointerUp);
+    doc.removeEventListener("touchmove", onPointerMove);
+    doc.removeEventListener("touchend", onPointerUp);
+  }
+  doc.addEventListener("mousemove", onPointerMove);
+  doc.addEventListener("mouseup", onPointerUp);
+  doc.addEventListener("touchmove", onPointerMove);
+  doc.addEventListener("touchend", onPointerUp);
+}
+function isValidHandle(event, {
+  handle,
+  connectionMode,
+  fromNodeId,
+  fromHandleId,
+  fromType,
+  doc,
+  lib,
+  flowId,
+  isValidConnection = alwaysValid,
+  nodeLookup
+}) {
+  const isTarget = fromType === "target";
+  const handleDomNode = handle ? doc.querySelector(`.${lib}-flow__handle[data-id="${flowId}-${handle?.nodeId}-${handle?.id}-${handle?.type}"]`) : null;
+  const { x, y } = getEventPosition(event);
+  const handleBelow = doc.elementFromPoint(x, y);
+  const handleToCheck = handleBelow?.classList.contains(`${lib}-flow__handle`) ? handleBelow : handleDomNode;
+  const result = {
+    handleDomNode: handleToCheck,
+    isValid: false,
+    connection: null,
+    toHandle: null
+  };
+  if (handleToCheck) {
+    const handleType = getHandleType(void 0, handleToCheck);
+    const handleNodeId = handleToCheck.getAttribute("data-nodeid");
+    const handleId = handleToCheck.getAttribute("data-handleid");
+    const connectable = handleToCheck.classList.contains("connectable");
+    const connectableEnd = handleToCheck.classList.contains("connectableend");
+    if (!handleNodeId || !handleType) {
+      return result;
+    }
+    const connection = {
+      source: isTarget ? handleNodeId : fromNodeId,
+      sourceHandle: isTarget ? handleId : fromHandleId,
+      target: isTarget ? fromNodeId : handleNodeId,
+      targetHandle: isTarget ? fromHandleId : handleId
+    };
+    result.connection = connection;
+    const isConnectable = connectable && connectableEnd;
+    const isValid = isConnectable && (connectionMode === "strict" /* Strict */ ? isTarget && handleType === "source" || !isTarget && handleType === "target" : handleNodeId !== fromNodeId || handleId !== fromHandleId);
+    result.isValid = isValid && isValidConnection(connection);
+    result.toHandle = getHandle(handleNodeId, handleType, handleId, nodeLookup, connectionMode, true);
+  }
+  return result;
+}
+var XYHandle = {
+  onPointerDown,
+  isValid: isValidHandle
+};
 
 // xyflow/packages/system/src/utils/edges/general.ts
 function getEdgeCenter({
@@ -1010,9 +1584,12 @@ import { forwardRef } from "react";
 var isNode = (element) => isNodeBase(element);
 var isEdge = (element) => isEdgeBase(element);
 export {
+  XYHandle,
   addEdge2 as addEdge,
+  adoptUserNodes,
   applyEdgeChanges,
   applyNodeChanges,
+  areSetsEqual,
   boxToRect,
   clamp,
   clampPosition,
@@ -1024,6 +1601,7 @@ export {
   getConnectionStatus,
   getEdgeCenter,
   getEdgeToolbarTransform,
+  getHandle,
   getIncomers,
   getMarkerId,
   getNodePositionWithOrigin,
@@ -1035,7 +1613,9 @@ export {
   getSmoothStepPath,
   getStraightPath,
   getViewportForBounds,
+  hasSelector,
   isEdge,
+  isInputDOMNode,
   isNode,
   nodeToBox,
   nodeToRect,

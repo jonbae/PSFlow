@@ -42,6 +42,7 @@ import Data.Number (abs, nan) as Number
 import Data.Tuple (Tuple(..))
 import React.Container.Pane.Internal (buildPaneClass, paneIsDraggable)
 import Test.React.Node.ArrowKeyMessage (runArrowKeyMessageTests)
+import Test.Parity.Adoption (runAdoptionParity)
 import Test.Parity.Changes (runChangesParity)
 import Test.Parity.Connections (runConnectionsParity)
 import Test.Parity.Edges (runEdgeParity)
@@ -1282,3 +1283,4 @@ main = do
   runConnectionsParity
   runGraphParity
   runChangesParity
+  runAdoptionParity
