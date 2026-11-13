@@ -154,8 +154,9 @@ Decide which of them the unit can observe.
   reference comparison on the `Maybe` is never equal. `React.Provider.TrackedProp`
   compares the payload for this reason.
 - Structural `Eq` where upstream compares references changes how often effects
-  and renders run, and the net observes both. `System.Utils.ShallowNodeData`
-  documents one such divergence.
+  and renders run, and the net observes both. For this reason, each selector
+  hook in `Boundary.Hooks` compares what the consumer reads with upstream's
+  own equality, such as zustand's `shallow`.
 - Keep a component's identity stable. A component function created during a
   render is a new component to React, which remounts it. A remount under the
   pointer mid-drag fires `onMouseEnter` up the tree. `Boundary.Wrapper` caches
