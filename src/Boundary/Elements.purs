@@ -121,7 +121,7 @@ import Boundary.Enums
   )
 import Boundary.Original (originalOf, remembering)
 import Boundary.Undefined (Undefinable, defined, fromUndefinable, isNull, nullUndefinable, pruneUndefined, toUndefinable, undefined)
-import Boundary.Untagged (asArray, asBoolean, asString, typeName)
+import Boundary.Untagged (asArray, asBoolean, asString, truthy, typeName)
 import Boundary.Wrapper (mkComponentWrapper)
 import Data.Array (length) as Array
 import Data.Array.NonEmpty (fromArray) as NEA
@@ -134,7 +134,7 @@ import Effect.Exception.Unsafe (unsafeThrow)
 import Effect.Uncurried (mkEffectFn1)
 import Foreign (Foreign, unsafeToForeign)
 import Foreign.Object (Object)
-import Foreign.Object (mapWithKey) as Object
+import Foreign.Object (filter, mapWithKey) as Object
 import Record (insert) as Record
 import Record.Unsafe (unsafeSet)
 import Type.Proxy (Proxy(..))
@@ -1174,9 +1174,15 @@ nodePropsOut p =
 -- | The map is an ordinary object at runtime on both sides (`NodeTypesMap` is
 -- | opaque in PureScript precisely so the renderer can treat it as one), so
 -- | the wrapping is a `mapWithKey` and a coercion back.
+-- |
+-- | Upstream reads the map with `||` (`nodeTypes?.[type] ||
+-- | builtinNodeTypes[type]`), so an entry holding a falsy value resolves
+-- | nothing. It is dropped before wrapping, and the renderer's lookup falls
+-- | through to the built-in type as upstream's does.
 nodeTypesIn :: Object (ReactComponent JsNodeProps) -> NodeTypesMap
 nodeTypesIn types =
-  unsafeCoerce (Object.mapWithKey (\_ c -> wrapNodeComponent c) types)
+  unsafeCoerce
+    (Object.mapWithKey (\_ c -> wrapNodeComponent c) (Object.filter (truthy <<< unsafeToForeign) types))
 
 wrapNodeComponent
   :: ReactComponent JsNodeProps

@@ -114,7 +114,8 @@ import Effect.Uncurried (mkEffectFn1)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign, unsafeToForeign)
 import Foreign.Object (Object)
-import Foreign.Object (mapWithKey) as Object
+import Boundary.Untagged (truthy)
+import Foreign.Object (filter, mapWithKey) as Object
 import React.Additional.EdgeToolbar (edgeToolbar) as PS
 import React.Basic (JSX, ReactComponent, element)
 import React.Basic.Hooks (ReactChildren, memo, reactComponent, reactComponentWithChildren)
@@ -577,10 +578,13 @@ pathOptionsOut = unsafeToForeign <<< edgePathOptionsOut <<< unsafeCoerce
 -- | calls, so crossing it wraps every component in the map rather than
 -- | converting data. The map is an ordinary object at runtime on both sides —
 -- | `EdgeTypesMap` is opaque in PureScript precisely so the renderer can treat
--- | it as one — so the wrapping is a `mapWithKey` and a coercion back.
+-- | it as one — so the wrapping is a `mapWithKey` and a coercion back. As
+-- | there, an entry holding a falsy value resolves nothing upstream and is
+-- | dropped before wrapping.
 edgeTypesIn :: Object (ReactComponent JsEdgeProps) -> EdgeTypesMap
 edgeTypesIn types =
-  unsafeCoerce (Object.mapWithKey (\_ c -> wrapEdgeComponent c) types)
+  unsafeCoerce
+    (Object.mapWithKey (\_ c -> wrapEdgeComponent c) (Object.filter (truthy <<< unsafeToForeign) types))
 
 wrapEdgeComponent
   :: ReactComponent JsEdgeProps

@@ -1129,10 +1129,10 @@
     "pkg": "react",
     "version": "12.8.2",
     "title": "Fix node fallback to respect custom default node type when unknown node type is encountered",
-    "bucket": "not-ported",
-    "evidence": "",
-    "ticket": "075",
-    "note": "src/React/Component/NodeWrapper.purs:196 falls back to `Object.lookup \"default\" builtinNodeTypes`, ignoring a user-supplied `default` in nodeTypes. Upstream NodeWrapper/index.tsx:61 is `nodeTypes?.['default'] || builtinNodeTypes.default`."
+    "bucket": "unit",
+    "ticket": null,
+    "evidence": "`resolveNodeComponent` in src/React/Component/NodeWrapper.purs falls back to `nodeTypes.default` before the built-in default, as upstream's NodeWrapper/index.tsx:61 does. Guarded by `test/Test/React/Component/TypeFallback.purs` (run by `spago test`), and `parity/boundary/type-fallback.test.mjs`, which compares the same cases with upstream through `index.js`.",
+    "note": "Was `not-ported` under ticket 075: the fallback ignored a consumer's own `default` node type. The same fix gives `edgeTypes` upstream's fallback, and the boundary drops falsy `nodeTypes` and `edgeTypes` entries, which upstream's `||` lookups skip."
   },
   "5394": {
     "pkg": "react",
@@ -1688,10 +1688,10 @@
     "pkg": "react",
     "version": "12.10.2",
     "title": "Allow `type` field to be missing in `BuiltInNode` (no `type` field is the same as `type: \"default\"`)",
-    "bucket": "not-ported",
-    "evidence": "",
-    "ticket": "075",
-    "note": "Same resolution path as #5384: src/React/Component/NodeWrapper.purs:188-200 defaults a missing type to \"default\" correctly, but the custom-default fallback is wrong. Bundled into the same ticket."
+    "bucket": "unit",
+    "ticket": null,
+    "evidence": "A node with no `type` resolves as `'default'`, so it draws a consumer's own `default` node type, and the declarations ps-flow publishes are upstream's, where `BuiltInNode`'s `type` is optional. Guarded by the no-type case in `test/Test/React/Component/TypeFallback.purs` (run by `spago test`), and `parity/boundary/type-fallback.test.mjs`, which compares the same cases with upstream through `index.js`.",
+    "note": "Was `not-ported` under ticket 075 alongside #5384, whose fallback fix it relied on."
   },
   "5755": {
     "pkg": "react",

@@ -25,8 +25,8 @@ design (as `parity:surface` does).
 
 ## Summary
 
-- **covered** (no action): 119
-- **gaps** (a gate coming, a ticket, or fixed in-branch): 56
+- **covered** (no action): 121
+- **gaps** (a gate coming, a ticket, or fixed in-branch): 54
 - **accepted** (ungated by decision): 3
 - **n/a**: 2
 
@@ -37,11 +37,11 @@ design (as `parity:surface` does).
 | `surface` | covered | 24 | Surface change — gated by parity:surface |
 | `function` | covered | 14 | Pure-math change — gated by function parity, differential against the @psflow/oracle bundle |
 | `conformance` | covered | 15 | Behavior covered by a spec in the conformance test suite |
-| `unit` | covered | 11 | Behavior covered by a PureScript unit/property test |
+| `unit` | covered | 13 | Behavior covered by a PureScript unit/property test |
 | `system` | covered | 0 | Behavior driven by the dual-run net — gated by parity:system |
 | `gate-pending` | gap | 50 | Ported and ungated, with a named gate coming (a gap, never a covered bucket) |
 | `ported-ungated` | gap | 1 | Ported and correct, but no gate exercises it and none is planned (test debt) |
-| `not-ported` | gap | 5 | Behavior not present in PSFlow |
+| `not-ported` | gap | 3 | Behavior not present in PSFlow |
 | `accepted-ungated` | accepted | 3 | Ported, and deliberately never gated — carries the written reason |
 | `n/a` | na | 2 | No PSFlow analogue (Svelte-only, build tooling, infra) |
 
@@ -137,8 +137,6 @@ Every `gate-pending` row names a scenario or test that exists.
 | [#5276](https://github.com/xyflow/xyflow/pull/5276) | react | 12.7.0 | Add an `ease` and `interpolate` option to all function that alter the viewport | Ported in shape only. The `interpolate` option is threaded (src/System/XYPanZoom.purs:247-251 selects linear against smooth) but completion is not: setViewportImpl resolves immediately at :253, and the comment at :234-236 says outright that d3-zoom's interpolate APIs are not exercised. Upstream's setViewport returns a Promise that settles when the transition finishes; PSFlow's Aff settles when it starts, so `await fitView()` means different things on the two sides. Filed as test debt by 078 and corrected here — it is a divergence, on https://github.com/jonbae/PSFlow/issues/22, and the net could not have caught it: it compares end states, and both sides arrive at the same viewport whatever path they took. |
 | [#5299](https://github.com/xyflow/xyflow/pull/5299) | react | 12.7.0 | Add `ariaRole` prop to nodes and edges | ticket 074 |
 | [#5317](https://github.com/xyflow/xyflow/pull/5317) | react | 12.7.0 | Add `domAttributes` option for nodes and edges | ticket 074 |
-| [#5384](https://github.com/xyflow/xyflow/pull/5384) | react | 12.8.2 | Fix node fallback to respect custom default node type when unknown node type is encountered | ticket 075 |
-| [#5735](https://github.com/xyflow/xyflow/pull/5735) | react | 12.10.2 | Allow `type` field to be missing in `BuiltInNode` (no `type` field is the same as `type: "default"`) | ticket 075 |
 
 ## Accepted
 
@@ -239,10 +237,12 @@ The rule the rest of the table follows — no bucket without a row — is what k
 | [#5192](https://github.com/xyflow/xyflow/pull/5192) | react | 12.5.6 | Optimize performance of nodesInitialized | test/Test/React/Hook/VisibleIds.purs + src/React/Hook/VisibleIds/Pure.purs cover the initialization/visibility computation. |
 | [#5326](https://github.com/xyflow/xyflow/pull/5326) | react | 12.7.0 | Prevent NodeResizer controls to become too small when zooming out | test/Test/System/XYResizer.purs runXYResizerTests with paired JS: mounted control autoScale at zoom 0.5 and 2, plus disabled autoScale, while the active resize reaches its updated bound. |
 | [#5370](https://github.com/xyflow/xyflow/pull/5370) | system | 0.0.65 | Only fire connection end events if connection was started | test/Test/Main.purs `handleConnectionChange` cases (Nothing callback, empty diff, non-empty diff) assert the callback fires only on a real change. |
+| [#5384](https://github.com/xyflow/xyflow/pull/5384) | react | 12.8.2 | Fix node fallback to respect custom default node type when unknown node type is encountered | `resolveNodeComponent` in src/React/Component/NodeWrapper.purs falls back to `nodeTypes.default` before the built-in default, as upstream's NodeWrapper/index.tsx:61 does. Guarded by `test/Test/React/Component/TypeFallback.purs` (run by `spago test`), and `parity/boundary/type-fallback.test.mjs`, which compares the same cases with upstream through `index.js`. |
 | [#5509](https://github.com/xyflow/xyflow/pull/5509) | react | 12.8.5 | Prevent calling onResizeEnd if node was not resized | test/Test/System/XYResizer.purs runXYResizerTests with paired JS: no-op and completely vetoed gestures emit no resize end, and accepted gestures emit exactly one end. |
 | [#5528](https://github.com/xyflow/xyflow/pull/5528) | react | 12.9.0 | Let `NodeResizer` props change during ongoing resize | test/Test/System/XYResizer.purs runXYResizerTests with paired JS: factory active-gesture closure/options comparison and mounted JS control width-limit update (180 becomes 145). |
 | [#5530](https://github.com/xyflow/xyflow/pull/5530) | react | 12.9.0 | Improve performance of adding nodes & edges | test/Test/System/Utils/Store.purs runStoreProperties — QuickCheck properties over adoptUserNodes (idempotence, hasSelectedNodes, parentLookup) covering the add path of src/System/Utils/Store.purs; a pure-FP port has no in-place mutation to optimize. |
 | [#5592](https://github.com/xyflow/xyflow/pull/5592) | react | 12.10.0 | Always create a new measured object in apply changes. | test/Test/React/Store/Reduce.purs covers the change-application path and test/Test/System/Utils/Store.purs runStoreProperties covers adoptUserNodes; PureScript records are immutable, so a fresh `measured` object per update is structurally guaranteed rather than a fix to port. |
+| [#5735](https://github.com/xyflow/xyflow/pull/5735) | react | 12.10.2 | Allow `type` field to be missing in `BuiltInNode` (no `type` field is the same as `type: "default"`) | A node with no `type` resolves as `'default'`, so it draws a consumer's own `default` node type, and the declarations ps-flow publishes are upstream's, where `BuiltInNode`'s `type` is optional. Guarded by the no-type case in `test/Test/React/Component/TypeFallback.purs` (run by `spago test`), and `parity/boundary/type-fallback.test.mjs`, which compares the same cases with upstream through `index.js`. |
 | [#5784](https://github.com/xyflow/xyflow/pull/5784) | react | 12.11.0 | Fix node resizing possible beyond absolute extents | test/Test/System/XYResizer.purs runXYResizerTests with paired JS: source-differential coordinate/parent/child extent constraint cases through the actual controller. |
 
 ### `system` — Behavior driven by the dual-run net — gated by parity:system

@@ -70,6 +70,7 @@ import Test.Properties (runProperties)
 import Test.React.Additional.MiniMap (runMiniMapSliceTests)
 import Test.React.Component.AriaDescribedBy (runAriaDescribedByTests)
 import Test.React.Component.EdgeAriaLabel (runEdgeAriaLabelTests)
+import Test.React.Component.TypeFallback (runTypeFallbackTests)
 import Test.React.Store.InPlaceSelection (runInPlaceSelectionTests)
 import Test.React.Component.NodesSelectionRect (runNodesSelectionRectTests)
 import Test.React.Hook.ConnectionTo (runConnectionToTests)
@@ -1216,6 +1217,7 @@ main = do
   runEmptyChangesTests
   runResetSelectionTests
   runAriaDescribedByTests
+  runTypeFallbackTests
   runNodeInlineDimensionsTests
   runUpdateNodePositionsTests
   runBatchQueueTests

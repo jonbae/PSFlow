@@ -9,8 +9,8 @@
 -- |      produces a new node object).
 -- |   2. Resolve the user-supplied node component from
 -- |      `props.nodeTypes` with fallback to `builtinNodeTypes`. On
--- |      miss, fire `onError "003"` and substitute the built-in
--- |      `defaultNode`.
+-- |      miss, fire `onError "003"` and substitute the consumer's own
+-- |      `default` node type, or the built-in `defaultNode` without one.
 -- |   3. Mount `useNodeObserver`, which hands the `<div>` to the shared
 -- |      `ResizeObserver` and returns its ref, and then `useDrag` on that
 -- |      ref.
@@ -204,11 +204,15 @@ resolveNodeComponent mTypes mOnError nodeType = do
       Just c -> pure { nodeType, component: c }
       Nothing -> do
         for_ mOnError \cb -> cb "003" (errorMessage (E003 nodeType))
-        case Object.lookup "default" builtinNodeTypes of
+        -- TS `nodeTypes?.['default'] || builtinNodeTypes.default`: the
+        -- consumer's own default node type wins over the built-in one.
+        case Object.lookup "default" typesObj of
           Just c -> pure { nodeType: "default", component: c }
-          Nothing ->
-            -- Unreachable: the registry always carries "default".
-            pure { nodeType: "default", component: unsafeCoerce {} }
+          Nothing -> case Object.lookup "default" builtinNodeTypes of
+            Just c -> pure { nodeType: "default", component: c }
+            Nothing ->
+              -- Unreachable: the registry always carries "default".
+              pure { nodeType: "default", component: unsafeCoerce {} }
 
 -- ----------------------------------------------------------------------------
 -- Drag-store-items adapter

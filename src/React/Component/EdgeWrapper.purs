@@ -7,8 +7,9 @@
 -- |      `defaultEdgeOptions` merged on top.
 -- |   2. Resolve the user-supplied edge component from
 -- |      `props.edgeTypes` with fallback to `builtinEdgeTypes`. On
--- |      miss, fire `onError "011"` and substitute the built-in
--- |      `bezierEdgeInternal`.
+-- |      miss, fire `onError "011"` and substitute the consumer's own
+-- |      `default` edge type, or the built-in `bezierEdgeInternal`
+-- |      without one.
 -- |   3. Compute the endpoint coordinates and z-index via a second
 -- |      `useStore` selector (so the wrapper only re-renders when the
 -- |      relevant primitives actually move).
@@ -254,7 +255,7 @@ edgeTypesAsObject = case _ of
   emptyObject :: Object (ReactComponent (EdgeProps Foreign))
   emptyObject = unsafeCoerce ({} :: {})
 
--- | Resolve `edgeTypes[edgeType] ?? builtinEdgeTypes[edgeType]`.
+-- | Resolve `edgeTypes?.[edgeType] || builtinEdgeTypes[edgeType]`.
 -- | Reports `error011` to `onError` on substitution.
 resolveEdgeComponent
   :: Maybe EdgeTypesMap
@@ -270,9 +271,13 @@ resolveEdgeComponent mTypes mOnError edgeType = do
       Just c -> pure { edgeType, component: c }
       Nothing -> do
         for_ mOnError \cb -> cb "011" (errorMessage (E011 edgeType))
+        -- TS `edgeTypes?.['default'] || builtinEdgeTypes.default`: the
+        -- consumer's own default edge type wins over the built-in one.
         pure
           { edgeType: "default"
-          , component: (unsafeCoerce bezierEdgeInternal) :: ReactComponent (EdgeProps Foreign)
+          , component: case Object.lookup "default" typesObj of
+              Just c -> c
+              Nothing -> (unsafeCoerce bezierEdgeInternal) :: ReactComponent (EdgeProps Foreign)
           }
 
 -- | TS `cc(['react-flow__edge', `react-flow__edge-${type}`, …flags, edge.className])`.
