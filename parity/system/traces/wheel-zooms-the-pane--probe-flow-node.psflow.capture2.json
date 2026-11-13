@@ -337,6 +337,29 @@
         "probe": true
       },
       {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "type": "dimensions",
+              "id": "1",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "2",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          ]
+        ]
+      },
+      {
         "name": "onMoveEnd",
         "args": [
           null,
@@ -359,26 +382,104 @@
         "probe": true
       },
       {
-        "name": "onNodesChange",
+        "name": "onInit",
         "args": [
-          [
-            {
-              "type": "dimensions",
-              "id": "1",
-              "dimensions": {
-                "width": 150,
-                "height": 37
-              }
+          {
+            "getNodes": {
+              "@ref": "function"
             },
-            {
-              "type": "dimensions",
-              "id": "2",
-              "dimensions": {
-                "width": 150,
-                "height": 37
-              }
-            }
-          ]
+            "setNodes": {
+              "@ref": "function"
+            },
+            "addNodes": {
+              "@ref": "function"
+            },
+            "getNode": {
+              "@ref": "function"
+            },
+            "getInternalNode": {
+              "@ref": "function"
+            },
+            "getEdges": {
+              "@ref": "function"
+            },
+            "setEdges": {
+              "@ref": "function"
+            },
+            "addEdges": {
+              "@ref": "function"
+            },
+            "getEdge": {
+              "@ref": "function"
+            },
+            "toObject": {
+              "@ref": "function"
+            },
+            "deleteElements": {
+              "@ref": "function"
+            },
+            "getIntersectingNodes": {
+              "@ref": "function"
+            },
+            "isNodeIntersecting": {
+              "@ref": "function"
+            },
+            "updateNode": {
+              "@ref": "function"
+            },
+            "updateNodeData": {
+              "@ref": "function"
+            },
+            "updateEdge": {
+              "@ref": "function"
+            },
+            "updateEdgeData": {
+              "@ref": "function"
+            },
+            "getNodesBounds": {
+              "@ref": "function"
+            },
+            "getHandleConnections": {
+              "@ref": "function"
+            },
+            "getNodeConnections": {
+              "@ref": "function"
+            },
+            "fitView": {
+              "@ref": "function"
+            },
+            "zoomIn": {
+              "@ref": "function"
+            },
+            "zoomOut": {
+              "@ref": "function"
+            },
+            "zoomTo": {
+              "@ref": "function"
+            },
+            "getZoom": {
+              "@ref": "function"
+            },
+            "setViewport": {
+              "@ref": "function"
+            },
+            "getViewport": {
+              "@ref": "function"
+            },
+            "setCenter": {
+              "@ref": "function"
+            },
+            "fitBounds": {
+              "@ref": "function"
+            },
+            "screenToFlowPosition": {
+              "@ref": "function"
+            },
+            "flowToScreenPosition": {
+              "@ref": "function"
+            },
+            "viewportInitialized": true
+          }
         ]
       },
       {
@@ -404,7 +505,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 144,
+            "timeStamp": 304,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -473,7 +574,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 144,
+            "timeStamp": 304,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -535,7 +636,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 144,
+            "timeStamp": 304,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -600,7 +701,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 144,
+            "timeStamp": 304,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -698,6 +799,31 @@
           }
         ],
         "probe": true
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          {
+            "@class": "WheelEvent",
+            "isTrusted": true
+          },
+          {
+            "x": 552.9449436703876,
+            "y": 121.469145656862,
+            "zoom": 3.4822022531844965
+          }
+        ]
+      },
+      {
+        "name": "useOnViewportChange",
+        "args": [
+          {
+            "x": 552.9449436703876,
+            "y": 121.469145656862,
+            "zoom": 3.4822022531844965
+          }
+        ],
+        "probe": true
       }
     ],
     "hooks": {
@@ -722,6 +848,7 @@
           "@undefined": true
         },
         "useConnection": {
+          "inProgress": false,
           "isValid": null,
           "from": null,
           "fromHandle": null,
@@ -756,12 +883,12 @@
         ],
         "useInternalNode": {
           "id": "1",
+          "data": {
+            "label": "1"
+          },
           "position": {
             "x": 0,
             "y": 0
-          },
-          "data": {
-            "label": "1"
           },
           "type": "input",
           "measured": {
@@ -774,6 +901,21 @@
               "y": 0
             },
             "z": 0,
+            "userNode": {
+              "id": "1",
+              "data": {
+                "label": "1"
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "type": "input",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
             "handleBounds": {
               "source": [
                 {
@@ -787,7 +929,7 @@
                   "height": 8
                 }
               ],
-              "target": []
+              "target": null
             }
           }
         },
@@ -950,6 +1092,81 @@
           },
           "viewportInitialized": true
         },
+        "useStore": {
+          "nodes": [
+            {
+              "id": "1",
+              "data": {
+                "label": "1"
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "type": "input",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "2",
+              "data": {
+                "label": "2"
+              },
+              "position": {
+                "x": -100,
+                "y": 100
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "3",
+              "data": {
+                "label": "3"
+              },
+              "position": {
+                "x": 100,
+                "y": 100
+              },
+              "type": "__psflow_node_probe"
+            }
+          ],
+          "edges": [
+            {
+              "id": "first-edge",
+              "source": "1",
+              "target": "2"
+            },
+            {
+              "id": "second-edge",
+              "source": "1",
+              "target": "3"
+            }
+          ],
+          "transform": [
+            552.9449436703876,
+            121.469145656862,
+            3.4822022531844965
+          ],
+          "viewportInitialized": {
+            "@undefined": true
+          }
+        },
+        "useStoreApi": {
+          "getState": {
+            "@ref": "function"
+          },
+          "setState": {
+            "@ref": "function"
+          },
+          "subscribe": {
+            "@ref": "function"
+          }
+        },
         "useUpdateNodeInternals": {
           "@ref": "function"
         },
@@ -957,26 +1174,388 @@
           "x": 552.9449436703876,
           "y": 121.469145656862,
           "zoom": 3.4822022531844965
-        },
-        "useStore": {
-          "error": "ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's object: `nodeLookup` is a `Data.Map` where upstream has a `Map`, `transform` is a newtype where upstream has `[x, y, zoom]`, and the other 83 fields are unconverted. It is refused rather than handed over raw so that the selectors which would silently answer `undefined` fail instead. `useReactFlow`, `useNodes`, `useEdges` and `useViewport` have crossed and reach most of the same state."
-        },
-        "useStoreApi": {
-          "error": "ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's object: `nodeLookup` is a `Data.Map` where upstream has a `Map`, `transform` is a newtype where upstream has `[x, y, zoom]`, and the other 83 fields are unconverted. It is refused rather than handed over raw so that the selectors which would silently answer `undefined` fail instead. `useReactFlow`, `useNodes`, `useEdges` and `useViewport` have crossed and reach most of the same state."
         }
       }
     },
     "api": {
       "queries": {
+        "getState": {
+          "rfId": "1",
+          "width": 1280,
+          "height": 720,
+          "transform": [
+            552.9449436703876,
+            121.469145656862,
+            3.4822022531844965
+          ],
+          "nodes": [
+            {
+              "id": "1",
+              "data": {
+                "label": "1"
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "type": "input",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "2",
+              "data": {
+                "label": "2"
+              },
+              "position": {
+                "x": -100,
+                "y": 100
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "3",
+              "data": {
+                "label": "3"
+              },
+              "position": {
+                "x": 100,
+                "y": 100
+              },
+              "type": "__psflow_node_probe"
+            }
+          ],
+          "nodesInitialized": false,
+          "nodeLookup": {
+            "@class": "Map"
+          },
+          "parentLookup": {
+            "@class": "Map"
+          },
+          "edges": [
+            {
+              "id": "first-edge",
+              "source": "1",
+              "target": "2"
+            },
+            {
+              "id": "second-edge",
+              "source": "1",
+              "target": "3"
+            }
+          ],
+          "edgeLookup": {
+            "@class": "Map"
+          },
+          "connectionLookup": {
+            "@class": "Map"
+          },
+          "onNodesChange": {
+            "@ref": "function"
+          },
+          "onEdgesChange": {
+            "@ref": "function"
+          },
+          "hasDefaultNodes": false,
+          "hasDefaultEdges": false,
+          "panZoom": {
+            "update": {
+              "@ref": "function"
+            },
+            "destroy": {
+              "@ref": "function"
+            },
+            "setViewport": {
+              "@ref": "function"
+            },
+            "setViewportConstrained": {
+              "@ref": "function"
+            },
+            "getViewport": {
+              "@ref": "function"
+            },
+            "scaleTo": {
+              "@ref": "function"
+            },
+            "scaleBy": {
+              "@ref": "function"
+            },
+            "setScaleExtent": {
+              "@ref": "function"
+            },
+            "setTranslateExtent": {
+              "@ref": "function"
+            },
+            "syncViewport": {
+              "@ref": "function"
+            },
+            "setClickDistance": {
+              "@ref": "function"
+            }
+          },
+          "minZoom": 0.25,
+          "maxZoom": 4,
+          "translateExtent": [
+            [
+              {
+                "@number": "-Infinity"
+              },
+              {
+                "@number": "-Infinity"
+              }
+            ],
+            [
+              {
+                "@number": "Infinity"
+              },
+              {
+                "@number": "Infinity"
+              }
+            ]
+          ],
+          "nodeExtent": [
+            [
+              {
+                "@number": "-Infinity"
+              },
+              {
+                "@number": "-Infinity"
+              }
+            ],
+            [
+              {
+                "@number": "Infinity"
+              },
+              {
+                "@number": "Infinity"
+              }
+            ]
+          ],
+          "nodesSelectionActive": false,
+          "userSelectionActive": false,
+          "userSelectionRect": null,
+          "connectionMode": "strict",
+          "domNode": {
+            "@ref": "DIV"
+          },
+          "paneDragging": false,
+          "noPanClassName": "nopan",
+          "nodeOrigin": [
+            0,
+            0
+          ],
+          "nodeDragThreshold": 1,
+          "connectionDragThreshold": 1,
+          "snapGrid": [
+            15,
+            15
+          ],
+          "snapToGrid": false,
+          "nodesDraggable": true,
+          "nodesConnectable": true,
+          "nodesFocusable": true,
+          "edgesFocusable": true,
+          "edgesReconnectable": true,
+          "elementsSelectable": true,
+          "elevateNodesOnSelect": true,
+          "elevateEdgesOnSelect": false,
+          "selectNodesOnDrag": true,
+          "multiSelectionActive": false,
+          "fitViewQueued": false,
+          "fitViewOptions": {
+            "@undefined": true
+          },
+          "fitViewResolver": null,
+          "connection": {
+            "inProgress": false,
+            "isValid": null,
+            "from": null,
+            "fromHandle": null,
+            "fromPosition": null,
+            "fromNode": null,
+            "to": null,
+            "toHandle": null,
+            "toPosition": null,
+            "toNode": null,
+            "pointer": null
+          },
+          "connectionClickStartHandle": null,
+          "connectOnClick": true,
+          "ariaLiveMessage": "",
+          "autoPanOnConnect": true,
+          "autoPanOnNodeDrag": true,
+          "autoPanOnNodeFocus": true,
+          "autoPanSpeed": 15,
+          "connectionRadius": 20,
+          "onError": {
+            "@ref": "function"
+          },
+          "isValidConnection": {
+            "@ref": "function"
+          },
+          "onSelectionChangeHandlers": [],
+          "lib": "react",
+          "debug": false,
+          "ariaLabelConfig": {
+            "node.a11yDescription.default": "Press enter or space to select a node. Press delete to remove it and escape to cancel.",
+            "node.a11yDescription.keyboardDisabled": "Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel.",
+            "node.a11yDescription.ariaLiveMessage": {
+              "@ref": "function"
+            },
+            "edge.a11yDescription.default": "Press enter or space to select an edge. You can then press delete to remove it or escape to cancel.",
+            "controls.ariaLabel": "Control Panel",
+            "controls.zoomIn.ariaLabel": "Zoom In",
+            "controls.zoomOut.ariaLabel": "Zoom Out",
+            "controls.fitView.ariaLabel": "Fit View",
+            "controls.interactive.ariaLabel": "Toggle Interactivity",
+            "minimap.ariaLabel": "Mini Map",
+            "handle.ariaLabel": "Handle"
+          },
+          "zIndexMode": "basic",
+          "onNodesChangeMiddlewareMap": {
+            "@class": "Map"
+          },
+          "onEdgesChangeMiddlewareMap": {
+            "@class": "Map"
+          },
+          "setNodes": {
+            "@ref": "function"
+          },
+          "setEdges": {
+            "@ref": "function"
+          },
+          "setDefaultNodesAndEdges": {
+            "@ref": "function"
+          },
+          "updateNodeInternals": {
+            "@ref": "function"
+          },
+          "updateNodePositions": {
+            "@ref": "function"
+          },
+          "triggerNodeChanges": {
+            "@ref": "function"
+          },
+          "triggerEdgeChanges": {
+            "@ref": "function"
+          },
+          "addSelectedNodes": {
+            "@ref": "function"
+          },
+          "addSelectedEdges": {
+            "@ref": "function"
+          },
+          "unselectNodesAndEdges": {
+            "@ref": "function"
+          },
+          "setMinZoom": {
+            "@ref": "function"
+          },
+          "setMaxZoom": {
+            "@ref": "function"
+          },
+          "setTranslateExtent": {
+            "@ref": "function"
+          },
+          "resetSelectedElements": {
+            "@ref": "function"
+          },
+          "setNodeExtent": {
+            "@ref": "function"
+          },
+          "panBy": {
+            "@ref": "function"
+          },
+          "setCenter": {
+            "@ref": "function"
+          },
+          "cancelConnection": {
+            "@ref": "function"
+          },
+          "updateConnection": {
+            "@ref": "function"
+          },
+          "reset": {
+            "@ref": "function"
+          },
+          "onNodeDragStart": {
+            "@ref": "function"
+          },
+          "onNodeDrag": {
+            "@ref": "function"
+          },
+          "onNodeDragStop": {
+            "@ref": "function"
+          },
+          "onSelectionDragStart": {
+            "@ref": "function"
+          },
+          "onSelectionDrag": {
+            "@ref": "function"
+          },
+          "onSelectionDragStop": {
+            "@ref": "function"
+          },
+          "onMoveStart": {
+            "@ref": "function"
+          },
+          "onMove": {
+            "@ref": "function"
+          },
+          "onMoveEnd": {
+            "@ref": "function"
+          },
+          "onConnect": {
+            "@ref": "function"
+          },
+          "onConnectStart": {
+            "@ref": "function"
+          },
+          "onConnectEnd": {
+            "@ref": "function"
+          },
+          "onClickConnectStart": {
+            "@ref": "function"
+          },
+          "onClickConnectEnd": {
+            "@ref": "function"
+          },
+          "onNodesDelete": {
+            "@ref": "function"
+          },
+          "onEdgesDelete": {
+            "@ref": "function"
+          },
+          "onDelete": {
+            "@ref": "function"
+          },
+          "onViewportChangeStart": {
+            "@ref": "function"
+          },
+          "onViewportChange": {
+            "@ref": "function"
+          },
+          "onViewportChangeEnd": {
+            "@ref": "function"
+          },
+          "onBeforeDelete": {
+            "@ref": "function"
+          }
+        },
         "getNodes": [
           {
             "id": "1",
+            "data": {
+              "label": "1"
+            },
             "position": {
               "x": 0,
               "y": 0
-            },
-            "data": {
-              "label": "1"
             },
             "type": "input",
             "measured": {
@@ -986,12 +1565,12 @@
           },
           {
             "id": "2",
+            "data": {
+              "label": "2"
+            },
             "position": {
               "x": -100,
               "y": 100
-            },
-            "data": {
-              "label": "2"
             },
             "measured": {
               "width": 150,
@@ -1000,24 +1579,24 @@
           },
           {
             "id": "3",
+            "data": {
+              "label": "3"
+            },
             "position": {
               "x": 100,
               "y": 100
-            },
-            "data": {
-              "label": "3"
             },
             "type": "__psflow_node_probe"
           }
         ],
         "getNode": {
           "id": "1",
+          "data": {
+            "label": "1"
+          },
           "position": {
             "x": 0,
             "y": 0
-          },
-          "data": {
-            "label": "1"
           },
           "type": "input",
           "measured": {
@@ -1027,12 +1606,12 @@
         },
         "getInternalNode": {
           "id": "1",
+          "data": {
+            "label": "1"
+          },
           "position": {
             "x": 0,
             "y": 0
-          },
-          "data": {
-            "label": "1"
           },
           "type": "input",
           "measured": {
@@ -1045,6 +1624,21 @@
               "y": 0
             },
             "z": 0,
+            "userNode": {
+              "id": "1",
+              "data": {
+                "label": "1"
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "type": "input",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
             "handleBounds": {
               "source": [
                 {
@@ -1058,7 +1652,7 @@
                   "height": 8
                 }
               ],
-              "target": []
+              "target": null
             }
           }
         },
@@ -1082,12 +1676,12 @@
         "getIntersectingNodes": [
           {
             "id": "1",
+            "data": {
+              "label": "1"
+            },
             "position": {
               "x": 0,
               "y": 0
-            },
-            "data": {
-              "label": "1"
             },
             "type": "input",
             "measured": {
@@ -1097,12 +1691,12 @@
           },
           {
             "id": "2",
+            "data": {
+              "label": "2"
+            },
             "position": {
               "x": -100,
               "y": 100
-            },
-            "data": {
-              "label": "2"
             },
             "measured": {
               "width": 150,
@@ -1111,12 +1705,12 @@
           },
           {
             "id": "3",
+            "data": {
+              "label": "3"
+            },
             "position": {
               "x": 100,
               "y": 100
-            },
-            "data": {
-              "label": "3"
             },
             "type": "__psflow_node_probe"
           }
@@ -1164,12 +1758,12 @@
           "nodes": [
             {
               "id": "1",
+              "data": {
+                "label": "1"
+              },
               "position": {
                 "x": 0,
                 "y": 0
-              },
-              "data": {
-                "label": "1"
               },
               "type": "input",
               "measured": {
@@ -1179,12 +1773,12 @@
             },
             {
               "id": "2",
+              "data": {
+                "label": "2"
+              },
               "position": {
                 "x": -100,
                 "y": 100
-              },
-              "data": {
-                "label": "2"
               },
               "measured": {
                 "width": 150,
@@ -1193,12 +1787,12 @@
             },
             {
               "id": "3",
+              "data": {
+                "label": "3"
+              },
               "position": {
                 "x": 100,
                 "y": 100
-              },
-              "data": {
-                "label": "3"
               },
               "type": "__psflow_node_probe"
             }
@@ -1245,12 +1839,8 @@
         "data": {
           "label": "3"
         },
-        "width": {
-          "@undefined": true
-        },
-        "height": {
-          "@undefined": true
-        },
+        "width": 0,
+        "height": 0,
         "sourcePosition": {
           "@undefined": true
         },
@@ -1281,28 +1871,16 @@
         "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
       },
       {
-        "level": "pageerror",
-        "text": "ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's object: `nodeLookup` is a `Data.Map` where upstream has a `Map`, `transform` is a newtype where upstream has `[x, y, zoom]`, and the other 83 fields are unconverted. It is refused rather than handed over raw so that the selectors which would silently answer `undefined` fail instead. `useReactFlow`, `useNodes`, `useEdges` and `useViewport` have crossed and reach most of the same state."
+        "level": "warning",
+        "text": "[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections"
       },
       {
-        "level": "pageerror",
-        "text": "ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's object: `nodeLookup` is a `Data.Map` where upstream has a `Map`, `transform` is a newtype where upstream has `[x, y, zoom]`, and the other 83 fields are unconverted. It is refused rather than handed over raw so that the selectors which would silently answer `undefined` fail instead. `useReactFlow`, `useNodes`, `useEdges` and `useViewport` have crossed and reach most of the same state."
+        "level": "warning",
+        "text": "[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections"
       },
       {
-        "level": "pageerror",
-        "text": "ps-flow: `useStore` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's object: `nodeLookup` is a `Data.Map` where upstream has a `Map`, `transform` is a newtype where upstream has `[x, y, zoom]`, and the other 83 fields are unconverted. It is refused rather than handed over raw so that the selectors which would silently answer `undefined` fail instead. `useReactFlow`, `useNodes`, `useEdges` and `useViewport` have crossed and reach most of the same state."
-      },
-      {
-        "level": "pageerror",
-        "text": "ps-flow: `useStoreApi` has not crossed the JavaScript boundary — it hands over ps-flow's internal store state, which is a PureScript record and not upstream's object: `nodeLookup` is a `Data.Map` where upstream has a `Map`, `transform` is a newtype where upstream has `[x, y, zoom]`, and the other 83 fields are unconverted. It is refused rather than handed over raw so that the selectors which would silently answer `undefined` fail instead. `useReactFlow`, `useNodes`, `useEdges` and `useViewport` have crossed and reach most of the same state."
-      },
-      {
-        "level": "error",
-        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:64866/parity/driver/dist/psflow.js:67252:20)\n    at HookBoundary (http://127.0.0.1:64866/parity/driver/dist/psflow.js:67240:20)\n    at HookLevel (http://127.0.0.1:64866/parity/driver/dist/psflow.js:67259:20)\n    at NetObserver (http://127.0.0.1:64866/parity/driver/dist/psflow.js:67260:22)\n    at http://127.0.0.1:64866/parity/driver/dist/psflow.js:33082:61\n    at http://127.0.0.1:64866/parity/driver/dist/psflow.js:33082:61\n    at http://127.0.0.1:64866/parity/driver/dist/psflow.js:33082:61\n    at div\n    at http://127.0.0.1:64866/parity/driver/dist/psflow.js:33082:45\n    at http://127.0.0.1:64866/parity/driver/dist/psflow.js:41878:64\n    at div\n    at Flow_default (http://127.0.0.1:64866/parity/driver/dist/psflow.js:67289:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
-      },
-      {
-        "level": "error",
-        "text": "The above error occurred in the <HookProbe> component:\n\n    at HookProbe (http://127.0.0.1:64866/parity/driver/dist/psflow.js:67252:20)\n    at HookBoundary (http://127.0.0.1:64866/parity/driver/dist/psflow.js:67240:20)\n    at HookLevel (http://127.0.0.1:64866/parity/driver/dist/psflow.js:67259:20)\n    at NetObserver (http://127.0.0.1:64866/parity/driver/dist/psflow.js:67260:22)\n    at http://127.0.0.1:64866/parity/driver/dist/psflow.js:33082:61\n    at http://127.0.0.1:64866/parity/driver/dist/psflow.js:33082:61\n    at http://127.0.0.1:64866/parity/driver/dist/psflow.js:33082:61\n    at div\n    at http://127.0.0.1:64866/parity/driver/dist/psflow.js:33082:45\n    at http://127.0.0.1:64866/parity/driver/dist/psflow.js:41878:64\n    at div\n    at Flow_default (http://127.0.0.1:64866/parity/driver/dist/psflow.js:67289:23)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, HookBoundary."
+        "level": "warning",
+        "text": "[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections"
       }
     ],
     "driving": [

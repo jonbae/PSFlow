@@ -1,0 +1,946 @@
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+           Src   Lib   All
+Warnings     0     0     0
+Errors       0     0     0
+
+✓ Build succeeded.
+
+Running tests for package: ps-flow
+
+=== NodeWrapper's arrow keys: what a move announces in the aria-live region ===
+ok  a press announces the direction and the position before the move, and moves the node
+ok  and announces before it moves, so onNodesChange finds the message set
+ok  a second press before a re-render announces the position the first press left in the lookup
+ok  the direction is the key without its Arrow, in lower case
+ok  the position is truncated toward zero, as ~~ does
+ok  and wrapped to 32 bits, as ~~ does
+ok  the message comes from the store's ariaLabelConfig
+ok  a node the lookup no longer holds announces the position it was rendered at
+ok  oppositePosition is involutive
+ok  mkNodeOrigin labels are ox, oy
+ok  mkSnapGrid labels are gx, gy
+ok  mkTransform labels are tx, ty, scale
+ok  mkCoordinateExtent labels are minX/minY/maxX/maxY
+ok  Source /= Target
+ok  show Source == "Source"
+ok  default isConnectable
+ok  default isConnectableStart
+ok  default isConnectableEnd
+ok  default isValidConnection is Nothing
+ok  default id is Nothing
+ok  default handleType is Source
+ok  noConnection is NoConnection
+ok  UniformPadding constructs
+ok  DirectionalPadding with all Nothing constructs
+ok  ValidConnection /= InvalidConnection
+ok  show ValidConnection == "ValidConnection"
+ok  getConnectionStatus Nothing == Nothing
+ok  getConnectionStatus (Just true) == Just ValidConnection
+ok  getConnectionStatus (Just false) == Just InvalidConnection
+ok  Nothing/Nothing maps are equal
+ok  Just/Nothing maps are not equal
+ok  Nothing/Just maps are not equal
+ok  Maps with same keys are equal (values not compared)
+ok  Maps with different keys are not equal
+ok  callback not invoked when no diff
+ok  callback invoked once with non-empty diff
+ok  diff contains the single absent connection
+ok  infiniteExtent has -Infinity/+Infinity bounds
+ok  elementSelectionKeys contents
+ok  errorMessage E001 prefix
+ok  errorMessage E003 interpolates the node type
+ok  errorMessage E007 interpolates the edge id
+ok  errorMessage E013 interpolates the lib
+ok  errorMessage E008 source picks sourceHandle
+ok  errorMessage E008 target picks targetHandle
+ok  merge with no overrides preserves controlsAriaLabel
+ok  merge with no overrides preserves handleAriaLabel
+ok  single override replaces controlsAriaLabel
+ok  single override leaves minimapAriaLabel at default
+ok  Align bottom == AlignCenter
+ok  Align top == AlignEnd
+ok  Align AlignCenter < AlignEnd
+ok  show AlignStart == "AlignStart"
+ok  SetAttributesMode Nothing case
+ok  SetAttributesMode width-only /= height-only
+ok  ParentExtent == ParentExtent
+ok  CoordExtent == CoordExtent
+ok  ParentExtent /= CoordExtent
+ok  NodeChange constructors classify
+ok  ConnectionLineType bottom
+ok  ConnectionLineType top
+ok  show StraightLine
+ok  Arrow /= ArrowClosed
+ok  show ArrowClosed
+ok  AlignX bottom
+ok  AlignX top
+ok  AlignY bottom
+ok  AlignY top
+ok  NamedMarker pattern
+ok  CustomMarker pattern
+ok  EdgeSelectionChange classifies
+ok  EdgeRemoveChange classifies
+ok  NoPan == NoPan
+ok  PanAlways /= NoPan
+ok  PanOnButtons eq
+ok  PanOnButtons /= PanAlways
+ok  show NoPan
+ok  PanZoom InterpolateMode Smooth
+ok  PanZoom InterpolateMode Smooth /= Linear
+ok  shallowNodeData Nothing/Nothing == false
+ok  shallowNodeData Just/Nothing == false
+ok  shallowNodeData Nothing/Just == false
+ok  shallowNodeData empty/empty == true
+ok  shallowNodeData different lengths == false
+ok  shallowNodeData matching arrays == true
+ok  shallowNodeData differing data == false
+ok  shallowNodeData differing type == false
+ok  shallowNodeData differing id == false
+ok  shallowNodeDataSingle equal
+ok  shallowNodeDataSingle differing data
+ok  shallowNodeDataSingle differing type
+ok  shallowNodeDataSingle differing id
+ok  clamp 5 0 1 == 1
+ok  clamp 0.5 0 1 == 0.5
+ok  clamp -1 0 1 == 0
+ok  clamp01 1.5 == 1
+ok  pointToRendererPoint inverse
+ok  non-overlapping rects have zero overlap
+ok  snapPosition snaps to nearest grid cell
+ok  snapPosition breaks negative half-cell ties toward +infinity
+ok  roundHalfUp -1.5 == -1.0
+ok  roundHalfUp -0.5 == 0.0
+ok  roundHalfUp 1.5 == 2.0
+ok  roundHalfUp 0.49999999999999994 == 0.0
+ok  isCoordinateExtent ParentExtent == Nothing
+ok  isCoordinateExtent Nothing == Nothing
+ok  isCoordinateExtent (CoordExtent c) == Just c
+ok  getOutgoers a -> {b, c}
+ok  getIncomers c -> {a, b}
+ok  getNodesBounds spans union
+ok  isNodeBase on a NodeBase fixture
+ok  isNodeBase rejects an EdgeBase
+ok  isEdgeBase on an EdgeBase fixture
+ok  isEdgeBase rejects a NodeBase
+ok  isNodeBase rejects a record with no position field
+ok  isEdgeBase rejects a record missing target
+ok  calculateNodePosition unknown id is Nothing
+ok  isManualZIndexMode ZManual
+ok  isManualZIndexMode ZBasic
+ok  getStraightPath path
+ok  getStraightPath label center
+ok  getEdgeId stable
+ok  addEdge with empty source returns Left
+ok  getMarkerId Nothing == ""
+ok  getMarkerId NamedMarker
+ok  node toolbar TOP/CENTER format
+ok  edge toolbar centred
+ok  isParentSelected returns false for a root node
+ok  isParentSelected returns false when parent unselected
+ok  isParentSelected returns true when parent is selected
+ok  isParentSelected returns false when parentId points nowhere
+ok  getDragItems collects selected nodes when nodesDraggable=true
+ok  getDragItems honours node.draggable=true
+ok  getDragItems excludes node.draggable=false even if selected
+ok  getDragItems collects only the targeted node when nodeId is set
+ok  calculateSnapOffset returns Nothing for empty drag items
+ok  calculateSnapOffset computes the (snapped - raw) delta
+ok  getEventHandlerParams Nothing returns first item as current
+ok  getEventHandlerParams Nothing returns all items
+ok  getEventHandlerParams Just nid returns that node as current
+ok  isConnectionValid: handle valid -> Just true
+ok  isConnectionValid: in radius, handle invalid -> Just false
+ok  isConnectionValid: outside radius, handle invalid -> Nothing
+ok  isConnectionValid: in radius and handle valid -> Just true
+ok  getHandle: missing node returns Nothing
+ok  getHandle: returns the source handle when handleId matches
+ok  getHandle: Loose mode mixes source+target handles
+ok  getHandle: withAbsolutePosition shifts to canvas coords
+ok  viewportToTransform/transformToViewport round-trip x
+ok  viewportToTransform/transformToViewport round-trip y
+ok  viewportToTransform/transformToViewport round-trip zoom
+ok  isRightClickPan: NoPan, button=2 -> false
+ok  isRightClickPan: PanAlways, button=2 -> false
+ok  isRightClickPan: PanOnButtons[0], button=2 -> false
+ok  isRightClickPan: PanOnButtons[2], button=2 -> true
+ok  isRightClickPan: PanOnButtons[2], button=0 -> false
+ok  getClosestHandle: nothing within radius returns Nothing
+ok  getClosestHandle: a handle within radius is returned
+ok  getResizeDirection: width grew, dx=1
+ok  getResizeDirection: affectsX flips dx sign
+ok  getControlDirection: TopLeft -> H+V, affectsX, affectsY
+ok  getControlDirection: BottomRight -> H+V, no affects
+ok  getControlDirection: Top line -> V only, affectsY
+ok  getControlDirection: Right line -> H only, no affects
+ok  getControlDirection: Bottom line -> V only, no affects
+ok  getControlDirection: Left line -> H only, affectsX
+ok  getDimensionsAfterResize: free BR drag adds the delta to dimensions
+ok  getDimensionsAfterResize: maxWidth=120 caps width at 120
+ok  getDimensionsAfterResize: minHeight=30 floors height at >=30
+ok  getDimensionsAfterResize: parent extent caps width at 110
+ok  getDimensionsAfterResize: parent extent caps height at 60
+ok  getDimensionsAfterResize: child extent prevents over-shrink
+ok  getDimensionsAfterResize: keepAspectRatio holds w/h ratio
+ok  defaultXYMinimapUpdate: width and height threaded
+ok  defaultXYMinimapUpdate: zoomStep=1.0, pannable+zoomable=true
+ok  PanOnDrag NoPan -> not draggable
+ok  PanOnDrag PanAlways -> draggable
+ok  PanOnDrag PanOnButtons [0] -> draggable
+ok  PanOnDrag PanOnButtons [2] -> not draggable
+ok  PanOnDrag PanOnButtons [0,1,2] -> draggable (contains 0)
+ok  buildPaneClass: bare base class
+ok  buildPaneClass: draggable + selection
+ok  buildPaneClass: all three modifiers
+all tests passed
+running QuickCheck properties...
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+all properties passed
+running System.Utils.Store properties...
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+all System.Utils.Store properties passed
+
+React.Store.Reduce property tests:
+  PASS ResetSelectedElements emits selection changes
+  PASS PatchState identity preserves lookup sizes
+  PASS PatchState identity emits no effects
+  PASS applyNodeChanges NodeAddChange appends one
+  PASS applyNodeChanges NodeRemoveChange drops it
+  PASS applyEdgeChanges EdgeAddChange appends one
+  PASS applyEdgeChanges EdgeRemoveChange drops it
+  PASS AddSelectedNodes (multi) keeps previously-selected n1
+  PASS AddSelectedNodes (multi) selects n2
+  PASS AddSelectedEdges marks e1 selected in edgeLookup
+  PASS AddSelectedEdges (multi) keeps previously-selected e1
+  PASS AddSelectedEdges (multi) selects e2
+  PASS TriggerEdgeChanges EdgeRemoveChange drops e1 from edgeLookup
+
+running store-shell subscription tests...
+ok  subscribe does not fire with the current value
+ok  a changed slice fires the subscriber once
+ok  an unchanged slice does not fire the subscriber
+ok  a subscriber joining after a change is also silent
+ok  both subscribers see the next change
+ok  an unsubscribed slot stops firing
+ok  and the surviving slot keeps firing
+store-shell subscription tests passed
+running zoom-limit dispatch tests...
+ok  SetMinZoom sets the scale extent against the current maxZoom
+ok  SetMaxZoom sets the scale extent against the current minZoom
+ok  a second bound composes with the first rather than reverting it
+ok  both bounds also land in store state
+ok  SetTranslateExtent reaches the instance with the new extent
+ok  the translate extent also lands in store state
+ok  with no instance yet, state still moves and nothing throws
+ticket 040: React.Hook.VisibleIds selectors
+  PASS selectVisibleNodeIds false returns 4 IDs
+  PASS selectVisibleNodeIds true keeps only a + c
+  PASS selectVisibleEdgeIds false returns 3 IDs
+  PASS selectVisibleEdgeIds true keeps only ac
+running auto-pan loop tests...
+ok  a frame away from the edges asks for the next one straight away
+ok  a frame away from the edges does not pan
+ok  a frame near an edge pans
+ok  a frame near an edge asks for no frame while its pan is in flight
+XYResizer: basic lifecycle and 66 source-differential cases passed
+
+=== XYDrag: drag items keep the nodes array's order (#110) ===
+ok  getDragItems keeps the order of the nodes array, not of the ids
+ok  a multi-node drag snaps the first node in the nodes array, not the grabbed one
+ok  a selection drag reports the first node in the nodes array as current
+ok  a selection drag lists its nodes in the nodes array's order
+
+=== XYHandle: the first auto-pan frame reads the move that started it (#126) ===
+ok  a move to the edge of the band pans by nothing, as upstream computes
+ok  a pointer-up cancels the frame the first move asked for
+ok  only the first move starts the loop
+ok  a move inside the band pans by the velocity there
+ok  with autoPanOnConnect off, nothing pans and no frame is asked for
+running XYPanZoom event handler tests...
+ok  pan-on-scroll's translateBy carries the internal source marker
+running XYPanZoom source-event tests...
+ok  pan-on-scroll pinch passes pointer-relative point and wheel event
+ok  syncViewport skips an unchanged viewport
+ok  syncViewport sends d3 a null point and sync source marker
+ok  the sync marker suppresses onTransformChange
+ok  ordinary transforms still call onTransformChange
+running lasso auto-pan loop tests...
+running store panBy tests...
+ok  a pan the viewport accepted reports true
+ok  a pan constrained back to the current viewport reports false
+ok  a refused pan still asked the instance to constrain it
+ok  a pan the viewport shortened but did not refuse reports true
+ok  a constrained viewport differing only in y reports true
+ok  a constrained viewport differing only in zoom reports true
+ok  a zero delta reports false
+ok  a zero delta does not touch the instance
+ok  with no pan-zoom instance the pan reports false
+ok  an instance that answers with no transform reports false
+running StoreUpdater tracked-prop tests...
+ok  an unchanged prop is a fresh wrapper every render
+ok  an unchanged boolean does not re-dispatch
+ok  a boolean that flips re-dispatches
+ok  a prop that appears re-dispatches
+ok  a prop that goes away re-dispatches
+ok  an absent prop does not re-dispatch
+ok  an unchanged number does not re-dispatch
+ok  a number that moves re-dispatches
+ok  an unchanged string does not re-dispatch
+ok  a rebuilt array re-dispatches although its contents match
+ok  one array passed twice does not re-dispatch
+running StoreUpdater initPrevValues tests...
+ok  minZoom passed at 0.5 does not dispatch on mount
+ok  maxZoom passed at 2 does not dispatch on mount
+ok  elementsSelectable passed as true does not dispatch on mount
+ok  noPanClassName passed as 'nopan' does not dispatch on mount
+ok  rfId '1' does not dispatch on mount
+ok  the defaultNodeOrigin an omitted nodeOrigin resolves to does not dispatch on mount
+ok  infiniteExtent itself does not dispatch on mount
+ok  minZoom at any other value dispatches on mount
+ok  maxZoom at any other value dispatches on mount
+ok  elementsSelectable false dispatches on mount
+ok  another noPanClassName dispatches on mount
+ok  another rfId dispatches on mount
+ok  another node origin dispatches on mount
+ok  a fresh [0, 0] node origin still dispatches on mount
+ok  a fresh infinite extent still dispatches on mount
+ok  an absent seeded prop does not dispatch
+ok  a prop that returns to its seed after mount dispatches
+ok  an unseeded prop dispatches on mount
+ok  every seed is what the store holds after Reset
+running ReactFlow seeded store-prop tests...
+ok  an omitted minZoom reaches <StoreUpdater /> as the seed
+ok  an omitted maxZoom reaches <StoreUpdater /> as the seed
+ok  an omitted translateExtent reaches <StoreUpdater /> as the seed
+ok  an omitted elementsSelectable reaches <StoreUpdater /> as the seed
+ok  an omitted noPanClassName reaches <StoreUpdater /> as the seed
+ok  an omitted nodeOrigin reaches <StoreUpdater /> as the seed
+ok  an omitted prop still does not dispatch on mount
+ok  a removed minZoom dispatches 0.5
+ok  a removed maxZoom dispatches 2
+ok  a removed translateExtent dispatches the infinite extent
+ok  a removed elementsSelectable dispatches true
+ok  a removed noPanClassName dispatches 'nopan'
+ok  a removed nodeOrigin dispatches [0, 0]
+ok  a prop that is passed reaches <StoreUpdater /> unchanged
+ok  <GraphView /> and <StoreUpdater /> agree, with the props omitted
+ok  <GraphView /> and <StoreUpdater /> agree, with the props passed
+
+=== useDrag: a disabled drag leaves the element unbound (#125) ===
+ok  an undraggable node is never bound, so its pointer-down reaches d3-zoom
+ok  an undraggable node allocates no controller and releases none
+ok  a draggable node is bound once, under its own id
+ok  a draggable node's cleanup releases the controller it bound
+ok  an element that is not mounted is not bound
+
+=== useViewportSync: a controlled viewport reaches the pan-zoom instance (#128) ===
+ok  a controlled viewport reaches the pan-zoom instance
+ok  the instance hears first and the store second, as upstream's effect runs
+ok  before the instance exists, the store is written alone
+ok  with no viewport prop, nothing is synced or written
+
+=== useStore: React's useSyncExternalStore behind a selection memo (#133) ===
+ok  useStore reads the store through React's useSyncExternalStore
+ok  useStore hands React a server snapshot, so a server render does not refuse it
+ok  the subscription is the same function on every render, so React does not resubscribe
+ok  an unchanged store hands back the same slice object
+ok  a slice that moved comes back as a new object, holding the new value
+ok  a store change the selector cannot see hands back the same slice, so nothing re-renders (#94)
+ok  React's listener runs after a dispatch, and not after it unsubscribes
+
+=== MiniMap: the viewport rectangle has the pane's size from mount (#131) ===
+ok  the MiniMap renders before the pane is measured, at 0 × 0
+ok  the MiniMap's snapshot moves to the pane's measured size, so React re-renders it
+
+=== Boundary.Wrapper: one wrapper per consumer component (#138) ===
+ok  converting nodeTypes again hands React the same component, so a custom node stays mounted
+ok  converting edgeTypes again hands React the same component, so a custom edge stays mounted
+ok  the MiniMap's node component is wrapped once as well
+ok  a component registered as both a node type and an edge type gets a wrapper for each
+ok  two consumer components get two wrappers
+ok  the wrapper carries the consumer component's own name
+
+=== Store: an empty change list reaches nobody (#139) ===
+ok  a pane click with nothing selected calls neither onNodesChange nor onEdgesChange
+ok  unselecting with nothing selected calls neither change handler
+ok  an empty node change list in an uncontrolled flow commits nothing and calls nothing
+ok  an empty edge change list in an uncontrolled flow commits nothing and calls nothing
+
+=== Store: a selection reset in a flow that is not selectable (#141) ===
+ok  a pane click in a controlled flow calls neither onNodesChange nor onEdgesChange
+ok  a pane click in an uncontrolled flow commits nothing, so the node and edge stay selected
+ok  the same flow with selectable elements does reset, so the checks above had a selection to keep
+
+=== Wrappers: aria-describedby points at the a11y descriptions ===
+ok  a node renders, so the checks on its attributes aren't vacuous
+ok  a node points at the node description
+ok  a node that isn't focusable still points at the node description
+ok  a node has no aria-describedby when keyboard a11y is off
+ok  an edge renders, so the checks on its attributes aren't vacuous
+ok  a focusable edge points at the edge description
+ok  a focusable edge still points at the edge description when keyboard a11y is off
+ok  an edge that isn't focusable has no aria-describedby
+
+=== NodeWrapper: inline dimensions fall back to the node's style ===
+ok  a node sized only through style keeps the style's width and height
+ok  a style's CSS strings cross as the consumer wrote them
+ok  a node's own width and height win over its style's
+ok  before measurement, initialWidth and initialHeight win over the style's
+ok  after measurement, the style's width and height apply again
+ok  a node with neither has an empty width and height
+
+=== updateNodePositions: the changes a drag reports ===
+ok  a drag change carries dragging and no positionAbsolute
+ok  dragging an expandParent child past its parent's corner grows the parent, read from the lookup
+ok  a child without expandParent doesn't grow its parent
+ok  an expandParent child's position is clamped at its parent's top-left
+ok  a child without expandParent isn't clamped
+ok  the nodes-change middleware runs on the changes
+ok  a connection drawn from a dragged node follows it
+ok  a connection drawn from another node stays where it was
+
+=== BatchProvider: the queue handlers ===
+ok  uncontrolled nodes are set, and onNodesChange fires too
+ok  controlled nodes aren't set, and onNodesChange fires
+ok  an added node is an add at its index
+ok  an unchanged queue fires nothing
+ok  an unchanged queue with a fitView queued sets the nodes again on the next frame
+ok  the nodes-change middleware runs over the diff
+ok  controlled edges fire onEdgesChange for the changed edge only
+ok  controlled edges fire onEdgesChange even with an empty diff
+ok  uncontrolled edges are set, and onEdgesChange doesn't fire
+ok  a setNodes updater's untouched nodes come back as the same records
+ok  so the diff reports only the node the updater changed
+
+=== Numbers in DOM strings, as JavaScript formats them ===
+ok  an edge label's transform
+ok  the viewport's transform
+ok  a node's transform
+ok  the aria-live message for a moved node
+ok  the minimap's mask stroke width, scaled to the view
+ok  the minimap's node stroke width
+ok  a resize handle's scale when zoomed out
+ok  a resize handle's scale when zoomed in
+
+=== useNodeObserver: when a node is observed and re-measured ===
+ok  a node is observed on its first render
+ok  a re-render before it is measured doesn't observe it again
+ok  re-renders after it is measured, such as the fitView's, don't observe it again
+ok  nothing re-measures a node whose type and handle positions are unchanged
+ok  a changed source position forces a re-measure
+ok  an unchanged source position doesn't force another
+ok  a changed type forces a re-measure
+ok  moving the source position back forces another
+ok  unmounting unobserves the node
+ok  a hidden node isn't observed
+
+=== updateNodeInternals: what the store does with a measurement ===
+ok  a queued fit resolves before the node changes fire
+ok  the queued fit is cleared
+ok  without a queued fit, only the node changes fire
+ok  when nothing was measured, nothing is set, fitted, or reported
+ok  a measurement doesn't set nodesInitialized
+ok  the absolute positions are recomputed with the measured dimensions
+
+=== The edge-path helpers, as JavaScript calls them ===
+ok  getBezierPath takes the position strings and returns upstream's array
+ok  getBezierPath defaults the positions to bottom and top
+ok  getBezierPath's default curvature is upstream's, where the curvature applies
+ok  getSmoothStepPath takes the position strings and returns upstream's array
+ok  getSmoothStepPath defaults the positions, the radius, the offset, and the step position
+ok  getSimpleBezierPath defaults the positions and returns upstream's array
+ok  getStraightPath returns upstream's array
+ok  getEdgeCenter returns upstream's array
+ok  getBezierEdgeCenter returns upstream's array
+
+=== BaseEdge's rest props reach the visible path ===
+ok  a bare path renders upstream's two paths and nothing else
+ok  the fixture's presentation attributes reach the visible path
+ok  pathLength reaches the visible path
+ok  a data attribute reaches the visible path under its own name
+ok  aria-label reaches the visible path
+ok  the modelled members still reach it
+ok  the interaction path carries none of them
+ok  the members BaseEdge destructures stay off the path
+ok  BaseEdge's fill wins over the consumer's
+ok  the consumer's className joins BaseEdge's
+
+=== ReactFlow's rest props reach the wrapper ===
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+    at div
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+ok  without a test id, the wrapper keeps upstream's
+ok  and carries no attribute a consumer didn't pass
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+    at div
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+ok  a consumer's data-testid replaces rf__wrapper
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+    at div
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+ok  aria-label and a data attribute reach the wrapper
+ok  id reaches the wrapper, as upstream sets it there
+ok  the wrapper's role wins over the consumer's
+ok  the consumer's className joins the wrapper's
+ok  members JsFlowProps names stay off the wrapper
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+    at div
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+ok  the consumer's style sits under the wrapper's sizing
+
+=== The MiniMap mask path, as upstream renders it ===
+ok  the two subpaths are joined by a newline and eight spaces
+ok  fractional coordinates print as JavaScript prints them
+
+=== Background's pattern sits directly in its svg ===
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+    at div
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+ok  the background renders
+ok  the pattern is the svg's first child
+ok  no defs wraps it
+ok  the rect follows the pattern and fills with it
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+    at div
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+    at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+ok  a dot pattern with an id sits the same way
+
+=== A measurement reports its nodes in the order they were batched ===
+ok  a batch in the nodes' order reports them in that order, not by key
+ok  the batch's order wins over both the keys and the nodes' order
+ok  setUpdate puts a new id last, as Map.set does
+ok  setUpdate keeps a repeated id's place and takes the new value
+
+=== updateNodeInternals: a side with no handle is null, as upstream's getHandleBounds returns ===
+ok  a node with only a source handle reads back target: null
+ok  a node with only a target handle reads back source: null
+ok  a node with no handles reads back both sides null
+ok  a node's own handles give both sides as arrays, as parseHandles does
+ok  an edge still finds its handles across the null sides, in strict mode
+ok  and in loose mode
+ok  an edge out of a null source side, into a null target side, finds no handles
+ok  getHandle finds no handle on a null side in strict mode
+ok  and finds the other side's handle in loose mode, as the spread with ?? [] does
+
+=== The delete key deletes the selection through deleteElements ===
+ok  a selected node's delete fires upstream's callbacks, in its order, with the node's edges
+ok  the delete hides the selection box
+ok  a selected edge's delete fires the edge callbacks and onDelete
+ok  an undeletable selection still asks onBeforeDelete, with nothing, and deletes nothing
+
+=== A handle hands on the native event, and a touch starts a connection ===
+ok  a mouse down hands on its native event, as a mouse event
+ok  a touch start hands on its native event, as a touch event
+ok  the main mouse button starts a connection
+ok  another mouse button doesn't
+ok  a touch starts a connection
+ok  nothing starts one on a handle that can't start a connection
+
+=== useDrag: a re-render keeps the node's drag bound ===
+ok  the first render binds the element's touch listeners
+ok  re-renders with fresh options and closures keep the binding, as a touch gesture needs
+ok  a change upstream lists, such as isSelectable, rebinds it
+ok  disabling the drag releases it
+ok  unmounting releases it
+
+=== startDrag: a drag takes the selection its start makes ===
+ok  dragging an unselected node selects it, and drags it alone
+ok  onNodeDragStart reports it alone, with the selected the user gave it
+ok  with selectNodesOnDrag off, dragging an unselected node unselects the rest, and drags it alone
+ok  dragging a selected node still drags the whole selection
+
+=== updateNodes: a drag raises calculateNodePosition's errors ===
+ok  moving a node with no measured size raises 015, before it moves the node
+ok  moving a measured node raises nothing
+ok  moving two nodes with no measured size raises 015 for each, before it moves either
+ok  a node with a measured width but no height raises 015
+ok  a parent extent with no parent raises 005, then 015
+ok  a parent extent that expands its parent raises nothing
+
+=== EdgeWrapper: the edge component's selectable and deletable ===
+ok  an edge that sets neither is selectable in a selectable flow
+ok  an edge that doesn't set deletable is deletable, as `?? true` gives
+ok  an edge that doesn't set selectable takes the flow's elementsSelectable
+ok  an edge's own selectable wins over the flow's
+ok  an edge's own selectable false wins over a selectable flow
+ok  an edge's own deletable false is handed on
+
+=== The toPosition a connection ends with ===
+ok  a drag released on no handle ends with no toPosition
+ok  a drag released on no handle keeps the rest of the connection
+ok  a drag released on a handle ends with its toPosition
+ok  a drag released on a handle it can't connect to keeps the toPosition XYHandle gave it, as TS does
+ok  a click with no connection in progress ends with none
+ok  a click connection over no handle ends with no toPosition
+ok  a click connection over a handle ends with that handle's position, as TS does
+ok  the boundary hands a consumer a null toPosition
+ok  the boundary hands a consumer a handle's toPosition by name
+
+=== XYDrag: a drag's callbacks report the user's nodes ===
+ok  in an uncontrolled flow, onNodeDragStart reports the node the drag just selected as selected
+ok  in an uncontrolled flow, onNodeDrag reports it as selected
+ok  onNodeDragStart reports the user's node as dragging, as the spread sets it
+ok  onNodeDrag reports the user's node at its drag item's position
+ok  in a controlled flow, onNodeDragStart reports the node as the consumer gave it
+ok  in a controlled flow, onNodeDrag reports it as the consumer gave it, until the consumer applies the selection
+ok  a drag of the consumer's selection reports each node as selected
+
+=== Store: selections write into the lookup in place ===
+ok  a selection box sends a change for each node it holds
+ok  a selection box selects the lookup's nodes
+ok  and does so in place, notifying nobody
+ok  in a controlled flow, the listener reports the boxed nodes as the consumer gave them, before the consumer applies the changes
+ok  once the consumer applies the node changes, the listener reports the nodes selected
+ok  and the selection compares equal to the one before, so the listener doesn't fire again
+ok  once the consumer applies the edge changes, the listener reports the edge too, and fires again
+ok  in an uncontrolled flow, the listener reports the boxed nodes selected at once
+ok  the listener reports the nodes in the nodes array's order, as the lookup's insertion order is
+ok  a click in a controlled flow selects the lookup's node, and unselects the others
+ok  and does so in place, notifying nobody
+ok  so the listener first reports the clicked node when the consumer's update lands, selected
+ok  an edge click in a controlled flow unselects the lookup's nodes, in place, notifying nobody
+ok  unselecting in a controlled flow unselects the lookup's nodes, in place, notifying nobody
+ok  a click in an uncontrolled flow commits the selection, and notifies
+
+=== NodesSelection: the rectangle around the selected nodes ===
+ok  the rectangle takes the selected nodes' bounds in pixels
+ok  with nothing selected, the rectangle renders with no size, at the origin
+ok  under disableKeyboardA11y, the rectangle has no tabindex
+ok  while a selection box is active, nothing renders
+
+=== useConnection and ConnectionLine: the line ends at `to` in the flow ===
+ok  useConnection's selector converts `to` to the flow's coordinates
+ok  and leaves `pointer` in the container's coordinates
+ok  and `from` as the store holds it
+ok  the connection line's path ends at `to` in the flow
+ok  a custom connection line is told `to` in the flow, and `pointer` in the container
+ok  useConnection and useConnectionWith report `to` in the flow
+ok  under the identity viewport, `to` is where the pointer is
+ok  with no connection, the selector reports none
+
+=== Background: the pattern starts at the viewport, wrapped by the gap ===
+ok  a viewport right of and below the origin starts the pattern at its remainder
+ok  a viewport left of and above the origin starts it at a negative remainder, as JavaScript's % gives
+ok  the pattern starts where upstream's does in wheel-zoom-from-identity-viewport
+ok  a viewport a whole number of gaps away starts it at 0
+
+=== roundHalfUp is Math.round, down to the sign of a zero ===
+ok  a value just below 0 rounds to -0, as Math.round's does
+ok  -0.5 rounds to -0, as Math.round's does
+ok  -0 rounds to -0
+ok  a value just above 0 rounds to 0
+ok  halves round toward +infinity
+ok  the largest double below one half rounds to 0
+ok  snapping a point just left of a grid line's half gives -0
+ok  the container's origin, under wheel-zooms-to-changed-limits' viewport and grid, is (-0, 75), as upstream's screenToFlowPosition answers
+numeric clamp: 2744 exact source comparisons; zero/NaN faults rejected
+numeric bounds: 784 exact source comparisons
+numeric geometry: 3136 rectangle pairs (union and overlap), 840 positions, 126 viewports
+numeric resize: 5168 exact vendored-source comparisons; width fault rejected
+
+=== handleNodeClick: what a click on a node ends, and what it leaves alone ===
+ok  a click after a selection box ends the nodes selection
+ok  and selects the node it's on, unselecting the box's
+ok  and notifies before it selects, so useStore doesn't hear of the selection, which is written in place
+ok  a click on a node already selected, which changes nothing else, still ends the nodes selection
+ok  Escape on a selected node unselects it
+ok  and leaves the selected edges alone
+ok  a multi-selection click on a selected node unselects it, and leaves the selected edges alone
+ok  a click on a node the store doesn't have reports error 012, and ends nothing
+
+=== useMoveSelectedNodes: how far an arrow key moves the selected nodes, and which ones ===
+ok  a press moves a selected node 5 px
+ok  and Shift's factor of 4 moves it 20 px
+ok  with snapToGrid, a press moves it a grid cell, and snaps where it lands
+ok  the node extent clamps the move
+ok  with nodesDraggable off, only a node draggable itself moves
+ok  and a node that isn't draggable stays put
+ok  a node the lookup holds selected moves, though nodes doesn't hold it selected yet
+ok  the changes come in nodes' order, not the ids'
+ok  a selected child moves with its selected parent, and keeps its place in it
+ok  an unmeasured node reports error 015 before its change
+ok  with nothing selected, nothing changes
+
+=== EdgeWrapper: aria-label falls back to a default unless it's null ===
+ok  an edge with no aria label gets the default one
+ok  an empty aria label gets the default one, as `||` does
+ok  an aria label is rendered as written
+ok  a null aria label renders no aria-label
+ok  an edge with no aria label takes the one in defaultEdgeOptions
+ok  a null aria label wins over the one in defaultEdgeOptions, as the spread does
+ok  the boundary reads a consumer's null as the label turned off
+ok  the boundary reads an absent aria label as absent
+ok  the boundary reads a string aria label as written
+ok  the boundary hands a consumer's null back as null
+ok  the boundary hands an absent aria label back as undefined
+
+=== A11yDescriptions: the node description picks upstream's key ===
+ok  with keyboard a11y on, the default description mentions the arrow keys
+ok  with keyboard a11y off, the default description doesn't
+ok  with keyboard a11y on, a consumer's node.a11yDescription.keyboardDisabled is shown
+ok  with keyboard a11y off, a consumer's node.a11yDescription.default is shown
+
+=== updateNodeInternals: a measurement doesn't set the node's width and height ===
+ok  a node's first measurement reports its size
+ok  a node's measurement change carries no setAttributes
+ok  a node's measurement change carries no resizing, as upstream's doesn't
+ok  applying the measurement sets the node's measured size
+ok  applying the measurement leaves the node's own width and height unset
+ok  an expandParent child grows its parent
+ok  the parent's change still carries setAttributes, as upstream's does
+ok  the parent's change carries no resizing, as upstream's doesn't
+
+=== Element converters: no key holds undefined ===
+ok  a node has no key that holds undefined
+ok  a node keeps the keys that hold a value
+ok  a node that hasn't been measured has no measured key
+ok  a measured node has measured with both keys
+ok  an edge has no key that holds undefined
+ok  an edge keeps an aria label turned off with null
+ok  an edge's custom marker has only the keys that hold a value
+ok  a node selection change has only upstream's keys
+ok  an edge removal has only upstream's keys
+ok  an internal node has no top-level key that holds undefined
+ok  an internal node keeps measured's keys before measurement, as upstream does
+ok  an internal node's internals keep handleBounds before measurement, and nothing else unset
+
+=== Attribution: the notice sits on the panel, and the link is its only child ===
+ok  the attribution renders upstream's markup at its default position
+ok  the attribution renders upstream's markup at a position it's given
+ok  proOptions.hideAttribution renders nothing
+
+=== Handle: a missing id is written as null, as upstream writes it ===
+ok  a handle with no id has the data-id upstream's selector looks for
+ok  a handle with no id has no data-handleid
+ok  a handle with an empty id has the data-id of one with no id
+ok  a handle with an empty id has no data-handleid
+ok  a handle with an id writes it in both attributes
+
+=== NodeToolbar: the renderer is the portal's host, and the z-index survives ===
+ok  the toolbar portals into the flow's .react-flow__renderer
+ok  the z-index is written as JavaScript writes the number
+ok  the consumer's style wins, and its keys come after upstream's
+ok  the z-index is one above the highest node's
+ok  the z-index isn't floored at 0, as Math.max's isn't
+
+=== NodeRenderer: nodes render in nodes' order, not by id ===
+ok  every node comes in nodes' order
+ok  the visible nodes come in nodes' order
+ok  a repeated id renders once, at its first position, as a Map keeps it
+
+=== connectionLookup: a node's connections come in edge order ===
+ok  a node's connections come in edge order
+ok  a node's source connections come in edge order
+ok  a repeated connection key keeps its first position and its last connection, as a Map's set does
+
+=== Connections: a missing handle is null, as upstream writes it ===
+ok  a connection with no handles writes both as null
+ok  a connection with handles writes their ids
+ok  a connection has upstream's keys, in upstream's order
+
+=== Edges: animated stays unset until something sets it ===
+ok  an edge written without animated reads back without it
+ok  an edge written with animated: false reads back with it
+ok  an edge addEdge builds from a connection has no animated
+ok  defaultEdgeOptions' animated fills an edge that doesn't set it
+ok  an edge's own animated: false overrides defaultEdgeOptions' true, as upstream's spread does
+ok  defaultEdgeOptions: all 23 members merge under an edge as upstream's spread does
+ok  defaultEdgeOptions: onConnect and an uncontrolled flow get upstream's merged connection
+
+=== Nodes: expandParent stays unset until the consumer sets it ===
+ok  a node written without expandParent reads back without it
+ok  a node written with expandParent: false reads back with it
+ok  the internal node for a node without expandParent has none
+ok  the internal node for a node with expandParent: false keeps it
+
+=== Edges: hidden stays unset until something sets it ===
+ok  an edge written without hidden reads back without it
+ok  an edge written with hidden: false reads back with it
+ok  an edge addEdge builds from a connection has no hidden
+ok  defaultEdgeOptions' hidden fills an edge that doesn't set it
+ok  an edge's own hidden: false overrides defaultEdgeOptions' true, as upstream's spread does
+
+=== Edges: selected stays unset until a selection change sets it ===
+ok  an edge written without selected reads back without it
+ok  an edge written with selected: false reads back with it
+ok  an edge addEdge builds from a connection has no selected
+ok  an edge without selected that stays unselected makes no selection change, as upstream's guard has it
+ok  an edge without selected that becomes selected makes one
+
+=== Nodes: hidden stays unset until the consumer sets it ===
+ok  a node written without hidden reads back without it
+ok  a node written with hidden: false reads back with it
+ok  the internal node for a node without hidden has none
+ok  getNodesInside keeps a node without hidden and one with hidden: false, and drops a hidden one
+
+=== Nodes: dragging stays unset until a change sets it ===
+ok  a node written without dragging reads back without it
+ok  a node written with dragging: false reads back with it
+ok  the internal node for a node without dragging has none
+ok  a position change without dragging leaves the node's dragging unset
+ok  a position change with dragging sets it
+
+=== Nodes: selected stays unset until a selection change sets it ===
+ok  a node written without selected reads back without it
+ok  a node written with selected: false reads back with it
+ok  the internal node for a node without selected has none
+ok  a node without selected that stays unselected makes no selection change, as upstream's guard has it
+ok  a node without selected that becomes selected makes one
+
+=== Dimension changes: resizing stays unset unless a resize sets it ===
+ok  a dimension change written without resizing reads back without it
+ok  a dimension change written with resizing: true reads back with it
+ok  a dimension change written with resizing: false reads back with it
+
+=== Handles: an id-less handle's id is null when measured, and as written otherwise ===
+ok  a handle measured without data-handleid has a null id
+ok  a handle measured with data-handleid has that id
+ok  node.handles entries read back with the ids the consumer wrote
+ok  the internal node's handle bounds keep those ids, as parseHandles does
+running edge parity properties (PSFlow vs live XYFlow)...
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+ok  addEdge: an empty-string handle duplicates a missing one
+100/100 test(s) passed.
+100/100 test(s) passed.
+ok  falsified: addEdge: XYFlow given the edge already in the list
+ok  falsified: addEdge: XYFlow given endpoints PSFlow had to refuse
+ok  falsified: reconnectEdge: XYFlow told to keep the old id, PSFlow to replace it
+edge parity passed
+running geometry parity properties (PSFlow vs live XYFlow)...
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+geometry parity passed
+running toolbar parity properties (PSFlow vs live XYFlow)...
+100/100 test(s) passed.
+100/100 test(s) passed.
+toolbar parity passed
+running marker parity properties (PSFlow vs live XYFlow)...
+100/100 test(s) passed.
+marker parity passed
+running connections parity properties (PSFlow vs live XYFlow)...
+100/100 test(s) passed.
+connections parity passed
+running graph parity properties (PSFlow vs live XYFlow)...
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+100/100 test(s) passed.
+ok  isNode / isEdge agree across all 16 key combinations
+ok  falsified: getNodesBounds: XYFlow given a centre origin, PSFlow a corner one
+ok  falsified: getNodesBounds: XYFlow given one node fewer
+ok  falsified: isNode / isEdge: XYFlow given an edge where PSFlow got a node
+graph parity passed
+running change-application parity properties (PSFlow vs live XYFlow)...
+ok  applyNodeChanges: a change queued behind a replace is dropped
+ok  applyNodeChanges: an add change lands at its index
+ok  applyEdgeChanges: the same two, on the edge side
+100/100 test(s) passed.
+100/100 test(s) passed.
+ok  falsified: applyNodeChanges: XYFlow given the opposite selection
+ok  falsified: applyNodeChanges: XYFlow given the add change PSFlow was denied
+ok  falsified: applyEdgeChanges: XYFlow given a remove where PSFlow got a select
+change-application parity passed
+ok  a frame near an edge asks for the next one once its pan has landed
+ok  a programmatic transform fires onMoveStart once
+ok  a programmatic transform fires onMove once
+ok  a programmatic transform fires onMoveEnd once, not unpaired
+ok  onMoveStart sees no source event, matching auto-pan's own call
+ok  onMoveEnd sees no source event for the same programmatic transform
+ok  a frame away from the edges still asks its pan
+ok  a frame away from the edges commits nothing
+ok  a frame away from the edges asks for the next one
+ok  a frame near an edge moves the node by the distance panned
+ok  a frame whose pan landed asks for exactly one next frame
+ok  a frame leaves `onEnd` the handle of the frame it asked for
+ok  a frame near an edge asks to pan by the auto-pan velocity
+ok  a frame whose pan was refused commits nothing
+ok  a frame whose pan was refused still asks for the next one
+ok  a frame whose pan completed synchronously commits nothing inside its caller
+ok  a frame whose pan completed synchronously asks for no frame inside its caller
+ok  a frame whose pan was refused moves nothing
+ok  a frame whose pan was refused still asks for the next one
+ok  three transforms keep three balanced callback triads
+ok  onMoveStart preserves null, mouse/wheel, and touch source shapes
+ok  onMove preserves null, mouse/wheel, and touch source shapes
+ok  onMoveEnd preserves null, mouse/wheel, and touch source shapes
+ok  a frame whose pan landed commits the rect at the pointer
+ok  a frame whose pan landed asks for exactly one next frame
+ok  a single-node auto-pan frame fires no onSelectionDrag
+ok  a single-node auto-pan frame reports the grabbed node to onNodeDrag
+ok  the frame it asked for is another turn of the loop
+ok  a frame asks for no frame while its pan is in flight
+ok  a frame commits nothing while its pan is in flight
+ok  a multi-node auto-pan frame reports the grabbed node, not the first
+ok  a frame asks for the next one once its pan has landed
+ok  a frame commits once its pan has landed
+ok  a frame whose gesture has ended commits nothing
+ok  a frame whose gesture has ended still asks for the next one
+ok  a frame commits at the pointer as of the pan landing, not as of the pan starting
+ok  a frame with autoPanOnSelection off pans nothing
+ok  a frame with autoPanOnSelection off ends the loop
+ok  a frame with no container bounds pans nothing
+ok  a frame with no container bounds ends the loop
+viewport-end: native task order, real d3 measurement order, 0/150 ms coalescing and event identity match source; order fault rejected
+
+✓ Test succeeded for package "ps-flow".
+

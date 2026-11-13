@@ -1,0 +1,26 @@
+$ node aamf/step3/initialization-driving/capture.mjs affected 5 arrow-key-selected-node
+{"phase":"affected","scenario":"arrow-key-selected-node","round":1,"side":"upstream","capture":1,"elapsedMs":1173}
+{"phase":"affected","scenario":"arrow-key-selected-node","round":1,"side":"upstream","capture":2,"elapsedMs":686}
+{"phase":"affected","scenario":"arrow-key-selected-node","round":1,"side":"psflow","capture":1,"elapsedMs":1647}
+{"phase":"affected","scenario":"arrow-key-selected-node","round":1,"side":"psflow","capture":2,"elapsedMs":953}
+{"scenario":"arrow-key-selected-node","round":1,"interpretable":true,"fullGatePassed":false,"consistency":[{"side":"upstream","consistent":true},{"side":"psflow","consistent":true}],"classes":["unclaimed-difference"],"differences":2}
+{"phase":"affected","scenario":"arrow-key-selected-node","round":2,"side":"upstream","capture":1,"elapsedMs":960}
+{"phase":"affected","scenario":"arrow-key-selected-node","round":2,"side":"upstream","capture":2,"elapsedMs":859}
+{"phase":"affected","scenario":"arrow-key-selected-node","round":2,"side":"psflow","capture":1,"elapsedMs":1548}
+{"phase":"affected","scenario":"arrow-key-selected-node","round":2,"side":"psflow","capture":2,"elapsedMs":1006}
+{"scenario":"arrow-key-selected-node","round":2,"interpretable":true,"fullGatePassed":false,"consistency":[{"side":"upstream","consistent":true},{"side":"psflow","consistent":true}],"classes":["unclaimed-difference"],"differences":2}
+{"phase":"affected","scenario":"arrow-key-selected-node","round":3,"side":"upstream","capture":1,"elapsedMs":1018}
+{"phase":"affected","scenario":"arrow-key-selected-node","round":3,"side":"upstream","capture":2,"elapsedMs":813}
+{"phase":"affected","scenario":"arrow-key-selected-node","round":3,"side":"psflow","capture":1,"elapsedMs":1421}
+{"phase":"affected","scenario":"arrow-key-selected-node","round":3,"side":"psflow","capture":2,"elapsedMs":1028}
+{"scenario":"arrow-key-selected-node","round":3,"interpretable":true,"fullGatePassed":false,"consistency":[{"side":"upstream","consistent":true},{"side":"psflow","consistent":true}],"classes":["unclaimed-difference"],"differences":2}
+{"phase":"affected","scenario":"arrow-key-selected-node","round":4,"side":"upstream","capture":1,"elapsedMs":1008}
+{"phase":"affected","scenario":"arrow-key-selected-node","round":4,"side":"upstream","capture":2,"elapsedMs":833}
+{"phase":"affected","scenario":"arrow-key-selected-node","round":4,"side":"psflow","capture":1,"elapsedMs":1592}
+{"phase":"affected","scenario":"arrow-key-selected-node","round":4,"side":"psflow","capture":2,"elapsedMs":1016}
+{"scenario":"arrow-key-selected-node","round":4,"interpretable":true,"fullGatePassed":false,"consistency":[{"side":"upstream","consistent":true},{"side":"psflow","consistent":true}],"classes":["unclaimed-difference"],"differences":4}
+{"phase":"affected","scenario":"arrow-key-selected-node","round":5,"side":"upstream","capture":1,"elapsedMs":1040}
+{"phase":"affected","scenario":"arrow-key-selected-node","round":5,"side":"upstream","capture":2,"elapsedMs":883}
+{"phase":"affected","scenario":"arrow-key-selected-node","round":5,"side":"psflow","capture":1,"elapsedMs":1689}
+{"phase":"affected","scenario":"arrow-key-selected-node","round":5,"side":"psflow","capture":2,"elapsedMs":1189}
+{"scenario":"arrow-key-selected-node","round":5,"interpretable":true,"fullGatePassed":false,"consistency":[{"side":"upstream","consistent":true},{"side":"psflow","consistent":true}],"classes":["unclaimed-difference"],"differences":2}

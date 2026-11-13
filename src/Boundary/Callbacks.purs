@@ -77,6 +77,7 @@ module Boundary.Callbacks
   , JsShouldResize
   , commandHandlerIn
   , connectionStateOut
+  , withInProgress
   , edgeMouseHandlerIn
   , interactiveChangeHandlerIn
   , isValidConnectionIn
@@ -126,19 +127,21 @@ import Boundary.Elements
   , JsViewport
   , JsXYPosition
   , connectionOut
+  , connectionParamsOut
   , edgeChangeOut
+  , edgeIdentityOut
   , edgeIn
   , edgeOut
   , graphSelectionOut
   , handleOut
   , internalNodeOut
   , nodeChangeOut
+  , nodeIdentityOut
   , nodeIn
-  , nodeOut
   , viewportOut
   )
 import Boundary.Enums (handleTypeOut, positionOut)
-import Boundary.Instance (JsReactFlowInstance, instanceOut)
+import Boundary.Instance (JsReactFlowInstance, copyOf, instanceOut)
 import Boundary.Undefined (Undefinable, toUndefinable)
 import Boundary.Untagged (asBoolean, typeName)
 import Data.Either (Either, either)
@@ -264,6 +267,14 @@ type JsConnectionState =
   , pointer :: Nullable JsXYPosition
   }
 
+-- | Upstream's live `ConnectionState`, which is the final state with
+-- | `inProgress` in front: what `useConnection` and the store's `connection`
+-- | member hold.
+foreign import withInProgressImpl :: forall a. Fn2 Boolean a Foreign
+
+withInProgress :: forall a. Boolean -> a -> Foreign
+withInProgress = runFn2 withInProgressImpl
+
 connectionStateOut :: FinalConnectionState (InternalNodeBase Foreign) -> JsConnectionState
 connectionStateOut = case _ of
   Nothing -> noConnection
@@ -327,16 +338,20 @@ type JsResizeParamsWithDirection =
   }
 
 resizeParamsOut :: ResizeParams -> JsResizeParams
-resizeParamsOut p = { x: p.x, y: p.y, width: p.width, height: p.height }
+resizeParamsOut p = { width: p.width, height: p.height, x: p.x, y: p.y }
 
 resizeParamsWithDirectionOut :: ResizeParamsWithDirection -> JsResizeParamsWithDirection
-resizeParamsWithDirectionOut p =
-  { x: p.x
-  , y: p.y
-  , width: p.width
+resizeParamsWithDirectionOut = cacheByReference \p ->
+  { width: p.width
   , height: p.height
+  , x: p.x
+  , y: p.y
   , direction: [ Int.toNumber p.direction.dx, Int.toNumber p.direction.dy ]
   }
+
+-- The predicate and notification observe one source object. Keep its converted
+-- representation shared, including consumer mutations made by shouldResize.
+foreign import cacheByReference :: forall a b. (a -> b) -> a -> b
 
 -- ────────────────────────────────────────────────────────────────────────
 -- The handler types, and their converters
@@ -349,23 +364,23 @@ resizeParamsWithDirectionOut p =
 type JsNodeMouseHandler = EffectFn2 Foreign JsNode Unit
 
 nodeMouseHandlerIn :: JsNodeMouseHandler -> NodeMouseHandler Foreign
-nodeMouseHandlerIn f = \event node -> runEffectFn2 f (eventOut event) (nodeOut node)
+nodeMouseHandlerIn f = \event node -> runEffectFn2 f (eventOut event) (copyOf (nodeIdentityOut node))
 
 type JsOnNodeDrag = EffectFn3 Foreign JsNode (Array JsNode) Unit
 
 onNodeDragIn :: JsOnNodeDrag -> OnNodeDrag Foreign
 onNodeDragIn f = \event node nodes ->
-  runEffectFn3 f (eventOut event) (nodeOut node) (map nodeOut nodes)
+  runEffectFn3 f (eventOut event) (nodeIdentityOut node) (map nodeIdentityOut nodes)
 
 type JsEdgeMouseHandler = EffectFn2 Foreign JsEdge Unit
 
 edgeMouseHandlerIn :: JsEdgeMouseHandler -> EdgeMouseHandler Foreign
-edgeMouseHandlerIn f = \event edge -> runEffectFn2 f (eventOut event) (edgeOut edge)
+edgeMouseHandlerIn f = \event edge -> runEffectFn2 f (eventOut event) (edgeIdentityOut edge)
 
 type JsSelectionDragHandler = EffectFn2 Foreign (Array JsNode) Unit
 
 selectionDragHandlerIn :: JsSelectionDragHandler -> SelectionDragHandler Foreign
-selectionDragHandlerIn f = \event nodes -> runEffectFn2 f (eventOut event) (map nodeOut nodes)
+selectionDragHandlerIn f = \event nodes -> runEffectFn2 f (eventOut event) (map nodeIdentityOut nodes)
 
 type JsMouseEventHandler = EffectFn1 Foreign Unit
 
@@ -420,12 +435,12 @@ onEdgesChangeIn f = \changes -> runEffectFn1 f (map edgeChangeOut changes)
 type JsOnNodesDelete = EffectFn1 (Array JsNode) Unit
 
 onNodesDeleteIn :: JsOnNodesDelete -> OnNodesDelete Foreign
-onNodesDeleteIn f = \nodes -> runEffectFn1 f (map nodeOut nodes)
+onNodesDeleteIn f = \nodes -> runEffectFn1 f (map nodeIdentityOut nodes)
 
 type JsOnEdgesDelete = EffectFn1 (Array JsEdge) Unit
 
 onEdgesDeleteIn :: JsOnEdgesDelete -> OnEdgesDelete Foreign
-onEdgesDeleteIn f = \edges -> runEffectFn1 f (map edgeOut edges)
+onEdgesDeleteIn f = \edges -> runEffectFn1 f (map edgeIdentityOut edges)
 
 type JsOnDelete = EffectFn1 JsGraphSelection Unit
 
@@ -457,7 +472,7 @@ onInitIn f = \instance_ -> runEffectFn1 f (instanceOut instance_)
 type JsOnConnect = EffectFn1 JsConnection Unit
 
 onConnectIn :: JsOnConnect -> OnConnect
-onConnectIn f = \connection -> runEffectFn1 f (connectionOut connection)
+onConnectIn f = \connection -> runEffectFn1 f (connectionParamsOut connection)
 
 type JsOnConnectStart = EffectFn2 Foreign JsConnectStartParams Unit
 
@@ -475,7 +490,7 @@ type JsOnReconnect = EffectFn2 JsEdge JsConnection Unit
 
 onReconnectIn :: JsOnReconnect -> OnReconnect Foreign
 onReconnectIn f = \oldEdge newConnection ->
-  runEffectFn2 f (edgeOut oldEdge) (connectionOut newConnection)
+  runEffectFn2 f (edgeIdentityOut oldEdge) (connectionOut newConnection)
 
 type JsOnReconnectStart = EffectFn3 Foreign JsEdge String Unit
 
@@ -483,7 +498,7 @@ onReconnectStartIn
   :: JsOnReconnectStart
   -> (MouseEvent -> EdgeBase Foreign -> HandleType -> Effect Unit)
 onReconnectStartIn f = \event edge handleType ->
-  runEffectFn3 f (eventOut event) (edgeOut edge) (handleTypeOut handleType)
+  runEffectFn3 f (eventOut event) (edgeIdentityOut edge) (handleTypeOut handleType)
 
 type JsOnReconnectEnd = EffectFn4 Foreign JsEdge String JsConnectionState Unit
 
@@ -496,7 +511,7 @@ onReconnectEndIn
        -> Effect Unit
      )
 onReconnectEndIn f = \event edge handleType state ->
-  runEffectFn4 f (eventOut event) (edgeOut edge) (handleTypeOut handleType)
+  runEffectFn4 f (eventOut event) (edgeIdentityOut edge) (handleTypeOut handleType)
     (connectionStateOut state)
 
 -- | `(event: MouseEvent | TouchEvent | null, viewport: Viewport) => void`. The
@@ -648,19 +663,19 @@ badBeforeDeleteResult raw =
 type JsOnResizeStart = EffectFn2 Foreign JsResizeParams Unit
 
 onResizeStartIn :: JsOnResizeStart -> OnResizeStart
-onResizeStartIn f = \event params ->
+onResizeStartIn = cacheByReference \f event params ->
   runEffectFn2 f (resizeDragEventOut event) (resizeParamsOut params)
 
 type JsOnResize = EffectFn2 Foreign JsResizeParamsWithDirection Unit
 
 onResizeIn :: JsOnResize -> OnResize
-onResizeIn f = \event params ->
+onResizeIn = cacheByReference \f event params ->
   runEffectFn2 f (resizeDragEventOut event) (resizeParamsWithDirectionOut params)
 
 type JsOnResizeEnd = EffectFn2 Foreign JsResizeParams Unit
 
 onResizeEndIn :: JsOnResizeEnd -> OnResizeEnd
-onResizeEndIn f = \event params ->
+onResizeEndIn = cacheByReference \f event params ->
   runEffectFn2 f (resizeDragEventOut event) (resizeParamsOut params)
 
 -- | `(event, params) => boolean`, and a predicate rather than a notification —
@@ -675,7 +690,7 @@ onResizeEndIn f = \event params ->
 type JsShouldResize = Fn2 Foreign JsResizeParamsWithDirection Boolean
 
 shouldResizeIn :: JsShouldResize -> ShouldResize
-shouldResizeIn f = \event params ->
+shouldResizeIn = cacheByReference \f event params ->
   pure (runFn2 f (resizeDragEventOut event) (resizeParamsWithDirectionOut params))
 
 -- | `ResizeDragEvent` is a newtype over the d3 drag event, so unwrapping is

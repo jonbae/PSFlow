@@ -1,0 +1,26 @@
+$ node aamf/step3/initialization-driving/capture.mjs candidate 5 mount-baseline--edges-general
+{"phase":"candidate","scenario":"mount-baseline--edges-general","round":1,"side":"upstream","capture":1,"elapsedMs":2947}
+{"phase":"candidate","scenario":"mount-baseline--edges-general","round":1,"side":"upstream","capture":2,"elapsedMs":1927}
+{"phase":"candidate","scenario":"mount-baseline--edges-general","round":1,"side":"psflow","capture":1,"elapsedMs":4145}
+{"phase":"candidate","scenario":"mount-baseline--edges-general","round":1,"side":"psflow","capture":2,"elapsedMs":2773}
+{"scenario":"mount-baseline--edges-general","round":1,"interpretable":true,"fullGatePassed":false,"consistency":[{"side":"upstream","consistent":true},{"side":"psflow","consistent":true}],"classes":["unclaimed-difference"],"differences":2}
+{"phase":"candidate","scenario":"mount-baseline--edges-general","round":2,"side":"upstream","capture":1,"elapsedMs":1907}
+{"phase":"candidate","scenario":"mount-baseline--edges-general","round":2,"side":"upstream","capture":2,"elapsedMs":1093}
+{"phase":"candidate","scenario":"mount-baseline--edges-general","round":2,"side":"psflow","capture":1,"elapsedMs":2180}
+{"phase":"candidate","scenario":"mount-baseline--edges-general","round":2,"side":"psflow","capture":2,"elapsedMs":1563}
+{"scenario":"mount-baseline--edges-general","round":2,"interpretable":true,"fullGatePassed":false,"consistency":[{"side":"upstream","consistent":true},{"side":"psflow","consistent":true}],"classes":["unclaimed-difference"],"differences":2}
+{"phase":"candidate","scenario":"mount-baseline--edges-general","round":3,"side":"upstream","capture":1,"elapsedMs":2590}
+{"phase":"candidate","scenario":"mount-baseline--edges-general","round":3,"side":"upstream","capture":2,"elapsedMs":1969}
+{"phase":"candidate","scenario":"mount-baseline--edges-general","round":3,"side":"psflow","capture":1,"elapsedMs":1892}
+{"phase":"candidate","scenario":"mount-baseline--edges-general","round":3,"side":"psflow","capture":2,"elapsedMs":1178}
+{"scenario":"mount-baseline--edges-general","round":3,"interpretable":true,"fullGatePassed":false,"consistency":[{"side":"upstream","consistent":true},{"side":"psflow","consistent":true}],"classes":["unclaimed-difference"],"differences":2}
+{"phase":"candidate","scenario":"mount-baseline--edges-general","round":4,"side":"upstream","capture":1,"elapsedMs":1130}
+{"phase":"candidate","scenario":"mount-baseline--edges-general","round":4,"side":"upstream","capture":2,"elapsedMs":897}
+{"phase":"candidate","scenario":"mount-baseline--edges-general","round":4,"side":"psflow","capture":1,"elapsedMs":1486}
+{"phase":"candidate","scenario":"mount-baseline--edges-general","round":4,"side":"psflow","capture":2,"elapsedMs":1241}
+{"scenario":"mount-baseline--edges-general","round":4,"interpretable":true,"fullGatePassed":false,"consistency":[{"side":"upstream","consistent":true},{"side":"psflow","consistent":true}],"classes":["unclaimed-difference"],"differences":2}
+{"phase":"candidate","scenario":"mount-baseline--edges-general","round":5,"side":"upstream","capture":1,"elapsedMs":1240}
+{"phase":"candidate","scenario":"mount-baseline--edges-general","round":5,"side":"upstream","capture":2,"elapsedMs":887}
+{"phase":"candidate","scenario":"mount-baseline--edges-general","round":5,"side":"psflow","capture":1,"elapsedMs":1490}
+{"phase":"candidate","scenario":"mount-baseline--edges-general","round":5,"side":"psflow","capture":2,"elapsedMs":1091}
+{"scenario":"mount-baseline--edges-general","round":5,"interpretable":true,"fullGatePassed":false,"consistency":[{"side":"upstream","consistent":true},{"side":"psflow","consistent":true}],"classes":["unclaimed-difference"],"differences":2}

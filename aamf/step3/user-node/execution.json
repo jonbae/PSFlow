@@ -1,0 +1,575 @@
+{
+  "completedAt": "2026-11-10T17:24:29.245910+00:00",
+  "audit": {
+    "capturedAt": "2026-11-10T17:15:49.678306+00:00",
+    "initialInputs": 345,
+    "changedInputs": [
+      "src/Boundary/Elements.purs",
+      "src/React/Component/NodeWrapper.purs",
+      "src/System/Types/Node.purs",
+      "src/System/Utils/Store.purs",
+      "test/Test/Properties.purs",
+      "test/Test/Main.purs",
+      "test/Test/Boundary/PrunedKeys.purs",
+      "test/Test/System/XYDrag.purs",
+      "test/Test/System/FinalConnectionState.purs",
+      "test/Test/React/Hook/VisibleIds.purs",
+      "test/Test/React/Hook/NodeRenderOrder.purs",
+      "test/Test/React/Store/Reduce.purs",
+      "test/Test/System/XYDrag/DragItemOrder.purs"
+    ],
+    "unexpectedChanges": [],
+    "vendorFiles": 171,
+    "vendorChanges": [],
+    "outputs": [
+      {
+        "path": "parity/boundary/user-node.test.mjs",
+        "sha256": "472c231e0a15a73d431c7d1b8feecca0d8f7fdfb90148b8ce622ea81146fbcc7"
+      },
+      {
+        "path": "parity/driver/dist/psflow.js",
+        "sha256": "33338380ce0fc5983702c29ff3f1a665a705868048242e718e70d3c13cbdf2c9"
+      },
+      {
+        "path": "parity/surface/report.md",
+        "sha256": "0e7c5e549dbbb45337625e348de401f928598974cdf060bb98f04f621569813f"
+      },
+      {
+        "path": "src/Boundary/Elements.purs",
+        "sha256": "fb39ec9490386711dc4421cf380ced0c816879b5bfd679cd56380539a8bc6d91"
+      },
+      {
+        "path": "src/React/Component/NodeWrapper.purs",
+        "sha256": "1eefb4cd9ff8f2d503214c6408f7f2a061ba43b171db4b3767147239789d3466"
+      },
+      {
+        "path": "src/System/Types/Node.js",
+        "sha256": "338c598274bd5f3267908c78a9b91fa142e6ed700692fd8b98f85dbb7b960a32"
+      },
+      {
+        "path": "src/System/Types/Node.purs",
+        "sha256": "957ccfac8c7c44be65f63e069acf97786a7ac8b50238e4d2396089e97c02c3cb"
+      },
+      {
+        "path": "src/System/Utils/Store.purs",
+        "sha256": "442efbfe1e6de12f2c90f2202d412fa94282423928e6a0d00ae2ce407e23b8a9"
+      },
+      {
+        "path": "test/Test/Boundary/PrunedKeys.purs",
+        "sha256": "10d2bf72b4802b5f8d26d9965b8d165016f0f8b3518293cf229651c49453f2f7"
+      },
+      {
+        "path": "test/Test/Boundary/UserNode.js",
+        "sha256": "5fcea00a9fadd5ff6cf41a8e5cfc00ca4149ea2bad5616e30d509be1788e1f3d"
+      },
+      {
+        "path": "test/Test/Boundary/UserNode.purs",
+        "sha256": "16cdf688bb70ad3cd689a71d15a7242845261d12ba53b5585ae7996e5eabf96d"
+      },
+      {
+        "path": "test/Test/Main.purs",
+        "sha256": "ebf8a5d4e9365c7fb04fd5b608266ce6ebef1b0df805a0dba72f7bc948f813a1"
+      },
+      {
+        "path": "test/Test/Properties.purs",
+        "sha256": "785604e9ca6d752a428284e35278dcb96f36679c080c9cfd88f9a7de5e15b840"
+      },
+      {
+        "path": "test/Test/React/Hook/NodeRenderOrder.purs",
+        "sha256": "8ee2c3d0150ccc979511e9ffd319373fb974cf3be96c17fa945c150a10c4c4e9"
+      },
+      {
+        "path": "test/Test/React/Hook/VisibleIds.purs",
+        "sha256": "0fae188b177048c6f1627c9844c47045012f074c89471b369f190a8f4f168965"
+      },
+      {
+        "path": "test/Test/React/Store/Reduce.purs",
+        "sha256": "43d8132e0fd591079400251073e9f2b65eadb833644c83300324a95a06902eab"
+      },
+      {
+        "path": "test/Test/System/FinalConnectionState.purs",
+        "sha256": "0e5da0030cef920fc31c55cfcedd1f70af0d120e19a5d335f3dfd019337f11fc"
+      },
+      {
+        "path": "test/Test/System/XYDrag.purs",
+        "sha256": "63355aa306c034c9072a59ae87a7c42674070299516fe70dd110e58d4620d2b0"
+      },
+      {
+        "path": "test/Test/System/XYDrag/DragItemOrder.purs",
+        "sha256": "6678a14da0d8978eccf643e6e8f07fdc420946cf49f802757f6141063a647448"
+      }
+    ]
+  },
+  "checks": {
+    "red-js-entry": 1,
+    "red-local-proxy": 1,
+    "red-local-proxy-parse-fixed": 1,
+    "build-provenance": 1,
+    "build-provenance-fixtures": 0,
+    "green-js-entry": 0,
+    "build-final": 0,
+    "green-local-proxy": 0,
+    "driver": 0,
+    "surface": 0,
+    "boundary": 0,
+    "boundary-tests": 0,
+    "function": 0,
+    "changelog": 0,
+    "conformance-frozen": 1,
+    "conformance-frozen-node22": 0,
+    "smoke-frozen": 0,
+    "system-parented-frozen": 1,
+    "system-unmeasured-frozen": 1
+  },
+  "validation": {
+    "boundaryTests": 119,
+    "conformance": {
+      "passed": 41,
+      "failed": 0,
+      "snapshot": "validation-snapshot.json"
+    },
+    "smoke": {
+      "passed": 2,
+      "failed": 0
+    },
+    "systemScenarios": [
+      {
+        "scenario": "node-props-record-parented",
+        "stage5": {
+          "passed": false,
+          "selfConsistency": [
+            {
+              "side": "upstream",
+              "consistent": true,
+              "differences": 0
+            },
+            {
+              "side": "psflow",
+              "consistent": true,
+              "differences": 0
+            }
+          ],
+          "classes": [
+            "unclaimed-difference"
+          ],
+          "unclaimed": 4,
+          "userNodeDifferences": [
+            {
+              "kind": "left-only",
+              "path": [
+                "api",
+                "queries",
+                "getInternalNode",
+                "internals",
+                "userNode"
+              ],
+              "left": {
+                "id": "props-parent",
+                "type": "propsRecord",
+                "data": {
+                  "label": "props-parent"
+                },
+                "position": {
+                  "x": 100,
+                  "y": 200
+                },
+                "width": 300,
+                "height": 200,
+                "measured": {
+                  "width": 300,
+                  "height": 200
+                },
+                "selected": true
+              }
+            }
+          ],
+          "differences": [
+            {
+              "kind": "order",
+              "path": [
+                "callbacks"
+              ],
+              "left": [
+                "onSelectionChange#1",
+                "onMoveStart#1",
+                "onViewportChange#1",
+                "onMove#1",
+                "onMoveEnd#1",
+                "onPaneMouseEnter#1",
+                "onNodeMouseEnter#1",
+                "onPaneMouseMove#1",
+                "onNodeMouseMove#1",
+                "onNodesChange#1",
+                "onNodeClick#1",
+                "onSelectionChange#2",
+                "onNodeMouseLeave#1",
+                "onNodeMouseEnter#2",
+                "onPaneMouseMove#2",
+                "onNodeMouseMove#2",
+                "onMoveStart#2",
+                "onNodeClick#2",
+                "onMoveEnd#2"
+              ],
+              "right": [
+                "onSelectionChange#1",
+                "onMoveStart#1",
+                "onViewportChange#1",
+                "onMove#1",
+                "onMoveEnd#1",
+                "onPaneMouseEnter#1",
+                "onNodeMouseEnter#1",
+                "onPaneMouseMove#1",
+                "onNodeMouseMove#1",
+                "onNodesChange#1",
+                "onNodeClick#1",
+                "onSelectionChange#2",
+                "onNodeMouseLeave#1",
+                "onNodeMouseEnter#2",
+                "onPaneMouseMove#2",
+                "onNodeMouseMove#2",
+                "onMoveStart#2",
+                "onMoveEnd#2",
+                "onNodeClick#2"
+              ]
+            },
+            {
+              "kind": "changed",
+              "path": [
+                "api",
+                "queries",
+                "getInternalNode",
+                "internals",
+                "handleBounds",
+                "source"
+              ],
+              "left": null,
+              "right": []
+            },
+            {
+              "kind": "changed",
+              "path": [
+                "api",
+                "queries",
+                "getInternalNode",
+                "internals",
+                "handleBounds",
+                "target"
+              ],
+              "left": null,
+              "right": []
+            },
+            {
+              "kind": "left-only",
+              "path": [
+                "api",
+                "queries",
+                "getInternalNode",
+                "internals",
+                "userNode"
+              ],
+              "left": {
+                "id": "props-parent",
+                "type": "propsRecord",
+                "data": {
+                  "label": "props-parent"
+                },
+                "position": {
+                  "x": 100,
+                  "y": 200
+                },
+                "width": 300,
+                "height": 200,
+                "measured": {
+                  "width": 300,
+                  "height": 200
+                },
+                "selected": true
+              }
+            }
+          ]
+        },
+        "w04": {
+          "passed": false,
+          "selfConsistency": [
+            {
+              "side": "upstream",
+              "consistent": true,
+              "differences": 0
+            },
+            {
+              "side": "psflow",
+              "consistent": true,
+              "differences": 0
+            }
+          ],
+          "classes": [
+            "unclaimed-difference"
+          ],
+          "unclaimed": 3,
+          "userNodeDifferences": [],
+          "differences": [
+            {
+              "kind": "order",
+              "path": [
+                "callbacks"
+              ],
+              "left": [
+                "onSelectionChange#1",
+                "onMoveStart#1",
+                "onViewportChange#1",
+                "onMove#1",
+                "onMoveEnd#1",
+                "onPaneMouseEnter#1",
+                "onNodeMouseEnter#1",
+                "onPaneMouseMove#1",
+                "onNodeMouseMove#1",
+                "onNodesChange#1",
+                "onNodeClick#1",
+                "onSelectionChange#2",
+                "onNodeMouseLeave#1",
+                "onNodeMouseEnter#2",
+                "onPaneMouseMove#2",
+                "onNodeMouseMove#2",
+                "onMoveStart#2",
+                "onNodeClick#2",
+                "onMoveEnd#2"
+              ],
+              "right": [
+                "onSelectionChange#1",
+                "onMoveStart#1",
+                "onViewportChange#1",
+                "onMove#1",
+                "onMoveEnd#1",
+                "onPaneMouseEnter#1",
+                "onNodeMouseEnter#1",
+                "onPaneMouseMove#1",
+                "onNodeMouseMove#1",
+                "onNodesChange#1",
+                "onNodeClick#1",
+                "onSelectionChange#2",
+                "onNodeMouseLeave#1",
+                "onNodeMouseEnter#2",
+                "onPaneMouseMove#2",
+                "onNodeMouseMove#2",
+                "onMoveStart#2",
+                "onMoveEnd#2",
+                "onNodeClick#2"
+              ]
+            },
+            {
+              "kind": "changed",
+              "path": [
+                "api",
+                "queries",
+                "getInternalNode",
+                "internals",
+                "handleBounds",
+                "source"
+              ],
+              "left": null,
+              "right": []
+            },
+            {
+              "kind": "changed",
+              "path": [
+                "api",
+                "queries",
+                "getInternalNode",
+                "internals",
+                "handleBounds",
+                "target"
+              ],
+              "left": null,
+              "right": []
+            }
+          ]
+        }
+      },
+      {
+        "scenario": "mount-baseline--nodes-unmeasured",
+        "stage5": {
+          "passed": false,
+          "selfConsistency": [
+            {
+              "side": "upstream",
+              "consistent": true,
+              "differences": 0
+            },
+            {
+              "side": "psflow",
+              "consistent": true,
+              "differences": 0
+            }
+          ],
+          "classes": [
+            "unclaimed-difference"
+          ],
+          "unclaimed": 3,
+          "userNodeDifferences": [
+            {
+              "kind": "left-only",
+              "path": [
+                "api",
+                "queries",
+                "getInternalNode",
+                "internals",
+                "userNode"
+              ],
+              "left": {
+                "id": "Node-1",
+                "data": {
+                  "label": "Node-1"
+                },
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "type": "input",
+                "selected": true,
+                "measured": {
+                  "width": 150,
+                  "height": 36
+                }
+              }
+            }
+          ],
+          "differences": [
+            {
+              "kind": "order",
+              "path": [
+                "callbacks"
+              ],
+              "left": [
+                "onSelectionChange#1",
+                "onMoveStart#1",
+                "onViewportChange#1",
+                "onMove#1",
+                "onNodesChange#1",
+                "onMoveEnd#1"
+              ],
+              "right": [
+                "onSelectionChange#1",
+                "onMoveStart#1",
+                "onViewportChange#1",
+                "onMove#1",
+                "onMoveEnd#1",
+                "onNodesChange#1"
+              ]
+            },
+            {
+              "kind": "changed",
+              "path": [
+                "api",
+                "queries",
+                "getInternalNode",
+                "internals",
+                "handleBounds",
+                "target"
+              ],
+              "left": null,
+              "right": []
+            },
+            {
+              "kind": "left-only",
+              "path": [
+                "api",
+                "queries",
+                "getInternalNode",
+                "internals",
+                "userNode"
+              ],
+              "left": {
+                "id": "Node-1",
+                "data": {
+                  "label": "Node-1"
+                },
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "type": "input",
+                "selected": true,
+                "measured": {
+                  "width": 150,
+                  "height": 36
+                }
+              }
+            }
+          ]
+        },
+        "w04": {
+          "passed": false,
+          "selfConsistency": [
+            {
+              "side": "upstream",
+              "consistent": true,
+              "differences": 0
+            },
+            {
+              "side": "psflow",
+              "consistent": true,
+              "differences": 0
+            }
+          ],
+          "classes": [
+            "unclaimed-difference"
+          ],
+          "unclaimed": 2,
+          "userNodeDifferences": [],
+          "differences": [
+            {
+              "kind": "order",
+              "path": [
+                "callbacks"
+              ],
+              "left": [
+                "onSelectionChange#1",
+                "onMoveStart#1",
+                "onViewportChange#1",
+                "onMove#1",
+                "onNodesChange#1",
+                "onMoveEnd#1"
+              ],
+              "right": [
+                "onSelectionChange#1",
+                "onMoveStart#1",
+                "onViewportChange#1",
+                "onMove#1",
+                "onMoveEnd#1",
+                "onNodesChange#1"
+              ]
+            },
+            {
+              "kind": "changed",
+              "path": [
+                "api",
+                "queries",
+                "getInternalNode",
+                "internals",
+                "handleBounds",
+                "target"
+              ],
+              "left": null,
+              "right": []
+            }
+          ]
+        }
+      }
+    ],
+    "integrity": {
+      "sourceAndCompiledOutputChanges": [],
+      "regeneratedBundles": [
+        "parity/driver/dist/psflow.js",
+        "parity/driver/dist/upstream.js"
+      ],
+      "note": "System net rebuilds both bundles under the mirror and checks their library provenance. Compiled output and source remain unchanged across the browser checks."
+    }
+  },
+  "setupFailures": [
+    "Initial required-field fixture build missed Record import in Test.Properties; fixed without changing assertions.",
+    "Initial local proxy had reserved-word parse error; corrected before its recorded behavioral red.",
+    "Frozen mirror initially selected system Node 18.7.0; reran with explicit Node 22.18.0 PATH."
+  ],
+  "interpretation": "W04 original-node provenance complete. Both system cases still return 1 for known handle-bound/callback differences; both reproduce and no userNode difference remains. No full-corpus refresh or W09 selector identity claim.",
+  "aamfInvoked": false
+}

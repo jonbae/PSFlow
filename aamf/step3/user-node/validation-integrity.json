@@ -1,0 +1,8 @@
+{
+  "sourceAndCompiledOutputChanges": [],
+  "regeneratedBundles": [
+    "parity/driver/dist/psflow.js",
+    "parity/driver/dist/upstream.js"
+  ],
+  "note": "System net rebuilds both bundles under the mirror and checks their library provenance. Compiled output and source remain unchanged across the browser checks."
+}

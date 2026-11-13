@@ -1,0 +1,3938 @@
+{
+  "traceFormat": 2,
+  "scenario": "drag-moves-node",
+  "side": "psflow",
+  "capture": 1,
+  "baseline": "12.11.0",
+  "sections": {
+    "dom": {
+      "page": {
+        "scrollX": 0,
+        "scrollY": 0,
+        "visualViewportScale": 1
+      },
+      "root": {
+        "tag": "div",
+        "attrs": {
+          "data-testid": "rf__wrapper",
+          "class": "react-flow light",
+          "role": "application",
+          "style": "width: 100%; height: 100%; overflow: hidden; position: relative; z-index: 0;"
+        },
+        "children": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__renderer",
+              "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+            },
+            "children": [
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__pane draggable",
+                  "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                },
+                "children": [
+                  {
+                    "tag": "div",
+                    "attrs": {
+                      "class": "react-flow__viewport xyflow__viewport react-flow__container",
+                      "style": "transform: translate(537.017px, 32px) scale(1.02983);"
+                    },
+                    "children": [
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edges"
+                        },
+                        "children": [
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 0;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-default nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "1-2",
+                                  "data-testid": "rf__edge-1-2",
+                                  "aria-label": "Edge from Node-1 to Node-2",
+                                  "aria-describedby": "react-flow__edge-desc-1"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M269.2073170731707,234.2073170731707 C269.2073170731707,307.4170215061947 -25,23.790295566976013 -25,97",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M269.2073170731707,234.2073170731707 C269.2073170731707,307.4170215061947 -25,23.790295566976013 -25,97",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "g",
+                                    "attrs": {
+                                      "transform": "translate(112.46876225820401 160.2629574333749)",
+                                      "class": "react-flow__edge-textwrapper",
+                                      "visibility": "visible"
+                                    },
+                                    "children": [
+                                      {
+                                        "tag": "rect",
+                                        "attrs": {
+                                          "x": "-2",
+                                          "y": "-4",
+                                          "width": "23.269792556762695",
+                                          "height": "18.6814022064209",
+                                          "class": "react-flow__edge-textbg",
+                                          "rx": "2",
+                                          "ry": "2"
+                                        },
+                                        "children": []
+                                      },
+                                      {
+                                        "tag": "text",
+                                        "attrs": {
+                                          "class": "react-flow__edge-text",
+                                          "y": "5.340701103210449",
+                                          "dy": "0.3em"
+                                        },
+                                        "text": "edge",
+                                        "children": []
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "269.2073170731707",
+                                      "cy": "244.2073170731707",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "-25",
+                                      "cy": "87",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 0;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-default nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "1-3",
+                                  "data-testid": "rf__edge-1-3",
+                                  "aria-label": "Edge from Node-1 to Node-3",
+                                  "aria-describedby": "react-flow__edge-desc-1"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M269.2073170731707,234.2073170731707 C269.2073170731707,307.4170215061947 175,23.790295566976013 175,97",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M269.2073170731707,234.2073170731707 C269.2073170731707,307.4170215061947 175,23.790295566976013 175,97",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "g",
+                                    "attrs": {
+                                      "transform": "translate(212.468762258204 160.2629574333749)",
+                                      "class": "react-flow__edge-textwrapper",
+                                      "visibility": "visible"
+                                    },
+                                    "children": [
+                                      {
+                                        "tag": "rect",
+                                        "attrs": {
+                                          "x": "-2",
+                                          "y": "-4",
+                                          "width": "23.269792556762695",
+                                          "height": "18.6814022064209",
+                                          "class": "react-flow__edge-textbg",
+                                          "rx": "2",
+                                          "ry": "2"
+                                        },
+                                        "children": []
+                                      },
+                                      {
+                                        "tag": "text",
+                                        "attrs": {
+                                          "class": "react-flow__edge-text",
+                                          "y": "5.340701103210449",
+                                          "dy": "0.3em"
+                                        },
+                                        "text": "edge",
+                                        "children": []
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "269.2073170731707",
+                                      "cy": "244.2073170731707",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "175",
+                                      "cy": "87",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edgelabel-renderer"
+                        },
+                        "children": []
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__nodes",
+                          "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                        },
+                        "children": [
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-input nopan playwright-test-class-123 selected selectable draggable",
+                              "data-id": "Node-1",
+                              "data-testid": "rf__node-Node-1",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 1000; transform: translate(194.207px, 194.207px); pointer-events: all; visibility: visible; background-color: red;"
+                            },
+                            "text": "Node-1",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "Node-1",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-Node-1-null-source"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-output nopan selectable draggable",
+                              "data-id": "Node-2",
+                              "data-testid": "rf__node-Node-2",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(-100px, 100px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "Node-2",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "Node-2",
+                                  "data-handlepos": "top",
+                                  "data-id": "1-Node-2-null-target"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-default nopan selectable draggable",
+                              "data-id": "Node-3",
+                              "data-testid": "rf__node-Node-3",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(100px, 100px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "Node-3",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "Node-3",
+                                  "data-handlepos": "top",
+                                  "data-id": "1-Node-3-null-target"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "Node-3",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-Node-3-null-source"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-output nopan selectable draggable",
+                              "data-id": "Node-4",
+                              "data-testid": "rf__node-Node-4",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(0px, 200px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "Node-4",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "Node-4",
+                                  "data-handlepos": "top",
+                                  "data-id": "1-Node-4-null-target"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-DragHandleNode nopan selectable draggable",
+                              "data-id": "drag-handle",
+                              "data-testid": "rf__node-drag-handle",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(200px, 0px); pointer-events: all; visibility: visible;"
+                            },
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "container",
+                                  "style": "width: 100px; height: 50px; background: red; display: flex; align-items: center; justify-content: center;"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "div",
+                                    "attrs": {
+                                      "class": "drag-handle custom-drag-handle",
+                                      "style": "display: inline-block; width: 25px; height: 25px; background-color: green;"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-output nopan selectable draggable",
+                              "data-id": "notConnectable",
+                              "data-testid": "rf__node-notConnectable",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(0px, 300px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "notConnectable",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectablestart connectableend",
+                                  "data-nodeid": "notConnectable",
+                                  "data-handlepos": "top",
+                                  "data-id": "1-notConnectable-null-target"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-default selectable",
+                              "data-id": "notDraggable",
+                              "data-testid": "rf__node-notDraggable",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(0px, 400px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "notDraggable",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "notDraggable",
+                                  "data-handlepos": "top",
+                                  "data-id": "1-notDraggable-null-target"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "notDraggable",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-notDraggable-null-source"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-default nopan draggable",
+                              "data-id": "notSelectable",
+                              "data-testid": "rf__node-notSelectable",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(0px, 500px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "notSelectable",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "notSelectable",
+                                  "data-handlepos": "top",
+                                  "data-id": "1-notSelectable-null-target"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "notSelectable",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-notSelectable-null-source"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-default nopan selectable draggable",
+                              "data-id": "notDeletable",
+                              "data-testid": "rf__node-notDeletable",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(0px, 600px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "notDeletable",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "notDeletable",
+                                  "data-handlepos": "top",
+                                  "data-id": "1-notDeletable-null-target"
+                                },
+                                "children": []
+                              },
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator",
+                                  "data-nodeid": "notDeletable",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-notDeletable-null-source"
+                                },
+                                "children": []
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__viewport-portal"
+                        },
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__panel react-flow__attribution bottom right",
+              "data-message": "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
+            },
+            "children": [
+              {
+                "tag": "a",
+                "attrs": {
+                  "href": "https://reactflow.dev",
+                  "target": "_blank",
+                  "rel": "noopener noreferrer",
+                  "aria-label": "React Flow attribution"
+                },
+                "text": "React Flow",
+                "children": []
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__node-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__edge-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select an edge. You can then press delete to remove it or escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__aria-live-1",
+              "aria-live": "assertive",
+              "aria-atomic": "true",
+              "style": "position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(100%);"
+            },
+            "children": []
+          }
+        ]
+      }
+    },
+    "callbacks": [
+      {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": []
+          }
+        ]
+      },
+      {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 537.0172684458398,
+            "y": 32,
+            "zoom": 1.0298273155416013
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
+          {
+            "x": 537.0172684458398,
+            "y": 32,
+            "zoom": 1.0298273155416013
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "type": "dimensions",
+              "id": "Node-1",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "Node-2",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "Node-3",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "Node-4",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "drag-handle",
+              "dimensions": {
+                "width": 100,
+                "height": 50
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "notConnectable",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "notDraggable",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "notSelectable",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "type": "dimensions",
+              "id": "notDeletable",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 537.0172684458398,
+            "y": 32,
+            "zoom": 1.0298273155416013
+          }
+        ]
+      },
+      {
+        "name": "onInit",
+        "args": [
+          {
+            "getNodes": {
+              "@ref": "function"
+            },
+            "setNodes": {
+              "@ref": "function"
+            },
+            "addNodes": {
+              "@ref": "function"
+            },
+            "getNode": {
+              "@ref": "function"
+            },
+            "getInternalNode": {
+              "@ref": "function"
+            },
+            "getEdges": {
+              "@ref": "function"
+            },
+            "setEdges": {
+              "@ref": "function"
+            },
+            "addEdges": {
+              "@ref": "function"
+            },
+            "getEdge": {
+              "@ref": "function"
+            },
+            "toObject": {
+              "@ref": "function"
+            },
+            "deleteElements": {
+              "@ref": "function"
+            },
+            "getIntersectingNodes": {
+              "@ref": "function"
+            },
+            "isNodeIntersecting": {
+              "@ref": "function"
+            },
+            "updateNode": {
+              "@ref": "function"
+            },
+            "updateNodeData": {
+              "@ref": "function"
+            },
+            "updateEdge": {
+              "@ref": "function"
+            },
+            "updateEdgeData": {
+              "@ref": "function"
+            },
+            "getNodesBounds": {
+              "@ref": "function"
+            },
+            "getHandleConnections": {
+              "@ref": "function"
+            },
+            "getNodeConnections": {
+              "@ref": "function"
+            },
+            "fitView": {
+              "@ref": "function"
+            },
+            "zoomIn": {
+              "@ref": "function"
+            },
+            "zoomOut": {
+              "@ref": "function"
+            },
+            "zoomTo": {
+              "@ref": "function"
+            },
+            "getZoom": {
+              "@ref": "function"
+            },
+            "setViewport": {
+              "@ref": "function"
+            },
+            "getViewport": {
+              "@ref": "function"
+            },
+            "setCenter": {
+              "@ref": "function"
+            },
+            "fitBounds": {
+              "@ref": "function"
+            },
+            "screenToFlowPosition": {
+              "@ref": "function"
+            },
+            "flowToScreenPosition": {
+              "@ref": "function"
+            },
+            "viewportInitialized": true
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "pointerenter",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 63,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 614.2543334960938,
+            "screenY": 51.05180358886719,
+            "clientX": 614.2543334960938,
+            "clientY": 51.05180358886719,
+            "pageX": 614.2543334960938,
+            "pageY": 51.05180358886719,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 0,
+            "relatedTarget": {
+              "@ref": "Window"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseenter",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 63,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 614,
+            "screenY": 51,
+            "clientX": 614,
+            "clientY": 51,
+            "pageX": 614,
+            "pageY": 51,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": {
+              "@ref": "Window"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 63,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 614.2543334960938,
+            "screenY": 51.05180358886719,
+            "clientX": 614.2543334960938,
+            "clientY": 51.05180358886719,
+            "pageX": 614.2543334960938,
+            "pageY": 51.05180358886719,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 0,
+            "relatedTarget": null,
+            "movementX": 615,
+            "movementY": 52,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseMove",
+            "_targetInst": null,
+            "type": "mousemove",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 63,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 614,
+            "screenY": 51,
+            "clientX": 614,
+            "clientY": 51,
+            "pageX": 614,
+            "pageY": 51,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": null,
+            "movementX": 615,
+            "movementY": 52,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "type": "select",
+              "id": "Node-1",
+              "selected": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeDragStart",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "dragging": true,
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            }
+          },
+          [
+            {
+              "id": "Node-1",
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "data": {
+                "label": "Node-1"
+              },
+              "type": "input",
+              "dragging": true,
+              "measured": {
+                "width": 150,
+                "height": 37
+              },
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [
+              {
+                "id": "Node-1",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "data": {
+                  "label": "Node-1"
+                },
+                "type": "input",
+                "selected": true,
+                "measured": {
+                  "width": 150,
+                  "height": 37
+                },
+                "className": "playwright-test-class-123",
+                "style": {
+                  "backgroundColor": "red"
+                }
+              }
+            ],
+            "edges": []
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseLeave",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseLeave",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseleave",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 112,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 654,
+            "screenY": 91,
+            "clientX": 654,
+            "clientY": 91,
+            "pageX": 654,
+            "pageY": 91,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 1,
+            "relatedTarget": {
+              "@ref": "path"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "selected": true,
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onEdgeMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseenter",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "path"
+            },
+            "currentTarget": {
+              "@ref": "g"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 112,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 654,
+            "screenY": 91,
+            "clientX": 654,
+            "clientY": 91,
+            "pageX": 654,
+            "pageY": 91,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 1,
+            "relatedTarget": {
+              "@ref": "DIV"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "1-3",
+            "type": "default",
+            "source": "Node-1",
+            "target": "Node-3",
+            "label": "edge"
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "path"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 112,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 654.2543334960938,
+            "screenY": 91.05180358886719,
+            "clientX": 654.2543334960938,
+            "clientY": 91.05180358886719,
+            "pageX": 654.2543334960938,
+            "pageY": 91.05180358886719,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 1,
+            "relatedTarget": null,
+            "movementX": 40,
+            "movementY": 40,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0.5,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "type": "position",
+              "id": "Node-1",
+              "position": {
+                "x": 38.841463414634134,
+                "y": 38.84146341463415
+              },
+              "dragging": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeDrag",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 38.841463414634134,
+              "y": 38.84146341463415
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "selected": true,
+            "dragging": true,
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            }
+          },
+          [
+            {
+              "id": "Node-1",
+              "position": {
+                "x": 38.841463414634134,
+                "y": 38.84146341463415
+              },
+              "data": {
+                "label": "Node-1"
+              },
+              "type": "input",
+              "selected": true,
+              "dragging": true,
+              "measured": {
+                "width": 150,
+                "height": 37
+              },
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onEdgeMouseLeave",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseLeave",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseleave",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "path"
+            },
+            "currentTarget": {
+              "@ref": "g"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 112,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 654,
+            "screenY": 91,
+            "clientX": 654,
+            "clientY": 91,
+            "pageX": 654,
+            "pageY": 91,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 1,
+            "relatedTarget": {
+              "@ref": "DIV"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "1-3",
+            "type": "default",
+            "source": "Node-1",
+            "target": "Node-3",
+            "label": "edge"
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseenter",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 112,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 654,
+            "screenY": 91,
+            "clientX": 654,
+            "clientY": 91,
+            "pageX": 654,
+            "pageY": 91,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 1,
+            "relatedTarget": {
+              "@ref": "path"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 38.841463414634134,
+              "y": 38.84146341463415
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "selected": true,
+            "dragging": true,
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseLeave",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseLeave",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseleave",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 144,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 694,
+            "screenY": 131,
+            "clientX": 694,
+            "clientY": 131,
+            "pageX": 694,
+            "pageY": 131,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 1,
+            "relatedTarget": {
+              "@ref": "rect"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 38.841463414634134,
+              "y": 38.84146341463415
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "selected": true,
+            "dragging": true,
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onEdgeMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseenter",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "rect"
+            },
+            "currentTarget": {
+              "@ref": "g"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 144,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 694,
+            "screenY": 131,
+            "clientX": 694,
+            "clientY": 131,
+            "pageX": 694,
+            "pageY": 131,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 1,
+            "relatedTarget": {
+              "@ref": "DIV"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "1-3",
+            "type": "default",
+            "source": "Node-1",
+            "target": "Node-3",
+            "label": "edge"
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "rect"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 144,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 694.2543334960938,
+            "screenY": 131.0518035888672,
+            "clientX": 694.2543334960938,
+            "clientY": 131.0518035888672,
+            "pageX": 694.2543334960938,
+            "pageY": 131.0518035888672,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 1,
+            "relatedTarget": null,
+            "movementX": 40,
+            "movementY": 40,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0.5,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "type": "position",
+              "id": "Node-1",
+              "position": {
+                "x": 77.68292682926827,
+                "y": 77.68292682926828
+              },
+              "dragging": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeDrag",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 77.68292682926827,
+              "y": 77.68292682926828
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "selected": true,
+            "dragging": true,
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            }
+          },
+          [
+            {
+              "id": "Node-1",
+              "position": {
+                "x": 77.68292682926827,
+                "y": 77.68292682926828
+              },
+              "data": {
+                "label": "Node-1"
+              },
+              "type": "input",
+              "selected": true,
+              "dragging": true,
+              "measured": {
+                "width": 150,
+                "height": 37
+              },
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onEdgeMouseLeave",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseLeave",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseleave",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "rect"
+            },
+            "currentTarget": {
+              "@ref": "g"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 144,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 694,
+            "screenY": 131,
+            "clientX": 694,
+            "clientY": 131,
+            "pageX": 694,
+            "pageY": 131,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 1,
+            "relatedTarget": {
+              "@ref": "DIV"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "1-3",
+            "type": "default",
+            "source": "Node-1",
+            "target": "Node-3",
+            "label": "edge"
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseenter",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 144,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 694,
+            "screenY": 131,
+            "clientX": 694,
+            "clientY": 131,
+            "pageX": 694,
+            "pageY": 131,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 1,
+            "relatedTarget": {
+              "@ref": "rect"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 77.68292682926827,
+              "y": 77.68292682926828
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "selected": true,
+            "dragging": true,
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseLeave",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseLeave",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseleave",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 176,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 734,
+            "screenY": 171,
+            "clientX": 734,
+            "clientY": 171,
+            "pageX": 734,
+            "pageY": 171,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 1,
+            "relatedTarget": {
+              "@ref": "DIV"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 77.68292682926827,
+              "y": 77.68292682926828
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "selected": true,
+            "dragging": true,
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseenter",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 176,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 734,
+            "screenY": 171,
+            "clientX": 734,
+            "clientY": 171,
+            "pageX": 734,
+            "pageY": 171,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 1,
+            "relatedTarget": {
+              "@ref": "DIV"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "Node-3",
+            "position": {
+              "x": 100,
+              "y": 100
+            },
+            "data": {
+              "label": "Node-3"
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 176,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 734.2543334960938,
+            "screenY": 171.0518035888672,
+            "clientX": 734.2543334960938,
+            "clientY": 171.0518035888672,
+            "pageX": 734.2543334960938,
+            "pageY": 171.0518035888672,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 1,
+            "relatedTarget": null,
+            "movementX": 40,
+            "movementY": 40,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0.5,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "type": "position",
+              "id": "Node-1",
+              "position": {
+                "x": 116.52439024390242,
+                "y": 116.52439024390243
+              },
+              "dragging": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeDrag",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 116.52439024390242,
+              "y": 116.52439024390243
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "selected": true,
+            "dragging": true,
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            }
+          },
+          [
+            {
+              "id": "Node-1",
+              "position": {
+                "x": 116.52439024390242,
+                "y": 116.52439024390243
+              },
+              "data": {
+                "label": "Node-1"
+              },
+              "type": "input",
+              "selected": true,
+              "dragging": true,
+              "measured": {
+                "width": 150,
+                "height": 37
+              },
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeMouseLeave",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseLeave",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseleave",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 176,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 734,
+            "screenY": 171,
+            "clientX": 734,
+            "clientY": 171,
+            "pageX": 734,
+            "pageY": 171,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 1,
+            "relatedTarget": {
+              "@ref": "DIV"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "Node-3",
+            "position": {
+              "x": 100,
+              "y": 100
+            },
+            "data": {
+              "label": "Node-3"
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseenter",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 176,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 734,
+            "screenY": 171,
+            "clientX": 734,
+            "clientY": 171,
+            "pageX": 734,
+            "pageY": 171,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 1,
+            "relatedTarget": {
+              "@ref": "DIV"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 116.52439024390242,
+              "y": 116.52439024390243
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "selected": true,
+            "dragging": true,
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseLeave",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseLeave",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseleave",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 208,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 774,
+            "screenY": 211,
+            "clientX": 774,
+            "clientY": 211,
+            "pageX": 774,
+            "pageY": 211,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 1,
+            "relatedTarget": {
+              "@ref": "DIV"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 116.52439024390242,
+              "y": 116.52439024390243
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "selected": true,
+            "dragging": true,
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 208,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 774.2543334960938,
+            "screenY": 211.0518035888672,
+            "clientX": 774.2543334960938,
+            "clientY": 211.0518035888672,
+            "pageX": 774.2543334960938,
+            "pageY": 211.0518035888672,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 1,
+            "relatedTarget": null,
+            "movementX": 40,
+            "movementY": 40,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0.5,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "type": "position",
+              "id": "Node-1",
+              "position": {
+                "x": 155.36585365853657,
+                "y": 155.3658536585366
+              },
+              "dragging": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeDrag",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 155.36585365853657,
+              "y": 155.3658536585366
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "selected": true,
+            "dragging": true,
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            }
+          },
+          [
+            {
+              "id": "Node-1",
+              "position": {
+                "x": 155.36585365853657,
+                "y": 155.3658536585366
+              },
+              "data": {
+                "label": "Node-1"
+              },
+              "type": "input",
+              "selected": true,
+              "dragging": true,
+              "measured": {
+                "width": 150,
+                "height": 37
+              },
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseenter",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 208,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 774,
+            "screenY": 211,
+            "clientX": 774,
+            "clientY": 211,
+            "pageX": 774,
+            "pageY": 211,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 1,
+            "relatedTarget": {
+              "@ref": "DIV"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 155.36585365853657,
+              "y": 155.3658536585366
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "selected": true,
+            "dragging": true,
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseLeave",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseLeave",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseleave",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 240,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 814,
+            "screenY": 251,
+            "clientX": 814,
+            "clientY": 251,
+            "pageX": 814,
+            "pageY": 251,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 1,
+            "relatedTarget": {
+              "@ref": "DIV"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 155.36585365853657,
+              "y": 155.3658536585366
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "selected": true,
+            "dragging": true,
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 240,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 814.2543334960938,
+            "screenY": 251.0518035888672,
+            "clientX": 814.2543334960938,
+            "clientY": 251.0518035888672,
+            "pageX": 814.2543334960938,
+            "pageY": 251.0518035888672,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 1,
+            "relatedTarget": null,
+            "movementX": 40,
+            "movementY": 40,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0.5,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "type": "position",
+              "id": "Node-1",
+              "position": {
+                "x": 194.2073170731707,
+                "y": 194.2073170731707
+              },
+              "dragging": true
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeDrag",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 194.2073170731707,
+              "y": 194.2073170731707
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "selected": true,
+            "dragging": true,
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            }
+          },
+          [
+            {
+              "id": "Node-1",
+              "position": {
+                "x": 194.2073170731707,
+                "y": 194.2073170731707
+              },
+              "data": {
+                "label": "Node-1"
+              },
+              "type": "input",
+              "selected": true,
+              "dragging": true,
+              "measured": {
+                "width": 150,
+                "height": 37
+              },
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseenter",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 240,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 814,
+            "screenY": 251,
+            "clientX": 814,
+            "clientY": 251,
+            "pageX": 814,
+            "pageY": 251,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 1,
+            "relatedTarget": {
+              "@ref": "DIV"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 194.2073170731707,
+              "y": 194.2073170731707
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "selected": true,
+            "dragging": true,
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "type": "position",
+              "id": "Node-1",
+              "position": {
+                "x": 194.2073170731707,
+                "y": 194.2073170731707
+              },
+              "dragging": false
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeDragStop",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 194.2073170731707,
+              "y": 194.2073170731707
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "selected": true,
+            "dragging": false,
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            }
+          },
+          [
+            {
+              "id": "Node-1",
+              "position": {
+                "x": 194.2073170731707,
+                "y": 194.2073170731707
+              },
+              "data": {
+                "label": "Node-1"
+              },
+              "type": "input",
+              "selected": true,
+              "dragging": false,
+              "measured": {
+                "width": 150,
+                "height": 37
+              },
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              }
+            }
+          ]
+        ]
+      }
+    ],
+    "hooks": {},
+    "api": {
+      "queries": {
+        "getNodes": [
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 194.2073170731707,
+              "y": 194.2073170731707
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "selected": true,
+            "dragging": false,
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            }
+          },
+          {
+            "id": "Node-2",
+            "position": {
+              "x": -100,
+              "y": 100
+            },
+            "data": {
+              "label": "Node-2"
+            },
+            "type": "output",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "Node-3",
+            "position": {
+              "x": 100,
+              "y": 100
+            },
+            "data": {
+              "label": "Node-3"
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "Node-4",
+            "position": {
+              "x": 0,
+              "y": 200
+            },
+            "data": {
+              "label": "Node-4"
+            },
+            "type": "output",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "drag-handle",
+            "position": {
+              "x": 200,
+              "y": 0
+            },
+            "data": {
+              "label": "Drag Handle"
+            },
+            "type": "DragHandleNode",
+            "dragHandle": ".custom-drag-handle",
+            "measured": {
+              "width": 100,
+              "height": 50
+            }
+          },
+          {
+            "id": "notConnectable",
+            "position": {
+              "x": 0,
+              "y": 300
+            },
+            "data": {
+              "label": "notConnectable"
+            },
+            "type": "output",
+            "connectable": false,
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "notDraggable",
+            "position": {
+              "x": 0,
+              "y": 400
+            },
+            "data": {
+              "label": "notDraggable"
+            },
+            "draggable": false,
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "notSelectable",
+            "position": {
+              "x": 0,
+              "y": 500
+            },
+            "data": {
+              "label": "notSelectable"
+            },
+            "selectable": false,
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "notDeletable",
+            "position": {
+              "x": 0,
+              "y": 600
+            },
+            "data": {
+              "label": "notDeletable"
+            },
+            "deletable": false,
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "hidden",
+            "position": {
+              "x": 0,
+              "y": 700
+            },
+            "data": {
+              "label": "hidden"
+            },
+            "hidden": true
+          }
+        ],
+        "getNode": {
+          "id": "Node-1",
+          "position": {
+            "x": 194.2073170731707,
+            "y": 194.2073170731707
+          },
+          "data": {
+            "label": "Node-1"
+          },
+          "type": "input",
+          "selected": true,
+          "dragging": false,
+          "measured": {
+            "width": 150,
+            "height": 37
+          },
+          "className": "playwright-test-class-123",
+          "style": {
+            "backgroundColor": "red"
+          }
+        },
+        "getInternalNode": {
+          "id": "Node-1",
+          "position": {
+            "x": 194.2073170731707,
+            "y": 194.2073170731707
+          },
+          "data": {
+            "label": "Node-1"
+          },
+          "type": "input",
+          "selected": true,
+          "dragging": false,
+          "measured": {
+            "width": 150,
+            "height": 37
+          },
+          "className": "playwright-test-class-123",
+          "style": {
+            "backgroundColor": "red"
+          },
+          "internals": {
+            "positionAbsolute": {
+              "x": 194.2073170731707,
+              "y": 194.2073170731707
+            },
+            "z": 1000,
+            "userNode": {
+              "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
+              "position": {
+                "x": 194.2073170731707,
+                "y": 194.2073170731707
+              },
+              "type": "input",
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              },
+              "selected": true,
+              "dragging": false
+            },
+            "handleBounds": {
+              "source": [
+                {
+                  "id": null,
+                  "nodeId": "Node-1",
+                  "x": 71,
+                  "y": 32,
+                  "position": "bottom",
+                  "type": "source",
+                  "width": 8,
+                  "height": 8
+                }
+              ],
+              "target": null
+            }
+          }
+        },
+        "getEdges": [
+          {
+            "id": "1-2",
+            "type": "default",
+            "source": "Node-1",
+            "target": "Node-2",
+            "label": "edge"
+          },
+          {
+            "id": "1-3",
+            "type": "default",
+            "source": "Node-1",
+            "target": "Node-3",
+            "label": "edge"
+          }
+        ],
+        "getEdge": {
+          "id": "1-2",
+          "type": "default",
+          "source": "Node-1",
+          "target": "Node-2",
+          "label": "edge"
+        },
+        "getIntersectingNodes": [
+          {
+            "id": "Node-1",
+            "position": {
+              "x": 194.2073170731707,
+              "y": 194.2073170731707
+            },
+            "data": {
+              "label": "Node-1"
+            },
+            "type": "input",
+            "selected": true,
+            "dragging": false,
+            "measured": {
+              "width": 150,
+              "height": 37
+            },
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            }
+          },
+          {
+            "id": "Node-2",
+            "position": {
+              "x": -100,
+              "y": 100
+            },
+            "data": {
+              "label": "Node-2"
+            },
+            "type": "output",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "Node-3",
+            "position": {
+              "x": 100,
+              "y": 100
+            },
+            "data": {
+              "label": "Node-3"
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "Node-4",
+            "position": {
+              "x": 0,
+              "y": 200
+            },
+            "data": {
+              "label": "Node-4"
+            },
+            "type": "output",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "drag-handle",
+            "position": {
+              "x": 200,
+              "y": 0
+            },
+            "data": {
+              "label": "Drag Handle"
+            },
+            "type": "DragHandleNode",
+            "dragHandle": ".custom-drag-handle",
+            "measured": {
+              "width": 100,
+              "height": 50
+            }
+          },
+          {
+            "id": "notConnectable",
+            "position": {
+              "x": 0,
+              "y": 300
+            },
+            "data": {
+              "label": "notConnectable"
+            },
+            "type": "output",
+            "connectable": false,
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "notDraggable",
+            "position": {
+              "x": 0,
+              "y": 400
+            },
+            "data": {
+              "label": "notDraggable"
+            },
+            "draggable": false,
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "notSelectable",
+            "position": {
+              "x": 0,
+              "y": 500
+            },
+            "data": {
+              "label": "notSelectable"
+            },
+            "selectable": false,
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "notDeletable",
+            "position": {
+              "x": 0,
+              "y": 600
+            },
+            "data": {
+              "label": "notDeletable"
+            },
+            "deletable": false,
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "hidden",
+            "position": {
+              "x": 0,
+              "y": 700
+            },
+            "data": {
+              "label": "hidden"
+            },
+            "hidden": true
+          }
+        ],
+        "isNodeIntersecting": true,
+        "getNodesBounds": {
+          "x": -100,
+          "y": 0,
+          "width": 444.2073170731707,
+          "height": 700
+        },
+        "getHandleConnections": [
+          {
+            "edgeId": "1-2",
+            "source": "Node-1",
+            "target": "Node-2",
+            "sourceHandle": null,
+            "targetHandle": null
+          },
+          {
+            "edgeId": "1-3",
+            "source": "Node-1",
+            "target": "Node-3",
+            "sourceHandle": null,
+            "targetHandle": null
+          }
+        ],
+        "getNodeConnections": [
+          {
+            "edgeId": "1-2",
+            "source": "Node-1",
+            "target": "Node-2",
+            "sourceHandle": null,
+            "targetHandle": null
+          },
+          {
+            "edgeId": "1-3",
+            "source": "Node-1",
+            "target": "Node-3",
+            "sourceHandle": null,
+            "targetHandle": null
+          }
+        ],
+        "toObject": {
+          "nodes": [
+            {
+              "id": "Node-1",
+              "position": {
+                "x": 194.2073170731707,
+                "y": 194.2073170731707
+              },
+              "data": {
+                "label": "Node-1"
+              },
+              "type": "input",
+              "selected": true,
+              "dragging": false,
+              "measured": {
+                "width": 150,
+                "height": 37
+              },
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              }
+            },
+            {
+              "id": "Node-2",
+              "position": {
+                "x": -100,
+                "y": 100
+              },
+              "data": {
+                "label": "Node-2"
+              },
+              "type": "output",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "Node-3",
+              "position": {
+                "x": 100,
+                "y": 100
+              },
+              "data": {
+                "label": "Node-3"
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "Node-4",
+              "position": {
+                "x": 0,
+                "y": 200
+              },
+              "data": {
+                "label": "Node-4"
+              },
+              "type": "output",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "drag-handle",
+              "position": {
+                "x": 200,
+                "y": 0
+              },
+              "data": {
+                "label": "Drag Handle"
+              },
+              "type": "DragHandleNode",
+              "dragHandle": ".custom-drag-handle",
+              "measured": {
+                "width": 100,
+                "height": 50
+              }
+            },
+            {
+              "id": "notConnectable",
+              "position": {
+                "x": 0,
+                "y": 300
+              },
+              "data": {
+                "label": "notConnectable"
+              },
+              "type": "output",
+              "connectable": false,
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "notDraggable",
+              "position": {
+                "x": 0,
+                "y": 400
+              },
+              "data": {
+                "label": "notDraggable"
+              },
+              "draggable": false,
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "notSelectable",
+              "position": {
+                "x": 0,
+                "y": 500
+              },
+              "data": {
+                "label": "notSelectable"
+              },
+              "selectable": false,
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "notDeletable",
+              "position": {
+                "x": 0,
+                "y": 600
+              },
+              "data": {
+                "label": "notDeletable"
+              },
+              "deletable": false,
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "hidden",
+              "position": {
+                "x": 0,
+                "y": 700
+              },
+              "data": {
+                "label": "hidden"
+              },
+              "hidden": true
+            }
+          ],
+          "edges": [
+            {
+              "id": "1-2",
+              "type": "default",
+              "source": "Node-1",
+              "target": "Node-2",
+              "label": "edge"
+            },
+            {
+              "id": "1-3",
+              "type": "default",
+              "source": "Node-1",
+              "target": "Node-3",
+              "label": "edge"
+            }
+          ],
+          "viewport": {
+            "x": 537.0172684458398,
+            "y": 32,
+            "zoom": 1.0298273155416013
+          }
+        },
+        "getZoom": 1.0298273155416013,
+        "getViewport": {
+          "x": 537.0172684458398,
+          "y": 32,
+          "zoom": 1.0298273155416013
+        },
+        "screenToFlowPosition": {
+          "x": -521.4634146341463,
+          "y": -31.073170731707314
+        },
+        "flowToScreenPosition": {
+          "x": 537.0172684458398,
+          "y": 32
+        },
+        "viewportInitialized": true
+      },
+      "calls": []
+    },
+    "props": {},
+    "console": [
+      {
+        "level": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      }
+    ],
+    "driving": [
+      {
+        "index": 0,
+        "action": "mount",
+        "target": ".react-flow",
+        "resolved": true,
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "dispatched": {
+          "route": "/tests/generic/nodes/general"
+        }
+      },
+      {
+        "index": 1,
+        "action": "pointerDown",
+        "target": ".react-flow__node",
+        "resolved": true,
+        "box": {
+          "x": 537.0172729492188,
+          "y": 32,
+          "width": 154.47412109375,
+          "height": 38.103607177734375
+        },
+        "dispatched": {
+          "x": 614.2543334960938,
+          "y": 51.05180358886719,
+          "button": "left"
+        }
+      },
+      {
+        "index": 2,
+        "action": "pointerMove",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "x": 654.2543334960938,
+          "y": 91.05180358886719
+        }
+      },
+      {
+        "index": 3,
+        "action": "pointerMove",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "x": 694.2543334960938,
+          "y": 131.0518035888672
+        }
+      },
+      {
+        "index": 4,
+        "action": "pointerMove",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "x": 734.2543334960938,
+          "y": 171.0518035888672
+        }
+      },
+      {
+        "index": 5,
+        "action": "pointerMove",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "x": 774.2543334960938,
+          "y": 211.0518035888672
+        }
+      },
+      {
+        "index": 6,
+        "action": "pointerMove",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "x": 814.2543334960938,
+          "y": 251.0518035888672
+        }
+      },
+      {
+        "index": 7,
+        "action": "pointerUp",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "x": 814.2543334960938,
+          "y": 251.0518035888672,
+          "button": "left"
+        }
+      }
+    ]
+  }
+}

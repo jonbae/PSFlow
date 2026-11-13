@@ -58,10 +58,14 @@ node id position =
   , height: Nothing
   , initialWidth: Nothing
   , initialHeight: Nothing
+  , focusable: Nothing
+  , ariaRole: Nothing
+  , domAttributes: Nothing
   , parentId: Nothing
   , zIndex: Nothing
   , extent: Nothing
   , expandParent: Nothing
+  , resizing: Nothing
   , ariaLabel: Nothing
   , origin: Nothing
   , handles: Nothing

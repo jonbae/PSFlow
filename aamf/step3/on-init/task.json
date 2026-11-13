@@ -1,0 +1,31 @@
+{
+  "id": "psflow-w08a-on-init",
+  "step": "Step 3 E timing contract; does not claim all six corpus self-inconsistencies share this cause",
+  "status": "complete",
+  "startedAt": "2026-11-10T17:15:50.121853+00:00",
+  "source": "React hooks/useOnInitHandler.ts called by GraphView",
+  "seam": "Real useOnInitHandler with real PS store/useReactFlow, a React dispatcher and fake platform timers; tests observe callback scheduling and the instance supplied",
+  "allowedOutputs": [
+    "src/React/Hook/Listeners.purs",
+    "test/Test/Main.purs",
+    "test/Test/React/Hook/OnInitTiming.purs",
+    "test/Test/React/Hook/OnInitTiming.js",
+    "parity/surface/report.md",
+    "parity/driver/dist/psflow.js",
+    "AAMF_STEP3_RESULTS.md",
+    "AAMF_PORTING_PLAN.md",
+    "aamf/step3/README.md",
+    "aamf/step3/SHA256SUMS",
+    "aamf/step3/on-init/"
+  ],
+  "acceptance": [
+    "Tight red-capable public hook proxy before inspecting implementation hypotheses",
+    "No synchronous onInit during effect; exactly one callback after 1 ms when eligible",
+    "Handler added after readiness, no callback before ready, capture original scheduled handler and instance",
+    "Match source unmount behavior without invented timer cancellation",
+    "Surface/function/boundary checks; driver onInit witness separate W12"
+  ],
+  "aamfInvoked": false,
+  "completedAt": "2026-11-10T18:04:26.065658+00:00",
+  "browserCheckpoint": "../viewport-listeners/execution.json"
+}

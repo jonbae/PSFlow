@@ -39,8 +39,11 @@ assert label cond =
   if cond then log ("ok  " <> label)
   else unsafeCrashWith ("FAIL " <> label)
 
+-- | These tests write the state and then render on the server, where React
+-- | reads the store's server snapshot, its initial state. They render the
+-- | state they wrote, so the store handed over serves that one instead.
 storeToOpaque :: Store Unit Unit -> OpaqueStore
-storeToOpaque = unsafeCoerce
+storeToOpaque store = unsafeCoerce (store { getInitialState = store.getState })
 
 -- | The background's markup under a viewport at (`x`, `y`), zoomed to
 -- | `zoom`, with the default gap of 20.

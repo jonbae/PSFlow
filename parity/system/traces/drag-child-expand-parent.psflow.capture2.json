@@ -347,17 +347,6 @@
         ]
       },
       {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 70,
-            "y": 140,
-            "zoom": 2
-          }
-        ]
-      },
-      {
         "name": "onNodesChange",
         "args": [
           [
@@ -389,6 +378,118 @@
         ]
       },
       {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 70,
+            "y": 140,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onInit",
+        "args": [
+          {
+            "getNodes": {
+              "@ref": "function"
+            },
+            "setNodes": {
+              "@ref": "function"
+            },
+            "addNodes": {
+              "@ref": "function"
+            },
+            "getNode": {
+              "@ref": "function"
+            },
+            "getInternalNode": {
+              "@ref": "function"
+            },
+            "getEdges": {
+              "@ref": "function"
+            },
+            "setEdges": {
+              "@ref": "function"
+            },
+            "addEdges": {
+              "@ref": "function"
+            },
+            "getEdge": {
+              "@ref": "function"
+            },
+            "toObject": {
+              "@ref": "function"
+            },
+            "deleteElements": {
+              "@ref": "function"
+            },
+            "getIntersectingNodes": {
+              "@ref": "function"
+            },
+            "isNodeIntersecting": {
+              "@ref": "function"
+            },
+            "updateNode": {
+              "@ref": "function"
+            },
+            "updateNodeData": {
+              "@ref": "function"
+            },
+            "updateEdge": {
+              "@ref": "function"
+            },
+            "updateEdgeData": {
+              "@ref": "function"
+            },
+            "getNodesBounds": {
+              "@ref": "function"
+            },
+            "getHandleConnections": {
+              "@ref": "function"
+            },
+            "getNodeConnections": {
+              "@ref": "function"
+            },
+            "fitView": {
+              "@ref": "function"
+            },
+            "zoomIn": {
+              "@ref": "function"
+            },
+            "zoomOut": {
+              "@ref": "function"
+            },
+            "zoomTo": {
+              "@ref": "function"
+            },
+            "getZoom": {
+              "@ref": "function"
+            },
+            "setViewport": {
+              "@ref": "function"
+            },
+            "getViewport": {
+              "@ref": "function"
+            },
+            "setCenter": {
+              "@ref": "function"
+            },
+            "fitBounds": {
+              "@ref": "function"
+            },
+            "screenToFlowPosition": {
+              "@ref": "function"
+            },
+            "flowToScreenPosition": {
+              "@ref": "function"
+            },
+            "viewportInitialized": true
+          }
+        ]
+      },
+      {
         "name": "onPaneMouseEnter",
         "args": [
           {
@@ -411,7 +512,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 143.59999990463257,
+            "timeStamp": 480,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -480,7 +581,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 143.59999990463257,
+            "timeStamp": 480,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -516,12 +617,12 @@
           },
           {
             "id": "child",
+            "data": {
+              "label": "child"
+            },
             "position": {
               "x": 40,
               "y": 40
-            },
-            "data": {
-              "label": "child"
             },
             "parentId": "parent",
             "expandParent": true,
@@ -553,7 +654,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 143.59999990463257,
+            "timeStamp": 480,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -618,7 +719,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 143.59999990463257,
+            "timeStamp": 480,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -652,12 +753,12 @@
           },
           {
             "id": "child",
+            "data": {
+              "label": "child"
+            },
             "position": {
               "x": 40,
               "y": 40
-            },
-            "data": {
-              "label": "child"
             },
             "parentId": "parent",
             "expandParent": true,
@@ -689,38 +790,38 @@
           },
           {
             "id": "child",
+            "data": {
+              "label": "child"
+            },
             "position": {
               "x": 40,
               "y": 40
             },
-            "data": {
-              "label": "child"
-            },
-            "dragging": true,
             "parentId": "parent",
             "expandParent": true,
             "measured": {
               "width": 150,
               "height": 37
-            }
+            },
+            "dragging": true
           },
           [
             {
               "id": "child",
+              "data": {
+                "label": "child"
+              },
               "position": {
                 "x": 40,
                 "y": 40
               },
-              "data": {
-                "label": "child"
-              },
-              "dragging": true,
               "parentId": "parent",
               "expandParent": true,
               "measured": {
                 "width": 150,
                 "height": 37
-              }
+              },
+              "dragging": true
             }
           ]
         ]
@@ -732,20 +833,20 @@
             "nodes": [
               {
                 "id": "child",
+                "data": {
+                  "label": "child"
+                },
                 "position": {
                   "x": 40,
                   "y": 40
                 },
-                "data": {
-                  "label": "child"
-                },
-                "selected": true,
                 "parentId": "parent",
                 "expandParent": true,
                 "measured": {
                   "width": 150,
                   "height": 37
-                }
+                },
+                "selected": true
               }
             ],
             "edges": []
@@ -773,7 +874,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 160.29999995231628,
+            "timeStamp": 544,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -842,40 +943,40 @@
           },
           {
             "id": "child",
+            "data": {
+              "label": "child"
+            },
             "position": {
               "x": 57.5,
               "y": 52.5
             },
-            "data": {
-              "label": "child"
-            },
-            "selected": true,
-            "dragging": true,
             "parentId": "parent",
             "expandParent": true,
             "measured": {
               "width": 150,
               "height": 37
-            }
+            },
+            "selected": true,
+            "dragging": true
           },
           [
             {
               "id": "child",
+              "data": {
+                "label": "child"
+              },
               "position": {
                 "x": 57.5,
                 "y": 52.5
               },
-              "data": {
-                "label": "child"
-              },
-              "selected": true,
-              "dragging": true,
               "parentId": "parent",
               "expandParent": true,
               "measured": {
                 "width": 150,
                 "height": 37
-              }
+              },
+              "selected": true,
+              "dragging": true
             }
           ]
         ]
@@ -901,7 +1002,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 175.29999995231628,
+            "timeStamp": 576,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -970,40 +1071,40 @@
           },
           {
             "id": "child",
+            "data": {
+              "label": "child"
+            },
             "position": {
               "x": 75,
               "y": 65
             },
-            "data": {
-              "label": "child"
-            },
-            "selected": true,
-            "dragging": true,
             "parentId": "parent",
             "expandParent": true,
             "measured": {
               "width": 150,
               "height": 37
-            }
+            },
+            "selected": true,
+            "dragging": true
           },
           [
             {
               "id": "child",
+              "data": {
+                "label": "child"
+              },
               "position": {
                 "x": 75,
                 "y": 65
               },
-              "data": {
-                "label": "child"
-              },
-              "selected": true,
-              "dragging": true,
               "parentId": "parent",
               "expandParent": true,
               "measured": {
                 "width": 150,
                 "height": 37
-              }
+              },
+              "selected": true,
+              "dragging": true
             }
           ]
         ]
@@ -1029,7 +1130,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 191.19999992847443,
+            "timeStamp": 608,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1098,40 +1199,40 @@
           },
           {
             "id": "child",
+            "data": {
+              "label": "child"
+            },
             "position": {
               "x": 92.5,
               "y": 77.5
             },
-            "data": {
-              "label": "child"
-            },
-            "selected": true,
-            "dragging": true,
             "parentId": "parent",
             "expandParent": true,
             "measured": {
               "width": 150,
               "height": 37
-            }
+            },
+            "selected": true,
+            "dragging": true
           },
           [
             {
               "id": "child",
+              "data": {
+                "label": "child"
+              },
               "position": {
                 "x": 92.5,
                 "y": 77.5
               },
-              "data": {
-                "label": "child"
-              },
-              "selected": true,
-              "dragging": true,
               "parentId": "parent",
               "expandParent": true,
               "measured": {
                 "width": 150,
                 "height": 37
-              }
+              },
+              "selected": true,
+              "dragging": true
             }
           ]
         ]
@@ -1157,7 +1258,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 208.19999992847443,
+            "timeStamp": 640,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1226,40 +1327,40 @@
           },
           {
             "id": "child",
+            "data": {
+              "label": "child"
+            },
             "position": {
               "x": 110,
               "y": 90
             },
-            "data": {
-              "label": "child"
-            },
-            "selected": true,
-            "dragging": true,
             "parentId": "parent",
             "expandParent": true,
             "measured": {
               "width": 150,
               "height": 37
-            }
+            },
+            "selected": true,
+            "dragging": true
           },
           [
             {
               "id": "child",
+              "data": {
+                "label": "child"
+              },
               "position": {
                 "x": 110,
                 "y": 90
               },
-              "data": {
-                "label": "child"
-              },
-              "selected": true,
-              "dragging": true,
               "parentId": "parent",
               "expandParent": true,
               "measured": {
                 "width": 150,
                 "height": 37
-              }
+              },
+              "selected": true,
+              "dragging": true
             }
           ]
         ]
@@ -1285,7 +1386,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 224.39999997615814,
+            "timeStamp": 672,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1354,40 +1455,40 @@
           },
           {
             "id": "child",
+            "data": {
+              "label": "child"
+            },
             "position": {
               "x": 127.5,
               "y": 102.5
             },
-            "data": {
-              "label": "child"
-            },
-            "selected": true,
-            "dragging": true,
             "parentId": "parent",
             "expandParent": true,
             "measured": {
               "width": 150,
               "height": 37
-            }
+            },
+            "selected": true,
+            "dragging": true
           },
           [
             {
               "id": "child",
+              "data": {
+                "label": "child"
+              },
               "position": {
                 "x": 127.5,
                 "y": 102.5
               },
-              "data": {
-                "label": "child"
-              },
-              "selected": true,
-              "dragging": true,
               "parentId": "parent",
               "expandParent": true,
               "measured": {
                 "width": 150,
                 "height": 37
-              }
+              },
+              "selected": true,
+              "dragging": true
             }
           ]
         ]
@@ -1413,7 +1514,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 242,
+            "timeStamp": 704,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1482,40 +1583,40 @@
           },
           {
             "id": "child",
+            "data": {
+              "label": "child"
+            },
             "position": {
               "x": 145,
               "y": 115
             },
-            "data": {
-              "label": "child"
-            },
-            "selected": true,
-            "dragging": true,
             "parentId": "parent",
             "expandParent": true,
             "measured": {
               "width": 150,
               "height": 37
-            }
+            },
+            "selected": true,
+            "dragging": true
           },
           [
             {
               "id": "child",
+              "data": {
+                "label": "child"
+              },
               "position": {
                 "x": 145,
                 "y": 115
               },
-              "data": {
-                "label": "child"
-              },
-              "selected": true,
-              "dragging": true,
               "parentId": "parent",
               "expandParent": true,
               "measured": {
                 "width": 150,
                 "height": 37
-              }
+              },
+              "selected": true,
+              "dragging": true
             }
           ]
         ]
@@ -1541,7 +1642,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 258.59999990463257,
+            "timeStamp": 736,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1610,40 +1711,40 @@
           },
           {
             "id": "child",
+            "data": {
+              "label": "child"
+            },
             "position": {
               "x": 162.5,
               "y": 127.5
             },
-            "data": {
-              "label": "child"
-            },
-            "selected": true,
-            "dragging": true,
             "parentId": "parent",
             "expandParent": true,
             "measured": {
               "width": 150,
               "height": 37
-            }
+            },
+            "selected": true,
+            "dragging": true
           },
           [
             {
               "id": "child",
+              "data": {
+                "label": "child"
+              },
               "position": {
                 "x": 162.5,
                 "y": 127.5
               },
-              "data": {
-                "label": "child"
-              },
-              "selected": true,
-              "dragging": true,
               "parentId": "parent",
               "expandParent": true,
               "measured": {
                 "width": 150,
                 "height": 37
-              }
+              },
+              "selected": true,
+              "dragging": true
             }
           ]
         ]
@@ -1669,7 +1770,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 272.89999997615814,
+            "timeStamp": 768,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1747,40 +1848,40 @@
           },
           {
             "id": "child",
+            "data": {
+              "label": "child"
+            },
             "position": {
               "x": 180,
               "y": 140
             },
-            "data": {
-              "label": "child"
-            },
-            "selected": true,
-            "dragging": true,
             "parentId": "parent",
             "expandParent": true,
             "measured": {
               "width": 150,
               "height": 37
-            }
+            },
+            "selected": true,
+            "dragging": true
           },
           [
             {
               "id": "child",
+              "data": {
+                "label": "child"
+              },
               "position": {
                 "x": 180,
                 "y": 140
               },
-              "data": {
-                "label": "child"
-              },
-              "selected": true,
-              "dragging": true,
               "parentId": "parent",
               "expandParent": true,
               "measured": {
                 "width": 150,
                 "height": 37
-              }
+              },
+              "selected": true,
+              "dragging": true
             }
           ]
         ]
@@ -1810,40 +1911,40 @@
           },
           {
             "id": "child",
+            "data": {
+              "label": "child"
+            },
             "position": {
               "x": 180,
               "y": 140
             },
-            "data": {
-              "label": "child"
-            },
-            "selected": true,
-            "dragging": false,
             "parentId": "parent",
             "expandParent": true,
             "measured": {
               "width": 150,
               "height": 37
-            }
+            },
+            "selected": true,
+            "dragging": false
           },
           [
             {
               "id": "child",
+              "data": {
+                "label": "child"
+              },
               "position": {
                 "x": 180,
                 "y": 140
               },
-              "data": {
-                "label": "child"
-              },
-              "selected": true,
-              "dragging": false,
               "parentId": "parent",
               "expandParent": true,
               "measured": {
                 "width": 150,
                 "height": 37
-              }
+              },
+              "selected": true,
+              "dragging": false
             }
           ]
         ]
@@ -1855,51 +1956,51 @@
         "getNodes": [
           {
             "id": "parent",
-            "position": {
-              "x": 0,
-              "y": 0
-            },
             "data": {
               "label": "parent"
             },
-            "width": 330,
-            "height": 220,
-            "measured": {
-              "width": 330,
-              "height": 220
+            "position": {
+              "x": 0,
+              "y": 0
             },
             "style": {
               "width": 320,
               "height": 220,
               "backgroundColor": "rgba(80, 120, 200, 0.12)"
-            }
+            },
+            "measured": {
+              "width": 330,
+              "height": 220
+            },
+            "width": 330,
+            "height": 220
           },
           {
             "id": "child",
+            "data": {
+              "label": "child"
+            },
             "position": {
               "x": 180,
               "y": 140
             },
-            "data": {
-              "label": "child"
-            },
-            "selected": true,
-            "dragging": false,
             "parentId": "parent",
             "expandParent": true,
             "measured": {
               "width": 150,
               "height": 37
-            }
+            },
+            "selected": true,
+            "dragging": false
           },
           {
             "id": "outside",
+            "data": {
+              "label": "outside"
+            },
             "position": {
               "x": 420,
               "y": 0
-            },
-            "data": {
-              "label": "outside"
             },
             "measured": {
               "width": 150,
@@ -1909,51 +2010,72 @@
         ],
         "getNode": {
           "id": "parent",
-          "position": {
-            "x": 0,
-            "y": 0
-          },
           "data": {
             "label": "parent"
           },
-          "width": 330,
-          "height": 220,
-          "measured": {
-            "width": 330,
-            "height": 220
+          "position": {
+            "x": 0,
+            "y": 0
           },
           "style": {
             "width": 320,
             "height": 220,
             "backgroundColor": "rgba(80, 120, 200, 0.12)"
-          }
+          },
+          "measured": {
+            "width": 330,
+            "height": 220
+          },
+          "width": 330,
+          "height": 220
         },
         "getInternalNode": {
           "id": "parent",
-          "position": {
-            "x": 0,
-            "y": 0
-          },
           "data": {
             "label": "parent"
           },
-          "width": 330,
-          "height": 220,
-          "measured": {
-            "width": 330,
-            "height": 220
+          "position": {
+            "x": 0,
+            "y": 0
           },
           "style": {
             "width": 320,
             "height": 220,
             "backgroundColor": "rgba(80, 120, 200, 0.12)"
           },
+          "measured": {
+            "width": 330,
+            "height": 220
+          },
+          "width": 330,
+          "height": 220,
           "internals": {
             "positionAbsolute": {
               "x": 0,
               "y": 0
             },
             "z": 0,
+            "userNode": {
+              "id": "parent",
+              "data": {
+                "label": "parent"
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "style": {
+                "width": 320,
+                "height": 220,
+                "backgroundColor": "rgba(80, 120, 200, 0.12)"
+              },
+              "measured": {
+                "width": 330,
+                "height": 220
+              },
+              "width": 330,
+              "height": 220
+            },
             "handleBounds": {
               "source": [
                 {
@@ -1997,51 +2119,51 @@
         "getIntersectingNodes": [
           {
             "id": "parent",
-            "position": {
-              "x": 0,
-              "y": 0
-            },
             "data": {
               "label": "parent"
             },
-            "width": 330,
-            "height": 220,
-            "measured": {
-              "width": 330,
-              "height": 220
+            "position": {
+              "x": 0,
+              "y": 0
             },
             "style": {
               "width": 320,
               "height": 220,
               "backgroundColor": "rgba(80, 120, 200, 0.12)"
-            }
+            },
+            "measured": {
+              "width": 330,
+              "height": 220
+            },
+            "width": 330,
+            "height": 220
           },
           {
             "id": "child",
+            "data": {
+              "label": "child"
+            },
             "position": {
               "x": 180,
               "y": 140
             },
-            "data": {
-              "label": "child"
-            },
-            "selected": true,
-            "dragging": false,
             "parentId": "parent",
             "expandParent": true,
             "measured": {
               "width": 150,
               "height": 37
-            }
+            },
+            "selected": true,
+            "dragging": false
           },
           {
             "id": "outside",
+            "data": {
+              "label": "outside"
+            },
             "position": {
               "x": 420,
               "y": 0
-            },
-            "data": {
-              "label": "outside"
             },
             "measured": {
               "width": 150,
@@ -2062,51 +2184,51 @@
           "nodes": [
             {
               "id": "parent",
-              "position": {
-                "x": 0,
-                "y": 0
-              },
               "data": {
                 "label": "parent"
               },
-              "width": 330,
-              "height": 220,
-              "measured": {
-                "width": 330,
-                "height": 220
+              "position": {
+                "x": 0,
+                "y": 0
               },
               "style": {
                 "width": 320,
                 "height": 220,
                 "backgroundColor": "rgba(80, 120, 200, 0.12)"
-              }
+              },
+              "measured": {
+                "width": 330,
+                "height": 220
+              },
+              "width": 330,
+              "height": 220
             },
             {
               "id": "child",
+              "data": {
+                "label": "child"
+              },
               "position": {
                 "x": 180,
                 "y": 140
               },
-              "data": {
-                "label": "child"
-              },
-              "selected": true,
-              "dragging": false,
               "parentId": "parent",
               "expandParent": true,
               "measured": {
                 "width": 150,
                 "height": 37
-              }
+              },
+              "selected": true,
+              "dragging": false
             },
             {
               "id": "outside",
+              "data": {
+                "label": "outside"
+              },
               "position": {
                 "x": 420,
                 "y": 0
-              },
-              "data": {
-                "label": "outside"
               },
               "measured": {
                 "width": 150,

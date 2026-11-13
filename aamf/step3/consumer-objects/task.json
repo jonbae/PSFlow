@@ -1,0 +1,53 @@
+{
+  "id": "psflow-w03-consumer-objects",
+  "status": "complete",
+  "startedAt": "2026-11-10T16:42:04.250260+00:00",
+  "source": [
+    "React utils/changes.ts::applyChanges/applyChange",
+    "React utils/edges.ts::addEdge",
+    "system utils/edges/general.ts::addEdge"
+  ],
+  "seams": [
+    "Direct index.js calls against rebuilt vendored React oracle",
+    "Test.Boundary.ConsumerObjects local PureScript proxy through Boundary.Utils"
+  ],
+  "scopeReason": "Retain React.Store.Changes for typed internal callers. Its closed records cannot express raw consumer key presence, native shallow copies, or raw change values. Port the same grouping and mutation branches at Boundary.Utils in PureScript; JavaScript provides native Map, property, array and object primitives only. No core reducer changes.",
+  "consumerPolicy": "Original untouched references; own enumerable string/symbol copies for touched/add/replace objects; no synthetic provenance. W04 retains actual originals separately.",
+  "allowedOutputs": [
+    "src/Boundary/Utils.purs",
+    "src/Boundary/Utils.js",
+    "test/Test/Main.purs",
+    "parity/surface/allowlist.json",
+    "test/Test/Boundary/ConsumerObjects.purs",
+    "test/Test/Boundary/ConsumerObjects.js",
+    "parity/boundary/consumer-objects.test.mjs",
+    "parity/surface/report.md",
+    "parity/driver/dist/psflow.js",
+    "AAMF_PORTING_PLAN.md",
+    "AAMF_STEP3_RESULTS.md",
+    "aamf/step3/README.md",
+    "aamf/step3/SHA256SUMS",
+    "aamf/step3/consumer-objects/",
+    "parity/boundary/mount.mjs (only unknown-change assertion: replace PS-only refusal with vendored-oracle shallow-copy contract)"
+  ],
+  "readOnly": [
+    "src/React/Store/Changes.purs",
+    "src/Boundary/Elements.purs",
+    "vendored xyflow",
+    "parity/system traces, apparatus and comparison rules",
+    "prior evidence"
+  ],
+  "acceptance": [
+    "Red then green local public helper regression",
+    "Untouched identity; changed copies; add/replace/remove ordering; custom, symbol and explicit undefined keys",
+    "Position/dimension/select value and key semantics, addEdge original inputs, duplicate/invalid arrays and option/error order",
+    "Remove exactly three issue-150 return-value exceptions; surface, function and boundary checks"
+  ],
+  "aamfInvoked": false,
+  "openPRs": {
+    "194": "c208d600246258508c17319974e965d1a7569e3d",
+    "195": "aa11373670d52f5bbb61b9c44dda58be64fe9b6d"
+  },
+  "scopeExpansion": "The existing boundary mount check required unknown changes to throw; vendored applyChanges instead shallow-copies the touched object. Direct oracle regression proves this. Preserve source behavior and update that exact assertion; no comparator or tolerance changes.",
+  "completedAt": "2026-11-10T17:03:41.970261+00:00"
+}

@@ -1,0 +1,15 @@
+$ python3 aamf/step3/numeric-semantics/audit.py
+{
+  "verifiedAt": "2026-11-11T16:00:08.876193+00:00",
+  "changedExistingInputs": 9,
+  "newOwnedInputs": 88,
+  "generatedBrowserOutputs": 0,
+  "unexpectedChanges": 0,
+  "unexpectedNewInputs": 0,
+  "frozenRuntimeChanges": 0,
+  "certifiedVendoredFiles": 171,
+  "vendoredChanges": 0,
+  "priorCanonicalFilesVerified": 430,
+  "priorCanonicalChanges": 0,
+  "priorEvidenceChanges": 0
+}

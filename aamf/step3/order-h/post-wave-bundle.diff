@@ -1,0 +1,20 @@
+# The wave's bundle (a71e63915b3085f80a1871fbbe5b803015dfeca1fa94abba7ec0666999372c28), rebuilt from
+# the sources before four comment and import-order edits, against the final bundle
+# (50c45df33cae553075c2a75d158980921c8977cbbf8952c261262a0b626d6408). Only line numbers in
+# Boundary.Flow's pattern-match messages differ.
+67167c67167
+<     throw new Error("Failed pattern match at Boundary.Flow (line 540, column 18 - line 546, column 17): " + [v3.constructor.name]);
+---
+>     throw new Error("Failed pattern match at Boundary.Flow (line 545, column 18 - line 551, column 17): " + [v3.constructor.name]);
+67190c67190
+<       throw new Error("Failed pattern match at Boundary.Flow (line 530, column 7 - line 532, column 25): " + [v2.constructor.name]);
+---
+>       throw new Error("Failed pattern match at Boundary.Flow (line 535, column 7 - line 537, column 25): " + [v2.constructor.name]);
+67197c67197
+<     throw new Error("Failed pattern match at Boundary.Flow (line 528, column 14 - line 538, column 17): " + [v1.constructor.name]);
+---
+>     throw new Error("Failed pattern match at Boundary.Flow (line 533, column 14 - line 543, column 17): " + [v1.constructor.name]);
+67200c67200
+<   throw new Error("Failed pattern match at Boundary.Flow (line 525, column 19 - line 538, column 17): " + [v.constructor.name]);
+---
+>   throw new Error("Failed pattern match at Boundary.Flow (line 530, column 19 - line 543, column 17): " + [v.constructor.name]);

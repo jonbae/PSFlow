@@ -89,7 +89,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(15.53076171875 63)",
+                                      "transform": "translate(15.53076171875 62.75)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -100,7 +100,7 @@
                                           "x": "-2",
                                           "y": "-4",
                                           "width": "22.9384765625",
-                                          "height": "19",
+                                          "height": "19.5",
                                           "class": "react-flow__edge-textbg",
                                           "rx": "2",
                                           "ry": "2"
@@ -111,7 +111,7 @@
                                         "tag": "text",
                                         "attrs": {
                                           "class": "react-flow__edge-text",
-                                          "y": "5.5",
+                                          "y": "5.75",
                                           "dy": "0.3em"
                                         },
                                         "text": "edge",
@@ -189,7 +189,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(115.53076171875 63)",
+                                      "transform": "translate(115.53076171875 62.75)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -200,7 +200,7 @@
                                           "x": "-2",
                                           "y": "-4",
                                           "width": "22.9384765625",
-                                          "height": "19",
+                                          "height": "19.5",
                                           "class": "react-flow__edge-textbg",
                                           "rx": "2",
                                           "ry": "2"
@@ -211,7 +211,7 @@
                                         "tag": "text",
                                         "attrs": {
                                           "class": "react-flow__edge-text",
-                                          "y": "5.5",
+                                          "y": "5.75",
                                           "dy": "0.3em"
                                         },
                                         "text": "edge",
@@ -451,12 +451,12 @@
             "nodes": [
               {
                 "id": "Node-1",
+                "data": {
+                  "label": "Node-1"
+                },
                 "position": {
                   "x": 0,
                   "y": 0
-                },
-                "data": {
-                  "label": "Node-1"
                 },
                 "type": "input",
                 "selected": true
@@ -468,8 +468,8 @@
                 "type": "default",
                 "source": "Node-1",
                 "target": "Node-2",
-                "selected": true,
-                "label": "edge"
+                "label": "edge",
+                "selected": true
               }
             ]
           }
@@ -498,17 +498,6 @@
       },
       {
         "name": "onMove",
-        "args": [
-          null,
-          {
-            "x": 490,
-            "y": 123,
-            "zoom": 2
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
         "args": [
           null,
           {
@@ -558,6 +547,118 @@
         ]
       },
       {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 490,
+            "y": 123,
+            "zoom": 2
+          }
+        ]
+      },
+      {
+        "name": "onInit",
+        "args": [
+          {
+            "getNodes": {
+              "@ref": "function"
+            },
+            "setNodes": {
+              "@ref": "function"
+            },
+            "addNodes": {
+              "@ref": "function"
+            },
+            "getNode": {
+              "@ref": "function"
+            },
+            "getInternalNode": {
+              "@ref": "function"
+            },
+            "getEdges": {
+              "@ref": "function"
+            },
+            "setEdges": {
+              "@ref": "function"
+            },
+            "addEdges": {
+              "@ref": "function"
+            },
+            "getEdge": {
+              "@ref": "function"
+            },
+            "toObject": {
+              "@ref": "function"
+            },
+            "deleteElements": {
+              "@ref": "function"
+            },
+            "getIntersectingNodes": {
+              "@ref": "function"
+            },
+            "isNodeIntersecting": {
+              "@ref": "function"
+            },
+            "updateNode": {
+              "@ref": "function"
+            },
+            "updateNodeData": {
+              "@ref": "function"
+            },
+            "updateEdge": {
+              "@ref": "function"
+            },
+            "updateEdgeData": {
+              "@ref": "function"
+            },
+            "getNodesBounds": {
+              "@ref": "function"
+            },
+            "getHandleConnections": {
+              "@ref": "function"
+            },
+            "getNodeConnections": {
+              "@ref": "function"
+            },
+            "fitView": {
+              "@ref": "function"
+            },
+            "zoomIn": {
+              "@ref": "function"
+            },
+            "zoomOut": {
+              "@ref": "function"
+            },
+            "zoomTo": {
+              "@ref": "function"
+            },
+            "getZoom": {
+              "@ref": "function"
+            },
+            "setViewport": {
+              "@ref": "function"
+            },
+            "getViewport": {
+              "@ref": "function"
+            },
+            "setCenter": {
+              "@ref": "function"
+            },
+            "fitBounds": {
+              "@ref": "function"
+            },
+            "screenToFlowPosition": {
+              "@ref": "function"
+            },
+            "flowToScreenPosition": {
+              "@ref": "function"
+            },
+            "viewportInitialized": true
+          }
+        ]
+      },
+      {
         "name": "onPaneMouseEnter",
         "args": [
           {
@@ -580,7 +681,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 262.60000002384186,
+            "timeStamp": 54,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -647,7 +748,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 262.60000002384186,
+            "timeStamp": 54,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -706,20 +807,6 @@
         ]
       },
       {
-        "name": "onMoveEnd",
-        "args": [
-          {
-            "@class": "MouseEvent",
-            "isTrusted": true
-          },
-          {
-            "x": 490,
-            "y": 123,
-            "zoom": 2
-          }
-        ]
-      },
-      {
         "name": "onPaneClick",
         "args": [
           {
@@ -740,7 +827,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 270.8000000715256,
+            "timeStamp": 112,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -773,6 +860,20 @@
             }
           }
         ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "x": 490,
+            "y": 123,
+            "zoom": 2
+          }
+        ]
       }
     ],
     "hooks": {},
@@ -781,12 +882,12 @@
         "getNodes": [
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 0,
               "y": 0
-            },
-            "data": {
-              "label": "Node-1"
             },
             "type": "input",
             "selected": true,
@@ -797,12 +898,12 @@
           },
           {
             "id": "Node-2",
+            "data": {
+              "label": "Node-2"
+            },
             "position": {
               "x": -100,
               "y": 100
-            },
-            "data": {
-              "label": "Node-2"
             },
             "type": "output",
             "measured": {
@@ -812,12 +913,12 @@
           },
           {
             "id": "Node-3",
+            "data": {
+              "label": "Node-3"
+            },
             "position": {
               "x": 100,
               "y": 100
-            },
-            "data": {
-              "label": "Node-3"
             },
             "measured": {
               "width": 150,
@@ -826,12 +927,12 @@
           },
           {
             "id": "Node-4",
+            "data": {
+              "label": "Node-4"
+            },
             "position": {
               "x": 0,
               "y": 200
-            },
-            "data": {
-              "label": "Node-4"
             },
             "type": "output",
             "measured": {
@@ -842,12 +943,12 @@
         ],
         "getNode": {
           "id": "Node-1",
+          "data": {
+            "label": "Node-1"
+          },
           "position": {
             "x": 0,
             "y": 0
-          },
-          "data": {
-            "label": "Node-1"
           },
           "type": "input",
           "selected": true,
@@ -858,12 +959,12 @@
         },
         "getInternalNode": {
           "id": "Node-1",
+          "data": {
+            "label": "Node-1"
+          },
           "position": {
             "x": 0,
             "y": 0
-          },
-          "data": {
-            "label": "Node-1"
           },
           "type": "input",
           "selected": true,
@@ -877,6 +978,22 @@
               "y": 0
             },
             "z": 1000,
+            "userNode": {
+              "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "type": "input",
+              "selected": true,
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
             "handleBounds": {
               "source": [
                 {
@@ -890,7 +1007,7 @@
                   "height": 8
                 }
               ],
-              "target": []
+              "target": null
             }
           }
         },
@@ -900,8 +1017,8 @@
             "type": "default",
             "source": "Node-1",
             "target": "Node-2",
-            "selected": true,
-            "label": "edge"
+            "label": "edge",
+            "selected": true
           },
           {
             "id": "1-3",
@@ -916,18 +1033,18 @@
           "type": "default",
           "source": "Node-1",
           "target": "Node-2",
-          "selected": true,
-          "label": "edge"
+          "label": "edge",
+          "selected": true
         },
         "getIntersectingNodes": [
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 0,
               "y": 0
-            },
-            "data": {
-              "label": "Node-1"
             },
             "type": "input",
             "selected": true,
@@ -938,12 +1055,12 @@
           },
           {
             "id": "Node-2",
+            "data": {
+              "label": "Node-2"
+            },
             "position": {
               "x": -100,
               "y": 100
-            },
-            "data": {
-              "label": "Node-2"
             },
             "type": "output",
             "measured": {
@@ -953,12 +1070,12 @@
           },
           {
             "id": "Node-3",
+            "data": {
+              "label": "Node-3"
+            },
             "position": {
               "x": 100,
               "y": 100
-            },
-            "data": {
-              "label": "Node-3"
             },
             "measured": {
               "width": 150,
@@ -967,12 +1084,12 @@
           },
           {
             "id": "Node-4",
+            "data": {
+              "label": "Node-4"
+            },
             "position": {
               "x": 0,
               "y": 200
-            },
-            "data": {
-              "label": "Node-4"
             },
             "type": "output",
             "measured": {
@@ -1024,12 +1141,12 @@
           "nodes": [
             {
               "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
               "position": {
                 "x": 0,
                 "y": 0
-              },
-              "data": {
-                "label": "Node-1"
               },
               "type": "input",
               "selected": true,
@@ -1040,12 +1157,12 @@
             },
             {
               "id": "Node-2",
+              "data": {
+                "label": "Node-2"
+              },
               "position": {
                 "x": -100,
                 "y": 100
-              },
-              "data": {
-                "label": "Node-2"
               },
               "type": "output",
               "measured": {
@@ -1055,12 +1172,12 @@
             },
             {
               "id": "Node-3",
+              "data": {
+                "label": "Node-3"
+              },
               "position": {
                 "x": 100,
                 "y": 100
-              },
-              "data": {
-                "label": "Node-3"
               },
               "measured": {
                 "width": 150,
@@ -1069,12 +1186,12 @@
             },
             {
               "id": "Node-4",
+              "data": {
+                "label": "Node-4"
+              },
               "position": {
                 "x": 0,
                 "y": 200
-              },
-              "data": {
-                "label": "Node-4"
               },
               "type": "output",
               "measured": {
@@ -1089,8 +1206,8 @@
               "type": "default",
               "source": "Node-1",
               "target": "Node-2",
-              "selected": true,
-              "label": "edge"
+              "label": "edge",
+              "selected": true
             },
             {
               "id": "1-3",

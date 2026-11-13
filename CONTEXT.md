@@ -9,9 +9,16 @@ across the parity effort, where several ordinary words carry precise meanings.
 ### Surfaces and gating
 
 **JS surface**:
-The public API as reached through `index.js` — the door `package.json` `main`
-points at, and the one the audience this repo exists for comes through.
+The public API as reached through `index.js` — the door the package bundles,
+and the one the audience this repo exists for comes through.
 _Avoid_: primary surface, the shim, the public API (unqualified)
+
+**Package**:
+What `npm pack` publishes from `dist/`: `index.js` bundled with the compiled
+PureScript it reaches, upstream's declarations with ps-flow's gaps written in,
+and upstream's stylesheets. `npm run parity:package` holds it to the JS surface;
+`distribution/README.md` says how it is built.
+_Avoid_: the bundle (the driver has two), the build
 
 **PureScript surface**:
 The public API as reached through the `React` module — the door PureScript
@@ -66,12 +73,11 @@ A prop that resolves on the JS surface but whose converter has not landed. It
 **throws at mount**, naming the stage that will land it, because a prop that was
 silently ignored would be indistinguishable from a prop the consumer never set.
 **There are none**: boundary stage 4 crossed the last two, and the entry kinds
-that constructed them went with their tables (`Boundary.Refusal`). The term
-stays because the failure it names does not, and `parity/boundary`'s mount check
-now asserts the residue instead — no prop of any converter is wired to
-`Nothing`. What still refuses is `defaultEdgeOptions`' thirteen dropped members,
-which were never deferred props: no stage retires them, because ps-flow's record
-does not model them at all.
+that constructed them went with their tables. The term stays because the failure
+it names does not, and `parity/boundary`'s mount check now asserts the residue
+instead — no prop of any converter is wired to `Nothing`. The last refusal
+table, `defaultEdgeOptions`' thirteen unmodelled members, went in Step 3 G when
+`Edge` and `DefaultEdgeOptions` gained them, and the refusal module went with it.
 _Avoid_: unsupported prop, unimplemented prop, TODO prop
 
 ### The gates
@@ -295,7 +301,7 @@ findings without anyone noticing.
 | sense | is | who reads it |
 |---|---|---|
 | vendored source | the `xyflow/` checkout | all three parity gates |
-| published build | `node_modules/@xyflow/*` | nothing — a version pin the repo must not import |
+| published build | `node_modules/@xyflow/*` | no parity gate. The boundary tests' upstream side, the driver page's stylesheets, and the package's stylesheets and declaration cross-check |
 | running behaviour | the vendored source, mounted and driven | system parity |
 | asserted intent | `xyflow/examples/react/src/generic-tests/` | the conformance test suite |
 

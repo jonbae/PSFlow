@@ -1,0 +1,328 @@
+[
+  {
+    "name": "red-port",
+    "command": [
+      "node",
+      "--test",
+      "parity/system/harness/port.test.mjs"
+    ],
+    "startedAt": "2026-11-11T04:00:58.041Z",
+    "finishedAt": "2026-11-11T04:00:58.385Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/keyboard-driving/red-port.log"
+  },
+  {
+    "name": "red-native-keyboard",
+    "command": [
+      "npx",
+      "playwright",
+      "test",
+      "--config",
+      "parity/system/harness/playwright.config.mjs",
+      "--grep",
+      "keyboard actions finish"
+    ],
+    "startedAt": "2026-11-11T04:01:08.747Z",
+    "finishedAt": "2026-11-11T04:01:15.926Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/keyboard-driving/red-native-keyboard.log"
+  },
+  {
+    "name": "green-port",
+    "command": [
+      "node",
+      "--test",
+      "parity/system/harness/port.test.mjs"
+    ],
+    "startedAt": "2026-11-11T04:01:48.744Z",
+    "finishedAt": "2026-11-11T04:01:49.292Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/keyboard-driving/green-port.log"
+  },
+  {
+    "name": "compiler-version",
+    "command": [
+      "npm",
+      "exec",
+      "--yes",
+      "--package=purescript@0.15.16",
+      "--",
+      "purs",
+      "--version"
+    ],
+    "startedAt": "2026-11-11T04:01:48.761Z",
+    "finishedAt": "2026-11-11T04:01:50.580Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/keyboard-driving/compiler-version.log"
+  },
+  {
+    "name": "green-native-keyboard",
+    "command": [
+      "npx",
+      "playwright",
+      "test",
+      "--config",
+      "parity/system/harness/playwright.config.mjs",
+      "--grep",
+      "keyboard actions finish",
+      "--repeat-each",
+      "5"
+    ],
+    "startedAt": "2026-11-11T04:01:48.749Z",
+    "finishedAt": "2026-11-11T04:02:11.130Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/keyboard-driving/green-native-keyboard.log"
+  },
+  {
+    "name": "build",
+    "command": [
+      "npm",
+      "exec",
+      "--yes",
+      "--package=purescript@0.15.16",
+      "--",
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-11T04:02:22.163Z",
+    "finishedAt": "2026-11-11T04:02:33.565Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/keyboard-driving/build.log"
+  },
+  {
+    "name": "apparatus",
+    "command": [
+      "npm",
+      "run",
+      "test:harness"
+    ],
+    "startedAt": "2026-11-11T04:02:22.162Z",
+    "finishedAt": "2026-11-11T04:02:36.987Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/keyboard-driving/apparatus.log"
+  },
+  {
+    "name": "policies",
+    "command": [
+      "node",
+      "--test",
+      "parity/system/trace-format.test.mjs",
+      "parity/system/compare/**/*.test.mjs",
+      "parity/system/coverage/**/*.test.mjs"
+    ],
+    "startedAt": "2026-11-11T04:02:53.199Z",
+    "finishedAt": "2026-11-11T04:02:56.696Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/keyboard-driving/policies.log"
+  },
+  {
+    "name": "surface",
+    "command": [
+      "npm",
+      "run",
+      "parity:surface"
+    ],
+    "startedAt": "2026-11-11T04:02:53.199Z",
+    "finishedAt": "2026-11-11T04:03:03.973Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/keyboard-driving/surface.log"
+  },
+  {
+    "name": "fork",
+    "command": [
+      "npm",
+      "run",
+      "parity:fork"
+    ],
+    "startedAt": "2026-11-11T04:03:50.217Z",
+    "finishedAt": "2026-11-11T04:03:53.334Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/keyboard-driving/fork.log"
+  },
+  {
+    "name": "boundary",
+    "command": [
+      "npm",
+      "run",
+      "parity:boundary"
+    ],
+    "startedAt": "2026-11-11T04:03:50.204Z",
+    "finishedAt": "2026-11-11T04:03:57.566Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/keyboard-driving/boundary.log"
+  },
+  {
+    "name": "bundles",
+    "command": [
+      "node",
+      "parity/driver/build.mjs"
+    ],
+    "startedAt": "2026-11-11T04:03:51.747Z",
+    "finishedAt": "2026-11-11T04:04:01.792Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "../../../../../../../Users/jonathanbae/repos/PSFlow/aamf/step3/keyboard-driving/bundles.log"
+  },
+  {
+    "name": "functions",
+    "command": [
+      "npm",
+      "exec",
+      "--yes",
+      "--package=purescript@0.15.16",
+      "--",
+      "spago",
+      "test"
+    ],
+    "startedAt": "2026-11-11T04:03:50.200Z",
+    "finishedAt": "2026-11-11T04:04:07.261Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/keyboard-driving/functions.log"
+  },
+  {
+    "name": "before-captures",
+    "command": [
+      "node",
+      "aamf/step3/keyboard-driving/capture.mjs",
+      "before",
+      "5",
+      "arrow-key-selected-node",
+      "resize-node-after-active-limit-change"
+    ],
+    "startedAt": "2026-11-11T04:04:12.313Z",
+    "finishedAt": "2026-11-11T04:05:27.125Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/keyboard-driving/before-captures.log"
+  },
+  {
+    "name": "upstream-bundle",
+    "command": [
+      "node",
+      "parity/driver/build.mjs",
+      "--side",
+      "upstream"
+    ],
+    "startedAt": "2026-11-11T04:05:27.650Z",
+    "finishedAt": "2026-11-11T04:05:31.111Z",
+    "exitCode": 2,
+    "signal": null,
+    "log": "../../../../../../../Users/jonathanbae/repos/PSFlow/aamf/step3/keyboard-driving/upstream-bundle.log"
+  },
+  {
+    "name": "before-captures-verified",
+    "command": [
+      "node",
+      "aamf/step3/keyboard-driving/capture.mjs",
+      "before",
+      "5",
+      "arrow-key-selected-node",
+      "resize-node-after-active-limit-change"
+    ],
+    "startedAt": "2026-11-11T04:05:55.511Z",
+    "finishedAt": "2026-11-11T04:06:17.705Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/keyboard-driving/before-captures-verified.log"
+  },
+  {
+    "name": "upstream-bundle-certified",
+    "command": [
+      "/Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node",
+      "parity/driver/build.mjs",
+      "--side",
+      "upstream"
+    ],
+    "startedAt": "2026-11-11T04:06:19.431Z",
+    "finishedAt": "2026-11-11T04:06:23.828Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/keyboard-driving/upstream-bundle-certified.log"
+  },
+  {
+    "name": "mirror-upstream-certified",
+    "command": [
+      "/Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node",
+      "parity/driver/build.mjs",
+      "--side",
+      "upstream"
+    ],
+    "startedAt": "2026-11-11T04:06:26.892Z",
+    "finishedAt": "2026-11-11T04:06:30.869Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "../../../../../../../Users/jonathanbae/repos/PSFlow/aamf/step3/keyboard-driving/mirror-upstream-certified.log"
+  },
+  {
+    "name": "before-captures-certified",
+    "command": [
+      "node",
+      "aamf/step3/keyboard-driving/capture.mjs",
+      "before",
+      "5",
+      "arrow-key-selected-node",
+      "resize-node-after-active-limit-change"
+    ],
+    "startedAt": "2026-11-11T04:06:59.217Z",
+    "finishedAt": "2026-11-11T04:07:30.478Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/keyboard-driving/before-captures-certified.log"
+  },
+  {
+    "name": "candidate-captures",
+    "command": [
+      "node",
+      "aamf/step3/keyboard-driving/capture.mjs",
+      "candidate",
+      "5",
+      "arrow-key-selected-node",
+      "resize-node-after-active-limit-change"
+    ],
+    "startedAt": "2026-11-11T04:09:08.336Z",
+    "finishedAt": "2026-11-11T04:09:54.664Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/keyboard-driving/candidate-captures.log"
+  },
+  {
+    "name": "independent-repeat",
+    "command": [
+      "node",
+      "aamf/step3/keyboard-driving/capture.mjs",
+      "repeat",
+      "5",
+      "arrow-key-selected-node",
+      "resize-node-after-active-limit-change"
+    ],
+    "startedAt": "2026-11-11T04:10:45.784Z",
+    "finishedAt": "2026-11-11T04:11:40.348Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/keyboard-driving/independent-repeat.log"
+  },
+  {
+    "name": "resize-witness-repeats",
+    "command": [
+      "node",
+      "aamf/step3/keyboard-driving/verify-resize-repeats.mjs"
+    ],
+    "startedAt": "2026-11-11T04:11:48.863Z",
+    "finishedAt": "2026-11-11T04:11:56.068Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/keyboard-driving/resize-witness-repeats.log"
+  }
+]

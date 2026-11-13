@@ -45,6 +45,9 @@ module Test.Oracle
   , getConnectedEdges
   , OracleBoundsNode
   , getNodesBounds
+  , getNodePositionWithOrigin
+  , nodeToRect
+  , nodeToBox
   , isNode
   , isEdge
   , OracleEdgeShape
@@ -459,6 +462,19 @@ foreign import getNodesBoundsImpl :: Array OracleBoundsNode -> Array Number -> R
 
 getNodesBounds :: Array OracleBoundsNode -> NodeOrigin -> Rect
 getNodesBounds nodes (NodeOrigin o) = getNodesBoundsImpl nodes [ o.ox, o.oy ]
+
+foreign import getNodePositionWithOriginImpl :: OracleBoundsNode -> Array Number -> XYPosition
+foreign import nodeToRectImpl :: OracleBoundsNode -> Array Number -> Rect
+foreign import nodeToBoxImpl :: OracleBoundsNode -> Array Number -> Box
+
+getNodePositionWithOrigin :: OracleBoundsNode -> NodeOrigin -> XYPosition
+getNodePositionWithOrigin node (NodeOrigin o) = getNodePositionWithOriginImpl node [ o.ox, o.oy ]
+
+nodeToRect :: OracleBoundsNode -> NodeOrigin -> Rect
+nodeToRect node (NodeOrigin o) = nodeToRectImpl node [ o.ox, o.oy ]
+
+nodeToBox :: OracleBoundsNode -> NodeOrigin -> Box
+nodeToBox node (NodeOrigin o) = nodeToBoxImpl node [ o.ox, o.oy ]
 
 -- ─── Shape guards ─────────────────────────────────────────────────────────
 

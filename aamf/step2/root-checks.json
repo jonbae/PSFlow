@@ -1,0 +1,61 @@
+[
+  {
+    "name": "surface",
+    "command": [
+      "npm",
+      "run",
+      "parity:surface"
+    ],
+    "exitCode": 0,
+    "log": "/private/tmp/psflow-step2-root-surface.log"
+  },
+  {
+    "name": "viewport",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/viewport.test.mjs"
+    ],
+    "exitCode": 0,
+    "log": "/private/tmp/psflow-step2-root-viewport.log"
+  },
+  {
+    "name": "purescript",
+    "command": [
+      "spago",
+      "test"
+    ],
+    "exitCode": 0,
+    "log": "/private/tmp/psflow-step2-root-purescript.log"
+  },
+  {
+    "name": "boundary",
+    "command": [
+      "npm",
+      "run",
+      "parity:boundary"
+    ],
+    "exitCode": 0,
+    "log": "/private/tmp/psflow-step2-root-boundary.log"
+  },
+  {
+    "name": "surface-tests",
+    "command": [
+      "npm",
+      "run",
+      "test:surface"
+    ],
+    "exitCode": 0,
+    "log": "/private/tmp/psflow-step2-root-surface-tests.log"
+  },
+  {
+    "name": "boundary-tests",
+    "command": [
+      "npm",
+      "run",
+      "test:boundary"
+    ],
+    "exitCode": 0,
+    "log": "/private/tmp/psflow-step2-root-boundary-tests.log"
+  }
+]

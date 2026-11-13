@@ -1,0 +1,350 @@
+[
+  {
+    "name": "build-handle-red",
+    "command": [
+      "npm",
+      "exec",
+      "--yes",
+      "--package=purescript@0.15.16",
+      "--",
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-11T23:47:00.338Z",
+    "finishedAt": "2026-11-11T23:47:09.057Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/shared-handle-timing/build-handle-red.log"
+  },
+  {
+    "name": "red-handles",
+    "command": [
+      "node",
+      "--input-type=module",
+      "-e",
+      "import {runHandleBoundsNullTests} from \"./output/Test.System.Utils.HandleBoundsNull/index.js\"; runHandleBoundsNullTests();"
+    ],
+    "startedAt": "2026-11-11T23:47:36.000Z",
+    "finishedAt": "2026-11-11T23:47:36.770Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/shared-handle-timing/red-handles.log"
+  },
+  {
+    "name": "build-handle-model",
+    "command": [
+      "npm",
+      "exec",
+      "--yes",
+      "--package=purescript@0.15.16",
+      "--",
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-11T23:48:19.493Z",
+    "finishedAt": "2026-11-11T23:51:51.021Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/shared-handle-timing/build-handle-model.log"
+  },
+  {
+    "name": "build-handle-fixtures",
+    "command": [
+      "npm",
+      "exec",
+      "--yes",
+      "--package=purescript@0.15.16",
+      "--",
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-11T23:52:24.793Z",
+    "finishedAt": "2026-11-11T23:52:40.098Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/shared-handle-timing/build-handle-fixtures.log"
+  },
+  {
+    "name": "green-handles",
+    "command": [
+      "node",
+      "--input-type=module",
+      "-e",
+      "import {runHandleBoundsNullTests} from \"./output/Test.System.Utils.HandleBoundsNull/index.js\"; runHandleBoundsNullTests();"
+    ],
+    "startedAt": "2026-11-11T23:52:51.626Z",
+    "finishedAt": "2026-11-11T23:52:52.438Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/shared-handle-timing/green-handles.log"
+  },
+  {
+    "name": "red-end-timing",
+    "command": [
+      "node",
+      "--input-type=module",
+      "-e",
+      "import {runEndTimingTests} from \"./output/Test.System.XYPanZoom.EndTiming/index.js\"; runEndTimingTests();"
+    ],
+    "startedAt": "2026-11-11T23:52:52.771Z",
+    "finishedAt": "2026-11-11T23:52:53.859Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/shared-handle-timing/red-end-timing.log"
+  },
+  {
+    "name": "build-end-timing",
+    "command": [
+      "npm",
+      "exec",
+      "--yes",
+      "--package=purescript@0.15.16",
+      "--",
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-11T23:54:10.141Z",
+    "finishedAt": "2026-11-11T23:54:56.794Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/shared-handle-timing/build-end-timing.log"
+  },
+  {
+    "name": "green-end-timing",
+    "command": [
+      "node",
+      "--input-type=module",
+      "-e",
+      "import {runEndTimingTests} from \"./output/Test.System.XYPanZoom.EndTiming/index.js\"; runEndTimingTests();"
+    ],
+    "startedAt": "2026-11-11T23:55:20.767Z",
+    "finishedAt": "2026-11-11T23:55:22.113Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/shared-handle-timing/green-end-timing.log"
+  },
+  {
+    "name": "surface",
+    "command": [
+      "npm",
+      "run",
+      "parity:surface"
+    ],
+    "startedAt": "2026-11-11T23:56:01.345Z",
+    "finishedAt": "2026-11-11T23:56:08.681Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/shared-handle-timing/surface.log"
+  },
+  {
+    "name": "function-and-unit",
+    "command": [
+      "npm",
+      "exec",
+      "--yes",
+      "--package=purescript@0.15.16",
+      "--",
+      "spago",
+      "test"
+    ],
+    "startedAt": "2026-11-11T23:56:08.803Z",
+    "finishedAt": "2026-11-11T23:56:25.474Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/shared-handle-timing/function-and-unit.log"
+  },
+  {
+    "name": "boundary",
+    "command": [
+      "npm",
+      "run",
+      "parity:boundary"
+    ],
+    "startedAt": "2026-11-11T23:56:25.939Z",
+    "finishedAt": "2026-11-11T23:56:32.892Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/shared-handle-timing/boundary.log"
+  },
+  {
+    "name": "boundary-tests",
+    "command": [
+      "npm",
+      "run",
+      "test:boundary"
+    ],
+    "startedAt": "2026-11-11T23:56:33.287Z",
+    "finishedAt": "2026-11-11T23:56:45.381Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/shared-handle-timing/boundary-tests.log"
+  },
+  {
+    "name": "driver",
+    "command": [
+      "node",
+      "parity/driver/build.mjs"
+    ],
+    "startedAt": "2026-11-11T23:56:45.884Z",
+    "finishedAt": "2026-11-11T23:56:52.116Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/shared-handle-timing/driver.log"
+  },
+  {
+    "name": "candidate-captures",
+    "command": [
+      "node",
+      "aamf/step3/shared-handle-timing/capture.mjs",
+      "candidate",
+      "2",
+      "mount-baseline--edges-general",
+      "mount-baseline--pane-non-defaults",
+      "mount-baseline--node-toolbar-general"
+    ],
+    "startedAt": "2026-11-11T23:57:13.456Z",
+    "finishedAt": "2026-11-11T23:57:43.770Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/shared-handle-timing/candidate-captures.log"
+  },
+  {
+    "name": "verify-candidates",
+    "command": [
+      "node",
+      "aamf/step3/shared-handle-timing/verify-candidates.mjs"
+    ],
+    "startedAt": "2026-11-11T23:58:29.993Z",
+    "finishedAt": "2026-11-11T23:58:30.834Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/shared-handle-timing/verify-candidates.log"
+  },
+  {
+    "name": "full-system-wave",
+    "command": [
+      "npm",
+      "run",
+      "parity:system"
+    ],
+    "startedAt": "2026-11-11T23:58:54.206Z",
+    "finishedAt": "2026-11-12T00:07:44.277Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/shared-handle-timing/full-system-wave.log"
+  },
+  {
+    "name": "summarize-wave",
+    "command": [
+      "node",
+      "aamf/step3/shared-handle-timing/summarize-wave.mjs"
+    ],
+    "startedAt": "2026-11-12T00:07:51.537Z",
+    "finishedAt": "2026-11-12T00:08:00.389Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/shared-handle-timing/summarize-wave.log"
+  },
+  {
+    "name": "changelog",
+    "command": [
+      "npm",
+      "run",
+      "parity:changelog"
+    ],
+    "startedAt": "2026-11-12T00:08:04.531Z",
+    "finishedAt": "2026-11-12T00:08:06.247Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/shared-handle-timing/changelog.log"
+  },
+  {
+    "name": "conformance",
+    "command": [
+      "npm",
+      "run",
+      "test:conformance"
+    ],
+    "startedAt": "2026-11-12T00:08:03.267Z",
+    "finishedAt": "2026-11-12T00:10:18.748Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/shared-handle-timing/conformance.log"
+  },
+  {
+    "name": "controlled-order-captures",
+    "command": [
+      "node",
+      "aamf/step3/shared-handle-timing/capture.mjs",
+      "controlled-order",
+      "3",
+      "pan-after-controlled-viewport-change"
+    ],
+    "startedAt": "2026-11-12T00:11:02.298Z",
+    "finishedAt": "2026-11-12T00:11:15.544Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/shared-handle-timing/controlled-order-captures.log"
+  },
+  {
+    "name": "classify-controlled",
+    "command": [
+      "node",
+      "aamf/step3/shared-handle-timing/classify-controlled.mjs"
+    ],
+    "startedAt": "2026-11-12T00:12:30.425Z",
+    "finishedAt": "2026-11-12T00:12:30.643Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/shared-handle-timing/classify-controlled.log"
+  },
+  {
+    "name": "smoke",
+    "command": [
+      "npm",
+      "run",
+      "test:smoke"
+    ],
+    "startedAt": "2026-11-12T00:12:30.847Z",
+    "finishedAt": "2026-11-12T00:12:41.915Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/shared-handle-timing/smoke.log"
+  },
+  {
+    "name": "archive-runtime",
+    "command": [
+      "python3",
+      "aamf/step3/shared-handle-timing/archive-runtime.py"
+    ],
+    "startedAt": "2026-11-12T00:13:45.791Z",
+    "finishedAt": "2026-11-12T00:13:53.400Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/shared-handle-timing/archive-runtime.log"
+  },
+  {
+    "name": "verify-runtime",
+    "command": [
+      "python3",
+      "aamf/step3/shared-handle-timing/verify-runtime.py"
+    ],
+    "startedAt": "2026-11-12T00:15:28.913Z",
+    "finishedAt": "2026-11-12T00:15:30.115Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/shared-handle-timing/verify-runtime.log"
+  },
+  {
+    "name": "source-audit",
+    "command": [
+      "python3",
+      "aamf/step3/shared-handle-timing/audit.py"
+    ],
+    "startedAt": "2026-11-12T00:15:56.607Z",
+    "finishedAt": "2026-11-12T00:15:58.080Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/shared-handle-timing/source-audit.log"
+  }
+]

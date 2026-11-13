@@ -1,0 +1,73 @@
+{
+  "localDate": "2026-11-09",
+  "recordedAt": "2026-11-10T01:41:42.445Z",
+  "baseCommit": "98a3f77ab1bb17d481c6dec4fed2e23174448e45",
+  "task": "psflow-w02-connected-edges",
+  "route": "current PSFlow workflow",
+  "aamfInvoked": false,
+  "source": {
+    "path": "packages/system/src/utils/graph.ts",
+    "sha256": "f108772ff2c3ba9664638694cf33935d7bf097f09e09fa98dbfacaf7bffbc955",
+    "language": "typescript",
+    "symbols": 65,
+    "calls": 39,
+    "types": 128,
+    "accounting": "task"
+  },
+  "readonlyAudit": {
+    "baselineInputs": 524,
+    "allowedChangedInputs": [
+      "parity/surface/allowlist.json",
+      "src/Boundary.js",
+      "src/Boundary.purs",
+      "src/Boundary/Utils.purs"
+    ],
+    "unchangedInputs": 520,
+    "unexpectedChanges": [],
+    "certifiedSourceFiles": 171,
+    "sourceMismatches": 0
+  },
+  "regression": {
+    "redExitCode": 1,
+    "greenExitCode": 0,
+    "initialCases": 1,
+    "finalCases": 7,
+    "initialTest": "The first regression test remains unchanged; additional differential cases were added after the first green run."
+  },
+  "currentBoundary": {
+    "stage": 4,
+    "crossed": 62,
+    "passthrough": 6
+  },
+  "outputs": [
+    {
+      "path": "src/Boundary/Utils.purs",
+      "sha256": "023f87c72d68ae41011fc2add7f06fd879d8d42b63dfce4b68047ce4ac4597f4"
+    },
+    {
+      "path": "src/Boundary.purs",
+      "sha256": "830b6e8896babe5ce66b7fc391205efb7f5a03d11b4fb6f024dc53929f720ab4"
+    },
+    {
+      "path": "src/Boundary.js",
+      "sha256": "f57a4bcfc518d2f2e50b952b677350c41d63633f661ce4286d2cad6fba26aff1"
+    },
+    {
+      "path": "parity/surface/allowlist.json",
+      "sha256": "0fc1bca55404b88ea5f92b4b849b86a782bd846b830f04f9dd7526c3de553c60"
+    },
+    {
+      "path": "parity/boundary/connected-edges.test.mjs",
+      "sha256": "78d4d5e5d703f355a310ec8bc6913f1d98b4bfaf91f7b339902ef1219b7af984"
+    },
+    {
+      "path": "parity/driver/dist/psflow.js",
+      "sha256": "86e34e33039f6ad56b59f6620a80ace9cc175aa0961c0a666e6bd5766f797672"
+    },
+    {
+      "path": "parity/surface/report.md",
+      "sha256": "90381115be952862fa7d77644c3e9563e19811e2b7d58be2e04920f9a7ec050d"
+    }
+  ],
+  "remaining": "Six passthrough exports; next bounded W02 task: getIncomers. Full Step 3 remains in progress."
+}

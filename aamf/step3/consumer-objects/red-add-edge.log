@@ -1,0 +1,100 @@
+$ node --test parity/boundary/consumer-objects.test.mjs
+TAP version 13
+# Subtest: addEdge copies the consumer edge/connection and retains untouched edges
+not ok 1 - addEdge copies the consumer edge/connection and retains untouched edges
+  ---
+  duration_ms: 60.036686
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/consumer-objects.test.mjs:6:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+        {
+    -     custom: {},
+          id: 'other',
+          source: 'x',
+          target: 'y'
+        },
+        {
+    -     [Symbol(consumer)]: 1,
+    -     custom: {},
+          id: 'xy-edge__a-b',
+    -     optional: undefined,
+          source: 'a',
+    -     sourceHandle: undefined,
+          target: 'b'
+        }
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0:
+      id: 'other'
+      source: 'x'
+      target: 'y'
+      custom:
+    1:
+      source: 'a'
+      target: 'b'
+      custom:
+      id: 'xy-edge__a-b'
+  actual:
+    0:
+      id: 'other'
+      source: 'x'
+      target: 'y'
+    1:
+      id: 'xy-edge__a-b'
+      source: 'a'
+      target: 'b'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/consumer-objects.test.mjs:16:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: applyNodeChanges retains untouched consumer references and keys
+ok 2 - applyNodeChanges retains untouched consumer references and keys
+  ---
+  duration_ms: 7.066468
+  type: 'test'
+  ...
+# Subtest: applyEdgeChanges retains untouched consumer references and keys
+ok 3 - applyEdgeChanges retains untouched consumer references and keys
+  ---
+  duration_ms: 1.829809
+  type: 'test'
+  ...
+# Subtest: applyNodeChanges preserves raw position, dimensions, attributes and resizing semantics
+ok 4 - applyNodeChanges preserves raw position, dimensions, attributes and resizing semantics
+  ---
+  duration_ms: 37.443671
+  type: 'test'
+  ...
+# Subtest: applyNodeChanges shallow-copies touched/add/replace items and preserves change ordering
+ok 5 - applyNodeChanges shallow-copies touched/add/replace items and preserves change ordering
+  ---
+  duration_ms: 29.548642
+  type: 'test'
+  ...
+# Subtest: applyEdgeChanges shallow-copies touched/add/replace items and preserves change ordering
+ok 6 - applyEdgeChanges shallow-copies touched/add/replace items and preserves change ordering
+  ---
+  duration_ms: 18.00433
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 5
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4559.277086

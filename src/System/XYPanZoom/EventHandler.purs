@@ -337,14 +337,11 @@ createPanZoomEndHandler p = pure \event -> do
         Ref.write viewport p.zoomPanValues.prevViewport
         mPrev <- Ref.read p.zoomPanValues.timerId
         for_ mPrev clearTimeout
-        if p.panOnScroll then do
-          -- Scroll can raise several d3 end events for one gesture. Only this
-          -- path is a debounce; a regular/programmatic transform owns its end.
-          tid <- setTimeout
-            (callOnPanZoom (Just cb) src viewport)
-            150
-          Ref.write (Just tid) p.zoomPanValues.timerId
-        else do
-          Ref.write Nothing p.zoomPanValues.timerId
-          callOnPanZoom (Just cb) src viewport
+        -- Upstream always queues the end, including programmatic transforms.
+        -- A later end cancels the pending one on both paths. Scroll extends
+        -- the delay to suppress the repeated d3 ends produced while scrolling.
+        tid <- setTimeout
+          (callOnPanZoom (Just cb) src viewport)
+          (if p.panOnScroll then 150 else 0)
+        Ref.write (Just tid) p.zoomPanValues.timerId
       Nothing -> pure unit

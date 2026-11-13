@@ -55,10 +55,11 @@
 -- | through the converters above.
 module Boundary.Flow
   ( JsAriaLabelConfig
-  , JsDefaultEdgeOptions
   , JsFlowProps
   , JsProOptions
   , JsReactFlowProviderProps
+  , ariaLabelConfigIn
+  , panOnDragIn
   , reactFlow
   , reactFlowProvider
   ) where
@@ -119,8 +120,9 @@ import Boundary.Callbacks
   , selectionDragHandlerIn
   )
 import Boundary.Elements
-  ( JsEdge
-  , edgeAriaLabelIn
+  ( JsDefaultEdgeOptions
+  , JsEdge
+  , defaultEdgeOptionsIn
   , JsNode
   , JsNodeProps
   , JsViewport
@@ -134,6 +136,7 @@ import Boundary.Elements
   , snapGridIn
   , viewportIn
   )
+import Boundary.Original (remembering, stably)
 import Boundary.Edges
   ( JsConnectionLineComponentProps
   , JsEdgeProps
@@ -144,16 +147,14 @@ import Boundary.Enums
   ( colorModeIn
   , connectionLineTypeIn
   , connectionModeIn
-  , handleTypeIn
   , panOnScrollModeIn
   , panelPositionIn
   , selectionModeIn
   , zIndexModeIn
   )
-import Boundary.Refusal (Refusal, refuseFirst)
 import Boundary.Rest (restOf)
-import Boundary.Undefined (Undefinable, fromUndefinable, isDefined, orNullable)
-import Boundary.Untagged (asArray, asBoolean, asNumber, asString, typeName)
+import Boundary.Undefined (Undefinable, fromUndefinable, orNullable)
+import Boundary.Untagged (asArray, asBoolean, asNumber, typeName)
 import Data.Array.NonEmpty (fromArray) as NEA
 import Data.Int (round) as Int
 import Data.Maybe (Maybe(..))
@@ -168,7 +169,6 @@ import React.Container.ReactFlow (reactFlow) as PS
 import React.FFI.ForwardRef (forwardNullableRef)
 import React.Provider (reactFlowProvider) as PS
 import React.Types.Component (ReactFlowProps, ReactFlowProviderProps)
-import React.Types.Edges (DefaultEdgeOptions, ReconnectHandleType(..))
 import React.Types.General (ProOptions)
 import System.Constants (AriaLabelConfigOverride)
 import System.Types.PanZoom (PanOnDrag(..))
@@ -180,47 +180,6 @@ import System.Types.PanZoom (PanOnDrag(..))
 type JsProOptions =
   { hideAttribution :: Boolean
   , account :: Undefinable String
-  }
-
--- | Upstream's `DefaultEdgeOptions` is `Edge` minus its identity fields — 23
--- | of them. `React.Types.Edges.DefaultEdgeOptions` carries ten. The other
--- | thirteen are named here anyway, and **refused**, because dropping them is
--- | the same silence the deferred props exist to prevent: a consumer writing
--- | `defaultEdgeOptions={{ type: 'smoothstep' }}` would get straight edges and
--- | no indication why.
--- |
--- | The thirteen split two ways, and the message says which:
--- |
--- |   * `type`, `markerStart`, `markerEnd`, `style`, `className` and `label`
--- |     are fields `Edge` itself has — so the value has somewhere to go, just
--- |     not through this record, and setting it per edge works today.
--- |   * the five remaining label options, `ariaRole` and `domAttributes` are fields
--- |     ps-flow does not model anywhere yet. Those are census rows.
-type JsDefaultEdgeOptions =
-  { animated :: Undefinable Boolean
-  , hidden :: Undefinable Boolean
-  , deletable :: Undefinable Boolean
-  , selectable :: Undefinable Boolean
-  , focusable :: Undefinable Boolean
-  , data :: Undefinable Foreign
-  , zIndex :: Undefinable Number
-  , ariaLabel :: Undefinable String
-  , interactionWidth :: Undefinable Number
-  , reconnectable :: Undefinable Foreign
-  -- Refused. Present so they can be seen and rejected, never read.
-  , type :: Undefinable Foreign
-  , markerStart :: Undefinable Foreign
-  , markerEnd :: Undefinable Foreign
-  , style :: Undefinable Foreign
-  , className :: Undefinable Foreign
-  , label :: Undefinable Foreign
-  , labelStyle :: Undefinable Foreign
-  , labelShowBg :: Undefinable Foreign
-  , labelBgStyle :: Undefinable Foreign
-  , labelBgPadding :: Undefinable Foreign
-  , labelBgBorderRadius :: Undefinable Foreign
-  , ariaRole :: Undefinable Foreign
-  , domAttributes :: Undefinable Foreign
   }
 
 -- | Upstream keys this record by dotted path — `'node.a11yDescription.default'`
@@ -396,7 +355,8 @@ type JsFlowProps =
 -- on the JS surface and had no converter, and it threw on the first one a
 -- consumer supplied. Stage 2 emptied 46 of its entries, stage 3 the 47th, and
 -- stage 4 the last two — so it is gone, along with the entry kind it was the
--- last user of (`Boundary.Refusal`).
+-- last user of. The refusal module itself went in Step 3 G, with its last
+-- table: `defaultEdgeOptions`' thirteen members, which now convert.
 --
 -- What replaces it is not a smaller guard but a differently-shaped check:
 -- `parity/boundary/mount.mjs` reads this function and fails if *any* prop is
@@ -411,94 +371,99 @@ type JsFlowProps =
 -- lost its `miniMapPropsIn` in the same commit and for the same reason.
 -- ────────────────────────────────────────────────────────────────────────
 
+-- | Every member that converts an object, an array or a function goes through
+-- | `stably`, so a consumer who passes the same value again gets the same
+-- | conversion back. `<StoreUpdater />` and every `memo` boundary below then
+-- | see an unchanged prop, as upstream's `!==` checks do, rather than a new
+-- | one on each render of `<ReactFlow />`.
 convertProps :: JsFlowProps -> Nullable Foreign -> ReactFlowProps Foreign Foreign
 convertProps p forwarded =
   { children: p.children
-  , nodes: map (map nodeIn) (fromUndefinable p.nodes)
-  , edges: map (map edgeIn) (fromUndefinable p.edges)
-  , defaultNodes: map (map nodeIn) (fromUndefinable p.defaultNodes)
-  , defaultEdges: map (map edgeIn) (fromUndefinable p.defaultEdges)
-  , defaultEdgeOptions: map defaultEdgeOptionsIn (fromUndefinable p.defaultEdgeOptions)
-  , onNodeClick: map nodeMouseHandlerIn (fromUndefinable p.onNodeClick)
-  , onNodeDoubleClick: map nodeMouseHandlerIn (fromUndefinable p.onNodeDoubleClick)
-  , onNodeMouseEnter: map nodeMouseHandlerIn (fromUndefinable p.onNodeMouseEnter)
-  , onNodeMouseMove: map nodeMouseHandlerIn (fromUndefinable p.onNodeMouseMove)
-  , onNodeMouseLeave: map nodeMouseHandlerIn (fromUndefinable p.onNodeMouseLeave)
-  , onNodeContextMenu: map nodeMouseHandlerIn (fromUndefinable p.onNodeContextMenu)
-  , onNodeDragStart: map onNodeDragIn (fromUndefinable p.onNodeDragStart)
-  , onNodeDrag: map onNodeDragIn (fromUndefinable p.onNodeDrag)
-  , onNodeDragStop: map onNodeDragIn (fromUndefinable p.onNodeDragStop)
-  , onEdgeClick: map edgeMouseHandlerIn (fromUndefinable p.onEdgeClick)
-  , onEdgeContextMenu: map edgeMouseHandlerIn (fromUndefinable p.onEdgeContextMenu)
-  , onEdgeMouseEnter: map edgeMouseHandlerIn (fromUndefinable p.onEdgeMouseEnter)
-  , onEdgeMouseMove: map edgeMouseHandlerIn (fromUndefinable p.onEdgeMouseMove)
-  , onEdgeMouseLeave: map edgeMouseHandlerIn (fromUndefinable p.onEdgeMouseLeave)
-  , onEdgeDoubleClick: map edgeMouseHandlerIn (fromUndefinable p.onEdgeDoubleClick)
-  , onReconnect: map onReconnectIn (fromUndefinable p.onReconnect)
-  , onReconnectStart: map onReconnectStartIn (fromUndefinable p.onReconnectStart)
-  , onReconnectEnd: map onReconnectEndIn (fromUndefinable p.onReconnectEnd)
-  , onNodesChange: map onNodesChangeIn (fromUndefinable p.onNodesChange)
-  , onEdgesChange: map onEdgesChangeIn (fromUndefinable p.onEdgesChange)
-  , onNodesDelete: map onNodesDeleteIn (fromUndefinable p.onNodesDelete)
-  , onEdgesDelete: map onEdgesDeleteIn (fromUndefinable p.onEdgesDelete)
-  , onDelete: map onDeleteIn (fromUndefinable p.onDelete)
-  , onSelectionDragStart: map selectionDragHandlerIn (fromUndefinable p.onSelectionDragStart)
-  , onSelectionDrag: map selectionDragHandlerIn (fromUndefinable p.onSelectionDrag)
-  , onSelectionDragStop: map selectionDragHandlerIn (fromUndefinable p.onSelectionDragStop)
-  , onSelectionStart: map mouseEventHandlerIn (fromUndefinable p.onSelectionStart)
-  , onSelectionEnd: map mouseEventHandlerIn (fromUndefinable p.onSelectionEnd)
-  , onSelectionContextMenu: map selectionDragHandlerIn (fromUndefinable p.onSelectionContextMenu)
-  , onSelectionChange: map onSelectionChangeIn (fromUndefinable p.onSelectionChange)
-  , onConnect: map onConnectIn (fromUndefinable p.onConnect)
-  , onConnectStart: map onConnectStartIn (fromUndefinable p.onConnectStart)
-  , onConnectEnd: map onConnectEndIn (fromUndefinable p.onConnectEnd)
-  , onClickConnectStart: map onConnectStartIn (fromUndefinable p.onClickConnectStart)
-  , onClickConnectEnd: map onConnectEndIn (fromUndefinable p.onClickConnectEnd)
-  , onInit: map onInitIn (fromUndefinable p.onInit)
-  , onMove: map onMoveIn (fromUndefinable p.onMove)
-  , onMoveStart: map onMoveIn (fromUndefinable p.onMoveStart)
-  , onMoveEnd: map onMoveIn (fromUndefinable p.onMoveEnd)
+  , nodes: map (stably "nodes" (remembering (map nodeIn))) (fromUndefinable p.nodes)
+  , edges: map (stably "edges" (remembering (map edgeIn))) (fromUndefinable p.edges)
+  , defaultNodes: map (stably "defaultNodes" (remembering (map nodeIn))) (fromUndefinable p.defaultNodes)
+  , defaultEdges: map (stably "defaultEdges" (remembering (map edgeIn))) (fromUndefinable p.defaultEdges)
+  , defaultEdgeOptions: map (stably "defaultEdgeOptions" defaultEdgeOptionsIn) (fromUndefinable p.defaultEdgeOptions)
+  , onNodeClick: map (stably "onNodeClick" nodeMouseHandlerIn) (fromUndefinable p.onNodeClick)
+  , onNodeDoubleClick: map (stably "onNodeDoubleClick" nodeMouseHandlerIn) (fromUndefinable p.onNodeDoubleClick)
+  , onNodeMouseEnter: map (stably "onNodeMouseEnter" nodeMouseHandlerIn) (fromUndefinable p.onNodeMouseEnter)
+  , onNodeMouseMove: map (stably "onNodeMouseMove" nodeMouseHandlerIn) (fromUndefinable p.onNodeMouseMove)
+  , onNodeMouseLeave: map (stably "onNodeMouseLeave" nodeMouseHandlerIn) (fromUndefinable p.onNodeMouseLeave)
+  , onNodeContextMenu: map (stably "onNodeContextMenu" nodeMouseHandlerIn) (fromUndefinable p.onNodeContextMenu)
+  , onNodeDragStart: map (stably "onNodeDragStart" (remembering onNodeDragIn)) (fromUndefinable p.onNodeDragStart)
+  , onNodeDrag: map (stably "onNodeDrag" (remembering onNodeDragIn)) (fromUndefinable p.onNodeDrag)
+  , onNodeDragStop: map (stably "onNodeDragStop" (remembering onNodeDragIn)) (fromUndefinable p.onNodeDragStop)
+  , onEdgeClick: map (stably "onEdgeClick" edgeMouseHandlerIn) (fromUndefinable p.onEdgeClick)
+  , onEdgeContextMenu: map (stably "onEdgeContextMenu" edgeMouseHandlerIn) (fromUndefinable p.onEdgeContextMenu)
+  , onEdgeMouseEnter: map (stably "onEdgeMouseEnter" edgeMouseHandlerIn) (fromUndefinable p.onEdgeMouseEnter)
+  , onEdgeMouseMove: map (stably "onEdgeMouseMove" edgeMouseHandlerIn) (fromUndefinable p.onEdgeMouseMove)
+  , onEdgeMouseLeave: map (stably "onEdgeMouseLeave" edgeMouseHandlerIn) (fromUndefinable p.onEdgeMouseLeave)
+  , onEdgeDoubleClick: map (stably "onEdgeDoubleClick" edgeMouseHandlerIn) (fromUndefinable p.onEdgeDoubleClick)
+  , onReconnect: map (stably "onReconnect" onReconnectIn) (fromUndefinable p.onReconnect)
+  , onReconnectStart: map (stably "onReconnectStart" onReconnectStartIn) (fromUndefinable p.onReconnectStart)
+  , onReconnectEnd: map (stably "onReconnectEnd" onReconnectEndIn) (fromUndefinable p.onReconnectEnd)
+  , onNodesChange: map (stably "onNodesChange" (remembering onNodesChangeIn)) (fromUndefinable p.onNodesChange)
+  , onEdgesChange: map (stably "onEdgesChange" (remembering onEdgesChangeIn)) (fromUndefinable p.onEdgesChange)
+  , onNodesDelete: map (stably "onNodesDelete" (remembering onNodesDeleteIn)) (fromUndefinable p.onNodesDelete)
+  , onEdgesDelete: map (stably "onEdgesDelete" (remembering onEdgesDeleteIn)) (fromUndefinable p.onEdgesDelete)
+  , onDelete: map (stably "onDelete" (remembering onDeleteIn)) (fromUndefinable p.onDelete)
+  , onSelectionDragStart: map (stably "onSelectionDragStart" (remembering selectionDragHandlerIn)) (fromUndefinable p.onSelectionDragStart)
+  , onSelectionDrag: map (stably "onSelectionDrag" (remembering selectionDragHandlerIn)) (fromUndefinable p.onSelectionDrag)
+  , onSelectionDragStop: map (stably "onSelectionDragStop" (remembering selectionDragHandlerIn)) (fromUndefinable p.onSelectionDragStop)
+  , onSelectionStart: map (stably "onSelectionStart" mouseEventHandlerIn) (fromUndefinable p.onSelectionStart)
+  , onSelectionEnd: map (stably "onSelectionEnd" mouseEventHandlerIn) (fromUndefinable p.onSelectionEnd)
+  , onSelectionContextMenu: map (stably "onSelectionContextMenu" selectionDragHandlerIn) (fromUndefinable p.onSelectionContextMenu)
+  , onSelectionChange: map (stably "onSelectionChange" onSelectionChangeIn) (fromUndefinable p.onSelectionChange)
+  , onConnect: map (stably "onConnect" (remembering onConnectIn)) (fromUndefinable p.onConnect)
+  , onConnectStart: map (stably "onConnectStart" (remembering onConnectStartIn)) (fromUndefinable p.onConnectStart)
+  , onConnectEnd: map (stably "onConnectEnd" (remembering onConnectEndIn)) (fromUndefinable p.onConnectEnd)
+  , onClickConnectStart: map (stably "onClickConnectStart" (remembering onConnectStartIn)) (fromUndefinable p.onClickConnectStart)
+  , onClickConnectEnd: map (stably "onClickConnectEnd" (remembering onConnectEndIn)) (fromUndefinable p.onClickConnectEnd)
+  , onInit: map (stably "onInit" onInitIn) (fromUndefinable p.onInit)
+  , onMove: map (stably "onMove" (remembering onMoveIn)) (fromUndefinable p.onMove)
+  , onMoveStart: map (stably "onMoveStart" (remembering onMoveIn)) (fromUndefinable p.onMoveStart)
+  , onMoveEnd: map (stably "onMoveEnd" (remembering onMoveIn)) (fromUndefinable p.onMoveEnd)
   , className: fromUndefinable p.className
-  , style: map asCssStyle (fromUndefinable p.style)
-  , onScroll: map onScrollIn (fromUndefinable p.onScroll)
-  , onPaneScroll: map onPaneScrollIn (fromUndefinable p.onPaneScroll)
-  , onPaneClick: map mouseEventHandlerIn (fromUndefinable p.onPaneClick)
-  , onPaneContextMenu: map mouseEventHandlerIn (fromUndefinable p.onPaneContextMenu)
-  , onPaneMouseEnter: map mouseEventHandlerIn (fromUndefinable p.onPaneMouseEnter)
-  , onPaneMouseMove: map mouseEventHandlerIn (fromUndefinable p.onPaneMouseMove)
-  , onPaneMouseLeave: map mouseEventHandlerIn (fromUndefinable p.onPaneMouseLeave)
+  , style: map (stably "style" asCssStyle) (fromUndefinable p.style)
+  , onScroll: map (stably "onScroll" onScrollIn) (fromUndefinable p.onScroll)
+  , onPaneScroll: map (stably "onPaneScroll" onPaneScrollIn) (fromUndefinable p.onPaneScroll)
+  , onPaneClick: map (stably "onPaneClick" mouseEventHandlerIn) (fromUndefinable p.onPaneClick)
+  , onPaneContextMenu: map (stably "onPaneContextMenu" mouseEventHandlerIn) (fromUndefinable p.onPaneContextMenu)
+  , onPaneMouseEnter: map (stably "onPaneMouseEnter" mouseEventHandlerIn) (fromUndefinable p.onPaneMouseEnter)
+  , onPaneMouseMove: map (stably "onPaneMouseMove" mouseEventHandlerIn) (fromUndefinable p.onPaneMouseMove)
+  , onPaneMouseLeave: map (stably "onPaneMouseLeave" mouseEventHandlerIn) (fromUndefinable p.onPaneMouseLeave)
   , paneClickDistance: fromUndefinable p.paneClickDistance
   , nodeClickDistance: fromUndefinable p.nodeClickDistance
-  , onBeforeDelete: map onBeforeDeleteIn (fromUndefinable p.onBeforeDelete)
-  , isValidConnection: map isValidConnectionIn (fromUndefinable p.isValidConnection)
-  , onError: map onErrorIn (fromUndefinable p.onError)
-  , nodeTypes: map nodeTypesIn (fromUndefinable p.nodeTypes)
-  , edgeTypes: map edgeTypesIn (fromUndefinable p.edgeTypes)
+  , onBeforeDelete: map (stably "onBeforeDelete" (remembering onBeforeDeleteIn)) (fromUndefinable p.onBeforeDelete)
+  , isValidConnection: map (stably "isValidConnection" (remembering isValidConnectionIn)) (fromUndefinable p.isValidConnection)
+  , onError: map (stably "onError" (remembering onErrorIn)) (fromUndefinable p.onError)
+  , nodeTypes: map (stably "nodeTypes" nodeTypesIn) (fromUndefinable p.nodeTypes)
+  , edgeTypes: map (stably "edgeTypes" edgeTypesIn) (fromUndefinable p.edgeTypes)
   , connectionLineType:
-      map (connectionLineTypeIn "connectionLineType")
+      map (stably "connectionLineType" (connectionLineTypeIn "connectionLineType"))
         (fromUndefinable p.connectionLineType)
-  , connectionLineStyle: map asCssStyle (fromUndefinable p.connectionLineStyle)
+  , connectionLineStyle: map (stably "connectionLineStyle" asCssStyle) (fromUndefinable p.connectionLineStyle)
   , connectionLineComponent:
-      map connectionLineComponentIn (fromUndefinable p.connectionLineComponent)
+      map (stably "connectionLineComponent" connectionLineComponentIn) (fromUndefinable p.connectionLineComponent)
   , connectionLineContainerStyle:
-      map asCssStyle (fromUndefinable p.connectionLineContainerStyle)
-  , connectionMode: map (connectionModeIn "connectionMode") (fromUndefinable p.connectionMode)
+      map (stably "connectionLineContainerStyle" asCssStyle) (fromUndefinable p.connectionLineContainerStyle)
+  , connectionMode: map (stably "connectionMode" (connectionModeIn "connectionMode")) (fromUndefinable p.connectionMode)
   , deleteKeyCode: keyCodeIn "deleteKeyCode" p.deleteKeyCode
   , selectionKeyCode: keyCodeIn "selectionKeyCode" p.selectionKeyCode
   , selectionOnDrag: fromUndefinable p.selectionOnDrag
-  , selectionMode: map (selectionModeIn "selectionMode") (fromUndefinable p.selectionMode)
+  , selectionMode: map (stably "selectionMode" (selectionModeIn "selectionMode")) (fromUndefinable p.selectionMode)
   , panActivationKeyCode: keyCodeIn "panActivationKeyCode" p.panActivationKeyCode
   , multiSelectionKeyCode: keyCodeIn "multiSelectionKeyCode" p.multiSelectionKeyCode
   , zoomActivationKeyCode: keyCodeIn "zoomActivationKeyCode" p.zoomActivationKeyCode
   , snapToGrid: fromUndefinable p.snapToGrid
-  , snapGrid: map (snapGridIn "snapGrid") (fromUndefinable p.snapGrid)
+  , snapGrid: map (stably "snapGrid" (snapGridIn "snapGrid")) (fromUndefinable p.snapGrid)
   , onlyRenderVisibleElements: fromUndefinable p.onlyRenderVisibleElements
   , nodesDraggable: fromUndefinable p.nodesDraggable
   , nodesConnectable: fromUndefinable p.nodesConnectable
   , nodesFocusable: fromUndefinable p.nodesFocusable
   , nodeDragThreshold: fromUndefinable p.nodeDragThreshold
-  , nodeOrigin: map (nodeOriginIn "nodeOrigin") (fromUndefinable p.nodeOrigin)
-  , nodeExtent: map (coordinateExtentIn "nodeExtent") (fromUndefinable p.nodeExtent)
+  , nodeOrigin: map (stably "nodeOrigin" (nodeOriginIn "nodeOrigin")) (fromUndefinable p.nodeOrigin)
+  , nodeExtent: map (stably "nodeExtent" (coordinateExtentIn "nodeExtent")) (fromUndefinable p.nodeExtent)
   , autoPanOnNodeFocus: fromUndefinable p.autoPanOnNodeFocus
   , autoPanOnNodeDrag: fromUndefinable p.autoPanOnNodeDrag
   , noDragClassName: fromUndefinable p.noDragClassName
@@ -510,130 +475,48 @@ convertProps p forwarded =
   , selectNodesOnDrag: fromUndefinable p.selectNodesOnDrag
   , elevateNodesOnSelect: fromUndefinable p.elevateNodesOnSelect
   , elevateEdgesOnSelect: fromUndefinable p.elevateEdgesOnSelect
-  , panOnDrag: map panOnDragIn (fromUndefinable p.panOnDrag)
+  , panOnDrag: map (stably "panOnDrag" panOnDragIn) (fromUndefinable p.panOnDrag)
   , minZoom: fromUndefinable p.minZoom
   , maxZoom: fromUndefinable p.maxZoom
   , translateExtent:
-      map (coordinateExtentIn "translateExtent") (fromUndefinable p.translateExtent)
+      map (stably "translateExtent" (coordinateExtentIn "translateExtent")) (fromUndefinable p.translateExtent)
   , zoomOnScroll: fromUndefinable p.zoomOnScroll
   , zoomOnPinch: fromUndefinable p.zoomOnPinch
   , zoomOnDoubleClick: fromUndefinable p.zoomOnDoubleClick
   , panOnScroll: fromUndefinable p.panOnScroll
   , panOnScrollSpeed: fromUndefinable p.panOnScrollSpeed
   , panOnScrollMode:
-      map (panOnScrollModeIn "panOnScrollMode") (fromUndefinable p.panOnScrollMode)
+      map (stably "panOnScrollMode" (panOnScrollModeIn "panOnScrollMode")) (fromUndefinable p.panOnScrollMode)
   , preventScrolling: fromUndefinable p.preventScrolling
-  , viewport: map viewportIn (fromUndefinable p.viewport)
-  , defaultViewport: map viewportIn (fromUndefinable p.defaultViewport)
-  , onViewportChange: map onViewportChangeIn (fromUndefinable p.onViewportChange)
+  , viewport: map (stably "viewport" viewportIn) (fromUndefinable p.viewport)
+  , defaultViewport: map (stably "defaultViewport" viewportIn) (fromUndefinable p.defaultViewport)
+  , onViewportChange: map (stably "onViewportChange" (remembering onViewportChangeIn)) (fromUndefinable p.onViewportChange)
   , fitView: fromUndefinable p.fitView
-  , fitViewOptions: map fitViewOptionsIn (fromUndefinable p.fitViewOptions)
+  , fitViewOptions: map (stably "fitViewOptions" (remembering fitViewOptionsIn)) (fromUndefinable p.fitViewOptions)
   , defaultMarkerColor: fromUndefinable p.defaultMarkerColor
   , width: fromUndefinable p.width
   , height: fromUndefinable p.height
-  , colorMode: map (colorModeIn "colorMode") (fromUndefinable p.colorMode)
+  , colorMode: map (stably "colorMode" (colorModeIn "colorMode")) (fromUndefinable p.colorMode)
   , attributionPosition:
-      map (panelPositionIn "attributionPosition") (fromUndefinable p.attributionPosition)
-  , proOptions: map proOptionsIn (fromUndefinable p.proOptions)
+      map (stably "attributionPosition" (panelPositionIn "attributionPosition")) (fromUndefinable p.attributionPosition)
+  , proOptions: map (stably "proOptions" proOptionsIn) (fromUndefinable p.proOptions)
   , noWheelClassName: fromUndefinable p.noWheelClassName
   , noPanClassName: fromUndefinable p.noPanClassName
   , disableKeyboardA11y: fromUndefinable p.disableKeyboardA11y
-  , ariaLabelConfig: map ariaLabelConfigIn (fromUndefinable p.ariaLabelConfig)
+  , ariaLabelConfig: map (stably "ariaLabelConfig" ariaLabelConfigIn) (fromUndefinable p.ariaLabelConfig)
   , autoPanOnConnect: fromUndefinable p.autoPanOnConnect
   , autoPanSpeed: fromUndefinable p.autoPanSpeed
   , autoPanOnSelection: fromUndefinable p.autoPanOnSelection
   , connectOnClick: fromUndefinable p.connectOnClick
   , connectionRadius: fromUndefinable p.connectionRadius
   , debug: fromUndefinable p.debug
-  , zIndexMode: map (zIndexModeIn "zIndexMode") (fromUndefinable p.zIndexMode)
+  , zIndexMode: map (stably "zIndexMode" (zIndexModeIn "zIndexMode")) (fromUndefinable p.zIndexMode)
   , innerRef: orNullable p.ref forwarded
   -- Upstream's `...rest`, which its wrapper `<div>` spreads. `JsFlowProps`
   -- names every member upstream destructures bar `id`, which upstream sets on
   -- the div after the rest, so it rides here with the value it would have had.
   , wrapperAttributes: restOf p
   }
-
--- | The thirteen `defaultEdgeOptions` members ps-flow's own record has no room
--- | for. The last refusal table on this surface, and the one the deferred
--- | props were never quite the same as: these are refused because the
--- | internals do not model them, not because a converter is pending, so no
--- | stage retires them. The guard has to name them because nothing about
--- | writing the conversion would.
-refusedEdgeOptions :: Array (Refusal JsDefaultEdgeOptions)
-refusedEdgeOptions =
-  [ droppedOption "type" _.type
-  , droppedOption "markerStart" _.markerStart
-  , droppedOption "markerEnd" _.markerEnd
-  , droppedOption "style" _.style
-  , droppedOption "className" _.className
-  , droppedOption "label" _.label
-  , unmodelledOption "labelStyle" _.labelStyle
-  , unmodelledOption "labelShowBg" _.labelShowBg
-  , unmodelledOption "labelBgStyle" _.labelBgStyle
-  , unmodelledOption "labelBgPadding" _.labelBgPadding
-  , unmodelledOption "labelBgBorderRadius" _.labelBgBorderRadius
-  , unmodelledOption "ariaRole" _.ariaRole
-  , unmodelledOption "domAttributes" _.domAttributes
-  ]
-
-droppedOption :: forall a. String -> (JsDefaultEdgeOptions -> Undefinable a) -> Refusal JsDefaultEdgeOptions
-droppedOption name get =
-  { name
-  , stage: 1
-  , note:
-      "ps-flow's `DefaultEdgeOptions` has no such member, though `Edge` does — \
-      \set it on each edge instead"
-  , supplied: \p -> isDefined (get p)
-  }
-
-unmodelledOption :: forall a. String -> (JsDefaultEdgeOptions -> Undefinable a) -> Refusal JsDefaultEdgeOptions
-unmodelledOption name get =
-  { name
-  , stage: 1
-  , note: "ps-flow does not model this edge field yet, on any record"
-  , supplied: \p -> isDefined (get p)
-  }
-
-guardEdgeOptions :: JsDefaultEdgeOptions -> JsDefaultEdgeOptions
-guardEdgeOptions = refuseFirst message refusedEdgeOptions
-  where
-  message d =
-    "ps-flow: `defaultEdgeOptions." <> d.name
-      <> "` is refused rather than ignored — "
-      <> d.note
-      <> ". Dropping it silently would look exactly like never having set it."
-
-defaultEdgeOptionsIn :: JsDefaultEdgeOptions -> DefaultEdgeOptions Foreign
-defaultEdgeOptionsIn = convertEdgeOptions <<< guardEdgeOptions
-
-convertEdgeOptions :: JsDefaultEdgeOptions -> DefaultEdgeOptions Foreign
-convertEdgeOptions o =
-  { animated: fromUndefinable o.animated
-  , hidden: fromUndefinable o.hidden
-  , deletable: fromUndefinable o.deletable
-  , selectable: fromUndefinable o.selectable
-  , focusable: fromUndefinable o.focusable
-  , data: fromUndefinable o.data
-  , zIndex: map Int.round (fromUndefinable o.zIndex)
-  , ariaLabel: edgeAriaLabelIn o.ariaLabel
-  , interactionWidth: fromUndefinable o.interactionWidth
-  , reconnectable: fromUndefinable o.reconnectable >>= reconnectableIn
-  }
-
--- | `boolean | HandleType`. `false` is "not reconnectable", which PureScript
--- | spells as the absence of the field rather than a third constructor.
-reconnectableIn :: Foreign -> Maybe ReconnectHandleType
-reconnectableIn raw = case asBoolean raw of
-  Just true -> Just ReconnectAny
-  Just false -> Nothing
-  Nothing -> case asString raw of
-    Just s -> Just (ReconnectOnly (handleTypeIn "defaultEdgeOptions.reconnectable" s))
-    Nothing ->
-      unsafeThrow $
-        "ps-flow: `defaultEdgeOptions.reconnectable` must be a boolean, "
-          <> "\"source\" or \"target\", got "
-          <> typeName raw
-          <> "."
 
 proOptionsIn :: JsProOptions -> ProOptions
 proOptionsIn o =
@@ -739,8 +622,8 @@ convertProvider :: JsReactFlowProviderProps -> ReactFlowProviderProps Foreign Fo
 convertProvider p =
   { initialNodes: map (map nodeIn) (fromUndefinable p.initialNodes)
   , initialEdges: map (map edgeIn) (fromUndefinable p.initialEdges)
-  , defaultNodes: map (map nodeIn) (fromUndefinable p.defaultNodes)
-  , defaultEdges: map (map edgeIn) (fromUndefinable p.defaultEdges)
+  , defaultNodes: map (remembering (map nodeIn)) (fromUndefinable p.defaultNodes)
+  , defaultEdges: map (remembering (map edgeIn)) (fromUndefinable p.defaultEdges)
   , initialWidth: fromUndefinable p.initialWidth
   , initialHeight: fromUndefinable p.initialHeight
   , fitView: fromUndefinable p.fitView

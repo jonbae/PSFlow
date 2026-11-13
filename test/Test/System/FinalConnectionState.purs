@@ -26,6 +26,9 @@ module Test.System.FinalConnectionState
 
 import Prelude
 
+import Record as Record
+import Type.Proxy (Proxy(..))
+
 import Boundary.Callbacks (JsConnectionState, connectionStateOut)
 import Data.Maybe (Maybe(..), isNothing)
 import Effect (Effect)
@@ -74,42 +77,51 @@ topOfB = handleAt "b" Target PosTop
 
 internalNode :: InternalNodeBase Foreign
 internalNode =
-  { id: NodeId "a"
-  , position: { x: 0.0, y: 0.0 }
-  , data: unsafeToForeign {}
-  , sourcePosition: Nothing
-  , targetPosition: Nothing
-  , hidden: Nothing
-  , selected: Nothing
-  , dragging: Nothing
-  , draggable: Nothing
-  , selectable: Nothing
-  , connectable: Nothing
-  , deletable: Nothing
-  , dragHandle: Nothing
-  , width: Nothing
-  , height: Nothing
-  , initialWidth: Nothing
-  , initialHeight: Nothing
-  , parentId: Nothing
-  , zIndex: Nothing
-  , extent: Nothing
-  , expandParent: Nothing
-  , ariaLabel: Nothing
-  , origin: Nothing
-  , handles: Nothing
-  , measured: { width: Nothing, height: Nothing }
-  , nodeType: Nothing
-  , className: Nothing
-  , style: Nothing
-  , internals:
+  let
+    originalUserNode =
+      { id: NodeId "a"
+      , position: { x: 0.0, y: 0.0 }
+      , data: unsafeToForeign {}
+      , sourcePosition: Nothing
+      , targetPosition: Nothing
+      , hidden: Nothing
+      , selected: Nothing
+      , dragging: Nothing
+      , draggable: Nothing
+      , selectable: Nothing
+      , connectable: Nothing
+      , deletable: Nothing
+      , dragHandle: Nothing
+      , width: Nothing
+      , height: Nothing
+      , initialWidth: Nothing
+      , initialHeight: Nothing
+      , focusable: Nothing
+      , ariaRole: Nothing
+      , domAttributes: Nothing
+      , parentId: Nothing
+      , zIndex: Nothing
+      , extent: Nothing
+      , expandParent: Nothing
+      , resizing: Nothing
+      , ariaLabel: Nothing
+      , origin: Nothing
+      , handles: Nothing
+      , measured: { width: Nothing, height: Nothing }
+      , nodeType: Nothing
+      , className: Nothing
+      , style: Nothing
+      }
+  in
+    Record.insert (Proxy :: Proxy "internals")
       { positionAbsolute: { x: 0.0, y: 0.0 }
       , z: 0.0
       , rootParentIndex: Nothing
       , handleBounds: Nothing
       , bounds: Nothing
+      , userNode: originalUserNode
       }
-  }
+      originalUserNode
 
 runFinalConnectionStateTests :: Effect Unit
 runFinalConnectionStateTests = do

@@ -1,0 +1,39 @@
+$ node --test parity/boundary/node-bounds.test.mjs
+TAP version 13
+# Subtest: getNodesBounds returns a rect from one JS call with omitted options
+ok 1 - getNodesBounds returns a rect from one JS call with omitted options
+  ---
+  duration_ms: 3.486745
+  type: 'test'
+  ...
+# Subtest: getNodesBounds resolves ids and plain nodes through the lookup, keeps internal inputs, and includes a zero box for misses
+not ok 2 - getNodesBounds resolves ids and plain nodes through the lookup, keeps internal inputs, and includes a zero box for misses
+  ---
+  duration_ms: 1.008179
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/node-bounds.test.mjs:16:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot read properties of undefined (reading 'x')"
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    file:///Users/jonathanbae/repos/PSFlow/output/System.Utils.General/index.js:211:30
+    file:///Users/jonathanbae/repos/PSFlow/output/System.Utils.General/index.js:223:60
+    file:///Users/jonathanbae/repos/PSFlow/output/System.Utils.General/index.js:226:11
+    file:///Users/jonathanbae/repos/PSFlow/output/System.Utils.General/index.js:249:31
+    nodeBoundingBox (file:///Users/jonathanbae/repos/PSFlow/output/System.Utils.Graph/index.js:154:66)
+    file:///Users/jonathanbae/repos/PSFlow/output/Data.Foldable/index.js:542:35
+    file:///Users/jonathanbae/repos/PSFlow/output/Data.Foldable/foreign.js:7:23
+    file:///Users/jonathanbae/repos/PSFlow/output/System.Utils.Graph/index.js:156:86
+    getNodesBounds (file:///Users/jonathanbae/repos/PSFlow/output/Boundary.Utils/index.js:194:109)
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/node-bounds.test.mjs:31:20)
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 1
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 733.198623

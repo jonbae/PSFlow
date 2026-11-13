@@ -1,0 +1,56 @@
+[
+  {
+    "scenario": "resize-node-after-active-limit-change",
+    "interpretable": true,
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "consistent": true
+      }
+    ],
+    "fullGatePassed": false,
+    "remainingDifferences": [
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "source"
+        ],
+        "left": null,
+        "right": []
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "api",
+          "queries",
+          "getInternalNode",
+          "internals",
+          "handleBounds",
+          "target"
+        ],
+        "left": null,
+        "right": []
+      }
+    ],
+    "resize": {
+      "width": 145,
+      "height": 110
+    },
+    "callbacks": [
+      "control:start",
+      "control:resize",
+      "control:resize",
+      "control:end"
+    ],
+    "witnessPassed": true
+  }
+]

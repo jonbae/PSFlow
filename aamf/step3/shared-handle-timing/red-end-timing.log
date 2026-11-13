@@ -1,0 +1,30 @@
+$ node --input-type=module -e import {runEndTimingTests} from "./output/Test.System.XYPanZoom.EndTiming/index.js"; runEndTimingTests();
+file:///Users/jonathanbae/repos/PSFlow/output/Effect.Aff/foreign.js:530
+                throw util.fromLeft(step);
+                ^
+
+Error: AssertionError [ERR_ASSERTION]: measurement callback precedes the queued viewport-end callback
++ actual - expected
+... Skipped lines
+
+  [
+-   'onNodesChange',
+-   'microtask',
+    [
+      'onMoveEnd',
+      null,
+      {
+        x: 10,
+...
+    ],
++   'onNodesChange',
++   'microtask'
+  ]
+
+    at file:///Users/jonathanbae/repos/PSFlow/output/Test.System.XYPanZoom.EndTiming/foreign.js:36:12
+    at Module.error (file:///Users/jonathanbae/repos/PSFlow/output/Effect.Exception/foreign.js:6:10)
+    at file:///Users/jonathanbae/repos/PSFlow/output/Test.System.XYPanZoom.EndTiming/index.js:49:70
+    at file:///Users/jonathanbae/repos/PSFlow/output/Test.System.XYPanZoom.EndTiming/index.js:52:19
+    at file:///Users/jonathanbae/repos/PSFlow/output/Test.System.XYPanZoom.EndTiming/foreign.js:38:40
+
+Node.js v22.18.0

@@ -493,6 +493,107 @@
         ]
       },
       {
+        "name": "onInit",
+        "args": [
+          {
+            "getNodes": {
+              "@ref": "function"
+            },
+            "setNodes": {
+              "@ref": "function"
+            },
+            "addNodes": {
+              "@ref": "function"
+            },
+            "getNode": {
+              "@ref": "function"
+            },
+            "getInternalNode": {
+              "@ref": "function"
+            },
+            "getEdges": {
+              "@ref": "function"
+            },
+            "setEdges": {
+              "@ref": "function"
+            },
+            "addEdges": {
+              "@ref": "function"
+            },
+            "getEdge": {
+              "@ref": "function"
+            },
+            "toObject": {
+              "@ref": "function"
+            },
+            "deleteElements": {
+              "@ref": "function"
+            },
+            "getIntersectingNodes": {
+              "@ref": "function"
+            },
+            "isNodeIntersecting": {
+              "@ref": "function"
+            },
+            "updateNode": {
+              "@ref": "function"
+            },
+            "updateNodeData": {
+              "@ref": "function"
+            },
+            "updateEdge": {
+              "@ref": "function"
+            },
+            "updateEdgeData": {
+              "@ref": "function"
+            },
+            "getNodesBounds": {
+              "@ref": "function"
+            },
+            "getHandleConnections": {
+              "@ref": "function"
+            },
+            "getNodeConnections": {
+              "@ref": "function"
+            },
+            "fitView": {
+              "@ref": "function"
+            },
+            "zoomIn": {
+              "@ref": "function"
+            },
+            "zoomOut": {
+              "@ref": "function"
+            },
+            "zoomTo": {
+              "@ref": "function"
+            },
+            "getZoom": {
+              "@ref": "function"
+            },
+            "setViewport": {
+              "@ref": "function"
+            },
+            "getViewport": {
+              "@ref": "function"
+            },
+            "setCenter": {
+              "@ref": "function"
+            },
+            "fitBounds": {
+              "@ref": "function"
+            },
+            "screenToFlowPosition": {
+              "@ref": "function"
+            },
+            "flowToScreenPosition": {
+              "@ref": "function"
+            },
+            "viewportInitialized": true
+          }
+        ]
+      },
+      {
         "name": "onPaneMouseEnter",
         "args": [
           {
@@ -515,7 +616,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 335.5,
+            "timeStamp": 144,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -582,7 +683,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 335.5,
+            "timeStamp": 144,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -661,7 +762,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 353,
+            "timeStamp": 208,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -752,7 +853,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 368.5,
+            "timeStamp": 240,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -843,12 +944,12 @@
         "getNodes": [
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 0,
               "y": 0
-            },
-            "data": {
-              "label": "Node-1"
             },
             "type": "input",
             "measured": {
@@ -858,12 +959,12 @@
           },
           {
             "id": "Node-2",
+            "data": {
+              "label": "Node-2"
+            },
             "position": {
               "x": -100,
               "y": 100
-            },
-            "data": {
-              "label": "Node-2"
             },
             "type": "output",
             "measured": {
@@ -873,12 +974,12 @@
           },
           {
             "id": "Node-3",
+            "data": {
+              "label": "Node-3"
+            },
             "position": {
               "x": 100,
               "y": 100
-            },
-            "data": {
-              "label": "Node-3"
             },
             "measured": {
               "width": 150,
@@ -887,12 +988,12 @@
           },
           {
             "id": "Node-4",
+            "data": {
+              "label": "Node-4"
+            },
             "position": {
               "x": 0,
               "y": 200
-            },
-            "data": {
-              "label": "Node-4"
             },
             "type": "output",
             "measured": {
@@ -903,12 +1004,12 @@
         ],
         "getNode": {
           "id": "Node-1",
+          "data": {
+            "label": "Node-1"
+          },
           "position": {
             "x": 0,
             "y": 0
-          },
-          "data": {
-            "label": "Node-1"
           },
           "type": "input",
           "measured": {
@@ -918,12 +1019,12 @@
         },
         "getInternalNode": {
           "id": "Node-1",
+          "data": {
+            "label": "Node-1"
+          },
           "position": {
             "x": 0,
             "y": 0
-          },
-          "data": {
-            "label": "Node-1"
           },
           "type": "input",
           "measured": {
@@ -936,6 +1037,21 @@
               "y": 0
             },
             "z": 0,
+            "userNode": {
+              "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "type": "input",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
             "handleBounds": {
               "source": [
                 {
@@ -949,7 +1065,7 @@
                   "height": 8
                 }
               ],
-              "target": []
+              "target": null
             }
           }
         },
@@ -979,12 +1095,12 @@
         "getIntersectingNodes": [
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 0,
               "y": 0
-            },
-            "data": {
-              "label": "Node-1"
             },
             "type": "input",
             "measured": {
@@ -994,12 +1110,12 @@
           },
           {
             "id": "Node-2",
+            "data": {
+              "label": "Node-2"
+            },
             "position": {
               "x": -100,
               "y": 100
-            },
-            "data": {
-              "label": "Node-2"
             },
             "type": "output",
             "measured": {
@@ -1009,12 +1125,12 @@
           },
           {
             "id": "Node-3",
+            "data": {
+              "label": "Node-3"
+            },
             "position": {
               "x": 100,
               "y": 100
-            },
-            "data": {
-              "label": "Node-3"
             },
             "measured": {
               "width": 150,
@@ -1023,12 +1139,12 @@
           },
           {
             "id": "Node-4",
+            "data": {
+              "label": "Node-4"
+            },
             "position": {
               "x": 0,
               "y": 200
-            },
-            "data": {
-              "label": "Node-4"
             },
             "type": "output",
             "measured": {
@@ -1080,12 +1196,12 @@
           "nodes": [
             {
               "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
               "position": {
                 "x": 0,
                 "y": 0
-              },
-              "data": {
-                "label": "Node-1"
               },
               "type": "input",
               "measured": {
@@ -1095,12 +1211,12 @@
             },
             {
               "id": "Node-2",
+              "data": {
+                "label": "Node-2"
+              },
               "position": {
                 "x": -100,
                 "y": 100
-              },
-              "data": {
-                "label": "Node-2"
               },
               "type": "output",
               "measured": {
@@ -1110,12 +1226,12 @@
             },
             {
               "id": "Node-3",
+              "data": {
+                "label": "Node-3"
+              },
               "position": {
                 "x": 100,
                 "y": 100
-              },
-              "data": {
-                "label": "Node-3"
               },
               "measured": {
                 "width": 150,
@@ -1124,12 +1240,12 @@
             },
             {
               "id": "Node-4",
+              "data": {
+                "label": "Node-4"
+              },
               "position": {
                 "x": 0,
                 "y": 200
-              },
-              "data": {
-                "label": "Node-4"
               },
               "type": "output",
               "measured": {
@@ -1207,13 +1323,13 @@
         "target": "[data-testid=\"psflow-after-mount\"]",
         "resolved": true,
         "box": {
-          "x": 1196.5625,
+          "x": 1196.578125,
           "y": 699,
-          "width": 83.4375,
+          "width": 83.421875,
           "height": 21
         },
         "dispatched": {
-          "x": 1238.28125,
+          "x": 1238.2890625,
           "y": 709.5,
           "button": "left"
         }
@@ -1225,7 +1341,7 @@
         "resolved": true,
         "box": null,
         "dispatched": {
-          "x": 1238.28125,
+          "x": 1238.2890625,
           "y": 709.5,
           "button": "left"
         }

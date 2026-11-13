@@ -1,0 +1,388 @@
+[
+  {
+    "name": "red-driver",
+    "command": [
+      "node",
+      "--test",
+      "parity/driver/callbacks.test.mjs"
+    ],
+    "startedAt": "2026-11-11T04:07:47.456Z",
+    "finishedAt": "2026-11-11T04:07:54.189Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/red-driver.log"
+  },
+  {
+    "name": "red-native-on-init",
+    "command": [
+      "npx",
+      "playwright",
+      "test",
+      "--config",
+      "parity/system/harness/playwright.config.mjs",
+      "--grep",
+      "records onInit"
+    ],
+    "startedAt": "2026-11-11T04:07:57.490Z",
+    "finishedAt": "2026-11-11T04:08:15.253Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/red-native-on-init.log"
+  },
+  {
+    "name": "green-driver",
+    "command": [
+      "node",
+      "--test",
+      "parity/driver/callbacks.test.mjs"
+    ],
+    "startedAt": "2026-11-11T04:09:08.340Z",
+    "finishedAt": "2026-11-11T04:09:20.761Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/green-driver.log"
+  },
+  {
+    "name": "driver-psflow",
+    "command": [
+      "node",
+      "parity/driver/build.mjs",
+      "--side",
+      "psflow"
+    ],
+    "startedAt": "2026-11-11T04:09:49.507Z",
+    "finishedAt": "2026-11-11T04:10:00.721Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/driver-psflow.log"
+  },
+  {
+    "name": "driver-upstream",
+    "command": [
+      "node",
+      "parity/driver/build.mjs",
+      "--side",
+      "upstream"
+    ],
+    "startedAt": "2026-11-11T04:09:50.976Z",
+    "finishedAt": "2026-11-11T04:10:01.408Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/driver-upstream.log"
+  },
+  {
+    "name": "green-driver-census",
+    "command": [
+      "node",
+      "--test",
+      "parity/driver/callbacks.test.mjs"
+    ],
+    "startedAt": "2026-11-11T04:09:48.218Z",
+    "finishedAt": "2026-11-11T04:10:05.397Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/green-driver-census.log"
+  },
+  {
+    "name": "green-native-on-init",
+    "command": [
+      "npx",
+      "playwright",
+      "test",
+      "--config",
+      "parity/system/harness/playwright.config.mjs",
+      "--grep",
+      "records onInit"
+    ],
+    "startedAt": "2026-11-11T04:10:19.682Z",
+    "finishedAt": "2026-11-11T04:10:32.579Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/green-native-on-init.log"
+  },
+  {
+    "name": "boundary",
+    "command": [
+      "npm",
+      "run",
+      "parity:boundary"
+    ],
+    "startedAt": "2026-11-11T04:10:47.238Z",
+    "finishedAt": "2026-11-11T04:11:02.881Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/boundary.log"
+  },
+  {
+    "name": "surface",
+    "command": [
+      "npm",
+      "run",
+      "parity:surface"
+    ],
+    "startedAt": "2026-11-11T04:10:47.246Z",
+    "finishedAt": "2026-11-11T04:11:12.566Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/surface.log"
+  },
+  {
+    "name": "apparatus",
+    "command": [
+      "npm",
+      "run",
+      "test:harness"
+    ],
+    "startedAt": "2026-11-11T04:10:47.255Z",
+    "finishedAt": "2026-11-11T04:11:13.621Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/apparatus.log"
+  },
+  {
+    "name": "functions",
+    "command": [
+      "npm",
+      "exec",
+      "--yes",
+      "--package=purescript@0.15.16",
+      "--",
+      "spago",
+      "test"
+    ],
+    "startedAt": "2026-11-11T04:11:36.109Z",
+    "finishedAt": "2026-11-11T04:11:52.614Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/functions.log"
+  },
+  {
+    "name": "target-capture",
+    "command": [
+      "node",
+      "parity/system/net.mjs",
+      "--scenario",
+      "mount-baseline--nodes-general",
+      "--out",
+      "aamf/step3/on-init-witness/target-report.md"
+    ],
+    "startedAt": "2026-11-11T04:11:48.847Z",
+    "finishedAt": "2026-11-11T04:12:12.915Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/target-capture.log"
+  },
+  {
+    "name": "stored-witness",
+    "command": [
+      "node",
+      "aamf/step3/on-init-witness/verify.mjs"
+    ],
+    "startedAt": "2026-11-11T04:12:39.189Z",
+    "finishedAt": "2026-11-11T04:12:39.362Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/stored-witness.log"
+  },
+  {
+    "name": "stored-witness-verified",
+    "command": [
+      "node",
+      "aamf/step3/on-init-witness/verify.mjs"
+    ],
+    "startedAt": "2026-11-11T04:12:52.628Z",
+    "finishedAt": "2026-11-11T04:12:52.887Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/stored-witness-verified.log"
+  },
+  {
+    "name": "changelog",
+    "command": [
+      "npm",
+      "run",
+      "parity:changelog"
+    ],
+    "startedAt": "2026-11-11T04:15:21.937Z",
+    "finishedAt": "2026-11-11T04:15:24.704Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/changelog.log"
+  },
+  {
+    "name": "coverage-units",
+    "command": [
+      "npm",
+      "run",
+      "test:coverage"
+    ],
+    "startedAt": "2026-11-11T04:15:21.926Z",
+    "finishedAt": "2026-11-11T04:15:24.830Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/coverage-units.log"
+  },
+  {
+    "name": "boundary-units",
+    "command": [
+      "npm",
+      "run",
+      "test:boundary"
+    ],
+    "startedAt": "2026-11-11T04:17:47.458Z",
+    "finishedAt": "2026-11-11T04:17:59.883Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/boundary-units.log"
+  },
+  {
+    "name": "full-system-wave",
+    "command": [
+      "npm",
+      "run",
+      "parity:system"
+    ],
+    "startedAt": "2026-11-11T04:13:07.668Z",
+    "finishedAt": "2026-11-11T04:19:37.303Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/full-system-wave.log"
+  },
+  {
+    "name": "coverage",
+    "command": [
+      "npm",
+      "run",
+      "parity:coverage"
+    ],
+    "startedAt": "2026-11-11T04:19:47.473Z",
+    "finishedAt": "2026-11-11T04:19:55.854Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/coverage.log"
+  },
+  {
+    "name": "full-wave-summary",
+    "command": [
+      "node",
+      "aamf/step3/on-init-witness/summarize-wave.mjs"
+    ],
+    "startedAt": "2026-11-11T04:19:47.468Z",
+    "finishedAt": "2026-11-11T04:19:56.427Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/full-wave-summary.log"
+  },
+  {
+    "name": "repeatability-details",
+    "command": [
+      "node",
+      "aamf/step3/on-init-witness/classify-repeatability.mjs"
+    ],
+    "startedAt": "2026-11-11T04:20:40.236Z",
+    "finishedAt": "2026-11-11T04:20:41.866Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/repeatability-details.log"
+  },
+  {
+    "name": "live-harness",
+    "command": [
+      "npm",
+      "run",
+      "test:harness:live"
+    ],
+    "startedAt": "2026-11-11T04:19:47.470Z",
+    "finishedAt": "2026-11-11T04:21:09.744Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/live-harness.log"
+  },
+  {
+    "name": "conformance",
+    "command": [
+      "npm",
+      "run",
+      "test:conformance"
+    ],
+    "startedAt": "2026-11-11T04:21:37.280Z",
+    "finishedAt": "2026-11-11T04:23:29.200Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/conformance.log"
+  },
+  {
+    "name": "smoke",
+    "command": [
+      "npm",
+      "run",
+      "test:smoke"
+    ],
+    "startedAt": "2026-11-11T04:23:52.568Z",
+    "finishedAt": "2026-11-11T04:24:06.943Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/smoke.log"
+  },
+  {
+    "name": "archive-runtime",
+    "command": [
+      "python3",
+      "aamf/step3/on-init-witness/archive-runtime.py"
+    ],
+    "startedAt": "2026-11-11T04:23:53.834Z",
+    "finishedAt": "2026-11-11T04:24:10.903Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/archive-runtime.log"
+  },
+  {
+    "name": "source-audit",
+    "command": [
+      "python3",
+      "aamf/step3/on-init-witness/audit.py"
+    ],
+    "startedAt": "2026-11-11T04:24:56.653Z",
+    "finishedAt": "2026-11-11T04:24:57.495Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/source-audit.log"
+  },
+  {
+    "name": "diff-check",
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "startedAt": "2026-11-11T04:25:43.778Z",
+    "finishedAt": "2026-11-11T04:25:44.688Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/diff-check.log"
+  },
+  {
+    "name": "final-source-audit",
+    "command": [
+      "python3",
+      "aamf/step3/on-init-witness/audit.py"
+    ],
+    "startedAt": "2026-11-11T04:26:28.324Z",
+    "finishedAt": "2026-11-11T04:26:29.668Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/final-source-audit.log"
+  },
+  {
+    "name": "archive-integrity",
+    "command": [
+      "python3",
+      "aamf/step3/on-init-witness/verify-archives.py"
+    ],
+    "startedAt": "2026-11-11T04:26:05.127Z",
+    "finishedAt": "2026-11-11T04:26:30.986Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/on-init-witness/archive-integrity.log"
+  }
+]

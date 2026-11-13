@@ -1,0 +1,127 @@
+{
+  "status": "complete (two shared production defects); broader Step3 remains open",
+  "completedAt": "2026-11-12T00:15:09.467696+00:00",
+  "aamfInvoked": false,
+  "productionChanges": {
+    "handleBounds": "Optional measured sides survive storage and JS conversion as null; explicit handles retain arrays; strict/loose readers preserve upstream empty-side behavior. Relevant PR195 changes adapted without merging/cherry-picking stacked commits.",
+    "endHandler": "Always clear prior end timer and queue a new one: 0 ms normally, 150 ms for scrolling. No callback sorting/suppression or fit-view/React scheduling change."
+  },
+  "redEvidence": [
+    "red-handles.log",
+    "red-end-timing.log"
+  ],
+  "greenEvidence": [
+    "green-handles.log",
+    "green-end-timing.log",
+    "verify-candidates.log"
+  ],
+  "mechanismTests": {
+    "handleChecks": 9,
+    "nativeEndTiming": "Native task/microtask order, real d3 transform/measurement order, both timer cancellation paths and original event identity, compared with pinned executing source."
+  },
+  "candidateCaptures": {
+    "rawTraces": 24,
+    "scenarios": 3,
+    "roundsPerScenario": 2,
+    "allFullComparisonsPass": true,
+    "bothSidesAgreeAcrossRounds": true,
+    "handleAndOrderFaultsRejectedByOfficialComparator": true
+  },
+  "fullWave": {
+    "previous": {
+      "scenarios": 107,
+      "passed": 12,
+      "failed": 95,
+      "selfInconsistent": [
+        "mount-baseline--viewport-controlled",
+        "drag-node-autopan",
+        "wheel-zoom-from-identity-viewport",
+        "drag-node-reports-changes",
+        "pan-after-controlled-viewport-change"
+      ],
+      "drivingDivergence": [],
+      "reproducibleFailed": 90,
+      "handleScenarios": 82,
+      "handleDifferences": 100,
+      "callbackOrderScenarios": 72,
+      "initialMeasurementOrderScenarios": 71
+    },
+    "current": {
+      "scenarios": 107,
+      "passed": 99,
+      "failed": 8,
+      "selfInconsistent": [
+        "drag-node-autopan",
+        "wheel-zoom-from-identity-viewport",
+        "drag-node-reports-changes",
+        "ctrl-wheel-pinches-with-panonscroll"
+      ],
+      "drivingDivergence": [],
+      "reproducibleFailed": 4,
+      "handleScenarios": 0,
+      "handleDifferences": 0,
+      "callbackOrderScenarios": 1,
+      "initialMeasurementOrderScenarios": 0
+    },
+    "fewerFailedScenarios": 87,
+    "rawTraces": 428,
+    "canonicalPriorArchiveFiles": 430,
+    "comparisonPolicyChanged": false,
+    "fixturesChanged": false,
+    "coverageRegisterChanged": false
+  },
+  "controlledOrderFollowup": {
+    "rawTraces": 12,
+    "independentRounds": 3,
+    "upstreamMeasurementBeforeEnd": 2,
+    "upstreamEndBeforeMeasurement": 4,
+    "psflowMeasurementBeforeEnd": 5,
+    "psflowEndBeforeMeasurement": 1,
+    "upstreamUnstablePairs": 2,
+    "psflowUnstablePairs": 1,
+    "conclusion": "Full-wave pair agreement did not establish a deterministic source order. Independent unchanged upstream produces both orders. The canonical full-wave failure remains recorded; wider controlled-viewport reproducibility remains open."
+  },
+  "checks": {
+    "build": "pass",
+    "surface": "pass",
+    "functionAndUnit": "pass",
+    "boundary": "pass",
+    "boundaryTests": 119,
+    "driver": "pass",
+    "conformance": {
+      "passed": 41,
+      "failed": 0
+    },
+    "smoke": {
+      "passed": 2,
+      "failed": 0
+    },
+    "changelog": "pass",
+    "fullSystem": {
+      "passed": 99,
+      "failed": 8
+    }
+  },
+  "coverage": {
+    "driven": 128,
+    "exportBearing": 156,
+    "declaredHoles": 28,
+    "undeclaredHoles": 0,
+    "separateBehaviorDebt": 50
+  },
+  "remaining": [
+    "Keyboard aria-live announcement",
+    "JS store hooks plus useConnection/node-prop probe differences",
+    "Controlled-viewport order reproducibility",
+    "Full-wave four unstable scenarios",
+    "Remaining Step3 G/H/I contracts and witnesses"
+  ],
+  "integrity": {
+    "runtimeInputsAndOutputsVerified": 2191,
+    "priorCanonicalArchiveFilesVerified": 430,
+    "certifiedVendorFilesVerified": 171,
+    "unexpectedSourceChanges": 0,
+    "frozenRuntimeChanges": 0,
+    "priorEvidenceChanges": 0
+  }
+}

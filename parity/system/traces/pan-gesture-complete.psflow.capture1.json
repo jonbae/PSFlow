@@ -404,17 +404,6 @@
         ]
       },
       {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 390.57142857142856,
-            "y": 132.18857142857144,
-            "zoom": 3.3257142857142856
-          }
-        ]
-      },
-      {
         "name": "onNodesChange",
         "args": [
           [
@@ -446,6 +435,118 @@
         ]
       },
       {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 390.57142857142856,
+            "y": 132.18857142857144,
+            "zoom": 3.3257142857142856
+          }
+        ]
+      },
+      {
+        "name": "onInit",
+        "args": [
+          {
+            "getNodes": {
+              "@ref": "function"
+            },
+            "setNodes": {
+              "@ref": "function"
+            },
+            "addNodes": {
+              "@ref": "function"
+            },
+            "getNode": {
+              "@ref": "function"
+            },
+            "getInternalNode": {
+              "@ref": "function"
+            },
+            "getEdges": {
+              "@ref": "function"
+            },
+            "setEdges": {
+              "@ref": "function"
+            },
+            "addEdges": {
+              "@ref": "function"
+            },
+            "getEdge": {
+              "@ref": "function"
+            },
+            "toObject": {
+              "@ref": "function"
+            },
+            "deleteElements": {
+              "@ref": "function"
+            },
+            "getIntersectingNodes": {
+              "@ref": "function"
+            },
+            "isNodeIntersecting": {
+              "@ref": "function"
+            },
+            "updateNode": {
+              "@ref": "function"
+            },
+            "updateNodeData": {
+              "@ref": "function"
+            },
+            "updateEdge": {
+              "@ref": "function"
+            },
+            "updateEdgeData": {
+              "@ref": "function"
+            },
+            "getNodesBounds": {
+              "@ref": "function"
+            },
+            "getHandleConnections": {
+              "@ref": "function"
+            },
+            "getNodeConnections": {
+              "@ref": "function"
+            },
+            "fitView": {
+              "@ref": "function"
+            },
+            "zoomIn": {
+              "@ref": "function"
+            },
+            "zoomOut": {
+              "@ref": "function"
+            },
+            "zoomTo": {
+              "@ref": "function"
+            },
+            "getZoom": {
+              "@ref": "function"
+            },
+            "setViewport": {
+              "@ref": "function"
+            },
+            "getViewport": {
+              "@ref": "function"
+            },
+            "setCenter": {
+              "@ref": "function"
+            },
+            "fitBounds": {
+              "@ref": "function"
+            },
+            "screenToFlowPosition": {
+              "@ref": "function"
+            },
+            "flowToScreenPosition": {
+              "@ref": "function"
+            },
+            "viewportInitialized": true
+          }
+        ]
+      },
+      {
         "name": "onPaneMouseEnter",
         "args": [
           {
@@ -468,7 +569,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 261.7000000476837,
+            "timeStamp": 57,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -535,7 +636,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 261.7000000476837,
+            "timeStamp": 57,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -614,7 +715,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 271.2000000476837,
+            "timeStamp": 112,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -703,7 +804,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 285.60000002384186,
+            "timeStamp": 144,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -792,7 +893,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 302,
+            "timeStamp": 176,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -881,7 +982,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 318.10000002384186,
+            "timeStamp": 208,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -970,7 +1071,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 334.2000000476837,
+            "timeStamp": 240,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1073,7 +1174,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 358,
+            "timeStamp": 304,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1152,7 +1253,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 367.5,
+            "timeStamp": 368,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1241,7 +1342,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 384.39999997615814,
+            "timeStamp": 400,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1330,7 +1431,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 401.5,
+            "timeStamp": 432,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1419,7 +1520,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 417.7000000476837,
+            "timeStamp": 464,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1508,7 +1609,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 434.89999997615814,
+            "timeStamp": 496,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1597,12 +1698,12 @@
         "getNodes": [
           {
             "id": "1",
+            "data": {
+              "label": "1"
+            },
             "position": {
               "x": 0,
               "y": 0
-            },
-            "data": {
-              "label": "1"
             },
             "type": "input",
             "measured": {
@@ -1612,12 +1713,12 @@
           },
           {
             "id": "2",
+            "data": {
+              "label": "2"
+            },
             "position": {
               "x": -100,
               "y": 100
-            },
-            "data": {
-              "label": "2"
             },
             "measured": {
               "width": 150,
@@ -1626,12 +1727,12 @@
           },
           {
             "id": "3",
+            "data": {
+              "label": "3"
+            },
             "position": {
               "x": 100,
               "y": 100
-            },
-            "data": {
-              "label": "3"
             },
             "measured": {
               "width": 150,
@@ -1641,12 +1742,12 @@
         ],
         "getNode": {
           "id": "1",
+          "data": {
+            "label": "1"
+          },
           "position": {
             "x": 0,
             "y": 0
-          },
-          "data": {
-            "label": "1"
           },
           "type": "input",
           "measured": {
@@ -1656,12 +1757,12 @@
         },
         "getInternalNode": {
           "id": "1",
+          "data": {
+            "label": "1"
+          },
           "position": {
             "x": 0,
             "y": 0
-          },
-          "data": {
-            "label": "1"
           },
           "type": "input",
           "measured": {
@@ -1674,6 +1775,21 @@
               "y": 0
             },
             "z": 0,
+            "userNode": {
+              "id": "1",
+              "data": {
+                "label": "1"
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "type": "input",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
             "handleBounds": {
               "source": [
                 {
@@ -1687,7 +1803,7 @@
                   "height": 8
                 }
               ],
-              "target": []
+              "target": null
             }
           }
         },
@@ -1711,12 +1827,12 @@
         "getIntersectingNodes": [
           {
             "id": "1",
+            "data": {
+              "label": "1"
+            },
             "position": {
               "x": 0,
               "y": 0
-            },
-            "data": {
-              "label": "1"
             },
             "type": "input",
             "measured": {
@@ -1726,12 +1842,12 @@
           },
           {
             "id": "2",
+            "data": {
+              "label": "2"
+            },
             "position": {
               "x": -100,
               "y": 100
-            },
-            "data": {
-              "label": "2"
             },
             "measured": {
               "width": 150,
@@ -1740,12 +1856,12 @@
           },
           {
             "id": "3",
+            "data": {
+              "label": "3"
+            },
             "position": {
               "x": 100,
               "y": 100
-            },
-            "data": {
-              "label": "3"
             },
             "measured": {
               "width": 150,
@@ -1796,12 +1912,12 @@
           "nodes": [
             {
               "id": "1",
+              "data": {
+                "label": "1"
+              },
               "position": {
                 "x": 0,
                 "y": 0
-              },
-              "data": {
-                "label": "1"
               },
               "type": "input",
               "measured": {
@@ -1811,12 +1927,12 @@
             },
             {
               "id": "2",
+              "data": {
+                "label": "2"
+              },
               "position": {
                 "x": -100,
                 "y": 100
-              },
-              "data": {
-                "label": "2"
               },
               "measured": {
                 "width": 150,
@@ -1825,12 +1941,12 @@
             },
             {
               "id": "3",
+              "data": {
+                "label": "3"
+              },
               "position": {
                 "x": 100,
                 "y": 100
-              },
-              "data": {
-                "label": "3"
               },
               "measured": {
                 "width": 150,

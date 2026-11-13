@@ -1,0 +1,596 @@
+{
+  "completedAt": "2026-11-10T18:04:26.059420+00:00",
+  "sourceAudit": {
+    "capturedAt": "2026-11-10T17:43:18.190973+00:00",
+    "changedInputs": [
+      "src/React/Hook/Listeners.purs",
+      "src/React/Store/Reduce.purs",
+      "src/React/Store/Action.purs",
+      "test/Test/Main.purs",
+      "src/Boundary/Hooks.purs",
+      "src/Boundary/Hooks.js"
+    ],
+    "unexpectedChanges": [],
+    "outputs": [
+      {
+        "path": "src/React/Hook/Listeners.purs",
+        "sha256": "8e027cda5de29d1630044c1489801d98383405e54344687e1ee2a80ddfc363f7"
+      },
+      {
+        "path": "src/React/Store/Reduce.purs",
+        "sha256": "74511b069f6c0e2166a6925db66e735c79ef2764203cd5529651ffe7f2f6da4a"
+      },
+      {
+        "path": "src/React/Store/Action.purs",
+        "sha256": "cbd3998786cb6b257563fcb05c00e623b5b83b4cdf5984792d348a7d8f872d3c"
+      },
+      {
+        "path": "src/Boundary/Hooks.purs",
+        "sha256": "9ae0a4ab2025b1510342efc8ca3031e36df2cab8c24366476e55eb6c02bb988f"
+      },
+      {
+        "path": "src/Boundary/Hooks.js",
+        "sha256": "dafd60d44595dfdfbe3ae90f61bb7752cad34a57f04ec830cb4e69d4dc0298a3"
+      },
+      {
+        "path": "test/Test/Main.purs",
+        "sha256": "7f0a649031e55c69b56ff5577d43d41daa334acfa7cd84fe2a2eaf2b32912954"
+      },
+      {
+        "path": "test/Test/React/Hook/ViewportListeners.purs",
+        "sha256": "ca9ddce3f945ff26af9624508ab41420488876dcfb337c60c5053b062eda0694"
+      },
+      {
+        "path": "test/Test/React/Hook/ViewportListeners.js",
+        "sha256": "4d4860fd79727c33d95b71c745f08d30fee569e90b68385e7c936159a5c3b4d7"
+      },
+      {
+        "path": "parity/driver/dist/psflow.js",
+        "sha256": "6717eb54444fe357259dce17772a42e7b52f4dcb7b876674f096f8edebdd4417"
+      },
+      {
+        "path": "parity/surface/report.md",
+        "sha256": "0e7c5e549dbbb45337625e348de401f928598974cdf060bb98f04f621569813f"
+      }
+    ]
+  },
+  "checks": {
+    "build-proxy": 0,
+    "red-slot-install": 1,
+    "red-slot-install-repeat": 1,
+    "build-listeners": 0,
+    "build-public-proxy": 0,
+    "red-js-handler-identity": 1,
+    "build-handler-identity": 0,
+    "green-public-proxy": 0,
+    "surface": 0,
+    "driver": 0,
+    "boundary": 0,
+    "boundary-tests": 0,
+    "function": 0,
+    "changelog": 0,
+    "conformance-frozen": 0,
+    "smoke-frozen": 0,
+    "system-pan-frozen": 1,
+    "system-parented-frozen": 1,
+    "system-pan-repeat-frozen": 1
+  },
+  "validation": {
+    "boundaryTests": 119,
+    "conformance": {
+      "passed": 41,
+      "failed": 0
+    },
+    "smoke": {
+      "passed": 2,
+      "failed": 0
+    },
+    "system": [
+      {
+        "scenario": "pan-gesture-complete",
+        "beforeSource": "stage-5 checkpoint; unstable experiment excluded from cross-side interpretation",
+        "before": {
+          "passed": false,
+          "interpretable": false,
+          "selfConsistency": [
+            {
+              "side": "upstream",
+              "consistent": false,
+              "differences": 1
+            },
+            {
+              "side": "psflow",
+              "consistent": true,
+              "differences": 0
+            }
+          ],
+          "classes": [
+            "self-inconsistent",
+            "unclaimed-difference"
+          ],
+          "unclaimed": null,
+          "differences": null
+        },
+        "current": {
+          "passed": false,
+          "interpretable": true,
+          "selfConsistency": [
+            {
+              "side": "upstream",
+              "consistent": true,
+              "differences": 0
+            },
+            {
+              "side": "psflow",
+              "consistent": true,
+              "differences": 0
+            }
+          ],
+          "classes": [
+            "unclaimed-difference"
+          ],
+          "unclaimed": 2,
+          "differences": [
+            {
+              "kind": "order",
+              "path": [
+                "callbacks"
+              ],
+              "left": [
+                "onSelectionChange#1",
+                "onMoveStart#1",
+                "onViewportChange#1",
+                "onMove#1",
+                "onNodesChange#1",
+                "onMoveEnd#1",
+                "onPaneMouseEnter#1",
+                "onPaneMouseMove#1",
+                "onMoveStart#2",
+                "onPaneMouseMove#2",
+                "onViewportChange#2",
+                "onMove#2",
+                "onPaneMouseMove#3",
+                "onViewportChange#3",
+                "onMove#3",
+                "onPaneMouseMove#4",
+                "onViewportChange#4",
+                "onMove#4",
+                "onPaneMouseMove#5",
+                "onViewportChange#5",
+                "onMove#5",
+                "onPaneMouseMove#6",
+                "onViewportChange#6",
+                "onMove#6",
+                "onMoveEnd#2",
+                "onPaneMouseMove#7",
+                "onMoveStart#3",
+                "onPaneMouseMove#8",
+                "onViewportChange#7",
+                "onMove#7",
+                "onPaneMouseMove#9",
+                "onViewportChange#8",
+                "onMove#8",
+                "onPaneMouseMove#10",
+                "onViewportChange#9",
+                "onMove#9",
+                "onPaneMouseMove#11",
+                "onViewportChange#10",
+                "onMove#10",
+                "onPaneMouseMove#12",
+                "onViewportChange#11",
+                "onMove#11",
+                "onMoveEnd#3"
+              ],
+              "right": [
+                "onSelectionChange#1",
+                "onMoveStart#1",
+                "onViewportChange#1",
+                "onMove#1",
+                "onMoveEnd#1",
+                "onNodesChange#1",
+                "onPaneMouseEnter#1",
+                "onPaneMouseMove#1",
+                "onMoveStart#2",
+                "onPaneMouseMove#2",
+                "onViewportChange#2",
+                "onMove#2",
+                "onPaneMouseMove#3",
+                "onViewportChange#3",
+                "onMove#3",
+                "onPaneMouseMove#4",
+                "onViewportChange#4",
+                "onMove#4",
+                "onPaneMouseMove#5",
+                "onViewportChange#5",
+                "onMove#5",
+                "onPaneMouseMove#6",
+                "onViewportChange#6",
+                "onMove#6",
+                "onMoveEnd#2",
+                "onPaneMouseMove#7",
+                "onMoveStart#3",
+                "onPaneMouseMove#8",
+                "onViewportChange#7",
+                "onMove#7",
+                "onPaneMouseMove#9",
+                "onViewportChange#8",
+                "onMove#8",
+                "onPaneMouseMove#10",
+                "onViewportChange#9",
+                "onMove#9",
+                "onPaneMouseMove#11",
+                "onViewportChange#10",
+                "onMove#10",
+                "onPaneMouseMove#12",
+                "onViewportChange#11",
+                "onMove#11",
+                "onMoveEnd#3"
+              ]
+            },
+            {
+              "kind": "changed",
+              "path": [
+                "api",
+                "queries",
+                "getInternalNode",
+                "internals",
+                "handleBounds",
+                "target"
+              ],
+              "left": null,
+              "right": []
+            }
+          ]
+        },
+        "independentRepeat": {
+          "passed": false,
+          "interpretable": true,
+          "selfConsistency": [
+            {
+              "side": "upstream",
+              "consistent": true,
+              "differences": 0
+            },
+            {
+              "side": "psflow",
+              "consistent": true,
+              "differences": 0
+            }
+          ],
+          "classes": [
+            "unclaimed-difference"
+          ],
+          "unclaimed": 2,
+          "differences": [
+            {
+              "kind": "order",
+              "path": [
+                "callbacks"
+              ],
+              "left": [
+                "onSelectionChange#1",
+                "onMoveStart#1",
+                "onViewportChange#1",
+                "onMove#1",
+                "onNodesChange#1",
+                "onMoveEnd#1",
+                "onPaneMouseEnter#1",
+                "onPaneMouseMove#1",
+                "onMoveStart#2",
+                "onPaneMouseMove#2",
+                "onViewportChange#2",
+                "onMove#2",
+                "onPaneMouseMove#3",
+                "onViewportChange#3",
+                "onMove#3",
+                "onPaneMouseMove#4",
+                "onViewportChange#4",
+                "onMove#4",
+                "onPaneMouseMove#5",
+                "onViewportChange#5",
+                "onMove#5",
+                "onPaneMouseMove#6",
+                "onViewportChange#6",
+                "onMove#6",
+                "onMoveEnd#2",
+                "onPaneMouseMove#7",
+                "onMoveStart#3",
+                "onPaneMouseMove#8",
+                "onViewportChange#7",
+                "onMove#7",
+                "onPaneMouseMove#9",
+                "onViewportChange#8",
+                "onMove#8",
+                "onPaneMouseMove#10",
+                "onViewportChange#9",
+                "onMove#9",
+                "onPaneMouseMove#11",
+                "onViewportChange#10",
+                "onMove#10",
+                "onPaneMouseMove#12",
+                "onViewportChange#11",
+                "onMove#11",
+                "onMoveEnd#3"
+              ],
+              "right": [
+                "onSelectionChange#1",
+                "onMoveStart#1",
+                "onViewportChange#1",
+                "onMove#1",
+                "onMoveEnd#1",
+                "onNodesChange#1",
+                "onPaneMouseEnter#1",
+                "onPaneMouseMove#1",
+                "onMoveStart#2",
+                "onPaneMouseMove#2",
+                "onViewportChange#2",
+                "onMove#2",
+                "onPaneMouseMove#3",
+                "onViewportChange#3",
+                "onMove#3",
+                "onPaneMouseMove#4",
+                "onViewportChange#4",
+                "onMove#4",
+                "onPaneMouseMove#5",
+                "onViewportChange#5",
+                "onMove#5",
+                "onPaneMouseMove#6",
+                "onViewportChange#6",
+                "onMove#6",
+                "onMoveEnd#2",
+                "onPaneMouseMove#7",
+                "onMoveStart#3",
+                "onPaneMouseMove#8",
+                "onViewportChange#7",
+                "onMove#7",
+                "onPaneMouseMove#9",
+                "onViewportChange#8",
+                "onMove#8",
+                "onPaneMouseMove#10",
+                "onViewportChange#9",
+                "onMove#9",
+                "onPaneMouseMove#11",
+                "onViewportChange#10",
+                "onMove#10",
+                "onPaneMouseMove#12",
+                "onViewportChange#11",
+                "onMove#11",
+                "onMoveEnd#3"
+              ]
+            },
+            {
+              "kind": "changed",
+              "path": [
+                "api",
+                "queries",
+                "getInternalNode",
+                "internals",
+                "handleBounds",
+                "target"
+              ],
+              "left": null,
+              "right": []
+            }
+          ]
+        }
+      },
+      {
+        "scenario": "node-props-record-parented",
+        "beforeSource": "W04 checkpoint",
+        "before": {
+          "passed": false,
+          "interpretable": true,
+          "selfConsistency": [
+            {
+              "side": "upstream",
+              "consistent": true,
+              "differences": 0
+            },
+            {
+              "side": "psflow",
+              "consistent": true,
+              "differences": 0
+            }
+          ],
+          "classes": [
+            "unclaimed-difference"
+          ],
+          "unclaimed": 3,
+          "differences": [
+            {
+              "kind": "order",
+              "path": [
+                "callbacks"
+              ],
+              "left": [
+                "onSelectionChange#1",
+                "onMoveStart#1",
+                "onViewportChange#1",
+                "onMove#1",
+                "onMoveEnd#1",
+                "onPaneMouseEnter#1",
+                "onNodeMouseEnter#1",
+                "onPaneMouseMove#1",
+                "onNodeMouseMove#1",
+                "onNodesChange#1",
+                "onNodeClick#1",
+                "onSelectionChange#2",
+                "onNodeMouseLeave#1",
+                "onNodeMouseEnter#2",
+                "onPaneMouseMove#2",
+                "onNodeMouseMove#2",
+                "onMoveStart#2",
+                "onNodeClick#2",
+                "onMoveEnd#2"
+              ],
+              "right": [
+                "onSelectionChange#1",
+                "onMoveStart#1",
+                "onViewportChange#1",
+                "onMove#1",
+                "onMoveEnd#1",
+                "onPaneMouseEnter#1",
+                "onNodeMouseEnter#1",
+                "onPaneMouseMove#1",
+                "onNodeMouseMove#1",
+                "onNodesChange#1",
+                "onNodeClick#1",
+                "onSelectionChange#2",
+                "onNodeMouseLeave#1",
+                "onNodeMouseEnter#2",
+                "onPaneMouseMove#2",
+                "onNodeMouseMove#2",
+                "onMoveStart#2",
+                "onMoveEnd#2",
+                "onNodeClick#2"
+              ]
+            },
+            {
+              "kind": "changed",
+              "path": [
+                "api",
+                "queries",
+                "getInternalNode",
+                "internals",
+                "handleBounds",
+                "source"
+              ],
+              "left": null,
+              "right": []
+            },
+            {
+              "kind": "changed",
+              "path": [
+                "api",
+                "queries",
+                "getInternalNode",
+                "internals",
+                "handleBounds",
+                "target"
+              ],
+              "left": null,
+              "right": []
+            }
+          ]
+        },
+        "current": {
+          "passed": false,
+          "interpretable": true,
+          "selfConsistency": [
+            {
+              "side": "upstream",
+              "consistent": true,
+              "differences": 0
+            },
+            {
+              "side": "psflow",
+              "consistent": true,
+              "differences": 0
+            }
+          ],
+          "classes": [
+            "unclaimed-difference"
+          ],
+          "unclaimed": 3,
+          "differences": [
+            {
+              "kind": "order",
+              "path": [
+                "callbacks"
+              ],
+              "left": [
+                "onSelectionChange#1",
+                "onMoveStart#1",
+                "onViewportChange#1",
+                "onMove#1",
+                "onMoveEnd#1",
+                "onPaneMouseEnter#1",
+                "onNodeMouseEnter#1",
+                "onPaneMouseMove#1",
+                "onNodeMouseMove#1",
+                "onNodesChange#1",
+                "onNodeClick#1",
+                "onSelectionChange#2",
+                "onNodeMouseLeave#1",
+                "onNodeMouseEnter#2",
+                "onPaneMouseMove#2",
+                "onNodeMouseMove#2",
+                "onMoveStart#2",
+                "onNodeClick#2",
+                "onMoveEnd#2"
+              ],
+              "right": [
+                "onSelectionChange#1",
+                "onMoveStart#1",
+                "onViewportChange#1",
+                "onMove#1",
+                "onMoveEnd#1",
+                "onPaneMouseEnter#1",
+                "onNodeMouseEnter#1",
+                "onPaneMouseMove#1",
+                "onNodeMouseMove#1",
+                "onNodesChange#1",
+                "onNodeClick#1",
+                "onSelectionChange#2",
+                "onNodeMouseLeave#1",
+                "onNodeMouseEnter#2",
+                "onPaneMouseMove#2",
+                "onNodeMouseMove#2",
+                "onMoveStart#2",
+                "onMoveEnd#2",
+                "onNodeClick#2"
+              ]
+            },
+            {
+              "kind": "changed",
+              "path": [
+                "api",
+                "queries",
+                "getInternalNode",
+                "internals",
+                "handleBounds",
+                "source"
+              ],
+              "left": null,
+              "right": []
+            },
+            {
+              "kind": "changed",
+              "path": [
+                "api",
+                "queries",
+                "getInternalNode",
+                "internals",
+                "handleBounds",
+                "target"
+              ],
+              "left": null,
+              "right": []
+            }
+          ]
+        }
+      }
+    ],
+    "integrity": {
+      "sourceAndCompiledOutputChanges": [],
+      "regeneratedBundles": [
+        "parity/driver/dist/psflow.js",
+        "parity/driver/dist/upstream.js"
+      ],
+      "note": "System net rebuilds both bundles with the same frozen source/output and checks library provenance. Canonical root traces were not overwritten."
+    }
+  },
+  "readOnlyPRs": {
+    "194": {
+      "state": "OPEN",
+      "head": "c208d600246258508c17319974e965d1a7569e3d"
+    },
+    "195": {
+      "state": "OPEN",
+      "head": "aa11373670d52f5bbb61b9c44dda58be64fe9b6d"
+    },
+    "note": "Rechecked read-only at the W08 checkpoint; neither was merged."
+  },
+  "interpretation": "W08b slot mechanics and JS callback dependency identity complete. W08a scheduling also passes this combined browser checkpoint. Focused current system captures reproduce but remain red on callback order and null/empty handle arrays. Pan repeats reproduce within both experiments; this does not close the other historical unstable scenarios or prove the local timing fixes caused improved repeatability. No full corpus was recaptured.",
+  "aamfInvoked": false
+}

@@ -1,0 +1,15 @@
+$ python3 aamf/step3/on-init-witness/verify-archives.py
+[
+  {
+    "task": "keyboard-driving",
+    "verifiedSourceAndCompiledJsInputs": 1486,
+    "compilerCacheArtifactsDeliberatelyNotArchived": 2903,
+    "mismatches": []
+  },
+  {
+    "task": "on-init-witness",
+    "verifiedSourceAndCompiledJsInputs": 1490,
+    "compilerCacheArtifactsDeliberatelyNotArchived": 0,
+    "mismatches": []
+  }
+]

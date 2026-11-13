@@ -1,0 +1,100 @@
+$ spago build
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[1 of 2] Compiling Test.React.Store.UpdateNodePositions
+[2 of 2] Compiling Test.Main
+[ERROR 1/1 TypesDoNotUnify] test/Test/Main.purs:795:7
+
+             v
+  795        { id: NodeId "i"
+  796        , position: { x: 0.0, y: 0.0 }
+  797        , distance: { x: 0.0, y: 0.0 }
+       ...
+  804        , measured: { width: 0.0, height: 0.0 }
+  805        , dragging: Nothing
+  806        }
+             ^
+
+  Could not match type
+    ()
+  with type
+    ( resizing :: Maybe t3
+    | t4
+    )
+  while checking that expression { id: NodeId "i"
+                                 , position: { x: ...
+                                             , y: ...
+                                             }
+                                 , distance: { x: ...
+                                             , y: ...
+                                             }
+                                 , extent: Nothing
+                                 , parentId: Nothing
+                                 , origin: Nothing
+                                 , expandParent: Nothing
+                                 , resizing: Nothing
+                                 , internals: { positionAbsolute: ...
+                                              }
+                                 , measured: { width: ...
+                                             , height: ...
+                                             }
+                                 , dragging: Nothing
+                                 }
+    has type { distance :: { x :: Number
+                           , y :: Number
+                           }
+             , dragging :: Maybe Boolean
+             , expandParent :: Maybe Boolean
+             , extent :: Maybe NodeExtent
+             , id :: NodeId
+             , internals :: { positionAbsolute :: { x :: Number
+                                                  , y :: Number
+                                                  }
+                            }
+             , measured :: { height :: Number
+                           , width :: Number
+                           }
+             , origin :: Maybe NodeOrigin
+             , parentId :: Maybe ParentId
+             , position :: { x :: Number
+                           , y :: Number
+                           }
+             }
+  while applying a function ((discard (#dict Discard t1140)) (#dict Bind t1141)) ((assert "calculateSnapOffset returns Nothing for empty drag items") (((...) (...)) Nothing))
+    of type (t0 -> t1 t2) -> t1 t2
+    to argument \$__unused ->
+                  let
+                    flatItem = { id: ...
+                               , position: ...
+                               , distance: ...
+                               , extent: ...
+                               , parentId: ...
+                               , origin: ...
+                               , expandParent: ...
+                               , resizing: ...
+                               , internals: ...
+                               , measured: ...
+                               , dragging: ...
+                               }
+                    flatMap = [ ...
+                              ]
+                  in let
+                       snapOffset = ...
+                     in (...) (...)
+  in value declaration main
+  where t0 is an unknown type
+        t1 is an unknown type
+        t2 is an unknown type
+        t3 is an unknown type
+        t4 is an unknown type
+
+           Src   Lib   All
+Warnings     0     0     0
+Errors       1     0     1
+
+✘ Failed to build.
+

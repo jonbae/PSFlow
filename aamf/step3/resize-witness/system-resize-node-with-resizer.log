@@ -1,0 +1,14 @@
+$ node parity/system/net.mjs --scenario resize-node-with-resizer
+fork: 54 upstream unit(s) affirmed — 30 of 48 spec unit(s) lifted, 18 declined with a reason, and 6 depended-on source(s).
+driver [psflow]: 30 fixtures + 1 direct component(s), 48 observed callback props, library from `// output/Boundary/` → dist/psflow.js
+driver [upstream]: 30 fixtures + 1 direct component(s), 48 observed callback props, library from `// xyflow/packages/react/src/` → dist/upstream.js
+captured resize-node-with-resizer
+
+1 of 1 scenario(s) failed:
+  resize-node-with-resizer: unclaimed-difference
+coverage: 127 of 156 export-bearing entries driven, 29 declared hole(s), across 105 scenario(s) that ran — and 50 hand-declared behavior(s), counted apart.
+2 scenario(s) in the corpus have no stored trace, so nothing they would have driven
+counts here. Capture them (`npm run parity:system`):
+  mount-baseline--resize-lifecycle
+  resize-node-after-active-limit-change
+The report is parity/system/report.md and the coverage artifact is parity/system/coverage.md.

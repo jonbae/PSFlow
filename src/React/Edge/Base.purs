@@ -17,11 +17,11 @@ module React.Edge.Base
 
 import Prelude
 
-import Data.Maybe (Maybe(..), fromMaybe, isJust)
+import Data.Maybe (Maybe(..), fromMaybe)
 import Effect.Unsafe (unsafePerformEffect)
 import React.Basic (JSX, ReactComponent, element)
 import React.Basic.Hooks (memo, reactComponent)
-import React.Edge.Text (edgeText)
+import React.Edge.Text (edgeText, labelShown)
 import React.FFI.DOM (opt, path_, spreadUnder)
 import React.Types.Edges (BaseEdgeProps)
 
@@ -59,7 +59,9 @@ baseEdge = unsafePerformEffect $ memo $ reactComponent "BaseEdge" \(props :: Bas
         | otherwise = mempty
       label :: JSX
       label = case props.label, props.labelX, props.labelY of
-        Just _, Just lx, Just ly | isJust props.label ->
+        -- TS `label && isNumeric(labelX) && isNumeric(labelY)`: a falsy
+        -- label draws nothing.
+        Just shown, Just lx, Just ly | labelShown shown ->
           element edgeText
             { x: lx
             , y: ly

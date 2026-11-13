@@ -3,7 +3,7 @@
 -- | ps-flow's setters are the function form only. A JavaScript consumer writing
 -- | `setNodes([])` is writing correct upstream code, so the array form is
 -- | adapted rather than refused: it is React's contract, not an unimplemented
--- | prop, and `Boundary.Refusal` is for the latter.
+-- | prop, and refusing is for the latter.
 -- |
 -- | ## Why this is its own module
 -- |

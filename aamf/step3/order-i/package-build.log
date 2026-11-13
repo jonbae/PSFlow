@@ -1,0 +1,20 @@
+
+> ps-flow@0.0.0 build:package
+> spago build && node distribution/build.mjs
+
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+           Src   Lib   All
+Warnings     0     0     0
+Errors       0     0     0
+
+✓ Build succeeded.
+
+build:package: dist/index.js bundles 582 modules and imports d3-drag, d3-interpolate, d3-selection, d3-zoom, react, react-dom.
+  declarations: 170 emitted from xyflow/ (all equal the published package's), 103 reachable and published, 2 overlays, 5 notes.
+  declarations reach @types/d3-drag, @types/d3-selection, @types/d3-zoom, @types/react.
+  stylesheets: style.css and base.css copied from the pinned @xyflow/react.

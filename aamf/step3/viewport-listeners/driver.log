@@ -1,0 +1,35 @@
+$ npm run build:driver
+
+> ps-flow@0.0.0 build:driver
+> spago build && node parity/driver/build.mjs
+
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[ 1 of 13] Compiling React.Hook.Listeners
+[ 2 of 13] Compiling Test.React.Hook.OnInitTiming
+[ 3 of 13] Compiling Boundary.Hooks
+[ 4 of 13] Compiling React.Container.GraphView
+[ 5 of 13] Compiling Test.React.Hook.ViewportListeners
+[ 6 of 13] Compiling Test.Boundary.UserNode
+[ 7 of 13] Compiling React.Container.ReactFlow
+[ 9 of 13] Compiling React
+[ 8 of 13] Compiling Boundary.Flow
+[10 of 13] Compiling Test.React.Additional.BackgroundPattern
+[11 of 13] Compiling Test.Boundary.FlowWrapperAttributes
+[12 of 13] Compiling Boundary
+[13 of 13] Compiling Test.Main
+           Src   Lib   All
+Warnings     0     0     0
+Errors       0     0     0
+
+✓ Build succeeded.
+
+
+  parity/driver/dist/psflow.js  2.8mb ⚠️
+
+⚡ Done in 823ms
+driver [psflow]: 29 fixtures + 1 direct component(s), 48 observed callback props, library from `// output/Boundary/` → dist/psflow.js

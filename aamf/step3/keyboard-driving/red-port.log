@@ -1,0 +1,95 @@
+$ node --test parity/system/harness/port.test.mjs
+TAP version 13
+# Subtest: the real port and its double answer the same methods
+ok 1 - the real port and its double answer the same methods
+  ---
+  duration_ms: 4.939287
+  type: 'test'
+  ...
+# Subtest: the port is only ever the twelve the harness above it uses
+ok 2 - the port is only ever the twelve the harness above it uses
+  ---
+  duration_ms: 0.744219
+  type: 'test'
+  ...
+# Subtest: the real port refuses to dispatch touch before emulation is on
+ok 3 - the real port refuses to dispatch touch before emulation is on
+  ---
+  duration_ms: 2.201455
+  type: 'test'
+  ...
+# Subtest: keyboard press completes after dispatch and the browser frame cycle
+not ok 4 - keyboard press completes after dispatch and the browser frame cycle
+  ---
+  duration_ms: 21.235977
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/system/harness/port.test.mjs:53:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    the next action waits for browser frame work
+    
+    true !== false
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: false
+  actual: true
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/system/harness/port.test.mjs:79:12)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: keyboard down completes after dispatch and the browser frame cycle
+not ok 5 - keyboard down completes after dispatch and the browser frame cycle
+  ---
+  duration_ms: 5.802281
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/system/harness/port.test.mjs:53:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    the next action waits for browser frame work
+    
+    true !== false
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: false
+  actual: true
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/system/harness/port.test.mjs:79:12)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: keyboard up completes after dispatch and the browser frame cycle
+not ok 6 - keyboard up completes after dispatch and the browser frame cycle
+  ---
+  duration_ms: 3.750172
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/system/harness/port.test.mjs:53:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    the next action waits for browser frame work
+    
+    true !== false
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: false
+  actual: true
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/system/harness/port.test.mjs:79:12)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 3
+# fail 3
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 235.074414

@@ -1,0 +1,199 @@
+$ sh -c npm exec --yes --package=purescript@0.15.16 -- spago build && node parity/driver/build.mjs && npm run test:harness:live -- --grep "only auto-pans"
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[  1 of 107] Compiling React.Store.Shell
+[  2 of 107] Compiling Test.System.XYResizer
+[  3 of 107] Compiling React.Store.PanBy
+[  4 of 107] Compiling React.Node.Util
+[  5 of 107] Compiling React.Hook.Store
+[  7 of 107] Compiling Test.React.Store.Shell
+[  6 of 107] Compiling Test.React.Store.ZoomLimits
+[  8 of 107] Compiling React.Hook.ViewportSync
+[  9 of 107] Compiling React.Hook.Selectors
+[ 10 of 107] Compiling React.Hook.StylesLoadedWarning
+[ 11 of 107] Compiling React.Hook.ViewportHelper
+[ 12 of 107] Compiling Test.React.Hook.Store
+[ 13 of 107] Compiling React.Hook.NodeConnections
+[ 14 of 107] Compiling React.Container.A11yDescriptions
+[ 15 of 107] Compiling React.Hook.VisibleIds
+[ 16 of 107] Compiling React.Provider.StoreUpdater
+[ 17 of 107] Compiling React.Container.MarkerDefinitions
+[ 18 of 107] Compiling React.Portal.ViewportPortal
+[ 19 of 107] Compiling React.Container.Viewport
+[ 20 of 107] Compiling React.Hook.ResizeHandler
+[ 21 of 107] Compiling React.Component.EdgeWrapper.UpdateAnchors
+[ 22 of 107] Compiling React.Provider.SelectionListener
+[ 23 of 107] Compiling React.Hook.HandleConnections
+[ 24 of 107] Compiling React.Hook.MoveSelectedNodes
+[ 25 of 107] Compiling React.Handle
+[ 26 of 107] Compiling React.Additional.NodeToolbar.Portal
+[ 27 of 107] Compiling React.Portal.EdgeLabelRenderer
+[ 28 of 107] Compiling React.Component.UserSelection
+[ 29 of 107] Compiling React.Hook.NodeObserver
+[ 30 of 107] Compiling React.Additional.MiniMap.Nodes
+[ 31 of 107] Compiling React.Hook.UpdateNodeInternals
+[ 32 of 107] Compiling React.Provider.Batch
+[ 33 of 107] Compiling React.Additional.Background
+[ 34 of 107] Compiling React.Hook.Middleware
+[ 35 of 107] Compiling React.Hook.NodeOrEdgeTypesWarning
+[ 36 of 107] Compiling React.Additional.NodeResizer.Control
+[ 37 of 107] Compiling Test.React.Node.HandleNodeClick
+[ 38 of 107] Compiling Test.React.Hook.ViewportSync
+[ 39 of 107] Compiling Test.React.Container.NodeA11yDescription
+[ 40 of 107] Compiling React.Container.ZoomPane
+[ 41 of 107] Compiling React.Additional.NodeToolbar
+[ 42 of 107] Compiling React.Component.EdgeWrapper
+[ 43 of 107] Compiling Boundary.Portals
+[ 44 of 107] Compiling React.Additional.EdgeToolbar
+[ 45 of 107] Compiling React.Container.Pane
+[ 46 of 107] Compiling Test.React.Hook.MoveSelectedNodes
+[ 47 of 107] Compiling Test.React.Node.ArrowKeyMessage
+[ 48 of 107] Compiling React.Component.ConnectionLine
+[ 49 of 107] Compiling Test.React.Hook.NodeObserver
+[ 50 of 107] Compiling React.Additional.MiniMap
+[ 51 of 107] Compiling Test.React.Additional.BackgroundOffset
+[ 52 of 107] Compiling React.Hook.ReactFlow
+[ 53 of 107] Compiling React.Provider
+[ 54 of 107] Compiling Test.React.Provider.BatchQueue
+[ 55 of 107] Compiling Test.React.Additional.NodeToolbarPortal
+[ 56 of 107] Compiling React.Node.Output
+[ 57 of 107] Compiling Test.React.Component.HandleDataId
+[ 58 of 107] Compiling Boundary.NodeChrome
+[ 59 of 107] Compiling React.Node.Default
+[ 60 of 107] Compiling Test.System.FinalConnectionState
+[ 61 of 107] Compiling React.Node.Input
+[ 62 of 107] Compiling Test.React.HandleNativeEvent
+[ 63 of 107] Compiling Boundary.Edges
+[ 64 of 107] Compiling React.Additional.NodeResizer
+[ 65 of 107] Compiling Test.React.Hook.ConnectionTo
+[ 66 of 107] Compiling Test.Boundary.EdgeHidden
+[ 67 of 107] Compiling Test.React.Component.EdgeComponentProps
+[ 68 of 107] Compiling React.Container.EdgeRenderer
+[ 69 of 107] Compiling Test.React.Component.EdgeAriaLabel
+[ 70 of 107] Compiling Test.Boundary.EdgeAnimated
+[ 71 of 107] Compiling Test.React.Additional.MiniMap
+[ 72 of 107] Compiling Test.React.Additional.MiniMapMask
+[ 73 of 107] Compiling React.Container.Wrapper
+[ 74 of 107] Compiling Test.React.Store.InPlaceSelection
+[ 75 of 107] Compiling React.Component.NodeWrapper.Util
+[ 76 of 107] Compiling Boundary.Resizer
+[ 77 of 107] Compiling Test.Boundary.BaseEdgeAttributes
+[ 78 of 107] Compiling Test.Boundary.Wrapper
+[ 79 of 107] Compiling React.Component.NodeWrapper
+[ 80 of 107] Compiling Test.React.Component.NodeInlineDimensions
+[ 81 of 107] Compiling Test.React.DomNumbers
+[ 82 of 107] Compiling React.Component.NodesSelection
+[ 83 of 107] Compiling React.Additional.Controls
+[ 84 of 107] Compiling React.Hook.GlobalKeyHandler
+[ 85 of 107] Compiling React.Hook.Listeners
+[ 86 of 107] Compiling Test.React.Component.NodesSelectionRect
+[ 87 of 107] Compiling Boundary.Chrome
+[ 88 of 107] Compiling Test.React.Hook.OnInitTiming
+[ 89 of 107] Compiling Boundary.Hooks
+[ 90 of 107] Compiling React.Container.FlowRenderer
+[ 91 of 107] Compiling Test.React.Hook.DeleteKey
+[ 92 of 107] Compiling Test.System.XYDrag.DragSelection
+[ 93 of 107] Compiling Test.System.XYDrag.DragErrors
+[ 94 of 107] Compiling Test.System.XYDrag.DragUserNodes
+[ 95 of 107] Compiling Test.React.Component.AriaDescribedBy
+[ 96 of 107] Compiling React.Container.NodeRenderer
+[ 97 of 107] Compiling Test.Boundary.UserNode
+[ 98 of 107] Compiling Test.Boundary.NodeResizing
+[ 99 of 107] Compiling Test.React.Hook.ViewportListeners
+[100 of 107] Compiling React.Container.GraphView
+[101 of 107] Compiling React.Container.ReactFlow
+[103 of 107] Compiling React
+[102 of 107] Compiling Boundary.Flow
+[104 of 107] Compiling Test.React.Additional.BackgroundPattern
+[106 of 107] Compiling Boundary
+[105 of 107] Compiling Test.Boundary.FlowWrapperAttributes
+[107 of 107] Compiling Test.Main
+[WARNING 1/2 ShadowedName] src/React/Store/Shell.purs:125:24
+
+  125        RunSetCenter x y opts -> do
+                              ^^^^
+
+  Name opts was shadowed.
+  in value declaration createStore
+
+[WARNING 2/2 UnusedImport] test/Test/React/Store/Shell.purs:25:1
+
+  25  import Data.Maybe (Maybe(..))
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  The import of Data.Maybe is redundant
+
+           Src   Lib   All
+Warnings     2     0     2
+Errors       0     0     0
+
+✓ Build succeeded.
+
+
+  parity/driver/dist/psflow.js  2.9mb ⚠️
+
+⚡ Done in 662ms
+driver [psflow]: 30 fixtures + 1 direct component(s), 49 observed callback props, library from `// output/Boundary/` → dist/psflow.js
+
+> ps-flow@0.0.0 test:harness:live
+> playwright test --config parity/system/harness/playwright.config.mjs --grep only auto-pans
+
+[2m[WebServer] [22m(node:42950) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:42985) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:42985) [DEP0066] DeprecationWarning: OutgoingMessage.prototype._headers is deprecated
+
+Running 4 tests using 1 worker
+
+(node:42998) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:42998) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [harness] › parity/system/harness/focus.spec.mjs:10:5 › upstream only auto-pans an offscreen node on keyboard focus (pointer) (4.0s)
+  ✓  2 [harness] › parity/system/harness/focus.spec.mjs:10:5 › upstream only auto-pans an offscreen node on keyboard focus (keyboard) (3.0s)
+  ✘  3 [harness] › parity/system/harness/focus.spec.mjs:10:5 › psflow only auto-pans an offscreen node on keyboard focus (pointer) (4.7s)
+(node:43250) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:43250) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 [harness] › parity/system/harness/focus.spec.mjs:10:5 › psflow only auto-pans an offscreen node on keyboard focus (keyboard) (4.3s)
+
+
+  1) [harness] › parity/system/harness/focus.spec.mjs:10:5 › psflow only auto-pans an offscreen node on keyboard focus (pointer) 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"transform: translate([7m-100[27m0px, [7m-100[27m0px) scale(1);"[39m
+    Received: [31m"transform: translate([7m59[27m0px, [7m34[27m0px) scale(1);"[39m
+
+      27 |       const after=await viewport.getAttribute('style');
+      28 |       if (modality==='keyboard') expect(after).not.toBe(before);
+    > 29 |       else expect(after).toBe(before);
+         |                          ^
+      30 |     });
+      31 |   }
+      32 | }
+        at /Users/jonathanbae/repos/PSFlow/parity/system/harness/focus.spec.mjs:29:26
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/focus-psflow-only-auto-pan-97361--on-keyboard-focus-pointer--harness/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/focus-psflow-only-auto-pan-97361--on-keyboard-focus-pointer--harness/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/focus-psflow-only-auto-pan-97361--on-keyboard-focus-pointer--harness/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/focus-psflow-only-auto-pan-97361--on-keyboard-focus-pointer--harness/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [harness] › parity/system/harness/focus.spec.mjs:10:5 › psflow only auto-pans an offscreen node on keyboard focus (pointer) 
+  3 passed (24.7s)

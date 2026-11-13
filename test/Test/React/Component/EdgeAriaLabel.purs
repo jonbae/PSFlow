@@ -75,10 +75,14 @@ nodeAt id at handles =
   , height: Just 25.0
   , initialWidth: Nothing
   , initialHeight: Nothing
+  , focusable: Nothing
+  , ariaRole: Nothing
+  , domAttributes: Nothing
   , parentId: Nothing
   , zIndex: Nothing
   , extent: Nothing
   , expandParent: Nothing
+  , resizing: Nothing
   , ariaLabel: Nothing
   , origin: Nothing
   , handles: Just handles
@@ -112,23 +116,23 @@ edgeLabelled ariaLabel =
   , label: Nothing
   , ariaLabel
   , interactionWidth: Nothing
+  , focusable: Nothing
+  , reconnectable: Nothing
+  , ariaRole: Nothing
+  , domAttributes: Nothing
+  , labelStyle: Nothing
+  , labelShowBg: Nothing
+  , labelBgStyle: Nothing
+  , labelBgPadding: Nothing
+  , labelBgBorderRadius: Nothing
+  , pathOptions: Nothing
   , className: Nothing
   , style: Nothing
   }
 
 defaultsLabelled :: Maybe EdgeAriaLabel -> DefaultEdgeOptions Unit
 defaultsLabelled ariaLabel =
-  { animated: Nothing
-  , hidden: Nothing
-  , deletable: Nothing
-  , selectable: Nothing
-  , focusable: Nothing
-  , data: Nothing
-  , zIndex: Nothing
-  , ariaLabel
-  , interactionWidth: Nothing
-  , reconnectable: Nothing
-  }
+  noEdgeOptions { ariaLabel = ariaLabel }
 
 edgeProps :: EdgeWrapperProps Unit Unit
 edgeProps =
@@ -153,8 +157,11 @@ edgeProps =
   , disableKeyboardA11y: Just false
   }
 
+-- | These tests write the state and then render on the server, where React
+-- | reads the store's server snapshot, its initial state. They render the
+-- | state they wrote, so the store handed over serves that one instead.
 storeToOpaque :: Store Unit Unit -> OpaqueStore
-storeToOpaque = unsafeCoerce
+storeToOpaque store = unsafeCoerce (store { getInitialState = store.getState })
 
 -- | The edge wrapper's markup, in a store holding `a` above `b`, the edge
 -- | `ab` between them, and `defaults` as the flow's `defaultEdgeOptions`.
@@ -220,3 +227,31 @@ runEdgeAriaLabelTests = do
     (ariaLabelIsNull (edgeOut (edgeLabelled (Just AriaLabelOff))))
   assert "the boundary hands an absent aria label back as undefined"
     (ariaLabelIsUndefined (edgeOut (edgeLabelled Nothing)))
+
+-- | Every member absent, so each test names only what it sets.
+noEdgeOptions :: forall e. DefaultEdgeOptions e
+noEdgeOptions =
+  { edgeType: Nothing
+  , animated: Nothing
+  , hidden: Nothing
+  , deletable: Nothing
+  , selectable: Nothing
+  , data: Nothing
+  , markerStart: Nothing
+  , markerEnd: Nothing
+  , zIndex: Nothing
+  , ariaLabel: Nothing
+  , interactionWidth: Nothing
+  , label: Nothing
+  , labelStyle: Nothing
+  , labelShowBg: Nothing
+  , labelBgStyle: Nothing
+  , labelBgPadding: Nothing
+  , labelBgBorderRadius: Nothing
+  , style: Nothing
+  , className: Nothing
+  , reconnectable: Nothing
+  , focusable: Nothing
+  , ariaRole: Nothing
+  , domAttributes: Nothing
+  }

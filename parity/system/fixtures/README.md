@@ -48,11 +48,11 @@ a hand-written act in `parity/system/corpus/`, which has its own README.
 
 ## What is here
 
-Twenty-four flows, one per condition no vendored fixture sets. Eighteen were
+Twenty-seven flows, one per condition no vendored fixture sets. Eighteen were
 written for the thirty test-debt scenarios ([#60]), two for the retirement debt
 ([#61]) — the two ps-flow **contract** pages, turned into data when the
-hand-authored assertions they carried retired into the net — and four for the
-hole-closing scenarios ([#93]). Grouped by what the
+hand-authored assertions they carried retired into the net — and seven for the
+hole-closing scenarios ([#93]), two of them for Step 3 H's witnesses. Grouped by what the
 condition is *about* rather than by which scenario drives it — several are driven
 by more than one, and a fixture named after its first scenario would read wrongly
 the moment a second arrived.
@@ -65,6 +65,8 @@ the moment a second arrived.
 | `chrome/minimap-hidden-nodes.ts` | a `MiniMap` over a flow with every node hidden |
 | `chrome/background.ts` | a `Background` given an explicit `bgColor` |
 | `edges/base-edge-path.ts` | a custom edge handing `BaseEdge` path attributes |
+| `edges/types.ts` | every built-in edge type, and a consumer type registered as `custom` that mounts `EdgeLabelRenderer`, `EdgeToolbar` and `ViewportPortal` |
+| `edges/default-options.ts` | `defaultEdgeOptions` over edges that declare none of it, and nodes and edges carrying a key no type declares |
 | `fitview/uncontrolled.ts` | uncontrolled, with no change handlers at all |
 | `flow/chrome-defaults.ts` | `Background`, `Controls` and `MiniMap` all at their defaults, on a flow that does not fit its view |
 | `flow/custom-testid.ts` | a custom `data-testid` on `<ReactFlow>` |
@@ -82,6 +84,7 @@ the moment a second arrived.
 | `nodes/unmeasured.ts` | controlled, with dimension changes never applied back |
 | `viewport/controlled.ts` | a controlled `viewport` that changes after the mount and is never fed back |
 | `viewport/helpers.ts` | a flow that snaps, so a no-options helper says something |
+| `resize/lifecycle.ts` | public resize components, consumer-rendered lifecycle receipts recorded into the call log as well, and a limit changed during an active drag |
 | `viewport/pan-on-scroll.ts` | `panOnScroll`, with a zoom activation key that Control does not press |
 
 Each file's own header says why it is shaped the way it is, and several of those

@@ -41,17 +41,7 @@ assert label cond =
 -- | `defaultEdgeOptions` that set only `hidden: true`.
 hiddenByDefault :: DefaultEdgeOptions Foreign
 hiddenByDefault =
-  { animated: Nothing
-  , hidden: Just true
-  , deletable: Nothing
-  , selectable: Nothing
-  , focusable: Nothing
-  , data: Nothing
-  , zIndex: Nothing
-  , ariaLabel: Nothing
-  , interactionWidth: Nothing
-  , reconnectable: Nothing
-  }
+  noEdgeOptions { hidden = Just true }
 
 runEdgeHiddenTests :: Effect Unit
 runEdgeHiddenTests = do
@@ -67,3 +57,31 @@ runEdgeHiddenTests = do
     ((applyDefaults (Just hiddenByDefault) (edgeIn plainEdge)).hidden == Just true)
   assert "an edge's own hidden: false overrides defaultEdgeOptions' true, as upstream's spread does"
     ((applyDefaults (Just hiddenByDefault) (edgeIn edgeShown)).hidden == Just false)
+
+-- | Every member absent, so each test names only what it sets.
+noEdgeOptions :: forall e. DefaultEdgeOptions e
+noEdgeOptions =
+  { edgeType: Nothing
+  , animated: Nothing
+  , hidden: Nothing
+  , deletable: Nothing
+  , selectable: Nothing
+  , data: Nothing
+  , markerStart: Nothing
+  , markerEnd: Nothing
+  , zIndex: Nothing
+  , ariaLabel: Nothing
+  , interactionWidth: Nothing
+  , label: Nothing
+  , labelStyle: Nothing
+  , labelShowBg: Nothing
+  , labelBgStyle: Nothing
+  , labelBgPadding: Nothing
+  , labelBgBorderRadius: Nothing
+  , style: Nothing
+  , className: Nothing
+  , reconnectable: Nothing
+  , focusable: Nothing
+  , ariaRole: Nothing
+  , domAttributes: Nothing
+  }

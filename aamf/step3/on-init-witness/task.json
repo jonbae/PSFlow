@@ -1,0 +1,35 @@
+{
+  "id": "psflow-w12-on-init-witness",
+  "status": "complete (bounded export witness)",
+  "startedAt": "2026-11-11T04:07:46.113957+00:00",
+  "scope": "Install the already-crossed onInit callback in the observation driver, prove its real browser receipt on both sides, retire only its matching coverage hole after proof, and refresh the full canonical wave after preserving its predecessor. No production/runtime changes.",
+  "seam": "Plan H/W12-authorized driver callback manifest and full callbacks trace, native-browser runScenario on both sides, official coverage witness.",
+  "allowedOutputs": [
+    "parity/driver/callbacks.mjs",
+    "parity/driver/callbacks.test.mjs",
+    "parity/driver/README.md",
+    "parity/system/harness/live.spec.mjs",
+    "parity/system/coverage/holes.json",
+    "parity/driver/dist/psflow.js",
+    "parity/system/traces/",
+    "parity/system/report.md",
+    "parity/system/coverage.md",
+    "parity/surface/report.md",
+    "parity/changelog-audit/report.md",
+    "aamf/step3/on-init-witness/",
+    "AAMF_PORTING_PLAN.md",
+    "AAMF_STEP3_RESULTS.md",
+    "aamf/step3/README.md",
+    "aamf/step3/SHA256SUMS"
+  ],
+  "acceptance": [
+    "Driver and native-browser regression demonstrated red before enabling observation",
+    "One real onInit receipt carrying a JS-shaped initialized instance, with function methods retained as the existing reference markers, on both sides",
+    "Existing coverage witness fires upstream and PSFlow before deleting the declared hole",
+    "Fresh full 107-scenario wave and applicable checks; self-inconsistent experiments stay excluded from interpretation",
+    "Stale withholding-register and contradiction checks retain behavioral tests even when live withholding register is empty; test injection must not change default build policy"
+  ],
+  "aamfInvoked": false,
+  "completedAt": "2026-11-11T04:24:56.572619+00:00",
+  "validationLimit": "Full system and live whole-upstream consistency remain red on recorded initialization/gesture ordering; no claim of wider E completion."
+}

@@ -1,0 +1,1108 @@
+
+> ps-flow@0.0.0 test:boundary
+> node --test "parity/boundary/**/*.test.mjs"
+
+TAP version 13
+# Subtest: getConnectedEdges accepts both arrays and returns the consumer edges
+ok 1 - getConnectedEdges accepts both arrays and returns the consumer edges
+  ---
+  duration_ms: 5.302766
+  type: 'test'
+  ...
+# Subtest: getConnectedEdges matches upstream: empty nodes
+ok 2 - getConnectedEdges matches upstream: empty nodes
+  ---
+  duration_ms: 0.656313
+  type: 'test'
+  ...
+# Subtest: getConnectedEdges matches upstream: empty edges
+ok 3 - getConnectedEdges matches upstream: empty edges
+  ---
+  duration_ms: 1.832848
+  type: 'test'
+  ...
+# Subtest: getConnectedEdges matches upstream: both endpoints, self-loops and input order
+ok 4 - getConnectedEdges matches upstream: both endpoints, self-loops and input order
+  ---
+  duration_ms: 0.578674
+  type: 'test'
+  ...
+# Subtest: getConnectedEdges matches upstream: duplicate node and edge ids
+ok 5 - getConnectedEdges matches upstream: duplicate node and edge ids
+  ---
+  duration_ms: 0.758248
+  type: 'test'
+  ...
+# Subtest: getConnectedEdges matches upstream: empty string ids
+ok 6 - getConnectedEdges matches upstream: empty string ids
+  ---
+  duration_ms: 0.556896
+  type: 'test'
+  ...
+# Subtest: getConnectedEdges preserves frozen consumer objects, symbols and present undefined
+ok 7 - getConnectedEdges preserves frozen consumer objects, symbols and present undefined
+  ---
+  duration_ms: 1.041765
+  type: 'test'
+  ...
+# Subtest: addEdge matches React-layer development warnings and propagates consumer errors
+ok 8 - addEdge matches React-layer development warnings and propagates consumer errors
+  ---
+  duration_ms: 127.617456
+  type: 'test'
+  ...
+# Subtest: addEdge copies the consumer edge/connection and retains untouched edges
+ok 9 - addEdge copies the consumer edge/connection and retains untouched edges
+  ---
+  duration_ms: 22.82611
+  type: 'test'
+  ...
+# Subtest: addEdge uses the original array concat operation after validation
+ok 10 - addEdge uses the original array concat operation after validation
+  ---
+  duration_ms: 1.032542
+  type: 'test'
+  ...
+# Subtest: addEdge keeps duplicate/invalid arrays and calls options with upstream arguments and receiver
+ok 11 - addEdge keeps duplicate/invalid arrays and calls options with upstream arguments and receiver
+  ---
+  duration_ms: 5.630873
+  type: 'test'
+  ...
+# Subtest: consumer helpers preserve enumerable symbols and __proto__ without copying inherited/nonenumerable fields
+ok 12 - consumer helpers preserve enumerable symbols and __proto__ without copying inherited/nonenumerable fields
+  ---
+  duration_ms: 4.940738
+  type: 'test'
+  ...
+# Subtest: consumer helpers preserve getter, generator and validation order
+ok 13 - consumer helpers preserve getter, generator and validation order
+  ---
+  duration_ms: 6.334665
+  type: 'test'
+  ...
+# Subtest: applyNodeChanges retains untouched consumer references and keys
+ok 14 - applyNodeChanges retains untouched consumer references and keys
+  ---
+  duration_ms: 1.186689
+  type: 'test'
+  ...
+# Subtest: applyEdgeChanges retains untouched consumer references and keys
+ok 15 - applyEdgeChanges retains untouched consumer references and keys
+  ---
+  duration_ms: 0.50143
+  type: 'test'
+  ...
+# Subtest: applyNodeChanges preserves raw position, dimensions, attributes and resizing semantics
+ok 16 - applyNodeChanges preserves raw position, dimensions, attributes and resizing semantics
+  ---
+  duration_ms: 5.703147
+  type: 'test'
+  ...
+# Subtest: applyNodeChanges shallow-copies touched/add/replace items and preserves change ordering
+ok 17 - applyNodeChanges shallow-copies touched/add/replace items and preserves change ordering
+  ---
+  duration_ms: 6.414081
+  type: 'test'
+  ...
+# Subtest: applyEdgeChanges shallow-copies touched/add/replace items and preserves change ordering
+ok 18 - applyEdgeChanges shallow-copies touched/add/replace items and preserves change ordering
+  ---
+  duration_ms: 8.6851
+  type: 'test'
+  ...
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Subtest: edge focusable overrides edgesFocusable either way
+ok 19 - edge focusable overrides edgesFocusable either way
+  ---
+  duration_ms: 386.785593
+  type: 'test'
+  ...
+# Subtest: edge ariaRole replaces the role and domAttributes spread last onto <g>
+ok 20 - edge ariaRole replaces the role and domAttributes spread last onto <g>
+  ---
+  duration_ms: 47.179113
+  type: 'test'
+  ...
+# Subtest: edge label options reach the label and its background
+ok 21 - edge label options reach the label and its background
+  ---
+  duration_ms: 90.556151
+  type: 'test'
+  ...
+# Subtest: a falsy label draws nothing, and a React element label draws itself
+ok 22 - a falsy label draws nothing, and a React element label draws itself
+  ---
+  duration_ms: 79.225954
+  type: 'test'
+  ...
+# Subtest: edge pathOptions reach the built-in path they belong to
+ok 23 - edge pathOptions reach the built-in path they belong to
+  ---
+  duration_ms: 100.361524
+  type: 'test'
+  ...
+# Subtest: edge reconnectable decides which reconnect anchors render
+ok 24 - edge reconnectable decides which reconnect anchors render
+  ---
+  duration_ms: 155.057875
+  type: 'test'
+  ...
+# Subtest: edge markers render from the edge
+ok 25 - edge markers render from the edge
+  ---
+  duration_ms: 16.61883
+  type: 'test'
+  ...
+# Subtest: node focusable, ariaRole and domAttributes render as upstream renders them
+ok 26 - node focusable, ariaRole and domAttributes render as upstream renders them
+  ---
+  duration_ms: 72.73626
+  type: 'test'
+  ...
+# Subtest: getIncomers accepts all three JS arguments and returns original nodes in node-array order
+ok 27 - getIncomers accepts all three JS arguments and returns original nodes in node-array order
+  ---
+  duration_ms: 18.082891
+  type: 'test'
+  ...
+# Subtest: getIncomers returns early for empty or absent ids without reading the other arguments
+ok 28 - getIncomers returns early for empty or absent ids without reading the other arguments
+  ---
+  duration_ms: 0.851177
+  type: 'test'
+  ...
+# Subtest: getIncomers matches upstream: empty nodes
+ok 29 - getIncomers matches upstream: empty nodes
+  ---
+  duration_ms: 0.550402
+  type: 'test'
+  ...
+# Subtest: getIncomers matches upstream: empty edges
+ok 30 - getIncomers matches upstream: empty edges
+  ---
+  duration_ms: 0.803534
+  type: 'test'
+  ...
+# Subtest: getIncomers matches upstream: unmatched target
+ok 31 - getIncomers matches upstream: unmatched target
+  ---
+  duration_ms: 0.732882
+  type: 'test'
+  ...
+# Subtest: getIncomers matches upstream: outgoing edges do not count
+ok 32 - getIncomers matches upstream: outgoing edges do not count
+  ---
+  duration_ms: 0.868734
+  type: 'test'
+  ...
+# Subtest: getIncomers matches upstream: duplicates and self-loops preserve node-array order
+ok 33 - getIncomers matches upstream: duplicates and self-loops preserve node-array order
+  ---
+  duration_ms: 0.907861
+  type: 'test'
+  ...
+# Subtest: getIncomers matches upstream: empty string source id
+ok 34 - getIncomers matches upstream: empty string source id
+  ---
+  duration_ms: 0.466892
+  type: 'test'
+  ...
+# Subtest: getIncomers preserves frozen consumer nodes, custom keys, symbols and present undefined
+ok 35 - getIncomers preserves frozen consumer nodes, custom keys, symbols and present undefined
+  ---
+  duration_ms: 2.554323
+  type: 'test'
+  ...
+# Subtest: isEdge preserves upstream native errors for primitive inputs
+ok 36 - isEdge preserves upstream native errors for primitive inputs
+  ---
+  duration_ms: 5.958627
+  type: 'test'
+  ...
+# Subtest: isEdge checks key presence across inherited fields and function objects
+ok 37 - isEdge checks key presence across inherited fields and function objects
+  ---
+  duration_ms: 1.155437
+  type: 'test'
+  ...
+# Subtest: isEdge preserves short-circuit presence-check order without reading values
+ok 38 - isEdge preserves short-circuit presence-check order without reading values
+  ---
+  duration_ms: 1.300865
+  type: 'test'
+  ...
+# Subtest: isNode preserves upstream native errors for primitive inputs
+ok 39 - isNode preserves upstream native errors for primitive inputs
+  ---
+  duration_ms: 15.586328
+  type: 'test'
+  ...
+# Subtest: isNode uses presence across inherited keys and function objects
+ok 40 - isNode uses presence across inherited keys and function objects
+  ---
+  duration_ms: 1.014495
+  type: 'test'
+  ...
+# Subtest: isNode preserves short-circuit presence-check order without reading values
+ok 41 - isNode preserves short-circuit presence-check order without reading values
+  ---
+  duration_ms: 3.027023
+  type: 'test'
+  ...
+# Subtest: getNodesBounds returns a rect from one JS call with omitted options
+ok 42 - getNodesBounds returns a rect from one JS call with omitted options
+  ---
+  duration_ms: 11.788571
+  type: 'test'
+  ...
+# Subtest: getNodesBounds resolves ids and plain nodes through the lookup, keeps internal inputs, and includes a zero box for misses
+ok 43 - getNodesBounds resolves ids and plain nodes through the lookup, keeps internal inputs, and includes a zero box for misses
+  ---
+  duration_ms: 1.609082
+  type: 'test'
+  ...
+# Subtest: getNodesBounds propagates NaN through every box merge in either input order
+ok 44 - getNodesBounds propagates NaN through every box merge in either input order
+  ---
+  duration_ms: 3.90263
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: empty nodes
+ok 45 - getNodesBounds matches upstream: empty nodes
+  ---
+  duration_ms: 0.528311
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: explicit undefined options
+ok 46 - getNodesBounds matches upstream: explicit undefined options
+  ---
+  duration_ms: 0.635979
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: empty options
+ok 47 - getNodesBounds matches upstream: empty options
+  ---
+  duration_ms: 0.461769
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: ids without a lookup contribute zero boxes
+ok 48 - getNodesBounds matches upstream: ids without a lookup contribute zero boxes
+  ---
+  duration_ms: 0.811386
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: global origin
+ok 49 - getNodesBounds matches upstream: global origin
+  ---
+  duration_ms: 0.755751
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: own origin overrides global origin
+ok 50 - getNodesBounds matches upstream: own origin overrides global origin
+  ---
+  duration_ms: 1.786147
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: partial measured dimensions and independent fallbacks
+ok 51 - getNodesBounds matches upstream: partial measured dimensions and independent fallbacks
+  ---
+  duration_ms: 1.771198
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: missing dimensions default to zero
+ok 52 - getNodesBounds matches upstream: missing dimensions default to zero
+  ---
+  duration_ms: 0.830512
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: internal nodes use absolute positions and ignore origins
+ok 53 - getNodesBounds matches upstream: internal nodes use absolute positions and ignore origins
+  ---
+  duration_ms: 0.471931
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: lookup miss for a plain node contributes zero instead of falling back
+ok 54 - getNodesBounds matches upstream: lookup miss for a plain node contributes zero instead of falling back
+  ---
+  duration_ms: 0.468802
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches upstream: nullish measured fields fall back independently
+ok 55 - getNodesBounds matches upstream: nullish measured fields fall back independently
+  ---
+  duration_ms: 0.473561
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches signed zero, infinities and negative dimensions
+ok 56 - getNodesBounds matches signed zero, infinities and negative dimensions
+  ---
+  duration_ms: 13.475186
+  type: 'test'
+  ...
+# Subtest: getNodesBounds reads only used geometry fields and short-circuits dimension fallbacks
+ok 57 - getNodesBounds reads only used geometry fields and short-circuits dimension fallbacks
+  ---
+  duration_ms: 0.657973
+  type: 'test'
+  ...
+# Subtest: getNodesBounds leaves frozen nodes, options and lookup entries unchanged
+ok 58 - getNodesBounds leaves frozen nodes, options and lookup entries unchanged
+  ---
+  duration_ms: 0.799169
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches malformed-option error and empty-input timing
+ok 59 - getNodesBounds matches malformed-option error and empty-input timing
+  ---
+  duration_ms: 1.541344
+  type: 'test'
+  ...
+# Subtest: getNodesBounds matches the vendored development warning before the empty-input return
+ok 60 - getNodesBounds matches the vendored development warning before the empty-input return
+  ---
+  duration_ms: 153.055772
+  type: 'test'
+  ...
+# Subtest: getOutgoers accepts three JS arguments and returns original nodes in node-array order
+ok 61 - getOutgoers accepts three JS arguments and returns original nodes in node-array order
+  ---
+  duration_ms: 5.951415
+  type: 'test'
+  ...
+# Subtest: getOutgoers returns early for empty or absent ids without reading the other arguments
+ok 62 - getOutgoers returns early for empty or absent ids without reading the other arguments
+  ---
+  duration_ms: 0.791766
+  type: 'test'
+  ...
+# Subtest: getOutgoers matches upstream: empty nodes
+ok 63 - getOutgoers matches upstream: empty nodes
+  ---
+  duration_ms: 0.379487
+  type: 'test'
+  ...
+# Subtest: getOutgoers matches upstream: empty edges
+ok 64 - getOutgoers matches upstream: empty edges
+  ---
+  duration_ms: 0.224144
+  type: 'test'
+  ...
+# Subtest: getOutgoers matches upstream: unmatched source
+ok 65 - getOutgoers matches upstream: unmatched source
+  ---
+  duration_ms: 0.494859
+  type: 'test'
+  ...
+# Subtest: getOutgoers matches upstream: incoming edges do not count
+ok 66 - getOutgoers matches upstream: incoming edges do not count
+  ---
+  duration_ms: 0.391432
+  type: 'test'
+  ...
+# Subtest: getOutgoers matches upstream: duplicates and self-loops preserve node-array order
+ok 67 - getOutgoers matches upstream: duplicates and self-loops preserve node-array order
+  ---
+  duration_ms: 0.659764
+  type: 'test'
+  ...
+# Subtest: getOutgoers matches upstream: empty string target id
+ok 68 - getOutgoers matches upstream: empty string target id
+  ---
+  duration_ms: 0.377749
+  type: 'test'
+  ...
+# Subtest: getOutgoers preserves frozen consumer nodes, custom keys, symbols and present undefined
+ok 69 - getOutgoers preserves frozen consumer nodes, custom keys, symbols and present undefined
+  ---
+  duration_ms: 1.747536
+  type: 'test'
+  ...
+# Subtest: a record written as one literal reads back as itself
+ok 70 - a record written as one literal reads back as itself
+  ---
+  duration_ms: 11.851802
+  type: 'test'
+  ...
+# Subtest: a record composed from a row is expanded, tail last
+ok 71 - a record composed from a row is expanded, tail last
+  ---
+  duration_ms: 5.670651
+  type: 'test'
+  ...
+# Subtest: `{ label :: T | Row }` is a composition too, not a one-field record
+ok 72 - `{ label :: T | Row }` is a composition too, not a one-field record
+  ---
+  duration_ms: 2.392033
+  type: 'test'
+  ...
+# Subtest: two rows compose, and a synonym in between is followed
+ok 73 - two rows compose, and a synonym in between is followed
+  ---
+  duration_ms: 6.498538
+  type: 'test'
+  ...
+# Subtest: a parameterised record synonym is applied, not just named
+ok 74 - a parameterised record synonym is applied, not just named
+  ---
+  duration_ms: 3.605616
+  type: 'test'
+  ...
+# Subtest: an argument is read in the scope that passed it, not the one that uses it
+ok 75 - an argument is read in the scope that passed it, not the one that uses it
+  ---
+  duration_ms: 7.096739
+  type: 'test'
+  ...
+# Subtest: a synonym sees only its own parameters — an enclosing one is not in scope
+ok 76 - a synonym sees only its own parameters — an enclosing one is not in scope
+  ---
+  duration_ms: 3.699797
+  type: 'test'
+  ...
+# Subtest: an unapplied tail contributes nothing rather than failing
+ok 77 - an unapplied tail contributes nothing rather than failing
+  ---
+  duration_ms: 3.751513
+  type: 'test'
+  ...
+# Subtest: field types come back alongside the labels, whitespace collapsed
+ok 78 - field types come back alongside the labels, whitespace collapsed
+  ---
+  duration_ms: 18.753283
+  type: 'test'
+  ...
+# Subtest: a quoted label survives, and a `--` inside one is not a comment
+ok 79 - a quoted label survives, and a `--` inside one is not a comment
+  ---
+  duration_ms: 3.187625
+  type: 'test'
+  ...
+# Subtest: ReactFlowInstance reads as all thirty-two members
+ok 80 - ReactFlowInstance reads as all thirty-two members
+  ---
+  duration_ms: 24.757176
+  type: 'test'
+  ...
+# Subtest: InternalNodeBase carries the node's own fields, not just `internals`
+ok 81 - InternalNodeBase carries the node's own fields, not just `internals`
+  ---
+  duration_ms: 4.813092
+  type: 'test'
+  ...
+# Subtest: a path-shaped edge props record is its shared row plus pathOptions
+ok 82 - a path-shaped edge props record is its shared row plus pathOptions
+  ---
+  duration_ms: 3.936927
+  type: 'test'
+  ...
+# Subtest: reconnectEdge accepts JS arguments, preserves untouched references and consumer keys on the replacement
+ok 83 - reconnectEdge accepts JS arguments, preserves untouched references and consumer keys on the replacement
+  ---
+  duration_ms: 9.375547
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: omitted
+ok 84 - reconnectEdge matches option/default behavior: omitted
+  ---
+  duration_ms: 1.055716
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: empty options
+ok 85 - reconnectEdge matches option/default behavior: empty options
+  ---
+  duration_ms: 0.73017
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: replace true
+ok 86 - reconnectEdge matches option/default behavior: replace true
+  ---
+  duration_ms: 0.570026
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: replace false
+ok 87 - reconnectEdge matches option/default behavior: replace false
+  ---
+  duration_ms: 0.824645
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: replace undefined
+ok 88 - reconnectEdge matches option/default behavior: replace undefined
+  ---
+  duration_ms: 0.523484
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: replace null
+ok 89 - reconnectEdge matches option/default behavior: replace null
+  ---
+  duration_ms: 0.695698
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: custom generator
+ok 90 - reconnectEdge matches option/default behavior: custom generator
+  ---
+  duration_ms: 0.590385
+  type: 'test'
+  ...
+# Subtest: reconnectEdge preserves null/undefined/empty handles and writes missing handles as own keys
+ok 91 - reconnectEdge preserves null/undefined/empty handles and writes missing handles as own keys
+  ---
+  duration_ms: 5.968993
+  type: 'test'
+  ...
+# Subtest: reconnectEdge removes every matching id, preserves other order and copies the supplied old edge
+ok 92 - reconnectEdge removes every matching id, preserves other order and copies the supplied old edge
+  ---
+  duration_ms: 2.282248
+  type: 'test'
+  ...
+# Subtest: reconnectEdge gives the generator the original connection and reads mutations afterward
+ok 93 - reconnectEdge gives the generator the original connection and reads mutations afterward
+  ---
+  duration_ms: 2.989144
+  type: 'test'
+  ...
+# Subtest: reconnectEdge keeps the exact input array and reports the right callback on both error branches
+ok 94 - reconnectEdge keeps the exact input array and reports the right callback on both error branches
+  ---
+  duration_ms: 2.831066
+  type: 'test'
+  ...
+# Subtest: reconnectEdge preserves getter, find, generator and replacement-read order
+ok 95 - reconnectEdge preserves getter, find, generator and replacement-read order
+  ---
+  duration_ms: 2.364209
+  type: 'test'
+  ...
+# Subtest: reconnectEdge copies enumerable own keys safely and leaves frozen inputs untouched
+ok 96 - reconnectEdge copies enumerable own keys safely and leaves frozen inputs untouched
+  ---
+  duration_ms: 1.153436
+  type: 'test'
+  ...
+# Subtest: reconnectEdge propagates callback exceptions and null-option errors
+ok 97 - reconnectEdge propagates callback exceptions and null-option errors
+  ---
+  duration_ms: 1.418694
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches React-layer default development warnings
+ok 98 - reconnectEdge matches React-layer default development warnings
+  ---
+  duration_ms: 110.424588
+  type: 'test'
+  ...
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Subtest: getState hands over upstream state, member for member and entry for entry
+ok 99 - getState hands over upstream state, member for member and entry for entry
+  ---
+  duration_ms: 180.979167
+  type: 'test'
+  ...
+# Subtest: useStore answers the selection, and the whole state with no selector
+ok 100 - useStore answers the selection, and the whole state with no selector
+  ---
+  duration_ms: 15.473065
+  type: 'test'
+  ...
+# Subtest: reads hand back the consumer objects and keep their identity
+ok 101 - reads hand back the consumer objects and keep their identity
+  ---
+  duration_ms: 16.273619
+  type: 'test'
+  ...
+# Subtest: setState merges like zustand and notifies with the state and the one before
+ok 102 - setState merges like zustand and notifies with the state and the one before
+  ---
+  duration_ms: 14.739096
+  type: 'test'
+  ...
+# Subtest: a value written with setState reads back as the consumer wrote it
+ok 103 - a value written with setState reads back as the consumer wrote it
+  ---
+  duration_ms: 12.266172
+  type: 'test'
+  ...
+# Subtest: a direct write into the state changes it without notifying anyone
+ok 104 - a direct write into the state changes it without notifying anyone
+  ---
+  duration_ms: 9.328756
+  type: 'test'
+  ...
+# Subtest: the twenty actions are on the state and reach the store
+ok 105 - the twenty actions are on the state and reach the store
+  ---
+  duration_ms: 17.420051
+  type: 'test'
+  ...
+# Subtest: an equalityFn is called with the previous and next selection
+ok 106 - an equalityFn is called with the previous and next selection
+  ---
+  duration_ms: 10.831388
+  type: 'test'
+  ...
+# Subtest: replacing the whole state is refused with a message, not half-applied
+ok 107 - replacing the whole state is refused with a message, not half-applied
+  ---
+  duration_ms: 8.231336
+  type: 'test'
+  ...
+# Subtest: a member of the wrong type is refused with the member named
+ok 108 - a member of the wrong type is refused with the member named
+  ---
+  duration_ms: 6.034198
+  type: 'test'
+  ...
+# Subtest: outside a flow both hooks throw upstream error001
+ok 109 - outside a flow both hooks throw upstream error001
+  ---
+  duration_ms: 1.576114
+  type: 'test'
+  ...
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.Basic.Hooks/index.js:219:55
+#     at file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+# Subtest: getInternalNode and useInternalNode retain the original consumer node
+ok 110 - getInternalNode and useInternalNode retain the original consumer node
+  ---
+  duration_ms: 81.355422
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds accepts all six JS arguments
+ok 111 - getViewportForBounds accepts all six JS arguments
+  ---
+  duration_ms: 8.221722
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: ratio
+ok 112 - getViewportForBounds matches upstream: ratio
+  ---
+  duration_ms: 0.988422
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: zero
+ok 113 - getViewportForBounds matches upstream: zero
+  ---
+  duration_ms: 0.442857
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: pixels
+ok 114 - getViewportForBounds matches upstream: pixels
+  ---
+  duration_ms: 1.851301
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: percent
+ok 115 - getViewportForBounds matches upstream: percent
+  ---
+  duration_ms: 0.759994
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: directional
+ok 116 - getViewportForBounds matches upstream: directional
+  ---
+  duration_ms: 1.563891
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: axis fallback
+ok 117 - getViewportForBounds matches upstream: axis fallback
+  ---
+  duration_ms: 1.25072
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: asymmetric
+ok 118 - getViewportForBounds matches upstream: asymmetric
+  ---
+  duration_ms: 1.862881
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: empty
+ok 119 - getViewportForBounds matches upstream: empty
+  ---
+  duration_ms: 2.702263
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: explicit undefined
+ok 120 - getViewportForBounds matches upstream: explicit undefined
+  ---
+  duration_ms: 1.827736
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: null
+ok 121 - getViewportForBounds matches upstream: null
+  ---
+  duration_ms: 1.057868
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: boolean
+ok 122 - getViewportForBounds matches upstream: boolean
+  ---
+  duration_ms: 0.497909
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: function
+ok 123 - getViewportForBounds matches upstream: function
+  ---
+  duration_ms: 0.401008
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: array
+ok 124 - getViewportForBounds matches upstream: array
+  ---
+  duration_ms: 0.807146
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: invalid scalar
+ok 125 - getViewportForBounds matches upstream: invalid scalar
+  ---
+  duration_ms: 0.785837
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: invalid side
+ok 126 - getViewportForBounds matches upstream: invalid side
+  ---
+  duration_ms: 1.206936
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: parseFloat suffix
+ok 127 - getViewportForBounds matches upstream: parseFloat suffix
+  ---
+  duration_ms: 0.485169
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: negative pixels
+ok 128 - getViewportForBounds matches upstream: negative pixels
+  ---
+  duration_ms: 0.405807
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: infinite pixels
+ok 129 - getViewportForBounds matches upstream: infinite pixels
+  ---
+  duration_ms: 0.473584
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: NaN
+ok 130 - getViewportForBounds matches upstream: NaN
+  ---
+  duration_ms: 0.378431
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: infinity
+ok 131 - getViewportForBounds matches upstream: infinity
+  ---
+  duration_ms: 0.329221
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: NaN horizontal padding
+ok 132 - getViewportForBounds matches upstream: NaN horizontal padding
+  ---
+  duration_ms: 0.472612
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds matches upstream: NaN vertical padding
+ok 133 - getViewportForBounds matches upstream: NaN vertical padding
+  ---
+  duration_ms: 0.421537
+  type: 'test'
+  ...
+# Subtest: omitted padding has no caller-specific default
+ok 134 - omitted padding has no caller-specific default
+  ---
+  duration_ms: 0.402588
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds respects min clamp
+ok 135 - getViewportForBounds respects min clamp
+  ---
+  duration_ms: 0.717053
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds respects max clamp
+ok 136 - getViewportForBounds respects max clamp
+  ---
+  duration_ms: 0.402749
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds propagates NaN minZoom
+ok 137 - getViewportForBounds propagates NaN minZoom
+  ---
+  duration_ms: 0.410672
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds propagates NaN maxZoom
+ok 138 - getViewportForBounds propagates NaN maxZoom
+  ---
+  duration_ms: 3.142697
+  type: 'test'
+  ...
+1..138
+# tests 138
+# suites 0
+# pass 138
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5268.217498

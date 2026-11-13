@@ -1,0 +1,47 @@
+{
+  "id": "psflow-h-shared-numeric-semantics",
+  "status": "complete (bounded H/W13 geometry and resize numeric slice)",
+  "startedAt": "2026-11-11T15:34:31.555340+00:00",
+  "source": [
+    "packages/system/src/utils/general.ts",
+    "packages/system/src/xyresizer/utils.ts",
+    "packages/system/src/xyresizer/XYResizer.ts"
+  ],
+  "scope": "Bounded H/W13 shared Number min/max for geometry and resize paths, preserving NaN and signed zero; reuse exact boundary numeric behavior. Other numerical call sites and G store/default-edge contracts remain separate.",
+  "seam": "Plan-authorized pure exported System.Utils.General helpers and System.XYResizer.Utils.getDimensionsAfterResize, plus real resize-controller regression through existing test; expected values from pinned vendored sources and exact native Object.is, without tolerance changes.",
+  "allowedOutputs": [
+    "src/System/Utils/Number.purs",
+    "src/System/Utils/General.purs",
+    "src/System/XYResizer/Utils.purs",
+    "src/System/XYResizer.purs",
+    "src/Boundary/Utils.purs",
+    "test/Test/System/Utils/NumericParity.purs",
+    "test/Test/System/Utils/NumericParity.js",
+    "test/Test/Main.purs",
+    "parity/driver/dist/psflow.js",
+    "parity/surface/report.md",
+    "AAMF_PORTING_PLAN.md",
+    "AAMF_STEP3_RESULTS.md",
+    "aamf/step3/README.md",
+    "aamf/step3/SHA256SUMS",
+    "aamf/step3/numeric-semantics/",
+    "test/Test/System/XYResizer.js"
+  ],
+  "acceptance": [
+    "Record a failing production-path differential before numeric implementation",
+    "Keep numeric decisions in PureScript and retain upstream operation order",
+    "Exact comparisons cover NaN, infinities, signed zero and ordinary finite inputs, with deliberate faults rejected",
+    "Build, surface, function/unit, boundary, driver and affected browser checks pass or retain precise unrelated failures",
+    "Preserve previous canonical wave and evidence; do not claim a new full-wave result"
+  ],
+  "aamfInvoked": false,
+  "scopeExpansion": "Add a source-differential case at the existing real controller seam to isolate child-extent aggregation after the pure solver correction. No hook, fixture, comparator or coverage-register changes.",
+  "completedAt": "2026-11-11T16:00:04.199776+00:00",
+  "remainingNumericExamples": [
+    "System.Types.Geometry BoundingBox semigroup",
+    "System.Utils.Store parent expansion",
+    "React.Store.Reduce child position clamp",
+    "System.Utils.Edges.SmoothStep numeric clamps",
+    "System.XYHandle.Utils distance fold"
+  ]
+}

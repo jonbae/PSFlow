@@ -1,0 +1,86 @@
+$ npx playwright test --config parity/system/harness/playwright.config.mjs --grep records onInit
+[2m[WebServer] [22m(node:80254) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:80289) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:80289) [DEP0066] DeprecationWarning: OutgoingMessage.prototype._headers is deprecated
+
+Running 2 tests using 1 worker
+
+(node:80302) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:80302) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [harness] › parity/system/harness/live.spec.mjs:84:3 › psflow records onInit with its initialized JS instance (3.4s)
+(node:80380) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:80380) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [harness] › parity/system/harness/live.spec.mjs:84:3 › upstream records onInit with its initialized JS instance (2.7s)
+
+
+  1) [harness] › parity/system/harness/live.spec.mjs:84:3 › psflow records onInit with its initialized JS instance 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoHaveLength[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected length: [32m1[39m
+    Received length: [31m0[39m
+    Received array:  [31m[][39m
+
+      90 |     }), side);
+      91 |     const calls = trace.sections.callbacks.filter(entry => entry.name === "onInit");
+    > 92 |     expect(calls).toHaveLength(1);
+         |                   ^
+      93 |     expect(calls[0].args).toHaveLength(1);
+      94 |     expect(calls[0].args[0].viewportInitialized).toBe(true);
+      95 |     expect(calls[0].args[0].getNodes).toEqual({ "@ref": "function" });
+        at /Users/jonathanbae/repos/PSFlow/parity/system/harness/live.spec.mjs:92:19
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/live-psflow-records-onInit-with-its-initialized-JS-instance-harness/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/live-psflow-records-onInit-with-its-initialized-JS-instance-harness/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/live-psflow-records-onInit-with-its-initialized-JS-instance-harness/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/live-psflow-records-onInit-with-its-initialized-JS-instance-harness/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [harness] › parity/system/harness/live.spec.mjs:84:3 › upstream records onInit with its initialized JS instance 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoHaveLength[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected length: [32m1[39m
+    Received length: [31m0[39m
+    Received array:  [31m[][39m
+
+      90 |     }), side);
+      91 |     const calls = trace.sections.callbacks.filter(entry => entry.name === "onInit");
+    > 92 |     expect(calls).toHaveLength(1);
+         |                   ^
+      93 |     expect(calls[0].args).toHaveLength(1);
+      94 |     expect(calls[0].args[0].viewportInitialized).toBe(true);
+      95 |     expect(calls[0].args[0].getNodes).toEqual({ "@ref": "function" });
+        at /Users/jonathanbae/repos/PSFlow/parity/system/harness/live.spec.mjs:92:19
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/live-upstream-records-onIn-155e1-its-initialized-JS-instance-harness/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/live-upstream-records-onIn-155e1-its-initialized-JS-instance-harness/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/live-upstream-records-onIn-155e1-its-initialized-JS-instance-harness/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/live-upstream-records-onIn-155e1-its-initialized-JS-instance-harness/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [harness] › parity/system/harness/live.spec.mjs:84:3 › psflow records onInit with its initialized JS instance 
+    [harness] › parity/system/harness/live.spec.mjs:84:3 › upstream records onInit with its initialized JS instance 

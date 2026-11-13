@@ -1,0 +1,146 @@
+{
+  "status": "complete (bounded initialization/native-frame driving); Step 3 E and G\u2013I remain open",
+  "completedAt": "2026-11-11T05:40:34.055541+00:00",
+  "aamfInvoked": false,
+  "mechanism": "Hold application timers on a blank document; settle native DOM; advance two virtual frames between native frame/task barriers and settle again; resume before actions; later ticks await both application and native frames. Original callback order remains recorded.",
+  "librarySourceAndCompiledJsChanges": [],
+  "diagnosticProbes": [
+    {
+      "mode": "baseline",
+      "consistentPairs": 2,
+      "pairs": 5
+    },
+    {
+      "mode": "clock-running",
+      "consistentPairs": 1,
+      "pairs": 5
+    },
+    {
+      "mode": "clock-paused",
+      "consistentPairs": 1,
+      "pairs": 5
+    },
+    {
+      "mode": "fresh-page",
+      "consistentPairs": 3,
+      "pairs": 5
+    },
+    {
+      "mode": "clock-paused-native",
+      "consistentPairs": 5,
+      "pairs": 5
+    },
+    {
+      "mode": "clock-paused-native-32",
+      "consistentPairs": 4,
+      "pairs": 5
+    },
+    {
+      "mode": "clock-layout",
+      "consistentPairs": 10,
+      "pairs": 10
+    }
+  ],
+  "diagnosticRawTraces": 80,
+  "mountOnlyTrial": {
+    "artifact": "mount-only-checkpoint.tar.gz",
+    "scenarios": 107,
+    "failed": 94,
+    "selfInconsistent": 5,
+    "limit": "Keyboard hover receipts varied across independent rounds despite all five individual pairs reproducing; stronger official cross-round check was red."
+  },
+  "finalBoundedExperiments": {
+    "rawTraces": 60,
+    "scenarios": [
+      "mount-baseline--edges-general",
+      "arrow-key-selected-node",
+      "resize-node-after-active-limit-change"
+    ],
+    "pairsPerScenario": 5,
+    "sides": [
+      "upstream",
+      "psflow"
+    ],
+    "allCapturesReproduceAcrossRounds": true,
+    "geometryAndCallbackFaultChecks": "capture-verification.json and final-*-repeatability.json",
+    "resizeReceiptsAndFaultChecks": "final/round*-summary.json"
+  },
+  "redEvidence": [
+    "red-mount-protocol.log",
+    "red-init-repeat.log",
+    "red-across-rounds.log"
+  ],
+  "notRedEvidence": {
+    "red-native-post-mount-frame.log": "Exit 0: the simpler ResizeObserver probe did not reproduce the hover-order failure; actual keyboard captures and the unchanged official comparator supplied the red regression."
+  },
+  "checks": {
+    "build": "pass",
+    "surface": "pass",
+    "functionAndUnit": "pass",
+    "boundary": "pass",
+    "harnessUnits": 279,
+    "comparisonCoverageForkUnits": 159,
+    "fork": "pass",
+    "liveHarness": {
+      "passed": 25,
+      "failed": 0
+    },
+    "conformance": {
+      "passed": 41,
+      "failed": 0,
+      "scope": "Identical application source/output, which this task does not change"
+    },
+    "smoke": {
+      "passed": 2,
+      "failed": 0
+    },
+    "changelog": "pass"
+  },
+  "fullSystem": {
+    "scenarios": 107,
+    "passed": 12,
+    "failed": 95,
+    "selfInconsistent": [
+      "mount-baseline--viewport-controlled",
+      "drag-node-autopan",
+      "wheel-zoom-from-identity-viewport",
+      "drag-node-reports-changes",
+      "pan-after-controlled-viewport-change"
+    ],
+    "drivingDivergence": []
+  },
+  "unstableSides": {
+    "upstream": 4,
+    "psflow": 3
+  },
+  "coverage": {
+    "driven": 128,
+    "exportBearing": 156,
+    "declaredHoles": 28,
+    "undeclared": 0,
+    "separateBehaviorDebt": 50
+  },
+  "comparisonPolicyChanged": false,
+  "fixturesChanged": false,
+  "callbacksRemovedOrReordered": false,
+  "priorCheckpoint": "before-canonical-checkpoint.tar.gz (428 traces plus report and coverage)",
+  "finalRuntime": "validation-runtime.tar.gz",
+  "remaining": [
+    "E controlled-viewport/node-measurement ordering and gesture/auto-pan frame counts",
+    "G JS useStore/useStoreApi and thirteen refused default-edge options",
+    "H additional witnesses, reference/selector and shared numeric behavior",
+    "I distribution declarations, entry points and assets"
+  ],
+  "changedPassFailFromPrior": [
+    {
+      "scenario": "wheel-zoom-from-identity-viewport",
+      "passed": false,
+      "interpretable": false,
+      "classes": [
+        "self-inconsistent",
+        "unclaimed-difference"
+      ]
+    }
+  ],
+  "additionalFailure": "wheel-zoom-from-identity-viewport is newly self-inconsistent in PSFlow: one capture includes onMoveEnd and the other does not. Its cross-side diff remains excluded; it is not classified as a stable implementation regression."
+}

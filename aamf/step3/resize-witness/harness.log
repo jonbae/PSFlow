@@ -1,0 +1,1659 @@
+$ npm run test:harness
+
+> ps-flow@0.0.0 test:harness
+> node --test "parity/system/harness/**/*.test.mjs" "parity/system/corpus/**/*.test.mjs" "parity/system/net/**/*.test.mjs" "parity/driver/**/*.test.mjs"
+
+TAP version 13
+# Subtest: a prop is a callback exactly when its type is callable, whatever it is named
+ok 1 - a prop is a callback exactly when its type is callable, whatever it is named
+  ---
+  duration_ms: 9346.34019
+  type: 'test'
+  ...
+# Subtest: a member inherited from outside the library's own source is not one of its callbacks
+ok 2 - a member inherited from outside the library's own source is not one of its callbacks
+  ---
+  duration_ms: 3367.764111
+  type: 'test'
+  ...
+# Subtest: a source file that is not there fails, naming the vendored tree
+ok 3 - a source file that is not there fails, naming the vendored tree
+  ---
+  duration_ms: 6.624927
+  type: 'test'
+  ...
+# Subtest: a props type that is no longer declared fails rather than deriving nothing
+ok 4 - a props type that is no longer declared fails rather than deriving nothing
+  ---
+  duration_ms: 1659.513759
+  type: 'test'
+  ...
+# Subtest: CallbackDerivationError is what the derivation throws
+ok 5 - CallbackDerivationError is what the derivation throws
+  ---
+  duration_ms: 2.136318
+  type: 'test'
+  ...
+# Subtest: a withheld prop that upstream no longer declares as a callback is stale
+ok 6 - a withheld prop that upstream no longer declares as a callback is stale
+  ---
+  duration_ms: 1.085072
+  type: 'test'
+  ...
+# Subtest: an unset-answer entry that upstream no longer declares as a callback is stale
+ok 7 - an unset-answer entry that upstream no longer declares as a callback is stale
+  ---
+  duration_ms: 1.012151
+  type: 'test'
+  ...
+# Subtest: registers that name real callback props are not stale
+ok 8 - registers that name real callback props are not stale
+  ---
+  duration_ms: 0.559984
+  type: 'test'
+  ...
+# Subtest: an answer for a prop nothing installs is a contradiction, not a filter
+ok 9 - an answer for a prop nothing installs is a contradiction, not a filter
+  ---
+  duration_ms: 1.824772
+  type: 'test'
+  ...
+# Subtest: every hole carries a reason and the issue that lands it
+ok 10 - every hole carries a reason and the issue that lands it
+  ---
+  duration_ms: 3.087
+  type: 'test'
+  ...
+# Subtest: the withheld props are the holes that name one
+ok 11 - the withheld props are the holes that name one
+  ---
+  duration_ms: 1.023814
+  type: 'test'
+  ...
+# Subtest: the census still assigns this section the exports the holes are counted against
+ok 12 - the census still assigns this section the exports the holes are counted against
+  ---
+  duration_ms: 0.439042
+  type: 'test'
+  ...
+# Subtest: every declared hole names an export the census assigns to this section
+ok 13 - every declared hole names an export the census assigns to this section
+  ---
+  duration_ms: 0.58692
+  type: 'test'
+  ...
+# Subtest: the exports outside ReactFlowProps are the ones declared
+ok 14 - the exports outside ReactFlowProps are the ones declared
+  ---
+  duration_ms: 0.72738
+  type: 'test'
+  ...
+# Subtest: upstream's own callback props are what the driver installs, minus the withheld ones
+ok 15 - upstream's own callback props are what the driver installs, minus the withheld ones
+  ---
+  duration_ms: 3936.737267
+  type: 'test'
+  ...
+# Subtest: no prop is both installed and withheld
+ok 16 - no prop is both installed and withheld
+  ---
+  duration_ms: 3175.200161
+  type: 'test'
+  ...
+# Subtest: both registers name props upstream still declares as callbacks
+ok 17 - both registers name props upstream still declares as callbacks
+  ---
+  duration_ms: 1361.772076
+  type: 'test'
+  ...
+# Subtest: the observation bridge snapshots instance queries and toObject is among them
+ok 18 - the observation bridge snapshots instance queries and toObject is among them
+  ---
+  duration_ms: 176.23611
+  type: 'test'
+  ...
+# Subtest: settled queries and driving mutators partition every crossed ReactFlowInstance member
+ok 19 - settled queries and driving mutators partition every crossed ReactFlowInstance member
+  ---
+  duration_ms: 60.822091
+  type: 'test'
+  ...
+# Subtest: registered hook-store queries are evaluated only when the settled snapshot is read
+ok 20 - registered hook-store queries are evaluated only when the settled snapshot is read
+  ---
+  duration_ms: 1.284125
+  type: 'test'
+  ...
+# Subtest: hook and props probes are keyed by probe id and serialized on receipt
+ok 21 - hook and props probes are keyed by probe id and serialized on receipt
+  ---
+  duration_ms: 9.658909
+  type: 'test'
+  ...
+# Subtest: imperative calls await and serialize their return value
+ok 22 - imperative calls await and serialize their return value
+  ---
+  duration_ms: 6.267347
+  type: 'test'
+  ...
+# Subtest: a plain run receives upstream's graph object unchanged
+ok 23 - a plain run receives upstream's graph object unchanged
+  ---
+  duration_ms: 6.910342
+  type: 'test'
+  ...
+# Subtest: the node probe replaces one derived node type instead of wrapping a builtin
+ok 24 - the node probe replaces one derived node type instead of wrapping a builtin
+  ---
+  duration_ms: 87.173627
+  type: 'test'
+  ...
+# Subtest: the node probe skips hidden tail nodes and fails when none can mount
+ok 25 - the node probe skips hidden tail nodes and fails when none can mount
+  ---
+  duration_ms: 4.16807
+  type: 'test'
+  ...
+# Subtest: edge and connection-line probes are separately derived variants
+ok 26 - edge and connection-line probes are separately derived variants
+  ---
+  duration_ms: 1.531562
+  type: 'test'
+  ...
+# Subtest: a flow variant installs only its selected callback hook without dropping ordinary hooks
+ok 27 - a flow variant installs only its selected callback hook without dropping ordinary hooks
+  ---
+  duration_ms: 85.552736
+  type: 'test'
+  ...
+# Subtest: a flow variant with no callback experiment installs no callback hooks
+ok 28 - a flow variant with no callback experiment installs no callback hooks
+  ---
+  duration_ms: 0.904775
+  type: 'test'
+  ...
+# Subtest: a route key is the path below its root, the way upstream's glob derives it
+ok 29 - a route key is the path below its root, the way upstream's glob derives it
+  ---
+  duration_ms: 22.619781
+  type: 'test'
+  ...
+# Subtest: nested directories keep posix separators whatever the host uses
+ok 30 - nested directories keep posix separators whatever the host uses
+  ---
+  duration_ms: 6.999942
+  type: 'test'
+  ...
+# Subtest: only `.ts` joins the registry — a fixture's own components are not routes
+ok 31 - only `.ts` joins the registry — a fixture's own components are not routes
+  ---
+  duration_ms: 62.620966
+  type: 'test'
+  ...
+# Subtest: two roots merge into one registry
+ok 32 - two roots merge into one registry
+  ---
+  duration_ms: 72.387441
+  type: 'test'
+  ...
+# Subtest: a route claimed by two roots fails rather than one silently winning
+ok 33 - a route claimed by two roots fails rather than one silently winning
+  ---
+  duration_ms: 81.674658
+  type: 'test'
+  ...
+# Subtest: a missing root fails with the message its caller gave it
+ok 34 - a missing root fails with the message its caller gave it
+  ---
+  duration_ms: 1.257114
+  type: 'test'
+  ...
+# Subtest: the two roots are named once, and their absences mean different things
+ok 35 - the two roots are named once, and their absences mean different things
+  ---
+  duration_ms: 1.767232
+  type: 'test'
+  ...
+# Subtest: one empty root is fine; every root empty is not
+ok 36 - one empty root is fine; every root empty is not
+  ---
+  duration_ms: 89.350136
+  type: 'test'
+  ...
+# Subtest: the directly mounted components are named once, and each says what it is
+ok 37 - the directly mounted components are named once, and each says what it is
+  ---
+  duration_ms: 2.368544
+  type: 'test'
+  ...
+# Subtest: a component route is a hash path with the hash left off
+ok 38 - a component route is a hash path with the hash left off
+  ---
+  duration_ms: 65.158719
+  type: 'test'
+  ...
+# Subtest: a component whose module is missing fails with the message its entry gave it
+ok 39 - a component whose module is missing fails with the message its entry gave it
+  ---
+  duration_ms: 2.928462
+  type: 'test'
+  ...
+# Subtest: a component of no known kind fails rather than being routed anyway
+ok 40 - a component of no known kind fails rather than being routed anyway
+  ---
+  duration_ms: 4.004031
+  type: 'test'
+  ...
+# Subtest: two components claiming one route fail rather than one silently winning
+ok 41 - two components claiming one route fail rather than one silently winning
+  ---
+  duration_ms: 127.799446
+  type: 'test'
+  ...
+# Subtest: the driver page imports a bundle for each side, and for no other
+ok 42 - the driver page imports a bundle for each side, and for no other
+  ---
+  duration_ms: 27.346623
+  type: 'test'
+  ...
+# Subtest: the page defaults to a side that exists
+ok 43 - the page defaults to a side that exists
+  ---
+  duration_ms: 2.784106
+  type: 'test'
+  ...
+# Subtest: a unit's name is the describes it sits under, then itself
+ok 44 - a unit's name is the describes it sits under, then itself
+  ---
+  duration_ms: 542.5339
+  type: 'test'
+  ...
+# Subtest: a hook is registered like a test, so a moved route cannot pass silently
+ok 45 - a hook is registered like a test, so a moved route cannot pass silently
+  ---
+  duration_ms: 85.142639
+  type: 'test'
+  ...
+# Subtest: a modifier does not change what a call is
+ok 46 - a modifier does not change what a call is
+  ---
+  duration_ms: 70.4919
+  type: 'test'
+  ...
+# Subtest: the hash ignores line endings and nothing else
+ok 47 - the hash ignores line endings and nothing else
+  ---
+  duration_ms: 1.183605
+  type: 'test'
+  ...
+# Subtest: two units under one name fail rather than one being unregisterable
+ok 48 - two units under one name fail rather than one being unregisterable
+  ---
+  duration_ms: 6.894052
+  type: 'test'
+  ...
+# Subtest: an entry needs a spec, a test, a hash and the baseline it was affirmed against
+ok 49 - an entry needs a spec, a test, a hash and the baseline it was affirmed against
+  ---
+  duration_ms: 27.897615
+  type: 'test'
+  ...
+# Subtest: an entry that lifts nothing needs a written reason
+ok 50 - an entry that lifts nothing needs a written reason
+  ---
+  duration_ms: 2.655048
+  type: 'test'
+  ...
+# Subtest: two entries for one unit fail
+ok 51 - two entries for one unit fail
+  ---
+  duration_ms: 0.916038
+  type: 'test'
+  ...
+# Subtest: a unit whose source is the one the entry recorded is affirmed
+ok 52 - a unit whose source is the one the entry recorded is affirmed
+  ---
+  duration_ms: 3.590304
+  type: 'test'
+  ...
+# Subtest: a forked spec that changed fails, naming the scenarios to re-affirm
+ok 53 - a forked spec that changed fails, naming the scenarios to re-affirm
+  ---
+  duration_ms: 56.083959
+  type: 'test'
+  ...
+# Subtest: an entry naming a unit the spec no longer holds is stale
+ok 54 - an entry naming a unit the spec no longer holds is stale
+  ---
+  duration_ms: 1.56614
+  type: 'test'
+  ...
+# Subtest: a unit no entry names fails as unregistered
+ok 55 - a unit no entry names fails as unregistered
+  ---
+  duration_ms: 1.142255
+  type: 'test'
+  ...
+# Subtest: an entry naming a scenario the corpus does not hold fails
+ok 56 - an entry naming a scenario the corpus does not hold fails
+  ---
+  duration_ms: 1.287331
+  type: 'test'
+  ...
+# Subtest: a seed scenario no entry names fails as unlifted
+ok 57 - a seed scenario no entry names fails as unlifted
+  ---
+  duration_ms: 0.966972
+  type: 'test'
+  ...
+# Subtest: affirming restamps a moved entry's hash and baseline
+ok 58 - affirming restamps a moved entry's hash and baseline
+  ---
+  duration_ms: 14.085955
+  type: 'test'
+  ...
+# Subtest: affirming cannot create an entry or delete one
+ok 59 - affirming cannot create an entry or delete one
+  ---
+  duration_ms: 1.155273
+  type: 'test'
+  ...
+# Subtest: every forked spec is in the vendored tree
+ok 60 - every forked spec is in the vendored tree
+  ---
+  duration_ms: 663.353013
+  type: 'test'
+  ...
+# Subtest: every vendored fixture and the example driver are registered whole
+ok 61 - every vendored fixture and the example driver are registered whole
+  ---
+  duration_ms: 410.604739
+  type: 'test'
+  ...
+# Subtest: the committed register is affirmed against the vendored source
+ok 62 - the committed register is affirmed against the vendored source
+  ---
+  duration_ms: 399.909614
+  type: 'test'
+  ...
+# Subtest: falsify: renaming the colour-mode option fails the register
+ok 63 - falsify: renaming the colour-mode option fails the register
+  ---
+  duration_ms: 311.979756
+  type: 'test'
+  ...
+# Subtest: falsify: a single edited character in a forked spec fails the register
+ok 64 - falsify: a single edited character in a forked spec fails the register
+  ---
+  duration_ms: 542.395288
+  type: 'test'
+  ...
+# Subtest: the corpus is the baselines, the seed, the test-debt, retirement-debt and hole-closing scenarios, and the hole-derived probe variants
+ok 65 - the corpus is the baselines, the seed, the test-debt, retirement-debt and hole-closing scenarios, and the hole-derived probe variants
+  ---
+  duration_ms: 340.851238
+  type: 'test'
+  ...
+# Subtest: the example driver gets a baseline and the contract components do not
+ok 66 - the example driver gets a baseline and the contract components do not
+  ---
+  duration_ms: 33.846765
+  type: 'test'
+  ...
+# Subtest: a corpus with no components at all is still the fixtures' baselines and the written sources
+ok 67 - a corpus with no components at all is still the fixtures' baselines and the written sources
+  ---
+  duration_ms: 54.309811
+  type: 'test'
+  ...
+# Subtest: an id two sources both claim fails rather than sharing trace files
+ok 68 - an id two sources both claim fails rather than sharing trace files
+  ---
+  duration_ms: 3.127931
+  type: 'test'
+  ...
+# Subtest: the whole corpus passes that check as it stands
+ok 69 - the whole corpus passes that check as it stands
+  ---
+  duration_ms: 35.792666
+  type: 'test'
+  ...
+# Subtest: every scenario in the corpus has a distinct id
+ok 70 - every scenario in the corpus has a distinct id
+  ---
+  duration_ms: 41.725392
+  type: 'test'
+  ...
+# Subtest: the name space is every written id plus every reserved one, kept apart
+ok 71 - the name space is every written id plus every reserved one, kept apart
+  ---
+  duration_ms: 17.946852
+  type: 'test'
+  ...
+# Subtest: a registry key becomes the page's hash route
+ok 72 - a registry key becomes the page's hash route
+  ---
+  duration_ms: 31.230998
+  type: 'test'
+  ...
+# Subtest: a fixture's path flattens into a semantic scenario id
+ok 73 - a fixture's path flattens into a semantic scenario id
+  ---
+  duration_ms: 6.516196
+  type: 'test'
+  ...
+# Subtest: every registered fixture gets a baseline, in registry order
+ok 74 - every registered fixture gets a baseline, in registry order
+  ---
+  duration_ms: 6.693601
+  type: 'test'
+  ...
+# Subtest: a baseline drives nothing — it mounts, settles and is captured
+ok 75 - a baseline drives nothing — it mounts, settles and is captured
+  ---
+  duration_ms: 29.126789
+  type: 'test'
+  ...
+# Subtest: two fixtures that flatten onto one id fail rather than sharing trace files
+ok 76 - two fixtures that flatten onto one id fail rather than sharing trace files
+  ---
+  duration_ms: 4.173771
+  type: 'test'
+  ...
+# Subtest: a fixture whose name could not be a scenario id is refused by defineScenario
+ok 77 - a fixture whose name could not be a scenario id is refused by defineScenario
+  ---
+  duration_ms: 1.971979
+  type: 'test'
+  ...
+# Subtest: the probe plan is derived from ticket 59's actual holes and their witnesses
+ok 78 - the probe plan is derived from ticket 59's actual holes and their witnesses
+  ---
+  duration_ms: 30.012952
+  type: 'test'
+  ...
+# Subtest: the production plan is compiled from retired holes through the current census and witnesses
+ok 79 - the production plan is compiled from retired holes through the current census and witnesses
+  ---
+  duration_ms: 293.589529
+  type: 'test'
+  ...
+# Subtest: only variants required by the derived plan join the corpus
+ok 80 - only variants required by the derived plan join the corpus
+  ---
+  duration_ms: 3.703147
+  type: 'test'
+  ...
+# Subtest: flow hooks still get a baseline probe when the plan needs no callback interaction
+ok 81 - flow hooks still get a baseline probe when the plan needs no callback interaction
+  ---
+  duration_ms: 1.424934
+  type: 'test'
+  ...
+# Subtest: a probe need with no source that can exercise it fails instead of being silently dropped
+ok 82 - a probe need with no source that can exercise it fails instead of being silently dropped
+  ---
+  duration_ms: 32.761093
+  type: 'test'
+  ...
+# Subtest: every retirement names a scenario the real corpus holds
+ok 83 - every retirement names a scenario the real corpus holds
+  ---
+  duration_ms: 406.690755
+  type: 'test'
+  ...
+# Subtest: a citation the corpus does not hold fails
+ok 84 - a citation the corpus does not hold fails
+  ---
+  duration_ms: 45.722848
+  type: 'test'
+  ...
+# Subtest: every retirement's scenario recorded something in the section it retires into
+ok 85 - every retirement's scenario recorded something in the section it retires into
+  ---
+  duration_ms: 227.647169
+  type: 'test'
+  ...
+# Subtest: no retired test is still in the spec that held it
+ok 86 - no retired test is still in the spec that held it
+  ---
+  duration_ms: 7.840269
+  type: 'test'
+  ...
+# Subtest: a spec that still holds a retired title is reported
+ok 87 - a spec that still holds a retired title is reported
+  ---
+  duration_ms: 2.963615
+  type: 'test'
+  ...
+# Subtest: the smoke spec retired eight tests and kept its two liveness ones
+ok 88 - the smoke spec retired eight tests and kept its two liveness ones
+  ---
+  duration_ms: 1.515606
+  type: 'test'
+  ...
+# Subtest: the node-props spec retired whole
+ok 89 - the node-props spec retired whole
+  ---
+  duration_ms: 1.550021
+  type: 'test'
+  ...
+# Subtest: every retirement-debt scenario is cited by a retirement
+ok 90 - every retirement-debt scenario is cited by a retirement
+  ---
+  duration_ms: 0.89157
+  type: 'test'
+  ...
+# Subtest: the seed lifts one scenario per distinct interaction sequence, not one per test
+ok 91 - the seed lifts one scenario per distinct interaction sequence, not one per test
+  ---
+  duration_ms: 5.447708
+  type: 'test'
+  ...
+# Subtest: every seed scenario has a semantic id and a route
+ok 92 - every seed scenario has a semantic id and a route
+  ---
+  duration_ms: 57.753326
+  type: 'test'
+  ...
+# Subtest: no two seed scenarios share an id
+ok 93 - no two seed scenarios share an id
+  ---
+  duration_ms: 3.521375
+  type: 'test'
+  ...
+# Subtest: the seed claims no id reserved for the test-debt scenarios
+ok 94 - the seed claims no id reserved for the test-debt scenarios
+  ---
+  duration_ms: 0.817148
+  type: 'test'
+  ...
+# Subtest: the seed drives only routes the driver page serves
+ok 95 - the seed drives only routes the driver page serves
+  ---
+  duration_ms: 1.193429
+  type: 'test'
+  ...
+# Subtest: no seed scenario declares touch
+ok 96 - no seed scenario declares touch
+  ---
+  duration_ms: 1.097585
+  type: 'test'
+  ...
+# Subtest: every seed scenario drives to completion against a fake port
+ok 97 - every seed scenario drives to completion against a fake port
+  ---
+  duration_ms: 72.313514
+  type: 'test'
+  ...
+# Subtest: clicking an edge presses on it and releases where the press landed
+ok 98 - clicking an edge presses on it and releases where the press landed
+  ---
+  duration_ms: 49.380446
+  type: 'test'
+  ...
+# Subtest: the multi-selection modifier is the key the fixture listens for
+ok 99 - the multi-selection modifier is the key the fixture listens for
+  ---
+  duration_ms: 3.577851
+  type: 'test'
+  ...
+# Subtest: panning the pane leaves the pointer down, as upstream's own spec does
+ok 100 - panning the pane leaves the pointer down, as upstream's own spec does
+  ---
+  duration_ms: 2.848856
+  type: 'test'
+  ...
+# Subtest: the shift-drag selection box keeps upstream's top-left offsets
+ok 101 - the shift-drag selection box keeps upstream's top-left offsets
+  ---
+  duration_ms: 1.857925
+  type: 'test'
+  ...
+# Subtest: the drag-handle lift grabs the body first and the handle second
+ok 102 - the drag-handle lift grabs the body first and the handle second
+  ---
+  duration_ms: 33.151207
+  type: 'test'
+  ...
+# Subtest: connecting releases on the target handle, not where the last move landed
+ok 103 - connecting releases on the target handle, not where the last move landed
+  ---
+  duration_ms: 1.800474
+  type: 'test'
+  ...
+# Subtest: the colour mode is chosen with a key, inside the closed primitive tier
+ok 104 - the colour mode is chosen with a key, inside the closed primitive tier
+  ---
+  duration_ms: 2.745995
+  type: 'test'
+  ...
+# Subtest: a scenario whose targets all miss still drives to the end
+ok 105 - a scenario whose targets all miss still drives to the end
+  ---
+  duration_ms: 1.292224
+  type: 'test'
+  ...
+# Subtest: the thirty are exactly the thirty ids reserved for them
+ok 106 - the thirty are exactly the thirty ids reserved for them
+  ---
+  duration_ms: 8.70394
+  type: 'test'
+  ...
+# Subtest: every scenario mounts a route in the driver's flat route space
+ok 107 - every scenario mounts a route in the driver's flat route space
+  ---
+  duration_ms: 1.875162
+  type: 'test'
+  ...
+# Subtest: every action a scenario takes is in the named vocabulary
+ok 108 - every action a scenario takes is in the named vocabulary
+  ---
+  duration_ms: 162.365442
+  type: 'test'
+  ...
+# Subtest: the mid-gesture scenarios end with the input still down
+ok 109 - the mid-gesture scenarios end with the input still down
+  ---
+  duration_ms: 23.608081
+  type: 'test'
+  ...
+# Subtest: no other scenario is left mid-gesture by accident
+ok 110 - no other scenario is left mid-gesture by accident
+  ---
+  duration_ms: 54.025533
+  type: 'test'
+  ...
+# Subtest: every scenario that touches declares it, and no other does
+ok 111 - every scenario that touches declares it, and no other does
+  ---
+  duration_ms: 51.958479
+  type: 'test'
+  ...
+# Subtest: the three touch scenarios are the ones the dispositions named
+ok 112 - the three touch scenarios are the ones the dispositions named
+  ---
+  duration_ms: 7.422864
+  type: 'test'
+  ...
+# Subtest: the four concentration-risk scenarios are all in the corpus
+ok 113 - the four concentration-risk scenarios are all in the corpus
+  ---
+  duration_ms: 0.682648
+  type: 'test'
+  ...
+# Subtest: the imperative scenario calls every helper with options
+ok 114 - the imperative scenario calls every helper with options
+  ---
+  duration_ms: 6.000666
+  type: 'test'
+  ...
+# Subtest: the uncontrolled scenario drives the mutators that raise add and replace changes
+ok 115 - the uncontrolled scenario drives the mutators that raise add and replace changes
+  ---
+  duration_ms: 2.668192
+  type: 'test'
+  ...
+# Subtest: the two scenarios that change props after mount aim at the shared control id
+ok 116 - the two scenarios that change props after mount aim at the shared control id
+  ---
+  duration_ms: 4.143534
+  type: 'test'
+  ...
+# Subtest: the primitive tier is closed at the seven the spec names
+ok 117 - the primitive tier is closed at the seven the spec names
+  ---
+  duration_ms: 41.195175
+  type: 'test'
+  ...
+# Subtest: a target resolves to its own box and the pointer lands in the centre
+ok 118 - a target resolves to its own box and the pointer lands in the centre
+  ---
+  duration_ms: 3.574025
+  type: 'test'
+  ...
+# Subtest: an offset is from the centre by default and from the top-left on request
+ok 119 - an offset is from the centre by default and from the top-left on request
+  ---
+  duration_ms: 1.545193
+  type: 'test'
+  ...
+# Subtest: an unknown origin fails at once rather than silently meaning centre
+ok 120 - an unknown origin fails at once rather than silently meaning centre
+  ---
+  duration_ms: 2.77737
+  type: 'test'
+  ...
+# Subtest: a null target moves the pointer relative to where it already is
+ok 121 - a null target moves the pointer relative to where it already is
+  ---
+  duration_ms: 30.249569
+  type: 'test'
+  ...
+# Subtest: an unresolved target is recorded and skipped, never thrown
+ok 122 - an unresolved target is recorded and skipped, never thrown
+  ---
+  duration_ms: 1.389175
+  type: 'test'
+  ...
+# Subtest: driving continues past an unresolved target, and the pointer has not moved
+ok 123 - driving continues past an unresolved target, and the pointer has not moved
+  ---
+  duration_ms: 2.311569
+  type: 'test'
+  ...
+# Subtest: a key is pressed by default, and down and up are available for a held modifier
+ok 124 - a key is pressed by default, and down and up are available for a held modifier
+  ---
+  duration_ms: 2.178698
+  type: 'test'
+  ...
+# Subtest: a targeted key focuses first, and records the box it focused
+ok 125 - a targeted key focuses first, and records the box it focused
+  ---
+  duration_ms: 31.972449
+  type: 'test'
+  ...
+# Subtest: an unknown key action fails rather than being dispatched as a name
+ok 126 - an unknown key action fails rather than being dispatched as a name
+  ---
+  duration_ms: 3.937292
+  type: 'test'
+  ...
+# Subtest: a wheel is dispatched over its target and records both the point and the deltas
+ok 127 - a wheel is dispatched over its target and records both the point and the deltas
+  ---
+  duration_ms: 2.059269
+  type: 'test'
+  ...
+# Subtest: touch points resolve individually and the entry names the selector list
+ok 128 - touch points resolve individually and the entry names the selector list
+  ---
+  duration_ms: 2.136493
+  type: 'test'
+  ...
+# Subtest: one unresolved touch point skips the whole action
+ok 129 - one unresolved touch point skips the whole action
+  ---
+  duration_ms: 32.180824
+  type: 'test'
+  ...
+# Subtest: a touch end carries no points and still records what was dispatched
+ok 130 - a touch end carries no points and still records what was dispatched
+  ---
+  duration_ms: 0.802389
+  type: 'test'
+  ...
+# Subtest: a touch phase that is not one of the four fails
+ok 131 - a touch phase that is not one of the four fails
+  ---
+  duration_ms: 0.959131
+  type: 'test'
+  ...
+# Subtest: a touch point without a target fails — there is no base to offset from
+ok 132 - a touch point without a target fails — there is no base to offset from
+  ---
+  duration_ms: 0.855804
+  type: 'test'
+  ...
+# Subtest: call records unresolved while the imperative bridge is not installed
+ok 133 - call records unresolved while the imperative bridge is not installed
+  ---
+  duration_ms: 2.165493
+  type: 'test'
+  ...
+# Subtest: call dispatches through the bridge when the page has one, and the return lands in api
+ok 134 - call dispatches through the bridge when the page has one, and the return lands in api
+  ---
+  duration_ms: 3.251432
+  type: 'test'
+  ...
+# Subtest: call refuses queries because their answers belong to the end-state snapshot
+ok 135 - call refuses queries because their answers belong to the end-state snapshot
+  ---
+  duration_ms: 1.137478
+  type: 'test'
+  ...
+# Subtest: call hands the scenario the driving entry, never the library's answer
+ok 136 - call hands the scenario the driving entry, never the library's answer
+  ---
+  duration_ms: 0.763367
+  type: 'test'
+  ...
+# Subtest: every primitive returns the entry it recorded
+ok 137 - every primitive returns the entry it recorded
+  ---
+  duration_ms: 40.978372
+  type: 'test'
+  ...
+# Subtest: calls land in the order they were made, with their arguments serialized
+ok 138 - calls land in the order they were made, with their arguments serialized
+  ---
+  duration_ms: 14.512408
+  type: 'test'
+  ...
+# Subtest: hook callbacks keep their exact count, order, and interleaving
+ok 139 - hook callbacks keep their exact count, order, and interleaving
+  ---
+  duration_ms: 2.310142
+  type: 'test'
+  ...
+# Subtest: the handler beneath still runs, with its arguments, and its answer is returned
+ok 140 - the handler beneath still runs, with its arguments, and its answer is returned
+  ---
+  duration_ms: 1.171783
+  type: 'test'
+  ...
+# Subtest: a prop nobody set is still recorded, and answers what the register says
+ok 141 - a prop nobody set is still recorded, and answers what the register says
+  ---
+  duration_ms: 1.530714
+  type: 'test'
+  ...
+# Subtest: a handler that causes another call leaves the two in the library's order
+ok 142 - a handler that causes another call leaves the two in the library's order
+  ---
+  duration_ms: 1.286599
+  type: 'test'
+  ...
+# Subtest: an argument mutated after the call is recorded as it was at the call
+ok 143 - an argument mutated after the call is recorded as it was at the call
+  ---
+  duration_ms: 1.499767
+  type: 'test'
+  ...
+# Subtest: a value the serializer refuses is recorded as a failure, and the handler still runs
+ok 144 - a value the serializer refuses is recorded as a failure, and the handler still runs
+  ---
+  duration_ms: 2.513892
+  type: 'test'
+  ...
+# Subtest: the harness raises what the page could not serialize, naming where it would have been
+ok 145 - the harness raises what the page could not serialize, naming where it would have been
+  ---
+  duration_ms: 3.092965
+  type: 'test'
+  ...
+# Subtest: a page with no log is a stale bundle, and fails rather than capturing nothing
+ok 146 - a page with no log is a stale bundle, and fails rather than capturing nothing
+  ---
+  duration_ms: 31.842436
+  type: 'test'
+  ...
+# Subtest: a log that recorded nothing is a section with no calls in it, which is a finding and not a failure
+ok 147 - a log that recorded nothing is a section with no calls in it, which is a finding and not a failure
+  ---
+  duration_ms: 2.443534
+  type: 'test'
+  ...
+# Subtest: a fixture driver that wrapped nothing fails, naming the parameter the URL was missing
+ok 148 - a fixture driver that wrapped nothing fails, naming the parameter the URL was missing
+  ---
+  duration_ms: 1.353508
+  type: 'test'
+  ...
+# Subtest: a route with no fixture driver on it observes nothing legitimately
+ok 149 - a route with no fixture driver on it observes nothing legitimately
+  ---
+  duration_ms: 0.721105
+  type: 'test'
+  ...
+# Subtest: what a driver reported it wrapped is a copy, so the page cannot edit the harness's answer
+ok 150 - what a driver reported it wrapped is a copy, so the page cannot edit the harness's answer
+  ---
+  duration_ms: 0.653497
+  type: 'test'
+  ...
+# Subtest: installing twice hands back the same log, so the page and the driver share one
+ok 151 - installing twice hands back the same log, so the page and the driver share one
+  ---
+  duration_ms: 0.826452
+  type: 'test'
+  ...
+# Subtest: CallLogError is what both refusals throw
+ok 152 - CallLogError is what both refusals throw
+  ---
+  duration_ms: 41.895704
+  type: 'test'
+  ...
+# Subtest: an element becomes tag, every attribute, and its children
+ok 153 - an element becomes tag, every attribute, and its children
+  ---
+  duration_ms: 67.964705
+  type: 'test'
+  ...
+# Subtest: nothing is filtered: an attribute nobody would think to ask for is still recorded
+ok 154 - nothing is filtered: an attribute nobody would think to ask for is still recorded
+  ---
+  duration_ms: 6.773097
+  type: 'test'
+  ...
+# Subtest: an element's own text is its direct text nodes, concatenated in order
+ok 155 - an element's own text is its direct text nodes, concatenated in order
+  ---
+  duration_ms: 3.649587
+  type: 'test'
+  ...
+# Subtest: text is recorded verbatim, whitespace included
+ok 156 - text is recorded verbatim, whitespace included
+  ---
+  duration_ms: 22.077455
+  type: 'test'
+  ...
+# Subtest: an element with no text node has no text field at all
+ok 157 - an element with no text node has no text field at all
+  ---
+  duration_ms: 3.455575
+  type: 'test'
+  ...
+# Subtest: an empty text node is not the same observation as no text node
+ok 158 - an empty text node is not the same observation as no text node
+  ---
+  duration_ms: 75.252448
+  type: 'test'
+  ...
+# Subtest: only element children become children, and a comment is not one
+ok 159 - only element children become children, and a comment is not one
+  ---
+  duration_ms: 3.866968
+  type: 'test'
+  ...
+# Subtest: SVG keeps its casing, because localName is not a lowercased tagName
+ok 160 - SVG keeps its casing, because localName is not a lowercased tagName
+  ---
+  duration_ms: 3.194758
+  type: 'test'
+  ...
+# Subtest: page-level state is enumerated, and a browser without a visual viewport still answers
+ok 161 - page-level state is enumerated, and a browser without a visual viewport still answers
+  ---
+  duration_ms: 29.854495
+  type: 'test'
+  ...
+# Subtest: a selector that does not resolve gives a null root and still records the page
+ok 162 - a selector that does not resolve gives a null root and still records the page
+  ---
+  duration_ms: 61.339712
+  type: 'test'
+  ...
+# Subtest: actions are indexed in the order they were driven, from zero
+ok 163 - actions are indexed in the order they were driven, from zero
+  ---
+  duration_ms: 26.020166
+  type: 'test'
+  ...
+# Subtest: every entry carries all five fields, nulls included
+ok 164 - every entry carries all five fields, nulls included
+  ---
+  duration_ms: 1.773566
+  type: 'test'
+  ...
+# Subtest: an unresolved target is recorded with no box and nothing dispatched
+ok 165 - an unresolved target is recorded with no box and nothing dispatched
+  ---
+  duration_ms: 0.865045
+  type: 'test'
+  ...
+# Subtest: an unresolved entry carrying a box or a dispatch is a bug, not a record
+ok 166 - an unresolved entry carrying a box or a dispatch is a bug, not a record
+  ---
+  duration_ms: 2.57535
+  type: 'test'
+  ...
+# Subtest: a resolved action must say what it dispatched
+ok 167 - a resolved action must say what it dispatched
+  ---
+  duration_ms: 52.005962
+  type: 'test'
+  ...
+# Subtest: an action needs a name and a verdict
+ok 168 - an action needs a name and a verdict
+  ---
+  duration_ms: 1.390815
+  type: 'test'
+  ...
+# Subtest: a recorded entry cannot be edited afterwards
+ok 169 - a recorded entry cannot be edited afterwards
+  ---
+  duration_ms: 1.642557
+  type: 'test'
+  ...
+# Subtest: entries() hands out a copy, so a caller cannot lengthen the log
+ok 170 - entries() hands out a copy, so a caller cannot lengthen the log
+  ---
+  duration_ms: 0.835496
+  type: 'test'
+  ...
+# Subtest: what the log produces is what the trace format accepts
+ok 171 - what the log produces is what the trace format accepts
+  ---
+  duration_ms: 4.563044
+  type: 'test'
+  ...
+# Subtest: the gesture tier is the spec's six plus the one the seed added, and it is open by addition
+ok 172 - the gesture tier is the spec's six plus the one the seed added, and it is open by addition
+  ---
+  duration_ms: 14.747995
+  type: 'test'
+  ...
+# Subtest: click presses on its target and releases where the press landed
+ok 173 - click presses on its target and releases where the press landed
+  ---
+  duration_ms: 44.637668
+  type: 'test'
+  ...
+# Subtest: click takes a point, so a spec's own offset survives the lift
+ok 174 - click takes a point, so a spec's own offset survives the lift
+  ---
+  duration_ms: 1.814598
+  type: 'test'
+  ...
+# Subtest: click holds a modifier across the press and releases it after
+ok 175 - click holds a modifier across the press and releases it after
+  ---
+  duration_ms: 2.207337
+  type: 'test'
+  ...
+# Subtest: click on a target that is not there records the skip and drives on
+ok 176 - click on a target that is not there records the skip and drives on
+  ---
+  duration_ms: 2.503423
+  type: 'test'
+  ...
+# Subtest: dragNode presses on the node, moves in even steps, and releases
+ok 177 - dragNode presses on the node, moves in even steps, and releases
+  ---
+  duration_ms: 3.151488
+  type: 'test'
+  ...
+# Subtest: a drag ends in the same place however many steps it takes
+ok 178 - a drag ends in the same place however many steps it takes
+  ---
+  duration_ms: 31.22806
+  type: 'test'
+  ...
+# Subtest: dragNode on a node that is not there records the skip and drives on
+ok 179 - dragNode on a node that is not there records the skip and drives on
+  ---
+  duration_ms: 1.850453
+  type: 'test'
+  ...
+# Subtest: dragNode returns the entries it drove
+ok 180 - dragNode returns the entries it drove
+  ---
+  duration_ms: 2.747392
+  type: 'test'
+  ...
+# Subtest: selectionBox holds its modifier across the drag and releases it after
+ok 181 - selectionBox holds its modifier across the drag and releases it after
+  ---
+  duration_ms: 20.851016
+  type: 'test'
+  ...
+# Subtest: a selection box can be drawn with no modifier at all
+ok 182 - a selection box can be drawn with no modifier at all
+  ---
+  duration_ms: 1.716741
+  type: 'test'
+  ...
+# Subtest: connect presses the source handle, nudges, crosses, and releases on the target
+ok 183 - connect presses the source handle, nudges, crosses, and releases on the target
+  ---
+  duration_ms: 1.956449
+  type: 'test'
+  ...
+# Subtest: connect's nudge can be turned off without moving the endpoints
+ok 184 - connect's nudge can be turned off without moving the endpoints
+  ---
+  duration_ms: 0.981115
+  type: 'test'
+  ...
+# Subtest: connect's nudge is measured from the grab point, not from the target's centre
+ok 185 - connect's nudge is measured from the grab point, not from the target's centre
+  ---
+  duration_ms: 1.408169
+  type: 'test'
+  ...
+# Subtest: pan drags the pane by default
+ok 186 - pan drags the pane by default
+  ---
+  duration_ms: 1.274449
+  type: 'test'
+  ...
+# Subtest: pinch spreads two touch points from the target's centre and ends the gesture
+ok 187 - pinch spreads two touch points from the target's centre and ends the gesture
+  ---
+  duration_ms: 4.011011
+  type: 'test'
+  ...
+# Subtest: a pinch that closes is the same gesture with a scale below one
+ok 188 - a pinch that closes is the same gesture with a scale below one
+  ---
+  duration_ms: 1.886512
+  type: 'test'
+  ...
+# Subtest: arrowKeyNudge presses the named direction, focusing its target once
+ok 189 - arrowKeyNudge presses the named direction, focusing its target once
+  ---
+  duration_ms: 1.428163
+  type: 'test'
+  ...
+# Subtest: a direction that is not one of the four fails rather than pressing a made-up key
+ok 190 - a direction that is not one of the four fails rather than pressing a made-up key
+  ---
+  duration_ms: 2.45939
+  type: 'test'
+  ...
+# Subtest: every declared gap names a real section, and says who lands it
+ok 191 - every declared gap names a real section, and says who lands it
+  ---
+  duration_ms: 41.040029
+  type: 'test'
+  ...
+# Subtest: the sections capture does fill are not declared pending
+ok 192 - the sections capture does fill are not declared pending
+  ---
+  duration_ms: 8.070658
+  type: 'test'
+  ...
+# Subtest: a trace whose pending sections are still empty passes through unchanged
+ok 193 - a trace whose pending sections are still empty passes through unchanged
+  ---
+  duration_ms: 1.220203
+  type: 'test'
+  ...
+# Subtest: the empty register permits content in every export-bearing section
+ok 194 - the empty register permits content in every export-bearing section
+  ---
+  duration_ms: 0.88856
+  type: 'test'
+  ...
+# Subtest: the real port and its double answer the same methods
+ok 195 - the real port and its double answer the same methods
+  ---
+  duration_ms: 39.12988
+  type: 'test'
+  ...
+# Subtest: the port is only ever the twelve the harness above it uses
+ok 196 - the port is only ever the twelve the harness above it uses
+  ---
+  duration_ms: 7.59035
+  type: 'test'
+  ...
+# Subtest: the real port refuses to dispatch touch before emulation is on
+ok 197 - the real port refuses to dispatch touch before emulation is on
+  ---
+  duration_ms: 3.09987
+  type: 'test'
+  ...
+# Subtest: a scenario id is semantic, never a sequence number
+ok 198 - a scenario id is semantic, never a sequence number
+  ---
+  duration_ms: 38.63494
+  type: 'test'
+  ...
+# Subtest: a scenario needs a driver route and something to run
+ok 199 - a scenario needs a driver route and something to run
+  ---
+  duration_ms: 2.111899
+  type: 'test'
+  ...
+# Subtest: a scenario declaring touch has emulation on before the page is navigated
+ok 200 - a scenario declaring touch has emulation on before the page is navigated
+  ---
+  duration_ms: 73.853986
+  type: 'test'
+  ...
+# Subtest: the pointer is parked off-viewport, and released, before the driver loads
+ok 201 - the pointer is parked off-viewport, and released, before the driver loads
+  ---
+  duration_ms: 18.118532
+  type: 'test'
+  ...
+# Subtest: a scenario that does not declare touch never turns emulation on
+ok 202 - a scenario that does not declare touch never turns emulation on
+  ---
+  duration_ms: 3.086294
+  type: 'test'
+  ...
+# Subtest: both sides load the same page, differing only in which bundle it imports
+ok 203 - both sides load the same page, differing only in which bundle it imports
+  ---
+  duration_ms: 0.909181
+  type: 'test'
+  ...
+# Subtest: a probed run names its variant in the driver URL while a plain run does not
+ok 204 - a probed run names its variant in the driver URL while a plain run does not
+  ---
+  duration_ms: 1.662433
+  type: 'test'
+  ...
+# Subtest: a run carries its selected hook callback experiment to the driver
+ok 205 - a run carries its selected hook callback experiment to the driver
+  ---
+  duration_ms: 1.800831
+  type: 'test'
+  ...
+# Subtest: the run is the envelope's, and the trace validates
+ok 206 - the run is the envelope's, and the trace validates
+  ---
+  duration_ms: 4.521376
+  type: 'test'
+  ...
+# Subtest: every capture starts on a document of its own, not on the one before it
+ok 207 - every capture starts on a document of its own, not on the one before it
+  ---
+  duration_ms: 33.139999
+  type: 'test'
+  ...
+# Subtest: no section mentions which side ran
+ok 208 - no section mentions which side ran
+  ---
+  duration_ms: 5.001328
+  type: 'test'
+  ...
+# Subtest: the mount is the first driving action, carrying the container's box
+ok 209 - the mount is the first driving action, carrying the container's box
+  ---
+  duration_ms: 23.982998
+  type: 'test'
+  ...
+# Subtest: a side that never mounts is recorded, and its scenario still drives
+ok 210 - a side that never mounts is recorded, and its scenario still drives
+  ---
+  duration_ms: 2.035205
+  type: 'test'
+  ...
+# Subtest: the scenario is handed the vocabulary and nothing else
+ok 211 - the scenario is handed the vocabulary and nothing else
+  ---
+  duration_ms: 8.356924
+  type: 'test'
+  ...
+# Subtest: what the page printed is captured, uncaught errors included
+ok 212 - what the page printed is captured, uncaught errors included
+  ---
+  duration_ms: 2.641665
+  type: 'test'
+  ...
+# Subtest: listeners are removed afterwards, so a second capture is not handed the first's output
+ok 213 - listeners are removed afterwards, so a second capture is not handed the first's output
+  ---
+  duration_ms: 15.121086
+  type: 'test'
+  ...
+# Subtest: a scenario that throws still lets go of the page
+ok 214 - a scenario that throws still lets go of the page
+  ---
+  duration_ms: 2.036897
+  type: 'test'
+  ...
+# Subtest: page-level state is captured, since two behaviours turn on a default not happening
+ok 215 - page-level state is captured, since two behaviours turn on a default not happening
+  ---
+  duration_ms: 1.580844
+  type: 'test'
+  ...
+# Subtest: the dom section is the settled snapshot, element tree and all
+ok 216 - the dom section is the settled snapshot, element tree and all
+  ---
+  duration_ms: 2.075226
+  type: 'test'
+  ...
+# Subtest: the callbacks section is the in-page log, read as part of the end state
+ok 217 - the callbacks section is the in-page log, read as part of the end state
+  ---
+  duration_ms: 1.892139
+  type: 'test'
+  ...
+# Subtest: hooks, api queries and props are read from the in-page observation bridge
+ok 218 - hooks, api queries and props are read from the in-page observation bridge
+  ---
+  duration_ms: 20.488145
+  type: 'test'
+  ...
+# Subtest: probe observations are read only after the end-state DOM has settled
+ok 219 - probe observations are read only after the end-state DOM has settled
+  ---
+  duration_ms: 2.141674
+  type: 'test'
+  ...
+# Subtest: a page that published no call log fails the capture rather than recording nothing
+ok 220 - a page that published no call log fails the capture rather than recording nothing
+  ---
+  duration_ms: 2.09871
+  type: 'test'
+  ...
+# Subtest: a call the page could not serialize fails the capture, since the sequence is what is compared
+ok 221 - a call the page could not serialize fails the capture, since the sequence is what is compared
+  ---
+  duration_ms: 1.849189
+  type: 'test'
+  ...
+# Subtest: the page is settled before the mount is measured and before the scenario acts
+ok 222 - the page is settled before the mount is measured and before the scenario acts
+  ---
+  duration_ms: 34.990619
+  type: 'test'
+  ...
+# Subtest: a side that never mounts is not settled on, and is still recorded as unresolved
+ok 223 - a side that never mounts is not settled on, and is still recorded as unresolved
+  ---
+  duration_ms: 6.668823
+  type: 'test'
+  ...
+# Subtest: a page that never settles fails the capture rather than being read mid-flight
+ok 224 - a page that never settles fails the capture rather than being read mid-flight
+  ---
+  duration_ms: 2.065967
+  type: 'test'
+  ...
+# Subtest: the envelope refuses a run it could not identify
+ok 225 - the envelope refuses a run it could not identify
+  ---
+  duration_ms: 8.281944
+  type: 'test'
+  ...
+# Subtest: a change array — what onNodesChange is handed — serializes as itself
+ok 226 - a change array — what onNodesChange is handed — serializes as itself
+  ---
+  duration_ms: 48.718972
+  type: 'test'
+  ...
+# Subtest: every enumerable own property is kept, including ones a whitelist would never have thought to ask for
+ok 227 - every enumerable own property is kept, including ones a whitelist would never have thought to ask for
+  ---
+  duration_ms: 20.275658
+  type: 'test'
+  ...
+# Subtest: a real native event puts nothing in its own properties — the premise the rule turns on
+ok 228 - a real native event puts nothing in its own properties — the premise the rule turns on
+  ---
+  duration_ms: 1.731209
+  type: 'test'
+  ...
+# Subtest: a native event where a synthetic one is expected is caught, and the other way round
+ok 229 - a native event where a synthetic one is expected is caught, and the other way round
+  ---
+  duration_ms: 2.473819
+  type: 'test'
+  ...
+# Subtest: two native events of different kinds differ, though neither has an own property to differ in
+ok 230 - two native events of different kinds differ, though neither has an own property to differ in
+  ---
+  duration_ms: 1.15112
+  type: 'test'
+  ...
+# Subtest: a plain object records no class, so the marker means something when it appears
+ok 231 - a plain object records no class, so the marker means something when it appears
+  ---
+  duration_ms: 0.988515
+  type: 'test'
+  ...
+# Subtest: reference-typed values keep their kind and lose their identity
+ok 232 - reference-typed values keep their kind and lose their identity
+  ---
+  duration_ms: 2.080939
+  type: 'test'
+  ...
+# Subtest: and only those — a data value is never mistaken for a reference
+ok 233 - and only those — a data value is never mistaken for a reference
+  ---
+  duration_ms: 20.424897
+  type: 'test'
+  ...
+# Subtest: a field that resolved to a reference is still a field, so a handler that stops passing one is a difference
+ok 234 - a field that resolved to a reference is still a field, so a handler that stops passing one is a difference
+  ---
+  duration_ms: 2.054756
+  type: 'test'
+  ...
+# Subtest: the values JSON cannot carry are recorded rather than flattened onto null
+ok 235 - the values JSON cannot carry are recorded rather than flattened onto null
+  ---
+  duration_ms: 2.355549
+  type: 'test'
+  ...
+# Subtest: a cycle records where it came back to, rather than recursing forever
+ok 236 - a cycle records where it came back to, rather than recursing forever
+  ---
+  duration_ms: 1.389931
+  type: 'test'
+  ...
+# Subtest: a graph deeper than the ceiling is a hard error, because a marker would collapse two of them
+ok 237 - a graph deeper than the ceiling is a hard error, because a marker would collapse two of them
+  ---
+  duration_ms: 3.655048
+  type: 'test'
+  ...
+# Subtest: a React element is data and survives; the fiber behind it is a reference and does not
+ok 238 - a React element is data and survives; the fiber behind it is a reference and does not
+  ---
+  duration_ms: 0.937366
+  type: 'test'
+  ...
+# Subtest: a getter that throws costs its own field and not the capture
+ok 239 - a getter that throws costs its own field and not the capture
+  ---
+  duration_ms: 1.22938
+  type: 'test'
+  ...
+# Subtest: an object owning a marker key is loud, because a quiet one would be indistinguishable from the marker
+ok 240 - an object owning a marker key is loud, because a quiet one would be indistinguishable from the marker
+  ---
+  duration_ms: 0.702063
+  type: 'test'
+  ...
+# Subtest: a call is a name and its serialized arguments, which is the trace's shape for one
+ok 241 - a call is a name and its serialized arguments, which is the trace's shape for one
+  ---
+  duration_ms: 4.401726
+  type: 'test'
+  ...
+# Subtest: a call addresses its arguments by position, so a cycle inside one says which
+ok 242 - a call addresses its arguments by position, so a cycle inside one says which
+  ---
+  duration_ms: 1.212788
+  type: 'test'
+  ...
+# Subtest: the markers are the reserved key set, so nothing can be reserved without being one
+ok 243 - the markers are the reserved key set, so nothing can be reserved without being one
+  ---
+  duration_ms: 1.063125
+  type: 'test'
+  ...
+# Subtest: a page that is already still settles as soon as two snapshots agree
+ok 244 - a page that is already still settles as soon as two snapshots agree
+  ---
+  duration_ms: 100.432887
+  type: 'test'
+  ...
+# Subtest: a page still changing is polled until it stops, and the settled snapshot is what comes back
+ok 245 - a page still changing is polled until it stops, and the settled snapshot is what comes back
+  ---
+  duration_ms: 43.452431
+  type: 'test'
+  ...
+# Subtest: the snapshot returned is the one that agreed, not a later read
+ok 246 - the snapshot returned is the one that agreed, not a later read
+  ---
+  duration_ms: 1.843274
+  type: 'test'
+  ...
+# Subtest: more agreements means more consecutive polls have to agree
+ok 247 - more agreements means more consecutive polls have to agree
+  ---
+  duration_ms: 1.367991
+  type: 'test'
+  ...
+# Subtest: settling on a single snapshot is refused rather than quietly accepted
+ok 248 - settling on a single snapshot is refused rather than quietly accepted
+  ---
+  duration_ms: 4.024945
+  type: 'test'
+  ...
+# Subtest: a page that never stops changing is a person's problem, not a longer wait
+ok 249 - a page that never stops changing is a person's problem, not a longer wait
+  ---
+  duration_ms: 72.719571
+  type: 'test'
+  ...
+# Subtest: a page with no flow on it settles immediately, at null
+ok 250 - a page with no flow on it settles immediately, at null
+  ---
+  duration_ms: 1.003967
+  type: 'test'
+  ...
+# Subtest: page-level state is settled on too, not only the element tree
+ok 251 - page-level state is settled on too, not only the element tree
+  ---
+  duration_ms: 1.34801
+  type: 'test'
+  ...
+# Subtest: the vocabulary is the two tiers and nothing else
+ok 252 - the vocabulary is the two tiers and nothing else
+  ---
+  duration_ms: 52.686747
+  type: 'test'
+  ...
+# Subtest: no gesture is named after a primitive
+ok 253 - no gesture is named after a primitive
+  ---
+  duration_ms: 3.021958
+  type: 'test'
+  ...
+# Subtest: nothing on the vocabulary names or exposes the side
+ok 254 - nothing on the vocabulary names or exposes the side
+  ---
+  duration_ms: 30.721608
+  type: 'test'
+  ...
+# Subtest: no action hands anything back to the scenario
+ok 255 - no action hands anything back to the scenario
+  ---
+  duration_ms: 48.148196
+  type: 'test'
+  ...
+# Subtest: the vocabulary is frozen, so nothing can be attached to it later
+ok 256 - the vocabulary is frozen, so nothing can be attached to it later
+  ---
+  duration_ms: 5.128981
+  type: 'test'
+  ...
+# Subtest: the two tiers share one driving log, in one sequence
+ok 257 - the two tiers share one driving log, in one sequence
+  ---
+  duration_ms: 1.868002
+  type: 'test'
+  ...
+# Subtest: no request names a file outside the served root
+ok 258 - no request names a file outside the served root
+  ---
+  duration_ms: 71.811753
+  type: 'test'
+  ...
+# Subtest: a bundle is served as a module, and a missing file is a 404 rather than a hang
+ok 259 - a bundle is served as a module, and a missing file is a 404 rather than a hang
+  ---
+  duration_ms: 1039.287273
+  type: 'test'
+  ...
+# Subtest: nothing is cached, because the bundles were rewritten a second ago
+ok 260 - nothing is cached, because the bundles were rewritten a second ago
+  ---
+  duration_ms: 140.62971
+  type: 'test'
+  ...
+# Subtest: two servers can run at once, because neither chose its port
+ok 261 - two servers can run at once, because neither chose its port
+  ---
+  duration_ms: 114.736161
+  type: 'test'
+  ...
+# Subtest: a net run passes only when every scenario's run does
+ok 262 - a net run passes only when every scenario's run does
+  ---
+  duration_ms: 32.04889
+  type: 'test'
+  ...
+# Subtest: the summary leads with the verdict and names which scenarios failed
+ok 263 - the summary leads with the verdict and names which scenarios failed
+  ---
+  duration_ms: 16.846101
+  type: 'test'
+  ...
+# Subtest: a clean corpus says so, and still names the baseline it was measured against
+ok 264 - a clean corpus says so, and still names the baseline it was measured against
+  ---
+  duration_ms: 0.977546
+  type: 'test'
+  ...
+# Subtest: every scenario's own report follows the table, failed or not
+ok 265 - every scenario's own report follows the table, failed or not
+  ---
+  duration_ms: 1.691038
+  type: 'test'
+  ...
+# Subtest: a re-diff of stored traces says so rather than reading as a measurement
+ok 266 - a re-diff of stored traces says so rather than reading as a measurement
+  ---
+  duration_ms: 4.571245
+  type: 'test'
+  ...
+# Subtest: orphaned traces are named beside the runs, and a clean corpus with one is not passed
+ok 267 - orphaned traces are named beside the runs, and a clean corpus with one is not passed
+  ---
+  duration_ms: 1.269489
+  type: 'test'
+  ...
+# Subtest: differences a side found against itself are counted too
+ok 268 - differences a side found against itself are counted too
+  ---
+  duration_ms: 54.733409
+  type: 'test'
+  ...
+# Subtest: a trace file is named after the envelope it carries, so a run's four sort together
+ok 269 - a trace file is named after the envelope it carries, so a run's four sort together
+  ---
+  duration_ms: 58.796068
+  type: 'test'
+  ...
+# Subtest: a trace written out reads back identical, and validated on the way in
+ok 270 - a trace written out reads back identical, and validated on the way in
+  ---
+  duration_ms: 55.213382
+  type: 'test'
+  ...
+# Subtest: a run missing one of its four traces is an error, not a run of three
+ok 271 - a run missing one of its four traces is an error, not a run of three
+  ---
+  duration_ms: 21.155169
+  type: 'test'
+  ...
+# Subtest: a stored trace that is not a valid trace fails as one, on the way in
+ok 272 - a stored trace that is not a valid trace fails as one, on the way in
+  ---
+  duration_ms: 57.11183
+  type: 'test'
+  ...
+# Subtest: the scenarios on disk are readable from the file names alone, with no corpus
+ok 273 - the scenarios on disk are readable from the file names alone, with no corpus
+  ---
+  duration_ms: 52.483976
+  type: 'test'
+  ...
+# Subtest: traces no scenario in the corpus claims are reported as orphans
+ok 274 - traces no scenario in the corpus claims are reported as orphans
+  ---
+  duration_ms: 54.018809
+  type: 'test'
+  ...
+1..274
+# tests 274
+# suites 0
+# pass 274
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 32406.140676

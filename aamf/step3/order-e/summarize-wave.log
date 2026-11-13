@@ -1,0 +1,47 @@
+$ node aamf/step3/order-e/summarize-wave.mjs
+{
+  "previous": {
+    "scenarios": 107,
+    "passed": 99,
+    "failed": 8,
+    "selfInconsistent": [
+      "drag-node-autopan",
+      "wheel-zoom-from-identity-viewport",
+      "drag-node-reports-changes",
+      "ctrl-wheel-pinches-with-panonscroll"
+    ],
+    "drivingDivergence": [],
+    "reproducibleFailed": 4,
+    "handleScenarios": 0,
+    "handleDifferences": 0,
+    "callbackOrderScenarios": 1,
+    "initialMeasurementOrderScenarios": 0
+  },
+  "current": {
+    "scenarios": 107,
+    "passed": 105,
+    "failed": 2,
+    "selfInconsistent": [],
+    "drivingDivergence": [],
+    "reproducibleFailed": 2,
+    "handleScenarios": 0,
+    "handleDifferences": 0,
+    "callbackOrderScenarios": 0,
+    "initialMeasurementOrderScenarios": 0
+  },
+  "changed": 6,
+  "remainingStableFailures": [
+    {
+      "scenario": "click-selects-node--probe-flow-node",
+      "unclaimed": 25,
+      "handleDifferences": 0,
+      "callbackOrderDifferences": 0
+    },
+    {
+      "scenario": "wheel-zooms-the-pane--probe-flow-node",
+      "unclaimed": 22,
+      "handleDifferences": 0,
+      "callbackOrderDifferences": 0
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+$ npm run test:surface
+
+> ps-flow@0.0.0 test:surface
+> node --test "parity/surface/**/*.test.mjs"
+
+TAP version 13
+# Subtest: two readings that name the same surface agree, whatever the order
+ok 1 - two readings that name the same surface agree, whatever the order
+  ---
+  duration_ms: 9.428822
+  type: 'test'
+  ...
+# Subtest: a name on one side only is a disagreement
+ok 2 - a name on one side only is a disagreement
+  ---
+  duration_ms: 2.199515
+  type: 'test'
+  ...
+# Subtest: the message names both sides, so it says which reading to go and fix
+ok 3 - the message names both sides, so it says which reading to go and fix
+  ---
+  duration_ms: 1.172044
+  type: 'test'
+  ...
+# Subtest: a side that agrees is left out of the message rather than printed empty
+ok 4 - a side that agrees is left out of the message rather than printed empty
+  ---
+  duration_ms: 44.742572
+  type: 'test'
+  ...
+# Subtest: names are listed sorted, so the same disagreement reads the same way twice
+ok 5 - names are listed sorted, so the same disagreement reads the same way twice
+  ---
+  duration_ms: 1.023257
+  type: 'test'
+  ...
+# Subtest: a difference with an entry is claimed; one without is not
+ok 6 - a difference with an entry is claimed; one without is not
+  ---
+  duration_ms: 112.818665
+  type: 'test'
+  ...
+# Subtest: an entry that claims nothing is stale — that is the whole point of the register
+ok 7 - an entry that claims nothing is stale — that is the whole point of the register
+  ---
+  duration_ms: 1.094594
+  type: 'test'
+  ...
+# Subtest: stale is reported for permanent-looking entries too — nothing is exempt
+ok 8 - stale is reported for permanent-looking entries too — nothing is exempt
+  ---
+  duration_ms: 0.638561
+  type: 'test'
+  ...
+# Subtest: an empty register claims nothing and goes stale over nothing
+ok 9 - an empty register claims nothing and goes stale over nothing
+  ---
+  duration_ms: 1.126252
+  type: 'test'
+  ...
+# Subtest: claimed and stale are sorted, so the report does not churn on key order
+ok 10 - claimed and stale are sorted, so the report does not churn on key order
+  ---
+  duration_ms: 1.444834
+  type: 'test'
+  ...
+# Subtest: an entry needs a written reason — an unexplained entry is a dumping ground
+ok 11 - an entry needs a written reason — an unexplained entry is a dumping ground
+  ---
+  duration_ms: 5.542271
+  type: 'test'
+  ...
+# Subtest: a shape entry must name the event that retires it: a boundary stage or a ticket
+ok 12 - a shape entry must name the event that retires it: a boundary stage or a ticket
+  ---
+  duration_ms: 4.271276
+  type: 'test'
+  ...
+# Subtest: a behavioral entry names the boundary stage, not merely a tracking ticket
+ok 13 - a behavioral entry names the boundary stage, not merely a tracking ticket
+  ---
+  duration_ms: 9.296905
+  type: 'test'
+  ...
+# Subtest: the failure message names the register and the key, so a stale entry is one edit away
+ok 14 - the failure message names the register and the key, so a stale entry is one edit away
+  ---
+  duration_ms: 21.453966
+  type: 'test'
+  ...
+# Subtest: a rename is live only when it still cancels a real difference
+ok 15 - a rename is live only when it still cancels a real difference
+  ---
+  duration_ms: 2.511932
+  type: 'test'
+  ...
+# Subtest: the behavioral surface is exactly the eight enum objects and seventeen pure functions
+ok 16 - the behavioral surface is exactly the eight enum objects and seventeen pure functions
+  ---
+  duration_ms: 25.785684
+  type: 'test'
+  ...
+# Subtest: enum comparison requires a frozen object with upstream's exact members
+ok 17 - enum comparison requires a frozen object with upstream's exact members
+  ---
+  duration_ms: 2.607908
+  type: 'test'
+  ...
+# Subtest: all seventeen functions are called with independent clones of the same shared inputs
+ok 18 - all seventeen functions are called with independent clones of the same shared inputs
+  ---
+  duration_ms: 77.736069
+  type: 'test'
+  ...
+# Subtest: a labelled record where upstream returns a positional array is its own failure class
+ok 19 - a labelled record where upstream returns a positional array is its own failure class
+  ---
+  duration_ms: 5.914805
+  type: 'test'
+  ...
+# Subtest: call convention and throw/return failures name both export and class
+ok 20 - call convention and throw/return failures name both export and class
+  ---
+  duration_ms: 63.191826
+  type: 'test'
+  ...
+# Subtest: an allowlisted behavior that changes class is both new and stale
+ok 21 - an allowlisted behavior that changes class is both new and stale
+  ---
+  duration_ms: 1.187033
+  type: 'test'
+  ...
+# Subtest: a plain function carries its arity
+ok 22 - a plain function carries its arity
+  ---
+  duration_ms: 10.54996
+  type: 'test'
+  ...
+# Subtest: a curried function reads as arity 1 — the divergence this gate exists to see
+ok 23 - a curried function reads as arity 1 — the divergence this gate exists to see
+  ---
+  duration_ms: 5.995119
+  type: 'test'
+  ...
+# Subtest: plain data reads as its typeof, with no arity
+ok 24 - plain data reads as its typeof, with no arity
+  ---
+  duration_ms: 0.69988
+  type: 'test'
+  ...
+# Subtest: a name the module does not export is absent, and absent is not undefined
+ok 25 - a name the module does not export is absent, and absent is not undefined
+  ---
+  duration_ms: 0.590581
+  type: 'test'
+  ...
+# Subtest: React wrappers are unwrapped to the function they carry
+ok 26 - React wrappers are unwrapped to the function they carry
+  ---
+  duration_ms: 2.290153
+  type: 'test'
+  ...
+# Subtest: wrapper kind is compared in both directions
+ok 27 - wrapper kind is compared in both directions
+  ---
+  duration_ms: 0.618227
+  type: 'test'
+  ...
+# Subtest: an unrecognised React tag is named rather than flattened into a plain object
+ok 28 - an unrecognised React tag is named rather than flattened into a plain object
+  ---
+  duration_ms: 1.00045
+  type: 'test'
+  ...
+# Subtest: shapeDifferences reports one row per disagreeing name and nothing for agreement
+ok 29 - shapeDifferences reports one row per disagreeing name and nothing for agreement
+  ---
+  duration_ms: 2.727271
+  type: 'test'
+  ...
+# Subtest: shapeDifferences compares the names it is given, in the order it is given them
+ok 30 - shapeDifferences compares the names it is given, in the order it is given them
+  ---
+  duration_ms: 123.775591
+  type: 'test'
+  ...
+1..30
+# tests 30
+# suites 0
+# pass 30
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1196.660854

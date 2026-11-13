@@ -1,0 +1,17 @@
+$ npx playwright test --config parity/system/harness/playwright.config.mjs --grep records onInit
+[2m[WebServer] [22m(node:80962) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:80997) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:80997) [DEP0066] DeprecationWarning: OutgoingMessage.prototype._headers is deprecated
+
+Running 2 tests using 1 worker
+
+(node:81010) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:81010) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [harness] › parity/system/harness/live.spec.mjs:84:3 › psflow records onInit with its initialized JS instance (3.6s)
+  ✓  2 [harness] › parity/system/harness/live.spec.mjs:84:3 › upstream records onInit with its initialized JS instance (2.4s)
+
+  2 passed (10.5s)

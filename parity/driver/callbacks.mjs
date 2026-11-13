@@ -60,7 +60,7 @@ export class CallbackDerivationError extends Error {
  * The census assigns 47 exports to this section (mechanism `dual-run-callback`
  * in `parity/census/classification.json`). Installing every callback prop of
  * `ReactFlowProps` puts most of them within reach — a handler's argument types
- * ride along with the handler — and these ten are the remainder. Each is a
+ * ride along with the handler — and these nine are the remainder. Each is a
  * **hole**: a legitimate resting state carrying a written reason and the ticket
  * that closes it, where an *undeclared* hole is the empty section nobody can
  * read a decision out of.
@@ -69,23 +69,13 @@ export class CallbackDerivationError extends Error {
  * export the census no longer assigns here **fails stale** — and
  * `parity/system/coverage/` now derives the reached side of the same question
  * from runs that happened rather than taking this file's word for it. Where the
- * two disagree the traces win: `OnInit` is a declared hole there whose reason
- * records that the blocker named below has since landed, which is a thing this
- * list cannot notice about itself.
+ * two disagree the traces win. `onInit` is now installed: its instance argument
+ * crossed in boundary stage 3, and its receipt is checked in the live harness.
  *
- * `prop` appears on the one hole that is a `ReactFlowProps` prop the driver
- * withholds; the others are not props of this component at all.
+ * A `prop` would name a `ReactFlowProps` prop the driver withholds. None is
+ * withheld today; the remaining entries are not props of this component.
  */
 export const HOLES = [
-  {
-    export: "OnInit",
-    prop: "onInit",
-    issue: 56,
-    reason:
-      "its single argument is the imperative ReactFlowInstance, which has not crossed the boundary — " +
-      "ps-flow refuses the prop at mount (boundary stage 3), so installing it here would fail every " +
-      "scenario on one side rather than observing anything.",
-  },
   ...["OnResize", "OnResizeStart", "OnResizeEnd", "ShouldResize", "ResizeDragEvent", "ResizeParams", "ResizeParamsWithDirection"].map(
     (name) => ({
       export: name,
@@ -215,18 +205,18 @@ export const callablePropsOf = ({ file, typeName, root, paths = {} }) => {
  * deleted would otherwise keep withholding nothing, and an unset-answer entry
  * would keep answering for a prop nobody passes.
  */
-export const staleEntries = (derived) => {
+export const staleEntries = (derived, { notInstalled = NOT_INSTALLED, unhandled = UNHANDLED_ANSWERS } = {}) => {
   const isCallback = new Set(derived);
-  const withheld = new Set(NOT_INSTALLED.map((hole) => hole.prop));
+  const withheld = new Set(notInstalled.map((hole) => hole.prop));
   return [
-    ...NOT_INSTALLED.filter((hole) => !isCallback.has(hole.prop)).map((hole) => `NOT_INSTALLED: ${hole.prop}`),
-    ...Object.keys(UNHANDLED_ANSWERS)
+    ...notInstalled.filter((hole) => !isCallback.has(hole.prop)).map((hole) => `NOT_INSTALLED: ${hole.prop}`),
+    ...Object.keys(unhandled)
       .filter((prop) => !isCallback.has(prop))
       .map((prop) => `UNHANDLED_ANSWERS: ${prop}`),
     // The two registers contradicting each other, which is neither one being
     // stale on its own: an answer for a prop nothing installs is an answer
     // nothing can ever give. Dropping it quietly is what a filter would do.
-    ...Object.keys(UNHANDLED_ANSWERS)
+    ...Object.keys(unhandled)
       .filter((prop) => withheld.has(prop))
       .map((prop) => `UNHANDLED_ANSWERS names ${prop}, which NOT_INSTALLED withholds`),
   ];

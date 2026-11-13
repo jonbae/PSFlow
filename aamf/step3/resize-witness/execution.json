@@ -1,0 +1,408 @@
+{
+  "completedAt": "2026-11-10T21:51:57.490925+00:00",
+  "task": "psflow-w12-resize-witness",
+  "status": "complete",
+  "checks": [
+    {
+      "name": "before-resize-node-with-direct-control",
+      "command": [
+        "node",
+        "parity/system/net.mjs",
+        "--scenario",
+        "resize-node-with-direct-control"
+      ],
+      "startedAt": "2026-11-10T20:51:36.863Z",
+      "finishedAt": "2026-11-10T20:51:52.670Z",
+      "exitCode": 1,
+      "signal": null,
+      "log": "../../../../../../../Users/jonathanbae/repos/PSFlow/aamf/step3/resize-witness/before-resize-node-with-direct-control.log"
+    },
+    {
+      "name": "before-resize-node-with-resizer",
+      "command": [
+        "node",
+        "parity/system/net.mjs",
+        "--scenario",
+        "resize-node-with-resizer"
+      ],
+      "startedAt": "2026-11-10T20:51:52.882Z",
+      "finishedAt": "2026-11-10T20:52:25.468Z",
+      "exitCode": 1,
+      "signal": null,
+      "log": "../../../../../../../Users/jonathanbae/repos/PSFlow/aamf/step3/resize-witness/before-resize-node-with-resizer.log"
+    },
+    {
+      "name": "before-resize-node-after-active-limit-change",
+      "command": [
+        "node",
+        "parity/system/net.mjs",
+        "--scenario",
+        "resize-node-after-active-limit-change"
+      ],
+      "startedAt": "2026-11-10T20:52:25.846Z",
+      "finishedAt": "2026-11-10T20:52:55.439Z",
+      "exitCode": 1,
+      "signal": null,
+      "log": "../../../../../../../Users/jonathanbae/repos/PSFlow/aamf/step3/resize-witness/before-resize-node-after-active-limit-change.log"
+    },
+    {
+      "name": "red-mounted-witness",
+      "command": [
+        "node",
+        "aamf/step3/resize-witness/verify.mjs",
+        "before-captures"
+      ],
+      "startedAt": "2026-11-10T21:02:15.872Z",
+      "finishedAt": "2026-11-10T21:02:16.198Z",
+      "exitCode": 1,
+      "signal": null,
+      "log": "aamf/step3/resize-witness/red-mounted-witness.log"
+    },
+    {
+      "name": "system-resize-node-with-direct-control",
+      "command": [
+        "node",
+        "parity/system/net.mjs",
+        "--scenario",
+        "resize-node-with-direct-control"
+      ],
+      "startedAt": "2026-11-10T21:03:55.260Z",
+      "finishedAt": "2026-11-10T21:04:10.720Z",
+      "exitCode": 1,
+      "signal": null,
+      "log": "../../../../../../../Users/jonathanbae/repos/PSFlow/aamf/step3/resize-witness/system-resize-node-with-direct-control.log"
+    },
+    {
+      "name": "coverage",
+      "command": [
+        "npm",
+        "run",
+        "test:coverage"
+      ],
+      "startedAt": "2026-11-10T21:04:17.988Z",
+      "finishedAt": "2026-11-10T21:04:23.501Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize-witness/coverage.log"
+    },
+    {
+      "name": "fork",
+      "command": [
+        "npm",
+        "run",
+        "parity:fork"
+      ],
+      "startedAt": "2026-11-10T21:04:18.035Z",
+      "finishedAt": "2026-11-10T21:04:30.533Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize-witness/fork.log"
+    },
+    {
+      "name": "compare",
+      "command": [
+        "npm",
+        "run",
+        "test:compare"
+      ],
+      "startedAt": "2026-11-10T21:04:18.036Z",
+      "finishedAt": "2026-11-10T21:04:33.409Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize-witness/compare.log"
+    },
+    {
+      "name": "harness",
+      "command": [
+        "npm",
+        "run",
+        "test:harness"
+      ],
+      "startedAt": "2026-11-10T21:04:17.987Z",
+      "finishedAt": "2026-11-10T21:04:52.897Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize-witness/harness.log"
+    },
+    {
+      "name": "system-resize-node-with-resizer",
+      "command": [
+        "node",
+        "parity/system/net.mjs",
+        "--scenario",
+        "resize-node-with-resizer"
+      ],
+      "startedAt": "2026-11-10T21:04:10.910Z",
+      "finishedAt": "2026-11-10T21:04:54.872Z",
+      "exitCode": 1,
+      "signal": null,
+      "log": "../../../../../../../Users/jonathanbae/repos/PSFlow/aamf/step3/resize-witness/system-resize-node-with-resizer.log"
+    },
+    {
+      "name": "system-resize-node-after-active-limit-change",
+      "command": [
+        "node",
+        "parity/system/net.mjs",
+        "--scenario",
+        "resize-node-after-active-limit-change"
+      ],
+      "startedAt": "2026-11-10T21:04:55.087Z",
+      "finishedAt": "2026-11-10T21:05:13.781Z",
+      "exitCode": 1,
+      "signal": null,
+      "log": "../../../../../../../Users/jonathanbae/repos/PSFlow/aamf/step3/resize-witness/system-resize-node-after-active-limit-change.log"
+    },
+    {
+      "name": "system-mount-baseline--resize-lifecycle",
+      "command": [
+        "node",
+        "parity/system/net.mjs",
+        "--scenario",
+        "mount-baseline--resize-lifecycle"
+      ],
+      "startedAt": "2026-11-10T21:05:14.128Z",
+      "finishedAt": "2026-11-10T21:05:34.952Z",
+      "exitCode": 1,
+      "signal": null,
+      "log": "../../../../../../../Users/jonathanbae/repos/PSFlow/aamf/step3/resize-witness/system-mount-baseline--resize-lifecycle.log"
+    },
+    {
+      "name": "conformance-frozen",
+      "command": [
+        "npm",
+        "run",
+        "test:conformance"
+      ],
+      "startedAt": "2026-11-10T21:05:35.119Z",
+      "finishedAt": "2026-11-10T21:06:48.534Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "../../../../../../../Users/jonathanbae/repos/PSFlow/aamf/step3/resize-witness/conformance-frozen.log"
+    },
+    {
+      "name": "smoke-frozen",
+      "command": [
+        "npm",
+        "run",
+        "test:smoke"
+      ],
+      "startedAt": "2026-11-10T21:06:48.747Z",
+      "finishedAt": "2026-11-10T21:07:00.003Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "../../../../../../../Users/jonathanbae/repos/PSFlow/aamf/step3/resize-witness/smoke-frozen.log"
+    },
+    {
+      "name": "witness-current-wave",
+      "command": [
+        "node",
+        "aamf/step3/resize-witness/verify.mjs"
+      ],
+      "startedAt": "2026-11-10T21:36:06.836Z",
+      "finishedAt": "2026-11-10T21:36:07.162Z",
+      "exitCode": 1,
+      "signal": null,
+      "log": "aamf/step3/resize-witness/witness-current-wave.log"
+    },
+    {
+      "name": "witness-full-wave-report",
+      "command": [
+        "node",
+        "aamf/step3/resize-witness/verify.mjs"
+      ],
+      "startedAt": "2026-11-10T21:38:43.591Z",
+      "finishedAt": "2026-11-10T21:38:43.851Z",
+      "exitCode": 1,
+      "signal": null,
+      "log": "aamf/step3/resize-witness/witness-full-wave-report.log"
+    }
+  ],
+  "sourceAudit": "../node-resizing/source-audit.json",
+  "combinedCheckpoint": {
+    "sourceSnapshot": "../node-resizing/validation-snapshot.json",
+    "runtimeArchive": "../node-resizing/validation-runtime.tar.gz",
+    "conformance": {
+      "passed": 41,
+      "failed": 0
+    },
+    "smoke": {
+      "passed": 2,
+      "failed": 0
+    },
+    "boundaryCases": 119,
+    "system": {
+      "scenarios": 107,
+      "passed": 13,
+      "failed": 94,
+      "selfInconsistent": [
+        "arrow-key-selected-node",
+        "drag-node-autopan",
+        "drag-node-escape-mid-gesture",
+        "drag-node-reports-changes",
+        "resize-node-after-active-limit-change"
+      ],
+      "drivingDivergence": [],
+      "interpretable": 102
+    },
+    "coverage": {
+      "driven": 127,
+      "total": 156,
+      "declaredHoles": 29,
+      "undeclaredHoles": 0,
+      "behaviorDebtRows": 50
+    },
+    "sourceOutputAndPolicyChangesDuringValidation": []
+  },
+  "currentWitnesses": [
+    {
+      "scenario": "resize-node-with-direct-control",
+      "interpretable": true,
+      "selfConsistency": [
+        {
+          "side": "upstream",
+          "consistent": true
+        },
+        {
+          "side": "psflow",
+          "consistent": true
+        }
+      ],
+      "fullGatePassed": false,
+      "remainingDifferences": [
+        {
+          "kind": "changed",
+          "path": [
+            "api",
+            "queries",
+            "getInternalNode",
+            "internals",
+            "handleBounds",
+            "source"
+          ],
+          "left": null,
+          "right": []
+        },
+        {
+          "kind": "changed",
+          "path": [
+            "api",
+            "queries",
+            "getInternalNode",
+            "internals",
+            "handleBounds",
+            "target"
+          ],
+          "left": null,
+          "right": []
+        }
+      ],
+      "resize": {
+        "width": 180,
+        "height": 110
+      },
+      "callbacks": [
+        "control:start",
+        "control:resize",
+        "control:resize",
+        "control:resize",
+        "control:end"
+      ],
+      "witnessPassed": true
+    },
+    {
+      "scenario": "resize-node-with-resizer",
+      "interpretable": true,
+      "selfConsistency": [
+        {
+          "side": "upstream",
+          "consistent": true
+        },
+        {
+          "side": "psflow",
+          "consistent": true
+        }
+      ],
+      "fullGatePassed": false,
+      "remainingDifferences": [
+        {
+          "kind": "changed",
+          "path": [
+            "api",
+            "queries",
+            "getInternalNode",
+            "internals",
+            "handleBounds",
+            "source"
+          ],
+          "left": null,
+          "right": []
+        },
+        {
+          "kind": "changed",
+          "path": [
+            "api",
+            "queries",
+            "getInternalNode",
+            "internals",
+            "handleBounds",
+            "target"
+          ],
+          "left": null,
+          "right": []
+        }
+      ],
+      "resize": {
+        "width": 165,
+        "height": 110
+      },
+      "callbacks": [
+        "resizer:start",
+        "resizer:resize",
+        "resizer:resize",
+        "resizer:resize",
+        "resizer:end"
+      ],
+      "witnessPassed": true
+    },
+    {
+      "scenario": "resize-node-after-active-limit-change",
+      "interpretable": false,
+      "selfConsistency": [
+        {
+          "side": "upstream",
+          "consistent": false
+        },
+        {
+          "side": "psflow",
+          "consistent": true
+        }
+      ],
+      "fullGatePassed": false,
+      "remainingDifferences": null,
+      "witnessPassed": false,
+      "failure": "resize-node-after-active-limit-change: selected experiment must reproduce before interpretation"
+    }
+  ],
+  "activeResizeIndependentRepeat": [
+    {
+      "scenario": "resize-node-after-active-limit-change",
+      "interpretable": false,
+      "selfConsistency": [
+        {
+          "side": "upstream",
+          "consistent": false
+        },
+        {
+          "side": "psflow",
+          "consistent": true
+        }
+      ],
+      "fullGatePassed": false,
+      "remainingDifferences": null,
+      "witnessPassed": false,
+      "failure": "resize-node-after-active-limit-change: selected experiment must reproduce before interpretation"
+    }
+  ],
+  "interpretation": "F lifecycle, resize exports/witnesses and the optional store flag are complete in their defined scopes. Direct-control and NodeResizer scenarios reproduce with only PR195 handle-bound differences. Active-limit cross-side differences are not interpreted in the full wave or repeat because upstream does not reproduce. Local actual-control/store regressions remain green. E, broader G, remaining H and I are open.",
+  "aamfInvoked": false
+}

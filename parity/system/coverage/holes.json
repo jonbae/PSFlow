@@ -37,98 +37,9 @@
   "holes": [
     {
       "exports": [
-        "EdgeLabelRenderer",
-        "EdgeLabelRendererProps",
-        "ViewportPortal"
-      ],
-      "reason": "no fixture portals anything. GraphView draws both containers for every flow whether or not the export is used, so a container in every trace says nothing — only content inside one does, which is what the witness asks for. Boundary stage 4 (#62) crossed the component, so a fixture can now hand it upstream's props from JavaScript; what is missing is the fixture, and no issue owns writing one yet."
-    },
-    {
-      "exports": [
-        "SimpleBezierEdge",
-        "SimpleBezierEdgeProps",
-        "SmoothStepEdge",
-        "SmoothStepEdgeProps",
-        "StepEdge",
-        "StepEdgeProps",
-        "StraightEdge",
-        "StraightEdgeProps"
-      ],
-      "reason": "reachable only by an edge declaring the type, and the edges fixture declares none — every edge in the corpus renders as the default, which is BezierEdge. Each of their path functions has function parity, which is a different claim from the component rendering. Boundary stage 4 (#62) crossed all four, so a fixture can now register one as an edge type from JavaScript; what is missing is the fixture, and no issue owns writing one yet."
-    },
-    {
-      "exports": [
-        "EdgeToolbar",
-        "EdgeToolbarProps"
-      ],
-      "reason": "no fixture renders an edge toolbar. getEdgeToolbarTransform has function parity; the component is mounted by nothing, where its node-level sibling is driven by the node-toolbar fixture. Boundary stage 4 (#62) crossed the component, so a fixture can now hand it upstream's props from JavaScript; what is missing is the fixture, and no issue owns writing one yet."
-    },
-    {
-      "exports": [
-        "NodeResizer",
-        "NodeResizerProps",
-        "NodeResizeControl",
-        "ControlLinePosition",
-        "ControlPosition"
-      ],
-      "reason": "no fixture mounts a resizer. parity:boundary mounts both components with no props inside a node component, which is below the net and asserts no DOM; nothing in the corpus renders a resize control, and ticket 073 (XYResizer drag lifecycle) is what a scenario driving one would be measuring against. The two components had already crossed in boundary stage 2; boundary stage 4 (#62) read this entry and left them alone, which is the register working — the reason here is about a fixture, not about a wrapper."
-    },
-    {
-      "exports": [
-        "EdgeTypes"
-      ],
-      "reason": "no fixture passes an edgeTypes map, so no edge carries a type outside the built-in set. NodeTypes is driven because the node-toolbar fixture registers one; the edges fixture registers no edge type at all. The prop itself crossed in boundary stage 4 (#62) — until then no fixture *could* pass one, because `edgeTypes`' values are the consumer's own components and the props record ps-flow hands them had not crossed. That blocker is gone and the fixture is still missing; no issue owns writing one yet."
-    },
-    {
-      "exports": [
-        "DefaultEdgeOptions"
-      ],
-      "reason": "no fixture sets defaultEdgeOptions, and it has no DOM of its own — the options are merged into edges that declare none. Closing it needs a fixture whose edges declare no type and whose flow defaults them, which is the shape the witness names. No issue owns that fixture yet."
-    },
-    {
-      "exports": [
-        "EdgeAddChange",
-        "EdgeReplaceChange"
-      ],
-      "reason": "the node pair is driven by `uncontrolled-update-node`, and the edge pair cannot be, for a reason that is upstream's rather than the corpus's: `addEdges` and `updateEdge` on an uncontrolled flow set the edges directly and raise no change at all — only `triggerNodeChanges` is called, which is why the same scenario produces `add` and `replace` on the node side and nothing on the edge side. Connecting does not fire one either: the driver's `onConnect` calls `addEdge` itself, which is a prop changing rather than a change being reported. Closing this needs a path that reports an edge add or replace, and no issue owns finding one yet."
-    },
-    {
-      "exports": [
-        "OnReconnect"
-      ],
-      "reason": "the driver installs onReconnect and no scenario drags an edge endpoint onto another handle, so it never fires. The edgeupdater circles are in every edges-fixture trace, so the target exists and the gesture does not — reconnecting is not in the gesture tier, and adding one is a reviewable act rather than a scenario detail. None of the thirty test-debt scenarios is about reconnection, so this is a hole-closing scenario and no issue owns it yet."
-    },
-    {
-      "exports": [
-        "OnInit"
-      ],
-      "reason": "the driver withholds the prop (`parity/driver/callbacks.mjs`, HOLES), so no page installs it and no trace can record it. The reason recorded there — that onInit's ReactFlowInstance argument had not crossed the boundary — no longer holds: boundary stage 3 crosses `onInitIn` (`src/Boundary/Callbacks.purs`). Installing it and re-capturing the corpus is what closes this, and it is the first thing this artifact found that its own registers cannot fix."
-    },
-    {
-      "exports": [
-        "OnResize",
-        "OnResizeStart",
-        "OnResizeEnd",
-        "ShouldResize",
-        "ResizeDragEvent",
-        "ResizeParams",
-        "ResizeParamsWithDirection"
-      ],
-      "reason": "a NodeResizer/NodeResizeControl prop rather than a ReactFlow one, so there is no handler for the driver to install and no fixture mounting either component. It needs a fixture that resizes. Boundary stage 4 (#62) changed nothing here — the two components it is a prop of crossed in stage 2, and what this needs is still a fixture that resizes. No issue owns writing one."
-    },
-    {
-      "exports": [
         "UnselectNodesAndEdgesParams"
       ],
-      "reason": "`unselectNodesAndEdges` is a store action and is **not on `ReactFlowInstance`** — it is absent from `JsReactFlowInstance` in src/Boundary/Instance.purs because it is absent from upstream's instance too. The `api` section witnesses a name only as a query key or a called method, so no scenario can reach this one however it is written; the nine helper exports beside it were closed by `viewport-helpers-with-options` and this one was never in reach. Closing it needs the witness to name something the section can actually offer, which is a question about the register rather than about the corpus."
-    },
-    {
-      "exports": [
-        "OnSelectionDrag",
-        "SelectionDragHandler"
-      ],
-      "reason": "no scenario drags a selection. Four selection-box scenarios draw a lasso and none drags what it selected, and the witness needs a pointer down on a selected node while more than one is selected. The export read as driven until ticket-100: psflow fired onSelectionDrag on single-node drags because an auto-pan frame carried no node id, so the only witness in the corpus was the divergence being reported as coverage. Upstream fired none of the three in any capture.",
-      "ticket": "https://github.com/jonbae/PSFlow/issues/111"
+      "reason": "`unselectNodesAndEdges` is a store action and is **not on `ReactFlowInstance`** — it is absent from `JsReactFlowInstance` in src/Boundary/Instance.purs because it is absent from upstream's instance too. Since Step 3 G a JavaScript consumer can call it through `useStoreApi().getState()`, but the `api` section witnesses a name only as a query key or a called instance method, so no scenario can reach this one however it is written; the nine helper exports beside it were closed by `viewport-helpers-with-options` and this one was never in reach. Closing it needs the witness to name something the section can actually offer, which is a question about the register rather than about the corpus."
     }
   ]
 }

@@ -87,6 +87,10 @@ type OppositeHandle =
 syntheticToMouse :: SyntheticEvent -> MouseEvent
 syntheticToMouse = unsafeCoerce
 
+-- | `event.nativeEvent`: the DOM `MouseEvent` a React mouse event wraps.
+nativeMouseEvent :: SyntheticEvent -> MouseEvent
+nativeMouseEvent se = (unsafeCoerce se :: { nativeEvent :: MouseEvent }).nativeEvent
+
 currentTargetElement :: SyntheticEvent -> Maybe Element
 currentTargetElement se =
   map unsafeCoerce
@@ -137,7 +141,10 @@ edgeUpdateAnchors =
             state <- store.getState
             case currentTargetElement se of
               Nothing -> pure unit
-              Just el -> xyHandle.onPointerDown (Left me)
+              -- TS hands `XYHandle` `event.nativeEvent`, so the
+              -- `onConnectStart` it calls receives the DOM event, while
+              -- `onReconnectStart` receives the React one.
+              Just el -> xyHandle.onPointerDown (Left (nativeMouseEvent se))
                 { autoPanOnConnect: state.autoPanOnConnect
                 , connectionMode: state.connectionMode
                 , connectionRadius: state.connectionRadius

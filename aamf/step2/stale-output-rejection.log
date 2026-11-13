@@ -1,0 +1,19 @@
+[15:28:28] INFO  runtime run=aeaedd08-b1ae-4805-948d-a746f42b9c53: Loaded 13 bundled scenario prompts
+[15:28:28] INFO  runtime run=aeaedd08-b1ae-4805-948d-a746f42b9c53: AAMF Runtime initialized for project: psflow-step2-pilot-20261109 (runId=aeaedd08-b1ae-4805-948d-a746f42b9c53)
+[15:28:28] INFO  runtime run=aeaedd08-b1ae-4805-948d-a746f42b9c53: Source: typescript → Target: purescript
+
+Error: Completed task output changed: src/Boundary/Utils.js; create a new reviewed project
++ actual - expected
+
++ '70b6b4845f8d4bffa5399b800db2cc8cc9f5547b71db33a544fea2938ef6a61e'
+- '465bcdd6523279f9ab442957c1d845d19e06bd146eb3ffc1d46b520c7fb8e665'
+
+AssertionError [ERR_ASSERTION]: Completed task output changed: src/Boundary/Utils.js; create a new reviewed project
++ actual - expected
+
++ '70b6b4845f8d4bffa5399b800db2cc8cc9f5547b71db33a544fea2938ef6a61e'
+- '465bcdd6523279f9ab442957c1d845d19e06bd146eb3ffc1d46b520c7fb8e665'
+
+    at beforeRun (file:///private/tmp/psflow-aamf-step1-20261109/AAMF/dist/core/psflow-integration.mjs:247:16)
+    at async MigrationRuntime.run (file:///private/tmp/psflow-aamf-step1-20261109/AAMF/dist/core/runtime.js:165:13)
+    at async Command.<anonymous> (file:///private/tmp/psflow-aamf-step1-20261109/AAMF/dist/index.js:30:24)

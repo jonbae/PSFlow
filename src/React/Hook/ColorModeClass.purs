@@ -15,6 +15,7 @@ import Prelude
 import Data.Maybe (Maybe(..))
 import Data.Newtype (class Newtype)
 import Data.Tuple.Nested ((/\))
+import Effect.Unsafe (unsafePerformEffect)
 import React.Basic.Hooks (Hook, UseEffect, UseState, coerceHook, useEffect, useState)
 import React.Basic.Hooks as React
 import React.FFI.MatchMedia (prefersDarkMode)
@@ -22,37 +23,49 @@ import System.Types.Connection (ColorMode(..), ColorModeClass(..))
 
 newtype UseColorModeClassHook hooks =
   UseColorModeClassHook
-    ( UseEffect (Maybe ColorMode)
+    ( UseEffect ColorMode
         (UseState (Maybe ColorModeClass) hooks)
     )
 
 derive instance newtypeUseColorModeClassHook ::
   Newtype (UseColorModeClassHook hooks) _
 
+-- | TS's hook, step for step. The state starts as the mode itself unless it
+-- | is `'system'`; the effect sets it again, which changes nothing for a
+-- | fixed mode, or follows the media query. Until the state holds a class,
+-- | the render reads the media query directly, so the first render of a
+-- | `'system'` flow already carries one. `<ReactFlow />` passes `'light'`
+-- | when the consumer passes nothing, as TS's default does.
 useColorModeClass
-  :: Maybe ColorMode
-  -> Hook UseColorModeClassHook (Maybe ColorModeClass)
+  :: ColorMode
+  -> Hook UseColorModeClassHook ColorModeClass
 useColorModeClass mode = coerceHook React.do
   cls /\ setCls <- useState (resolveStatic mode)
+  let
+    -- TS sets a string, which React compares with `Object.is` and skips when
+    -- it is unchanged. A fresh `Just` is never `Object.is` the one held, so
+    -- keep the held one when the class is the same.
+    setClass next = setCls \held -> if held == Just next then held else Just next
   useEffect mode case mode of
-    Just LightMode -> do
-      setCls (const (Just Light))
+    LightMode -> do
+      setClass Light
       pure (pure unit)
-    Just DarkMode -> do
-      setCls (const (Just Dark))
+    DarkMode -> do
+      setClass Dark
       pure (pure unit)
-    _ -> do
-      -- Either `Nothing` or `SystemMode`: subscribe to the
-      -- media-query preference.
+    SystemMode -> do
       sub <- prefersDarkMode
       isDark <- sub.current
-      setCls (const (Just (if isDark then Dark else Light)))
+      setClass (if isDark then Dark else Light)
       cleanup <- sub.subscribe \dark ->
-        setCls (const (Just (if dark then Dark else Light)))
+        setClass (if dark then Dark else Light)
       pure cleanup
-  pure cls
+  pure case cls of
+    Just c -> c
+    Nothing ->
+      if unsafePerformEffect (prefersDarkMode >>= _.current) then Dark else Light
   where
   resolveStatic = case _ of
-    Just LightMode -> Just Light
-    Just DarkMode -> Just Dark
-    _ -> Nothing
+    LightMode -> Just Light
+    DarkMode -> Just Dark
+    SystemMode -> Nothing

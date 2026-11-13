@@ -1,0 +1,25 @@
+$ node --input-type=module -e import {runXYResizerTests} from "./output/Test.System.XYResizer/index.js";runXYResizerTests();
+XYResizer: basic lifecycle and 64 source-differential cases passed
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: expandParent treats NaN positions as falsy
+
+true !== false
+
+    at Module.checkParentControl (file:///Users/jonathanbae/repos/PSFlow/output/Test.System.XYResizer/foreign.js:228:12)
+    at __do (file:///Users/jonathanbae/repos/PSFlow/output/Test.System.XYResizer/index.js:97:21)
+    at file:///Users/jonathanbae/repos/PSFlow/[eval1]:1:75
+    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:269:26)
+    at async ModuleLoader.executeModuleJob (node:internal/modules/esm/loader:265:20)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: true,
+  expected: false,
+  operator: 'strictEqual'
+}
+
+Node.js v22.18.0

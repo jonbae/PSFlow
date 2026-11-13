@@ -1,0 +1,189 @@
+$ node --test parity/boundary/consumer-objects.test.mjs
+TAP version 13
+# Subtest: applyNodeChanges retains untouched consumer references and keys
+ok 1 - applyNodeChanges retains untouched consumer references and keys
+  ---
+  duration_ms: 10.877429
+  type: 'test'
+  ...
+# Subtest: applyEdgeChanges retains untouched consumer references and keys
+ok 2 - applyEdgeChanges retains untouched consumer references and keys
+  ---
+  duration_ms: 0.847839
+  type: 'test'
+  ...
+# Subtest: applyNodeChanges shallow-copies touched/add/replace items and preserves change ordering
+not ok 3 - applyNodeChanges shallow-copies touched/add/replace items and preserves change ordering
+  ---
+  duration_ms: 18.10379
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/consumer-objects.test.mjs:21:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+        {
+    -     [Symbol(consumer)]: 1,
+    -     custom: {},
+          data: {},
+          id: 'a',
+    -     optional: undefined,
+          position: {
+            x: 0,
+            y: 0
+          },
+          selected: true,
+    -     source: 'a',
+    -     target: 'b'
+        },
+        {
+    -     [Symbol(consumer)]: 1,
+    -     custom: {},
+          data: {},
+          id: 'untouched',
+    -     optional: undefined,
+          position: {
+            x: 0,
+            y: 0
+          },
+    -     source: 'a',
+    -     target: 'b'
+        }
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0:
+      id: 'a'
+      position:
+        x: 0
+        y: 0
+      data:
+      source: 'a'
+      target: 'b'
+      custom:
+      selected: true
+    1:
+      id: 'untouched'
+      position: <Circular>
+      data: <Circular>
+      source: 'a'
+      target: 'b'
+      custom: <Circular>
+  actual:
+    0:
+      id: 'a'
+      position:
+        x: 0
+        y: 0
+      data:
+      selected: true
+    1:
+      id: 'untouched'
+      position: <Circular>
+      data: <Circular>
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/consumer-objects.test.mjs:43:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: applyEdgeChanges shallow-copies touched/add/replace items and preserves change ordering
+not ok 4 - applyEdgeChanges shallow-copies touched/add/replace items and preserves change ordering
+  ---
+  duration_ms: 7.702831
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/consumer-objects.test.mjs:21:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+        {
+    -     [Symbol(consumer)]: 1,
+    -     custom: {},
+          data: {},
+          id: 'a',
+    -     optional: undefined,
+    -     position: {
+    -       x: 0,
+    -       y: 0
+    -     },
+          selected: true,
+          source: 'a',
+          target: 'b'
+        },
+        {
+    -     [Symbol(consumer)]: 1,
+    -     custom: {},
+          data: {},
+          id: 'untouched',
+    -     optional: undefined,
+    -     position: {
+    -       x: 0,
+    -       y: 0
+    -     },
+          source: 'a',
+          target: 'b'
+        }
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0:
+      id: 'a'
+      position:
+        x: 0
+        y: 0
+      data:
+      source: 'a'
+      target: 'b'
+      custom:
+      selected: true
+    1:
+      id: 'untouched'
+      position: <Circular>
+      data: <Circular>
+      source: 'a'
+      target: 'b'
+      custom: <Circular>
+  actual:
+    0:
+      id: 'a'
+      source: 'a'
+      target: 'b'
+      data:
+      selected: true
+    1:
+      id: 'untouched'
+      source: 'a'
+      target: 'b'
+      data: <Circular>
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/consumer-objects.test.mjs:43:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 2
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5219.147194

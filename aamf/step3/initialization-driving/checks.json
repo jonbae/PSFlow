@@ -1,0 +1,666 @@
+[
+  {
+    "name": "reproduce-init-order",
+    "command": [
+      "node",
+      "aamf/step3/initialization-driving/experiment.mjs",
+      "baseline",
+      "5"
+    ],
+    "startedAt": "2026-11-11T04:35:59.678Z",
+    "finishedAt": "2026-11-11T04:36:05.173Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/reproduce-init-order.log"
+  },
+  {
+    "name": "probe-clock-running",
+    "command": [
+      "node",
+      "aamf/step3/initialization-driving/experiment.mjs",
+      "clock-running",
+      "5"
+    ],
+    "startedAt": "2026-11-11T04:37:41.956Z",
+    "finishedAt": "2026-11-11T04:37:47.871Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/probe-clock-running.log"
+  },
+  {
+    "name": "probe-clock-paused",
+    "command": [
+      "node",
+      "aamf/step3/initialization-driving/experiment.mjs",
+      "clock-paused",
+      "5"
+    ],
+    "startedAt": "2026-11-11T04:38:45.284Z",
+    "finishedAt": "2026-11-11T04:38:51.694Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/probe-clock-paused.log"
+  },
+  {
+    "name": "probe-clock-native-frames",
+    "command": [
+      "node",
+      "aamf/step3/initialization-driving/experiment.mjs",
+      "clock-paused-native",
+      "5"
+    ],
+    "startedAt": "2026-11-11T04:40:02.411Z",
+    "finishedAt": "2026-11-11T04:40:09.801Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/probe-clock-native-frames.log"
+  },
+  {
+    "name": "probe-fresh-page",
+    "command": [
+      "node",
+      "aamf/step3/initialization-driving/experiment.mjs",
+      "fresh-page",
+      "5"
+    ],
+    "startedAt": "2026-11-11T04:41:37.546Z",
+    "finishedAt": "2026-11-11T04:41:46.513Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/probe-fresh-page.log"
+  },
+  {
+    "name": "probe-two-virtual-frames",
+    "command": [
+      "node",
+      "aamf/step3/initialization-driving/experiment.mjs",
+      "clock-paused-native-32",
+      "5"
+    ],
+    "startedAt": "2026-11-11T04:43:29.103Z",
+    "finishedAt": "2026-11-11T04:43:37.284Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/probe-two-virtual-frames.log"
+  },
+  {
+    "name": "red-mount-protocol",
+    "command": [
+      "node",
+      "--test",
+      "--test-name-pattern",
+      "mount scheduling",
+      "parity/system/harness/scenario.test.mjs"
+    ],
+    "startedAt": "2026-11-11T04:44:08.345Z",
+    "finishedAt": "2026-11-11T04:44:08.903Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/red-mount-protocol.log"
+  },
+  {
+    "name": "red-init-repeat",
+    "command": [
+      "npx",
+      "playwright",
+      "test",
+      "--config",
+      "parity/system/harness/playwright.config.mjs",
+      "--grep",
+      "initialization order reproduces"
+    ],
+    "startedAt": "2026-11-11T04:44:08.361Z",
+    "finishedAt": "2026-11-11T04:44:22.719Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/red-init-repeat.log"
+  },
+  {
+    "name": "probe-held-layout",
+    "command": [
+      "node",
+      "aamf/step3/initialization-driving/experiment.mjs",
+      "clock-layout",
+      "10"
+    ],
+    "startedAt": "2026-11-11T04:45:26.520Z",
+    "finishedAt": "2026-11-11T04:45:41.878Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/probe-held-layout.log"
+  },
+  {
+    "name": "green-port-protocol",
+    "command": [
+      "node",
+      "--test",
+      "parity/system/harness/port.test.mjs",
+      "parity/system/harness/scenario.test.mjs"
+    ],
+    "startedAt": "2026-11-11T04:47:37.110Z",
+    "finishedAt": "2026-11-11T04:47:37.819Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/green-port-protocol.log"
+  },
+  {
+    "name": "green-init-repeat",
+    "command": [
+      "npx",
+      "playwright",
+      "test",
+      "--config",
+      "parity/system/harness/playwright.config.mjs",
+      "--grep",
+      "initialization order reproduces"
+    ],
+    "startedAt": "2026-11-11T04:47:37.111Z",
+    "finishedAt": "2026-11-11T04:48:13.125Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/green-init-repeat.log"
+  },
+  {
+    "name": "green-protocol-phases",
+    "command": [
+      "node",
+      "--test",
+      "parity/system/harness/port.test.mjs",
+      "parity/system/harness/scenario.test.mjs"
+    ],
+    "startedAt": "2026-11-11T04:48:50.883Z",
+    "finishedAt": "2026-11-11T04:48:51.869Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/green-protocol-phases.log"
+  },
+  {
+    "name": "build",
+    "command": [
+      "npm",
+      "exec",
+      "--yes",
+      "--package=purescript@0.15.16",
+      "--",
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-11T04:50:15.466Z",
+    "finishedAt": "2026-11-11T04:50:29.878Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/build.log"
+  },
+  {
+    "name": "apparatus",
+    "command": [
+      "npm",
+      "run",
+      "test:harness"
+    ],
+    "startedAt": "2026-11-11T04:50:15.464Z",
+    "finishedAt": "2026-11-11T04:50:35.426Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/apparatus.log"
+  },
+  {
+    "name": "native-clock-contract",
+    "command": [
+      "npx",
+      "playwright",
+      "test",
+      "--config",
+      "parity/system/harness/playwright.config.mjs",
+      "--grep",
+      "mount scheduling delivers"
+    ],
+    "startedAt": "2026-11-11T04:50:15.466Z",
+    "finishedAt": "2026-11-11T04:50:36.750Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/native-clock-contract.log"
+  },
+  {
+    "name": "driver-upstream",
+    "command": [
+      "node",
+      "parity/driver/build.mjs",
+      "--side",
+      "upstream"
+    ],
+    "startedAt": "2026-11-11T04:51:39.998Z",
+    "finishedAt": "2026-11-11T04:51:47.399Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/driver-upstream.log"
+  },
+  {
+    "name": "driver-psflow",
+    "command": [
+      "node",
+      "parity/driver/build.mjs",
+      "--side",
+      "psflow"
+    ],
+    "startedAt": "2026-11-11T04:51:39.985Z",
+    "finishedAt": "2026-11-11T04:51:47.903Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/driver-psflow.log"
+  },
+  {
+    "name": "surface",
+    "command": [
+      "npm",
+      "run",
+      "parity:surface"
+    ],
+    "startedAt": "2026-11-11T04:51:39.990Z",
+    "finishedAt": "2026-11-11T04:51:52.340Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/surface.log"
+  },
+  {
+    "name": "comparison-coverage-fork",
+    "command": [
+      "node",
+      "--test",
+      "parity/system/compare/**/*.test.mjs",
+      "parity/system/coverage/**/*.test.mjs",
+      "parity/system/corpus/fork.test.mjs"
+    ],
+    "startedAt": "2026-11-11T04:52:21.343Z",
+    "finishedAt": "2026-11-11T04:52:27.804Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/comparison-coverage-fork.log"
+  },
+  {
+    "name": "boundary",
+    "command": [
+      "npm",
+      "run",
+      "parity:boundary"
+    ],
+    "startedAt": "2026-11-11T04:52:21.346Z",
+    "finishedAt": "2026-11-11T04:52:33.867Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/boundary.log"
+  },
+  {
+    "name": "functions",
+    "command": [
+      "npm",
+      "exec",
+      "--yes",
+      "--package=purescript@0.15.16",
+      "--",
+      "spago",
+      "test"
+    ],
+    "startedAt": "2026-11-11T04:52:21.326Z",
+    "finishedAt": "2026-11-11T04:52:53.018Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/functions.log"
+  },
+  {
+    "name": "candidate-both-sides",
+    "command": [
+      "node",
+      "aamf/step3/initialization-driving/capture.mjs",
+      "candidate",
+      "5",
+      "mount-baseline--edges-general"
+    ],
+    "startedAt": "2026-11-11T04:52:21.324Z",
+    "finishedAt": "2026-11-11T04:53:06.764Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/candidate-both-sides.log"
+  },
+  {
+    "name": "independent-repeat",
+    "command": [
+      "node",
+      "aamf/step3/initialization-driving/capture.mjs",
+      "repeat",
+      "5",
+      "mount-baseline--edges-general"
+    ],
+    "startedAt": "2026-11-11T04:54:43.709Z",
+    "finishedAt": "2026-11-11T04:55:14.189Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/independent-repeat.log"
+  },
+  {
+    "name": "fork",
+    "command": [
+      "npm",
+      "run",
+      "parity:fork"
+    ],
+    "startedAt": "2026-11-11T04:56:36.160Z",
+    "finishedAt": "2026-11-11T04:56:39.193Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/fork.log"
+  },
+  {
+    "name": "capture-geometry-and-faults",
+    "command": [
+      "node",
+      "aamf/step3/initialization-driving/verify-captures.mjs"
+    ],
+    "startedAt": "2026-11-11T04:56:36.160Z",
+    "finishedAt": "2026-11-11T04:56:39.316Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/capture-geometry-and-faults.log"
+  },
+  {
+    "name": "live-harness",
+    "command": [
+      "npm",
+      "run",
+      "test:harness:live"
+    ],
+    "startedAt": "2026-11-11T04:56:36.160Z",
+    "finishedAt": "2026-11-11T04:58:56.330Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/live-harness.log"
+  },
+  {
+    "name": "changelog",
+    "command": [
+      "npm",
+      "run",
+      "parity:changelog"
+    ],
+    "startedAt": "2026-11-11T05:05:53.320Z",
+    "finishedAt": "2026-11-11T05:05:56.272Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/changelog.log"
+  },
+  {
+    "name": "full-system-wave",
+    "command": [
+      "npm",
+      "run",
+      "parity:system"
+    ],
+    "startedAt": "2026-11-11T04:59:19.882Z",
+    "finishedAt": "2026-11-11T05:07:56.671Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/full-system-wave.log"
+  },
+  {
+    "name": "coverage",
+    "command": [
+      "npm",
+      "run",
+      "parity:coverage"
+    ],
+    "startedAt": "2026-11-11T05:08:08.280Z",
+    "finishedAt": "2026-11-11T05:08:17.385Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/coverage.log"
+  },
+  {
+    "name": "full-wave-summary",
+    "command": [
+      "node",
+      "aamf/step3/initialization-driving/summarize-wave.mjs"
+    ],
+    "startedAt": "2026-11-11T05:08:08.271Z",
+    "finishedAt": "2026-11-11T05:08:17.956Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/full-wave-summary.log"
+  },
+  {
+    "name": "repeatability-details",
+    "command": [
+      "node",
+      "aamf/step3/initialization-driving/classify-repeatability.mjs"
+    ],
+    "startedAt": "2026-11-11T05:08:41.727Z",
+    "finishedAt": "2026-11-11T05:08:43.065Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/repeatability-details.log"
+  },
+  {
+    "name": "conformance",
+    "command": [
+      "npm",
+      "run",
+      "test:conformance"
+    ],
+    "startedAt": "2026-11-11T05:08:08.280Z",
+    "finishedAt": "2026-11-11T05:10:20.566Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/conformance.log"
+  },
+  {
+    "name": "red-native-post-mount-frame",
+    "command": [
+      "npx",
+      "playwright",
+      "test",
+      "--config",
+      "parity/system/harness/playwright.config.mjs",
+      "--grep",
+      "mount scheduling delivers"
+    ],
+    "startedAt": "2026-11-11T05:12:23.504Z",
+    "finishedAt": "2026-11-11T05:12:32.932Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/red-native-post-mount-frame.log"
+  },
+  {
+    "name": "before-native-keyboard-loop",
+    "command": [
+      "node",
+      "aamf/step3/initialization-driving/capture.mjs",
+      "affected",
+      "5",
+      "arrow-key-selected-node"
+    ],
+    "startedAt": "2026-11-11T05:14:41.688Z",
+    "finishedAt": "2026-11-11T05:15:08.028Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/before-native-keyboard-loop.log"
+  },
+  {
+    "name": "red-across-rounds",
+    "command": [
+      "node",
+      "aamf/step3/initialization-driving/verify-repeatability.mjs",
+      "affected",
+      "arrow-key-selected-node"
+    ],
+    "startedAt": "2026-11-11T05:17:20.128Z",
+    "finishedAt": "2026-11-11T05:17:20.474Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/red-across-rounds.log"
+  },
+  {
+    "name": "final-apparatus",
+    "command": [
+      "npm",
+      "run",
+      "test:harness"
+    ],
+    "startedAt": "2026-11-11T05:18:15.941Z",
+    "finishedAt": "2026-11-11T05:18:30.864Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/final-apparatus.log"
+  },
+  {
+    "name": "native-keyboard-final",
+    "command": [
+      "node",
+      "aamf/step3/initialization-driving/capture.mjs",
+      "final",
+      "5",
+      "arrow-key-selected-node",
+      "resize-node-after-active-limit-change",
+      "mount-baseline--edges-general"
+    ],
+    "startedAt": "2026-11-11T05:18:15.941Z",
+    "finishedAt": "2026-11-11T05:19:36.742Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/native-keyboard-final.log"
+  },
+  {
+    "name": "final-across-rounds-and-receipts",
+    "command": [
+      "node",
+      "aamf/step3/initialization-driving/verify-final.mjs"
+    ],
+    "startedAt": "2026-11-11T05:26:17.567Z",
+    "finishedAt": "2026-11-11T05:26:21.740Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/final-across-rounds-and-receipts.log"
+  },
+  {
+    "name": "final-live-harness",
+    "command": [
+      "npm",
+      "run",
+      "test:harness:live"
+    ],
+    "startedAt": "2026-11-11T05:26:18.780Z",
+    "finishedAt": "2026-11-11T05:28:28.802Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/final-live-harness.log"
+  },
+  {
+    "name": "final-system-wave",
+    "command": [
+      "npm",
+      "run",
+      "parity:system"
+    ],
+    "startedAt": "2026-11-11T05:28:43.758Z",
+    "finishedAt": "2026-11-11T05:36:45.921Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/final-system-wave.log"
+  },
+  {
+    "name": "final-wave-summary",
+    "command": [
+      "node",
+      "aamf/step3/initialization-driving/summarize-wave.mjs"
+    ],
+    "startedAt": "2026-11-11T05:37:39.455Z",
+    "finishedAt": "2026-11-11T05:37:46.717Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/final-wave-summary.log"
+  },
+  {
+    "name": "archive-runtime",
+    "command": [
+      "python3",
+      "aamf/step3/initialization-driving/archive-runtime.py"
+    ],
+    "startedAt": "2026-11-11T05:37:39.462Z",
+    "finishedAt": "2026-11-11T05:37:55.026Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/archive-runtime.log"
+  },
+  {
+    "name": "smoke",
+    "command": [
+      "npm",
+      "run",
+      "test:smoke"
+    ],
+    "startedAt": "2026-11-11T05:37:39.456Z",
+    "finishedAt": "2026-11-11T05:37:56.429Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/smoke.log"
+  },
+  {
+    "name": "final-repeatability-details",
+    "command": [
+      "node",
+      "aamf/step3/initialization-driving/classify-repeatability.mjs"
+    ],
+    "startedAt": "2026-11-11T05:38:56.559Z",
+    "finishedAt": "2026-11-11T05:38:56.831Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/final-repeatability-details.log"
+  },
+  {
+    "name": "write-results",
+    "command": [
+      "python3",
+      "aamf/step3/initialization-driving/write-results.py"
+    ],
+    "startedAt": "2026-11-11T05:40:33.947Z",
+    "finishedAt": "2026-11-11T05:40:34.164Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/write-results.log"
+  },
+  {
+    "name": "archive-integrity",
+    "command": [
+      "python3",
+      "aamf/step3/initialization-driving/verify-archives.py"
+    ],
+    "startedAt": "2026-11-11T05:40:34.384Z",
+    "finishedAt": "2026-11-11T05:40:36.117Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/archive-integrity.log"
+  },
+  {
+    "name": "source-audit",
+    "command": [
+      "python3",
+      "aamf/step3/initialization-driving/audit.py"
+    ],
+    "startedAt": "2026-11-11T05:43:17.477Z",
+    "finishedAt": "2026-11-11T05:43:19.308Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/source-audit.log"
+  },
+  {
+    "name": "diff-check",
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "startedAt": "2026-11-11T05:43:19.558Z",
+    "finishedAt": "2026-11-11T05:43:20.495Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/initialization-driving/diff-check.log"
+  }
+]

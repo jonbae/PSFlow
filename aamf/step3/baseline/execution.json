@@ -1,0 +1,28 @@
+{
+  "localDate": "2026-11-09",
+  "recordedAt": "2026-11-10T01:26:25.666Z",
+  "targetCommit": "98a3f77ab1bb17d481c6dec4fed2e23174448e45",
+  "targetBranch": "AAMF",
+  "targetImplementationDiff": "",
+  "source": {
+    "react": "12.11.0",
+    "system": "0.0.77",
+    "filesChecked": 171,
+    "mismatches": [],
+    "inventorySha256": "5ec27d3f88d3f3a5a66516d95136a0c45260d2deebe77c368f6a1832e38a2940",
+    "gitCommit": null
+  },
+  "toolchain": {
+    "node": "v22.18.0",
+    "purescript": "0.15.16",
+    "spago": "1.0.4",
+    "playwright": "1.60.0",
+    "chromium": "148.0.7778.96"
+  },
+  "inputsSha256": "09f7ed92754b11e8395f55263eab49899f8ed6cc0ac7b7c4aa962639614ffec9",
+  "aamf": {
+    "commit": "7dc475d81ef9796b5b90f57a29475eaafa375753",
+    "invoked": false,
+    "route": "PSFlow current workflow; Step 2 adapter remains limited to the completed viewport pilot"
+  }
+}

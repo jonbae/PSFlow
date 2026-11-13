@@ -508,6 +508,107 @@
             "edges": []
           }
         ]
+      },
+      {
+        "name": "onInit",
+        "args": [
+          {
+            "getNodes": {
+              "@ref": "function"
+            },
+            "setNodes": {
+              "@ref": "function"
+            },
+            "addNodes": {
+              "@ref": "function"
+            },
+            "getNode": {
+              "@ref": "function"
+            },
+            "getInternalNode": {
+              "@ref": "function"
+            },
+            "getEdges": {
+              "@ref": "function"
+            },
+            "setEdges": {
+              "@ref": "function"
+            },
+            "addEdges": {
+              "@ref": "function"
+            },
+            "getEdge": {
+              "@ref": "function"
+            },
+            "toObject": {
+              "@ref": "function"
+            },
+            "deleteElements": {
+              "@ref": "function"
+            },
+            "getIntersectingNodes": {
+              "@ref": "function"
+            },
+            "isNodeIntersecting": {
+              "@ref": "function"
+            },
+            "updateNode": {
+              "@ref": "function"
+            },
+            "updateNodeData": {
+              "@ref": "function"
+            },
+            "updateEdge": {
+              "@ref": "function"
+            },
+            "updateEdgeData": {
+              "@ref": "function"
+            },
+            "getNodesBounds": {
+              "@ref": "function"
+            },
+            "getHandleConnections": {
+              "@ref": "function"
+            },
+            "getNodeConnections": {
+              "@ref": "function"
+            },
+            "fitView": {
+              "@ref": "function"
+            },
+            "zoomIn": {
+              "@ref": "function"
+            },
+            "zoomOut": {
+              "@ref": "function"
+            },
+            "zoomTo": {
+              "@ref": "function"
+            },
+            "getZoom": {
+              "@ref": "function"
+            },
+            "setViewport": {
+              "@ref": "function"
+            },
+            "getViewport": {
+              "@ref": "function"
+            },
+            "setCenter": {
+              "@ref": "function"
+            },
+            "fitBounds": {
+              "@ref": "function"
+            },
+            "screenToFlowPosition": {
+              "@ref": "function"
+            },
+            "flowToScreenPosition": {
+              "@ref": "function"
+            },
+            "viewportInitialized": true
+          }
+        ]
       }
     ],
     "hooks": {},
@@ -516,12 +617,12 @@
         "getNodes": [
           {
             "id": "n1",
+            "data": {
+              "label": "n1"
+            },
             "position": {
               "x": 0,
               "y": 0
-            },
-            "data": {
-              "label": "n1"
             },
             "sourcePosition": "right",
             "targetPosition": "left",
@@ -534,12 +635,12 @@
           },
           {
             "id": "n2",
+            "data": {
+              "label": "n2"
+            },
             "position": {
               "x": 250,
               "y": 100
-            },
-            "data": {
-              "label": "n2"
             },
             "sourcePosition": "right",
             "targetPosition": "left",
@@ -553,12 +654,12 @@
         ],
         "getNode": {
           "id": "n1",
+          "data": {
+            "label": "n1"
+          },
           "position": {
             "x": 0,
             "y": 0
-          },
-          "data": {
-            "label": "n1"
           },
           "sourcePosition": "right",
           "targetPosition": "left",
@@ -571,12 +672,12 @@
         },
         "getInternalNode": {
           "id": "n1",
+          "data": {
+            "label": "n1"
+          },
           "position": {
             "x": 0,
             "y": 0
-          },
-          "data": {
-            "label": "n1"
           },
           "sourcePosition": "right",
           "targetPosition": "left",
@@ -592,6 +693,24 @@
               "y": 0
             },
             "z": 0,
+            "userNode": {
+              "id": "n1",
+              "data": {
+                "label": "n1"
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "sourcePosition": "right",
+              "targetPosition": "left",
+              "width": 100,
+              "height": 40,
+              "measured": {
+                "width": 100,
+                "height": 40
+              }
+            },
             "handleBounds": {
               "source": [
                 {
@@ -635,12 +754,12 @@
         "getIntersectingNodes": [
           {
             "id": "n1",
+            "data": {
+              "label": "n1"
+            },
             "position": {
               "x": 0,
               "y": 0
-            },
-            "data": {
-              "label": "n1"
             },
             "sourcePosition": "right",
             "targetPosition": "left",
@@ -653,12 +772,12 @@
           },
           {
             "id": "n2",
+            "data": {
+              "label": "n2"
+            },
             "position": {
               "x": 250,
               "y": 100
-            },
-            "data": {
-              "label": "n2"
             },
             "sourcePosition": "right",
             "targetPosition": "left",
@@ -699,12 +818,12 @@
           "nodes": [
             {
               "id": "n1",
+              "data": {
+                "label": "n1"
+              },
               "position": {
                 "x": 0,
                 "y": 0
-              },
-              "data": {
-                "label": "n1"
               },
               "sourcePosition": "right",
               "targetPosition": "left",
@@ -717,12 +836,12 @@
             },
             {
               "id": "n2",
+              "data": {
+                "label": "n2"
+              },
               "position": {
                 "x": 250,
                 "y": 100
-              },
-              "data": {
-                "label": "n2"
               },
               "sourcePosition": "right",
               "targetPosition": "left",

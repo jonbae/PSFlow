@@ -125,6 +125,15 @@ var boxToRect = ({ x, y, x2, y2 }) => ({
   width: x2 - x,
   height: y2 - y
 });
+var nodeToRect = (node, nodeOrigin = [0, 0]) => {
+  const { x, y } = isInternalNodeBase(node) ? node.internals.positionAbsolute : getNodePositionWithOrigin(node, nodeOrigin);
+  return {
+    x,
+    y,
+    width: node.measured?.width ?? node.width ?? node.initialWidth ?? 0,
+    height: node.measured?.height ?? node.height ?? node.initialHeight ?? 0
+  };
+};
 var nodeToBox = (node, nodeOrigin = [0, 0]) => {
   const { x, y } = isInternalNodeBase(node) ? node.internals.positionAbsolute : getNodePositionWithOrigin(node, nodeOrigin);
   return {
@@ -1017,6 +1026,7 @@ export {
   getEdgeToolbarTransform,
   getIncomers,
   getMarkerId,
+  getNodePositionWithOrigin,
   getNodeToolbarTransform,
   getNodesBounds,
   getOutgoers,
@@ -1027,6 +1037,8 @@ export {
   getViewportForBounds,
   isEdge,
   isNode,
+  nodeToBox,
+  nodeToRect,
   pointToRendererPoint,
   reconnectEdge2 as reconnectEdge,
   rectToBox,

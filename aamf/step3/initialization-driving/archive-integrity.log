@@ -1,0 +1,21 @@
+$ python3 aamf/step3/initialization-driving/verify-archives.py
+[
+  {
+    "archive": "diagnostic-runtime.tar.gz",
+    "verifiedInputs": 1334,
+    "mismatches": [],
+    "currentCheckpointFiles": 0
+  },
+  {
+    "archive": "mount-only-checkpoint.tar.gz",
+    "verifiedInputs": 1280,
+    "mismatches": [],
+    "currentCheckpointFiles": 0
+  },
+  {
+    "archive": "validation-runtime.tar.gz",
+    "verifiedInputs": 1508,
+    "mismatches": [],
+    "currentCheckpointFiles": 430
+  }
+]

@@ -1,0 +1,197 @@
+$ spago build
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[  1 of 119] Compiling React.Store.Changes
+[  2 of 119] Compiling Test.Boundary.EdgeSelected
+[  3 of 119] Compiling React.Store.Reduce
+[  4 of 119] Compiling Test.Boundary.NodeSelected
+[  5 of 119] Compiling React.Hook.NodesEdgesState
+[  7 of 119] Compiling Test.System.Utils.MeasuredDimensions
+[  6 of 119] Compiling Test.Parity.Changes
+[  8 of 119] Compiling React.Store.Shell
+[  9 of 119] Compiling Test.React.Store.ResetSelection
+[ 10 of 119] Compiling Test.React.Store.UpdateNodePositions
+[ 11 of 119] Compiling Test.React.Store.Reduce
+[ 12 of 119] Compiling Test.React.Provider.InitPrevValues
+[ 13 of 119] Compiling Test.React.Store.MergeNodeInternals
+[ 14 of 119] Compiling Test.React.Store.EmptyChanges
+[ 15 of 119] Compiling Test.React.Store.Shell
+[ 16 of 119] Compiling React.Node.Util
+[ 17 of 119] Compiling Test.React.Store.ZoomLimits
+[ 18 of 119] Compiling React.Store.PanBy
+[ 19 of 119] Compiling Test.System.XYResizer
+[ 20 of 119] Compiling React.Hook.Store
+[ 21 of 119] Compiling Test.React.Node.HandleNodeClick
+[ 22 of 119] Compiling React.Hook.ViewportSync
+[ 23 of 119] Compiling React.Hook.Selectors
+[ 24 of 119] Compiling React.Hook.NodeObserver
+[ 25 of 119] Compiling React.Hook.Middleware
+[ 26 of 119] Compiling React.Hook.HandleConnections
+[ 27 of 119] Compiling React.Component.EdgeWrapper.UpdateAnchors
+[ 28 of 119] Compiling React.Component.UserSelection
+[ 29 of 119] Compiling React.Container.MarkerDefinitions
+[ 30 of 119] Compiling React.Provider.SelectionListener
+[ 31 of 119] Compiling React.Additional.NodeResizer.Control
+[ 32 of 119] Compiling React.Portal.ViewportPortal
+[ 33 of 119] Compiling React.Additional.NodeToolbar.Portal
+[ 34 of 119] Compiling React.Container.A11yDescriptions
+[ 35 of 119] Compiling React.Hook.StylesLoadedWarning
+[ 36 of 119] Compiling React.Portal.EdgeLabelRenderer
+[ 37 of 119] Compiling React.Hook.NodeOrEdgeTypesWarning
+[ 38 of 119] Compiling React.Additional.MiniMap.Nodes
+[ 39 of 119] Compiling React.Hook.ViewportHelper
+[ 40 of 119] Compiling React.Hook.VisibleIds
+[ 41 of 119] Compiling React.Hook.ResizeHandler
+[ 42 of 119] Compiling React.Provider.Batch
+[ 43 of 119] Compiling React.Hook.NodeConnections
+[ 44 of 119] Compiling Test.React.Hook.Store
+[ 45 of 119] Compiling React.Provider.StoreUpdater
+[ 46 of 119] Compiling React.Hook.MoveSelectedNodes
+[ 47 of 119] Compiling React.Additional.Background
+[ 48 of 119] Compiling React.Hook.UpdateNodeInternals
+[ 49 of 119] Compiling React.Handle
+[ 50 of 119] Compiling React.Container.Viewport
+[ 51 of 119] Compiling React.Container.Pane
+[ 52 of 119] Compiling Test.React.Hook.ViewportSync
+[ 53 of 119] Compiling Test.React.Hook.NodeObserver
+[ 54 of 119] Compiling React.Additional.NodeToolbar
+[ 55 of 119] Compiling Boundary.Portals
+[ 56 of 119] Compiling React.Additional.EdgeToolbar
+[ 57 of 119] Compiling Test.React.Container.NodeA11yDescription
+[ 58 of 119] Compiling React.Component.EdgeWrapper
+[ 59 of 119] Compiling React.Additional.MiniMap
+[ 60 of 119] Compiling React.Container.ZoomPane
+[ 61 of 119] Compiling React.Additional.NodeResizer
+[ 62 of 119] Compiling React.Component.ConnectionLine
+[ 63 of 119] Compiling Test.React.Additional.BackgroundOffset
+[ 64 of 119] Compiling React.Provider
+[ 65 of 119] Compiling Test.React.Provider.BatchQueue
+[ 66 of 119] Compiling Test.React.Hook.MoveSelectedNodes
+[ 67 of 119] Compiling Test.React.Additional.NodeToolbarPortal
+[ 68 of 119] Compiling React.Hook.ReactFlow
+[ 69 of 119] Compiling Boundary.Edges
+[ 70 of 119] Compiling Boundary.Resizer
+[ 71 of 119] Compiling Test.React.Additional.MiniMap
+[ 72 of 119] Compiling Test.React.Additional.MiniMapMask
+[ 73 of 119] Compiling Test.React.Hook.ConnectionTo
+[ 74 of 119] Compiling Test.React.HandleNativeEvent
+[ 75 of 119] Compiling Boundary.NodeChrome
+[ 76 of 119] Compiling React.Node.Input
+[ 77 of 119] Compiling React.Node.Output
+[ 78 of 119] Compiling Test.React.Component.HandleDataId
+[ 79 of 119] Compiling React.Node.Default
+[ 80 of 119] Compiling Test.System.FinalConnectionState
+[ 81 of 119] Compiling React.Container.EdgeRenderer
+[ 82 of 119] Compiling Test.Boundary.EdgeHidden
+[ 83 of 119] Compiling Test.Boundary.EdgeAnimated
+[ 84 of 119] Compiling Test.React.Component.EdgeComponentProps
+[ 85 of 119] Compiling Test.React.Component.EdgeAriaLabel
+[ 86 of 119] Compiling Test.React.Store.InPlaceSelection
+[ 87 of 119] Compiling React.Container.Wrapper
+[ 88 of 119] Compiling Test.Boundary.Wrapper
+[ 89 of 119] Compiling Test.Boundary.BaseEdgeAttributes
+[ 90 of 119] Compiling React.Component.NodeWrapper.Util
+[ 91 of 119] Compiling Test.React.DomNumbers
+[ 92 of 119] Compiling Test.React.Component.NodeInlineDimensions
+[ 93 of 119] Compiling React.Component.NodesSelection
+[ 94 of 119] Compiling React.Component.NodeWrapper
+[ 95 of 119] Compiling Test.React.Component.NodesSelectionRect
+[ 96 of 119] Compiling React.Additional.Controls
+[ 97 of 119] Compiling React.Hook.GlobalKeyHandler
+[ 98 of 119] Compiling React.Hook.Listeners
+[ 99 of 119] Compiling Test.React.Component.AriaDescribedBy
+[100 of 119] Compiling Test.System.XYDrag.DragSelection
+[101 of 119] Compiling React.Container.NodeRenderer
+[102 of 119] Compiling Test.System.XYDrag.DragErrors
+[103 of 119] Compiling Test.System.XYDrag.DragUserNodes
+[104 of 119] Compiling Boundary.Chrome
+[105 of 119] Compiling Boundary.Hooks
+[106 of 119] Compiling Test.React.Hook.OnInitTiming
+[107 of 119] Compiling Test.React.Hook.DeleteKey
+[108 of 119] Compiling React.Container.FlowRenderer
+[109 of 119] Compiling React.Container.GraphView
+[110 of 119] Compiling Test.Boundary.NodeResizing
+[111 of 119] Compiling Test.Boundary.UserNode
+[112 of 119] Compiling Test.React.Hook.ViewportListeners
+[113 of 119] Compiling React.Container.ReactFlow
+[114 of 119] Compiling Boundary.Flow
+[115 of 119] Compiling React
+[116 of 119] Compiling Test.React.Additional.BackgroundPattern
+[117 of 119] Compiling Test.Boundary.FlowWrapperAttributes
+[118 of 119] Compiling Boundary
+[WARNING 1/1 UnusedImport] test/Test/React/Store/Shell.purs:25:1
+
+  25  import Data.Maybe (Maybe(..))
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  The import of Data.Maybe is redundant
+
+[ERROR 1/1 TypesDoNotUnify] test/Test/React/Store/UpdateNodePositions.purs:92:3
+
+         v
+   92    { id: NodeId id
+   93    , position
+   94    , distance: { x: 0.0, y: 0.0 }
+       ...
+  101    , resizing: Nothing
+  102    , dragging: Nothing
+  103    }
+         ^
+
+  Could not match type
+    ()
+  with type
+    ( resizing :: Maybe t0
+    | t1
+    )
+  while checking that expression { id: NodeId id
+                                 , position: position
+                                 , distance: { x: ...
+                                             , y: ...
+                                             }
+                                 , measured: { width: ...
+                                             , height: ...
+                                             }
+                                 , internals: { positionAbsolute: ...
+                                              }
+                                 , extent: Nothing
+                                 , parentId: Nothing
+                                 , origin: Nothing
+                                 , expandParent: Nothing
+                                 , resizing: Nothing
+                                 , dragging: Nothing
+                                 }
+    has type { distance :: { x :: Number
+                           , y :: Number
+                           }
+             , dragging :: Maybe Boolean
+             , expandParent :: Maybe Boolean
+             , extent :: Maybe NodeExtent
+             , id :: NodeId
+             , internals :: { positionAbsolute :: { x :: Number
+                                                  , y :: Number
+                                                  }
+                            }
+             , measured :: { height :: Number
+                           , width :: Number
+                           }
+             , origin :: Maybe NodeOrigin
+             , parentId :: Maybe ParentId
+             , position :: { x :: Number
+                           , y :: Number
+                           }
+             }
+  in value declaration dragItem
+  where t0 is an unknown type
+        t1 is an unknown type
+
+           Src   Lib   All
+Warnings     1     0     1
+Errors       1     0     1
+
+✘ Failed to build.
+

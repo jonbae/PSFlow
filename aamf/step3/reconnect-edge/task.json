@@ -1,0 +1,40 @@
+{
+  "id": "psflow-w02-reconnect-edge",
+  "status": "complete; stage-5 wave checkpoint captured, system remains known red",
+  "startedAt": "2026-11-10T02:57:51.817Z",
+  "source": "React utils/edges.ts::reconnectEdge -> system utils/edges/general.ts::reconnectEdge",
+  "seam": "Direct index.js calls against the rebuilt vendored React-layer oracle; a development reference bundle observes default warnings",
+  "scopeReason": "Explicit narrower FFI scope: native object rest/spread, default fourth argument and callback application only. The typed core cannot preserve consumer keys or the upstream find/filter/callback order through decoding; keep it read-only.",
+  "consumerPolicy": "Coordinate W03 by retaining untouched raw objects and cloning changed objects with native enumerable own string/symbol key semantics. Pass the original connection to custom generators. No invented provenance record or typed round-trip; W03 and W04 remain separate tasks.",
+  "allowedOutputs": [
+    "src/Boundary/Utils.purs",
+    "src/Boundary/Utils.js (generic rest/spread/default argument/callback invocation primitives)",
+    "src/Boundary.purs",
+    "src/Boundary.js",
+    "parity/boundary/reconnect-edge.test.mjs",
+    "parity/surface/allowlist.json (this export only and explanatory comments)",
+    "parity/surface/report.md",
+    "parity/driver/dist/psflow.js",
+    "AAMF_PORTING_PLAN.md",
+    "AAMF_STEP3_RESULTS.md",
+    "aamf/step3/README.md",
+    "aamf/step3/SHA256SUMS",
+    "aamf/step3/reconnect-edge/"
+  ],
+  "readOnly": [
+    "src/System/Utils/Edges/General.purs",
+    "src/Boundary/Elements.purs",
+    "package and Spago setup",
+    "parity/system/",
+    "previous tests and evidence"
+  ],
+  "acceptance": [
+    "Red JS regression then green after fresh build",
+    "Honor omitted/undefined versus empty options, shouldReplaceId, custom generator, error callbacks and default development warnings",
+    "Preserve untouched references and old consumer fields; output handle keys include explicit undefined and preserve null",
+    "Preserve find/filter/order, duplicates, callback receiver, custom-field getter order and frozen inputs",
+    "Retire exactly this export exceptions and set stage 5 only when all 68 exports are crossed",
+    "Run surface/function/boundary checks and browser/system/changelog wave checkpoint"
+  ],
+  "aamfInvoked": false
+}

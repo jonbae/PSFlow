@@ -1,0 +1,424 @@
+[
+  {
+    "scenario": "node-props-record-parented",
+    "stage5": {
+      "passed": false,
+      "selfConsistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 4,
+      "userNodeDifferences": [
+        {
+          "kind": "left-only",
+          "path": [
+            "api",
+            "queries",
+            "getInternalNode",
+            "internals",
+            "userNode"
+          ],
+          "left": {
+            "id": "props-parent",
+            "type": "propsRecord",
+            "data": {
+              "label": "props-parent"
+            },
+            "position": {
+              "x": 100,
+              "y": 200
+            },
+            "width": 300,
+            "height": 200,
+            "measured": {
+              "width": 300,
+              "height": 200
+            },
+            "selected": true
+          }
+        }
+      ],
+      "differences": [
+        {
+          "kind": "order",
+          "path": [
+            "callbacks"
+          ],
+          "left": [
+            "onSelectionChange#1",
+            "onMoveStart#1",
+            "onViewportChange#1",
+            "onMove#1",
+            "onMoveEnd#1",
+            "onPaneMouseEnter#1",
+            "onNodeMouseEnter#1",
+            "onPaneMouseMove#1",
+            "onNodeMouseMove#1",
+            "onNodesChange#1",
+            "onNodeClick#1",
+            "onSelectionChange#2",
+            "onNodeMouseLeave#1",
+            "onNodeMouseEnter#2",
+            "onPaneMouseMove#2",
+            "onNodeMouseMove#2",
+            "onMoveStart#2",
+            "onNodeClick#2",
+            "onMoveEnd#2"
+          ],
+          "right": [
+            "onSelectionChange#1",
+            "onMoveStart#1",
+            "onViewportChange#1",
+            "onMove#1",
+            "onMoveEnd#1",
+            "onPaneMouseEnter#1",
+            "onNodeMouseEnter#1",
+            "onPaneMouseMove#1",
+            "onNodeMouseMove#1",
+            "onNodesChange#1",
+            "onNodeClick#1",
+            "onSelectionChange#2",
+            "onNodeMouseLeave#1",
+            "onNodeMouseEnter#2",
+            "onPaneMouseMove#2",
+            "onNodeMouseMove#2",
+            "onMoveStart#2",
+            "onMoveEnd#2",
+            "onNodeClick#2"
+          ]
+        },
+        {
+          "kind": "changed",
+          "path": [
+            "api",
+            "queries",
+            "getInternalNode",
+            "internals",
+            "handleBounds",
+            "source"
+          ],
+          "left": null,
+          "right": []
+        },
+        {
+          "kind": "changed",
+          "path": [
+            "api",
+            "queries",
+            "getInternalNode",
+            "internals",
+            "handleBounds",
+            "target"
+          ],
+          "left": null,
+          "right": []
+        },
+        {
+          "kind": "left-only",
+          "path": [
+            "api",
+            "queries",
+            "getInternalNode",
+            "internals",
+            "userNode"
+          ],
+          "left": {
+            "id": "props-parent",
+            "type": "propsRecord",
+            "data": {
+              "label": "props-parent"
+            },
+            "position": {
+              "x": 100,
+              "y": 200
+            },
+            "width": 300,
+            "height": 200,
+            "measured": {
+              "width": 300,
+              "height": 200
+            },
+            "selected": true
+          }
+        }
+      ]
+    },
+    "w04": {
+      "passed": false,
+      "selfConsistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 3,
+      "userNodeDifferences": [],
+      "differences": [
+        {
+          "kind": "order",
+          "path": [
+            "callbacks"
+          ],
+          "left": [
+            "onSelectionChange#1",
+            "onMoveStart#1",
+            "onViewportChange#1",
+            "onMove#1",
+            "onMoveEnd#1",
+            "onPaneMouseEnter#1",
+            "onNodeMouseEnter#1",
+            "onPaneMouseMove#1",
+            "onNodeMouseMove#1",
+            "onNodesChange#1",
+            "onNodeClick#1",
+            "onSelectionChange#2",
+            "onNodeMouseLeave#1",
+            "onNodeMouseEnter#2",
+            "onPaneMouseMove#2",
+            "onNodeMouseMove#2",
+            "onMoveStart#2",
+            "onNodeClick#2",
+            "onMoveEnd#2"
+          ],
+          "right": [
+            "onSelectionChange#1",
+            "onMoveStart#1",
+            "onViewportChange#1",
+            "onMove#1",
+            "onMoveEnd#1",
+            "onPaneMouseEnter#1",
+            "onNodeMouseEnter#1",
+            "onPaneMouseMove#1",
+            "onNodeMouseMove#1",
+            "onNodesChange#1",
+            "onNodeClick#1",
+            "onSelectionChange#2",
+            "onNodeMouseLeave#1",
+            "onNodeMouseEnter#2",
+            "onPaneMouseMove#2",
+            "onNodeMouseMove#2",
+            "onMoveStart#2",
+            "onMoveEnd#2",
+            "onNodeClick#2"
+          ]
+        },
+        {
+          "kind": "changed",
+          "path": [
+            "api",
+            "queries",
+            "getInternalNode",
+            "internals",
+            "handleBounds",
+            "source"
+          ],
+          "left": null,
+          "right": []
+        },
+        {
+          "kind": "changed",
+          "path": [
+            "api",
+            "queries",
+            "getInternalNode",
+            "internals",
+            "handleBounds",
+            "target"
+          ],
+          "left": null,
+          "right": []
+        }
+      ]
+    }
+  },
+  {
+    "scenario": "mount-baseline--nodes-unmeasured",
+    "stage5": {
+      "passed": false,
+      "selfConsistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 3,
+      "userNodeDifferences": [
+        {
+          "kind": "left-only",
+          "path": [
+            "api",
+            "queries",
+            "getInternalNode",
+            "internals",
+            "userNode"
+          ],
+          "left": {
+            "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "type": "input",
+            "selected": true,
+            "measured": {
+              "width": 150,
+              "height": 36
+            }
+          }
+        }
+      ],
+      "differences": [
+        {
+          "kind": "order",
+          "path": [
+            "callbacks"
+          ],
+          "left": [
+            "onSelectionChange#1",
+            "onMoveStart#1",
+            "onViewportChange#1",
+            "onMove#1",
+            "onNodesChange#1",
+            "onMoveEnd#1"
+          ],
+          "right": [
+            "onSelectionChange#1",
+            "onMoveStart#1",
+            "onViewportChange#1",
+            "onMove#1",
+            "onMoveEnd#1",
+            "onNodesChange#1"
+          ]
+        },
+        {
+          "kind": "changed",
+          "path": [
+            "api",
+            "queries",
+            "getInternalNode",
+            "internals",
+            "handleBounds",
+            "target"
+          ],
+          "left": null,
+          "right": []
+        },
+        {
+          "kind": "left-only",
+          "path": [
+            "api",
+            "queries",
+            "getInternalNode",
+            "internals",
+            "userNode"
+          ],
+          "left": {
+            "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "type": "input",
+            "selected": true,
+            "measured": {
+              "width": 150,
+              "height": 36
+            }
+          }
+        }
+      ]
+    },
+    "w04": {
+      "passed": false,
+      "selfConsistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "userNodeDifferences": [],
+      "differences": [
+        {
+          "kind": "order",
+          "path": [
+            "callbacks"
+          ],
+          "left": [
+            "onSelectionChange#1",
+            "onMoveStart#1",
+            "onViewportChange#1",
+            "onMove#1",
+            "onNodesChange#1",
+            "onMoveEnd#1"
+          ],
+          "right": [
+            "onSelectionChange#1",
+            "onMoveStart#1",
+            "onViewportChange#1",
+            "onMove#1",
+            "onMoveEnd#1",
+            "onNodesChange#1"
+          ]
+        },
+        {
+          "kind": "changed",
+          "path": [
+            "api",
+            "queries",
+            "getInternalNode",
+            "internals",
+            "handleBounds",
+            "target"
+          ],
+          "left": null,
+          "right": []
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,28 @@
+$ npm exec --yes --package=purescript@0.15.16 -- spago build
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[ 1 of 16] Compiling React.Node.Util
+[ERROR 1/1 MissingFFIModule] src/React/Node/Util.purs:15:1
+
+       v
+   15  module React.Node.Util
+   16    ( HandleNodeClickArgs
+   17    , handleNodeClick
+       ...
+  162  -- | JavaScript's `~~n`: `n` truncated toward zero and wrapped to a 32-bit
+  163  -- | integer, with `NaN` and the infinities at 0.
+  164  foreign import toInt32 :: Number -> Number
+                                                ^
+
+  The foreign module implementation for module React.Node.Util is missing.
+
+           Src   Lib   All
+Warnings     0     0     0
+Errors       1     0     1
+
+✘ Failed to build.
+

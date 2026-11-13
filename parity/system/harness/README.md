@@ -18,7 +18,8 @@ Vocabulary is `CONTEXT.md`. Terms in **bold** are defined there.
 | `settle.mjs` | polling until consecutive snapshots agree, on the page's own clock |
 | `call-log.mjs` | the `callbacks` section — the in-page log the driver accumulates into |
 | `serialize.mjs` | what a callback was handed, as trace content — the third one that runs in the page |
-| `port.mjs` | the only file that knows what a browser is |
+| `port.mjs` | the browser dispatch and native/virtual frame protocol |
+| `platform-timers.mjs` | platform timeout bookkeeping for wheel completion |
 | `fake-port.mjs` | its double, which everything above is tested against |
 | `pending.mjs` | the hard-failing pending-section register (currently empty) |
 | `live.spec.mjs` | the harness against a real page |
@@ -413,8 +414,24 @@ that did not wait. **Each side settles on its own clock**; nothing here compares
 the two, and that a slow side and a fast side reach the same end state is
 precisely the claim the net makes.
 
-Between polls the harness asks the port to `tick`: two animation frames and then
-a turn of the task queue. Two, because that is the order the work lands in — a
+Application time stays held between inputs and polls. Mouse, keyboard and touch
+inputs each finish two virtual frames. Each frame ends at its own virtual frame
+boundary and native render/task barrier; batching both in one timer advance lets
+Chrome paint either one or both intermediate states. This
+makes an auto-pan dwell a fixed number of frames without changing its events or
+releasing a held gesture. Each side still resolves and settles against its own DOM.
+Wheel dispatch observes the platform's pending timeout queue and steps to each
+next deadline until the finite chain completes, including nested end callbacks.
+No callback log or application store is inspected to decide completion. Animated
+imperative calls receive frame steps until their returned promise settles.
+
+Before the bundle request is released, the port reasserts the public clock pause
+in the new document. A pause replayed during navigation leaves an initial native
+zero-delay dispatcher alive in the installed Playwright version; holding the
+clock on the blank document alone does not hold that dispatcher.
+
+Between polls the harness asks the port to `tick`: two virtual application frames
+between native rendering/task barriers. Two, because that is the order the work lands in — a
 frame runs its animation callbacks, lays out, and *then* runs the resize
 observers xyflow measures nodes with, so the second frame is the first that can
 see what the first caused.
@@ -435,3 +452,26 @@ fixed timeout wearing a different hat.
 `live.spec.mjs` is where that stops being a design and becomes a measurement: a
 real mount settles, and one side reproduces its whole `dom` section across two
 captures of the same scenario.
+
+Capture preconditions release Shift, Control, Alt and Meta on the blank document
+before parking the pointer. A held key survives navigation just like a held mouse
+button; releases happen before the driver loads and are absent from its log.
+
+On macOS, Chromium's native hover recomputation reads the physical machine's
+modifier keys, outside CDP's input state. A Shift/Command key used on the host
+can therefore enter an otherwise unchanged trace. The Linux runner isolates
+that platform input while preserving all event fields and the complete comparator:
+
+```sh
+node parity/system/linux.mjs npm run test:harness:live
+node parity/system/linux.mjs npm run parity:system
+```
+
+It uses the official Playwright image matching `package-lock.json`, mounts this
+workspace, and installs Linux dependencies into a separate Docker volume keyed
+by the lock hash. Host `node_modules` is untouched. Build PureScript before
+running it; the system gate rebuilds both driver bundles from that output.
+The capture environment is part of each validation receipt, and prior Mac waves
+remain separate experiments. See Chromium's
+[hover recomputation](https://chromium.googlesource.com/chromium/src/+/b82f00e345ff385b02393d09dd0131415479aafa/third_party/blink/renderer/core/input/mouse_event_manager.cc)
+and [native modifier lookup](https://chromium.googlesource.com/chromium/src/+/861ffbfabd58ded5869bb89b56b18779d2a31811/third_party/blink/renderer/core/input/keyboard_event_manager.cc).

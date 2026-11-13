@@ -1,0 +1,51 @@
+{
+  "completedAt": "2026-11-10T02:51:32.713Z",
+  "audit": {
+    "inputs": 1339,
+    "changedInputs": [
+      "parity/driver/dist/psflow.js",
+      "src/Boundary.js",
+      "src/Boundary.purs",
+      "src/Boundary/Utils.purs"
+    ],
+    "unexpectedChanges": []
+  },
+  "regression": {
+    "red": 1,
+    "green": 0,
+    "cases": 3,
+    "boundarySuite": 88
+  },
+  "boundary": {
+    "stage": 4,
+    "crossed": 66,
+    "passthrough": 2
+  },
+  "outputs": [
+    {
+      "path": "src/Boundary/Utils.purs",
+      "sha256": "ffc881a7aee59ba547830d577049c2cc2a1589b5d42f82469272eb95fdc5992f"
+    },
+    {
+      "path": "src/Boundary.purs",
+      "sha256": "d77fc9884c1f58c3f6fccad5217fe4374e45dfc8d64e713b1a557ea05acb8319"
+    },
+    {
+      "path": "src/Boundary.js",
+      "sha256": "c1d1f8fcb256befc77a102ea51d062009ac788ee4e8a22093105abb5c7849ae7"
+    },
+    {
+      "path": "parity/surface/report.md",
+      "sha256": "c16c475fadf5ab4270deaf9790adf2038b2251d37f704deb776e0211c5623409"
+    },
+    {
+      "path": "parity/driver/dist/psflow.js",
+      "sha256": "57d47d279df2236ec3858f36126564333e861bb2c6556962085cc886e5149649"
+    },
+    {
+      "path": "parity/boundary/is-node.test.mjs",
+      "sha256": "6bc9c8e3590bd35ed12c674bc2b2118f5f6fe31e3446a4515bfe8be2762a7a3c"
+    }
+  ],
+  "aamfInvoked": false
+}

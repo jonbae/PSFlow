@@ -1,0 +1,490 @@
+[
+  {
+    "name": "build-red",
+    "command": [
+      "npm",
+      "exec",
+      "--yes",
+      "--package=purescript@0.15.16",
+      "--",
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-11T15:34:43.880Z",
+    "finishedAt": "2026-11-11T15:34:50.674Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/build-red.log"
+  },
+  {
+    "name": "red-clamp",
+    "command": [
+      "node",
+      "--input-type=module",
+      "-e",
+      "import { runNumericParityTests } from \"./output/Test.System.Utils.NumericParity/index.js\"; runNumericParityTests();"
+    ],
+    "startedAt": "2026-11-11T15:34:54.199Z",
+    "finishedAt": "2026-11-11T15:34:54.627Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/red-clamp.log"
+  },
+  {
+    "name": "green-clamp",
+    "command": [
+      "node",
+      "--input-type=module",
+      "-e",
+      "import { runNumericParityTests } from \"./output/Test.System.Utils.NumericParity/index.js\"; runNumericParityTests();"
+    ],
+    "startedAt": "2026-11-11T15:35:21.802Z",
+    "finishedAt": "2026-11-11T15:35:22.823Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/green-clamp.log"
+  },
+  {
+    "name": "build-bounds-red",
+    "command": [
+      "npm",
+      "exec",
+      "--yes",
+      "--package=purescript@0.15.16",
+      "--",
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-11T15:35:55.140Z",
+    "finishedAt": "2026-11-11T15:36:46.525Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/build-bounds-red.log"
+  },
+  {
+    "name": "red-bounds",
+    "command": [
+      "node",
+      "--input-type=module",
+      "-e",
+      "import { runNumericParityTests } from \"./output/Test.System.Utils.NumericParity/index.js\"; runNumericParityTests();"
+    ],
+    "startedAt": "2026-11-11T15:37:19.189Z",
+    "finishedAt": "2026-11-11T15:37:20.784Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/red-bounds.log"
+  },
+  {
+    "name": "build-clamp",
+    "command": [
+      "npm",
+      "exec",
+      "--yes",
+      "--package=purescript@0.15.16",
+      "--",
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-11T15:35:09.335Z",
+    "finishedAt": "2026-11-11T15:38:41.834Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/build-clamp.log"
+  },
+  {
+    "name": "red-resize",
+    "command": [
+      "node",
+      "--input-type=module",
+      "-e",
+      "import { runNumericParityTests } from \"./output/Test.System.Utils.NumericParity/index.js\"; runNumericParityTests();"
+    ],
+    "startedAt": "2026-11-11T15:40:03.154Z",
+    "finishedAt": "2026-11-11T15:40:05.869Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/red-resize.log"
+  },
+  {
+    "name": "build-geometry",
+    "command": [
+      "npm",
+      "exec",
+      "--yes",
+      "--package=purescript@0.15.16",
+      "--",
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-11T15:39:19.179Z",
+    "finishedAt": "2026-11-11T15:42:50.519Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/build-geometry.log"
+  },
+  {
+    "name": "green-numeric",
+    "command": [
+      "node",
+      "--input-type=module",
+      "-e",
+      "import { runNumericParityTests } from \"./output/Test.System.Utils.NumericParity/index.js\"; runNumericParityTests();"
+    ],
+    "startedAt": "2026-11-11T15:43:36.351Z",
+    "finishedAt": "2026-11-11T15:43:40.481Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/green-numeric.log"
+  },
+  {
+    "name": "red-child-extent",
+    "command": [
+      "node",
+      "--input-type=module",
+      "-e",
+      "import { runXYResizerTests } from \"./output/Test.System.XYResizer/index.js\"; runXYResizerTests();"
+    ],
+    "startedAt": "2026-11-11T15:43:51.625Z",
+    "finishedAt": "2026-11-11T15:43:59.839Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/red-child-extent.log"
+  },
+  {
+    "name": "red-direction",
+    "command": [
+      "node",
+      "aamf/step3/numeric-semantics/direction-repro.mjs"
+    ],
+    "startedAt": "2026-11-11T15:44:34.771Z",
+    "finishedAt": "2026-11-11T15:44:35.846Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/red-direction.log"
+  },
+  {
+    "name": "build-resize",
+    "command": [
+      "npm",
+      "exec",
+      "--yes",
+      "--package=purescript@0.15.16",
+      "--",
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-11T15:43:00.311Z",
+    "finishedAt": "2026-11-11T15:44:59.115Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/build-resize.log"
+  },
+  {
+    "name": "red-child-extent-current",
+    "command": [
+      "node",
+      "--input-type=module",
+      "-e",
+      "import { runXYResizerTests } from \"./output/Test.System.XYResizer/index.js\"; runXYResizerTests();"
+    ],
+    "startedAt": "2026-11-11T15:45:13.198Z",
+    "finishedAt": "2026-11-11T15:45:14.773Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/red-child-extent-current.log"
+  },
+  {
+    "name": "build-child-extent-red",
+    "command": [
+      "npm",
+      "exec",
+      "--yes",
+      "--package=purescript@0.15.16",
+      "--",
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-11T15:45:35.885Z",
+    "finishedAt": "2026-11-11T15:45:46.841Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/build-child-extent-red.log"
+  },
+  {
+    "name": "red-child-extent-top-left",
+    "command": [
+      "node",
+      "--input-type=module",
+      "-e",
+      "import { runXYResizerTests } from \"./output/Test.System.XYResizer/index.js\"; runXYResizerTests();"
+    ],
+    "startedAt": "2026-11-11T15:45:52.747Z",
+    "finishedAt": "2026-11-11T15:45:54.669Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/red-child-extent-top-left.log"
+  },
+  {
+    "name": "build-final",
+    "command": [
+      "npm",
+      "exec",
+      "--yes",
+      "--package=purescript@0.15.16",
+      "--",
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-11T15:46:01.685Z",
+    "finishedAt": "2026-11-11T15:48:50.523Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/build-final.log"
+  },
+  {
+    "name": "green-child-extent",
+    "command": [
+      "node",
+      "--input-type=module",
+      "-e",
+      "import { runXYResizerTests } from \"./output/Test.System.XYResizer/index.js\"; runXYResizerTests();"
+    ],
+    "startedAt": "2026-11-11T15:49:04.416Z",
+    "finishedAt": "2026-11-11T15:49:12.549Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/green-child-extent.log"
+  },
+  {
+    "name": "surface",
+    "command": [
+      "npm",
+      "run",
+      "parity:surface"
+    ],
+    "startedAt": "2026-11-11T15:49:02.950Z",
+    "finishedAt": "2026-11-11T15:49:40.910Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/surface.log"
+  },
+  {
+    "name": "function-and-unit",
+    "command": [
+      "npm",
+      "exec",
+      "--yes",
+      "--package=purescript@0.15.16",
+      "--",
+      "spago",
+      "test"
+    ],
+    "startedAt": "2026-11-11T15:49:26.226Z",
+    "finishedAt": "2026-11-11T15:50:33.199Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/function-and-unit.log"
+  },
+  {
+    "name": "boundary",
+    "command": [
+      "npm",
+      "run",
+      "parity:boundary"
+    ],
+    "startedAt": "2026-11-11T15:50:34.894Z",
+    "finishedAt": "2026-11-11T15:51:04.349Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/boundary.log"
+  },
+  {
+    "name": "driver",
+    "command": [
+      "node",
+      "parity/driver/build.mjs"
+    ],
+    "startedAt": "2026-11-11T15:50:34.931Z",
+    "finishedAt": "2026-11-11T15:51:04.713Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/driver.log"
+  },
+  {
+    "name": "boundary-tests",
+    "command": [
+      "npm",
+      "run",
+      "test:boundary"
+    ],
+    "startedAt": "2026-11-11T15:50:34.911Z",
+    "finishedAt": "2026-11-11T15:51:07.154Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/boundary-tests.log"
+  },
+  {
+    "name": "affected-captures",
+    "command": [
+      "node",
+      "aamf/step3/numeric-semantics/capture.mjs",
+      "final",
+      "2",
+      "resize-node-after-active-limit-change",
+      "viewport-helpers-with-options",
+      "wheel-zooms-to-changed-limits"
+    ],
+    "startedAt": "2026-11-11T15:51:30.597Z",
+    "finishedAt": "2026-11-11T15:52:35.105Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/affected-captures.log"
+  },
+  {
+    "name": "browser-verification",
+    "command": [
+      "node",
+      "aamf/step3/numeric-semantics/verify-browser.mjs"
+    ],
+    "startedAt": "2026-11-11T15:52:45.603Z",
+    "finishedAt": "2026-11-11T15:52:47.118Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/browser-verification.log"
+  },
+  {
+    "name": "stable-browser-verification",
+    "command": [
+      "node",
+      "aamf/step3/numeric-semantics/verify-browser.mjs",
+      "resize-node-after-active-limit-change",
+      "viewport-helpers-with-options"
+    ],
+    "startedAt": "2026-11-11T15:53:15.342Z",
+    "finishedAt": "2026-11-11T15:53:16.975Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/stable-browser-verification.log"
+  },
+  {
+    "name": "resize-repeatability",
+    "command": [
+      "node",
+      "aamf/step3/numeric-semantics/verify-repeatability.mjs",
+      "final",
+      "resize-node-after-active-limit-change",
+      "2"
+    ],
+    "startedAt": "2026-11-11T15:53:18.091Z",
+    "finishedAt": "2026-11-11T15:53:19.189Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/resize-repeatability.log"
+  },
+  {
+    "name": "viewport-repeatability",
+    "command": [
+      "node",
+      "aamf/step3/numeric-semantics/verify-repeatability.mjs",
+      "final",
+      "viewport-helpers-with-options",
+      "2"
+    ],
+    "startedAt": "2026-11-11T15:53:32.801Z",
+    "finishedAt": "2026-11-11T15:53:34.031Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/viewport-repeatability.log"
+  },
+  {
+    "name": "resize-witness-round1",
+    "command": [
+      "node",
+      "aamf/step3/resize-witness/verify.mjs",
+      "../numeric-semantics/final/round1",
+      "resize-node-after-active-limit-change"
+    ],
+    "startedAt": "2026-11-11T15:53:35.461Z",
+    "finishedAt": "2026-11-11T15:53:37.295Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/resize-witness-round1.log"
+  },
+  {
+    "name": "resize-witness-round2",
+    "command": [
+      "node",
+      "aamf/step3/resize-witness/verify.mjs",
+      "../numeric-semantics/final/round2",
+      "resize-node-after-active-limit-change"
+    ],
+    "startedAt": "2026-11-11T15:53:38.889Z",
+    "finishedAt": "2026-11-11T15:53:41.035Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/resize-witness-round2.log"
+  },
+  {
+    "name": "archive-runtime",
+    "command": [
+      "python3",
+      "aamf/step3/numeric-semantics/archive-runtime.py"
+    ],
+    "startedAt": "2026-11-11T15:54:56.852Z",
+    "finishedAt": "2026-11-11T15:55:54.304Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/archive-runtime.log"
+  },
+  {
+    "name": "verify-runtime",
+    "command": [
+      "python3",
+      "aamf/step3/numeric-semantics/verify-runtime.py"
+    ],
+    "startedAt": "2026-11-11T15:55:46.442Z",
+    "finishedAt": "2026-11-11T15:55:58.777Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/verify-runtime.log"
+  },
+  {
+    "name": "conformance",
+    "command": [
+      "npm",
+      "run",
+      "test:conformance"
+    ],
+    "startedAt": "2026-11-11T15:53:14.493Z",
+    "finishedAt": "2026-11-11T15:58:04.489Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/conformance.log"
+  },
+  {
+    "name": "smoke",
+    "command": [
+      "npm",
+      "run",
+      "test:smoke"
+    ],
+    "startedAt": "2026-11-11T15:58:18.501Z",
+    "finishedAt": "2026-11-11T15:59:00.418Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/smoke.log"
+  },
+  {
+    "name": "source-audit",
+    "command": [
+      "python3",
+      "aamf/step3/numeric-semantics/audit.py"
+    ],
+    "startedAt": "2026-11-11T16:00:04.566Z",
+    "finishedAt": "2026-11-11T16:00:08.949Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/numeric-semantics/source-audit.log"
+  }
+]

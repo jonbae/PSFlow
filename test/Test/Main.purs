@@ -2,6 +2,9 @@ module Test.Main where
 
 import Prelude
 
+import Record as Record
+import Type.Proxy (Proxy(..))
+
 import Data.Array (any, fromFoldable, length) as Array
 import Data.Array.NonEmpty as NEA
 import Data.Map as Map
@@ -35,9 +38,10 @@ import System.XYResizer (ControlLinePosition(..), ControlPosition(..), CornerPos
 import System.XYResizer.Utils as ResizerU
 import System.XYMinimap as XYMinimap
 import Data.Either (Either(..))
-import Data.Number (abs) as Number
+import Data.Number (abs, nan) as Number
 import Data.Tuple (Tuple(..))
 import React.Container.Pane.Internal (buildPaneClass, paneIsDraggable)
+import Test.React.Node.ArrowKeyMessage (runArrowKeyMessageTests)
 import Test.Parity.Changes (runChangesParity)
 import Test.Parity.Connections (runConnectionsParity)
 import Test.Parity.Edges (runEdgeParity)
@@ -46,8 +50,13 @@ import Test.Parity.Graph (runGraphParity)
 import Test.Parity.Marker (runMarkerParity)
 import Test.Parity.Toolbar (runToolbarParity)
 import Test.Boundary.ConnectionNullHandle (runConnectionNullHandleTests)
+import Test.Boundary.DefaultEdgeOptions (runDefaultEdgeOptionsTests)
 import Test.Boundary.EdgeAnimated (runEdgeAnimatedTests)
 import Test.Boundary.EdgeHidden (runEdgeHiddenTests)
+import Test.Boundary.ConsumerObjects (runConsumerObjectsTests)
+import Test.Boundary.UserNode (runUserNodeTests)
+import Test.React.Hook.OnInitTiming (runOnInitTimingTests)
+import Test.React.Hook.ViewportListeners (runViewportListenerTests)
 import Test.Boundary.EdgeSelected (runEdgeSelectedTests)
 import Test.Boundary.NodeDragging (runNodeDraggingTests)
 import Test.Boundary.NodeHidden (runNodeHiddenTests)
@@ -60,12 +69,15 @@ import Test.Boundary.Wrapper (runWrapperTests)
 import Test.Properties (runProperties)
 import Test.React.Additional.MiniMap (runMiniMapSliceTests)
 import Test.React.Component.AriaDescribedBy (runAriaDescribedByTests)
+import Test.React.Component.AriaRoleDomAttributes (runAriaRoleDomAttributesTests)
 import Test.React.Component.EdgeAriaLabel (runEdgeAriaLabelTests)
+import Test.React.Component.TypeFallback (runTypeFallbackTests)
 import Test.React.Store.InPlaceSelection (runInPlaceSelectionTests)
 import Test.React.Component.NodesSelectionRect (runNodesSelectionRectTests)
 import Test.React.Hook.ConnectionTo (runConnectionToTests)
 import Test.React.Additional.BackgroundOffset (runBackgroundOffsetTests)
 import Test.System.Utils.MathRound (runMathRoundTests)
+import Test.System.Utils.NumericParity (runNumericParityTests)
 import Test.React.Node.HandleNodeClick (runHandleNodeClickTests)
 import Test.React.Hook.MoveSelectedNodes (runMoveSelectedNodesTests)
 import Test.React.Component.EdgeComponentProps (runEdgeComponentPropsTests)
@@ -81,6 +93,8 @@ import Test.Boundary.FlowWrapperAttributes (runFlowWrapperAttributesTests)
 import Test.React.Additional.MiniMapMask (runMiniMapMaskTests)
 import Test.React.Additional.BackgroundPattern (runBackgroundPatternTests)
 import Test.System.Utils.MeasurementOrder (runMeasurementOrderTests)
+import Test.System.Utils.HandleBoundsNull (runHandleBoundsNullTests)
+import Test.System.XYPanZoom.EndTiming (runEndTimingTests)
 import Test.React.Hook.DeleteKey (runDeleteKeyTests)
 import Test.React.HandleNativeEvent (runHandleNativeEventTests)
 import Test.React.Hook.DragRebind (runDragRebindTests)
@@ -111,6 +125,8 @@ import Test.System.Utils.ConnectionOrder (runConnectionOrderTests)
 import Test.System.Utils.MeasuredDimensions (runMeasuredDimensionsTests)
 import Test.System.Utils.StorePanBy (runStorePanByTests)
 import Test.System.XYDrag (runXYDragTests)
+import Test.System.XYResizer (runXYResizerTests)
+import Test.Boundary.NodeResizing (runNodeResizingTests)
 import Test.System.XYDrag.DragItemOrder (runDragItemOrderTests)
 import Test.System.XYHandle (runXYHandleTests)
 import Test.System.XYPanZoom.EventHandler (runEventHandlerTests)
@@ -123,6 +139,11 @@ assert label cond =
 
 main :: Effect Unit
 main = do
+  runArrowKeyMessageTests
+  runViewportListenerTests
+  runOnInitTimingTests
+  runUserNodeTests
+  runConsumerObjectsTests
   -- 001: oppositePosition round-trip across all four constructors.
   let positions = [ PosLeft, PosTop, PosRight, PosBottom ]
   assert "oppositePosition is involutive"
@@ -532,10 +553,14 @@ main = do
       , height: Just 25.0
       , initialWidth: Nothing
       , initialHeight: Nothing
+      , focusable: Nothing
+      , ariaRole: Nothing
+      , domAttributes: Nothing
       , parentId: Nothing
       , zIndex: Nothing
       , extent: Nothing
       , expandParent: Nothing
+      , resizing: Nothing
       , ariaLabel: Nothing
       , origin: Nothing
       , handles: Nothing
@@ -564,6 +589,16 @@ main = do
       , label: Nothing
       , ariaLabel: Nothing
       , interactionWidth: Nothing
+      , focusable: Nothing
+      , reconnectable: Nothing
+      , ariaRole: Nothing
+      , domAttributes: Nothing
+      , labelStyle: Nothing
+      , labelShowBg: Nothing
+      , labelBgStyle: Nothing
+      , labelBgPadding: Nothing
+      , labelBgBorderRadius: Nothing
+      , pathOptions: Nothing
       , className: Nothing
       , style: Nothing
       }
@@ -675,42 +710,51 @@ main = do
       -> XYPosition
       -> InternalNodeBase Unit
     mkInternal nid selected draggable parentId positionAbsolute =
-      { id: NodeId nid
-      , position: { x: 0.0, y: 0.0 }
-      , data: unit
-      , sourcePosition: Nothing
-      , targetPosition: Nothing
-      , hidden: Nothing
-      , selected: Just selected
-      , dragging: Nothing
-      , draggable
-      , selectable: Nothing
-      , connectable: Nothing
-      , deletable: Nothing
-      , dragHandle: Nothing
-      , width: Just 50.0
-      , height: Just 25.0
-      , initialWidth: Nothing
-      , initialHeight: Nothing
-      , parentId
-      , zIndex: Nothing
-      , extent: Nothing
-      , expandParent: Nothing
-      , ariaLabel: Nothing
-      , origin: Nothing
-      , handles: Nothing
-      , measured: { width: Just 50.0, height: Just 25.0 }
-      , nodeType: Nothing
-      , className: Nothing
-      , style: Nothing
-      , internals:
+      let
+        originalUserNode =
+          { id: NodeId nid
+          , position: { x: 0.0, y: 0.0 }
+          , data: unit
+          , sourcePosition: Nothing
+          , targetPosition: Nothing
+          , hidden: Nothing
+          , selected: Just selected
+          , dragging: Nothing
+          , draggable
+          , selectable: Nothing
+          , connectable: Nothing
+          , deletable: Nothing
+          , dragHandle: Nothing
+          , width: Just 50.0
+          , height: Just 25.0
+          , initialWidth: Nothing
+          , initialHeight: Nothing
+          , focusable: Nothing
+          , ariaRole: Nothing
+          , domAttributes: Nothing
+          , parentId
+          , zIndex: Nothing
+          , extent: Nothing
+          , expandParent: Nothing
+          , resizing: Nothing
+          , ariaLabel: Nothing
+          , origin: Nothing
+          , handles: Nothing
+          , measured: { width: Just 50.0, height: Just 25.0 }
+          , nodeType: Nothing
+          , className: Nothing
+          , style: Nothing
+          }
+      in
+        Record.insert (Proxy :: Proxy "internals")
           { positionAbsolute
           , z: 0.0
           , rootParentIndex: Nothing
           , handleBounds: Nothing
           , bounds: Nothing
+          , userNode: originalUserNode
           }
-      }
+          originalUserNode
 
     parent = mkInternal "p" false Nothing Nothing { x: 0.0, y: 0.0 }
     parentSelected = parent { selected = Just true }
@@ -870,8 +914,8 @@ main = do
     nodeWithHandles' = nodeWithHandles
       { internals = nodeWithHandles.internals
           { handleBounds = Just
-              { source: [ SourceHandle handleS ]
-              , target: [ TargetHandle handleT ]
+              { source: Just [ SourceHandle handleS ]
+              , target: Just [ TargetHandle handleT ]
               }
           }
       }
@@ -942,6 +986,29 @@ main = do
     (case near of
       Just _ -> true
       Nothing -> false)
+
+  -- Step 3 H: upstream's loop passes over a handle whose distance is `NaN`
+  -- (`NaN < minDistance` and `NaN === minDistance` are both false), so the
+  -- finite handle before it is still the closest. A `min` fold took the `NaN`
+  -- as the minimum and matched nothing.
+  let
+    nanTarget = handleT { x = Number.nan }
+    lookupNaN =
+      Map.fromFoldable
+        [ Tuple (NodeId "n1")
+            nodeWithHandles
+              { internals = nodeWithHandles.internals
+                  { handleBounds = Just
+                      { source: Just [ SourceHandle handleS ]
+                      , target: Just [ TargetHandle nanTarget ]
+                      }
+                  }
+              }
+        ] :: NodeLookup Unit
+    closestPastNaN = XYHandle.getClosestHandle { x: 108.0, y: 58.0 } 50.0 lookupNaN
+      { nodeId: NodeId "other", id: HandleIdNull, handleType: Target }
+  assert "getClosestHandle: a NaN distance is passed over, as upstream's loop does"
+    (map _.id closestPastNaN == Just (HandleIdSet "out"))
 
   -- 019: XYResizer pure utilities --------------------------------------------
 
@@ -1132,6 +1199,8 @@ main = do
   runZoomLimitsTests
   runVisibleIdsTests
   runXYDragTests
+  runXYResizerTests
+  runNodeResizingTests
   runDragItemOrderTests
   runXYHandleTests
   runEventHandlerTests
@@ -1149,6 +1218,8 @@ main = do
   runEmptyChangesTests
   runResetSelectionTests
   runAriaDescribedByTests
+  runTypeFallbackTests
+  runAriaRoleDomAttributesTests
   runNodeInlineDimensionsTests
   runUpdateNodePositionsTests
   runBatchQueueTests
@@ -1161,6 +1232,8 @@ main = do
   runMiniMapMaskTests
   runBackgroundPatternTests
   runMeasurementOrderTests
+  runHandleBoundsNullTests
+  runEndTimingTests
   runDeleteKeyTests
   runHandleNativeEventTests
   runDragRebindTests
@@ -1174,6 +1247,7 @@ main = do
   runConnectionToTests
   runBackgroundOffsetTests
   runMathRoundTests
+  runNumericParityTests
   runHandleNodeClickTests
   runMoveSelectedNodesTests
   runEdgeAriaLabelTests
@@ -1187,6 +1261,7 @@ main = do
   runConnectionOrderTests
   runConnectionNullHandleTests
   runEdgeAnimatedTests
+  runDefaultEdgeOptionsTests
   runNodeExpandParentTests
   runEdgeHiddenTests
   runEdgeSelectedTests

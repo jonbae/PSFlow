@@ -1,0 +1,467 @@
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[  1 of 239] Compiling System.Types.Geometry
+[  2 of 239] Compiling System.Types.Handle
+[  3 of 239] Compiling React.Edge.Anchor
+[  4 of 239] Compiling System.FFI.D3Selection
+[  5 of 239] Compiling System.FFI.D3Drag
+[  6 of 239] Compiling System.FFI.D3Zoom
+[  7 of 239] Compiling System.Types.Node
+[  8 of 239] Compiling System.Types.Edge
+[  9 of 239] Compiling System.Constants
+[ 10 of 239] Compiling System.Types.Connection
+[ 11 of 239] Compiling React.Types.Nodes
+[ 12 of 239] Compiling System.XYResizer.Types
+[ 13 of 239] Compiling React.Context.Batch
+[ 14 of 239] Compiling React.Node.Group
+[ 15 of 239] Compiling React.Container.MarkerSymbols
+[ 16 of 239] Compiling Test.Parity.Builders
+[ 17 of 239] Compiling System.Utils.Marker
+[ 18 of 239] Compiling System.XYResizer.Utils
+[ 19 of 239] Compiling System.Utils.General
+[ 20 of 239] Compiling System.Utils.Toolbar
+[ 21 of 239] Compiling React.Container.InitValues
+[ 23 of 239] Compiling React.Hook.ColorModeClass
+[ 22 of 239] Compiling System.Utils.Connections
+[ 24 of 239] Compiling React.Types.Edges
+[ 25 of 239] Compiling System.Types.PanZoom
+[ 26 of 239] Compiling React.Provider.TrackedProp
+[ 27 of 239] Compiling Test.React.Container.SeededProps
+[ 28 of 239] Compiling Test.React.Provider.TrackedProp
+[ 30 of 239] Compiling React.Edge.Text
+[ 29 of 239] Compiling React.Store.Changes
+[ 31 of 239] Compiling React.Edge.Base
+[ 32 of 239] Compiling System.XYDrag.Utils
+[ 33 of 239] Compiling Test.System.Utils.NumericParity
+[ 34 of 239] Compiling System.Utils.Dom
+[ 35 of 239] Compiling System.Utils.Edges.General
+[ 36 of 239] Compiling System.Utils.Graph
+[ 37 of 239] Compiling System.Utils.Edges.Positions
+[ 38 of 239] Compiling System.XYMinimap
+[ 39 of 239] Compiling Test.System.Utils.MathRound
+[ 40 of 239] Compiling System.XYPanZoom.Utils
+[ 41 of 239] Compiling System.XYResizer
+[ 42 of 239] Compiling System.Utils.Store
+[ 44 of 239] Compiling React.Container.Pane.Internal
+[ 43 of 239] Compiling React.Hook.KeyPress
+[ 45 of 239] Compiling Test.System.XYDrag.DragItemOrder
+[ 46 of 239] Compiling System.XYPanZoom.EventHandler
+[ 47 of 239] Compiling System.XYPanZoom.Filter
+[ 48 of 239] Compiling System.XYHandle.Utils
+[ 49 of 239] Compiling System.Utils.Edges.SmoothStep
+[ 50 of 239] Compiling System.Utils.Edges.Bezier
+[ 51 of 239] Compiling Test.Parity.Util
+[ 52 of 239] Compiling System.Utils.Edges.Straight
+[ 53 of 239] Compiling React.Hook.NodesEdgesState
+[ 54 of 239] Compiling Test.React.Container.Pane
+[ 55 of 239] Compiling System.XYHandle
+[ 56 of 239] Compiling System.Utils.Edges.SimpleBezier
+[ 57 of 239] Compiling React.Edge.Bezier
+[ 58 of 239] Compiling React.Edge.Straight
+[ 59 of 239] Compiling Test.System.XYPanZoom.EventHandler
+[ 60 of 239] Compiling System.XYPanZoom
+[ 61 of 239] Compiling Test.System.XYPanZoom.EndTiming
+[ 62 of 239] Compiling React.Util.General
+[ 63 of 239] Compiling Test.Properties
+[ 64 of 239] Compiling System.XYDrag
+[ 65 of 239] Compiling React.Types.General
+[ 66 of 239] Compiling React.Edge.SimpleBezier
+[ 67 of 239] Compiling Test.Oracle
+[ 68 of 239] Compiling React.Edge.SmoothStep
+[ 69 of 239] Compiling System.Utils.Edges
+[ 70 of 239] Compiling React.Types.Instance
+[ 71 of 239] Compiling React.Edge.Step
+[ 72 of 239] Compiling Test.System.XYPanZoom.SourceEvents
+[ 73 of 239] Compiling React.Component.EdgeWrapper.Util
+[ 74 of 239] Compiling Test.Parity.Marker
+[ 75 of 239] Compiling Test.Parity.Connections
+[ 76 of 239] Compiling Test.Parity.Changes
+[ 77 of 239] Compiling Test.Parity.Edges
+[ 78 of 239] Compiling Test.Parity.Graph
+[ 79 of 239] Compiling Test.Parity.Geometry
+[ 80 of 239] Compiling Test.Parity.Toolbar
+[ 82 of 239] Compiling Test.System.Utils.ConnectionOrder
+[ 81 of 239] Compiling Test.System.Utils.StorePanBy
+[ 83 of 239] Compiling Test.System.Utils.Store
+[ 84 of 239] Compiling React.Types.Component
+[ 85 of 239] Compiling Boundary.Enums
+[ 86 of 239] Compiling React.Additional.Background.Patterns
+[ 87 of 239] Compiling React.Portal.Panel
+[ 89 of 239] Compiling React.Additional.Controls.Button
+[ 88 of 239] Compiling React.Additional.MiniMap.Node
+[ 90 of 239] Compiling React.Container.Attribution
+[ 91 of 239] Compiling Test.React.Container.AttributionPanel
+[ 92 of 239] Compiling Boundary.EdgePaths
+[ 94 of 239] Compiling Boundary.FitView
+[ 93 of 239] Compiling Boundary.Elements
+[ 95 of 239] Compiling Test.Boundary.EdgePaths
+[ 96 of 239] Compiling React.Types.Store
+[ 97 of 239] Compiling React.Hook.Drag
+[ 98 of 239] Compiling Test.System.XYDrag
+[ 99 of 239] Compiling React.Store.InitialState
+[100 of 239] Compiling React.Store.Action
+[101 of 239] Compiling React.Types
+[102 of 239] Compiling React.Hook.VisibleIds.Pure
+[103 of 239] Compiling Test.React.Hook.Drag
+[104 of 239] Compiling Test.React.Hook.DragRebind
+[105 of 239] Compiling Test.System.Utils.MeasurementOrder
+[106 of 239] Compiling Test.System.Utils.MeasuredDimensions
+[107 of 239] Compiling React.Store.Reduce
+[108 of 239] Compiling Test.System.XYHandle
+[109 of 239] Compiling Test.React.Hook.VisibleIds
+[110 of 239] Compiling Test.React.Hook.NodeRenderOrder
+[111 of 239] Compiling Test.Boundary.NodeSelected
+[112 of 239] Compiling Test.Boundary.NodeExpandParent
+[113 of 239] Compiling Boundary.Instance
+[114 of 239] Compiling Test.System.Utils.HandleBoundsNull
+[115 of 239] Compiling Test.Boundary.PrunedKeys
+[116 of 239] Compiling Test.Boundary.DimensionResizing
+[117 of 239] Compiling Test.Boundary.HandleIdNull
+[118 of 239] Compiling Test.Boundary.NodeHidden
+[119 of 239] Compiling Test.Boundary.ConnectionNullHandle
+[120 of 239] Compiling Boundary.Callbacks
+[121 of 239] Compiling Boundary.Utils
+[122 of 239] Compiling Test.Boundary.ConsumerObjects
+[123 of 239] Compiling Test.Boundary.EdgeSelected
+[124 of 239] Compiling Test.Boundary.NodeDragging
+[125 of 239] Compiling Test.React.Store.EmptyChanges
+[126 of 239] Compiling Test.React.Store.Reduce
+[127 of 239] Compiling React.Store.Shell
+[128 of 239] Compiling Test.React.Store.ResetSelection
+[129 of 239] Compiling Test.React.Store.UpdateNodePositions
+[130 of 239] Compiling Test.React.Store.MergeNodeInternals
+[131 of 239] Compiling Test.React.Provider.InitPrevValues
+[132 of 239] Compiling React.Store.PanBy
+[133 of 239] Compiling Test.System.XYResizer
+[134 of 239] Compiling Test.React.Store.ZoomLimits
+[135 of 239] Compiling React.Hook.Store
+[136 of 239] Compiling Test.React.Store.Shell
+[137 of 239] Compiling React.Node.Util
+[138 of 239] Compiling Test.React.Node.HandleNodeClick
+[139 of 239] Compiling React.Hook.Selectors
+[140 of 239] Compiling React.Component.UserSelection
+[141 of 239] Compiling React.Handle
+[142 of 239] Compiling React.Container.Viewport
+[143 of 239] Compiling Test.React.Hook.Store
+[144 of 239] Compiling React.Hook.NodeConnections
+[145 of 239] Compiling React.Hook.VisibleIds
+[146 of 239] Compiling React.Component.EdgeWrapper.UpdateAnchors
+[147 of 239] Compiling React.Additional.Background
+[148 of 239] Compiling React.Container.A11yDescriptions
+[149 of 239] Compiling React.Hook.NodeOrEdgeTypesWarning
+[150 of 239] Compiling React.Hook.ViewportSync
+[151 of 239] Compiling React.Hook.StylesLoadedWarning
+[152 of 239] Compiling React.Hook.ViewportHelper
+[153 of 239] Compiling React.Additional.MiniMap.Nodes
+[154 of 239] Compiling React.Hook.UpdateNodeInternals
+[155 of 239] Compiling React.Hook.HandleConnections
+[156 of 239] Compiling React.Hook.ResizeHandler
+[157 of 239] Compiling React.Additional.NodeResizer.Control
+[158 of 239] Compiling React.Additional.NodeToolbar.Portal
+[159 of 239] Compiling React.Portal.EdgeLabelRenderer
+[160 of 239] Compiling React.Provider.SelectionListener
+[161 of 239] Compiling React.Hook.Middleware
+[162 of 239] Compiling React.Portal.ViewportPortal
+[163 of 239] Compiling React.Hook.MoveSelectedNodes
+[164 of 239] Compiling React.Hook.NodeObserver
+[165 of 239] Compiling React.Container.MarkerDefinitions
+[166 of 239] Compiling React.Provider.StoreUpdater
+[167 of 239] Compiling React.Provider.Batch
+[168 of 239] Compiling React.Container.Pane
+[169 of 239] Compiling Test.React.Additional.BackgroundOffset
+[170 of 239] Compiling Test.React.Container.NodeA11yDescription
+[171 of 239] Compiling Test.React.Hook.ViewportSync
+[172 of 239] Compiling React.Additional.MiniMap
+[173 of 239] Compiling React.Container.ZoomPane
+[174 of 239] Compiling React.Component.EdgeWrapper
+[175 of 239] Compiling React.Component.ConnectionLine
+[176 of 239] Compiling React.Additional.NodeToolbar
+[177 of 239] Compiling React.Additional.EdgeToolbar
+[178 of 239] Compiling Boundary.Portals
+[179 of 239] Compiling Test.React.Hook.NodeObserver
+[180 of 239] Compiling React.Additional.NodeResizer
+[181 of 239] Compiling Test.React.Hook.MoveSelectedNodes
+[182 of 239] Compiling Test.React.Node.ArrowKeyMessage
+[183 of 239] Compiling Test.React.Component.HandleDataId
+[184 of 239] Compiling React.Node.Default
+[185 of 239] Compiling Test.React.HandleNativeEvent
+[186 of 239] Compiling Test.System.FinalConnectionState
+[187 of 239] Compiling React.Node.Input
+[188 of 239] Compiling React.Node.Output
+[189 of 239] Compiling React.Provider
+[190 of 239] Compiling Test.React.Provider.BatchQueue
+[191 of 239] Compiling React.Hook.ReactFlow
+[192 of 239] Compiling Test.React.Additional.NodeToolbarPortal
+[193 of 239] Compiling Boundary.NodeChrome
+[194 of 239] Compiling Test.React.Additional.MiniMapMask
+[195 of 239] Compiling Test.React.Additional.MiniMap
+[196 of 239] Compiling Test.React.Hook.ConnectionTo
+[197 of 239] Compiling Boundary.Resizer
+[198 of 239] Compiling Boundary.Edges
+[199 of 239] Compiling Test.React.Component.EdgeAriaLabel
+[200 of 239] Compiling React.Container.EdgeRenderer
+[201 of 239] Compiling Test.React.Component.EdgeComponentProps
+[202 of 239] Compiling Test.Boundary.EdgeAnimated
+[203 of 239] Compiling Test.Boundary.DefaultEdgeOptions
+[204 of 239] Compiling Test.Boundary.EdgeHidden
+[205 of 239] Compiling React.Component.NodeWrapper.Util
+[206 of 239] Compiling Test.React.Store.InPlaceSelection
+[207 of 239] Compiling React.Container.Wrapper
+[208 of 239] Compiling Test.Boundary.Wrapper
+[209 of 239] Compiling Test.Boundary.BaseEdgeAttributes
+[210 of 239] Compiling React.Component.NodeWrapper
+[211 of 239] Compiling Test.React.DomNumbers
+[212 of 239] Compiling Test.React.Component.NodeInlineDimensions
+[213 of 239] Compiling React.Component.NodesSelection
+[214 of 239] Compiling Test.React.Component.NodesSelectionRect
+[215 of 239] Compiling React.Hook.GlobalKeyHandler
+[216 of 239] Compiling React.Hook.Listeners
+[217 of 239] Compiling React.Additional.Controls
+[218 of 239] Compiling Test.System.XYDrag.DragUserNodes
+[219 of 239] Compiling Test.React.Component.AriaDescribedBy
+[220 of 239] Compiling Test.System.XYDrag.DragErrors
+[221 of 239] Compiling React.Container.NodeRenderer
+[222 of 239] Compiling Test.System.XYDrag.DragSelection
+[223 of 239] Compiling Boundary.Chrome
+[224 of 239] Compiling Test.React.Hook.OnInitTiming
+[225 of 239] Compiling Test.React.Hook.DeleteKey
+[226 of 239] Compiling React.Container.FlowRenderer
+[227 of 239] Compiling React.Container.GraphView
+[228 of 239] Compiling React.Container.ReactFlow
+[229 of 239] Compiling React
+[230 of 239] Compiling Boundary.Flow
+[231 of 239] Compiling Test.React.Additional.BackgroundPattern
+[232 of 239] Compiling Test.Boundary.FlowWrapperAttributes
+[233 of 239] Compiling Boundary.Store
+[234 of 239] Compiling Boundary.Hooks
+[235 of 239] Compiling Test.Boundary.NodeResizing
+[236 of 239] Compiling Test.Boundary.UserNode
+[237 of 239] Compiling Boundary
+[238 of 239] Compiling Test.React.Hook.ViewportListeners
+[239 of 239] Compiling Test.Main
+[WARNING 1/4 ShadowedName] src/React/Store/Shell.purs:137:24
+
+  137        RunSetCenter x y opts -> do
+                              ^^^^
+
+  Name opts was shadowed.
+  in value declaration createStore
+
+[WARNING 2/4 UnusedExplicitImport] src/System/Utils/Store.purs:67:1
+
+  67  import System.Types.Ids (ParentId, parentToNode, nodeToParent)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  The import of module System.Types.Ids contains the following unused references:
+    nodeToParent
+  It could be replaced with:
+    import System.Types.Ids (ParentId, parentToNode)
+
+[WARNING 3/4 UnusedExplicitImport] src/System/XYDrag/Utils.purs:27:1
+
+  27  import System.Types.Ids (NodeId, ParentId, parentToNode, nodeToParent)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  The import of module System.Types.Ids contains the following unused references:
+    nodeToParent
+  It could be replaced with:
+    import System.Types.Ids (NodeId, ParentId, parentToNode)
+
+[WARNING 4/4 UnusedImport] test/Test/React/Store/Shell.purs:25:1
+
+  25  import Data.Maybe (Maybe(..))
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  The import of Data.Maybe is redundant
+
+           Src   Lib   All
+Warnings     4     0     4
+Errors       0     0     0
+
+✓ Build succeeded.
+
+Running tests for package: ps-flow
+
+=== NodeWrapper's arrow keys: what a move announces in the aria-live region ===
+ok  a press announces the direction and the position before the move, and moves the node
+ok  and announces before it moves, so onNodesChange finds the message set
+ok  a second press before a re-render announces the position the first press left in the lookup
+ok  the direction is the key without its Arrow, in lower case
+ok  the position is truncated toward zero, as ~~ does
+ok  and wrapped to 32 bits, as ~~ does
+ok  the message comes from the store's ariaLabelConfig
+ok  a node the lookup no longer holds announces the position it was rendered at
+ok  oppositePosition is involutive
+ok  mkNodeOrigin labels are ox, oy
+ok  mkSnapGrid labels are gx, gy
+ok  mkTransform labels are tx, ty, scale
+ok  mkCoordinateExtent labels are minX/minY/maxX/maxY
+ok  Source /= Target
+ok  show Source == "Source"
+ok  default isConnectable
+ok  default isConnectableStart
+ok  default isConnectableEnd
+ok  default isValidConnection is Nothing
+ok  default id is Nothing
+ok  default handleType is Source
+ok  noConnection is NoConnection
+ok  UniformPadding constructs
+ok  DirectionalPadding with all Nothing constructs
+ok  ValidConnection /= InvalidConnection
+ok  show ValidConnection == "ValidConnection"
+ok  getConnectionStatus Nothing == Nothing
+ok  getConnectionStatus (Just true) == Just ValidConnection
+ok  getConnectionStatus (Just false) == Just InvalidConnection
+ok  Nothing/Nothing maps are equal
+ok  Just/Nothing maps are not equal
+ok  Nothing/Just maps are not equal
+ok  Maps with same keys are equal (values not compared)
+ok  Maps with different keys are not equal
+ok  callback not invoked when no diff
+ok  callback invoked once with non-empty diff
+ok  diff contains the single absent connection
+ok  infiniteExtent has -Infinity/+Infinity bounds
+ok  elementSelectionKeys contents
+ok  errorMessage E001 prefix
+ok  errorMessage E003 interpolates the node type
+ok  errorMessage E007 interpolates the edge id
+ok  errorMessage E013 interpolates the lib
+ok  errorMessage E008 source picks sourceHandle
+ok  errorMessage E008 target picks targetHandle
+ok  merge with no overrides preserves controlsAriaLabel
+ok  merge with no overrides preserves handleAriaLabel
+ok  single override replaces controlsAriaLabel
+ok  single override leaves minimapAriaLabel at default
+ok  Align bottom == AlignCenter
+ok  Align top == AlignEnd
+ok  Align AlignCenter < AlignEnd
+ok  show AlignStart == "AlignStart"
+ok  SetAttributesMode Nothing case
+ok  SetAttributesMode width-only /= height-only
+ok  ParentExtent == ParentExtent
+ok  CoordExtent == CoordExtent
+ok  ParentExtent /= CoordExtent
+ok  NodeChange constructors classify
+ok  ConnectionLineType bottom
+ok  ConnectionLineType top
+ok  show StraightLine
+ok  Arrow /= ArrowClosed
+ok  show ArrowClosed
+ok  AlignX bottom
+ok  AlignX top
+ok  AlignY bottom
+ok  AlignY top
+ok  NamedMarker pattern
+ok  CustomMarker pattern
+ok  EdgeSelectionChange classifies
+ok  EdgeRemoveChange classifies
+ok  NoPan == NoPan
+ok  PanAlways /= NoPan
+ok  PanOnButtons eq
+ok  PanOnButtons /= PanAlways
+ok  show NoPan
+ok  PanZoom InterpolateMode Smooth
+ok  PanZoom InterpolateMode Smooth /= Linear
+ok  shallowNodeData Nothing/Nothing == false
+ok  shallowNodeData Just/Nothing == false
+ok  shallowNodeData Nothing/Just == false
+ok  shallowNodeData empty/empty == true
+ok  shallowNodeData different lengths == false
+ok  shallowNodeData matching arrays == true
+ok  shallowNodeData differing data == false
+ok  shallowNodeData differing type == false
+ok  shallowNodeData differing id == false
+ok  shallowNodeDataSingle equal
+ok  shallowNodeDataSingle differing data
+ok  shallowNodeDataSingle differing type
+ok  shallowNodeDataSingle differing id
+ok  clamp 5 0 1 == 1
+ok  clamp 0.5 0 1 == 0.5
+ok  clamp -1 0 1 == 0
+ok  clamp01 1.5 == 1
+ok  pointToRendererPoint inverse
+ok  non-overlapping rects have zero overlap
+ok  snapPosition snaps to nearest grid cell
+ok  snapPosition breaks negative half-cell ties toward +infinity
+ok  roundHalfUp -1.5 == -1.0
+ok  roundHalfUp -0.5 == 0.0
+ok  roundHalfUp 1.5 == 2.0
+ok  roundHalfUp 0.49999999999999994 == 0.0
+ok  isCoordinateExtent ParentExtent == Nothing
+ok  isCoordinateExtent Nothing == Nothing
+ok  isCoordinateExtent (CoordExtent c) == Just c
+ok  getOutgoers a -> {b, c}
+ok  getIncomers c -> {a, b}
+ok  getNodesBounds spans union
+ok  isNodeBase on a NodeBase fixture
+ok  isNodeBase rejects an EdgeBase
+ok  isEdgeBase on an EdgeBase fixture
+ok  isEdgeBase rejects a NodeBase
+ok  isNodeBase rejects a record with no position field
+ok  isEdgeBase rejects a record missing target
+ok  calculateNodePosition unknown id is Nothing
+ok  isManualZIndexMode ZManual
+ok  isManualZIndexMode ZBasic
+ok  getStraightPath path
+ok  getStraightPath label center
+ok  getEdgeId stable
+ok  addEdge with empty source returns Left
+ok  getMarkerId Nothing == ""
+ok  getMarkerId NamedMarker
+ok  node toolbar TOP/CENTER format
+ok  edge toolbar centred
+ok  isParentSelected returns false for a root node
+ok  isParentSelected returns false when parent unselected
+ok  isParentSelected returns true when parent is selected
+ok  isParentSelected returns false when parentId points nowhere
+ok  getDragItems collects selected nodes when nodesDraggable=true
+ok  getDragItems honours node.draggable=true
+ok  getDragItems excludes node.draggable=false even if selected
+ok  getDragItems collects only the targeted node when nodeId is set
+ok  calculateSnapOffset returns Nothing for empty drag items
+ok  calculateSnapOffset computes the (snapped - raw) delta
+ok  getEventHandlerParams Nothing returns first item as current
+ok  getEventHandlerParams Nothing returns all items
+ok  getEventHandlerParams Just nid returns that node as current
+ok  isConnectionValid: handle valid -> Just true
+ok  isConnectionValid: in radius, handle invalid -> Just false
+ok  isConnectionValid: outside radius, handle invalid -> Nothing
+ok  isConnectionValid: in radius and handle valid -> Just true
+ok  getHandle: missing node returns Nothing
+ok  getHandle: returns the source handle when handleId matches
+ok  getHandle: Loose mode mixes source+target handles
+ok  getHandle: withAbsolutePosition shifts to canvas coords
+ok  viewportToTransform/transformToViewport round-trip x
+ok  viewportToTransform/transformToViewport round-trip y
+ok  viewportToTransform/transformToViewport round-trip zoom
+ok  isRightClickPan: NoPan, button=2 -> false
+ok  isRightClickPan: PanAlways, button=2 -> false
+ok  isRightClickPan: PanOnButtons[0], button=2 -> false
+ok  isRightClickPan: PanOnButtons[2], button=2 -> true
+ok  isRightClickPan: PanOnButtons[2], button=0 -> false
+ok  getClosestHandle: nothing within radius returns Nothing
+ok  getClosestHandle: a handle within radius is returned
+file:///Users/jonathanbae/repos/PSFlow/output/Partial/foreign.js:4
+  throw new Error(msg);
+        ^
+
+Error: FAIL getClosestHandle: a NaN distance is passed over, as upstream's loop does
+    at _crashWith (file:///Users/jonathanbae/repos/PSFlow/output/Partial/foreign.js:4:9)
+    at file:///Users/jonathanbae/repos/PSFlow/output/Partial.Unsafe/index.js:8:16
+    at _unsafePartial (file:///Users/jonathanbae/repos/PSFlow/output/Partial.Unsafe/foreign.js:4:10)
+    at Module.unsafeCrashWith (file:///Users/jonathanbae/repos/PSFlow/output/Partial.Unsafe/index.js:7:12)
+    at file:///Users/jonathanbae/repos/PSFlow/output/Test.Main/index.js:247:31
+    at __do (file:///Users/jonathanbae/repos/PSFlow/output/Test.Main/index.js:1277:87)
+    at file:///Users/jonathanbae/repos/PSFlow/.spago/run/run.js:3:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:647:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)
+
+Node.js v22.18.0
+
+✘ Tests failed for package "ps-flow".
+

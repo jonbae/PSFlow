@@ -1,0 +1,31 @@
+$ node aamf/step3/numeric-semantics/verify-browser.mjs resize-node-after-active-limit-change viewport-helpers-with-options
+[
+  {
+    "scenario": "resize-node-after-active-limit-change",
+    "round": 1,
+    "fullGatePassed": false,
+    "unclaimedDifferences": 2,
+    "unchangedFromPriorCheckpoint": true
+  },
+  {
+    "scenario": "resize-node-after-active-limit-change",
+    "round": 2,
+    "fullGatePassed": false,
+    "unclaimedDifferences": 2,
+    "unchangedFromPriorCheckpoint": true
+  },
+  {
+    "scenario": "viewport-helpers-with-options",
+    "round": 1,
+    "fullGatePassed": false,
+    "unclaimedDifferences": 2,
+    "unchangedFromPriorCheckpoint": true
+  },
+  {
+    "scenario": "viewport-helpers-with-options",
+    "round": 2,
+    "fullGatePassed": false,
+    "unclaimedDifferences": 2,
+    "unchangedFromPriorCheckpoint": true
+  }
+]

@@ -1,0 +1,107 @@
+$ node --test parity/boundary/reconnect-edge.test.mjs
+TAP version 13
+# Subtest: reconnectEdge accepts JS arguments, preserves untouched references and consumer keys on the replacement
+ok 1 - reconnectEdge accepts JS arguments, preserves untouched references and consumer keys on the replacement
+  ---
+  duration_ms: 4.149084
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: omitted
+ok 2 - reconnectEdge matches option/default behavior: omitted
+  ---
+  duration_ms: 0.501146
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: empty options
+ok 3 - reconnectEdge matches option/default behavior: empty options
+  ---
+  duration_ms: 0.339135
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: replace true
+ok 4 - reconnectEdge matches option/default behavior: replace true
+  ---
+  duration_ms: 0.245828
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: replace false
+ok 5 - reconnectEdge matches option/default behavior: replace false
+  ---
+  duration_ms: 0.333401
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: replace undefined
+ok 6 - reconnectEdge matches option/default behavior: replace undefined
+  ---
+  duration_ms: 0.193609
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: replace null
+ok 7 - reconnectEdge matches option/default behavior: replace null
+  ---
+  duration_ms: 0.301965
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches option/default behavior: custom generator
+ok 8 - reconnectEdge matches option/default behavior: custom generator
+  ---
+  duration_ms: 0.24306
+  type: 'test'
+  ...
+# Subtest: reconnectEdge preserves null/undefined/empty handles and writes missing handles as own keys
+ok 9 - reconnectEdge preserves null/undefined/empty handles and writes missing handles as own keys
+  ---
+  duration_ms: 1.787738
+  type: 'test'
+  ...
+# Subtest: reconnectEdge removes every matching id, preserves other order and copies the supplied old edge
+ok 10 - reconnectEdge removes every matching id, preserves other order and copies the supplied old edge
+  ---
+  duration_ms: 0.767285
+  type: 'test'
+  ...
+# Subtest: reconnectEdge gives the generator the original connection and reads mutations afterward
+ok 11 - reconnectEdge gives the generator the original connection and reads mutations afterward
+  ---
+  duration_ms: 0.494042
+  type: 'test'
+  ...
+# Subtest: reconnectEdge keeps the exact input array and reports the right callback on both error branches
+ok 12 - reconnectEdge keeps the exact input array and reports the right callback on both error branches
+  ---
+  duration_ms: 0.833403
+  type: 'test'
+  ...
+# Subtest: reconnectEdge preserves getter, find, generator and replacement-read order
+ok 13 - reconnectEdge preserves getter, find, generator and replacement-read order
+  ---
+  duration_ms: 0.602667
+  type: 'test'
+  ...
+# Subtest: reconnectEdge copies enumerable own keys safely and leaves frozen inputs untouched
+ok 14 - reconnectEdge copies enumerable own keys safely and leaves frozen inputs untouched
+  ---
+  duration_ms: 0.37358
+  type: 'test'
+  ...
+# Subtest: reconnectEdge propagates callback exceptions and null-option errors
+ok 15 - reconnectEdge propagates callback exceptions and null-option errors
+  ---
+  duration_ms: 0.496677
+  type: 'test'
+  ...
+# Subtest: reconnectEdge matches React-layer default development warnings
+ok 16 - reconnectEdge matches React-layer default development warnings
+  ---
+  duration_ms: 73.760709
+  type: 'test'
+  ...
+1..16
+# tests 16
+# suites 0
+# pass 16
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 799.969438

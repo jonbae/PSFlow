@@ -1,0 +1,26 @@
+import assert from 'node:assert/strict';
+import {readFileSync,writeFileSync} from 'node:fs';
+import {fileURLToPath} from 'node:url';
+import {readRun} from '../../../parity/system/net/traces.mjs';
+import {compareRun} from '../../../parity/system/compare/run.mjs';
+import {compileWitness} from '../../../parity/system/coverage/witness.mjs';
+const read=p=>JSON.parse(readFileSync(new URL(p,import.meta.url)));
+const traces=readRun(fileURLToPath(new URL('./captures',import.meta.url)),'mount-baseline--nodes-general');
+const entry=read('../../../parity/system/coverage/witnesses.json').witnesses.find(w=>w.export==='OnInit');
+const witness=compileWitness(entry,'callbacks');
+const result=compareRun(traces,{rules:read('../../../parity/system/normalization.json').rules,regions:read('../../../parity/system/regions.json').regions,weakenings:read('../../../parity/system/weakenings.json').weakenings});
+assert.ok(result.consistency.every(side=>side.consistent));
+assert.ok(!result.failures.some(f=>f.class==='driving-divergence'));
+const receipts=traces.map(trace=>{
+ const calls=trace.sections.callbacks.filter(e=>e.name==='onInit');
+ assert.equal(calls.length,1);assert.equal(calls[0].args.length,1);
+ assert.equal(calls[0].args[0].viewportInitialized,true);
+ assert.deepEqual(calls[0].args[0].getNodes,{'@ref':'function'});
+ assert.deepEqual(calls[0].args[0].setViewport,{'@ref':'function'});
+ assert.ok(witness.holdsIn(trace.sections));
+ const corrupt=structuredClone(trace.sections);corrupt.callbacks=corrupt.callbacks.filter(e=>e.name!=='onInit');
+ assert.equal(witness.holdsIn(corrupt),false,'the unchanged coverage witness rejects a missing callback');
+ return {side:trace.side,capture:trace.capture,args:calls[0].args};
+});
+writeFileSync(new URL('./witness-summary.json',import.meta.url),JSON.stringify({witnessPassed:true,receipts,selfConsistency:result.consistency,fullGatePassed:result.ok,remainingDifferences:result.comparison.unclaimed},null,2)+'\n');
+console.log('OnInit: all four real captures carry one initialized instance; the unchanged witness rejects missing receipts.');

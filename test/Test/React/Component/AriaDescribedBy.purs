@@ -70,10 +70,14 @@ nodeAt id at handles =
   , height: Just 25.0
   , initialWidth: Nothing
   , initialHeight: Nothing
+  , focusable: Nothing
+  , ariaRole: Nothing
+  , domAttributes: Nothing
   , parentId: Nothing
   , zIndex: Nothing
   , extent: Nothing
   , expandParent: Nothing
+  , resizing: Nothing
   , ariaLabel: Nothing
   , origin: Nothing
   , handles: Just handles
@@ -107,6 +111,16 @@ edgeAB =
   , label: Nothing
   , ariaLabel: Nothing
   , interactionWidth: Nothing
+  , focusable: Nothing
+  , reconnectable: Nothing
+  , ariaRole: Nothing
+  , domAttributes: Nothing
+  , labelStyle: Nothing
+  , labelShowBg: Nothing
+  , labelBgStyle: Nothing
+  , labelBgPadding: Nothing
+  , labelBgBorderRadius: Nothing
+  , pathOptions: Nothing
   , className: Nothing
   , style: Nothing
   }
@@ -160,8 +174,11 @@ edgeProps a11y =
   , disableKeyboardA11y: Just a11y.keyboardA11yOff
   }
 
+-- | These tests write the state and then render on the server, where React
+-- | reads the store's server snapshot, its initial state. They render the
+-- | state they wrote, so the store handed over serves that one instead.
 storeToOpaque :: Store Unit Unit -> OpaqueStore
-storeToOpaque = unsafeCoerce
+storeToOpaque store = unsafeCoerce (store { getInitialState = store.getState })
 
 -- | The wrapper's markup, rendered inside a store holding `a` above `b` and
 -- | the edge between them.

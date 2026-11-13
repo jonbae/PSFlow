@@ -1,0 +1,20 @@
+$ node --input-type=module -e import {runHandleBoundsNullTests} from "./output/Test.System.Utils.HandleBoundsNull/index.js"; runHandleBoundsNullTests();
+
+=== updateNodeInternals: a side with no handle is null, as upstream's getHandleBounds returns ===
+file:///Users/jonathanbae/repos/PSFlow/output/Partial/foreign.js:4
+  throw new Error(msg);
+        ^
+
+Error: FAIL a node with only a source handle reads back target: null
+    at _crashWith (file:///Users/jonathanbae/repos/PSFlow/output/Partial/foreign.js:4:9)
+    at file:///Users/jonathanbae/repos/PSFlow/output/Partial.Unsafe/index.js:8:16
+    at _unsafePartial (file:///Users/jonathanbae/repos/PSFlow/output/Partial.Unsafe/foreign.js:4:10)
+    at Module.unsafeCrashWith (file:///Users/jonathanbae/repos/PSFlow/output/Partial.Unsafe/index.js:7:12)
+    at file:///Users/jonathanbae/repos/PSFlow/output/Test.System.Utils.HandleBoundsNull/index.js:180:31
+    at __do (file:///Users/jonathanbae/repos/PSFlow/output/Test.System.Utils.HandleBoundsNull/index.js:195:71)
+    at file:///Users/jonathanbae/repos/PSFlow/[eval1]:1:96
+    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:269:26)
+    at async ModuleLoader.executeModuleJob (node:internal/modules/esm/loader:265:20)
+
+Node.js v22.18.0

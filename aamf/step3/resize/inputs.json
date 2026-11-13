@@ -1,0 +1,7 @@
+{
+  "src/System/XYResizer.purs": "f5ce6e0ec0aa157bc19fb734209ef9e6210c1d369af02716fae310416de964d0",
+  "src/System/XYResizer.js": "0b787c3d85343262719394935ce64f2d45dd3650fa8008336a41dead625e7b29",
+  "src/System/XYResizer/Utils.purs": "c20dfe9f6e88ad125182e4b05e93db45fa4f88a26e117f7c38a2c5c758abc0bf",
+  "src/React/Additional/NodeResizer/Control.purs": "743f4f27947e58f606b74d340ada9416b43ffc83b34c507f90f51dee191d28bf",
+  "test/Test/Main.purs": "7f0a649031e55c69b56ff5577d43d41daa334acfa7cd84fe2a2eaf2b32912954"
+}

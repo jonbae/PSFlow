@@ -24,7 +24,7 @@ its own behavior registry. `crossed` means a JS-shaped wrapper exists; `passthro
 means `index.js` still publishes the PureScript value unchanged. A crossed export
 with no direct JS-surface gate is displayed as `crossed, ungated`, rather than
 being counted as gated on the JS surface merely because its wrapper exists.
-At boundary stage 4, 55 exports have crossed; 0 are crossed but ungated on
+At boundary stage 5, 68 exports have crossed; 0 are crossed but ungated on
 the JS surface. Stage 1 is self-covering; later stages deliberately populate
 that window until system parity gates their converters.
 
@@ -56,11 +56,11 @@ these entries the net can observe at all.
 | `callback` | 26 | 0 | 2 | 0 | 1 | 23 |
 | `change` | 12 | 0 | 0 | 0 | 2 | 10 |
 | `data` | 43 | 10 | 11 | 0 | 5 | 21 |
-| `options` | 20 | 2 | 0 | 0 | 1 | 17 |
+| `options` | 20 | 2 | 1 | 0 | 1 | 16 |
 | `instance-api` | 7 | 0 | 0 | 0 | 1 | 6 |
-| `store` | 3 | 0 | 0 | 0 | 0 | 3 |
+| `store` | 3 | 0 | 1 | 0 | 0 | 2 |
 | `internal-type` | 1 | 0 | 0 | 0 | 0 | 1 |
-| **total** | **210** | **38** | **84** | **0** | **15** | **101** |
+| **total** | **210** | **38** | **86** | **0** | **15** | **99** |
 
 ## Summary by mechanism
 
@@ -69,9 +69,9 @@ to reach it.
 
 | Mechanism | Exports | Of which gated on either surface |
 |---|---:|---:|
-| `dual-run-api` | 14 | 0 |
+| `dual-run-api` | 14 | 1 |
 | `dual-run-callback` | 47 | 2 |
-| `dual-run-dom` | 64 | 35 |
+| `dual-run-dom` | 64 | 36 |
 | `dual-run-hook` | 27 | 21 |
 | `dual-run-props` | 4 | 2 |
 | `dual-run-value` | 8 | 8 |
@@ -134,27 +134,27 @@ than an unnoticed absence.
 | `useOnSelectionChange` | hook | `dual-run-hook` | — | crossed, gated — boundary | parity:boundary gates that it accepts a JS-shaped handler; acceptance is the ceiling, as for the flow-level callbacks. |
 | `useOnViewportChange` | hook | `dual-run-hook` | — | crossed, gated — boundary | parity:boundary gates that it accepts JS-shaped handlers. A server render runs no effects, so acceptance is the ceiling here and the installation is the net's. |
 | `useReactFlow` | hook | `dual-run-hook` | — | crossed, gated — boundary | parity:boundary gates the JS-surface instance this returns: all 32 members present, each taking its arguments in one call, the readers answering values rather than unrun `Effect` thunks, and the eleven asynchronous methods answering real promises. The whole imperative API hangs off this hook; four test-debt rows (078: #5276, #5723, #5722, #5012) land on it. |
-| `useStore` | hook | `dual-run-hook` | — | crossed, gated — boundary | Crossed in shape only: callable at upstream's arity, and refusing at the call. What it would hand over is the internal store state, an 85-field PureScript record with no JS shape. parity:boundary gates the refusal directly: it calls the hook and reads the message it throws. It used to be phrased as "the same way it holds the deferred props", which stopped being true when boundary stage 4 crossed the last of those and the section that held them inverted. |
-| `useStoreApi` | hook | `dual-run-hook` | — | crossed, gated — boundary | Crossed in shape only, and refusing at the call, for the same reason as `useStore`. parity:boundary gates the refusal. |
+| `useStore` | hook | `dual-run-hook` | — | crossed, gated — boundary | Crossed through `Boundary.Store`, which gives the store state upstream's JavaScript shape: every member, the consumer's own objects where ps-flow kept them, and the selector and `equalityFn` zustand's hook takes. parity:boundary mounts it and reads a selection, the whole state with no selector, and a lookup as a `Map`. `parity/boundary/store.test.mjs` compares it against upstream, and the two flow-probe scenarios capture its value in a browser. Until Step 3 G it was callable and refused at the call. |
+| `useStoreApi` | hook | `dual-run-hook` | — | crossed, gated — boundary | Crossed through `Boundary.Store`: `{ getState, setState, subscribe }` with zustand's merge, notification and direct-write semantics. parity:boundary mounts it, subscribes and writes; `parity/boundary/store.test.mjs` compares member values, read identity, `setState`, `subscribe` and the twenty actions against upstream. Replacing the whole state is refused with a message, because ps-flow's internals read a complete record. |
 | `useUpdateNodeInternals` | hook | `dual-run-hook` | — | crossed, gated — boundary | parity:boundary gates that it returns a callable one-argument updater, and that the updater takes upstream's `string | string[]` in both forms. |
 | `useViewport` | hook | `dual-run-hook` | — | crossed, gated — boundary | parity:boundary gates that it returns `{ x, y, zoom }` rather than an unrun thunk. |
 | `addEdge` | pure-fn | `oracle` | function | crossed, gated — surface (behavior) + conformance (generic-nodes) | Function parity compares results and refusals; generic-nodes proves the JS calling convention by connecting nodes through the driver and asserting the added edge. |
 | `applyEdgeChanges` | pure-fn | `oracle` | function | crossed, gated — surface (behavior) + conformance (generic-edges) | Function parity compares semantics; generic-edges proves the JS calling convention by selecting and deleting controlled edges through the driver. |
 | `applyNodeChanges` | pure-fn | `oracle` | function | crossed, gated — surface (behavior) + conformance (generic-nodes) | Function parity compares semantics; generic-nodes proves the JS calling convention by selecting, moving and deleting controlled nodes through the driver. |
-| `getBezierEdgeCenter` | pure-fn | `oracle` | function | passthrough, gated — surface (behavior) |  |
-| `getBezierPath` | pure-fn | `oracle` | function | passthrough, gated — surface (behavior) |  |
-| `getConnectedEdges` | pure-fn | `oracle` | function | passthrough, gated — surface (behavior) |  |
-| `getEdgeCenter` | pure-fn | `oracle` | function | passthrough, gated — surface (behavior) |  |
-| `getIncomers` | pure-fn | `oracle` | function | passthrough, gated — surface (behavior) |  |
-| `getNodesBounds` | pure-fn | `oracle` | function | passthrough, gated — surface (behavior) | Oracled by ticket 039. Bounded claim: the arithmetic from positions and dimensions to a rect, with no nodeLookup on either side. The measured DOM dimensions that feed it stay out of reach of any oracle, so this does not close the Measurement and rounding question. |
-| `getOutgoers` | pure-fn | `oracle` | function | passthrough, gated — surface (behavior) |  |
-| `getSimpleBezierPath` | pure-fn | `oracle` | function | passthrough, gated — surface (behavior) |  |
-| `getSmoothStepPath` | pure-fn | `oracle` | function | passthrough, gated — surface (behavior) |  |
-| `getStraightPath` | pure-fn | `oracle` | function | passthrough, gated — surface (behavior) |  |
-| `getViewportForBounds` | pure-fn | `oracle` | function | passthrough, gated — surface (behavior) + smoke ~ | Oracled by ticket 030: the fitView zoom formula agrees with upstream, so the spike's 1.03145-vs-1.05466 gap came from the inputs, not the arithmetic. Also traversed by fitView in the smoke fixtures, where nothing about its result is asserted. |
-| `isEdge` | pure-fn | `oracle` | function | passthrough, gated — surface (behavior) | Oracled by ticket 039 over all 16 key combinations — the guard's whole input domain, exhausted rather than sampled. Objects only: upstream's `in` test throws on a primitive where PSFlow answers false. |
-| `isNode` | pure-fn | `oracle` | function | passthrough, gated — surface (behavior) | Oracled by ticket 039 over all 16 key combinations — the guard's whole input domain, exhausted rather than sampled. Objects only: upstream's `in` test throws on a primitive where PSFlow answers false. |
-| `reconnectEdge` | pure-fn | `oracle` | function | passthrough, gated — surface (behavior) | Oracled by ticket 039, on both channels, across both shouldReplaceId settings. |
+| `getBezierEdgeCenter` | pure-fn | `oracle` | function | crossed, gated — surface (behavior) |  |
+| `getBezierPath` | pure-fn | `oracle` | function | crossed, gated — surface (behavior) |  |
+| `getConnectedEdges` | pure-fn | `oracle` | function | crossed, gated — surface (behavior) |  |
+| `getEdgeCenter` | pure-fn | `oracle` | function | crossed, gated — surface (behavior) |  |
+| `getIncomers` | pure-fn | `oracle` | function | crossed, gated — surface (behavior) |  |
+| `getNodesBounds` | pure-fn | `oracle` | function | crossed, gated — surface (behavior) | Oracled by ticket 039. Bounded claim: the arithmetic from positions and dimensions to a rect, with no nodeLookup on either side. The measured DOM dimensions that feed it stay out of reach of any oracle, so this does not close the Measurement and rounding question. |
+| `getOutgoers` | pure-fn | `oracle` | function | crossed, gated — surface (behavior) |  |
+| `getSimpleBezierPath` | pure-fn | `oracle` | function | crossed, gated — surface (behavior) |  |
+| `getSmoothStepPath` | pure-fn | `oracle` | function | crossed, gated — surface (behavior) |  |
+| `getStraightPath` | pure-fn | `oracle` | function | crossed, gated — surface (behavior) |  |
+| `getViewportForBounds` | pure-fn | `oracle` | function | crossed, gated — surface (behavior) + smoke ~ | Oracled by ticket 030: the fitView zoom formula agrees with upstream, so the spike's 1.03145-vs-1.05466 gap came from the inputs, not the arithmetic. Also traversed by fitView in the smoke fixtures, where nothing about its result is asserted. |
+| `isEdge` | pure-fn | `oracle` | function | crossed, gated — surface (behavior) | Oracled by ticket 039 over all 16 key combinations — the guard's whole input domain, exhausted rather than sampled. Objects only: upstream's `in` test throws on a primitive where PSFlow answers false. |
+| `isNode` | pure-fn | `oracle` | function | crossed, gated — surface (behavior) | Oracled by ticket 039 over all 16 key combinations — the guard's whole input domain, exhausted rather than sampled. Objects only: upstream's `in` test throws on a primitive where PSFlow answers false. |
+| `reconnectEdge` | pure-fn | `oracle` | function | crossed, gated — surface (behavior) | Oracled by ticket 039, on both channels, across both shouldReplaceId settings. |
 | `BackgroundVariant` | enum-value | `dual-run-value` | — | crossed, gated — surface (behavior) | Upstream runtime enum object, from @xyflow/react rather than @xyflow/system. Crossed by the boundary module (stage 1); surface parity deep-compares the frozen JS-surface object against upstream. |
 | `ConnectionLineType` | enum-value | `dual-run-value` | — | crossed, gated — surface (behavior) | Surface parity deep-compares the frozen JS-surface object against upstream, including Bezier's non-obvious string value "default" rather than "bezier". |
 | `ConnectionMode` | enum-value | `dual-run-value` | — | crossed, gated — surface (behavior) | Crossed by the boundary module (stage 1); surface parity deep-compares the frozen JS-surface object against upstream. |
@@ -276,7 +276,7 @@ than an unnoticed absence.
 | `ZIndexMode` | data | `dual-run-dom` | — | no runtime value, gated — conformance (generic-edges) | Four z-index assertions in generic-edges, including the two sub-flow cases. |
 | `AriaLabelConfig` | options | `dual-run-dom` | — | no runtime value, ungated |  |
 | `BezierPathOptions` | options | `oracle` | function | no runtime value, ungated | curvature swept by the getBezierPath property. |
-| `DefaultEdgeOptions` | options | `dual-run-dom` | — | no runtime value, ungated |  |
+| `DefaultEdgeOptions` | options | `dual-run-dom` | — | no runtime value, gated — boundary | All 23 members convert, where ten did and thirteen were refused before Step 3 G. parity:boundary mounts a value for every member, and `Test.Boundary.DefaultEdgeOptions` holds the merge under an edge and under `onConnect` against upstream's spread and `addEdge`. No browser fixture sets the options, so the coverage hole stays declared. |
 | `DeleteElementsOptions` | options | `dual-run-api` | — | no runtime value, ungated |  |
 | `EdgeLabelOptions` | options | `dual-run-dom` | — | no runtime value, ungated — conformance (generic-edges) ~ | String labels and the default measured background are reached by generic-edges; custom label styles, padding, visibility and border radius are still undriven. |
 | `FitBoundsOptions` | options | `dual-run-api` | — | no runtime value, ungated |  |
@@ -302,6 +302,6 @@ than an unnoticed absence.
 | `SetViewport` | instance-api | `dual-run-api` | — | no runtime value, ungated |  |
 | `ViewportHelperFunctions` | instance-api | `dual-run-api` | — | no runtime value, ungated |  |
 | `ReactFlowActions` | store | `none` | — | no runtime value, ungated | PS models the action half of the store as constructors of `React.Store.Action.Action`, a sum type a pure reducer folds, so there is no record for this name to denote. Documented divergence — allowlisted, and src/React.purs's header. |
-| `ReactFlowState` | store | `dual-run-api` | — | no runtime value, ungated | Observable through useStore selectors; no gate uses one. |
+| `ReactFlowState` | store | `dual-run-api` | — | no runtime value, gated — boundary | Reached through `useStoreApi().getState()` and `useStore` selectors. `parity/boundary/drift.mjs` holds its 85 members against `Boundary.Store`'s converters, `parity/boundary/store.test.mjs` compares every member and lookup entry against upstream, and the two flow-probe scenarios capture `getState` in a browser. |
 | `ReactFlowStore` | store | `none` | — | no runtime value, ungated | Surfaced on the PureScript surface by ticket 058, as a TS-name alias of `ReactFlowState`, which mirrors upstream's `ReactFlowStore` field by field. |
 | `GetMiniMapNodeAttribute` | internal-type | `none` | — | no runtime value, ungated | Surfaced on the PureScript surface by ticket 058; the minimap's three node-attribute accessors on `MiniMapProps` and `MiniMapNodesProps` are typed through it. |

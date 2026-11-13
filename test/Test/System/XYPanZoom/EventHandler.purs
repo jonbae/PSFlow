@@ -75,8 +75,7 @@ assert label cond = liftEffect $
   if cond then log ("ok  " <> label)
   else unsafeCrashWith ("FAIL " <> label)
 
--- | Yield once so a mistakenly deferred/debounced callback has a chance to
--- | expose itself to the count assertions below.
+-- | Upstream queues even a non-scroll end with a zero-delay timer.
 settle :: Aff Unit
 settle = makeAff \resume -> do
   _ <- setTimeout (resume (Right unit)) 0
@@ -151,13 +150,14 @@ runEventHandlerTests = launchAff_ do
     (eEvts == [ "none" ])
 
   -- The Just branches are consumer-visible too. Feed the handlers the two
-  -- shapes `foreignAsMouseOrTouch` distinguishes, back-to-back: regular ends
-  -- must not cancel each other through the scroll-only debounce timer.
+  -- shapes `foreignAsMouseOrTouch` distinguishes, on separate turns. Ends
+  -- in one turn coalesce upstream; EndTiming compares that behavior directly.
   let mouseEvent = mkMouseSourcedZoomEvent 11.0 21.0 1.1
       touchEvent = mkTouchSourcedZoomEvent 12.0 22.0 1.2
   liftEffect (startH mouseEvent)
   liftEffect (zoomH mouseEvent)
   liftEffect (endH mouseEvent)
+  settle
   liftEffect (startH touchEvent)
   liftEffect (zoomH touchEvent)
   liftEffect (endH touchEvent)

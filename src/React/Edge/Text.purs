@@ -6,6 +6,7 @@
 -- | `EdgeTextProps` scaffold) rather than TS's `[number, number]`.
 module React.Edge.Text
   ( edgeText
+  , labelShown
   , labelTransform
   ) where
 
@@ -38,6 +39,9 @@ type TextBBox =
 initialBBox :: TextBBox
 initialBBox = { x: 1.0, y: 0.0, width: 0.0, height: 0.0 }
 
+-- | Whether upstream draws a label at all: `if (!label) return null`.
+foreign import labelShown :: String -> Boolean
+
 foreign import measureText :: Foreign -> Effect TextBBox
 
 -- | TS `translate(${x - edgeTextBbox.width / 2} ${y - edgeTextBbox.height / 2})`,
@@ -63,8 +67,7 @@ edgeText = unsafePerformEffect $ reactComponent "EdgeText" \(props :: EdgeTextPr
     pure (pure unit)
 
   pure case props.label of
-    Nothing -> mempty
-    Just lbl ->
+    Just lbl | labelShown lbl ->
       let
         pad = fromMaybe defaultPadding props.labelBgPadding
         showBg = fromMaybe true props.labelShowBg
@@ -100,3 +103,4 @@ edgeText = unsafePerformEffect $ reactComponent "EdgeText" \(props :: EdgeTextPr
           , visibility: if bbox.width == 0.0 then "hidden" else "visible"
           }
           [ bg, labelText ]
+    _ -> mempty

@@ -38,6 +38,9 @@ const SOURCES = {
   packageJson: read("package.json"),
 };
 
+/** The checks outside the gate scheme that CI runs after the four gates, in order. */
+const BEYOND_GATES = ["npm run parity:boundary", "npm run build:package", "npm run parity:package"];
+
 const indentOf = (line) => line.match(/^\s*/)[0].length;
 
 /** The steps of every job, as `{ name, id, if, run }`. */
@@ -117,11 +120,15 @@ function view({ workflow, readme, packageJson }) {
   const steps = parseSteps(uncommented);
   const table = fiveGateTable(readme);
 
+  const ci = readme.slice(readme.indexOf("## Continuous integration"));
+  const ciEnd = ci.indexOf("\n## ", 1);
+
   return {
     workflow,
     uncommented,
     steps,
     table,
+    ciSection: ciEnd === -1 ? ci : ci.slice(0, ciEnd),
     cheap: table.filter(({ gate }) => gate !== "system parity"),
     scripts: JSON.parse(packageJson).scripts,
     /** Steps whose `run` executes `command` as a command line of its own. */
@@ -233,6 +240,28 @@ const CLAIMS = {
     }
   },
 
+  // Not gates, so the five-gate table cannot hold them: this list does, and
+  // README's CI section has to name each one. They run after every cheap gate,
+  // so a red one never withholds a gate's result, and in this order, because
+  // the package check reads the `dist/` that the package build writes.
+  "the checks outside the gate scheme each run once, in order, after the four gates": ({
+    cheap,
+    steps,
+    running,
+    ciSection,
+  }) => {
+    const at = (command) => steps.indexOf(running(command)[0]);
+    let previous = Math.max(...cheap.map(({ command }) => at(command)));
+
+    for (const command of BEYOND_GATES) {
+      assert.equal(running(command).length, 1, `\`${command}\` in ${WORKFLOW}`);
+      assert.ok(at(command) > previous, `\`${command}\` runs after the steps before it in the list`);
+      assert.equal(running(command)[0].if, undefined, `\`${command}\` runs unconditionally`);
+      assert.ok(ciSection.includes(`\`${command}\``), `README's CI section names \`${command}\``);
+      previous = at(command);
+    }
+  },
+
   "every npm script the workflow runs exists": ({ uncommented, scripts }) => {
     const referenced = [...uncommented.matchAll(/npm run ([\w:-]+)/g)].map(([, script]) => script);
 
@@ -305,6 +334,30 @@ const PROBES = [
           "        run: npm run test:smoke",
           "        continue-on-error: true\n        run: npm run test:smoke"
         ),
+    },
+  },
+  {
+    breaks: "the checks outside the gate scheme each run once, in order, after the four gates",
+    by: "the boundary checks dropping out of the workflow",
+    patch: { workflow: (w) => w.replace("        run: npm run parity:boundary\n", "") },
+  },
+  {
+    breaks: "the checks outside the gate scheme each run once, in order, after the four gates",
+    by: "the package check running before the build it reads",
+    patch: {
+      workflow: (w) =>
+        w
+          .replace("run: npm run build:package", "run: npm run SWAP")
+          .replace("run: npm run parity:package", "run: npm run build:package")
+          .replace("run: npm run SWAP", "run: npm run parity:package"),
+    },
+  },
+  {
+    breaks: "the checks outside the gate scheme each run once, in order, after the four gates",
+    by: "README's CI section no longer naming the package check",
+    patch: {
+      readme: (r) =>
+        r.replace("consumer with\n`npm run parity:package`.", "consumer."),
     },
   },
   {

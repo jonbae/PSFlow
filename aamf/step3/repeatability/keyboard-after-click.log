@@ -1,0 +1,6 @@
+$ node aamf/step3/repeatability/keyboard-experiment.mjs after-click 5
+{"mode":"after-click","round":1,"consistent":true,"differences":[]}
+{"mode":"after-click","round":2,"consistent":true,"differences":[]}
+{"mode":"after-click","round":3,"consistent":true,"differences":[]}
+{"mode":"after-click","round":4,"consistent":false,"differences":[{"kind":"order","path":["callbacks"]},{"kind":"changed","path":["callbacks",15,"args",1,"position","x"]}]}
+{"mode":"after-click","round":5,"consistent":false,"differences":[{"kind":"order","path":["callbacks"]},{"kind":"changed","path":["callbacks",15,"args",1,"position","x"]}]}

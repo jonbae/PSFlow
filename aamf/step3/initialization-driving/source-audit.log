@@ -1,0 +1,13 @@
+$ python3 aamf/step3/initialization-driving/audit.py
+{
+  "verifiedAt": "2026-11-11T05:43:19.281526+00:00",
+  "changedExistingInputs": 300,
+  "newOwnedInputs": 304,
+  "unexpectedChanges": 0,
+  "unexpectedNewInputs": 0,
+  "frozenRuntimeChanges": 0,
+  "certifiedVendoredFiles": 171,
+  "vendoredChanges": 0,
+  "priorCheckpointFilesVerified": 430,
+  "priorEvidenceChanges": 0
+}

@@ -1,0 +1,68 @@
+{
+  "mappingDigest": "c3f6e1349865e8289755a588a8b5f5e6a0b4f371f48d28e0b7a2a24c649c1539",
+  "sourceCommit": "7dc475d81ef9796b5b90f57a29475eaafa375753",
+  "targetCommit": "7e41ee83cc9ea4c77509d9baacaab833558420c3",
+  "graph": {
+    "tasks": [
+      {
+        "id": "psflow-w01-viewport",
+        "name": "Cross getViewportForBounds at the JS entry",
+        "sourceFiles": [
+          "/private/tmp/psflow-aamf-step1-20261109/source/xyflow/packages/system/src/utils/general.ts"
+        ],
+        "sourceReferenceFiles": [
+          "packages/system/src/utils/graph.ts",
+          "packages/react/src/store/initialState.ts",
+          "packages/react/src/hooks/useViewportHelper.ts"
+        ],
+        "referenceFiles": [
+          "src/System/Utils/General.purs",
+          "src/System/Types/Geometry.purs",
+          "src/System/Types/Connection.purs",
+          "src/Boundary/Elements.purs",
+          "src/Boundary/FitView.purs",
+          "src/Boundary/FitView.js",
+          "src/Boundary/Untagged.purs",
+          "src/Boundary/Undefined.purs",
+          "index.js",
+          "PORTING.md",
+          "CONTEXT.md",
+          "README.md",
+          "test/Test/Parity/Geometry.purs"
+        ],
+        "targetFiles": [
+          "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/src/Boundary/Utils.purs",
+          "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/src/Boundary/Utils.js",
+          "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/src/Boundary.purs",
+          "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/src/Boundary.js",
+          "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/parity/boundary/viewport.test.mjs",
+          "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/parity/surface/allowlist.json",
+          "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/parity/surface/upstream.json",
+          "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/parity/surface/psflow.json",
+          "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/parity/surface/upstream-bundle.mjs",
+          "/private/tmp/psflow-aamf-step2-20261109/target/PSFlow/parity/surface/report.md"
+        ],
+        "dependencies": [],
+        "description": "Implement only W01. Retain System.Utils.General geometry. Accept six arguments in a JS call and return a JS viewport. Padding has NO default: undefined means zero; null throws upstream TypeError. Match padding parsing, malformed-value console errors and return/error behavior against the provided JS-entry regression. Runtime FFI is limited to JS property access, type tests, parseFloat and native error semantics. Keep all geometry math in PureScript. Move only this export into crossed ownership, remove exactly its two surface exceptions, and keep stage 4 and seven raw exports. Existing viewport.test.mjs is the red regression and must remain intact; do not weaken it. No other work or scaffold is authorized.",
+        "acceptanceCriteria": [
+          "node --test parity/boundary/viewport.test.mjs passes all cases against pinned @xyflow/system",
+          "spago build succeeds; npm run parity:surface then spago test succeed",
+          "npm run parity:boundary succeeds",
+          "Only declared outputs change; core geometry, project setup, entry point, tests and comparator rules are preserved",
+          "Only viewport arity and call-convention exceptions are retired; stage 4 has seven passthrough exports"
+        ],
+        "knowledgeBaseRef": "PSFlow reviewed source-to-existing-target reconciliation",
+        "complexity": "simple",
+        "parityChecks": [
+          "node --test parity/boundary/viewport.test.mjs passes all cases against pinned @xyflow/system",
+          "spago build succeeds; npm run parity:surface then spago test succeed",
+          "npm run parity:boundary succeeds",
+          "Only declared outputs change; core geometry, project setup, entry point, tests and comparator rules are preserved",
+          "Only viewport arity and call-convention exceptions are retired; stage 4 has seven passthrough exports"
+        ]
+      }
+    ],
+    "sccs": [],
+    "compilationUnits": []
+  }
+}

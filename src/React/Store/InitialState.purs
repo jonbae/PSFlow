@@ -180,7 +180,9 @@ initialState opts =
     , edgesReconnectable: true
     , elementsSelectable: defaultElementsSelectable
     , elevateNodesOnSelect: true
-    , elevateEdgesOnSelect: false
+    -- Upstream's initial state holds `true`, and `<ReactFlow />`'s own
+    -- default of `false` reaches the store through `StoreUpdater` on mount.
+    , elevateEdgesOnSelect: true
     , selectNodesOnDrag: true
     , multiSelectionActive: false
     , onNodeDragStart: Nothing

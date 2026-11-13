@@ -1,0 +1,2126 @@
+[
+  {
+    "path": "parity/boundary/connected-edges.test.mjs",
+    "sha256": "78d4d5e5d703f355a310ec8bc6913f1d98b4bfaf91f7b339902ef1219b7af984"
+  },
+  {
+    "path": "parity/boundary/incomers.test.mjs",
+    "sha256": "9f1a311dce8b8991cc2bbf08719d50d3f1e52fd774614c2444c912b551d748aa"
+  },
+  {
+    "path": "parity/boundary/is-edge.test.mjs",
+    "sha256": "83b3a58ad7061afa4fd67089182723401c448acaf63465ebb2618083f23c71a4"
+  },
+  {
+    "path": "parity/boundary/is-node.test.mjs",
+    "sha256": "6bc9c8e3590bd35ed12c674bc2b2118f5f6fe31e3446a4515bfe8be2762a7a3c"
+  },
+  {
+    "path": "parity/boundary/node-bounds.test.mjs",
+    "sha256": "ccd7a229ae1b88024fb2a5da6b91b28d4ad768efe2eee68211a5a3779e2fc809"
+  },
+  {
+    "path": "parity/boundary/outgoers.test.mjs",
+    "sha256": "9f30f1ee150ff853406d107325775824670f53e17946380f27a2b6dd6ec8c9ad"
+  },
+  {
+    "path": "parity/boundary/reconnect-edge.test.mjs",
+    "sha256": "8ab1a99840c82c67c0bc8f42d28ba6bad142a609f1f95afd541599b82dc2ca9a"
+  },
+  {
+    "path": "index.js",
+    "sha256": "3893c38cef3189a64f596a385ffedc0644e5cfb2af478314b4a011e296a92cba"
+  },
+  {
+    "path": "oracle/esbuild.mjs",
+    "sha256": "db0c77ca9ae7350e390f23175a9eba735b51c609c787f5ed54b6eacd46e3f4b7"
+  },
+  {
+    "path": "oracle/package.json",
+    "sha256": "d55706b871479cc69e51bd7edf4e0e0db34aea930ab2988549a6a8ee2d09af3b"
+  },
+  {
+    "path": "package-lock.json",
+    "sha256": "79cad5737ca2fdc57cf3e3e05f3dbd8572048db467c2000d9aba74c8a06c3d77"
+  },
+  {
+    "path": "package.json",
+    "sha256": "0b55cd3d5c0e724c85b629ee00575b8e4d57672dbf805e4e85d3df1de4d71992"
+  },
+  {
+    "path": "parity/boundary/drift.mjs",
+    "sha256": "0f8f8b9b3d5469c4f07dcecfa157adb55dab98de43110710535a1aa22c75c58b"
+  },
+  {
+    "path": "parity/boundary/mount.mjs",
+    "sha256": "937e13857b437641468a15971d996591c0c242c1b2942b77a734a189bb46324f"
+  },
+  {
+    "path": "parity/boundary/purs.mjs",
+    "sha256": "550ea7704de1080f9d243924bdca47a5ad4137f3ca745b7135237e5fb0da3631"
+  },
+  {
+    "path": "parity/boundary/purs.test.mjs",
+    "sha256": "f6927678b0154739680ca847a6827295d76b14557fa75b0b5e0b1283c04fe345"
+  },
+  {
+    "path": "parity/boundary/regions.json",
+    "sha256": "60cb97ab5ea258b0e416ea08d468fb95c04cf5303bb51e342023fa94c041cc01"
+  },
+  {
+    "path": "parity/boundary/viewport.test.mjs",
+    "sha256": "65e0d6ddbb4ccbf47158fb91fb4adf5f6f8311406783f0beb3aa1c18ca272078"
+  },
+  {
+    "path": "parity/census/build.mjs",
+    "sha256": "f079b96230e44cbc5185ffdffb25a7cc41960a305615f289bf0c023dd99017b4"
+  },
+  {
+    "path": "parity/census/build.test.mjs",
+    "sha256": "a6ed4815cc29005337320b827576218fa8df5477cb055e439da1768cf91877c4"
+  },
+  {
+    "path": "parity/census/classification.json",
+    "sha256": "8dabcc6f633b78a05ad0f10b9d6dd81bed00f7f789aa3e01e45cde2d2ba6d209"
+  },
+  {
+    "path": "parity/census/report.md",
+    "sha256": "b4d321e7685605bbb232b78e0b238230a85fd3d9ee9ca62a62215cf11778bab9"
+  },
+  {
+    "path": "parity/changelog-audit/audit.mjs",
+    "sha256": "06969f096853318d2b70acd175eed4d8feb94b76efd0b21be2ddd89574b0b9d8"
+  },
+  {
+    "path": "parity/changelog-audit/buckets.mjs",
+    "sha256": "4f8559f6d8f70745d3a44399a271bef31e591b941d1fc81a43174b9b515a0435"
+  },
+  {
+    "path": "parity/changelog-audit/buckets.test.mjs",
+    "sha256": "b488d5087d83d0a418ea6dfdc32290af69ecb10adcb2c8a987e5ea63522311cc"
+  },
+  {
+    "path": "parity/changelog-audit/extract-entries.mjs",
+    "sha256": "a67f8e4a19de7c28353c2b01d733ccb222d653a20577faf43e8f6ddce4440e57"
+  },
+  {
+    "path": "parity/changelog-audit/verdicts.json",
+    "sha256": "1dc54394b45526258703cbcbed0b49a592eb1f81a2aec28d2fb2746e61c9379a"
+  },
+  {
+    "path": "parity/driver/README.md",
+    "sha256": "a8a90a61e089a326972549fed0ab280066e40fc2a37d0269af61fe6361acffdd"
+  },
+  {
+    "path": "parity/driver/build.mjs",
+    "sha256": "1f3c36a47b9326b7d8a18def7a4443085ecaee821115650eac1af0759fbfc192"
+  },
+  {
+    "path": "parity/driver/callbacks.mjs",
+    "sha256": "293b98f3ca84d3da8319ff015837896d4fce0e07bba6551028d555eea12a4341"
+  },
+  {
+    "path": "parity/driver/callbacks.test.mjs",
+    "sha256": "64c6060bef3f74ee71d8e21faf14d8dc69f42de6a3ace8d66631338f10f12dd3"
+  },
+  {
+    "path": "parity/driver/controls.mjs",
+    "sha256": "0becbac8c6a80265966d5a81eb9f141d0adc43dcbd922d3d0e4f93048afdcd8e"
+  },
+  {
+    "path": "parity/driver/index.html",
+    "sha256": "b6f7916044eec5ecf706f5b1692ed178d90ef477fa55b6e7a4e7638db4b58b0c"
+  },
+  {
+    "path": "parity/driver/observations.mjs",
+    "sha256": "d20b8ef023325e6f1a706663ea4f18b021e1adc39b8e615341e7e06c25b5b07a"
+  },
+  {
+    "path": "parity/driver/observations.test.mjs",
+    "sha256": "90f643d823dc3934b30f15342f8a4ce8c3b0420cb23d9bafab5f8e837ff50f4b"
+  },
+  {
+    "path": "parity/driver/probe-graph.mjs",
+    "sha256": "6aba7618f5424c6f59480ee9e0685fdc2fbc789634642c203d9ec729689f91cc"
+  },
+  {
+    "path": "parity/driver/probe-graph.test.mjs",
+    "sha256": "9c611a1d2c42f57d31fbd85fedea60001ee7b8dc1d559d408395eff01e0bd7e9"
+  },
+  {
+    "path": "parity/driver/probe-hooks.mjs",
+    "sha256": "3fc579f14eb007f8fb040e367c502cde9a371acea7c27a5322aab90dfa5d938c"
+  },
+  {
+    "path": "parity/driver/probe-hooks.test.mjs",
+    "sha256": "036ef1c92cc0c59959bdd2c1109bc27852a5df0426f64eaa8224c0f1b9702e73"
+  },
+  {
+    "path": "parity/driver/registry.mjs",
+    "sha256": "898160ffb88e8b57a4d9e74afce584bd84a69288185c923a199e82382298e1fa"
+  },
+  {
+    "path": "parity/driver/registry.test.mjs",
+    "sha256": "49cfc0c2e33e8d06c7bd2ca9b9939258125fa2b255368ccd0c5245be7d64b1a1"
+  },
+  {
+    "path": "parity/driver/sides.mjs",
+    "sha256": "a7c9c68962e97eb817bb7385060ec0a9c921cb5f40bcb849b5eb3b46595d5b59"
+  },
+  {
+    "path": "parity/driver/sides.test.mjs",
+    "sha256": "eced7b52580c639889244ebd99f9c41e55e7f6c5035197e78c66fd8bec2cfa00"
+  },
+  {
+    "path": "parity/driver/src/Flow.tsx",
+    "sha256": "0ad755f974844a908ac89119a4055bacdc6693831ef7cf121cde875a8eb3d65d"
+  },
+  {
+    "path": "parity/driver/src/Probes.tsx",
+    "sha256": "cb0644b25e69d1e3ec20e38f56fd6891061dcf6228635ec51d0ff9e9dd96cdc5"
+  },
+  {
+    "path": "parity/driver/src/callbacks.ts",
+    "sha256": "4baa79b4b4f9b97a47f6c8d90e03917244273f33860f5509b33b76ba29269692"
+  },
+  {
+    "path": "parity/driver/src/entry.tsx",
+    "sha256": "d869f963e4a0167b907ba337dfdf5a257cd9b453d3593ddf98142f6fcb912b49"
+  },
+  {
+    "path": "parity/surface/agreement.mjs",
+    "sha256": "fdf74551a54137d0df6a7a1408359eb1fb79ced659ff7066477a8e9ef3caee82"
+  },
+  {
+    "path": "parity/surface/agreement.test.mjs",
+    "sha256": "57f1aecddf4653066e66d81a68f3550a70cd88c3f5f649da1cbee597e00902f7"
+  },
+  {
+    "path": "parity/surface/allowlist.json",
+    "sha256": "60409c11725331c245feb1e5a6bd0f14ba2f4f8d06c391de784cb8031e1b187b"
+  },
+  {
+    "path": "parity/surface/allowlist.mjs",
+    "sha256": "770f229a3b35c5f288cc8cc02f5a5eb7ee004fdd664f67ff8acb258786068b10"
+  },
+  {
+    "path": "parity/surface/allowlist.test.mjs",
+    "sha256": "d178ef02859e98f01ae2726bc9833a20228caaa5106f8a722d570f1a6ca60acc"
+  },
+  {
+    "path": "parity/surface/behavior.mjs",
+    "sha256": "2e0711e3a4c967faab5536e9040e48fc9e4a8cdea23f98cfc7d0cc594d58c85d"
+  },
+  {
+    "path": "parity/surface/behavior.test.mjs",
+    "sha256": "e33e349cd281fd6c1627772e51f51da44a4db9ebf5102ee170ff6aac19c24013"
+  },
+  {
+    "path": "parity/surface/diff.mjs",
+    "sha256": "57a9c2363cbf7a55921ec7cb119fe25de6f2fb89f580aa398cbd7a7019bcacb5"
+  },
+  {
+    "path": "parity/surface/extract-psflow.mjs",
+    "sha256": "1d98216e44e04b1b6e70f3b559637f60e69847f46a15f67a3636bbe7ec897d17"
+  },
+  {
+    "path": "parity/surface/extract-upstream.ts",
+    "sha256": "98d9705a0d7351791e3389f7b2f320ba018cf27c9f69bac70c4d40ac887b614a"
+  },
+  {
+    "path": "parity/surface/prop-types.mjs",
+    "sha256": "b148152c25977ce0f2887265445ee718bde0c09dc82416416eb649e8b0d8438c"
+  },
+  {
+    "path": "parity/surface/shape.mjs",
+    "sha256": "a53c794aaaac929d437a969df2f473888e32e6458832a1ccfd24333d68654d30"
+  },
+  {
+    "path": "parity/surface/shape.test.mjs",
+    "sha256": "48670d0180f588cb4956bef5c2489e86ed9a297e59de3432bc025c7651eb4b1e"
+  },
+  {
+    "path": "parity/surface/tsconfig.json",
+    "sha256": "0226a8dfd8fecc6167f90d9243aad1f00cf97534291a50dad8b8cdfa4d7749d4"
+  },
+  {
+    "path": "parity/system/README.md",
+    "sha256": "b28246cd6c8eac258f5ffa7de49bcb87cb6d0c06f73d1203e5dfc345ade754f4"
+  },
+  {
+    "path": "parity/system/compare.mjs",
+    "sha256": "d90b38ceb7c61fc635d6c53b2636bb24558f76df71d4d1a85a1ec790cf1ef58d"
+  },
+  {
+    "path": "parity/system/compare/callbacks.mjs",
+    "sha256": "58a45d652cb3e9c7a4eaf5a042befead61b02cfe9b9791c1e35628cd9b2d6d5a"
+  },
+  {
+    "path": "parity/system/compare/callbacks.test.mjs",
+    "sha256": "80fafae1f3eb58f81f6b88c485607fbcedfe7e8dcb174a68f73153a561f41440"
+  },
+  {
+    "path": "parity/system/compare/compare.test.mjs",
+    "sha256": "bb1b913c21f405fb4212bd5e9768cb32094dc8e9d504cf72723aa44306759700"
+  },
+  {
+    "path": "parity/system/compare/consistency.mjs",
+    "sha256": "abcf4ceba2ddd3ed08c8f2e8e795cf77187adeb230d97ddea6134b70290bd019"
+  },
+  {
+    "path": "parity/system/compare/consistency.test.mjs",
+    "sha256": "aed81fae21475fd2f716bdc899373ab8058c75f713429bf67a283a5ca9203304"
+  },
+  {
+    "path": "parity/system/compare/diff.mjs",
+    "sha256": "bc8ff1a97fc81399ed18881e6944495be9e2cd75be490fc961a89d0c5b6f17ad"
+  },
+  {
+    "path": "parity/system/compare/diff.test.mjs",
+    "sha256": "9ffaa2cd9c665226c51452c708362657b8499c483e24d1f0e387230d12276b1a"
+  },
+  {
+    "path": "parity/system/compare/fixtures/baseline.psflow.capture2.json",
+    "sha256": "6c953460c150e4054c8f7bb7651e6c4ec77cfd07a07f4390bb3b6c5f8cb4d2fc"
+  },
+  {
+    "path": "parity/system/compare/fixtures/baseline.psflow.json",
+    "sha256": "2e809b749cf8aaa270451883651a4b08d2e2a5fe4c7ee8d43b0bd80b32b12866"
+  },
+  {
+    "path": "parity/system/compare/fixtures/baseline.upstream.capture2.json",
+    "sha256": "a158bc17f269b28b7dfa0400ec09e9f8b20e49e740a9c2d1723eff8332e01f52"
+  },
+  {
+    "path": "parity/system/compare/fixtures/baseline.upstream.json",
+    "sha256": "133c77e72f688cf3a9c79abd66f80bb8e4fde14cce51904beaa828c42804d956"
+  },
+  {
+    "path": "parity/system/compare/fixtures/missed-target.psflow.json",
+    "sha256": "30e1cb622f2a926a8c850046ce0e93f7f673a4aedd83f9804c6e065c922b7ee5"
+  },
+  {
+    "path": "parity/system/compare/fixtures/precise-coordinate.psflow.json",
+    "sha256": "b8ebbd9d30a5011360768a4d0db9f9a053c937d05386ec7839f46430570e1356"
+  },
+  {
+    "path": "parity/system/compare/fixtures/reordered.psflow.json",
+    "sha256": "fce1e7fb8e41cf878ea25741c5f7fd681900e7bda10643db19c3676330183d40"
+  },
+  {
+    "path": "parity/system/compare/fixtures/restless-handler.psflow.capture2.json",
+    "sha256": "c3fd0ca7636b39b6305ae668f841e0dc4cda7a50acf3f7f6690b475a35c73c58"
+  },
+  {
+    "path": "parity/system/compare/fixtures/silent-handler.psflow.json",
+    "sha256": "31f0c8cf80dbf8ebc5ee86c6bf5a943e61874d8ec0ab6e9816c248e2a05ab4b5"
+  },
+  {
+    "path": "parity/system/compare/fixtures/wobbling-box.psflow.capture2.json",
+    "sha256": "93d57278942dc8bbfa98cfc0ac09fc02bc23353c2ce9e6041f6f9aae2c5e00a5"
+  },
+  {
+    "path": "parity/system/compare/index.mjs",
+    "sha256": "9650e493aca6f2942335e77c96defc188031f05df51260e640778d8d3e7e571f"
+  },
+  {
+    "path": "parity/system/compare/normalize.mjs",
+    "sha256": "0e3f0d08e1d8d4cf32f0c8fbd6cedbab424699785ba8a5234f484e430fba16b3"
+  },
+  {
+    "path": "parity/system/compare/normalize.test.mjs",
+    "sha256": "a04348a199654a2c37f80b07133eb1a1e36460588ae92b9804ed6c7254c8fe2e"
+  },
+  {
+    "path": "parity/system/compare/paths.mjs",
+    "sha256": "acc8e2a47c6b37d940a7196296a27b82bbad79a771e84deaec0d5003830e021f"
+  },
+  {
+    "path": "parity/system/compare/regions.mjs",
+    "sha256": "1ed0f36ceaf7e058f603f871ab2a1ab844070907f3b1adb4a9926ce71138f054"
+  },
+  {
+    "path": "parity/system/compare/regions.test.mjs",
+    "sha256": "e540ae417ee68b58b0df94b5bf71fa9198b566a2e4d72aac70b38d2be5f29e6d"
+  },
+  {
+    "path": "parity/system/compare/report.mjs",
+    "sha256": "f5f02db8d4c5cc93566d19bf382173dc8c3855106d9c40f7a0712cabb20750cf"
+  },
+  {
+    "path": "parity/system/compare/run.mjs",
+    "sha256": "14267e356133568cd11a83a9c9f2b0a09ee6c2c6519aadb211e3a41f4aa29d90"
+  },
+  {
+    "path": "parity/system/compare/run.test.mjs",
+    "sha256": "1d67f39b2711e8e541fef4b879f82aa95a1dc5fe35e7d80b45f9607c991dee9e"
+  },
+  {
+    "path": "parity/system/corpus/README.md",
+    "sha256": "868c17f92550e9194077566e36755cd3fa4b9369a8807c508ba151ae76819c21"
+  },
+  {
+    "path": "parity/system/corpus/fork.json",
+    "sha256": "9cb4a2045d332964c6f4095089ba360be0354434856793a3118bec737a099762"
+  },
+  {
+    "path": "parity/system/corpus/fork.mjs",
+    "sha256": "65d16f7f7988a4439b7ca6d5ba1ddb61838bf0efacc4597497abb7a872781c6c"
+  },
+  {
+    "path": "parity/system/corpus/fork.test.mjs",
+    "sha256": "90be53714003b6bf051d70001c1b615e5d60127bdfea2fb5495e50fba152a1a3"
+  },
+  {
+    "path": "parity/system/corpus/hole-closing.mjs",
+    "sha256": "429ab57f780c9b1a681dbdaaed0d2af27e3979bd9735918936485d442b3a21d5"
+  },
+  {
+    "path": "parity/system/corpus/index.mjs",
+    "sha256": "ccfb0ba3e81899e6744a8448fb4e807d67cf466073389707e146ea448ce96bc6"
+  },
+  {
+    "path": "parity/system/corpus/index.test.mjs",
+    "sha256": "c5fe623e3e8e4020cb60d919a875b9b93df4ef3c9964adf85ca36bf8fc2f8de1"
+  },
+  {
+    "path": "parity/system/corpus/mount-baselines.mjs",
+    "sha256": "80506b7eeab0f32a100ae03087e6d2bf7901e256357aac038f5accd4dfc9f340"
+  },
+  {
+    "path": "parity/system/corpus/mount-baselines.test.mjs",
+    "sha256": "7232f0a702c535780539b44f8f57a83363a838d1e388f55d69668672b2c24ec2"
+  },
+  {
+    "path": "parity/system/corpus/probe-plan.json",
+    "sha256": "d3e301947740eacf223a82bf7935e2b9bca7e8b6bee28280ce688954ece456ca"
+  },
+  {
+    "path": "parity/system/corpus/probes.mjs",
+    "sha256": "4cf3080be2d8793400e48a2c9556d6c62c170e47f863b4fb0cb9b6922559b6a5"
+  },
+  {
+    "path": "parity/system/corpus/probes.test.mjs",
+    "sha256": "ab4c46f2041139f01c07d88c0d5d949634aea0f900a52f6a715e8e45ace7a53c"
+  },
+  {
+    "path": "parity/system/corpus/reserved.mjs",
+    "sha256": "18a26b1edbfc49d847f32e87a25c33c77b0583683ecca3680a89804d96b4bede"
+  },
+  {
+    "path": "parity/system/corpus/retirement-debt.mjs",
+    "sha256": "fcdb70e1c7aa33ac972a327ce075564ad68ba659c3d609fd341df872cac06ce8"
+  },
+  {
+    "path": "parity/system/corpus/retirement-debt.test.mjs",
+    "sha256": "ac624993a0cc5a34942595a781a5afd96e011d20af64e8deb0a707ea1ef2b221"
+  },
+  {
+    "path": "parity/system/corpus/routes.mjs",
+    "sha256": "d23e2257570b1610623514ad165b386a87e82871c13dec90764085701ad7dea1"
+  },
+  {
+    "path": "parity/system/corpus/seed.mjs",
+    "sha256": "bebf10366f466f1164772d31915ca72db2fc1a58dc4ce4842ec5229ece624e9a"
+  },
+  {
+    "path": "parity/system/corpus/seed.test.mjs",
+    "sha256": "3ddb487900161adc51ccce8cd88d22d6897e70b38c2aeabf742510ec89b38fd9"
+  },
+  {
+    "path": "parity/system/corpus/test-debt.mjs",
+    "sha256": "2e55604e6719229719122c577eb8e9593b5db2380512129df6b979e9ab4889fb"
+  },
+  {
+    "path": "parity/system/corpus/test-debt.test.mjs",
+    "sha256": "dde1472a359cac587ec0cff9291048beac19bd3cbed5db6568f9ccc1541f660a"
+  },
+  {
+    "path": "parity/system/coverage.mjs",
+    "sha256": "1ca1d7d188e1b964beeb5779f2ac204bb6680f136e6b8104b8547510fc03484c"
+  },
+  {
+    "path": "parity/system/coverage/coverage.mjs",
+    "sha256": "801fe50a1c405259f3b2ca18e2cba4904335240ab8b601c59836dd51698ce37a"
+  },
+  {
+    "path": "parity/system/coverage/coverage.test.mjs",
+    "sha256": "9a512127c0dd91933598dd1a683f5216c26d76458f92d36106066b25b9a72a83"
+  },
+  {
+    "path": "parity/system/coverage/holes.json",
+    "sha256": "d72e34d13e2560e55a6e6f6fe5406ccdbb63b879a6cd121b247a140d9ddbd588"
+  },
+  {
+    "path": "parity/system/coverage/report.mjs",
+    "sha256": "3732ecd9973479366d0e78062bf274c06825466e21f98855fae83faf55b07839"
+  },
+  {
+    "path": "parity/system/coverage/report.test.mjs",
+    "sha256": "117e0448c0b9f7b3877ee134b719be2cae8f834cb5cb6e086efadb02f747f3df"
+  },
+  {
+    "path": "parity/system/coverage/witness.mjs",
+    "sha256": "ade340813ece3b92a858bbe1bb6bab90affffd18a4b7eab2f35bfd7af1cda620"
+  },
+  {
+    "path": "parity/system/coverage/witness.test.mjs",
+    "sha256": "b0497b270348072a5592b6a8db58ca01fad096e2ae9754a6289b685aca678371"
+  },
+  {
+    "path": "parity/system/coverage/witnesses.json",
+    "sha256": "9578f23d6c68e8730c57cfcd802217dfbb749f5b7a8b8bec0a31a8608e9d2c8d"
+  },
+  {
+    "path": "parity/system/fixtures/README.md",
+    "sha256": "faa8a44e9dea043108bcb6593db097a1b4b4dda65fa7e590d397a751c3ba2900"
+  },
+  {
+    "path": "parity/system/fixtures/chrome/background.ts",
+    "sha256": "280dca376d3502ae7d58c72e0e4ff6537d5f51644feaec1ace5953ceed1c2207"
+  },
+  {
+    "path": "parity/system/fixtures/chrome/controls.ts",
+    "sha256": "9427005b5d4866bae444ea9b95d97503e47085488390aa1af0ab0f54dc12ab7e"
+  },
+  {
+    "path": "parity/system/fixtures/chrome/minimap-colors.ts",
+    "sha256": "755d568a0685e836e150b08dfd62e9fceecbb7ad18e0debb850143402b74ee96"
+  },
+  {
+    "path": "parity/system/fixtures/chrome/minimap-hidden-nodes.ts",
+    "sha256": "e34b3df67c8f7534441ac205ca5908b074b42be70623c64248ae5a20cfab5cfd"
+  },
+  {
+    "path": "parity/system/fixtures/chrome/panels.ts",
+    "sha256": "2d63556147f1a9649a93049d34850398a169bd42ad81cc698bdce7b3754c785e"
+  },
+  {
+    "path": "parity/system/fixtures/edges/base-edge-path.ts",
+    "sha256": "20294edfc8acc729cbeaf9b9b4bdccef5eee66cd755ad41c1d72af590c9fb9ad"
+  },
+  {
+    "path": "parity/system/fixtures/edges/components/PathAttributeEdge.tsx",
+    "sha256": "f1c2a56ff5ed16d00c8eb2b524996183900706f711add1e84aafe2a3207320e6"
+  },
+  {
+    "path": "parity/system/fixtures/fitview/uncontrolled.ts",
+    "sha256": "86b4569658fa59c8dc50213f62e9c55470d4d428b22ac3df65a88dc092460868"
+  },
+  {
+    "path": "parity/system/fixtures/flow/chrome-defaults.ts",
+    "sha256": "e7b4a66d8fdb596e62dc6f70c9cceaf61ccfb6ea8eb5bd4ef9e689322ef4d73d"
+  },
+  {
+    "path": "parity/system/fixtures/flow/custom-testid.ts",
+    "sha256": "40085116a1c399acf55007ffdc3dbb90a4922e08a92e79d3794bd4ff188eb2ef"
+  },
+  {
+    "path": "parity/system/fixtures/flow/display-none.ts",
+    "sha256": "d7b705c72522ab6ff57bcc7250052f6974a566c54a4dc9ab8af4e9f500d74b85"
+  },
+  {
+    "path": "parity/system/fixtures/flow/limits-change.ts",
+    "sha256": "d4b4683986abcdc5e5f945c51cecdd260facadb5bf6622d75af38eee3e24c989"
+  },
+  {
+    "path": "parity/system/fixtures/flow/not-selectable.ts",
+    "sha256": "756676818392d3f75e1c50b96b3736c48c62e1b2d04178dda913ec740bc16ab6"
+  },
+  {
+    "path": "parity/system/fixtures/flow/props-change.ts",
+    "sha256": "af8f65d2a44d8f6cad958222986a2064ff4436b4878ab0cf1442bef0ed98296d"
+  },
+  {
+    "path": "parity/system/fixtures/nodes/autopan.ts",
+    "sha256": "bdd58fed04e073d383712ba28dbb29dd54df23eb857dc8a4c4df62039f08b433"
+  },
+  {
+    "path": "parity/system/fixtures/nodes/components/ConnectionsNode.tsx",
+    "sha256": "eae3bcb663a693b7eb58ad8a0077d4a606d0b81981eae575426fbf69171937b8"
+  },
+  {
+    "path": "parity/system/fixtures/nodes/components/PropsRecordNode.tsx",
+    "sha256": "f1410616b50948001314db6e5e1012e16be12a6e4e17b559e3adb794428d0e88"
+  },
+  {
+    "path": "parity/system/fixtures/nodes/connections.ts",
+    "sha256": "205a39a245a9b238b73e7a94a0a7a2a979860bc50c4900ed2f18bcf810e7f764"
+  },
+  {
+    "path": "parity/system/fixtures/nodes/expand-parent.ts",
+    "sha256": "6a60465720c0f86a277e60fd554e38712589af9724f53014218b585d12b52fbd"
+  },
+  {
+    "path": "parity/system/fixtures/nodes/no-select-on-drag.ts",
+    "sha256": "cf21646440950ac563b674a78a1648d9400c50082857320fe66bba5a1e59f698"
+  },
+  {
+    "path": "parity/system/fixtures/nodes/nowheel.ts",
+    "sha256": "5fcb4fe2a96f8451bd6bf811a7f2e18bfe5d81dfada92e3d601495f176230a31"
+  },
+  {
+    "path": "parity/system/fixtures/nodes/props-record.ts",
+    "sha256": "5f49a61570b3b6519596c247d7e5211ebd66c4c1c781951b8b20ed105fcf706c"
+  },
+  {
+    "path": "parity/system/fixtures/nodes/tall.ts",
+    "sha256": "e328c5358ed915cdaa70e381a85e0c2f9ebba596c8385adf0f377f65e3af2fbc"
+  },
+  {
+    "path": "parity/system/fixtures/nodes/unmeasured.ts",
+    "sha256": "199dd8b6153346d50222291a4edba7dcc153e5212cb2cba9a1787ba7e0d424ad"
+  },
+  {
+    "path": "parity/system/fixtures/shared/graph.tsx",
+    "sha256": "3ba1ed849432ff7ecaf18075727165669cde8922f6e7e76abff7731608f7d76b"
+  },
+  {
+    "path": "parity/system/fixtures/viewport/controlled.ts",
+    "sha256": "c52192834ab9a883396220596864608bb97ea43fff48ab27092473969ef8fd0e"
+  },
+  {
+    "path": "parity/system/fixtures/viewport/helpers.ts",
+    "sha256": "fb8e1c9df8013977bdf95f9fa1756c06255b5c6e588f25b9f2ae24912cc43e4b"
+  },
+  {
+    "path": "parity/system/fixtures/viewport/pan-on-scroll.ts",
+    "sha256": "76b9d4580d596e1e19568337b5fd2dffe26ae05e7c6332a2c579d7431be664fe"
+  },
+  {
+    "path": "parity/system/fork.mjs",
+    "sha256": "3488f3a931f3c5f44cf20629998b69b4eefa7925bc2574a0285e3ae7b0b8b45d"
+  },
+  {
+    "path": "parity/system/harness/README.md",
+    "sha256": "ec036b5f9db14bd75c2ba4cec876f56c98224e742cbba464522e3e0ae5a873e4"
+  },
+  {
+    "path": "parity/system/harness/actions.mjs",
+    "sha256": "c6792e3d275c71025f8fc3156be0b045a372ec230e87be6c6bb661d786e2f2c0"
+  },
+  {
+    "path": "parity/system/harness/actions.test.mjs",
+    "sha256": "02df9f9ebe7660df2986c76bad23a33cb76f717a29a73b09996e144fda199d3c"
+  },
+  {
+    "path": "parity/system/harness/call-log.mjs",
+    "sha256": "7388ae975e3fd4152ba0379c167b132c6a9c64510981207d3328bd36b8693f7e"
+  },
+  {
+    "path": "parity/system/harness/call-log.test.mjs",
+    "sha256": "5e670b995e21254c221f220e5211c01d1e3bb3d4679ffd0f26d600253ab9e21e"
+  },
+  {
+    "path": "parity/system/harness/dom.mjs",
+    "sha256": "e49989a765aeb000d1c32cbea8bb0c571a2c8d967eda5dfbd25ad158bbd0148d"
+  },
+  {
+    "path": "parity/system/harness/dom.test.mjs",
+    "sha256": "a84623c172ad670fc1b66f127ff3bdde9c4811d263be62a5c2bbecdb1a331292"
+  },
+  {
+    "path": "parity/system/harness/driving.mjs",
+    "sha256": "655d1a1d08857fb26ca8a6363fa2ae91712dfae8ab034f0b755cc3ca9334f49c"
+  },
+  {
+    "path": "parity/system/harness/driving.test.mjs",
+    "sha256": "a73f03b4c81246e3e8d4308a29ab55d893b9ba486db5980b0bbab830d4e898c9"
+  },
+  {
+    "path": "parity/system/harness/fake-port.mjs",
+    "sha256": "4a0ae6c68fb4fb1384af0d8d15ccc0e685ee3592a526cf1a71b7c3e48dd0eff5"
+  },
+  {
+    "path": "parity/system/harness/gestures.mjs",
+    "sha256": "35ae855ecb40a2136035f05b0580ac510cf970b3a9a28254061deb3f7820bdf2"
+  },
+  {
+    "path": "parity/system/harness/gestures.test.mjs",
+    "sha256": "5d54c71c6b6bdd96e22405a9bc762bb3052ded20e4a0f034d6b624bf30704a59"
+  },
+  {
+    "path": "parity/system/harness/live.spec.mjs",
+    "sha256": "3b68b145019dce67c55bd93bf5bb179d322169ad073ba1b6ed7516f1c632ff01"
+  },
+  {
+    "path": "parity/system/harness/pending.mjs",
+    "sha256": "bf9ecc747fd019b5b6e44f952ff4e1262551ea86c926025d540398c572fc15e4"
+  },
+  {
+    "path": "parity/system/harness/pending.test.mjs",
+    "sha256": "e21595e1cae33d22ab35c03526f22fc26d09ef5e0c22aee587317c1ea694c48d"
+  },
+  {
+    "path": "parity/system/harness/playwright.config.mjs",
+    "sha256": "1a0b7d9e8280e19a24311353091b15067563e5490018680e485f1d6831e117c1"
+  },
+  {
+    "path": "parity/system/harness/port.mjs",
+    "sha256": "c572f593419669f8b8ecf07a8c42701a510d831660d1e2508600e7e6e5c41415"
+  },
+  {
+    "path": "parity/system/harness/port.test.mjs",
+    "sha256": "763fa794f16ca4cdd8f1dadec875e9a32bd8012947a4ba05aa17c957a202cce0"
+  },
+  {
+    "path": "parity/system/harness/scenario.mjs",
+    "sha256": "b80d2a5e2dffd7a6c0cbaa5be6e8f047277fcfd45608f10bdee60c69c0d1c670"
+  },
+  {
+    "path": "parity/system/harness/scenario.test.mjs",
+    "sha256": "bfd8f56a07748b9000f2c7874e03cfb692fa49287065ddc05400df852bdbcf99"
+  },
+  {
+    "path": "parity/system/harness/serialize.mjs",
+    "sha256": "4b65f29af1c30ecf3022b3f6a97462087861c6644a0f683ec9a4f23e2b998236"
+  },
+  {
+    "path": "parity/system/harness/serialize.test.mjs",
+    "sha256": "d886fc01a2f094ac4e0c85074e3bd8d4a50468afe1d0fb004b5f86a7750cbff2"
+  },
+  {
+    "path": "parity/system/harness/settle.mjs",
+    "sha256": "08b06acf5f504031c96d8eab44802c0c60115dcdc87bcac1f45c59874274a545"
+  },
+  {
+    "path": "parity/system/harness/settle.test.mjs",
+    "sha256": "d5ec9642b6b1a75ec318f8a1272b0c98e1ace96f510cee0527e6dd3e3660424f"
+  },
+  {
+    "path": "parity/system/harness/vocabulary.mjs",
+    "sha256": "6ad37a98f2a6f6ab45642e19356acca1eaf7bb4f352a135678128e6761320100"
+  },
+  {
+    "path": "parity/system/harness/vocabulary.test.mjs",
+    "sha256": "0f32537bae9ee3609eab505bbf24d1f528a42b9f604a5da8089f4efcc2f4bff6"
+  },
+  {
+    "path": "parity/system/net.mjs",
+    "sha256": "db8a2e4bf7681673d085c5894db052704f167e92dac7e48cf9dd66bd7e45492e"
+  },
+  {
+    "path": "parity/system/net/server.mjs",
+    "sha256": "602b8ae66e3bf181dc9a4bb9086f94820204c47b0980fc7baeac3c1070e9cea5"
+  },
+  {
+    "path": "parity/system/net/server.test.mjs",
+    "sha256": "f9150f3684288decfdbd7d91584280a198362c63a0f0457efd34a22b687788a1"
+  },
+  {
+    "path": "parity/system/net/summary.mjs",
+    "sha256": "4cfa241e8a50d0c3e400ed31d368b8cce7259c291dc2881660931f05e737c3db"
+  },
+  {
+    "path": "parity/system/net/summary.test.mjs",
+    "sha256": "85d965398dc497ec5da2e00aa02188cbb9e4dca43ef79b4eeb2a6b3cae8b2d75"
+  },
+  {
+    "path": "parity/system/net/traces.mjs",
+    "sha256": "e075a3728b4af07f5f88aaf70308bbb4b0be566e05cb96783b6e98f9290d92d6"
+  },
+  {
+    "path": "parity/system/net/traces.test.mjs",
+    "sha256": "5e3b5184b6d1711555bed1b7a63be8d9cebe1ab02cf5afd9cd82b29f10f3bdbe"
+  },
+  {
+    "path": "parity/system/normalization.json",
+    "sha256": "84f5642fb384cb0dded67b85cfc11b6c8afba4cc25a2c0359bc5370fcd3cb18c"
+  },
+  {
+    "path": "parity/system/regions.json",
+    "sha256": "c426880339668a0a4cf8ee69bf70d6dc31e4cbe835d92de51b6d1de5fc17b71d"
+  },
+  {
+    "path": "parity/system/trace-format.mjs",
+    "sha256": "615a692618e4f9f1f3953c6877188e7d1ad80975ded577e2d18a7e660da4e88f"
+  },
+  {
+    "path": "parity/system/trace-format.test.mjs",
+    "sha256": "5652944d40939763095072fb45085bfe215cb9212e9db2bb65dfbd816d05b64c"
+  },
+  {
+    "path": "parity/system/weakenings.json",
+    "sha256": "97881163b126ff6c9feae49f7cc0af148f1beabd2521feeb399cc1154a30a90d"
+  },
+  {
+    "path": "spago.lock",
+    "sha256": "41488a3036ccf571ca1cd94c3416034e175b7486ba039432aa36324604ff28a0"
+  },
+  {
+    "path": "spago.yaml",
+    "sha256": "521ca6717cccf352e217481cd8e7d6869e8381babfdc794e96a8d51f9bbff54f"
+  },
+  {
+    "path": "src/Boundary.js",
+    "sha256": "c58a9e2c095dc3a54d45fcc5fc96a1fded0e0d972580ba2b4b9216504fe10dcc"
+  },
+  {
+    "path": "src/Boundary.purs",
+    "sha256": "6742cecbf2c4ee155f3b2c1d432147e59b81a9a3d59173c122954190eed20117"
+  },
+  {
+    "path": "src/Boundary/Callbacks.js",
+    "sha256": "f10d42150e8626bacf816e6e2cf57e33825b41071f87b9046092e3c5b49f8ea4"
+  },
+  {
+    "path": "src/Boundary/Callbacks.purs",
+    "sha256": "9ecae0b2b9e94f77e6e31686e7b7ee6cde7739f115896e1ca36a7521eaad7daf"
+  },
+  {
+    "path": "src/Boundary/Chrome.purs",
+    "sha256": "6c948e593c50a5e40b8bbcc4ce54777200cda2c8d642c26dedff701029b5c87f"
+  },
+  {
+    "path": "src/Boundary/EdgePaths.purs",
+    "sha256": "ced0f08206b47e379641c77c98e553948f92df2f9d38ef431ade035d581530e0"
+  },
+  {
+    "path": "src/Boundary/Edges.purs",
+    "sha256": "9ff6db6c3e0fd4f92c32de53c3bab446b1f166b5bef58d7481f09fb05e397599"
+  },
+  {
+    "path": "src/Boundary/Elements.purs",
+    "sha256": "aaaeedf40ec1915708de8d09d056fdbc338502479d781603ff1aa6cda7d4c985"
+  },
+  {
+    "path": "src/Boundary/Enums.purs",
+    "sha256": "203dfa0bf03b42a1eb020826fa1ab552ba485b74c2e2b5d4d4bb6102f1505d13"
+  },
+  {
+    "path": "src/Boundary/FitView.js",
+    "sha256": "0f574e0a3ef099a6cf9d474173044d93ec9b3b4e214d918a1073686d04332ca8"
+  },
+  {
+    "path": "src/Boundary/FitView.purs",
+    "sha256": "9d040e0e78b3b1f0902c1e0f7bf471fc4719813c39daf14e4e5245f5c1edd13c"
+  },
+  {
+    "path": "src/Boundary/Flow.purs",
+    "sha256": "06c81c04edabf985910dd039a475e8abd366bd301cb73911a8c233989ac8fa8a"
+  },
+  {
+    "path": "src/Boundary/Hooks.js",
+    "sha256": "c497f10f60859f25439d2d8db4ff8460c07a90b8533c112844762299aff814c5"
+  },
+  {
+    "path": "src/Boundary/Hooks.purs",
+    "sha256": "1770783589740af17aa6974a9c0fa197453c5ecc62738d03b1e1771a12f59ebd"
+  },
+  {
+    "path": "src/Boundary/Instance.js",
+    "sha256": "7382654cfa2ff792fddc4527a75319d5c68365e7a34bf4e9c3437c4eee51a179"
+  },
+  {
+    "path": "src/Boundary/Instance.purs",
+    "sha256": "4ebcc7a3a429a46bd905bc9a8915bbb85c57d519112f745706d0e69beda6504c"
+  },
+  {
+    "path": "src/Boundary/NodeChrome.purs",
+    "sha256": "e5140785dc9cff077421acf4908668d89975f22a3baf9d20d00024c1eddd592a"
+  },
+  {
+    "path": "src/Boundary/Portals.purs",
+    "sha256": "c3d529868ca3d239ca8054f9c00b3aeffff84c77a6da3ae93a5ce3bd7b3beae8"
+  },
+  {
+    "path": "src/Boundary/Promise.js",
+    "sha256": "8e5b53cf674f8ae9f1d77506e33c61d239074564fe2e33dc49add5bb40fb101c"
+  },
+  {
+    "path": "src/Boundary/Promise.purs",
+    "sha256": "63b4fe6c3be44871eea5fb3bb0674ff1c2a088c649911e24e60b9a9f3d54acdd"
+  },
+  {
+    "path": "src/Boundary/Refusal.purs",
+    "sha256": "a959e2cb4981edd4bbce1df6ec43e2163175a6dabddcc511f0874756d067e7f0"
+  },
+  {
+    "path": "src/Boundary/Resizer.purs",
+    "sha256": "d2e882c18be1daa02ed9f5088649bcfccd5471a1e82e712d535d4d7e2ef35e1d"
+  },
+  {
+    "path": "src/Boundary/Rest.purs",
+    "sha256": "02d41b66333d45845ec0e2cf6383c029dc7bc502563f65c581e72b229abcd1c6"
+  },
+  {
+    "path": "src/Boundary/SetState.js",
+    "sha256": "73a9f224637c82d55b65097bd1d9fdc911a331135c8132b6a9d413d96320b798"
+  },
+  {
+    "path": "src/Boundary/SetState.purs",
+    "sha256": "271bb4fe66611336635326a5d209cb7e2e640d6e0852f2612dc4a669e4c45723"
+  },
+  {
+    "path": "src/Boundary/Undefined.js",
+    "sha256": "0812b5182f02f3d84e6223f8854becba6c75850824ea7c78ad3555b5e2498bb3"
+  },
+  {
+    "path": "src/Boundary/Undefined.purs",
+    "sha256": "525035837fc634aaf54e1d1c31d7d6b32c31eaa2f5a4bd02deb438a64f1932c8"
+  },
+  {
+    "path": "src/Boundary/Untagged.js",
+    "sha256": "2f9485347f5aa0ed986f2b71703bed222e33d1a62e2f4e9b135a498fc5eee5ed"
+  },
+  {
+    "path": "src/Boundary/Untagged.purs",
+    "sha256": "1a0bb41a9d67836100a0dbdbebfdc3130bad20bc3e8d4dbd1ff393463157ed55"
+  },
+  {
+    "path": "src/Boundary/Utils.js",
+    "sha256": "a689bd04f90910ce8c602756537284f181564827059005ffd12542cf113213ef"
+  },
+  {
+    "path": "src/Boundary/Utils.purs",
+    "sha256": "e03183f38f31723f2ce67e903ad1d03cb4eacd11fc66936a5801513ae5c58a9c"
+  },
+  {
+    "path": "src/Boundary/Wrapper.js",
+    "sha256": "82c0cd49419691661c7bc36a91655c9a27e32d047b6bfde481ea38c35bb58524"
+  },
+  {
+    "path": "src/Boundary/Wrapper.purs",
+    "sha256": "46434a2fbfa18b4e64db0f8f04e5db37ab4d84df7f512d20ef4995df4a65a4f2"
+  },
+  {
+    "path": "src/React.purs",
+    "sha256": "02f8b17a88fdf564bebb3ebd26430225faa58690331c56f1bdabaebcc11daf0b"
+  },
+  {
+    "path": "src/React/Additional/Background.purs",
+    "sha256": "8935d25ffa287fd74ea97b5e4f1238c1b4186cbf5d6b92438981bf07ed335acb"
+  },
+  {
+    "path": "src/React/Additional/Background/Patterns.purs",
+    "sha256": "d67726b249254b2b501568414db3156613d1a35cca5011077262ccb7c2acceb2"
+  },
+  {
+    "path": "src/React/Additional/Controls.purs",
+    "sha256": "89c0a9b0b88b17590589087ed07ccdaa635b26be78b912bc2d0274f5102208de"
+  },
+  {
+    "path": "src/React/Additional/Controls/Button.purs",
+    "sha256": "54f742dca54596ad5d7c7447bb7943eb96ec87ffa4b47e50d0e9815e80747103"
+  },
+  {
+    "path": "src/React/Additional/Controls/Icons.purs",
+    "sha256": "1e4792dc50d5b3db1574480922cd01864d41dc3fef0e1af8f6b8dabb9cc31ee6"
+  },
+  {
+    "path": "src/React/Additional/EdgeToolbar.purs",
+    "sha256": "8fbb6b27efbd35222bd8ac738a79b9a4a00b21d28d680d363d2cb01828034d0f"
+  },
+  {
+    "path": "src/React/Additional/MiniMap.purs",
+    "sha256": "2272296c4cf1fb5c7c93c9e93f03e68dd8f5a6b5bd741b5466626193f016c2b7"
+  },
+  {
+    "path": "src/React/Additional/MiniMap/Node.purs",
+    "sha256": "57809380cef68a58c9484ec62782881b4b337ce7c9ef0d00ac0d3fbe0e7aa7ea"
+  },
+  {
+    "path": "src/React/Additional/MiniMap/Nodes.purs",
+    "sha256": "34d0d8327877e95cfd7830c4ee97a4b06901a6cc6edbd6da4642c33ad87bb90b"
+  },
+  {
+    "path": "src/React/Additional/NodeResizer.purs",
+    "sha256": "c160258472bd13708eb52004f70b98d8c7e94166f4480632a2b161ab8f5c718a"
+  },
+  {
+    "path": "src/React/Additional/NodeResizer/Control.purs",
+    "sha256": "743f4f27947e58f606b74d340ada9416b43ffc83b34c507f90f51dee191d28bf"
+  },
+  {
+    "path": "src/React/Additional/NodeToolbar.purs",
+    "sha256": "4cd1db4a5d216e92aeea17a90679e62beace9fb13aeaacb287463086c0ac50c9"
+  },
+  {
+    "path": "src/React/Additional/NodeToolbar/Portal.purs",
+    "sha256": "4ac5eaaec0519d4fe7e6c60a3d0a150b0dc6553d72d7e741b886b47cf1963341"
+  },
+  {
+    "path": "src/React/Component/ConnectionLine.js",
+    "sha256": "d8005ae075bfa7fa69a38f8ddbf3cfd00d3ce417efff3417dca8ca0cb75659dc"
+  },
+  {
+    "path": "src/React/Component/ConnectionLine.purs",
+    "sha256": "f6da4dad7c9106f75eb692d1de541d503d6d348ee49e3b33a8a16d929a4c4b1c"
+  },
+  {
+    "path": "src/React/Component/EdgeWrapper.js",
+    "sha256": "486991224020033cad447dfc91dcca66cc472d78638348a4a23db87ba5abb92d"
+  },
+  {
+    "path": "src/React/Component/EdgeWrapper.purs",
+    "sha256": "12680ed9bc2ec8eeaa68254f104f71866d203bbd35e52b39d6c25fbc1397a03e"
+  },
+  {
+    "path": "src/React/Component/EdgeWrapper/UpdateAnchors.purs",
+    "sha256": "c0f095ccaa5f5dfe8209e3dc8b0d3a9d0dc897cf8c2b9810ee091873238518f4"
+  },
+  {
+    "path": "src/React/Component/EdgeWrapper/Util.purs",
+    "sha256": "dfdfe5e6e76351c64f5bc28ef6f3039f5cd2987a85ae8efdce302a18e436695f"
+  },
+  {
+    "path": "src/React/Component/NodeWrapper.js",
+    "sha256": "2fae03a916e51ffaa2a5622f28146850b93e907f972e6f311c348cc8e2588ca9"
+  },
+  {
+    "path": "src/React/Component/NodeWrapper.purs",
+    "sha256": "13d39dd04406d1de5089f79425c471fe44ef0c726d1e8cc4da2905f6988b55fd"
+  },
+  {
+    "path": "src/React/Component/NodeWrapper/Util.purs",
+    "sha256": "30cc461d545f539c7f91c293f0cfa52661188d40751dcd4400cdaa0825e54e5e"
+  },
+  {
+    "path": "src/React/Component/NodesSelection.js",
+    "sha256": "f4a5f0bcf32dde0660f1831bf68f9dd485197d5dc79a616a80f6d328d64b47a7"
+  },
+  {
+    "path": "src/React/Component/NodesSelection.purs",
+    "sha256": "682e683331f16afef70e0a4cc917421dd2ee95fdf996026edfc5031310ea34a8"
+  },
+  {
+    "path": "src/React/Component/UserSelection.purs",
+    "sha256": "6ec3494d0d2986c5c9c2ed15855b0d25e6f50ec05f294524d0fc35f3de69b635"
+  },
+  {
+    "path": "src/React/Container/A11yDescriptions.purs",
+    "sha256": "71c87c2a94c09fb6b0d5c5310a247ef657c6326a19b86690d08c15d72a131a22"
+  },
+  {
+    "path": "src/React/Container/Attribution.js",
+    "sha256": "15ac3cbf1b1e67410d9e90a9b7e08f9df035f8006eb8b51679083d1375accf7a"
+  },
+  {
+    "path": "src/React/Container/Attribution.purs",
+    "sha256": "88af0e9f749734e734dde1f8d0a7cbf5406f01adfe88cc961f1c9c62e2a44699"
+  },
+  {
+    "path": "src/React/Container/EdgeRenderer.purs",
+    "sha256": "f90626a571df4ec20053050be75754de049be240875fa54a23ae78b38dd546c6"
+  },
+  {
+    "path": "src/React/Container/FlowRenderer.purs",
+    "sha256": "e87fd4dfba509851bec13266889bf3384cd60a3252150ead5683df86bcb88aeb"
+  },
+  {
+    "path": "src/React/Container/GraphView.purs",
+    "sha256": "999b0f15019ad250639bfbb7d87df249f5c65cb4b3cb8824b6d3d31dc3f2f2f4"
+  },
+  {
+    "path": "src/React/Container/InitValues.purs",
+    "sha256": "fd3970cd7ba30013f67b68fc39343b09878a10d2e45de3d5b29fcd5f5f244971"
+  },
+  {
+    "path": "src/React/Container/MarkerDefinitions.purs",
+    "sha256": "90224418674b8df1c6ec2e7613d07ef3056fe687d3be3495111dc86033da49dc"
+  },
+  {
+    "path": "src/React/Container/MarkerSymbols.purs",
+    "sha256": "c7fcf762bee28107b7b7ca09062cf5f2d81db89cfa7c2c43431c424645962262"
+  },
+  {
+    "path": "src/React/Container/NodeRenderer.purs",
+    "sha256": "175d64195a9b533b78b91c4cbfe880c28f248eca067b40ec3e71e6f9ac5f3ba9"
+  },
+  {
+    "path": "src/React/Container/Pane.js",
+    "sha256": "54187766057767e2dca8b088b2fc81504ad1807c14114d0957b44c8dac581f2d"
+  },
+  {
+    "path": "src/React/Container/Pane.purs",
+    "sha256": "afb2990529606dd2b5e00770e0cfe74e91f35002ee8057d6fb21e28ca78a0dba"
+  },
+  {
+    "path": "src/React/Container/Pane/Internal.purs",
+    "sha256": "bad6afcdeb738210edd2ad1373f652c3865051c7af63f36fea955546b1527c7f"
+  },
+  {
+    "path": "src/React/Container/ReactFlow.js",
+    "sha256": "84962aae1df22c6ac91e2a97397f3a0f7e0565a6a69b26473677000888afbce4"
+  },
+  {
+    "path": "src/React/Container/ReactFlow.purs",
+    "sha256": "3c734a6c32424f156ee8279bc98032809a9cbd17a61afba4ccdf74940d7854b5"
+  },
+  {
+    "path": "src/React/Container/Viewport.purs",
+    "sha256": "a43322e61f09b208922bc3cca39e9bed484c821339416798e2bb21f5de217437"
+  },
+  {
+    "path": "src/React/Container/Wrapper.purs",
+    "sha256": "73e59a4f02f449d81ea41b12b85ef2465093708594af9313aac2a14717683c72"
+  },
+  {
+    "path": "src/React/Container/ZoomPane.js",
+    "sha256": "c92615eab1cc93cc076113950772a63bfd5d1062981472669d26e333792e4bea"
+  },
+  {
+    "path": "src/React/Container/ZoomPane.purs",
+    "sha256": "06c71a5aff7c4dbae54e7356363d4a6a58e82eb7d82faa3a0dbbfcdf202b6b86"
+  },
+  {
+    "path": "src/React/Context/Batch.purs",
+    "sha256": "e7cdd6ca04befc432a2ee73f49d8a87f29d83741b026d5b22757cee63f30f06d"
+  },
+  {
+    "path": "src/React/Context/NodeId.purs",
+    "sha256": "d9e10014e64644adeefb6dacb96f093dd325e502f4df405585b302dae28791c1"
+  },
+  {
+    "path": "src/React/Context/Store.purs",
+    "sha256": "32b474c67cb774717105557b7cd91f43af6736ef636e35d0e008fbd60a0f0519"
+  },
+  {
+    "path": "src/React/Edge/Anchor.purs",
+    "sha256": "d060ac703b063120050901fff1316d9f516d8d822a91141b6e003d51f159b426"
+  },
+  {
+    "path": "src/React/Edge/Base.purs",
+    "sha256": "71bd64d2bc58cfa5fffa7ba0987474964f2fa50fef91b3cfcec20b4cab19a0ba"
+  },
+  {
+    "path": "src/React/Edge/Bezier.purs",
+    "sha256": "85600132d4d600176a8d15921bbfed4a86bdf7d591a6c00513ffbc20f38ce4ce"
+  },
+  {
+    "path": "src/React/Edge/SimpleBezier.purs",
+    "sha256": "8886be1994a569c21d301260fa39bf1d984c57bac962495918c910a17ebdf4aa"
+  },
+  {
+    "path": "src/React/Edge/SmoothStep.purs",
+    "sha256": "3e3d8685cf1a28236677facd2f4d095e55c0e8917784ff3daca648c862e89a93"
+  },
+  {
+    "path": "src/React/Edge/Step.purs",
+    "sha256": "4828e0f82ec6a0c231eb74d6afc33dcc25282ce937a642c2bc42788cb3721ace"
+  },
+  {
+    "path": "src/React/Edge/Straight.purs",
+    "sha256": "8ef99a640e301043bc1c495f345f3b5fba54b3d19b7dc6c70ae14a1b25cf2527"
+  },
+  {
+    "path": "src/React/Edge/Text.js",
+    "sha256": "2167128235eca77eb30d5e228dbd609613c3ba73039d813651e28b9d5d28eaff"
+  },
+  {
+    "path": "src/React/Edge/Text.purs",
+    "sha256": "81f1fbd3ed86a5a1e9610c97603078a460be60373b0c07f48ea7dcd7d1f594b9"
+  },
+  {
+    "path": "src/React/FFI/DOM.js",
+    "sha256": "bae626a669955a3e50c2a292552d6f4a1523a650438f2fae42310b1dec9b9033"
+  },
+  {
+    "path": "src/React/FFI/DOM.purs",
+    "sha256": "8382ad69f44a4985037b6d3f3fe99cf2da7e595473d69e8f888bb38e61910982"
+  },
+  {
+    "path": "src/React/FFI/Env.js",
+    "sha256": "44e29bc45749a10627092ed1e43263905efb8d90487ed4473baf0032640ee273"
+  },
+  {
+    "path": "src/React/FFI/Env.purs",
+    "sha256": "e3c8f99064ec8256cf978d2118ea5b35547ecede41b4ba51b4b29dd809eb7eb8"
+  },
+  {
+    "path": "src/React/FFI/ForwardRef.js",
+    "sha256": "13f638bd67420cb69e0da08e0a89464f25bcdca1931675c2f99007075e826615"
+  },
+  {
+    "path": "src/React/FFI/ForwardRef.purs",
+    "sha256": "41948d2cc3ef6c33067b615c233ea0f6fdba1323249ba7b9bb36cb271a2e1e41"
+  },
+  {
+    "path": "src/React/FFI/MatchMedia.js",
+    "sha256": "30e13fe0677a1dc9bc088c1b2da51618b95a437e51060a3e97fd0152132dc56e"
+  },
+  {
+    "path": "src/React/FFI/MatchMedia.purs",
+    "sha256": "7bd76cb24a460de66f697375a6c71b9429788f33458c4f959d8ee749d938f7ce"
+  },
+  {
+    "path": "src/React/FFI/React.purs",
+    "sha256": "5702f77c3663326f3990cadab284dcafee3dd5c2af84c5349e787e8d17448836"
+  },
+  {
+    "path": "src/React/FFI/ResizeObserver.js",
+    "sha256": "e429035c0ca5ec12f4024889bac4d16acf0d40bc3fa6863b80539387ac1a68bf"
+  },
+  {
+    "path": "src/React/FFI/ResizeObserver.purs",
+    "sha256": "2afb9c9f8ac24f80ac3eb10307f91c981ae1667cc07277268dbdb1e13bffce75"
+  },
+  {
+    "path": "src/React/Handle.js",
+    "sha256": "a6061655d87e05195640a146e9840b6550949f717df40241fbc93ee2e69451f2"
+  },
+  {
+    "path": "src/React/Handle.purs",
+    "sha256": "3156eeb13b62f1e6d9a5fe240a6be35201a3b1874f2e29ae5edb9cb8bf4c4adb"
+  },
+  {
+    "path": "src/React/Hook/ColorModeClass.purs",
+    "sha256": "b19b7ee231cd5e3155d19623b2dc1695b3426e25a6fdd476b92edc47d2f00820"
+  },
+  {
+    "path": "src/React/Hook/Drag.purs",
+    "sha256": "b3e35bb92fb6b2646f3680a724be91ce5f2a737ed6d47943d9ef2968e6c1f4ea"
+  },
+  {
+    "path": "src/React/Hook/GlobalKeyHandler.purs",
+    "sha256": "9558291010672177863658663c91f4c0788f6abe3990dab8dd7711adf2d0a6ed"
+  },
+  {
+    "path": "src/React/Hook/HandleConnections.purs",
+    "sha256": "199c51354c55f65d6e29adf5f3bd30821676dbde3d6bb390bd8ffef3f72903fd"
+  },
+  {
+    "path": "src/React/Hook/IsomorphicLayoutEffect.purs",
+    "sha256": "6603484bd91b25600a66a1c3040b4dc9cd6a52aba87ed5c8904e4bb30927e8a2"
+  },
+  {
+    "path": "src/React/Hook/KeyPress.purs",
+    "sha256": "2ad1699cda241c8ab2f1702720612cc8fa29c138f00c98be18f7a47f25542664"
+  },
+  {
+    "path": "src/React/Hook/Listeners.purs",
+    "sha256": "8fe792d53cf15d7cfaf4f785fc12686e77413814bd412c61d5d6bd1bf262dc92"
+  },
+  {
+    "path": "src/React/Hook/Middleware.purs",
+    "sha256": "5d34ab26daddf4f081f4a83ab8916862e3afd5d6f442f44f005b7f8076ac81f7"
+  },
+  {
+    "path": "src/React/Hook/MoveSelectedNodes.purs",
+    "sha256": "e28290f1457141ba34962c75490504ea3f31edd314fdf940b73623340d79b193"
+  },
+  {
+    "path": "src/React/Hook/NodeConnections.purs",
+    "sha256": "fb87d4d73988a284a897591005c98dd7e65f10c4cda5207b85082eba7a320f9b"
+  },
+  {
+    "path": "src/React/Hook/NodeObserver.purs",
+    "sha256": "237358f41f1a29d1480ecc6aa43da6df192b982e782c261a704160039f5f11e9"
+  },
+  {
+    "path": "src/React/Hook/NodeOrEdgeTypesWarning.js",
+    "sha256": "c2c5894f7eaade804b2a0c3615aeae2e46e31f51116eea3a96b39bb0f3348d5e"
+  },
+  {
+    "path": "src/React/Hook/NodeOrEdgeTypesWarning.purs",
+    "sha256": "3afc888ff139a161bf2cd73d270d3f501a42d68df3192b3eadf4bebb261441ca"
+  },
+  {
+    "path": "src/React/Hook/NodesEdgesState.purs",
+    "sha256": "67d1679487f26600598a2928821f9ad5923741563b6210930f6c9d912640877f"
+  },
+  {
+    "path": "src/React/Hook/ReactFlow.purs",
+    "sha256": "22535bb6f0103b340a413fe27593b546536e68cf7f32fb28087b1e5cb88a3b88"
+  },
+  {
+    "path": "src/React/Hook/ResizeHandler.purs",
+    "sha256": "6ec9e9b3e46d7669b063185ed1da3ad79317cc972a0c08fb21fb9bd19f3ddcd0"
+  },
+  {
+    "path": "src/React/Hook/Selectors.purs",
+    "sha256": "5b8ebc9a94068c3f462ab7800ca867b497e669a859960a1f821ca28563897a13"
+  },
+  {
+    "path": "src/React/Hook/Store.js",
+    "sha256": "32eeec2ce06170aff5e8ee0195fe1b01d9050acc4f6768f239a309475e7fffaf"
+  },
+  {
+    "path": "src/React/Hook/Store.purs",
+    "sha256": "d7648346ae024ae199bccd80a001c25b735a86b5e163cd8ad9026264e5716268"
+  },
+  {
+    "path": "src/React/Hook/StylesLoadedWarning.js",
+    "sha256": "2b7375527798c3e1ae372e36a26747fbcb947fbf57030e8740e727668ed68e7d"
+  },
+  {
+    "path": "src/React/Hook/StylesLoadedWarning.purs",
+    "sha256": "2257592a59155e68c3a55291455672b062b688feea95e990725db28ca0ed8cc8"
+  },
+  {
+    "path": "src/React/Hook/UpdateNodeInternals.js",
+    "sha256": "99e4382847ad80b36070bf4185c931935e4de4c2d6d054fd30f1743e2f056415"
+  },
+  {
+    "path": "src/React/Hook/UpdateNodeInternals.purs",
+    "sha256": "ebda2c68f128433a6913acb69a14198d7534ac7445516590489f0d1962a4c618"
+  },
+  {
+    "path": "src/React/Hook/ViewportHelper.purs",
+    "sha256": "cc68e5e56764e3616e27a0d0e3254b4b57436259db24776ce338a8f85b77cf0b"
+  },
+  {
+    "path": "src/React/Hook/ViewportSync.purs",
+    "sha256": "0c9a595e494c879a0ef32f3dc5a0c1e0c80d6a515ce0b4ec9fdeb3be1606835a"
+  },
+  {
+    "path": "src/React/Hook/VisibleIds.purs",
+    "sha256": "062dc6802367a7a276e34c7ba21e61b4b738ffdd7241308f64a0912a803e0b6c"
+  },
+  {
+    "path": "src/React/Hook/VisibleIds/Pure.purs",
+    "sha256": "10f39af8b49652abe96d4ac4c2ae054baa797ea584fe21408d1660a337f48104"
+  },
+  {
+    "path": "src/React/Node/Default.purs",
+    "sha256": "bae69dc60c717252c6a75390704e950f8d1c07bc79a6070143a2839c59f12ce7"
+  },
+  {
+    "path": "src/React/Node/Group.purs",
+    "sha256": "13fc2c037cac19596c3abcc668b39972bffdd035c6ddc4a86a30088cd8b818c0"
+  },
+  {
+    "path": "src/React/Node/Input.purs",
+    "sha256": "f4c049ae1091327528e7291a8ade791e9178b7352f8b7e3bc0ee7f83157fee5f"
+  },
+  {
+    "path": "src/React/Node/Output.purs",
+    "sha256": "e5b3a776769230f3424cd94016b6dcad85d04e67179380cff5e0dc653f57737e"
+  },
+  {
+    "path": "src/React/Node/Util.purs",
+    "sha256": "e8739f4727a4c76d22d30dda1e7f16a3f50a6ce9459e6eeffe5fd4103ac09461"
+  },
+  {
+    "path": "src/React/Portal/EdgeLabelRenderer.purs",
+    "sha256": "6745df4709cf616d2b25dd646581fbdbf9b724b70d1a918607b315a0927399c7"
+  },
+  {
+    "path": "src/React/Portal/FFI.js",
+    "sha256": "a462c0a2762dc1b95e5c59a43c4c5b9c18d8850293d574feb7f4b15a4ed9d65a"
+  },
+  {
+    "path": "src/React/Portal/FFI.purs",
+    "sha256": "be769f5b008f6c6087b822d74c645dbebec73260b298cfd378dbde386ba78159"
+  },
+  {
+    "path": "src/React/Portal/Panel.purs",
+    "sha256": "ea2b2f42c4846aba75c2963d43e04404ea0c42ac364c58cf47aecae7f6456433"
+  },
+  {
+    "path": "src/React/Portal/ViewportPortal.purs",
+    "sha256": "ae198487c830028c5c7662c19ae6361d49a77bd8ce0045df9ec8ab28464721fb"
+  },
+  {
+    "path": "src/React/Provider.purs",
+    "sha256": "1486d29771ba6b041ac2b13adcc6b3806759f66215ea39def56019c421ca1397"
+  },
+  {
+    "path": "src/React/Provider/Batch.purs",
+    "sha256": "d51f45e15b958713126576bfafd03a9923beca48e36becaefe2b93743ee58665"
+  },
+  {
+    "path": "src/React/Provider/SelectionListener.purs",
+    "sha256": "0d1136fac07f4f6c5b48822063a946fe5e1c90ef155ef7e1bbffcd64bd0ee6bd"
+  },
+  {
+    "path": "src/React/Provider/StoreUpdater.purs",
+    "sha256": "3778152f20ed5b2c396fc0873d1c9ea7a7e4c001e649f16ad65a97b02c9ded99"
+  },
+  {
+    "path": "src/React/Provider/TrackedProp.purs",
+    "sha256": "8f9c2c09c9f4a4429be41afd74a140819de954712653abaf05a38fa7383d6bfc"
+  },
+  {
+    "path": "src/React/Store/Action.purs",
+    "sha256": "a2706a9b75c60a78329cd0e480e8acf6d0951e376900e38b3e5d42f3decc2dac"
+  },
+  {
+    "path": "src/React/Store/Changes.purs",
+    "sha256": "47f261ecbf043e37fac9bb6170cc8e8cee0fe8efeb1f79d30c1857c2e83528ea"
+  },
+  {
+    "path": "src/React/Store/InPlace.js",
+    "sha256": "97933b02d668830aac0df4e6b073df4b7757083a91c31f1ac1780bff8c7f481f"
+  },
+  {
+    "path": "src/React/Store/InPlace.purs",
+    "sha256": "af8491dde40362e1fc4ae3dfee623d7bb791f90a597b76100cd12bd7c290404b"
+  },
+  {
+    "path": "src/React/Store/InitialState.purs",
+    "sha256": "69a59edec92e283214a72769d7c6256ae1295ffffef836489f99c9f582dcdffb"
+  },
+  {
+    "path": "src/React/Store/PanBy.purs",
+    "sha256": "a9a742f35c08c6a9586e5a653294b2fb1e53c88d0bbdcfcd430ceeb9fb15efa6"
+  },
+  {
+    "path": "src/React/Store/Reduce.purs",
+    "sha256": "a2490af3356cd5e2d764ad810deb47c49bb0d46de9c612800926082e9044546e"
+  },
+  {
+    "path": "src/React/Store/Shell.purs",
+    "sha256": "79d10fdcbccd250b004f0e8d599c73f5c545aacfa0b655d40c978c6f82273d27"
+  },
+  {
+    "path": "src/React/Types.purs",
+    "sha256": "85b7d58856ef6ff5cbafebddf6fececb2ae0c860adcd8c7ace563db543d2520a"
+  },
+  {
+    "path": "src/React/Types/Component.purs",
+    "sha256": "c1325d3011e1ff9b76e70bffaa8e9b7ebf565a2bdf932d90724e19978771e0b7"
+  },
+  {
+    "path": "src/React/Types/Edges.purs",
+    "sha256": "9eb993b182a0c2e0efb1b42fcf4b3f1d9627fda16ee2db52efe0e00ad6d490f0"
+  },
+  {
+    "path": "src/React/Types/General.purs",
+    "sha256": "4501f600fb6b2ef25e55d4a2d81ed69cc27b33566988fa09c68bc4d285cc86b2"
+  },
+  {
+    "path": "src/React/Types/Instance.purs",
+    "sha256": "d9075c22cc8d97fe77e7abaa9ea7249f5714b1751797213fbc7a1cc67f2b5b7c"
+  },
+  {
+    "path": "src/React/Types/Nodes.purs",
+    "sha256": "90a65c15e3dcbc693a28d25c010c7412732ef71c73de88b9e24915c1c870eb36"
+  },
+  {
+    "path": "src/React/Types/Store.purs",
+    "sha256": "a9ce32e3d214ff541f3a1f15777c98597e0784de7e0513adebcc1c6c830b7743"
+  },
+  {
+    "path": "src/React/Util/General.purs",
+    "sha256": "206ea0ff251c205946f378b551f42925dcd5f53a8e6a745717838a1ce8a7fcf2"
+  },
+  {
+    "path": "src/System/Constants.purs",
+    "sha256": "c74ff1b3ab3cfe6e6f8d8cc977f3c8662e0ea35a3455952046fe848400aaa8d8"
+  },
+  {
+    "path": "src/System/FFI/AnimationFrame.js",
+    "sha256": "0b230f7fe98561e6f5ab71f70b46798931443c98cfba5002085d8a8b99a18ef2"
+  },
+  {
+    "path": "src/System/FFI/AnimationFrame.purs",
+    "sha256": "69215a1462cf1780bc0c56059e721f15919b85a76762daed437dcc0649e3e3aa"
+  },
+  {
+    "path": "src/System/FFI/D3Drag.js",
+    "sha256": "aacb8179a26e90df99476f80d29b761844abcdae5cd59774da3852e8a34f68cf"
+  },
+  {
+    "path": "src/System/FFI/D3Drag.purs",
+    "sha256": "af9c253b30246b8e59c053229a5b1fa69e819e4469b9de89ae9d5425d73abd53"
+  },
+  {
+    "path": "src/System/FFI/D3Selection.js",
+    "sha256": "54b5e6ccfc21e36058cab1cf5c5cc4b3b439afc888e27c3f164b8af850704cb4"
+  },
+  {
+    "path": "src/System/FFI/D3Selection.purs",
+    "sha256": "5269c8223bbdc352b6156cdf7e8bb3a3e14ef233e9fb9383ea4cf67c113f2883"
+  },
+  {
+    "path": "src/System/FFI/D3Zoom.js",
+    "sha256": "d961b3ab83cb3c2b95b5182bda8468145baee0b147a41d00312470c24b8cf1b5"
+  },
+  {
+    "path": "src/System/FFI/D3Zoom.purs",
+    "sha256": "3f0a82145f4f4369c644326c335d4922d98a3c1cc5802ff2ee373721e6266d41"
+  },
+  {
+    "path": "src/System/FFI/Microtask.js",
+    "sha256": "5561838e885f607bcd2803635f509d2a77731f5f6c3bb7c291a67ea6af6d7e89"
+  },
+  {
+    "path": "src/System/FFI/Microtask.purs",
+    "sha256": "a04a9c65db7deca789cb1b5d01d1cccfc8dfb37c517940cc2529308b32278458"
+  },
+  {
+    "path": "src/System/FFI/Timer.js",
+    "sha256": "d74ef3798221fe758ccbeb9dfdfc0683b6dd7d5f7341e7a00ed43559950a25a1"
+  },
+  {
+    "path": "src/System/FFI/Timer.purs",
+    "sha256": "bdd40010002c597e0b2eb20f7280cd297f76737c81d7f80bdd688fd3dbad638f"
+  },
+  {
+    "path": "src/System/Types/Connection.purs",
+    "sha256": "6db1c9ce18ba1dd59abdda84b8c7fde94833c3107c4dd3e1f67acd039565dc45"
+  },
+  {
+    "path": "src/System/Types/Edge.purs",
+    "sha256": "ada14b64d93683d356095fedb7ff426952cf3a8f03464fd4b1f0975c713649a0"
+  },
+  {
+    "path": "src/System/Types/Geometry.purs",
+    "sha256": "962a1838cf8b22278252aa93c48aa194384d6406b1b70fdcb15e082a13e50f46"
+  },
+  {
+    "path": "src/System/Types/Handle.purs",
+    "sha256": "2cd368b7b9a0fa1ddb108393fcc8e46509ab34190d96cea6df6093f0c8473dc4"
+  },
+  {
+    "path": "src/System/Types/Ids.purs",
+    "sha256": "62e2b432150de8191266a896fe3ac673682177811655c741b57b025ea67ad5d2"
+  },
+  {
+    "path": "src/System/Types/Node.purs",
+    "sha256": "c29ef97efaf033c56b40273a93d1d1b92f27fc44a3f7303275596ca70c438e3a"
+  },
+  {
+    "path": "src/System/Types/PanZoom.purs",
+    "sha256": "655b6cd10d816ebecb97e40e7371a7722a1f090c88fcc0a3fedaf7e8af3022df"
+  },
+  {
+    "path": "src/System/Utils/Connections.purs",
+    "sha256": "968d1dfa5b53c968eb82cfed40798a623ae0b4084a7f926ee01c69dd88aede3a"
+  },
+  {
+    "path": "src/System/Utils/Dom.js",
+    "sha256": "9e79975ad95861f295347f7c8729103131f911b2ae356a6e8becf3771f673072"
+  },
+  {
+    "path": "src/System/Utils/Dom.purs",
+    "sha256": "cfa0cfb771e04d27564b0e82e58dcd632a6bf22e48c9fa71aa6bda07935a505f"
+  },
+  {
+    "path": "src/System/Utils/Edges.purs",
+    "sha256": "3087b8dd6263cdcb89d23a7bdec96da1e8ab3433e93bea9fff7b6db3640bc3e6"
+  },
+  {
+    "path": "src/System/Utils/Edges/Bezier.purs",
+    "sha256": "fa0df392c1e96905400753c1192ad042c8c1c154298c21eb25476f24bf929113"
+  },
+  {
+    "path": "src/System/Utils/Edges/General.purs",
+    "sha256": "9bb43d70c1c3d1c3cba53bedfd3638798ffd5e56806e73fdcde0f54e87e68257"
+  },
+  {
+    "path": "src/System/Utils/Edges/Positions.purs",
+    "sha256": "7f252dc30ff8c7555c61387d72146e852b9c59dd1578f1cbb5f429df02b60ff2"
+  },
+  {
+    "path": "src/System/Utils/Edges/SimpleBezier.purs",
+    "sha256": "c7914cb7f396e5786c336279966c0a9a9860e4b8ea7554be2aebe74f5ece547d"
+  },
+  {
+    "path": "src/System/Utils/Edges/SmoothStep.purs",
+    "sha256": "728efcb31ee4056920e71e26ce647157720e6c19968402be0cf69f4fa1c4e30a"
+  },
+  {
+    "path": "src/System/Utils/Edges/Straight.purs",
+    "sha256": "fd9f24aeddfe66cf710dd34a8a4dad69154fc9c68dce8a19570a0787bfe75374"
+  },
+  {
+    "path": "src/System/Utils/General.js",
+    "sha256": "7764f11bf69cbd3ba2845c7d936408527393c03b6f61cbe54e8aa4ba7638f8d8"
+  },
+  {
+    "path": "src/System/Utils/General.purs",
+    "sha256": "302dfe7ee740fa903e567b10507757330df610ac8d82e04f9bac989b4a575419"
+  },
+  {
+    "path": "src/System/Utils/Graph.js",
+    "sha256": "36d1b0c9616d87f1833f01408145085004d7c62ba030daf31aee8565e595a8d2"
+  },
+  {
+    "path": "src/System/Utils/Graph.purs",
+    "sha256": "ebc1350f2c2173d831ede1b754f2ad189cd8d971a2b09d829991af99b27609ba"
+  },
+  {
+    "path": "src/System/Utils/Marker.purs",
+    "sha256": "d9f8ff451a310f121c923f7b0837650c6b319556f7eb3abd9555844e0cfa1a54"
+  },
+  {
+    "path": "src/System/Utils/ShallowNodeData.purs",
+    "sha256": "a63234264fe6e1ae7d9e92ec0d80d9a7798513972e4ca6a8e503d5fdb427989b"
+  },
+  {
+    "path": "src/System/Utils/Store.purs",
+    "sha256": "6aaf39d2107f753eceedd1a28badb3421e7d1c47a401cd3b5f80e09bc62823e2"
+  },
+  {
+    "path": "src/System/Utils/Toolbar.purs",
+    "sha256": "ac3d9a2ce2fa45a85df420b746db9e139b26e84a1460a27d33745d7171709157"
+  },
+  {
+    "path": "src/System/XYDrag.js",
+    "sha256": "71be719efd7551c952f5220ee982dc756960615ee1e556cc6fc4b4ea647cca70"
+  },
+  {
+    "path": "src/System/XYDrag.purs",
+    "sha256": "a54bdae08a04c4d24941f5126525ae31723818f03887527b442981c1aa0b8d77"
+  },
+  {
+    "path": "src/System/XYDrag/Utils.js",
+    "sha256": "3667c04d691b124af88ae9172b1d921108dcd41ea0d67998131dce9e471b4f10"
+  },
+  {
+    "path": "src/System/XYDrag/Utils.purs",
+    "sha256": "30b3096d73479152d80da0ccb2208b1d419d4650a8998210fc2553d15093c99d"
+  },
+  {
+    "path": "src/System/XYHandle.js",
+    "sha256": "d061952b727ad3aa6feaf9297dc500177ff14b1c4250ccb1f41b16be94aa6034"
+  },
+  {
+    "path": "src/System/XYHandle.purs",
+    "sha256": "20f8d29877d71592829596531bc135fc40bb22d09b715e52c40fd319b71a9866"
+  },
+  {
+    "path": "src/System/XYHandle/Utils.js",
+    "sha256": "96b3360cd408468503996687f3583aa6a1410e50262ca8cac251bbe415f0f5d8"
+  },
+  {
+    "path": "src/System/XYHandle/Utils.purs",
+    "sha256": "17efcdef026cb25a527485676159335a1013a697133a07bb8a621f8aa0650082"
+  },
+  {
+    "path": "src/System/XYMinimap.js",
+    "sha256": "e819743c221e87bcdef99746d138470b4287a20e1d68895a8cbf2931dc5022f9"
+  },
+  {
+    "path": "src/System/XYMinimap.purs",
+    "sha256": "2a1c7794b034e7bb23a8bee232cd5ce1304a43cef7aab3bd1468e539355128b0"
+  },
+  {
+    "path": "src/System/XYPanZoom.purs",
+    "sha256": "51f6899a6d89fa131423da11c854101cc2415467e07842699af1d101c30e15fc"
+  },
+  {
+    "path": "src/System/XYPanZoom/EventHandler.js",
+    "sha256": "68669d03631df0ef5e41bb7db988cfd53f22cfe52216ff767798dcf2f8b52f21"
+  },
+  {
+    "path": "src/System/XYPanZoom/EventHandler.purs",
+    "sha256": "8ef3649f5f20ec20be1b4c04138d7dccc3e5517f72d879fa706c51aab536cede"
+  },
+  {
+    "path": "src/System/XYPanZoom/Filter.js",
+    "sha256": "d9f8d764cb4dcad09b795d754fb18e70e35e92d3fc59ce2efe039c1d69fba722"
+  },
+  {
+    "path": "src/System/XYPanZoom/Filter.purs",
+    "sha256": "5f24abb45aa54840e1b366321bdeae76edc7634185b9dcd8e345a92183b565f7"
+  },
+  {
+    "path": "src/System/XYPanZoom/Utils.js",
+    "sha256": "389c441adf3581a2bbcd2370eca0a2ef14389e133d7b0fa9805497fd4226037f"
+  },
+  {
+    "path": "src/System/XYPanZoom/Utils.purs",
+    "sha256": "e6aa63df3471ad4980a9eb782436d086b5ae4f52b64e355019ba67eec1393659"
+  },
+  {
+    "path": "src/System/XYResizer.js",
+    "sha256": "0b787c3d85343262719394935ce64f2d45dd3650fa8008336a41dead625e7b29"
+  },
+  {
+    "path": "src/System/XYResizer.purs",
+    "sha256": "f5ce6e0ec0aa157bc19fb734209ef9e6210c1d369af02716fae310416de964d0"
+  },
+  {
+    "path": "src/System/XYResizer/Utils.purs",
+    "sha256": "c20dfe9f6e88ad125182e4b05e93db45fa4f88a26e117f7c38a2c5c758abc0bf"
+  },
+  {
+    "path": "test/Test/Boundary/BaseEdgeAttributes.js",
+    "sha256": "2bcd5daae2ffc7ed609d3b9ae2a62905cf9b4cd6b91b250a12cbcf6036455431"
+  },
+  {
+    "path": "test/Test/Boundary/BaseEdgeAttributes.purs",
+    "sha256": "f3213bd0a51d27af58f8784e1c53876c00ebc0d43682ea40d06d3d534af26e64"
+  },
+  {
+    "path": "test/Test/Boundary/ConnectionNullHandle.js",
+    "sha256": "b1ff39be7856dfff06b36e9e17f938862a2e1b3553d4cadf9c5aa10b6d1b619a"
+  },
+  {
+    "path": "test/Test/Boundary/ConnectionNullHandle.purs",
+    "sha256": "4308c8faa11f2849220509d4380c5838d79923908a70d15291af8ade6c77cb85"
+  },
+  {
+    "path": "test/Test/Boundary/DimensionResizing.js",
+    "sha256": "ffb532a3470d752f4f3106149f3d888127da424d78973924bd483257a67f61e2"
+  },
+  {
+    "path": "test/Test/Boundary/DimensionResizing.purs",
+    "sha256": "8326c32233bd649ac4a608fd3cc5383b1a1c3acbce4620b123bcd41d43f16362"
+  },
+  {
+    "path": "test/Test/Boundary/EdgeAnimated.js",
+    "sha256": "e3725213ed32046aa3406d2e5c508869a38e75ad1094948a64aa569e22eb35aa"
+  },
+  {
+    "path": "test/Test/Boundary/EdgeAnimated.purs",
+    "sha256": "3966d81f84a3caef3a910b5c7bfeef965bddf0dce473be883a0c37e1a1e160ef"
+  },
+  {
+    "path": "test/Test/Boundary/EdgeHidden.js",
+    "sha256": "3305d1f5b5384f20d79c9c43796693adaf113d8049822b7d5040a492d8e0c347"
+  },
+  {
+    "path": "test/Test/Boundary/EdgeHidden.purs",
+    "sha256": "23d540adb012e63a8d0abdd62fa68a6a9f10afc20a89ade259caffec3162be38"
+  },
+  {
+    "path": "test/Test/Boundary/EdgePaths.js",
+    "sha256": "6ff933b377c8d0a7b421a64a084162f6aaa0a17a4cae6628b5817a75e937eed8"
+  },
+  {
+    "path": "test/Test/Boundary/EdgePaths.purs",
+    "sha256": "bfe25aa59ec4a0f968a7dbf44619aa6ce0c13a2c9377ee1dc8eb8aefa6182fbb"
+  },
+  {
+    "path": "test/Test/Boundary/EdgeSelected.js",
+    "sha256": "aae6c15bccf7dc82ca3f48ea83246185852d787b1550f97badf7869569ae4e55"
+  },
+  {
+    "path": "test/Test/Boundary/EdgeSelected.purs",
+    "sha256": "3375643fd0d3e0bb8304bb891487415083cb8cfea73851163f7306e17ed3fe66"
+  },
+  {
+    "path": "test/Test/Boundary/FlowWrapperAttributes.js",
+    "sha256": "c115e05d3c975894d9942b6e5d5c6c9bfe04489abca8b4dc42529d6c17bbd6c0"
+  },
+  {
+    "path": "test/Test/Boundary/FlowWrapperAttributes.purs",
+    "sha256": "363635d4f8bdb39b944bedbe0dd4366d1a667473f2353144257fae83da505420"
+  },
+  {
+    "path": "test/Test/Boundary/HandleIdNull.js",
+    "sha256": "b7e38570207739d4c28a1cff8c675e09cf207c03aa4ebcbf4980cdc73003c184"
+  },
+  {
+    "path": "test/Test/Boundary/HandleIdNull.purs",
+    "sha256": "25ca860dbe04daea17f3135288f87bed69556aff8400d7479f5b4a88d325e989"
+  },
+  {
+    "path": "test/Test/Boundary/NodeDragging.js",
+    "sha256": "f4ca305238fa572b308e2d0db8c9f68f746d6f78faa8c2ee6485d5611dd721f3"
+  },
+  {
+    "path": "test/Test/Boundary/NodeDragging.purs",
+    "sha256": "55c6a17cf4d721e0128df588f86a0af22cbfa012418b422e4c69d48fe3a7679d"
+  },
+  {
+    "path": "test/Test/Boundary/NodeExpandParent.js",
+    "sha256": "49abfe144bb10f173ce915217d52cbc384aa52d4daccac035dd9920c991a6ab3"
+  },
+  {
+    "path": "test/Test/Boundary/NodeExpandParent.purs",
+    "sha256": "8bd8ff5b33c6eb681ef02051bf6e952a6e71ee943c73d20e89e27fd8d0488897"
+  },
+  {
+    "path": "test/Test/Boundary/NodeHidden.js",
+    "sha256": "abe551b80ad801953ca5b825d299ef00cbde8464a7f502c387da77225a939ec2"
+  },
+  {
+    "path": "test/Test/Boundary/NodeHidden.purs",
+    "sha256": "ceea67018eb69371c4a394a547eafe7d904e19cd606c58fc70c8600476d70fd3"
+  },
+  {
+    "path": "test/Test/Boundary/NodeSelected.js",
+    "sha256": "b2760f4f0f9bac7632bce35286260c1e46df5797a7c8a6e609e954e67063aa67"
+  },
+  {
+    "path": "test/Test/Boundary/NodeSelected.purs",
+    "sha256": "ef49c49e83dc2da4da888b167415a85a07e605f5453e237d96b4cd408f3f2990"
+  },
+  {
+    "path": "test/Test/Boundary/PrunedKeys.js",
+    "sha256": "3b55bf1fe330fa95541e1486fcb491234af25de136fab292cc59c50b0e1ba133"
+  },
+  {
+    "path": "test/Test/Boundary/PrunedKeys.purs",
+    "sha256": "35a1d91ac8ee72c99a9d63c80392bfcfe3640a9fbf0ccb4bee5058fdcd561234"
+  },
+  {
+    "path": "test/Test/Boundary/Wrapper.js",
+    "sha256": "3cb3ef29da1d7ddf82cf5718ebbb3ac88cdb612bfce8e6e94ca64bb9af974c5f"
+  },
+  {
+    "path": "test/Test/Boundary/Wrapper.purs",
+    "sha256": "c06b4920d9e231c7c8bbe5bdb3c72f8cf4b27c825856e471d27247f5162254dd"
+  },
+  {
+    "path": "test/Test/Main.purs",
+    "sha256": "846b631717ef95ab85090ddaf4ee859c2e19db7be535a1be6a28c2abcbfa14ab"
+  },
+  {
+    "path": "test/Test/Oracle.js",
+    "sha256": "dd4606b90961acf382ab523e88a058ccc5af5d8817c41870902a320c0069e9ed"
+  },
+  {
+    "path": "test/Test/Oracle.purs",
+    "sha256": "2271a068f702883bea39fd733409171a86326682f216f0620eee438ae11af44c"
+  },
+  {
+    "path": "test/Test/Parity/Builders.purs",
+    "sha256": "8947848029deb55b1623ad1feed1b0531953581421e17096aa11f296c4db0fe3"
+  },
+  {
+    "path": "test/Test/Parity/Changes.purs",
+    "sha256": "3441f57ad7172a41db8beb94f54091bd978256936f65012a114c06880b5c7a8e"
+  },
+  {
+    "path": "test/Test/Parity/Connections.purs",
+    "sha256": "a46cd7f88ae67c174e8f801afe0bdb8ca94ee7737a6854bd50e26928397bbf75"
+  },
+  {
+    "path": "test/Test/Parity/Edges.purs",
+    "sha256": "1caf78dceed74abe0ec5ba89ff176ea312f2e2b401bf4318414a2eb351f17f22"
+  },
+  {
+    "path": "test/Test/Parity/Geometry.purs",
+    "sha256": "55cdaf593d40e8cba8b0f1bf40d5c09be9d3bb41aadf1d63ddd743a774a0929d"
+  },
+  {
+    "path": "test/Test/Parity/Graph.purs",
+    "sha256": "395b99ebd70830404b5039c275cbadca585c9ce52b20aae45ef2b49201632fe5"
+  },
+  {
+    "path": "test/Test/Parity/Marker.purs",
+    "sha256": "3ce3e74c94874e50c321ac2712adafb4d6c6b65721d848bdcf2c66be347698c1"
+  },
+  {
+    "path": "test/Test/Parity/Toolbar.purs",
+    "sha256": "af3cea9fe65f8fb1967db64e8c36201cbb479214be4e7a67601b1192ecaa96de"
+  },
+  {
+    "path": "test/Test/Parity/Util.purs",
+    "sha256": "efc83afd5bba74fff5b46a92ae19b762681014e4e97c92fcdf64a3c3aa5276bf"
+  },
+  {
+    "path": "test/Test/Properties.purs",
+    "sha256": "437c53d61e9757fc171c949c0640f5382791d41326deff09e8a7df5977d50625"
+  },
+  {
+    "path": "test/Test/React/Additional/BackgroundOffset.js",
+    "sha256": "46cb513496b260add04492335e55616d4711e33a0e3fbad7fcbbf2a096368054"
+  },
+  {
+    "path": "test/Test/React/Additional/BackgroundOffset.purs",
+    "sha256": "ea4387ee01939aa343489d39f42b279ed7d0e226ec00c022b34fd9f43bd86dcd"
+  },
+  {
+    "path": "test/Test/React/Additional/BackgroundPattern.js",
+    "sha256": "2cf924921ce18da7bc3e0e5a6b5cc87e7f31c01ce33751d47b36d1a4b1ba9e75"
+  },
+  {
+    "path": "test/Test/React/Additional/BackgroundPattern.purs",
+    "sha256": "85abd6efbfe56504d9095f313b86c47ab21898e13652200ede7f83768091842d"
+  },
+  {
+    "path": "test/Test/React/Additional/MiniMap.purs",
+    "sha256": "b8986d317315ff72f0ebba1638718ae906de0b19d323131b12a860e7835fb38a"
+  },
+  {
+    "path": "test/Test/React/Additional/MiniMapMask.purs",
+    "sha256": "f15376427dde56fa74b5fb9c8e3c0e93b37e22b28ee553c10e2bdf3682251bcd"
+  },
+  {
+    "path": "test/Test/React/Additional/NodeToolbarPortal.js",
+    "sha256": "a87d1d9751d0848ad61a8787d7449b8d1a74c331570bfda97117460867a89195"
+  },
+  {
+    "path": "test/Test/React/Additional/NodeToolbarPortal.purs",
+    "sha256": "8d2cf94b44a177f0b1595f1e2f5cfbf7f53f9f24ba1d6729a0fa752f661a304a"
+  },
+  {
+    "path": "test/Test/React/Component/AriaDescribedBy.js",
+    "sha256": "782cc5b9fdfa936209bd1878577f1a834ae87521c9d02932e54f0c2153e736ef"
+  },
+  {
+    "path": "test/Test/React/Component/AriaDescribedBy.purs",
+    "sha256": "f63a14c4474392bd4c49fe9cdf7cf36a5c0c6d631be2d104abeefe26a67b5185"
+  },
+  {
+    "path": "test/Test/React/Component/EdgeAriaLabel.js",
+    "sha256": "5d600205894f3bc6a5538db5cae6fb5db060a0ddfffdb0753a834d4f060a2e85"
+  },
+  {
+    "path": "test/Test/React/Component/EdgeAriaLabel.purs",
+    "sha256": "860d714408778598bd1f0f6465af4152dbdaea69ef387f0828d30516e46d9f84"
+  },
+  {
+    "path": "test/Test/React/Component/EdgeComponentProps.js",
+    "sha256": "da317cd216b273b968da430e1a6bd1b5aa42d7d70438e031cf9f66b109765ebd"
+  },
+  {
+    "path": "test/Test/React/Component/EdgeComponentProps.purs",
+    "sha256": "03e56a33468aafcedcf78a582637a039c0b421806ce0385ef449041fbfde6ac8"
+  },
+  {
+    "path": "test/Test/React/Component/HandleDataId.js",
+    "sha256": "2f23f07dbfa69e3e463716c1a2e61ce57da64224f22f52946dc07bc7832be92f"
+  },
+  {
+    "path": "test/Test/React/Component/HandleDataId.purs",
+    "sha256": "c6274b15c9f97afb1fd91906a1eb121dc3ae3ea9f7040cd939dc4072dfa3fd1a"
+  },
+  {
+    "path": "test/Test/React/Component/NodeInlineDimensions.js",
+    "sha256": "ef020cb04656a18aa5458c33f42bfbbc692d8a9b12018f8c084aa5fc340fcdb6"
+  },
+  {
+    "path": "test/Test/React/Component/NodeInlineDimensions.purs",
+    "sha256": "dbca74b905270c191fdb7f0ca3d8765b1ce97ccd0eec6701541d54c43e6fa27a"
+  },
+  {
+    "path": "test/Test/React/Component/NodesSelectionRect.js",
+    "sha256": "4a6d5b2b9586e8b40a345e6c02be8e0d3706a84271a10f0f808ae1183127c117"
+  },
+  {
+    "path": "test/Test/React/Component/NodesSelectionRect.purs",
+    "sha256": "799b0d8a1130bfa2f23e63e99f8f6d972b23839f250b15b244bf6cea9e2a7d15"
+  },
+  {
+    "path": "test/Test/React/Container/AttributionPanel.js",
+    "sha256": "37de602a40e2676b91c6a6267a641a2e3366f382488bb82944a855585e6e3800"
+  },
+  {
+    "path": "test/Test/React/Container/AttributionPanel.purs",
+    "sha256": "de57baccb13b147ae16220cf9ffc2102b71c317c9a437034dd5a1be6c0ebabdc"
+  },
+  {
+    "path": "test/Test/React/Container/NodeA11yDescription.js",
+    "sha256": "7e1be167005a781975afbbbd10bcbb883d759b43df11ece936a81ebea7ebc849"
+  },
+  {
+    "path": "test/Test/React/Container/NodeA11yDescription.purs",
+    "sha256": "5ae6c824e4a585634ccd7d9e6afe87c209d104e91b09ae9d75f03fa7a3b6df73"
+  },
+  {
+    "path": "test/Test/React/Container/Pane.purs",
+    "sha256": "125016b22a727e7318474f318380e83ea0b9f2a75f57c1da47eb0059d3e8368e"
+  },
+  {
+    "path": "test/Test/React/Container/SeededProps.purs",
+    "sha256": "4f382d37950eac8b72ae6b2709f0b4f05a8ccffed9104f9f20528bf5657da7ed"
+  },
+  {
+    "path": "test/Test/React/DomNumbers.purs",
+    "sha256": "a02627add86f982be4b834b437ecbfbef148578e302a005ccb703da2ecdb6a80"
+  },
+  {
+    "path": "test/Test/React/HandleNativeEvent.js",
+    "sha256": "e8ac7b721b807cf3a1f21dec7abc477c0d0f4d4159ea353c8dd337978586b883"
+  },
+  {
+    "path": "test/Test/React/HandleNativeEvent.purs",
+    "sha256": "bb3ce2a744bcf02c2dc663acf50a3d27803ae0120dccec24f333d46fe7625898"
+  },
+  {
+    "path": "test/Test/React/Hook/ConnectionTo.js",
+    "sha256": "ede21f03f715fdd4ca223e22f24bbb08869ccde52bf6d77dc6e7a98658344c84"
+  },
+  {
+    "path": "test/Test/React/Hook/ConnectionTo.purs",
+    "sha256": "3660f9498b19acfba4001b5c7fba998d475e0ad203600fa3ae455618ec344831"
+  },
+  {
+    "path": "test/Test/React/Hook/DeleteKey.purs",
+    "sha256": "0010dcc9085ceda9788d0b190f90b367e7606a49b66eb06771f61e0af8d5cdd3"
+  },
+  {
+    "path": "test/Test/React/Hook/Drag.purs",
+    "sha256": "1341004d66333ad7f63a3e0ad3de5cd5467cea7333dafc85a652701361a32e8d"
+  },
+  {
+    "path": "test/Test/React/Hook/DragRebind.js",
+    "sha256": "7ff74076780b258a2d55dd611cd921b813a1dd4495849507f624fdd9121fe264"
+  },
+  {
+    "path": "test/Test/React/Hook/DragRebind.purs",
+    "sha256": "cd84576b6ca272298e002633d2333349d06c85de23ef1bff384cbb06ee98e86a"
+  },
+  {
+    "path": "test/Test/React/Hook/MoveSelectedNodes.purs",
+    "sha256": "842d6a629db7bf3e6e1c44212d25bcbd690e43cf8d86756d2c7322210419a33a"
+  },
+  {
+    "path": "test/Test/React/Hook/NodeObserver.js",
+    "sha256": "db1adadea6e39329bfee88538263dafbc6465edc16d66a3851d51276d7ab0e17"
+  },
+  {
+    "path": "test/Test/React/Hook/NodeObserver.purs",
+    "sha256": "187d6f77ddc8538139f645a6f452c33e0ca5663d28d4985c2293837f6b8c93f7"
+  },
+  {
+    "path": "test/Test/React/Hook/NodeRenderOrder.purs",
+    "sha256": "9ef5fe873c02d2a07b31cb5ec6535b96cacf505f73f521bfbb952cb6645e033a"
+  },
+  {
+    "path": "test/Test/React/Hook/Store.js",
+    "sha256": "a83ba6324d8fda9f2bdba7c7825f5c894a03b307b6ffaf64aed16f66cac08d96"
+  },
+  {
+    "path": "test/Test/React/Hook/Store.purs",
+    "sha256": "0f2d5a1865698b7cc1a78fe583c45114eeb1782a06475626600b8149c22f5603"
+  },
+  {
+    "path": "test/Test/React/Hook/ViewportSync.purs",
+    "sha256": "d6ff7b2ba804e222bd92ffb133612d113cc4853e4d7de9ac49fccd49b01bfaa9"
+  },
+  {
+    "path": "test/Test/React/Hook/VisibleIds.purs",
+    "sha256": "a6458f93b0b9ce4564347f63cefea68335e64153aed22af2d23d7dd9349c223d"
+  },
+  {
+    "path": "test/Test/React/Node/HandleNodeClick.js",
+    "sha256": "2f0359dc9bbe09c369ef6d5f13bd2efa4fb2909f56494405967d505336968bcc"
+  },
+  {
+    "path": "test/Test/React/Node/HandleNodeClick.purs",
+    "sha256": "5b08393a6e846d5edacf0771a608672e687be8096b565be9cc15547444f9017b"
+  },
+  {
+    "path": "test/Test/React/Provider/BatchQueue.js",
+    "sha256": "7310b9216b1b4c0fe0ad503dbc51231c742759423d5cc7c6939348771713e51a"
+  },
+  {
+    "path": "test/Test/React/Provider/BatchQueue.purs",
+    "sha256": "7c1318090580948b29985dcc378479130d4299fa74ab3022012edd1f92ad9a89"
+  },
+  {
+    "path": "test/Test/React/Provider/InitPrevValues.purs",
+    "sha256": "18e2c719160cdd69c54f538edcfa02589a6f32665cbed17335c0423af919f273"
+  },
+  {
+    "path": "test/Test/React/Provider/TrackedProp.purs",
+    "sha256": "97769ca10649e78ce76dabe0316fddc31aa1cf0a74787716cac7e1aefc693b42"
+  },
+  {
+    "path": "test/Test/React/Store/EmptyChanges.purs",
+    "sha256": "3fdd20ca27f6db5c0b644a3176f82bb60bdddd98c2e4b343d1183c740761c3d2"
+  },
+  {
+    "path": "test/Test/React/Store/InPlaceSelection.purs",
+    "sha256": "989a691ff3b227e9143b4d5e8ae6ad924fe7824fe56bb6639d4f06685f02ca78"
+  },
+  {
+    "path": "test/Test/React/Store/MergeNodeInternals.purs",
+    "sha256": "4eb779de30ee0637a629aed45dc7806580e3c1b05c8f825cb2864639d9e03a1c"
+  },
+  {
+    "path": "test/Test/React/Store/Reduce.purs",
+    "sha256": "028efa2c250b779778fcc44b56f529bc08467023e3323b85394d769d3c8be1bf"
+  },
+  {
+    "path": "test/Test/React/Store/ResetSelection.purs",
+    "sha256": "d83adf98563f4954ed50fc5fa6a3074ac49ea343136435f30b18f27933dcd74a"
+  },
+  {
+    "path": "test/Test/React/Store/Shell.purs",
+    "sha256": "ce4c57fcd29970f72002309006320418262358b64022e8d23aedfc427bec9ad6"
+  },
+  {
+    "path": "test/Test/React/Store/UpdateNodePositions.purs",
+    "sha256": "5da47718c18c0b61efe285f683927f6351e286d6add9f99e2fc6a8a5454c1eb6"
+  },
+  {
+    "path": "test/Test/React/Store/ZoomLimits.purs",
+    "sha256": "471d9d17e91695a99ecd17a77cfe38621fa4aac83d8101299458bae037b2e067"
+  },
+  {
+    "path": "test/Test/System/FinalConnectionState.js",
+    "sha256": "3284a60b868ee79422d9ef6fe2c4c1c6b697e2b3c3f1170977074de6a6d1bfb5"
+  },
+  {
+    "path": "test/Test/System/FinalConnectionState.purs",
+    "sha256": "8260f5fab705aeae5c5a96d4218c7953507418628a7a5e0dcc28c4ccbd023dfd"
+  },
+  {
+    "path": "test/Test/System/Utils/ConnectionOrder.purs",
+    "sha256": "58d48c1236788e5d791380f08682b9bff7fca17b059b1287e156e956cc3a1fa9"
+  },
+  {
+    "path": "test/Test/System/Utils/MathRound.purs",
+    "sha256": "9a1b7afd4f03a20802d18e9b13ec0bddfff57fd77f1a44a7b88298969fa7700e"
+  },
+  {
+    "path": "test/Test/System/Utils/MeasuredDimensions.js",
+    "sha256": "7d04b40ab5c9b27a9b446424fcd45c52d65c75519d61cdca61a04b7fa1967e49"
+  },
+  {
+    "path": "test/Test/System/Utils/MeasuredDimensions.purs",
+    "sha256": "fd75b617389586c60e19c5caa1076f86d19be984a7b0e8ebf4ed6d15804244c0"
+  },
+  {
+    "path": "test/Test/System/Utils/MeasurementOrder.js",
+    "sha256": "7d04b40ab5c9b27a9b446424fcd45c52d65c75519d61cdca61a04b7fa1967e49"
+  },
+  {
+    "path": "test/Test/System/Utils/MeasurementOrder.purs",
+    "sha256": "b332b63d42c98f352e87ba3de31be2c475f3207d4f7d466550e41c90b47d4952"
+  },
+  {
+    "path": "test/Test/System/Utils/Store.purs",
+    "sha256": "ce34907d1e6c446066418a36a8f7b5976d41484ce4e5045c92d54c7d7c547838"
+  },
+  {
+    "path": "test/Test/System/Utils/StorePanBy.purs",
+    "sha256": "7e6c7cd464ee1b57d3a0466124b1c7ad1ce21353f8754b25f7ed209a544323c8"
+  },
+  {
+    "path": "test/Test/System/XYDrag.js",
+    "sha256": "e9e27cfb07b62b6ca6304d76ddc79b3e96e5001ea38d6cf09a849e38772db380"
+  },
+  {
+    "path": "test/Test/System/XYDrag.purs",
+    "sha256": "9a3f52074f3dea5416fe3cbc240a8a7a093f2d1ad98d63fb27ee3c6edc216a72"
+  },
+  {
+    "path": "test/Test/System/XYDrag/DragErrors.js",
+    "sha256": "d44f75dc883e6aebee1d7f5098d6d939cbf168a7ff0e51f78fc3bb00dfe7469d"
+  },
+  {
+    "path": "test/Test/System/XYDrag/DragErrors.purs",
+    "sha256": "9adbd9cb36fc17a754969bdae709a1eea27ccb021e6e6ac0d58cb22395e6f9a0"
+  },
+  {
+    "path": "test/Test/System/XYDrag/DragItemOrder.purs",
+    "sha256": "4f1b59a17ff3eeabae18d265c06975665e72ab789f9bdf02c70127790119aeb9"
+  },
+  {
+    "path": "test/Test/System/XYDrag/DragSelection.js",
+    "sha256": "6e7402e8c5b849fe8ba2217a2b75acca50086e66bbe0fd4e66de5a996cea3390"
+  },
+  {
+    "path": "test/Test/System/XYDrag/DragSelection.purs",
+    "sha256": "d07a5458bf646bf9041d551694dab187e39dd70e8f18dfeefba5228fcda1efaa"
+  },
+  {
+    "path": "test/Test/System/XYDrag/DragUserNodes.js",
+    "sha256": "b9cde7022ff741b61a2afe2b2ed86dbdc251675e8d02679bdd7d5aa4ac55ed52"
+  },
+  {
+    "path": "test/Test/System/XYDrag/DragUserNodes.purs",
+    "sha256": "6fe26cc79e5c95dad00dceb09e6b13bd997082c5587683d01dff49350caa7771"
+  },
+  {
+    "path": "test/Test/System/XYHandle.purs",
+    "sha256": "deba2c4c38ee86db8d4cc1bdea280f395401514658351dbc72212e4ba984781a"
+  },
+  {
+    "path": "test/Test/System/XYPanZoom/EventHandler.js",
+    "sha256": "0268d8d814659ea4bf2072bc3050804f3ddb0d671f39592541d4bb02794b8502"
+  },
+  {
+    "path": "test/Test/System/XYPanZoom/EventHandler.purs",
+    "sha256": "60bef25cd7aec98ae323748d08fadc5006e97fc2d4dfbd43d1b87ce4cd296554"
+  },
+  {
+    "path": "test/Test/System/XYPanZoom/SourceEvents.js",
+    "sha256": "12cd3cd839962563bb29ab9f96b884bf7eef5b768f6ac594067f6f07434d423d"
+  },
+  {
+    "path": "test/Test/System/XYPanZoom/SourceEvents.purs",
+    "sha256": "93496c8925ae36ffe14f3acee04ef5634bb9d66ece3e901d3cb704b792251047"
+  }
+]

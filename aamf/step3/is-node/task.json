@@ -1,0 +1,36 @@
+{
+  "id": "psflow-w02-is-node",
+  "status": "complete",
+  "startedAt": "2026-11-10T02:46:07.282Z",
+  "source": "xyflow/packages/system/src/utils/graph.ts::isNodeBase, React utils/general.ts::isNode",
+  "mechanism": "Check id, position, absence of source, absence of target using native in, in source order. Preserve inherited-key and function-object behavior and native errors for primitives.",
+  "seam": "Direct index.js calls versus rebuilt oracle; proxy receipts check has-trap order",
+  "allowedOutputs": [
+    "src/Boundary/Utils.purs",
+    "src/Boundary.purs",
+    "src/Boundary.js",
+    "parity/boundary/is-node.test.mjs",
+    "parity/surface/report.md",
+    "parity/driver/dist/psflow.js",
+    "aamf/step3/is-node/",
+    "AAMF_PORTING_PLAN.md",
+    "AAMF_STEP3_RESULTS.md",
+    "aamf/step3/README.md",
+    "aamf/step3/SHA256SUMS"
+  ],
+  "readOnly": [
+    "src/System/Utils/Graph.purs",
+    "src/System/Utils/Graph.js",
+    "src/Boundary/Utils.js",
+    "parity/surface/allowlist.json",
+    "parity/system/",
+    "all earlier execution evidence"
+  ],
+  "acceptance": [
+    "Red before crossing, green after fresh build",
+    "Preserve native in behavior for object and primitive inputs, key presence, prototype inheritance and short-circuit order",
+    "Pass surface/function/boundary checks; no exception changes needed",
+    "Stage 4 with two passthroughs"
+  ],
+  "aamfInvoked": false
+}

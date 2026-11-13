@@ -8,10 +8,7 @@
 -- |
 -- | **Fidelity notes.**
 -- |   * TS reads `defaultEdgeOptions?.markerStart / markerEnd` to seed
--- |     the marker collection with the default markers. PS's
--- |     `DefaultEdgeOptions` scaffold doesn't carry those two fields
--- |     yet, so we pass `Nothing` for both. Edges with explicit
--- |     `markerStart` / `markerEnd` still produce their markers.
+-- |     the marker collection with the default markers, and so does this.
 -- |   * `memo` is applied to the public export, matching TS.
 -- |   * `useMemo` over the marker array is skipped; recomputation
 -- |     happens only when the slice (edges + defaultEdgeOptions)
@@ -23,7 +20,7 @@ module React.Container.MarkerDefinitions
 import Prelude
 
 import Data.Array (null) as Array
-import Data.Maybe (Maybe(..), fromMaybe)
+import Data.Maybe (Maybe, fromMaybe)
 import Effect.Unsafe (unsafePerformEffect)
 import React.Basic (JSX, ReactComponent)
 import React.Basic.Hooks (UnsafeReference(..), memo, reactComponent)
@@ -77,11 +74,12 @@ markerDefinitions =
       slice <- useStore selectSlice
       let
         UnsafeReference edges = slice.edges
+        UnsafeReference defaults = slice.defaultEdgeOptions
         markers = createMarkerIds edges
           { id: props.rfId
           , defaultColor: props.defaultColor
-          , defaultMarkerStart: Nothing
-          , defaultMarkerEnd: Nothing
+          , defaultMarkerStart: defaults >>= _.markerStart
+          , defaultMarkerEnd: defaults >>= _.markerEnd
           }
       pure $
         if Array.null markers then mempty

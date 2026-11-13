@@ -1,0 +1,26 @@
+$ node aamf/step3/initialization-driving/capture.mjs repeat 5 mount-baseline--edges-general
+{"phase":"repeat","scenario":"mount-baseline--edges-general","round":1,"side":"upstream","capture":1,"elapsedMs":1361}
+{"phase":"repeat","scenario":"mount-baseline--edges-general","round":1,"side":"upstream","capture":2,"elapsedMs":1001}
+{"phase":"repeat","scenario":"mount-baseline--edges-general","round":1,"side":"psflow","capture":1,"elapsedMs":1479}
+{"phase":"repeat","scenario":"mount-baseline--edges-general","round":1,"side":"psflow","capture":2,"elapsedMs":1150}
+{"scenario":"mount-baseline--edges-general","round":1,"interpretable":true,"fullGatePassed":false,"consistency":[{"side":"upstream","consistent":true},{"side":"psflow","consistent":true}],"classes":["unclaimed-difference"],"differences":2}
+{"phase":"repeat","scenario":"mount-baseline--edges-general","round":2,"side":"upstream","capture":1,"elapsedMs":1165}
+{"phase":"repeat","scenario":"mount-baseline--edges-general","round":2,"side":"upstream","capture":2,"elapsedMs":915}
+{"phase":"repeat","scenario":"mount-baseline--edges-general","round":2,"side":"psflow","capture":1,"elapsedMs":1876}
+{"phase":"repeat","scenario":"mount-baseline--edges-general","round":2,"side":"psflow","capture":2,"elapsedMs":1768}
+{"scenario":"mount-baseline--edges-general","round":2,"interpretable":true,"fullGatePassed":false,"consistency":[{"side":"upstream","consistent":true},{"side":"psflow","consistent":true}],"classes":["unclaimed-difference"],"differences":2}
+{"phase":"repeat","scenario":"mount-baseline--edges-general","round":3,"side":"upstream","capture":1,"elapsedMs":1209}
+{"phase":"repeat","scenario":"mount-baseline--edges-general","round":3,"side":"upstream","capture":2,"elapsedMs":1064}
+{"phase":"repeat","scenario":"mount-baseline--edges-general","round":3,"side":"psflow","capture":1,"elapsedMs":1557}
+{"phase":"repeat","scenario":"mount-baseline--edges-general","round":3,"side":"psflow","capture":2,"elapsedMs":1084}
+{"scenario":"mount-baseline--edges-general","round":3,"interpretable":true,"fullGatePassed":false,"consistency":[{"side":"upstream","consistent":true},{"side":"psflow","consistent":true}],"classes":["unclaimed-difference"],"differences":2}
+{"phase":"repeat","scenario":"mount-baseline--edges-general","round":4,"side":"upstream","capture":1,"elapsedMs":1161}
+{"phase":"repeat","scenario":"mount-baseline--edges-general","round":4,"side":"upstream","capture":2,"elapsedMs":991}
+{"phase":"repeat","scenario":"mount-baseline--edges-general","round":4,"side":"psflow","capture":1,"elapsedMs":1456}
+{"phase":"repeat","scenario":"mount-baseline--edges-general","round":4,"side":"psflow","capture":2,"elapsedMs":1176}
+{"scenario":"mount-baseline--edges-general","round":4,"interpretable":true,"fullGatePassed":false,"consistency":[{"side":"upstream","consistent":true},{"side":"psflow","consistent":true}],"classes":["unclaimed-difference"],"differences":2}
+{"phase":"repeat","scenario":"mount-baseline--edges-general","round":5,"side":"upstream","capture":1,"elapsedMs":1183}
+{"phase":"repeat","scenario":"mount-baseline--edges-general","round":5,"side":"upstream","capture":2,"elapsedMs":914}
+{"phase":"repeat","scenario":"mount-baseline--edges-general","round":5,"side":"psflow","capture":1,"elapsedMs":1681}
+{"phase":"repeat","scenario":"mount-baseline--edges-general","round":5,"side":"psflow","capture":2,"elapsedMs":1212}
+{"scenario":"mount-baseline--edges-general","round":5,"interpretable":true,"fullGatePassed":false,"consistency":[{"side":"upstream","consistent":true},{"side":"psflow","consistent":true}],"classes":["unclaimed-difference"],"differences":2}

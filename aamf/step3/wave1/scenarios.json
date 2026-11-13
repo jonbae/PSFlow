@@ -1,0 +1,3300 @@
+[
+  {
+    "scenario": "arrow-key-selected-node",
+    "passed": false,
+    "interpretable": false,
+    "classes": [
+      "self-inconsistent",
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": false,
+        "differences": 2,
+        "sections": [
+          "callbacks"
+        ],
+        "examples": [
+          {
+            "kind": "order",
+            "path": [
+              "callbacks"
+            ],
+            "left": [
+              "onSelectionChange#1",
+              "onNodesChange#1",
+              "onPaneMouseEnter#1",
+              "onNodeMouseEnter#1",
+              "onPaneMouseMove#1",
+              "onNodeMouseMove#1",
+              "onNodesChange#2",
+              "onNodeDragStart#1",
+              "onSelectionChange#2",
+              "onNodeDragStop#1",
+              "onNodeClick#1",
+              "onNodesChange#3",
+              "onNodesChange#4",
+              "onNodesChange#5",
+              "onNodesChange#6",
+              "onNodesChange#7",
+              "onNodeMouseLeave#1",
+              "onNodesChange#8"
+            ],
+            "right": [
+              "onSelectionChange#1",
+              "onNodesChange#1",
+              "onPaneMouseEnter#1",
+              "onNodeMouseEnter#1",
+              "onPaneMouseMove#1",
+              "onNodeMouseMove#1",
+              "onNodesChange#2",
+              "onNodeDragStart#1",
+              "onSelectionChange#2",
+              "onNodeDragStop#1",
+              "onNodeClick#1",
+              "onNodesChange#3",
+              "onNodesChange#4",
+              "onNodesChange#5",
+              "onNodesChange#6",
+              "onNodeMouseLeave#1",
+              "onNodesChange#7",
+              "onNodesChange#8"
+            ]
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "callbacks",
+              16,
+              "args",
+              1,
+              "position",
+              "x"
+            ],
+            "left": 5,
+            "right": 0
+          }
+        ]
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 5
+  },
+  {
+    "scenario": "background-custom-bgcolor",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "click-connect-reverse-direction",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 1
+  },
+  {
+    "scenario": "click-inside-interaction-width",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "click-reveals-default-toolbar",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 2
+  },
+  {
+    "scenario": "click-selects-edge",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "click-selects-node",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "click-selects-node--probe-flow-node",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 29
+  },
+  {
+    "scenario": "click-unselectable-edge",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "click-unselectable-node",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "connect-drag-holding-source",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 1
+  },
+  {
+    "scenario": "connect-drag-released-on-pane",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 2
+  },
+  {
+    "scenario": "connect-handle-to-handle",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 7
+  },
+  {
+    "scenario": "connect-input-to-input-handle",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 6
+  },
+  {
+    "scenario": "connect-output-to-output-handle",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 7
+  },
+  {
+    "scenario": "connect-second-touch-point",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "connect-source-handle-to-target-handle",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 7
+  },
+  {
+    "scenario": "connect-source-handle-to-target-handle--probe-connection-line",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 4
+  },
+  {
+    "scenario": "connect-then-keyboard-move",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "connect-to-unconnectable-handle",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 7
+  },
+  {
+    "scenario": "controls-default-zoom",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 1
+  },
+  {
+    "scenario": "controls-horizontal",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "ctrl-wheel-pinches-with-panonscroll",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 2
+  },
+  {
+    "scenario": "custom-edge-baseedge-path",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "delete-key-removes-edge",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "delete-key-removes-node-and-edges",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "delete-key-spares-undeletable-edge",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "delete-key-spares-undeletable-node",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "drag-by-custom-drag-handle",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "drag-child-expand-parent",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 2
+  },
+  {
+    "scenario": "drag-does-not-move-undraggable-node",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "drag-moves-node",
+    "passed": false,
+    "interpretable": false,
+    "classes": [
+      "self-inconsistent",
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": false,
+        "differences": 12,
+        "sections": [
+          "callbacks"
+        ],
+        "examples": [
+          {
+            "kind": "left-only",
+            "path": [
+              "callbacks",
+              31
+            ],
+            "left": {
+              "name": "onNodeMouseLeave",
+              "args": [
+                {
+                  "@class": "SyntheticBaseEvent",
+                  "_reactName": "onMouseLeave",
+                  "_targetInst": {
+                    "@ref": "React fiber"
+                  },
+                  "type": "mouseleave",
+                  "nativeEvent": {
+                    "@class": "MouseEvent",
+                    "isTrusted": true
+                  },
+                  "target": {
+                    "@ref": "DIV"
+                  },
+                  "currentTarget": {
+                    "@ref": "DIV"
+                  },
+                  "eventPhase": 3,
+                  "bubbles": true,
+                  "cancelable": true,
+                  "defaultPrevented": false,
+                  "isTrusted": true,
+                  "view": {
+                    "@ref": "Window"
+                  },
+                  "detail": 0,
+                  "screenX": 814,
+                  "screenY": 250,
+                  "clientX": 814,
+                  "clientY": 250,
+                  "pageX": 814,
+                  "pageY": 250,
+                  "ctrlKey": false,
+                  "shiftKey": false,
+                  "altKey": false,
+                  "metaKey": false,
+                  "getModifierState": {
+                    "@ref": "function"
+                  },
+                  "button": 0,
+                  "buttons": 1,
+                  "relatedTarget": {
+                    "@ref": "DIV"
+                  },
+                  "movementX": 0,
+                  "movementY": 0,
+                  "isDefaultPrevented": {
+                    "@ref": "function"
+                  },
+                  "isPropagationStopped": {
+                    "@ref": "function"
+                  }
+                },
+                {
+                  "id": "Node-1",
+                  "position": {
+                    "x": 155.1219512195122,
+                    "y": 155.1219512195122
+                  },
+                  "data": {
+                    "label": "Node-1"
+                  },
+                  "type": "input",
+                  "selected": true,
+                  "dragging": true,
+                  "measured": {
+                    "width": 150,
+                    "height": 36
+                  },
+                  "className": "playwright-test-class-123",
+                  "style": {
+                    "backgroundColor": "red"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "callbacks",
+              35
+            ],
+            "left": {
+              "name": "onNodeMouseEnter",
+              "args": [
+                {
+                  "@class": "SyntheticBaseEvent",
+                  "_reactName": "onMouseEnter",
+                  "_targetInst": {
+                    "@ref": "React fiber"
+                  },
+                  "type": "mouseenter",
+                  "nativeEvent": {
+                    "@class": "MouseEvent",
+                    "isTrusted": true
+                  },
+                  "target": {
+                    "@ref": "DIV"
+                  },
+                  "currentTarget": {
+                    "@ref": "DIV"
+                  },
+                  "eventPhase": 3,
+                  "bubbles": true,
+                  "cancelable": true,
+                  "defaultPrevented": false,
+                  "isTrusted": true,
+                  "view": {
+                    "@ref": "Window"
+                  },
+                  "detail": 0,
+                  "screenX": 814,
+                  "screenY": 250,
+                  "clientX": 814,
+                  "clientY": 250,
+                  "pageX": 814,
+                  "pageY": 250,
+                  "ctrlKey": false,
+                  "shiftKey": false,
+                  "altKey": false,
+                  "metaKey": false,
+                  "getModifierState": {
+                    "@ref": "function"
+                  },
+                  "button": 0,
+                  "buttons": 0,
+                  "relatedTarget": {
+                    "@ref": "DIV"
+                  },
+                  "movementX": 0,
+                  "movementY": 0,
+                  "isDefaultPrevented": {
+                    "@ref": "function"
+                  },
+                  "isPropagationStopped": {
+                    "@ref": "function"
+                  }
+                },
+                {
+                  "id": "Node-1",
+                  "position": {
+                    "x": 193.90243902439028,
+                    "y": 193.90243902439022
+                  },
+                  "data": {
+                    "label": "Node-1"
+                  },
+                  "type": "input",
+                  "selected": true,
+                  "dragging": true,
+                  "measured": {
+                    "width": 150,
+                    "height": 36
+                  },
+                  "className": "playwright-test-class-123",
+                  "style": {
+                    "backgroundColor": "red"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "kind": "order",
+            "path": [
+              "callbacks"
+            ],
+            "left": [
+              "onSelectionChange#1",
+              "onMoveStart#1",
+              "onViewportChange#1",
+              "onMove#1",
+              "onMoveEnd#1",
+              "onNodesChange#1",
+              "onPaneMouseEnter#1",
+              "onNodeMouseEnter#1",
+              "onPaneMouseMove#1",
+              "onNodeMouseMove#1",
+              "onNodesChange#2",
+              "onNodeDragStart#1",
+              "onSelectionChange#2",
+              "onNodeMouseLeave#1",
+              "onEdgeMouseEnter#1",
+              "onPaneMouseMove#2",
+              "onNodesChange#3",
+              "onNodeDrag#1",
+              "onPaneMouseMove#3",
+              "onNodesChange#4",
+              "onNodeDrag#2",
+              "onEdgeMouseLeave#1",
+              "onNodeMouseEnter#2",
+              "onPaneMouseMove#4",
+              "onNodesChange#5",
+              "onNodeDrag#3",
+              "onNodeMouseLeave#2",
+              "onPaneMouseMove#5",
+              "onNodesChange#6",
+              "onNodeDrag#4",
+              "onNodeMouseEnter#3",
+              "onPaneMouseMove#6",
+              "onNodesChange#7",
+              "onNodeDrag#5",
+              "onNodesChange#8",
+              "onNodeDragStop#1"
+            ],
+            "right": [
+              "onSelectionChange#1",
+              "onMoveStart#1",
+              "onViewportChange#1",
+              "onMove#1",
+              "onMoveEnd#1",
+              "onNodesChange#1",
+              "onPaneMouseEnter#1",
+              "onNodeMouseEnter#1",
+              "onPaneMouseMove#1",
+              "onNodeMouseMove#1",
+              "onNodesChange#2",
+              "onNodeDragStart#1",
+              "onSelectionChange#2",
+              "onNodeMouseLeave#1",
+              "onEdgeMouseEnter#1",
+              "onPaneMouseMove#2",
+              "onNodesChange#3",
+              "onNodeDrag#1",
+              "onPaneMouseMove#3",
+              "onNodesChange#4",
+              "onNodeDrag#2",
+              "onEdgeMouseLeave#1",
+              "onNodeMouseEnter#2",
+              "onPaneMouseMove#4",
+              "onNodesChange#5",
+              "onNodeDrag#3",
+              "onNodeMouseLeave#2",
+              "onPaneMouseMove#5",
+              "onNodesChange#6",
+              "onNodeDrag#4",
+              "onPaneMouseMove#6",
+              "onNodesChange#7",
+              "onNodeDrag#5",
+              "onNodeMouseEnter#3",
+              "onNodesChange#8",
+              "onNodeDragStop#1"
+            ]
+          }
+        ]
+      }
+    ],
+    "crossSideDifferences": 14
+  },
+  {
+    "scenario": "drag-node-autopan",
+    "passed": false,
+    "interpretable": false,
+    "classes": [
+      "self-inconsistent",
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": false,
+        "differences": 55,
+        "sections": [
+          "callbacks"
+        ],
+        "examples": [
+          {
+            "kind": "right-only",
+            "path": [
+              "callbacks",
+              66
+            ],
+            "right": {
+              "name": "onMoveStart",
+              "args": [
+                null,
+                {
+                  "x": 2000,
+                  "y": 2000,
+                  "zoom": 1
+                }
+              ]
+            }
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "callbacks",
+              67
+            ],
+            "right": {
+              "name": "onViewportChange",
+              "args": [
+                {
+                  "x": 2000,
+                  "y": 2000,
+                  "zoom": 1
+                }
+              ]
+            }
+          },
+          {
+            "kind": "right-only",
+            "path": [
+              "callbacks",
+              68
+            ],
+            "right": {
+              "name": "onMove",
+              "args": [
+                null,
+                {
+                  "x": 2000,
+                  "y": 2000,
+                  "zoom": 1
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "side": "psflow",
+        "consistent": false,
+        "differences": 19,
+        "sections": [
+          "callbacks"
+        ],
+        "examples": [
+          {
+            "kind": "left-only",
+            "path": [
+              "callbacks",
+              88
+            ],
+            "left": {
+              "name": "onMoveStart",
+              "args": [
+                null,
+                {
+                  "x": 2000,
+                  "y": 2000,
+                  "zoom": 1
+                }
+              ]
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "callbacks",
+              89
+            ],
+            "left": {
+              "name": "onViewportChange",
+              "args": [
+                {
+                  "x": 2000,
+                  "y": 2000,
+                  "zoom": 1
+                }
+              ]
+            }
+          },
+          {
+            "kind": "left-only",
+            "path": [
+              "callbacks",
+              90
+            ],
+            "left": {
+              "name": "onMove",
+              "args": [
+                null,
+                {
+                  "x": 2000,
+                  "y": 2000,
+                  "zoom": 1
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "crossSideDifferences": 104
+  },
+  {
+    "scenario": "drag-node-escape-mid-gesture",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 38
+  },
+  {
+    "scenario": "drag-node-no-select-on-drag",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "drag-node-release",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "drag-node-reports-changes",
+    "passed": false,
+    "interpretable": false,
+    "classes": [
+      "self-inconsistent",
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": false,
+        "differences": 105,
+        "sections": [
+          "dom",
+          "callbacks",
+          "api"
+        ],
+        "examples": [
+          {
+            "kind": "changed",
+            "path": [
+              "dom",
+              "root",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "attrs",
+              "style"
+            ],
+            "left": "transform: translate(0px, 24.375px) scale(1);",
+            "right": "transform: translate(0px, 22.5px) scale(1);"
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "dom",
+              "root",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "children",
+              "svg[0]",
+              "children",
+              "e1-2",
+              "children",
+              "path[0]",
+              "attrs",
+              "d"
+            ],
+            "left": "M148,40.625 C197.5,40.625 197.5,120 247,120",
+            "right": "M148,42.5 C197.5,42.5 197.5,120 247,120"
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "dom",
+              "root",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "children",
+              "svg[0]",
+              "children",
+              "e1-2",
+              "children",
+              "path[1]",
+              "attrs",
+              "d"
+            ],
+            "left": "M148,40.625 C197.5,40.625 197.5,120 247,120",
+            "right": "M148,42.5 C197.5,42.5 197.5,120 247,120"
+          }
+        ]
+      },
+      {
+        "side": "psflow",
+        "consistent": false,
+        "differences": 129,
+        "sections": [
+          "dom",
+          "callbacks",
+          "api"
+        ],
+        "examples": [
+          {
+            "kind": "changed",
+            "path": [
+              "dom",
+              "root",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "attrs",
+              "style"
+            ],
+            "left": "transform: translate(0px, 41.25px) scale(1);",
+            "right": "transform: translate(0px, 30px) scale(1);"
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "dom",
+              "root",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "children",
+              "svg[0]",
+              "children",
+              "e1-2",
+              "children",
+              "path[0]",
+              "attrs",
+              "d"
+            ],
+            "left": "M148,23.75 C197.5,23.75 197.5,120 247,120",
+            "right": "M148,35 C197.5,35 197.5,120 247,120"
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "dom",
+              "root",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "children",
+              "div[0]",
+              "children",
+              "svg[0]",
+              "children",
+              "e1-2",
+              "children",
+              "path[1]",
+              "attrs",
+              "d"
+            ],
+            "left": "M148,23.75 C197.5,23.75 197.5,120 247,120",
+            "right": "M148,35 C197.5,35 197.5,120 247,120"
+          }
+        ]
+      }
+    ],
+    "crossSideDifferences": 151
+  },
+  {
+    "scenario": "drag-pans-into-changed-extent",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 2
+  },
+  {
+    "scenario": "drag-pans-the-pane",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "drag-unmeasured-node",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "fitview-onnodeschange-variants",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "flow-custom-testid",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "flow-props-change-after-mount",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "keyboard-focus-node",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 2
+  },
+  {
+    "scenario": "minimap-all-nodes-hidden",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 1
+  },
+  {
+    "scenario": "minimap-custom-mask-colors",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "minimap-default-click",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 1
+  },
+  {
+    "scenario": "mount-baseline--chrome-background",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "mount-baseline--chrome-controls",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "mount-baseline--chrome-minimap-colors",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "mount-baseline--chrome-minimap-hidden-nodes",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 1
+  },
+  {
+    "scenario": "mount-baseline--chrome-panels",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "mount-baseline--edges-base-edge-path",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "mount-baseline--edges-general",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "mount-baseline--edges-general--probe-edge",
+    "passed": true,
+    "interpretable": true,
+    "classes": [],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 0
+  },
+  {
+    "scenario": "mount-baseline--examples-color-mode",
+    "passed": true,
+    "interpretable": true,
+    "classes": [],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 0
+  },
+  {
+    "scenario": "mount-baseline--fitview-uncontrolled",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "mount-baseline--flow-chrome-defaults",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 1
+  },
+  {
+    "scenario": "mount-baseline--flow-custom-testid",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "mount-baseline--flow-display-none",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "mount-baseline--flow-limits-change",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 2
+  },
+  {
+    "scenario": "mount-baseline--flow-not-selectable",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "mount-baseline--flow-props-change",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "mount-baseline--node-toolbar-general",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 2
+  },
+  {
+    "scenario": "mount-baseline--nodes-autopan",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 2
+  },
+  {
+    "scenario": "mount-baseline--nodes-connections",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 2
+  },
+  {
+    "scenario": "mount-baseline--nodes-expand-parent",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 2
+  },
+  {
+    "scenario": "mount-baseline--nodes-general",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "mount-baseline--nodes-no-select-on-drag",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "mount-baseline--nodes-nowheel",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 2
+  },
+  {
+    "scenario": "mount-baseline--nodes-props-record",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "mount-baseline--nodes-tall",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 2
+  },
+  {
+    "scenario": "mount-baseline--nodes-unmeasured",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "mount-baseline--pane-general",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "mount-baseline--pane-non-defaults",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 2
+  },
+  {
+    "scenario": "mount-baseline--viewport-controlled",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "mount-baseline--viewport-helpers",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "mount-baseline--viewport-pan-on-scroll",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 2
+  },
+  {
+    "scenario": "mount-in-display-none",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "multi-select-edges-with-modifier",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "node-props-record-parented",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 4
+  },
+  {
+    "scenario": "pan-after-controlled-viewport-change",
+    "passed": false,
+    "interpretable": false,
+    "classes": [
+      "self-inconsistent",
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": false,
+        "differences": 1,
+        "sections": [
+          "callbacks"
+        ],
+        "examples": [
+          {
+            "kind": "order",
+            "path": [
+              "callbacks"
+            ],
+            "left": [
+              "onSelectionChange#1",
+              "onMoveStart#1",
+              "onMove#1",
+              "onNodesChange#1",
+              "onMoveEnd#1",
+              "onMoveStart#2",
+              "onMove#2",
+              "onPaneMouseEnter#1",
+              "onPaneMouseMove#1",
+              "onMoveEnd#2",
+              "onMoveStart#3",
+              "onPaneMouseMove#2",
+              "onViewportChange#1",
+              "onMove#3",
+              "onPaneMouseMove#3",
+              "onViewportChange#2",
+              "onMove#4",
+              "onMoveEnd#3"
+            ],
+            "right": [
+              "onSelectionChange#1",
+              "onMoveStart#1",
+              "onMove#1",
+              "onNodesChange#1",
+              "onMoveEnd#1",
+              "onMoveStart#2",
+              "onMove#2",
+              "onMoveEnd#2",
+              "onPaneMouseEnter#1",
+              "onPaneMouseMove#1",
+              "onMoveStart#3",
+              "onPaneMouseMove#2",
+              "onViewportChange#1",
+              "onMove#3",
+              "onPaneMouseMove#3",
+              "onViewportChange#2",
+              "onMove#4",
+              "onMoveEnd#3"
+            ]
+          }
+        ]
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "pan-gesture-complete",
+    "passed": false,
+    "interpretable": false,
+    "classes": [
+      "self-inconsistent",
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": false,
+        "differences": 1,
+        "sections": [
+          "callbacks"
+        ],
+        "examples": [
+          {
+            "kind": "order",
+            "path": [
+              "callbacks"
+            ],
+            "left": [
+              "onSelectionChange#1",
+              "onMoveStart#1",
+              "onViewportChange#1",
+              "onMove#1",
+              "onNodesChange#1",
+              "onMoveEnd#1",
+              "onPaneMouseEnter#1",
+              "onPaneMouseMove#1",
+              "onMoveStart#2",
+              "onPaneMouseMove#2",
+              "onViewportChange#2",
+              "onMove#2",
+              "onPaneMouseMove#3",
+              "onViewportChange#3",
+              "onMove#3",
+              "onPaneMouseMove#4",
+              "onViewportChange#4",
+              "onMove#4",
+              "onPaneMouseMove#5",
+              "onViewportChange#5",
+              "onMove#5",
+              "onPaneMouseMove#6",
+              "onViewportChange#6",
+              "onMove#6",
+              "onMoveEnd#2",
+              "onPaneMouseMove#7",
+              "onMoveStart#3",
+              "onPaneMouseMove#8",
+              "onViewportChange#7",
+              "onMove#7",
+              "onPaneMouseMove#9",
+              "onViewportChange#8",
+              "onMove#8",
+              "onPaneMouseMove#10",
+              "onViewportChange#9",
+              "onMove#9",
+              "onPaneMouseMove#11",
+              "onViewportChange#10",
+              "onMove#10",
+              "onPaneMouseMove#12",
+              "onViewportChange#11",
+              "onMove#11",
+              "onMoveEnd#3"
+            ],
+            "right": [
+              "onSelectionChange#1",
+              "onMoveStart#1",
+              "onViewportChange#1",
+              "onMove#1",
+              "onNodesChange#1",
+              "onMoveEnd#1",
+              "onPaneMouseEnter#1",
+              "onPaneMouseMove#1",
+              "onMoveStart#2",
+              "onPaneMouseMove#2",
+              "onViewportChange#2",
+              "onMove#2",
+              "onPaneMouseMove#3",
+              "onViewportChange#3",
+              "onMove#3",
+              "onPaneMouseMove#4",
+              "onViewportChange#4",
+              "onMove#4",
+              "onPaneMouseMove#5",
+              "onViewportChange#5",
+              "onMove#5",
+              "onPaneMouseMove#6",
+              "onViewportChange#6",
+              "onMove#6",
+              "onPaneMouseMove#7",
+              "onMoveEnd#2",
+              "onMoveStart#3",
+              "onPaneMouseMove#8",
+              "onViewportChange#7",
+              "onMove#7",
+              "onPaneMouseMove#9",
+              "onViewportChange#8",
+              "onMove#8",
+              "onPaneMouseMove#10",
+              "onViewportChange#9",
+              "onMove#9",
+              "onPaneMouseMove#11",
+              "onViewportChange#10",
+              "onMove#10",
+              "onPaneMouseMove#12",
+              "onViewportChange#11",
+              "onMove#11",
+              "onMoveEnd#3"
+            ]
+          }
+        ]
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "pane-click-keeps-selection-when-not-selectable",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "pane-drag-from-identity-viewport",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 1
+  },
+  {
+    "scenario": "panel-center-positions",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "pinch-over-nowheel-node",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 2
+  },
+  {
+    "scenario": "probe-node-connections",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 4
+  },
+  {
+    "scenario": "select-dark-color-mode",
+    "passed": true,
+    "interpretable": true,
+    "classes": [],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 0
+  },
+  {
+    "scenario": "selection-box-from-node",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "selection-box-mid-gesture",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "selection-box-then-click-node",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "selection-box-touch",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "shift-drag-selects-nodes",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "uncontrolled-update-node",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "viewport-helpers-with-options",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "wheel-pans-with-panonscroll",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 2
+  },
+  {
+    "scenario": "wheel-zoom-from-identity-viewport",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 1
+  },
+  {
+    "scenario": "wheel-zooms-in-to-max",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "wheel-zooms-out-to-min",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "wheel-zooms-the-pane",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  },
+  {
+    "scenario": "wheel-zooms-the-pane--probe-flow-node",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 26
+  },
+  {
+    "scenario": "wheel-zooms-to-changed-limits",
+    "passed": false,
+    "interpretable": true,
+    "classes": [
+      "unclaimed-difference"
+    ],
+    "selfConsistency": [
+      {
+        "side": "upstream",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      },
+      {
+        "side": "psflow",
+        "consistent": true,
+        "differences": 0,
+        "sections": [],
+        "examples": []
+      }
+    ],
+    "crossSideDifferences": 3
+  }
+]

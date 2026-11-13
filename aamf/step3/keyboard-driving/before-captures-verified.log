@@ -1,0 +1,20 @@
+$ node aamf/step3/keyboard-driving/capture.mjs before 5 arrow-key-selected-node resize-node-after-active-limit-change
+{"phase":"before","scenario":"arrow-key-selected-node","round":1,"interpretable":false,"fullGatePassed":false,"sides":[{"side":"upstream","consistent":false,"differences":2},{"side":"psflow","consistent":true,"differences":0}],"unclaimed":null}
+{"phase":"before","scenario":"arrow-key-selected-node","round":2,"interpretable":false,"fullGatePassed":false,"sides":[{"side":"upstream","consistent":false,"differences":2},{"side":"psflow","consistent":true,"differences":0}],"unclaimed":null}
+{"phase":"before","scenario":"arrow-key-selected-node","round":3,"interpretable":false,"fullGatePassed":false,"sides":[{"side":"upstream","consistent":false,"differences":2},{"side":"psflow","consistent":true,"differences":0}],"unclaimed":null}
+{"phase":"before","scenario":"arrow-key-selected-node","round":4,"interpretable":false,"fullGatePassed":false,"sides":[{"side":"upstream","consistent":false,"differences":2},{"side":"psflow","consistent":true,"differences":0}],"unclaimed":null}
+{"phase":"before","scenario":"arrow-key-selected-node","round":5,"interpretable":false,"fullGatePassed":false,"sides":[{"side":"upstream","consistent":false,"differences":2},{"side":"psflow","consistent":true,"differences":0}],"unclaimed":null}
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+mouse.move: Target page, context or browser has been closed
+    at moveTo (/private/var/folders/r4/_xzh5pld0kx6_p9h_pxqjgkm0000gn/T/psflow-keyboard-driving-fhniaa_q/parity/system/harness/port.before.mjs:51:22)
+    at Object.mouse (/private/var/folders/r4/_xzh5pld0kx6_p9h_pxqjgkm0000gn/T/psflow-keyboard-driving-fhniaa_q/parity/system/harness/port.before.mjs:85:35)
+    at /Users/jonathanbae/repos/PSFlow/parity/system/harness/actions.mjs:112:16
+    at async Object.pointerMove (/Users/jonathanbae/repos/PSFlow/parity/system/harness/vocabulary.mjs:46:30)
+    at async Object.run (/Users/jonathanbae/repos/PSFlow/parity/system/corpus/hole-closing.mjs:68:7)
+    at async runScenario (/Users/jonathanbae/repos/PSFlow/parity/system/harness/scenario.mjs:242:5)
+    at async file:///Users/jonathanbae/repos/PSFlow/aamf/step3/keyboard-driving/capture.mjs:36:21
+
+Node.js v22.18.0

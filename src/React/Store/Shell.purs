@@ -17,7 +17,7 @@ import Prelude
 
 import Data.Array (filter) as Array
 import Data.Foldable (for_, traverse_)
-import Data.Maybe (Maybe(..))
+import Data.Maybe (Maybe(..), fromMaybe)
 import Effect (Effect)
 import Effect.Aff (launchAff_)
 import Effect.Aff.AVar as AffAVar
@@ -58,6 +58,10 @@ newtype Subscribe n e = Subscribe
 -- | Refs directly.
 type Store n e =
   { getState :: Effect (ReactFlowState n e)
+  -- | Zustand's `getInitialState`: the state the store was created with. Its
+  -- | `useStore` reads this one during a server render, where React asks for
+  -- | the server snapshot.
+  , getInitialState :: Effect (ReactFlowState n e)
   , setState :: (ReactFlowState n e -> ReactFlowState n e) -> Effect Unit
   , subscribe :: Subscribe n e
   -- | Zustand's own `subscribe(listener)`: the listener runs after every
@@ -67,6 +71,13 @@ type Store n e =
   -- | would be the one captured when the subscription was made, and a
   -- | consumer's selector can change from render to render.
   , subscribeAll :: Effect Unit -> Effect (Effect Unit)
+  -- | Zustand's `subscribe(listener)` as a JavaScript consumer reaches it
+  -- | through `useStoreApi`: the listener is handed the state and the one
+  -- | before it. Zustand passes its `state` variable as it is when each
+  -- | listener runs, and the `previousState` of the `set` that notified, so
+  -- | a listener that dispatches lets the next one see the newer state beside
+  -- | the older previous one. This hands over the same two.
+  , subscribeStates :: (ReactFlowState n e -> ReactFlowState n e -> Effect Unit) -> Effect (Effect Unit)
   , dispatch :: Action n e -> Effect Unit
   , freshMiddlewareKey :: Effect MiddlewareKey
   }
@@ -75,7 +86,8 @@ type StoreApi n e = Store n e
 
 createStore :: forall n e. InitialStateOptions n e -> Effect (Store n e)
 createStore opts = do
-  stateRef <- Ref.new (initialState opts)
+  let firstState = initialState opts
+  stateRef <- Ref.new firstState
   subsRef <- Ref.new ([] :: Array (Subscriber n e))
   nextSubKeyRef <- Ref.new 0
   middlewareKeyRef <- Ref.new 0
@@ -122,11 +134,19 @@ createStore opts = do
               , triggerFitView: dopts.triggerFitView
               }
           )
-      RunSetCenter _ _ _ ->
-        -- The hook in ticket 030 implements the returning Aff with its
-        -- own AVar. This descriptor exists so middleware observers see
-        -- the intent.
-        pure unit
+      RunSetCenter x y opts -> do
+        -- The store's setCenter is also used by NodeWrapper's focus path.
+        -- Reading and invoking panZoom happens before its async continuation,
+        -- just as in the upstream store action.
+        s <- Ref.read stateRef
+        for_ s.panZoom \pz -> do
+          let zoom = fromMaybe s.maxZoom opts.zoom
+          launchAff_ $ void $ pz.setViewport
+            { x: s.width / 2.0 - x * zoom
+            , y: s.height / 2.0 - y * zoom
+            , zoom
+            }
+            (Just { duration: opts.duration, ease: opts.ease, interpolate: opts.interpolate })
       RunSetScaleExtent mn mx -> do
         -- No instance yet means the flow has not mounted its pane, and
         -- `createXYPanZoom` seeds the extent from the same state when it
@@ -223,15 +243,26 @@ createStore opts = do
       Ref.modify_ (\xs -> xs <> [ { onUpdate, key } ]) subsRef
       pure (Ref.modify_ (Array.filter (\sub -> sub.key /= key)) subsRef)
 
+    subscribeStates listener = do
+      key <- Ref.modify (_ + 1) nextSubKeyRef
+      let
+        onUpdate prev next = unless (unsafeRefEq prev next) do
+          current <- Ref.read stateRef
+          listener current prev
+      Ref.modify_ (\xs -> xs <> [ { onUpdate, key } ]) subsRef
+      pure (Ref.modify_ (Array.filter (\sub -> sub.key /= key)) subsRef)
+
     freshMiddlewareKey = do
       n <- Ref.modify (_ + 1) middlewareKeyRef
       pure (MiddlewareKey n)
 
   pure
     { getState
+    , getInitialState: pure firstState
     , setState
     , subscribe
     , subscribeAll
+    , subscribeStates
     , dispatch
     , freshMiddlewareKey
     }

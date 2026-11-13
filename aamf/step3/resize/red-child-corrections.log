@@ -1,0 +1,121 @@
+$ node --input-type=module -e import {runXYResizerTests} from "./output/Test.System.XYResizer/index.js";runXYResizerTests();
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: top-left child position correction preserves insertion order
++ actual - expected
+... Skipped lines
+
+  [
+    [
+      'start',
+      {
+        height: 80,
+...
+      },
++     []
+-     [
+-       {
+-         id: 'z-child',
+-         position: {
+-           x: 32,
+-           y: 28
+-         }
+-       },
+-       {
+-         id: 'b-child',
+-         position: {
+-           x: 60,
+-           y: 40
+-         }
+-       }
+-     ]
+    ],
+    [
+      'resize',
+      {
+        direction: [
+...
+      },
++     []
+-     [
+-       {
+-         id: 'z-child',
+-         position: {
+-           x: 42,
+-           y: 38
+-         }
+-       },
+-       {
+-         id: 'b-child',
+-         position: {
+-           x: 70,
+-           y: 50
+-         }
+-       }
+-     ]
+    ],
+    [
+      'resizeEnd',
+      {
+        height: 110,
+
+    at compare (file:///Users/jonathanbae/repos/PSFlow/output/Test.System.XYResizer/foreign.js:85:14)
+    at Module.checkLifecycle (file:///Users/jonathanbae/repos/PSFlow/output/Test.System.XYResizer/foreign.js:87:5)
+    at runXYResizerTests (file:///Users/jonathanbae/repos/PSFlow/output/Test.System.XYResizer/index.js:15:21)
+    at file:///Users/jonathanbae/repos/PSFlow/[eval1]:1:75
+    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:269:26)
+    at async ModuleLoader.executeModuleJob (node:internal/modules/esm/loader:265:20)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: [
+    [ 'start', { x: 30, y: 40, width: 100, height: 80 } ],
+    [
+      'resize',
+      { x: 10, y: 20, width: 120, height: 100, direction: [ -1, -1 ] }
+    ],
+    [ 'change', { x: 10, y: 20, width: 120, height: 100 }, [] ],
+    [
+      'resize',
+      { x: 0, y: 10, width: 130, height: 110, direction: [ -1, -1 ] }
+    ],
+    [ 'change', { x: 0, y: 10, width: 130, height: 110 }, [] ],
+    [ 'resizeEnd', { x: 0, y: 10, width: 130, height: 110 } ],
+    [ 'end', { x: 0, y: 10, width: 130, height: 110 } ]
+  ],
+  expected: [
+    [ 'start', { width: 100, height: 80, x: 30, y: 40 } ],
+    [
+      'resize',
+      { width: 120, height: 100, x: 10, y: 20, direction: [ -1, -1 ] }
+    ],
+    [
+      'change',
+      { x: 10, y: 20, width: 120, height: 100 },
+      [
+        { id: 'z-child', position: { x: 32, y: 28 } },
+        { id: 'b-child', position: { x: 60, y: 40 } }
+      ]
+    ],
+    [
+      'resize',
+      { width: 130, height: 110, x: 0, y: 10, direction: [ -1, -1 ] }
+    ],
+    [
+      'change',
+      { x: 0, y: 10, width: 130, height: 110 },
+      [
+        { id: 'z-child', position: { x: 42, y: 38 } },
+        { id: 'b-child', position: { x: 70, y: 50 } }
+      ]
+    ],
+    [ 'resizeEnd', { width: 130, height: 110, x: 0, y: 10 } ],
+    [ 'end', { width: 130, height: 110, x: 0, y: 10 } ]
+  ],
+  operator: 'deepStrictEqual'
+}
+
+Node.js v22.18.0

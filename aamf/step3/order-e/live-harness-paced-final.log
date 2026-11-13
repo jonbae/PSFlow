@@ -1,0 +1,100 @@
+$ /Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node parity/system/linux.mjs npm run test:harness:live
+
+> ps-flow@0.0.0 test:harness:live
+> playwright test --config parity/system/harness/playwright.config.mjs
+
+
+Running 47 tests using 1 worker
+
+  ✓   1 [harness] › parity/system/harness/focus.spec.mjs:10:5 › upstream only auto-pans an offscreen node on keyboard focus (pointer) (10.0s)
+  ✓   2 [harness] › parity/system/harness/focus.spec.mjs:10:5 › upstream only auto-pans an offscreen node on keyboard focus (keyboard) (8.5s)
+  ✓   3 [harness] › parity/system/harness/focus.spec.mjs:10:5 › psflow only auto-pans an offscreen node on keyboard focus (pointer) (7.1s)
+  ✓   4 [harness] › parity/system/harness/focus.spec.mjs:10:5 › psflow only auto-pans an offscreen node on keyboard focus (keyboard) (6.5s)
+  ✓   5 [harness] › parity/system/harness/live.spec.mjs:54:1 › keyboard actions finish the native frame work and retain held modifiers (839ms)
+  ✓   6 [harness] › parity/system/harness/live.spec.mjs:84:3 › psflow records onInit with its initialized JS instance (4.6s)
+  ✓   7 [harness] › parity/system/harness/live.spec.mjs:84:3 › upstream records onInit with its initialized JS instance (3.8s)
+  ✓   8 [harness] › parity/system/harness/live.spec.mjs:100:1 › a mount resolves the container, and the trace it produces is a valid trace (3.9s)
+  ✓   9 [harness] › parity/system/harness/live.spec.mjs:119:1 › the dom section carries the flow's own element tree, nested (4.2s)
+  ✓  10 [harness] › parity/system/harness/live.spec.mjs:144:1 › a real flow settles, and the transform it settles at is measured, not zero (4.7s)
+  ✓  11 [harness] › parity/system/harness/live.spec.mjs:165:1 › dragNode moves the node it grabbed, by the distance it was told (10.4s)
+  ✓  12 [harness] › parity/system/harness/live.spec.mjs:183:1 › an unresolved target is recorded and driving continues — never a timeout (8.3s)
+  ✓  13 [harness] › parity/system/harness/live.spec.mjs:226:1 › a side reproduces its own boxes and its own render across two captures (20.9s)
+  ✓  14 [harness] › parity/system/harness/live.spec.mjs:240:1 › upstream reproduces its whole trace, call log included, across two captures (20.4s)
+  ✓  15 [harness] › parity/system/harness/live.spec.mjs:254:1 › initialization order reproduces across repeated fit-view mounts (56.6s)
+  ✓  16 [harness] › parity/system/harness/live.spec.mjs:273:1 › mount scheduling delivers native resize work before timers and paces action frames afterward (4.3s)
+  ✓  17 [harness] › parity/system/harness/live.spec.mjs:320:1 › a real library firing real handlers lands in the callbacks section, in order (6.6s)
+  ✓  18 [harness] › parity/system/harness/live.spec.mjs:337:1 › what a handler was handed arrives as trace content, addressable field by field (6.7s)
+  ✓  19 [harness] › parity/system/harness/live.spec.mjs:356:1 › upstream's synthetic event reaches the trace with its own fields on it (5.9s)
+  ✓  20 [harness] › parity/system/harness/live.spec.mjs:379:1 › a handler no fixture ever set is installed, and fires (6.9s)
+  ✓  21 [harness] › parity/system/harness/live.spec.mjs:389:1 › a page with no call log fails the capture rather than recording nothing (11.5s)
+  ✓  22 [harness] › parity/system/harness/live.spec.mjs:409:1 › a fixture driver wraps nothing unless the URL asks, and every capture asks (5.5s)
+  ✓  23 [harness] › parity/system/harness/live.spec.mjs:428:1 › observing changes what the page renders, which is why the other gates do not ask for it (4.0s)
+  ✓  24 [harness] › parity/system/harness/live.spec.mjs:445:1 › a key reaches the page, and a targeted one focuses first (5.0s)
+  ✓  25 [harness] › parity/system/harness/live.spec.mjs:463:1 › a scenario that does not declare touch runs on a page without it (3.7s)
+  ✓  26 [harness] › parity/system/harness/live.spec.mjs:469:1 › declaring touch puts emulation on, and the pinch gesture completes (6.2s)
+  ✓  27 [harness] › parity/system/harness/live.spec.mjs:490:1 › reaching for touch without declaring it fails loudly rather than dispatching nothing (3.4s)
+  ✓  28 [harness] › parity/system/harness/live.spec.mjs:511:1 › a touch drag moves upstream's node, which is what proves the events arrive (6.1s)
+  ✓  29 [harness] › parity/system/harness/live.spec.mjs:547:1 › the same scenario drives the upstream bundle through the same page (7.1s)
+  ✓  30 [harness] › parity/system/harness/timing.spec.mjs:26:5 › upstream reproduces the complete drag-node-autopan trace across independent captures (19.2s)
+  ✓  31 [harness] › parity/system/harness/timing.spec.mjs:26:5 › upstream reproduces the complete drag-node-reports-changes trace across independent captures (28.0s)
+  ✓  32 [harness] › parity/system/harness/timing.spec.mjs:26:5 › upstream reproduces the complete wheel-zoom-from-identity-viewport trace across independent captures (11.2s)
+  ✓  33 [harness] › parity/system/harness/timing.spec.mjs:26:5 › upstream reproduces the complete ctrl-wheel-pinches-with-panonscroll trace across independent captures (14.7s)
+  ✓  34 [harness] › parity/system/harness/timing.spec.mjs:26:5 › upstream reproduces the complete pan-after-controlled-viewport-change trace across independent captures (16.2s)
+  ✓  35 [harness] › parity/system/harness/timing.spec.mjs:26:5 › upstream reproduces the complete arrow-key-selected-node trace across independent captures (20.3s)
+  ✓  36 [harness] › parity/system/harness/timing.spec.mjs:26:5 › psflow reproduces the complete drag-node-autopan trace across independent captures (22.4s)
+  ✘  37 [harness] › parity/system/harness/timing.spec.mjs:26:5 › psflow reproduces the complete drag-node-reports-changes trace across independent captures (31.4s)
+  ✓  38 [harness] › parity/system/harness/timing.spec.mjs:26:5 › psflow reproduces the complete wheel-zoom-from-identity-viewport trace across independent captures (22.3s)
+  ✓  39 [harness] › parity/system/harness/timing.spec.mjs:26:5 › psflow reproduces the complete ctrl-wheel-pinches-with-panonscroll trace across independent captures (14.8s)
+  ✓  40 [harness] › parity/system/harness/timing.spec.mjs:26:5 › psflow reproduces the complete pan-after-controlled-viewport-change trace across independent captures (20.3s)
+  ✓  41 [harness] › parity/system/harness/timing.spec.mjs:26:5 › psflow reproduces the complete arrow-key-selected-node trace across independent captures (27.0s)
+  ✓  42 [harness] › parity/system/harness/timing.spec.mjs:42:1 › wheel dispatch completes its finite timeout chain before returning (1.6s)
+  ✓  43 [harness] › parity/system/harness/timing.spec.mjs:61:1 › a navigation holds zero-delay timers until application frames advance (1.0s)
+  ✓  44 [harness] › parity/system/harness/timing.spec.mjs:79:3 › upstream completes an animated imperative call with time held between actions (4.6s)
+  ✓  45 [harness] › parity/system/harness/timing.spec.mjs:79:3 › psflow completes an animated imperative call with time held between actions (3.7s)
+  ✓  46 [harness] › parity/system/harness/timing.spec.mjs:92:3 › upstream resets held keyboard modifiers on the blank document between captures (7.2s)
+  ✓  47 [harness] › parity/system/harness/timing.spec.mjs:92:3 › psflow resets held keyboard modifiers on the blank document between captures (8.3s)
+
+
+  1) [harness] › parity/system/harness/timing.spec.mjs:26:5 › psflow reproduces the complete drag-node-reports-changes trace across independent captures 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: cdpSession.detach: Target page, context or browser has been closed
+
+       at port.mjs:79
+
+      77 |       if (result.exceptionDetails) throw new Error("native frame failed");
+      78 |     } finally {
+    > 79 |       if (!persistent) await session.detach();
+         |                                      ^
+      80 |     }
+      81 |   };
+      82 |
+        at nativeFrame (/work/parity/system/harness/port.mjs:79:38)
+        at Object.tick (/work/parity/system/harness/port.mjs:96:7)
+        at settleDom (/work/parity/system/harness/settle.mjs:84:5)
+        at runScenario (/work/parity/system/harness/scenario.mjs:272:17)
+        at /work/parity/system/harness/timing.spec.mjs:31:23
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/timing-psflow-reproduces-t-01f2c-across-independent-captures-harness/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/timing-psflow-reproduces-t-01f2c-across-independent-captures-harness/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/timing-psflow-reproduces-t-01f2c-across-independent-captures-harness/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/timing-psflow-reproduces-t-01f2c-across-independent-captures-harness/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [harness] › parity/system/harness/timing.spec.mjs:26:5 › psflow reproduces the complete drag-node-reports-changes trace across independent captures 
+  46 passed (9.2m)
+npm notice
+npm notice New major version of npm available! 11.12.1 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

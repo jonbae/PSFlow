@@ -1,0 +1,20 @@
+$ npm run test:conformance -- --grep connectable=false
+
+> ps-flow@0.0.0 test:conformance
+> playwright test --config examples/react-smoke/playwright.config.ts --project=conformance --grep connectable=false
+
+[2m[WebServer] [22m(node:49361) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:49394) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:49394) [DEP0066] DeprecationWarning: OutgoingMessage.prototype._headers is deprecated
+
+Running 1 test using 1 worker
+
+(node:49414) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:49414) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:200:5 › Nodes › connecting › connectable=false prevents connections (8.0s)
+
+  1 passed (30.4s)

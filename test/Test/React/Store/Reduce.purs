@@ -13,6 +13,9 @@ module Test.React.Store.Reduce
 
 import Prelude
 
+import Record as Record
+import Type.Proxy (Proxy(..))
+
 import Data.Array (length, null) as Array
 import Data.Map as Map
 import Data.Maybe (Maybe(..), maybe)
@@ -35,42 +38,51 @@ assert label ok =
 
 sampleNode :: InternalNodeBase Unit
 sampleNode =
-  { id: NodeId "n1"
-  , position: { x: 0.0, y: 0.0 }
-  , data: unit
-  , sourcePosition: Nothing
-  , targetPosition: Nothing
-  , hidden: Nothing
-  , selected: Just true
-  , dragging: Nothing
-  , draggable: Nothing
-  , selectable: Nothing
-  , connectable: Nothing
-  , deletable: Nothing
-  , dragHandle: Nothing
-  , width: Nothing
-  , height: Nothing
-  , initialWidth: Nothing
-  , initialHeight: Nothing
-  , parentId: Nothing
-  , zIndex: Nothing
-  , extent: Nothing
-  , expandParent: Nothing
-  , ariaLabel: Nothing
-  , origin: Nothing
-  , handles: Nothing
-  , measured: { width: Nothing, height: Nothing }
-  , nodeType: Nothing
-  , className: Nothing
-  , style: Nothing
-  , internals:
+  let
+    originalUserNode =
+      { id: NodeId "n1"
+      , position: { x: 0.0, y: 0.0 }
+      , data: unit
+      , sourcePosition: Nothing
+      , targetPosition: Nothing
+      , hidden: Nothing
+      , selected: Just true
+      , dragging: Nothing
+      , draggable: Nothing
+      , selectable: Nothing
+      , connectable: Nothing
+      , deletable: Nothing
+      , dragHandle: Nothing
+      , width: Nothing
+      , height: Nothing
+      , initialWidth: Nothing
+      , initialHeight: Nothing
+      , focusable: Nothing
+      , ariaRole: Nothing
+      , domAttributes: Nothing
+      , parentId: Nothing
+      , zIndex: Nothing
+      , extent: Nothing
+      , expandParent: Nothing
+      , resizing: Nothing
+      , ariaLabel: Nothing
+      , origin: Nothing
+      , handles: Nothing
+      , measured: { width: Nothing, height: Nothing }
+      , nodeType: Nothing
+      , className: Nothing
+      , style: Nothing
+      }
+  in
+    Record.insert (Proxy :: Proxy "internals")
       { positionAbsolute: { x: 0.0, y: 0.0 }
       , z: 0.0
       , rootParentIndex: Nothing
       , handleBounds: Nothing
       , bounds: Nothing
+      , userNode: originalUserNode
       }
-  }
+      originalUserNode
 
 sampleEdge :: EdgeBase Unit
 sampleEdge =
@@ -92,6 +104,16 @@ sampleEdge =
   , label: Nothing
   , ariaLabel: Nothing
   , interactionWidth: Nothing
+  , focusable: Nothing
+  , reconnectable: Nothing
+  , ariaRole: Nothing
+  , domAttributes: Nothing
+  , labelStyle: Nothing
+  , labelShowBg: Nothing
+  , labelBgStyle: Nothing
+  , labelBgPadding: Nothing
+  , labelBgBorderRadius: Nothing
+  , pathOptions: Nothing
   , className: Nothing
   , style: Nothing
   }
@@ -115,10 +137,14 @@ freshNode =
   , height: Nothing
   , initialWidth: Nothing
   , initialHeight: Nothing
+  , focusable: Nothing
+  , ariaRole: Nothing
+  , domAttributes: Nothing
   , parentId: Nothing
   , zIndex: Nothing
   , extent: Nothing
   , expandParent: Nothing
+  , resizing: Nothing
   , ariaLabel: Nothing
   , origin: Nothing
   , handles: Nothing
@@ -148,6 +174,16 @@ freshEdge =
   , label: Nothing
   , ariaLabel: Nothing
   , interactionWidth: Nothing
+  , focusable: Nothing
+  , reconnectable: Nothing
+  , ariaRole: Nothing
+  , domAttributes: Nothing
+  , labelStyle: Nothing
+  , labelShowBg: Nothing
+  , labelBgStyle: Nothing
+  , labelBgPadding: Nothing
+  , labelBgBorderRadius: Nothing
+  , pathOptions: Nothing
   , className: Nothing
   , style: Nothing
   }

@@ -1,0 +1,73 @@
+$ node --input-type=module -e import {runXYResizerTests} from "./output/Test.System.XYResizer/index.js";runXYResizerTests();
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+Error: Build failed with 2 errors:
+node_modules/d3-zoom/src/zoom.js:2:8: ERROR: No matching export in "../../../../private/var/folders/r4/_xzh5pld0kx6_p9h_pxqjgkm0000gn/T/psflow-resize-oracle-2Xli4s/platform.mjs" for import "dragDisable"
+node_modules/d3-zoom/src/zoom.js:2:21: ERROR: No matching export in "../../../../private/var/folders/r4/_xzh5pld0kx6_p9h_pxqjgkm0000gn/T/psflow-resize-oracle-2Xli4s/platform.mjs" for import "dragEnable"
+    at failureErrorWithLog (/Users/jonathanbae/repos/PSFlow/node_modules/esbuild/lib/main.js:1476:15)
+    at /Users/jonathanbae/repos/PSFlow/node_modules/esbuild/lib/main.js:945:25
+    at /Users/jonathanbae/repos/PSFlow/node_modules/esbuild/lib/main.js:897:52
+    at buildResponseToResult (/Users/jonathanbae/repos/PSFlow/node_modules/esbuild/lib/main.js:943:7)
+    at /Users/jonathanbae/repos/PSFlow/node_modules/esbuild/lib/main.js:970:16
+    at responseCallbacks.<computed> (/Users/jonathanbae/repos/PSFlow/node_modules/esbuild/lib/main.js:622:9)
+    at handleIncomingPacket (/Users/jonathanbae/repos/PSFlow/node_modules/esbuild/lib/main.js:677:12)
+    at Socket.readFromStdout (/Users/jonathanbae/repos/PSFlow/node_modules/esbuild/lib/main.js:600:7)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [
+    {
+      detail: undefined,
+      id: '',
+      location: {
+        column: 8,
+        file: 'node_modules/d3-zoom/src/zoom.js',
+        length: 11,
+        line: 2,
+        lineText: 'import {dragDisable, dragEnable} from "d3-drag";',
+        namespace: '',
+        suggestion: ''
+      },
+      notes: [],
+      pluginName: '',
+      text: 'No matching export in "../../../../private/var/folders/r4/_xzh5pld0kx6_p9h_pxqjgkm0000gn/T/psflow-resize-oracle-2Xli4s/platform.mjs" for import "dragDisable"'
+    },
+    {
+      detail: undefined,
+      id: '',
+      location: {
+        column: 21,
+        file: 'node_modules/d3-zoom/src/zoom.js',
+        length: 10,
+        line: 2,
+        lineText: 'import {dragDisable, dragEnable} from "d3-drag";',
+        namespace: '',
+        suggestion: ''
+      },
+      notes: [],
+      pluginName: '',
+      text: 'No matching export in "../../../../private/var/folders/r4/_xzh5pld0kx6_p9h_pxqjgkm0000gn/T/psflow-resize-oracle-2Xli4s/platform.mjs" for import "dragEnable"'
+    }
+  ],
+  warnings: [
+    {
+      detail: undefined,
+      id: 'tsconfig.json',
+      location: {
+        column: 13,
+        file: 'xyflow/packages/system/tsconfig.json',
+        length: 28,
+        line: 3,
+        lineText: '  "extends": "@xyflow/tsconfig/base.json",',
+        namespace: '',
+        suggestion: ''
+      },
+      notes: [],
+      pluginName: '',
+      text: 'Cannot find base config file "@xyflow/tsconfig/base.json"'
+    }
+  ]
+}
+
+Node.js v22.18.0

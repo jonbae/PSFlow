@@ -1,0 +1,147 @@
+$ spago build
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[  1 of 105] Compiling System.XYResizer.Types
+[  2 of 105] Compiling System.XYResizer.Utils
+[  3 of 105] Compiling System.XYResizer
+[  4 of 105] Compiling React.Types.Component
+[  5 of 105] Compiling React.Portal.ViewportPortal
+[  6 of 105] Compiling React.Provider.Batch
+[  7 of 105] Compiling React.Provider.StoreUpdater
+[  8 of 105] Compiling React.Container.ZoomPane
+[  9 of 105] Compiling React.Portal.Panel
+[ 10 of 105] Compiling React.Provider.SelectionListener
+[ 11 of 105] Compiling React.Additional.Background.Patterns
+[ 12 of 105] Compiling React.Additional.NodeResizer.Control
+[ 13 of 105] Compiling React.Container.A11yDescriptions
+[ 14 of 105] Compiling React.Handle
+[ 15 of 105] Compiling React.Types
+[ 16 of 105] Compiling React.Additional.MiniMap.Node
+[ 17 of 105] Compiling React.Component.UserSelection
+[ 18 of 105] Compiling React.Additional.Controls.Button
+[ 19 of 105] Compiling React.Container.MarkerDefinitions
+[ 20 of 105] Compiling Boundary.Enums
+[ 21 of 105] Compiling React.Container.Viewport
+[ 22 of 105] Compiling React.Additional.NodeToolbar.Portal
+[ 23 of 105] Compiling React.Portal.EdgeLabelRenderer
+[ 24 of 105] Compiling React.Component.ConnectionLine
+[ 26 of 105] Compiling React.Container.Attribution
+[ 25 of 105] Compiling React.Additional.Background
+[ 27 of 105] Compiling React.Additional.MiniMap.Nodes
+[ 28 of 105] Compiling Test.React.Container.NodeA11yDescription
+[ 29 of 105] Compiling React.Component.EdgeWrapper
+[ 30 of 105] Compiling React.Additional.Controls
+[ 31 of 105] Compiling React.Container.Pane
+[ 32 of 105] Compiling Boundary.Elements
+[ 33 of 105] Compiling Boundary.FitView
+[ 34 of 105] Compiling Boundary.EdgePaths
+[ 35 of 105] Compiling React.Provider
+[ 36 of 105] Compiling Boundary.Portals
+[ 37 of 105] Compiling React.Additional.EdgeToolbar
+[ 38 of 105] Compiling React.Additional.NodeToolbar
+[ 39 of 105] Compiling Test.React.Container.AttributionPanel
+[ 40 of 105] Compiling React.Additional.MiniMap
+[ 41 of 105] Compiling Test.React.Additional.BackgroundOffset
+[ 42 of 105] Compiling React.Additional.NodeResizer
+[ 43 of 105] Compiling Test.React.Hook.ConnectionTo
+[ 44 of 105] Compiling Test.Boundary.EdgePaths
+[ 45 of 105] Compiling Test.Boundary.HandleIdNull
+[ 46 of 105] Compiling Test.Boundary.PrunedKeys
+[ 47 of 105] Compiling Test.React.Provider.BatchQueue
+[ 48 of 105] Compiling Boundary.Edges
+[ 49 of 105] Compiling Test.React.Hook.OnInitTiming
+[ 50 of 105] Compiling Test.Boundary.DimensionResizing
+[ 51 of 105] Compiling Boundary.Instance
+[ 52 of 105] Compiling Test.Boundary.NodeSelected
+[ 53 of 105] Compiling Test.Boundary.NodeHidden
+[ 54 of 105] Compiling Test.Boundary.NodeExpandParent
+[ 55 of 105] Compiling Test.React.Additional.NodeToolbarPortal
+[ 56 of 105] Compiling React.Container.Wrapper
+[ 57 of 105] Compiling Test.React.Component.EdgeComponentProps
+[ 58 of 105] Compiling React.Container.EdgeRenderer
+[ 59 of 105] Compiling Test.React.Component.EdgeAriaLabel
+[ 60 of 105] Compiling Test.React.Component.HandleDataId
+[ 61 of 105] Compiling React.Node.Input
+[ 62 of 105] Compiling React.Node.Output
+[ 63 of 105] Compiling React.Node.Default
+[ 64 of 105] Compiling Test.React.HandleNativeEvent
+[ 65 of 105] Compiling Test.React.Additional.MiniMap
+[ 66 of 105] Compiling Test.React.Additional.MiniMapMask
+[ 67 of 105] Compiling Test.Boundary.BaseEdgeAttributes
+[ 68 of 105] Compiling Test.Boundary.Wrapper
+[ 69 of 105] Compiling Test.Boundary.ConnectionNullHandle
+[ 70 of 105] Compiling Boundary.Callbacks
+[ 71 of 105] Compiling React.Component.NodeWrapper.Util
+[ 72 of 105] Compiling Test.React.Store.InPlaceSelection
+[ 73 of 105] Compiling React.Component.NodeWrapper
+[ 74 of 105] Compiling Test.React.Component.NodeInlineDimensions
+[ 75 of 105] Compiling React.Component.NodesSelection
+[ 76 of 105] Compiling Test.React.DomNumbers
+[ 77 of 105] Compiling Boundary.Utils
+[ 78 of 105] Compiling Boundary.Hooks
+[ 79 of 105] Compiling Boundary.NodeChrome
+[ 80 of 105] Compiling Boundary.Resizer
+[ 81 of 105] Compiling Test.System.FinalConnectionState
+[ 82 of 105] Compiling Test.System.XYResizer
+[ 83 of 105] Compiling Boundary.Chrome
+[ 84 of 105] Compiling Test.Boundary.UserNode
+[ 85 of 105] Compiling Test.React.Hook.ViewportListeners
+[ 86 of 105] Compiling Test.Boundary.NodeDragging
+[ 87 of 105] Compiling Test.Boundary.EdgeAnimated
+[ 88 of 105] Compiling Test.Boundary.EdgeSelected
+[ 89 of 105] Compiling Test.Boundary.EdgeHidden
+[ 90 of 105] Compiling Test.Boundary.ConsumerObjects
+[ 91 of 105] Compiling Test.React.Component.NodesSelectionRect
+[ 92 of 105] Compiling React.Container.FlowRenderer
+[ 93 of 105] Compiling React.Container.NodeRenderer
+[ 94 of 105] Compiling Test.System.XYDrag.DragSelection
+[ 95 of 105] Compiling Test.System.XYDrag.DragUserNodes
+[ 96 of 105] Compiling Test.System.XYDrag.DragErrors
+[ 97 of 105] Compiling Test.React.Component.AriaDescribedBy
+[ 98 of 105] Compiling React.Container.GraphView
+[ 99 of 105] Compiling React.Container.ReactFlow
+[100 of 105] Compiling React
+[101 of 105] Compiling Boundary.Flow
+[102 of 105] Compiling Boundary
+[103 of 105] Compiling Test.React.Additional.BackgroundPattern
+[104 of 105] Compiling Test.Boundary.FlowWrapperAttributes
+[105 of 105] Compiling Test.Main
+[WARNING 1/3 UnusedExplicitImport] src/System/XYResizer.purs:14:1
+
+  14  import Effect.Uncurried (EffectFn3, runEffectFn3)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  The import of module Effect.Uncurried contains the following unused references:
+    runEffectFn3
+  It could be replaced with:
+    import Effect.Uncurried (EffectFn3)
+
+[WARNING 2/3 UnusedExplicitImport] src/System/XYResizer.purs:20:1
+
+  20  import System.Types.Geometry (CoordinateExtent(..), NodeOrigin(..), XYPosition, mkSnapGrid)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  The import of module System.Types.Geometry contains the following unused references:
+    XYPosition
+  It could be replaced with:
+    import System.Types.Geometry (CoordinateExtent(..), NodeOrigin(..), mkSnapGrid)
+
+[WARNING 3/3 ImplicitQualifiedImportReExport] src/System/XYResizer.purs:24:1
+
+  24  import System.XYResizer.Types as Types
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  Module System.XYResizer.Types was imported as Types with unspecified imports.
+  As this module is being re-exported, consider using the explicit form:
+    import System.XYResizer.Types (ControlLinePosition(..), ControlPosition(..), CornerPosition(..), OnResize, OnResizeEnd, OnResizeStart, RequiredXYResizerChange, ResizeBoundaries, ResizeControlDirection(..), ResizeControlVariant(..), ResizeDragEvent(..), ResizeParams, ResizeParamsWithDirection, ResizerStoreItems, ShouldResize, XYResizerChange, XYResizerChildChange, XYResizerInstance, XYResizerParams, XYResizerUpdateParams, xyResizerHandlePositions, xyResizerLinePositions) as Types
+
+           Src   Lib   All
+Warnings     3     0     3
+Errors       0     0     0
+
+✓ Build succeeded.
+

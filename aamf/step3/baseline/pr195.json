@@ -1,0 +1,1 @@
+{"headRefName":"port-handle-bounds-null","headRefOid":"aa11373670d52f5bbb61b9c44dda58be64fe9b6d","mergeCommit":null,"mergedAt":null,"number":195,"state":"OPEN","title":"Hold null for a side with no handle, as upstream's getHandleBounds returns","url":"https://github.com/jonbae/PSFlow/pull/195"}

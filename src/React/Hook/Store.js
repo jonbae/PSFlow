@@ -6,10 +6,11 @@ import React from "react";
 // (`cjs/use-sync-external-store-with-selector.development.js`).
 //
 // The server snapshot is zustand's `getServerState || getInitialState`, and
-// here it is `getState`: on a server nothing has dispatched, so the two are
-// the same state. Without one, React refuses a server render outright
-// ("Missing getServerSnapshot"), which is how `parity:boundary`'s mount check
-// renders the converted props.
+// here it is the store's `getInitialState`, the state it was created with.
+// React reads it during a server render and during hydration, so a state that
+// changed before either still renders as it began, as upstream's does. Without
+// one, React refuses a server render outright ("Missing getServerSnapshot"),
+// which is how `parity:boundary`'s mount check renders the converted props.
 //
 // What it buys over a `useState` fed by a subscription is React's own
 // `useSyncExternalStore`. A slice that moved between the render and the
@@ -64,7 +65,7 @@ export const useStoreImpl = (store, selector, isEqual) => {
   if (instRef.current === null) instRef.current = newSelectionInstance();
   const inst = instRef.current;
 
-  const getServerSnapshot = store.getState;
+  const getServerSnapshot = store.getInitialState;
 
   const [getSelection, getServerSelection] = React.useMemo(() => {
     const memoizedSelector = selectionMemo(selector)(isEqual)(inst);

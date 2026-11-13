@@ -1,0 +1,79 @@
+{
+  "completedAt": "2026-11-10T18:04:26.065658+00:00",
+  "sourceAudit": {
+    "capturedAt": "2026-11-10T17:28:47.675372+00:00",
+    "outputs": [
+      {
+        "path": "src/React/Hook/Listeners.purs",
+        "sha256": "430bb6979fd585882dc52fd2e9f7e3cbdadebb2acae8bb008233b7812ee0f620"
+      },
+      {
+        "path": "test/Test/Main.purs",
+        "sha256": "5898adcddef027bb9c013ddd81721704f8d3114269830c510babad5fa10f6b80"
+      },
+      {
+        "path": "test/Test/React/Hook/OnInitTiming.purs",
+        "sha256": "4e6176ee5819b52cf08faa17d6eb584d344a840c9626a6803fe8c5a946207815"
+      },
+      {
+        "path": "test/Test/React/Hook/OnInitTiming.js",
+        "sha256": "95a9eeda25557f624e05b611aa6e0f13ca9d46b157e7f48840161c85c05468ca"
+      },
+      {
+        "path": "parity/driver/dist/psflow.js",
+        "sha256": "b7a1cf0812cbfd041ebcd96c530a15dc3530c9e687c4756f49f7f2dd347bb944"
+      },
+      {
+        "path": "parity/surface/report.md",
+        "sha256": "0e7c5e549dbbb45337625e348de401f928598974cdf060bb98f04f621569813f"
+      }
+    ]
+  },
+  "checks": {
+    "build-proxy": 0,
+    "red-proxy": 1,
+    "red-proxy-repeat": 1,
+    "build-timer": 0,
+    "red-handler-dependency": 1,
+    "build-dependency": 0,
+    "green-proxy": 0,
+    "surface": 0,
+    "boundary": 0,
+    "function": 0,
+    "driver": 0
+  },
+  "diagnosis": {
+    "loop": [
+      "node",
+      "--input-type=module",
+      "-e",
+      "import {runOnInitTimingTests} from \"./output/Test.React.Hook.OnInitTiming/index.js\"; runOnInitTimingTests();"
+    ],
+    "initialFailure": "commit must schedule, not invoke onInit; actual [first], expected []; reproduced twice in 2-3 seconds",
+    "rankedHypotheses": [
+      {
+        "rank": 1,
+        "hypothesis": "Direct invocation inside the readiness effect",
+        "prediction": "Source has no timeout on this path and first callback appears before any timer is queued"
+      },
+      {
+        "rank": 2,
+        "hypothesis": "Timer wrapper invokes synchronously",
+        "prediction": "Path calls a timeout wrapper, which invokes the callback before returning"
+      },
+      {
+        "rank": 3,
+        "hypothesis": "A prior not-ready render leaks state",
+        "prediction": "First eligible render without any prior render will not exhibit the bug"
+      }
+    ],
+    "finding": "Source calls onInit rfInstance directly. Existing System.FFI.Timer exposes native scheduling and is not used on that path. Replace direct invocation with existing timer primitive, then use the same loop to test callback dependency handling.",
+    "scope": "This proves the local onInit scheduling contract; it does not establish that this caused the six unstable corpus scenarios.",
+    "capturedAt": "2026-11-10T17:20:31.177539+00:00",
+    "followupFailure": "After timer-only fix: handler added after readiness must schedule; expected 1 pending timer, actual 0.",
+    "resolution": "Native 1ms timer with flag set at scheduling; effect depends on both viewportInitialized and the callback payload reference. Proxy now passes all timing/late-handler/unmount cases."
+  },
+  "browserCheckpoint": "../viewport-listeners/execution.json",
+  "checkpointResult": "41/41 conformance, 2/2 smoke; focused system runs reproduce but retain other known differences",
+  "aamfInvoked": false
+}

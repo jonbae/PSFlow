@@ -1,0 +1,19 @@
+{"command":"spago build","log":"build.log","exit":0,"start":"2026-11-12T18:31:50Z","end":"2026-11-12T18:31:54Z"}
+{"command":"spago test","log":"spago-test.log","exit":0,"start":"2026-11-12T18:31:54Z","end":"2026-11-12T18:32:00Z"}
+{"command":"npm run parity:surface","log":"surface.log","exit":0,"start":"2026-11-12T18:32:00Z","end":"2026-11-12T18:32:06Z"}
+{"command":"npm run parity:boundary","log":"boundary.log","exit":0,"start":"2026-11-12T18:32:06Z","end":"2026-11-12T18:32:09Z"}
+{"command":"npm run test:boundary","log":"boundary-tests.log","exit":0,"start":"2026-11-12T18:32:09Z","end":"2026-11-12T18:32:14Z"}
+{"command":"node --test parity/boundary/store.test.mjs","log":"store-tests.log","exit":0,"start":"2026-11-12T18:32:14Z","end":"2026-11-12T18:32:15Z"}
+{"command":"node --test parity/boundary/edge-fields.test.mjs","log":"edge-fields-tests.log","exit":0,"start":"2026-11-12T18:32:15Z","end":"2026-11-12T18:32:16Z"}
+{"command":"npm run test:surface","log":"test-surface.log","exit":0,"start":"2026-11-12T18:32:17Z","end":"2026-11-12T18:32:17Z"}
+{"command":"npm run test:harness","log":"test-harness.log","exit":0,"start":"2026-11-12T18:32:17Z","end":"2026-11-12T18:32:24Z"}
+{"command":"npm run test:compare","log":"test-compare.log","exit":0,"start":"2026-11-12T18:32:24Z","end":"2026-11-12T18:32:26Z"}
+{"command":"npm run test:coverage","log":"test-coverage.log","exit":0,"start":"2026-11-12T18:32:26Z","end":"2026-11-12T18:32:27Z"}
+{"command":"npm run test:census","log":"test-census.log","exit":0,"start":"2026-11-12T18:32:27Z","end":"2026-11-12T18:32:28Z"}
+{"command":"npm run parity:fork","log":"fork.log","exit":0,"start":"2026-11-12T18:32:28Z","end":"2026-11-12T18:32:29Z"}
+{"command":"npm run parity:changelog","log":"changelog.log","exit":0,"start":"2026-11-12T18:32:29Z","end":"2026-11-12T18:32:30Z"}
+{"command":"npm run build:oracle","log":"oracle.log","exit":0,"start":"2026-11-12T18:32:30Z","end":"2026-11-12T18:32:30Z"}
+{"command":"npm run build:driver","log":"driver.log","exit":0,"start":"2026-11-12T18:32:30Z","end":"2026-11-12T18:32:38Z"}
+{"command":"node parity/system/linux.mjs npm run test:conformance","log":"conformance.log","exit":0,"start":"2026-11-12T18:32:38Z","end":"2026-11-12T18:34:24Z"}
+{"command":"node parity/system/linux.mjs npm run test:smoke","log":"smoke.log","exit":0,"start":"2026-11-12T18:34:24Z","end":"2026-11-12T18:34:36Z"}
+{"command":"node parity/system/linux.mjs npm run parity:system","log":"system.log","exit":1,"start":"2026-11-12T18:34:36Z","end":"2026-11-12T18:47:00Z"}

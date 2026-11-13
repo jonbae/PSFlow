@@ -1,0 +1,15 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "Action completed."
+    }
+  ],
+  "structuredContent": {
+    "patch": {
+      "filename": "src/React/Component/NodeWrapper.purs",
+      "patch": "@@ -39,9 +39,6 @@\n -- |     `NodeBase` yet.\n -- |   * Keyboard `:focus-visible` guard is dropped (no PS Web binding);\n -- |     auto-pan fires on any focus when `autoPanOnNodeFocus` is on.\n--- |   * `ariaLiveMessage` on arrow-key nudges is deferred (the\n--- |     `AriaLabelConfig` method isn't surfaced through the wrapper\n--- |     in a form that's ready for this call site).\n module React.Component.NodeWrapper\n   ( nodeWrapper\n   , mkDragStoreItems\n@@ -71,7 +68,7 @@ import React.Hook.Drag (useDrag)\n import React.Hook.MoveSelectedNodes (useMoveSelectedNodes)\n import React.Hook.NodeObserver (useNodeObserver)\n import React.Hook.Store (UseStoreApi, useStore, useStoreApi)\n-import React.Node.Util (handleNodeClick)\n+import React.Node.Util (handleNodeClick, moveNodesByArrowKey)\n import React.Store.Action (Action(..))\n import React.Store.PanBy as StorePanBy\n import React.Store.Shell (Store)\n@@ -452,7 +449,15 @@ nodeWrapper =\n               Just delta\n                 | isDraggable && node.selected == Just true -> do\n                     preventDefault (KE.toEvent ke)\n-                    moveSelectedNodes delta (if shift then 4.0 else 1.0)\n+                    moveNodesByArrowKey\n+                      { id: NodeId props.id\n+                      , store\n+                      , key: k\n+                      , direction: delta\n+                      , factor: if shift then 4.0 else 1.0\n+                      , positionAbsolute: node.internals.positionAbsolute\n+                      , moveSelectedNodes\n+                      }\n               _ -> pure unit\n \n         onKeyDownEventHandler :: EventHandler"
+    }
+  },
+  "isError": false
+}

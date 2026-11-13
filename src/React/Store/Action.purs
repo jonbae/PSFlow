@@ -60,10 +60,10 @@ type NodeInternalsResult n =
 -- |   * `MergeNodeInternalsResult` — the follow-up the shell dispatches
 -- |     after running the DOM-driven `updateNodeInternals` system helper.
 -- |   * The listener/middleware-registration constructors
--- |     (`InstallViewportListeners`, `AddSelectionChangeHandler`,
+-- |     (`SetViewportChangeHandler`, `AddSelectionChangeHandler`,
 -- |     `AddOnNodesChangeMiddleware`, …) used by `React.Hook.Listeners`
--- |     and `React.Hook.Middleware`. The atomicity and ref-equality
--- |     clear logic for these lives in `React.Store.Reduce`.
+-- |     and `React.Hook.Middleware`. Their state updates
+-- |     live in `React.Store.Reduce`.
 -- |   * `PatchState` — escape hatch for `useStoreApi().setState(fn)`.
 -- |   * `MutateState` — upstream's in-place writes into the state, which
 -- |     notify nobody. See `React.Store.InPlace`.
@@ -92,22 +92,10 @@ data Action n e
   | UpdateConnection (ConnectionState (InternalNodeBase n))
   | ResetSelectedElements
   | Reset
-  -- Atomic 3-slot install. A `Just` overwrites the slot; a `Nothing`
-  -- leaves it untouched. Mirrors the `maybe s.slot Just opts.slot`
-  -- pattern the hook used to apply via `PatchState`.
-  | InstallViewportListeners
-      { onStart :: Maybe OnViewportChange
-      , onChange :: Maybe OnViewportChange
-      , onEnd :: Maybe OnViewportChange
-      }
-  -- Atomic 3-slot uninstall. Each `Just cb` clears the corresponding
-  -- slot only when the currently-stored callback is reference-equal
-  -- to `cb`. A `Nothing` leaves the slot alone.
-  | UninstallViewportListeners
-      { onStart :: Maybe OnViewportChange
-      , onChange :: Maybe OnViewportChange
-      , onEnd :: Maybe OnViewportChange
-      }
+  -- Each source effect updates one slot, including absence.
+  | SetViewportChangeStartHandler (Maybe OnViewportChange)
+  | SetViewportChangeHandler (Maybe OnViewportChange)
+  | SetViewportChangeEndHandler (Maybe OnViewportChange)
   | AddSelectionChangeHandler (OnSelectionChangeFunc n e)
   | RemoveSelectionChangeHandler (OnSelectionChangeFunc n e)
   | AddOnNodesChangeMiddleware MiddlewareKey (Array (NodeChange n) -> Array (NodeChange n))

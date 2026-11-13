@@ -1,0 +1,2 @@
+$ node aamf/step3/numeric-semantics/direction-repro.mjs
+NaN resize direction agrees with source

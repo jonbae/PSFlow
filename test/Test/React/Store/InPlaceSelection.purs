@@ -73,10 +73,14 @@ node id selected =
   , height: Nothing
   , initialWidth: Nothing
   , initialHeight: Nothing
+  , focusable: Nothing
+  , ariaRole: Nothing
+  , domAttributes: Nothing
   , parentId: Nothing
   , zIndex: Nothing
   , extent: Nothing
   , expandParent: Nothing
+  , resizing: Nothing
   , ariaLabel: Nothing
   , origin: Nothing
   , handles: Nothing
@@ -106,6 +110,16 @@ edgeAB selected =
   , label: Nothing
   , ariaLabel: Nothing
   , interactionWidth: Nothing
+  , focusable: Nothing
+  , reconnectable: Nothing
+  , ariaRole: Nothing
+  , domAttributes: Nothing
+  , labelStyle: Nothing
+  , labelShowBg: Nothing
+  , labelBgStyle: Nothing
+  , labelBgPadding: Nothing
+  , labelBgBorderRadius: Nothing
+  , pathOptions: Nothing
   , className: Nothing
   , style: Nothing
   }

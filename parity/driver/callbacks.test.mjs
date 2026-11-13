@@ -103,7 +103,9 @@ test("CallbackDerivationError is what the derivation throws", () => {
 // ── The two registers ──────────────────────────────────────────────────────
 
 test("a withheld prop that upstream no longer declares as a callback is stale", () => {
-  assert.deepEqual(staleEntries(["onNodeClick", "onBeforeDelete", "isValidConnection"]), [
+  assert.deepEqual(staleEntries(["onNodeClick", "onBeforeDelete", "isValidConnection"], {
+    notInstalled: [{ prop: "onInit" }],
+  }), [
     "NOT_INSTALLED: onInit",
   ]);
 });
@@ -125,6 +127,9 @@ test("an answer for a prop nothing installs is a contradiction, not a filter", (
   // The registers agree today, so this asks the rule rather than the data: the
   // one prop `HOLES` withholds must not also carry an unset answer.
   assert.deepEqual(contradictions, []);
+  assert.deepEqual(staleEntries(derived, { notInstalled: [{ prop: "onBeforeDelete" }] }), [
+    "UNHANDLED_ANSWERS names onBeforeDelete, which NOT_INSTALLED withholds",
+  ]);
   assert.ok(
     !Object.keys(UNHANDLED_ANSWERS).some((prop) => NOT_INSTALLED.some((hole) => hole.prop === prop)),
     "an unset answer for a withheld prop is an answer nothing can ever give"
@@ -183,7 +188,6 @@ test("the exports outside ReactFlowProps are the ones declared", () => {
   assert.deepEqual(
     HOLES.map((hole) => hole.export).sort(),
     [
-      "OnInit",
       "OnResize",
       "OnResizeEnd",
       "OnResizeStart",
@@ -210,7 +214,7 @@ test("upstream's own callback props are what the driver installs, minus the with
   assert.ok(props.length >= 45, `derived only ${props.length} callback props`);
   assert.ok(props.includes("onNodesChange"));
   assert.ok(props.includes("isValidConnection"));
-  assert.ok(!props.includes("onInit"), "onInit is withheld — ps-flow refuses it at mount");
+  assert.ok(props.includes("onInit"), "the crossed instance must reach the observation log");
   assert.ok(!props.includes("onScroll"), "onScroll is React's, inherited from HTMLAttributes");
   assert.deepEqual(holes, NOT_INSTALLED);
   assert.deepEqual(Object.keys(unhandled).sort(), Object.keys(UNHANDLED_ANSWERS).sort());

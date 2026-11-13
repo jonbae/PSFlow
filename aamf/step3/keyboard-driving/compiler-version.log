@@ -1,0 +1,2 @@
+$ npm exec --yes --package=purescript@0.15.16 -- purs --version
+0.15.16

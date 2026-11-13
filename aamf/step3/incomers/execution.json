@@ -1,0 +1,113 @@
+{
+  "completedAt": "2026-11-10T02:00:05.221Z",
+  "localDate": "2026-11-09",
+  "task": "psflow-w02-incomers",
+  "start": "aamf/step3/incomers/start.json",
+  "aamfInvoked": false,
+  "route": "Current PSFlow workflow; existing pilot-only adapter unchanged",
+  "toolchain": {
+    "node": "v22.18.0",
+    "purescript": "0.15.16",
+    "spago": "1.0.4"
+  },
+  "source": {
+    "path": "packages/system/src/utils/graph.ts",
+    "sha256": "f108772ff2c3ba9664638694cf33935d7bf097f09e09fa98dbfacaf7bffbc955",
+    "language": "typescript",
+    "symbols": 65,
+    "calls": 39,
+    "types": 128,
+    "accounting": "task"
+  },
+  "audit": {
+    "initialRegularFiles": 1274,
+    "checkedExistingFiles": 1273,
+    "changedInputs": [
+      "AAMF_STEP3_RESULTS.md",
+      "aamf/step3/README.md",
+      "AAMF_PORTING_PLAN.md",
+      "parity/driver/dist/psflow.js",
+      "parity/surface/allowlist.json",
+      "parity/surface/report.md",
+      "src/Boundary.js",
+      "src/Boundary.purs",
+      "src/Boundary/Utils.purs"
+    ],
+    "preservedInputs": 1264,
+    "unexpectedFileChanges": [],
+    "addedFilesOutsideEvidence": [
+      "parity/boundary/incomers.test.mjs"
+    ],
+    "observedNewNonFiles": [
+      ".claude/worktrees/melodic-churning-boot"
+    ],
+    "nonFiles": "Directories and directory symlinks are excluded consistently with the starting regular-file inventory; the observed new non-file was not created or modified by this task.",
+    "manifestExcludedToAvoidSelfReference": "aamf/step3/SHA256SUMS",
+    "sourceFilesChecked": 171,
+    "sourceMismatches": 0
+  },
+  "regression": {
+    "redCallingConvention": 1,
+    "greenCallingConvention": 0,
+    "redAbsentIdGuard": 1,
+    "greenAbsentIdGuard": 0,
+    "finalCases": 9,
+    "boundarySuiteTests": 57
+  },
+  "boundary": {
+    "stage": 4,
+    "crossed": 63,
+    "passthrough": 5,
+    "remaining": [
+      "getNodesBounds",
+      "getOutgoers",
+      "isEdge",
+      "isNode",
+      "reconnectEdge"
+    ]
+  },
+  "outputs": [
+    {
+      "path": "src/Boundary/Utils.purs",
+      "sha256": "453c9a0dfd892108388cc9db5cd042eded2e498ab8e842f1b2bf959c0249f668"
+    },
+    {
+      "path": "src/Boundary.purs",
+      "sha256": "822c443bf499da238440179f738521e4d103d535a158203ab6c6c965e617dcec"
+    },
+    {
+      "path": "src/Boundary.js",
+      "sha256": "dd37904de5c4539c5645fb482f99bf63caf21a7ca57eabbda361dfcdb85e8e02"
+    },
+    {
+      "path": "parity/surface/allowlist.json",
+      "sha256": "1384f47a415284b61f8ac4d067f847da1a6a57a5ae4d5748aa5f814bb43993bc"
+    },
+    {
+      "path": "parity/surface/report.md",
+      "sha256": "5af06efb627c691068fdb70b32e79a1d69e26ecd559abe05d9b49d1015f9fc73"
+    },
+    {
+      "path": "parity/driver/dist/psflow.js",
+      "sha256": "0f3a33e164c35f41461ef5cb7a18558181f442510ba2fa5d278c402618d79e6d"
+    },
+    {
+      "path": "AAMF_STEP3_RESULTS.md",
+      "sha256": "d693beeeada1482e859de7ba3fa71e12b14c3a042e9154b70d474d516619e18e"
+    },
+    {
+      "path": "AAMF_PORTING_PLAN.md",
+      "sha256": "2b2313bf0c2b7471421540b216f129a111f81b1ba182961133ef2723e83ab7cc"
+    },
+    {
+      "path": "aamf/step3/README.md",
+      "sha256": "0841f95f31f32e9d643e4b019f2c713d9d137328870f942fbbf4799abf4e2527"
+    },
+    {
+      "path": "parity/boundary/incomers.test.mjs",
+      "sha256": "9f1a311dce8b8991cc2bbf08719d50d3f1e52fd774614c2444c912b551d748aa"
+    }
+  ],
+  "browserEvidence": "Unchanged W00 baseline; no browser behavior or corpus machinery changed, and no browser/system recapture was performed for this utility task",
+  "next": "getOutgoers; Step 3 remains incomplete"
+}

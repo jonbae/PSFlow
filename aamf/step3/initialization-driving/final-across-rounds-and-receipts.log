@@ -1,0 +1,354 @@
+$ node aamf/step3/initialization-driving/verify-final.mjs
+[
+  {
+    "phase": "final",
+    "round": 1,
+    "preservedGeometry": true,
+    "missingCallbackRejected": true,
+    "fullGatePassed": false,
+    "unclaimed": 2
+  },
+  {
+    "phase": "final",
+    "round": 2,
+    "preservedGeometry": true,
+    "missingCallbackRejected": true,
+    "fullGatePassed": false,
+    "unclaimed": 2
+  },
+  {
+    "phase": "final",
+    "round": 3,
+    "preservedGeometry": true,
+    "missingCallbackRejected": true,
+    "fullGatePassed": false,
+    "unclaimed": 2
+  },
+  {
+    "phase": "final",
+    "round": 4,
+    "preservedGeometry": true,
+    "missingCallbackRejected": true,
+    "fullGatePassed": false,
+    "unclaimed": 2
+  },
+  {
+    "phase": "final",
+    "round": 5,
+    "preservedGeometry": true,
+    "missingCallbackRejected": true,
+    "fullGatePassed": false,
+    "unclaimed": 2
+  }
+]
+[
+  {
+    "round": 1,
+    "side": "upstream",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 1,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 2,
+    "side": "upstream",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 2,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 3,
+    "side": "upstream",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 3,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 4,
+    "side": "upstream",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 4,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 5,
+    "side": "upstream",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 5,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": 0
+  }
+]
+[
+  {
+    "round": 1,
+    "side": "upstream",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 1,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 2,
+    "side": "upstream",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 2,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 3,
+    "side": "upstream",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 3,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 4,
+    "side": "upstream",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 4,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 5,
+    "side": "upstream",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 5,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": 0
+  }
+]
+[
+  {
+    "round": 1,
+    "side": "upstream",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 1,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 2,
+    "side": "upstream",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 2,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 3,
+    "side": "upstream",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 3,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 4,
+    "side": "upstream",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 4,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 5,
+    "side": "upstream",
+    "within": true,
+    "across": true,
+    "differences": 0
+  },
+  {
+    "round": 5,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": 0
+  }
+]
+[
+  {
+    "scenario": "resize-node-after-active-limit-change",
+    "interpretable": true,
+    "resize": {
+      "width": 145,
+      "height": 110
+    },
+    "callbacks": [
+      "control:start",
+      "control:resize",
+      "control:resize",
+      "control:end"
+    ],
+    "fullGatePassed": false,
+    "witnessPassed": true,
+    "remainingDifferences": 2
+  }
+]
+[
+  {
+    "scenario": "resize-node-after-active-limit-change",
+    "interpretable": true,
+    "resize": {
+      "width": 145,
+      "height": 110
+    },
+    "callbacks": [
+      "control:start",
+      "control:resize",
+      "control:resize",
+      "control:end"
+    ],
+    "fullGatePassed": false,
+    "witnessPassed": true,
+    "remainingDifferences": 2
+  }
+]
+[
+  {
+    "scenario": "resize-node-after-active-limit-change",
+    "interpretable": true,
+    "resize": {
+      "width": 145,
+      "height": 110
+    },
+    "callbacks": [
+      "control:start",
+      "control:resize",
+      "control:resize",
+      "control:end"
+    ],
+    "fullGatePassed": false,
+    "witnessPassed": true,
+    "remainingDifferences": 2
+  }
+]
+[
+  {
+    "scenario": "resize-node-after-active-limit-change",
+    "interpretable": true,
+    "resize": {
+      "width": 145,
+      "height": 110
+    },
+    "callbacks": [
+      "control:start",
+      "control:resize",
+      "control:resize",
+      "control:end"
+    ],
+    "fullGatePassed": false,
+    "witnessPassed": true,
+    "remainingDifferences": 2
+  }
+]
+[
+  {
+    "scenario": "resize-node-after-active-limit-change",
+    "interpretable": true,
+    "resize": {
+      "width": 145,
+      "height": 110
+    },
+    "callbacks": [
+      "control:start",
+      "control:resize",
+      "control:resize",
+      "control:end"
+    ],
+    "fullGatePassed": false,
+    "witnessPassed": true,
+    "remainingDifferences": 2
+  }
+]

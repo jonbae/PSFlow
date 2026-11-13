@@ -1,0 +1,6 @@
+{
+  "patch": {
+    "filename": "src/Boundary/Elements.purs",
+    "patch": "@@ -240,13 +240,12 @@ type JsNodeInternals =\n   , bounds :: Undefinable JsNodeBounds\n   }\n \n--- | Upstream types both arrays `Handle[] | null`, where `null` means \"not\n--- | measured yet\". `System.Types.Node.NodeHandleBounds` collapsed that\n--- | distinction into the outer `Maybe` and left the arrays total, so there is\n--- | no `null` to emit and this side says so by not claiming one.\n+-- | Upstream types both arrays `Handle[] | null`. A measured node with no\n+-- | handle of a side holds `null` there, which is what `getHandleBounds`\n+-- | returns when its query finds none.\n type JsNodeHandleBounds =\n-  { source :: Array JsHandle\n-  , target :: Array JsHandle\n+  { source :: Nullable (Array JsHandle)\n+  , target :: Nullable (Array JsHandle)\n   }\n \n type JsNodeBounds =\n@@ -619,8 +618,8 @@ nodeInternalsOut i =\n \n handleBoundsOut :: NodeHandleBounds -> JsNodeHandleBounds\n handleBoundsOut b =\n-  { source: map (handleOut <<< unSourceHandle) b.source\n-  , target: map (handleOut <<< unTargetHandle) b.target\n+  { source: toNullable (map (map (handleOut <<< unSourceHandle)) b.source)\n+  , target: toNullable (map (map (handleOut <<< unTargetHandle)) b.target)\n   }\n \n nodeBoundsOut :: NodeBounds -> JsNodeBounds"
+  }
+}

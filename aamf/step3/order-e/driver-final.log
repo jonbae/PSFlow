@@ -1,0 +1,6 @@
+$ node parity/driver/build.mjs
+
+  parity/driver/dist/psflow.js  2.9mb ⚠️
+
+⚡ Done in 585ms
+driver [psflow]: 30 fixtures + 1 direct component(s), 49 observed callback props, library from `// output/Boundary/` → dist/psflow.js

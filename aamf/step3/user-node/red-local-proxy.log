@@ -1,0 +1,21 @@
+$ spago test
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[ERROR 1/1 ErrorParsingModule] test/Test/Boundary/UserNode.purs:39:9
+
+  39          instance <- Hooks.useReactFlow
+              ^^^^^^^^
+
+  Unable to parse module:
+  Unexpected token 'instance'
+
+           Src   Lib   All
+Warnings     0     0     0
+Errors       1     0     1
+
+✘ Failed to build.
+

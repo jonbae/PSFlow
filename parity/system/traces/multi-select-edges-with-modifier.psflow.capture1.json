@@ -294,7 +294,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(156.50956535339355 163.16463375091553)",
+                                      "transform": "translate(156.52745056152344 163.16463375091553)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -304,7 +304,7 @@
                                         "attrs": {
                                           "x": "-2",
                                           "y": "-4",
-                                          "width": "40.98086929321289",
+                                          "width": "40.945098876953125",
                                           "height": "18.670732498168945",
                                           "class": "react-flow__edge-textbg",
                                           "rx": "2",
@@ -394,7 +394,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(-53.741695404052734 263.1646337509155)",
+                                      "transform": "translate(-52.73556709289551 263.1646337509155)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -404,7 +404,7 @@
                                         "attrs": {
                                           "x": "-2",
                                           "y": "-4",
-                                          "width": "61.48339080810547",
+                                          "width": "59.471134185791016",
                                           "height": "18.670732498168945",
                                           "class": "react-flow__edge-textbg",
                                           "rx": "2",
@@ -494,7 +494,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(147.92308235168457 263.1646337509155)",
+                                      "transform": "translate(148.931734085083 263.1646337509155)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -504,7 +504,7 @@
                                         "attrs": {
                                           "x": "-2",
                                           "y": "-4",
-                                          "width": "58.15383529663086",
+                                          "width": "56.136531829833984",
                                           "height": "18.670732498168945",
                                           "class": "react-flow__edge-textbg",
                                           "rx": "2",
@@ -594,7 +594,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(-40.691965103149414 363.1646337509155)",
+                                      "transform": "translate(-40.14430332183838 363.1646337509155)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -604,7 +604,7 @@
                                         "attrs": {
                                           "x": "-2",
                                           "y": "-4",
-                                          "width": "35.38393020629883",
+                                          "width": "34.28860664367676",
                                           "height": "18.670732498168945",
                                           "class": "react-flow__edge-textbg",
                                           "rx": "2",
@@ -694,7 +694,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(155.91675186157227 363.1646337509155)",
+                                      "transform": "translate(155.93650245666504 363.1646337509155)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -704,7 +704,7 @@
                                         "attrs": {
                                           "x": "-2",
                                           "y": "-4",
-                                          "width": "42.16649627685547",
+                                          "width": "42.12699508666992",
                                           "height": "18.670732498168945",
                                           "class": "react-flow__edge-textbg",
                                           "rx": "2",
@@ -794,7 +794,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(-59.59632873535156 463.1646337509155)",
+                                      "transform": "translate(-59.560245513916016 463.1646337509155)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -804,7 +804,7 @@
                                         "attrs": {
                                           "x": "-2",
                                           "y": "-4",
-                                          "width": "73.19265747070312",
+                                          "width": "73.12049102783203",
                                           "height": "18.670732498168945",
                                           "class": "react-flow__edge-textbg",
                                           "rx": "2",
@@ -896,7 +896,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(158.17678451538086 463.1646337509155)",
+                                      "transform": "translate(158.7263355255127 463.1646337509155)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -906,7 +906,7 @@
                                         "attrs": {
                                           "x": "-2",
                                           "y": "-4",
-                                          "width": "37.64643096923828",
+                                          "width": "36.54732894897461",
                                           "height": "18.670732498168945",
                                           "class": "react-flow__edge-textbg",
                                           "rx": "2",
@@ -1707,17 +1707,6 @@
         ]
       },
       {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 546.2857142857142,
-            "y": 32,
-            "zoom": 0.9371428571428572
-          }
-        ]
-      },
-      {
         "name": "onNodesChange",
         "args": [
           [
@@ -1837,6 +1826,118 @@
         ]
       },
       {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 546.2857142857142,
+            "y": 32,
+            "zoom": 0.9371428571428572
+          }
+        ]
+      },
+      {
+        "name": "onInit",
+        "args": [
+          {
+            "getNodes": {
+              "@ref": "function"
+            },
+            "setNodes": {
+              "@ref": "function"
+            },
+            "addNodes": {
+              "@ref": "function"
+            },
+            "getNode": {
+              "@ref": "function"
+            },
+            "getInternalNode": {
+              "@ref": "function"
+            },
+            "getEdges": {
+              "@ref": "function"
+            },
+            "setEdges": {
+              "@ref": "function"
+            },
+            "addEdges": {
+              "@ref": "function"
+            },
+            "getEdge": {
+              "@ref": "function"
+            },
+            "toObject": {
+              "@ref": "function"
+            },
+            "deleteElements": {
+              "@ref": "function"
+            },
+            "getIntersectingNodes": {
+              "@ref": "function"
+            },
+            "isNodeIntersecting": {
+              "@ref": "function"
+            },
+            "updateNode": {
+              "@ref": "function"
+            },
+            "updateNodeData": {
+              "@ref": "function"
+            },
+            "updateEdge": {
+              "@ref": "function"
+            },
+            "updateEdgeData": {
+              "@ref": "function"
+            },
+            "getNodesBounds": {
+              "@ref": "function"
+            },
+            "getHandleConnections": {
+              "@ref": "function"
+            },
+            "getNodeConnections": {
+              "@ref": "function"
+            },
+            "fitView": {
+              "@ref": "function"
+            },
+            "zoomIn": {
+              "@ref": "function"
+            },
+            "zoomOut": {
+              "@ref": "function"
+            },
+            "zoomTo": {
+              "@ref": "function"
+            },
+            "getZoom": {
+              "@ref": "function"
+            },
+            "setViewport": {
+              "@ref": "function"
+            },
+            "getViewport": {
+              "@ref": "function"
+            },
+            "setCenter": {
+              "@ref": "function"
+            },
+            "fitBounds": {
+              "@ref": "function"
+            },
+            "screenToFlowPosition": {
+              "@ref": "function"
+            },
+            "flowToScreenPosition": {
+              "@ref": "function"
+            },
+            "viewportInitialized": true
+          }
+        ]
+      },
+      {
         "name": "onPaneMouseEnter",
         "args": [
           {
@@ -1859,7 +1960,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 355.2000000476837,
+            "timeStamp": 63,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1928,7 +2029,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 355.2000000476837,
+            "timeStamp": 63,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1991,7 +2092,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 355.2000000476837,
+            "timeStamp": 63,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2056,7 +2157,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 355.2000000476837,
+            "timeStamp": 63,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2129,7 +2230,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 370.7000000476837,
+            "timeStamp": 112,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2179,8 +2280,8 @@
                 "id": "edge-with-class",
                 "source": "1",
                 "target": "2",
-                "selected": true,
-                "className": "edge-class-test"
+                "className": "edge-class-test",
+                "selected": true
               }
             ]
           }
@@ -2209,7 +2310,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 409.39999997615814,
+            "timeStamp": 176,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2247,8 +2348,8 @@
             "id": "edge-with-class",
             "source": "1",
             "target": "2",
-            "selected": true,
-            "className": "edge-class-test"
+            "className": "edge-class-test",
+            "selected": true
           }
         ]
       },
@@ -2275,7 +2376,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 409.39999997615814,
+            "timeStamp": 176,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2340,7 +2441,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 409.39999997615814,
+            "timeStamp": 176,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2405,7 +2506,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 409.39999997615814,
+            "timeStamp": 176,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2480,7 +2581,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 418.7000000476837,
+            "timeStamp": 240,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2532,17 +2633,17 @@
                 "id": "edge-with-class",
                 "source": "1",
                 "target": "2",
-                "selected": true,
-                "className": "edge-class-test"
+                "className": "edge-class-test",
+                "selected": true
               },
               {
                 "id": "edge-with-style",
                 "source": "1",
                 "target": "3",
-                "selected": true,
                 "style": {
                   "stroke": "red"
-                }
+                },
+                "selected": true
               }
             ]
           }
@@ -2555,12 +2656,12 @@
         "getNodes": [
           {
             "id": "1",
+            "data": {
+              "label": "1"
+            },
             "position": {
               "x": 0,
               "y": 0
-            },
-            "data": {
-              "label": "1"
             },
             "type": "input",
             "measured": {
@@ -2570,12 +2671,12 @@
           },
           {
             "id": "2",
+            "data": {
+              "label": "2"
+            },
             "position": {
               "x": -100,
               "y": 100
-            },
-            "data": {
-              "label": "2"
             },
             "measured": {
               "width": 150,
@@ -2584,12 +2685,12 @@
           },
           {
             "id": "3",
+            "data": {
+              "label": "3"
+            },
             "position": {
               "x": 100,
               "y": 100
-            },
-            "data": {
-              "label": "3"
             },
             "measured": {
               "width": 150,
@@ -2598,12 +2699,12 @@
           },
           {
             "id": "4",
+            "data": {
+              "label": "4"
+            },
             "position": {
               "x": -100,
               "y": 200
-            },
-            "data": {
-              "label": "4"
             },
             "measured": {
               "width": 150,
@@ -2612,12 +2713,12 @@
           },
           {
             "id": "5",
+            "data": {
+              "label": "5"
+            },
             "position": {
               "x": 100,
               "y": 200
-            },
-            "data": {
-              "label": "5"
             },
             "measured": {
               "width": 150,
@@ -2626,12 +2727,12 @@
           },
           {
             "id": "6",
+            "data": {
+              "label": "6"
+            },
             "position": {
               "x": -100,
               "y": 300
-            },
-            "data": {
-              "label": "6"
             },
             "measured": {
               "width": 150,
@@ -2640,12 +2741,12 @@
           },
           {
             "id": "7",
+            "data": {
+              "label": "7"
+            },
             "position": {
               "x": 100,
               "y": 300
-            },
-            "data": {
-              "label": "7"
             },
             "measured": {
               "width": 150,
@@ -2654,12 +2755,12 @@
           },
           {
             "id": "8",
+            "data": {
+              "label": "8"
+            },
             "position": {
               "x": -100,
               "y": 400
-            },
-            "data": {
-              "label": "8"
             },
             "measured": {
               "width": 150,
@@ -2668,12 +2769,12 @@
           },
           {
             "id": "9",
+            "data": {
+              "label": "9"
+            },
             "position": {
               "x": 100,
               "y": 400
-            },
-            "data": {
-              "label": "9"
             },
             "measured": {
               "width": 150,
@@ -2682,12 +2783,12 @@
           },
           {
             "id": "10",
+            "data": {
+              "label": "10"
+            },
             "position": {
               "x": -100,
               "y": 500
-            },
-            "data": {
-              "label": "10"
             },
             "measured": {
               "width": 150,
@@ -2696,12 +2797,12 @@
           },
           {
             "id": "11",
+            "data": {
+              "label": "11"
+            },
             "position": {
               "x": 100,
               "y": 500
-            },
-            "data": {
-              "label": "11"
             },
             "measured": {
               "width": 150,
@@ -2710,12 +2811,12 @@
           },
           {
             "id": "12",
+            "data": {
+              "label": "12"
+            },
             "position": {
               "x": 100,
               "y": 600
-            },
-            "data": {
-              "label": "12"
             },
             "width": 200,
             "height": 100,
@@ -2726,16 +2827,16 @@
           },
           {
             "id": "12-a",
+            "parentId": "12",
+            "data": {
+              "label": "12-a"
+            },
             "position": {
               "x": 10,
               "y": 20
             },
-            "data": {
-              "label": "12-a"
-            },
             "width": 50,
             "height": 50,
-            "parentId": "12",
             "measured": {
               "width": 50,
               "height": 50
@@ -2743,16 +2844,16 @@
           },
           {
             "id": "12-b",
+            "parentId": "12",
+            "data": {
+              "label": "12-b"
+            },
             "position": {
               "x": 140,
               "y": 20
             },
-            "data": {
-              "label": "12-b"
-            },
             "width": 50,
             "height": 50,
-            "parentId": "12",
             "measured": {
               "width": 50,
               "height": 50
@@ -2761,12 +2862,12 @@
         ],
         "getNode": {
           "id": "1",
+          "data": {
+            "label": "1"
+          },
           "position": {
             "x": 0,
             "y": 0
-          },
-          "data": {
-            "label": "1"
           },
           "type": "input",
           "measured": {
@@ -2776,12 +2877,12 @@
         },
         "getInternalNode": {
           "id": "1",
+          "data": {
+            "label": "1"
+          },
           "position": {
             "x": 0,
             "y": 0
-          },
-          "data": {
-            "label": "1"
           },
           "type": "input",
           "measured": {
@@ -2794,6 +2895,21 @@
               "y": 0
             },
             "z": 0,
+            "userNode": {
+              "id": "1",
+              "data": {
+                "label": "1"
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "type": "input",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
             "handleBounds": {
               "source": [
                 {
@@ -2807,7 +2923,7 @@
                   "height": 8
                 }
               ],
-              "target": []
+              "target": null
             }
           }
         },
@@ -2816,52 +2932,52 @@
             "id": "edge-with-class",
             "source": "1",
             "target": "2",
-            "selected": true,
-            "className": "edge-class-test"
+            "className": "edge-class-test",
+            "selected": true
           },
           {
             "id": "edge-with-style",
             "source": "1",
             "target": "3",
-            "selected": true,
             "style": {
               "stroke": "red"
-            }
+            },
+            "selected": true
           },
           {
             "id": "hidden-edge",
             "source": "2",
             "target": "4",
-            "hidden": true,
-            "label": "hidden"
+            "label": "hidden",
+            "hidden": true
           },
           {
             "id": "animated-edge",
             "source": "3",
             "target": "5",
-            "animated": true,
-            "label": "animated"
+            "label": "animated",
+            "animated": true
           },
           {
             "id": "not-selectable-edge",
             "source": "4",
             "target": "6",
-            "selectable": false,
-            "label": "not-selectable"
+            "label": "not-selectable",
+            "selectable": false
           },
           {
             "id": "not-deletable",
             "source": "5",
             "target": "7",
-            "deletable": false,
-            "label": "not-deletable"
+            "label": "not-deletable",
+            "deletable": false
           },
           {
             "id": "z-index",
             "source": "6",
             "target": "8",
-            "zIndex": 3141592,
-            "label": "z-index"
+            "label": "z-index",
+            "zIndex": 3141592
           },
           {
             "id": "aria-label",
@@ -2881,13 +2997,13 @@
             "id": "markers",
             "source": "9",
             "target": "11",
-            "markerStart": {
-              "type": "arrowclosed"
-            },
+            "label": "markers",
             "markerEnd": {
               "type": "arrow"
             },
-            "label": "markers"
+            "markerStart": {
+              "type": "arrowclosed"
+            }
           },
           {
             "id": "subflow-edge",
@@ -2904,18 +3020,18 @@
           "id": "edge-with-class",
           "source": "1",
           "target": "2",
-          "selected": true,
-          "className": "edge-class-test"
+          "className": "edge-class-test",
+          "selected": true
         },
         "getIntersectingNodes": [
           {
             "id": "1",
+            "data": {
+              "label": "1"
+            },
             "position": {
               "x": 0,
               "y": 0
-            },
-            "data": {
-              "label": "1"
             },
             "type": "input",
             "measured": {
@@ -2925,12 +3041,12 @@
           },
           {
             "id": "2",
+            "data": {
+              "label": "2"
+            },
             "position": {
               "x": -100,
               "y": 100
-            },
-            "data": {
-              "label": "2"
             },
             "measured": {
               "width": 150,
@@ -2939,12 +3055,12 @@
           },
           {
             "id": "3",
+            "data": {
+              "label": "3"
+            },
             "position": {
               "x": 100,
               "y": 100
-            },
-            "data": {
-              "label": "3"
             },
             "measured": {
               "width": 150,
@@ -2953,12 +3069,12 @@
           },
           {
             "id": "4",
+            "data": {
+              "label": "4"
+            },
             "position": {
               "x": -100,
               "y": 200
-            },
-            "data": {
-              "label": "4"
             },
             "measured": {
               "width": 150,
@@ -2967,12 +3083,12 @@
           },
           {
             "id": "5",
+            "data": {
+              "label": "5"
+            },
             "position": {
               "x": 100,
               "y": 200
-            },
-            "data": {
-              "label": "5"
             },
             "measured": {
               "width": 150,
@@ -2981,12 +3097,12 @@
           },
           {
             "id": "6",
+            "data": {
+              "label": "6"
+            },
             "position": {
               "x": -100,
               "y": 300
-            },
-            "data": {
-              "label": "6"
             },
             "measured": {
               "width": 150,
@@ -2995,12 +3111,12 @@
           },
           {
             "id": "7",
+            "data": {
+              "label": "7"
+            },
             "position": {
               "x": 100,
               "y": 300
-            },
-            "data": {
-              "label": "7"
             },
             "measured": {
               "width": 150,
@@ -3009,12 +3125,12 @@
           },
           {
             "id": "8",
+            "data": {
+              "label": "8"
+            },
             "position": {
               "x": -100,
               "y": 400
-            },
-            "data": {
-              "label": "8"
             },
             "measured": {
               "width": 150,
@@ -3023,12 +3139,12 @@
           },
           {
             "id": "9",
+            "data": {
+              "label": "9"
+            },
             "position": {
               "x": 100,
               "y": 400
-            },
-            "data": {
-              "label": "9"
             },
             "measured": {
               "width": 150,
@@ -3037,12 +3153,12 @@
           },
           {
             "id": "10",
+            "data": {
+              "label": "10"
+            },
             "position": {
               "x": -100,
               "y": 500
-            },
-            "data": {
-              "label": "10"
             },
             "measured": {
               "width": 150,
@@ -3051,12 +3167,12 @@
           },
           {
             "id": "11",
+            "data": {
+              "label": "11"
+            },
             "position": {
               "x": 100,
               "y": 500
-            },
-            "data": {
-              "label": "11"
             },
             "measured": {
               "width": 150,
@@ -3065,12 +3181,12 @@
           },
           {
             "id": "12",
+            "data": {
+              "label": "12"
+            },
             "position": {
               "x": 100,
               "y": 600
-            },
-            "data": {
-              "label": "12"
             },
             "width": 200,
             "height": 100,
@@ -3081,16 +3197,16 @@
           },
           {
             "id": "12-a",
+            "parentId": "12",
+            "data": {
+              "label": "12-a"
+            },
             "position": {
               "x": 10,
               "y": 20
             },
-            "data": {
-              "label": "12-a"
-            },
             "width": 50,
             "height": 50,
-            "parentId": "12",
             "measured": {
               "width": 50,
               "height": 50
@@ -3098,16 +3214,16 @@
           },
           {
             "id": "12-b",
+            "parentId": "12",
+            "data": {
+              "label": "12-b"
+            },
             "position": {
               "x": 140,
               "y": 20
             },
-            "data": {
-              "label": "12-b"
-            },
             "width": 50,
             "height": 50,
-            "parentId": "12",
             "measured": {
               "width": 50,
               "height": 50
@@ -3157,12 +3273,12 @@
           "nodes": [
             {
               "id": "1",
+              "data": {
+                "label": "1"
+              },
               "position": {
                 "x": 0,
                 "y": 0
-              },
-              "data": {
-                "label": "1"
               },
               "type": "input",
               "measured": {
@@ -3172,12 +3288,12 @@
             },
             {
               "id": "2",
+              "data": {
+                "label": "2"
+              },
               "position": {
                 "x": -100,
                 "y": 100
-              },
-              "data": {
-                "label": "2"
               },
               "measured": {
                 "width": 150,
@@ -3186,12 +3302,12 @@
             },
             {
               "id": "3",
+              "data": {
+                "label": "3"
+              },
               "position": {
                 "x": 100,
                 "y": 100
-              },
-              "data": {
-                "label": "3"
               },
               "measured": {
                 "width": 150,
@@ -3200,12 +3316,12 @@
             },
             {
               "id": "4",
+              "data": {
+                "label": "4"
+              },
               "position": {
                 "x": -100,
                 "y": 200
-              },
-              "data": {
-                "label": "4"
               },
               "measured": {
                 "width": 150,
@@ -3214,12 +3330,12 @@
             },
             {
               "id": "5",
+              "data": {
+                "label": "5"
+              },
               "position": {
                 "x": 100,
                 "y": 200
-              },
-              "data": {
-                "label": "5"
               },
               "measured": {
                 "width": 150,
@@ -3228,12 +3344,12 @@
             },
             {
               "id": "6",
+              "data": {
+                "label": "6"
+              },
               "position": {
                 "x": -100,
                 "y": 300
-              },
-              "data": {
-                "label": "6"
               },
               "measured": {
                 "width": 150,
@@ -3242,12 +3358,12 @@
             },
             {
               "id": "7",
+              "data": {
+                "label": "7"
+              },
               "position": {
                 "x": 100,
                 "y": 300
-              },
-              "data": {
-                "label": "7"
               },
               "measured": {
                 "width": 150,
@@ -3256,12 +3372,12 @@
             },
             {
               "id": "8",
+              "data": {
+                "label": "8"
+              },
               "position": {
                 "x": -100,
                 "y": 400
-              },
-              "data": {
-                "label": "8"
               },
               "measured": {
                 "width": 150,
@@ -3270,12 +3386,12 @@
             },
             {
               "id": "9",
+              "data": {
+                "label": "9"
+              },
               "position": {
                 "x": 100,
                 "y": 400
-              },
-              "data": {
-                "label": "9"
               },
               "measured": {
                 "width": 150,
@@ -3284,12 +3400,12 @@
             },
             {
               "id": "10",
+              "data": {
+                "label": "10"
+              },
               "position": {
                 "x": -100,
                 "y": 500
-              },
-              "data": {
-                "label": "10"
               },
               "measured": {
                 "width": 150,
@@ -3298,12 +3414,12 @@
             },
             {
               "id": "11",
+              "data": {
+                "label": "11"
+              },
               "position": {
                 "x": 100,
                 "y": 500
-              },
-              "data": {
-                "label": "11"
               },
               "measured": {
                 "width": 150,
@@ -3312,12 +3428,12 @@
             },
             {
               "id": "12",
+              "data": {
+                "label": "12"
+              },
               "position": {
                 "x": 100,
                 "y": 600
-              },
-              "data": {
-                "label": "12"
               },
               "width": 200,
               "height": 100,
@@ -3328,16 +3444,16 @@
             },
             {
               "id": "12-a",
+              "parentId": "12",
+              "data": {
+                "label": "12-a"
+              },
               "position": {
                 "x": 10,
                 "y": 20
               },
-              "data": {
-                "label": "12-a"
-              },
               "width": 50,
               "height": 50,
-              "parentId": "12",
               "measured": {
                 "width": 50,
                 "height": 50
@@ -3345,16 +3461,16 @@
             },
             {
               "id": "12-b",
+              "parentId": "12",
+              "data": {
+                "label": "12-b"
+              },
               "position": {
                 "x": 140,
                 "y": 20
               },
-              "data": {
-                "label": "12-b"
-              },
               "width": 50,
               "height": 50,
-              "parentId": "12",
               "measured": {
                 "width": 50,
                 "height": 50
@@ -3366,52 +3482,52 @@
               "id": "edge-with-class",
               "source": "1",
               "target": "2",
-              "selected": true,
-              "className": "edge-class-test"
+              "className": "edge-class-test",
+              "selected": true
             },
             {
               "id": "edge-with-style",
               "source": "1",
               "target": "3",
-              "selected": true,
               "style": {
                 "stroke": "red"
-              }
+              },
+              "selected": true
             },
             {
               "id": "hidden-edge",
               "source": "2",
               "target": "4",
-              "hidden": true,
-              "label": "hidden"
+              "label": "hidden",
+              "hidden": true
             },
             {
               "id": "animated-edge",
               "source": "3",
               "target": "5",
-              "animated": true,
-              "label": "animated"
+              "label": "animated",
+              "animated": true
             },
             {
               "id": "not-selectable-edge",
               "source": "4",
               "target": "6",
-              "selectable": false,
-              "label": "not-selectable"
+              "label": "not-selectable",
+              "selectable": false
             },
             {
               "id": "not-deletable",
               "source": "5",
               "target": "7",
-              "deletable": false,
-              "label": "not-deletable"
+              "label": "not-deletable",
+              "deletable": false
             },
             {
               "id": "z-index",
               "source": "6",
               "target": "8",
-              "zIndex": 3141592,
-              "label": "z-index"
+              "label": "z-index",
+              "zIndex": 3141592
             },
             {
               "id": "aria-label",
@@ -3431,13 +3547,13 @@
               "id": "markers",
               "source": "9",
               "target": "11",
-              "markerStart": {
-                "type": "arrowclosed"
-              },
+              "label": "markers",
               "markerEnd": {
                 "type": "arrow"
               },
-              "label": "markers"
+              "markerStart": {
+                "type": "arrowclosed"
+              }
             },
             {
               "id": "subflow-edge",

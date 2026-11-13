@@ -13,7 +13,7 @@ import Data.Foldable (foldl, for_)
 import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Newtype (class Newtype)
-import Data.Number (infinity) as Number
+import Data.Number as Number
 import Data.Number.Format (toString) as NumberFormat
 import Data.Nullable (Nullable, toMaybe, toNullable)
 import Data.Tuple (Tuple(..))
@@ -95,18 +95,17 @@ newtype UpdDeps = UpdDeps
   , maxWidth :: Number
   , maxHeight :: Number
   , keepAspectRatio :: Boolean
-  , resizeDirection :: Maybe ResizeControlDirection
-  , onResizeStartRef :: UnsafeReference (Maybe Foreign)
-  , onResizeRef :: UnsafeReference (Maybe Foreign)
-  , onResizeEndRef :: UnsafeReference (Maybe Foreign)
-  , shouldResizeRef :: UnsafeReference (Maybe Foreign)
+  , onResizeStartRef :: Maybe (UnsafeReference Foreign)
+  , onResizeRef :: Maybe (UnsafeReference Foreign)
+  , onResizeEndRef :: Maybe (UnsafeReference Foreign)
+  , shouldResizeRef :: Maybe (UnsafeReference Foreign)
   }
 
 derive instance newtypeUpdDeps :: Newtype UpdDeps _
 derive newtype instance eqUpdDeps :: Eq UpdDeps
 
-opaque :: forall a. Maybe a -> Maybe Foreign
-opaque = map unsafeCoerce
+opaque :: forall a. Maybe a -> Maybe (UnsafeReference Foreign)
+opaque = map (UnsafeReference <<< unsafeCoerce)
 
 buildChanges
   :: forall n e
@@ -122,9 +121,7 @@ buildChanges store nid change childChanges resizeDirection = do
     mNode = Map.lookup nid st.nodeLookup
     nodeOrigin = st.nodeOrigin
     initialPosition =
-      { x: fromMaybe 0.0 change.x
-      , y: fromMaybe 0.0 change.y
-      }
+      { x: change.x, y: change.y }
     Tuple parentChanges nextPosition = case mNode of
       Nothing -> Tuple [] initialPosition
       Just node ->
@@ -159,19 +156,19 @@ buildChanges store nid change childChanges resizeDirection = do
                 }
               parentEx = handleExpandParent [ child ] st.nodeLookup st.parentLookup nodeOrigin
               clampedX = case change.x of
-                Just cx -> max (o.ox * width) cx
-                Nothing -> initialPosition.x
+                Just cx | cx /= 0.0 && not (Number.isNaN cx) -> Just (max (o.ox * width) cx)
+                _ -> Nothing
               clampedY = case change.y of
-                Just cy -> max (o.oy * height) cy
-                Nothing -> initialPosition.y
+                Just cy | cy /= 0.0 && not (Number.isNaN cy) -> Just (max (o.oy * height) cy)
+                _ -> Nothing
             in
               Tuple parentEx { x: clampedX, y: clampedY }
 
-    positionChange = case change.x, change.y of
-      Just _, Just _ ->
+    positionChange = case nextPosition.x, nextPosition.y of
+      Just x, Just y ->
         [ NodePositionChange
             { id: nid
-            , position: Just nextPosition
+            , position: Just { x, y }
             , positionAbsolute: Nothing
             , dragging: Nothing
             }
@@ -230,14 +227,13 @@ nodeResizeControl =
           { controlPosition
           , minWidth: fromMaybe 10.0 props.minWidth
           , minHeight: fromMaybe 10.0 props.minHeight
-          , maxWidth: fromMaybe Number.infinity props.maxWidth
-          , maxHeight: fromMaybe Number.infinity props.maxHeight
+          , maxWidth: fromMaybe 1.7976931348623157e308 props.maxWidth
+          , maxHeight: fromMaybe 1.7976931348623157e308 props.maxHeight
           , keepAspectRatio: fromMaybe false props.keepAspectRatio
-          , resizeDirection: props.resizeDirection
-          , onResizeStartRef: UnsafeReference (opaque props.onResizeStart)
-          , onResizeRef: UnsafeReference (opaque props.onResize)
-          , onResizeEndRef: UnsafeReference (opaque props.onResizeEnd)
-          , shouldResizeRef: UnsafeReference (opaque props.shouldResize)
+          , onResizeStartRef: opaque props.onResizeStart
+          , onResizeRef: opaque props.onResize
+          , onResizeEndRef: opaque props.onResizeEnd
+          , shouldResizeRef: opaque props.shouldResize
           }
       useEffect deps do
         case nodeId of
@@ -259,6 +255,7 @@ nodeResizeControl =
                           st <- store.getState
                           pure
                             { nodeLookup: st.nodeLookup
+                            , nodeOrder: map _.id st.nodes
                             , transform: st.transform
                             , snapGrid: Just st.snapGrid
                             , snapToGrid: st.snapToGrid
@@ -266,7 +263,7 @@ nodeResizeControl =
                             , paneDomNode: st.domNode
                             }
                       , onChange: \change childChanges -> do
-                          changes <- buildChanges store (NodeId nid) change childChanges d.resizeDirection
+                          changes <- buildChanges store (NodeId nid) change childChanges props.resizeDirection
                           when (Array.length changes > 0) do
                             store.dispatch (TriggerNodeChanges changes)
                       , onEnd: Just \final -> do
@@ -290,7 +287,7 @@ nodeResizeControl =
                       , maxHeight: d.maxHeight
                       }
                   , keepAspectRatio: d.keepAspectRatio
-                  , resizeDirection: d.resizeDirection
+                  , resizeDirection: props.resizeDirection
                   , onResizeStart: props.onResizeStart
                   , onResize: props.onResize
                   , onResizeEnd: props.onResizeEnd
@@ -299,7 +296,6 @@ nodeResizeControl =
                 pure do
                   mFinal <- toMaybe <$> readRef resizerRef
                   for_ mFinal _.destroy
-                  writeRef resizerRef (toNullable Nothing)
       let
         userClass = fromMaybe "" props.className
         posClasses = positionClassParts controlPosition

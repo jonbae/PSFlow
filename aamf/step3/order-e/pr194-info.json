@@ -1,0 +1,50 @@
+{
+  "status": "fulfilled",
+  "value": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Action completed."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://github.com/jonbae/PSFlow/pull/194",
+      "number": 194,
+      "state": "open",
+      "merged": false,
+      "mergeable": true,
+      "draft": false,
+      "body": "Part of [Close the divergence backlog](https://github.com/jonbae/PSFlow/issues/93). The map doesn't name this one; it's the aria-live row that #193 left in the report's `arrow-key-selected-node` scenario.\n\n## What upstream does\n\nWhen an arrow key reaches a selected, draggable node, `NodeWrapper`'s `onKeyDown` (`xyflow/packages/react/src/components/NodeWrapper/index.tsx`) sets `ariaLiveMessage` before it moves the selected nodes:\n\n- The message comes from `ariaLabelConfig['node.a11yDescription.ariaLiveMessage']`.\n- The direction is the key with `Arrow` removed, in lower case.\n- The position is `internals.positionAbsolute` before the move, truncated with `~~`.\n- `internals` is the lookup's own object, which `useMoveSelectedNodes` writes into, so a second press before a re-render reads the position the first press left.\n\n## What ps-flow did\n\nps-flow moved the nodes and announced nothing. `NodeWrapper`'s doc comment recorded the gap as deferred. In the scenario, the aria-live region read \"Moved selected node right. New position, x: 5, y: 20\" upstream and was empty in ps-flow.\n\n## The fix\n\n`moveNodesByArrowKey` in `React.Node.Util` is the arrow-key branch of upstream's `onKeyDown`, past its guards:\n\n- It reads the node's position from the lookup, because ps-flow's rendered node is a copy and upstream's `internals` is the lookup's object. It falls back to the rendered position for a node the lookup no longer holds.\n- It truncates with a foreign `~~`, which wraps to 32 bits and maps `NaN` and the infinities to 0, as JavaScript does.\n- It writes the message with `PatchState` before it calls `moveSelectedNodes`, so `onNodesChange` finds the message set.\n\nNo test under `test/` changed, apart from registering the new module in `test/Test/Main.purs`.\n\n## The proxy test\n\n`test/Test/React/Node/ArrowKeyMessage.purs` (7 checks) presses arrow keys on nodes in controlled stores and reads `ariaLiveMessage`, including as `onNodesChange` finds it. With the `PatchState` write removed, it fails at its first check.\n\n## The net\n\nAgainst `c3e242a7`:\n\n| | before | after |\n|---|---|---|\n| difference rows | 748 | 778 |\n| unclaimed differences | 560 | 574 |\n| driving divergences | 0 scn / 0 | 0 scn / 0 |\n\n- `arrow-key-selected-node` lost the aria-live row; its comparison went from 5 rows to 4. Its total went from 7 to 8 because ps-flow now disagrees with itself in 2 rows, the same hover race upstream already showed: Node-1 moves out from under the parked pointer, and `onNodeMouseLeave` fires at whichever press Chrome updates hover after.\n- `drag-node-autopan` went from 122 unclaimed rows to 137, and from 100 ps-flow self-consistency rows to 112. It's the clock-driven scenario that swings by hundreds of rows on identical code, and it presses no arrow key.\n- `flow-props-change-after-mount` and `pan-after-controlled-viewport-change` each gained one upstream self-consistency row: upstream ordered `onNodesChange` and `onMoveEnd` differently between its captures. Neither scenario presses an arrow key, and their comparisons are unchanged.\n- `coverage.md` is unchanged.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n",
+      "title": "Announce an arrow-key move in the aria-live region, as upstream's NodeWrapper does",
+      "base": "master",
+      "base_sha": "04fd4f246eb02d311effbf4fb1debedcbc21ba01",
+      "head": "port-arrow-key-message",
+      "head_sha": "c208d600246258508c17319974e965d1a7569e3d",
+      "head_repo_id": 1234335265,
+      "head_repo_full_name": "jonbae/PSFlow",
+      "merge_commit_sha": "fd15f8a78272ebd8821c9d017a542b80cf27ecd7",
+      "user": {
+        "login": "jonbae",
+        "name": "jonbae",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/11264502?v=4",
+        "id": 11264502
+      },
+      "requested_reviewers": null,
+      "requested_team_reviewers": null,
+      "diff": null,
+      "comments": null,
+      "created_at": "2026-11-05T04:49:57Z",
+      "updated_at": "2026-11-05T04:49:57Z",
+      "closed_at": null,
+      "merged_at": null,
+      "commits": 2,
+      "changed_files": 255,
+      "additions": 2922,
+      "deletions": 2472,
+      "display_url": "https://github.com/jonbae/PSFlow/pull/194",
+      "display_title": "Announce an arrow-key move in the aria-live region, as upstream's NodeWrapper does"
+    },
+    "isError": false
+  }
+}

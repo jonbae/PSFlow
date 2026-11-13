@@ -1,0 +1,30 @@
+{
+  "id": "psflow-w11-repeatability",
+  "status": "complete (bounded remeasurement only)",
+  "startedAt": "2026-11-10T20:30:49.852003+00:00",
+  "scope": "Re-capture the six historical self-inconsistent experiments without changing runtime, corpus, comparison policy or callback set. Isolate generated traces from the canonical corpus.",
+  "scenarios": [
+    "arrow-key-selected-node",
+    "drag-moves-node",
+    "drag-node-autopan",
+    "drag-node-reports-changes",
+    "pan-after-controlled-viewport-change",
+    "pan-gesture-complete"
+  ],
+  "allowedOutputs": [
+    "aamf/step3/repeatability/",
+    "AAMF_PORTING_PLAN.md",
+    "AAMF_STEP3_RESULTS.md",
+    "aamf/step3/README.md",
+    "aamf/step3/SHA256SUMS"
+  ],
+  "acceptance": [
+    "Preserve current source and compiled-output identities with the certified vendored baseline",
+    "Two captures per side per experiment; repeat each experiment independently",
+    "Classify self-inconsistency before cross-side comparison; retain failures",
+    "Record exact commands and evidence; any runtime fix requires a separately scoped task"
+  ],
+  "aamfInvoked": false,
+  "diagnosticSeam": "Official keyboard scenario through runScenario/createPagePort; unchanged self-consistency comparator. Modes baseline, browser-frame yield after each key, or settle after click. Read-only runtime and policy.",
+  "completedAt": "2026-11-10T20:38:05.786231+00:00"
+}

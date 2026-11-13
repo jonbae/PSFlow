@@ -1,0 +1,70 @@
+{
+  "completedAt": "2026-11-11T04:14:00.709643+00:00",
+  "status": "complete (bounded keyboard input protocol); E/W11 remains open for other gestures",
+  "summary": [
+    {
+      "phase": "before",
+      "scenario": "arrow-key-selected-node",
+      "interpretablePairs": 1,
+      "pairs": 5,
+      "fullParityPassed": 0
+    },
+    {
+      "phase": "before",
+      "scenario": "resize-node-after-active-limit-change",
+      "interpretablePairs": 4,
+      "pairs": 5,
+      "fullParityPassed": 0
+    },
+    {
+      "phase": "candidate",
+      "scenario": "arrow-key-selected-node",
+      "interpretablePairs": 5,
+      "pairs": 5,
+      "fullParityPassed": 0
+    },
+    {
+      "phase": "candidate",
+      "scenario": "resize-node-after-active-limit-change",
+      "interpretablePairs": 5,
+      "pairs": 5,
+      "fullParityPassed": 0
+    },
+    {
+      "phase": "repeat",
+      "scenario": "arrow-key-selected-node",
+      "interpretablePairs": 5,
+      "pairs": 5,
+      "fullParityPassed": 0
+    },
+    {
+      "phase": "repeat",
+      "scenario": "resize-node-after-active-limit-change",
+      "interpretablePairs": 5,
+      "pairs": 5,
+      "fullParityPassed": 0
+    }
+  ],
+  "mechanism": "After each keyboard press/down/up dispatch, yield through the existing two-requestAnimationFrame and zero-delay task cycle. Press remains a single native press; held keys remain down until their explicit up. Mouse/touch/wheel dispatch unchanged.",
+  "redEvidence": [
+    "red-port.log: all three action tests fail because completion precedes frame work",
+    "red-native-keyboard.log: native key receipts absent immediately after action returns"
+  ],
+  "greenEvidence": [
+    "green-port.log",
+    "green-native-keyboard.log: five native repeats",
+    "candidate-captures.log: five pairs per scenario",
+    "independent-repeat.log: independent five pairs per scenario",
+    "resize-witness-repeats.log: all ten active-resize receipts match, including unchanged official comparator corruption rejection"
+  ],
+  "rawTraces": 120,
+  "limits": [
+    "Both affected scenarios remain fully red on two unrelated cross-library differences; keyboard aria-live and handle bounds are in still-open PRs 194/195.",
+    "The initial missing-fixture and provenance-rejected setup batches are explicitly excluded and preserved under setup-*; setup failures are not regression evidence.",
+    "No claim that wall-clock-free keyboard dispatch resolves auto-pan frame counts, all other mouse interleavings, or underlying library timing.",
+    "A finite number of repeats demonstrates this experiment, not universal determinism."
+  ],
+  "aamfInvoked": false,
+  "laterCheckpoint": "../on-init-witness/execution.json: current full wave observes onInit, with 34 unstable experiments. The frozen keyboard before/after experiment predates that expanded observation set.",
+  "archivePurpose": "Frozen keyboard experiment runtime, not the later full initialization-observation checkpoint."
+}

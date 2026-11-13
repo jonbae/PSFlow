@@ -1,0 +1,36 @@
+{
+  "id": "psflow-w11-initialization-driving",
+  "status": "complete (bounded protocol; wider E remains open)",
+  "startedAt": "2026-11-11T04:35:59.589539+00:00",
+  "scope": "Diagnose and, if demonstrated, control initialization timer/frame driving at the existing public browser port/runScenario seam. Preserve all callbacks and their original order, source runtime, corpus and comparator. Any timing protocol change needs native red/green regression and independent capture repeats before adoption.",
+  "allowedOutputs": [
+    "aamf/step3/initialization-driving/",
+    "parity/system/harness/port.mjs",
+    "parity/system/harness/scenario.mjs",
+    "parity/system/harness/port.test.mjs",
+    "parity/system/harness/scenario.test.mjs",
+    "parity/system/harness/fake-port.mjs",
+    "parity/system/harness/live.spec.mjs",
+    "parity/driver/dist/psflow.js",
+    "parity/surface/report.md",
+    "parity/system/traces/",
+    "parity/system/report.md",
+    "parity/system/coverage.md",
+    "parity/changelog-audit/report.md",
+    "AAMF_PORTING_PLAN.md",
+    "AAMF_STEP3_RESULTS.md",
+    "aamf/step3/README.md",
+    "aamf/step3/SHA256SUMS",
+    "parity/system/README.md"
+  ],
+  "seam": "Existing plan E/W11-authorized public createPagePort, runScenario and native browser; unchanged official self-consistency and full comparator.",
+  "acceptance": [
+    "Reproduce the mounted upstream callback-order race in a bounded fresh loop before hypotheses",
+    "Change one driving variable per probe; preserve every raw trace and rejected probe",
+    "Adopt a protocol only with native red/green and independent repeated source/PSFlow traces",
+    "Run applicable build/surface/function/boundary and harness checks; refreshed system evidence remains red wherever actual contracts disagree"
+  ],
+  "aamfInvoked": false,
+  "scopeExpansion": "Own the native-layout/stepped-timer mount protocol and its public lifecycle regressions, its README description, and a fresh complete wave after preserving the prior canonical checkpoint. Browser clocks resume before actions. No comparator, callback-set, fixture or upstream change. Preserve native frame/ResizeObserver completion after resuming the emulated application clock; the first complete trial revealed the older keyboard-hover race. Preserve that trial separately, demonstrate a native post-mount frame regression, then remeasure the corrected protocol.",
+  "completedAt": "2026-11-11T05:40:34.055541+00:00"
+}

@@ -1,0 +1,29 @@
+$ npm exec --yes --package=purescript@0.15.16 -- spago build
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[1 of 6] Compiling Test.System.XYPanZoom.EndTiming
+[2 of 6] Compiling Test.React.Hook.NodeObserver
+[3 of 6] Compiling Test.React.Hook.NodeRenderOrder
+[4 of 6] Compiling Test.React.Component.NodeInlineDimensions
+[5 of 6] Compiling Test.React.Hook.VisibleIds
+[6 of 6] Compiling Test.Main
+[WARNING 1/1 UnusedExplicitImport] test/Test/System/XYPanZoom/EndTiming.purs:12:1
+
+  12  import Effect.Uncurried (EffectFn1, EffectFn2, mkEffectFn1, mkEffectFn2, runEffectFn1, runEffectFn2)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  The import of module Effect.Uncurried contains the following unused references:
+    runEffectFn1
+  It could be replaced with:
+    import Effect.Uncurried (EffectFn1, EffectFn2, mkEffectFn1, mkEffectFn2, runEffectFn2)
+
+           Src   Lib   All
+Warnings     1     0     1
+Errors       0     0     0
+
+✓ Build succeeded.
+

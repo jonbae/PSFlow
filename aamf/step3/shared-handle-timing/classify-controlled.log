@@ -1,0 +1,47 @@
+$ node aamf/step3/shared-handle-timing/classify-controlled.mjs
+[
+  {
+    "side": "upstream",
+    "measurementBeforeEnd": 2,
+    "endBeforeMeasurement": 4,
+    "pairs": [
+      {
+        "round": 1,
+        "consistent": true,
+        "differences": 0
+      },
+      {
+        "round": 2,
+        "consistent": false,
+        "differences": 1
+      },
+      {
+        "round": 3,
+        "consistent": false,
+        "differences": 1
+      }
+    ]
+  },
+  {
+    "side": "psflow",
+    "measurementBeforeEnd": 5,
+    "endBeforeMeasurement": 1,
+    "pairs": [
+      {
+        "round": 1,
+        "consistent": true,
+        "differences": 0
+      },
+      {
+        "round": 2,
+        "consistent": false,
+        "differences": 1
+      },
+      {
+        "round": 3,
+        "consistent": true,
+        "differences": 0
+      }
+    ]
+  }
+]

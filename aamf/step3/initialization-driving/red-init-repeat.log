@@ -1,0 +1,76 @@
+$ npx playwright test --config parity/system/harness/playwright.config.mjs --grep initialization order reproduces
+[2m[WebServer] [22m(node:89588) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:89623) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:89623) [DEP0066] DeprecationWarning: OutgoingMessage.prototype._headers is deprecated
+
+Running 1 test using 1 worker
+
+(node:89636) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:89636) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [harness] › parity/system/harness/live.spec.mjs:254:1 › initialization order reproduces across repeated fit-view mounts (6.0s)
+
+
+  1) [harness] › parity/system/harness/live.spec.mjs:254:1 › initialization order reproduces across repeated fit-view mounts 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  -  1[39m
+    [31m+ Received  + 26[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   Object {[39m
+    [31m+     "kind": "order",[39m
+    [31m+     "left": Array [[39m
+    [31m+       "onSelectionChange#1",[39m
+    [31m+       "onMoveStart#1",[39m
+    [31m+       "onViewportChange#1",[39m
+    [31m+       "onMove#1",[39m
+    [31m+       "onNodesChange#1",[39m
+    [31m+       "onInit#1",[39m
+    [31m+       "onMoveEnd#1",[39m
+    [31m+     ],[39m
+    [31m+     "path": Array [[39m
+    [31m+       "callbacks",[39m
+    [31m+     ],[39m
+    [31m+     "right": Array [[39m
+    [31m+       "onSelectionChange#1",[39m
+    [31m+       "onInit#1",[39m
+    [31m+       "onMoveStart#1",[39m
+    [31m+       "onViewportChange#1",[39m
+    [31m+       "onMove#1",[39m
+    [31m+       "onNodesChange#1",[39m
+    [31m+       "onMoveEnd#1",[39m
+    [31m+     ],[39m
+    [31m+   },[39m
+    [31m+ ][39m
+
+      266 |       traces.push(trace);
+      267 |     }
+    > 268 |     expect(checkSelfConsistency(...traces, { rules }).differences).toEqual([]);
+          |                                                                    ^
+      269 |   }
+      270 | });
+      271 |
+        at /Users/jonathanbae/repos/PSFlow/parity/system/harness/live.spec.mjs:268:68
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/live-initialization-order--ef2b8-ss-repeated-fit-view-mounts-harness/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/live-initialization-order--ef2b8-ss-repeated-fit-view-mounts-harness/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/live-initialization-order--ef2b8-ss-repeated-fit-view-mounts-harness/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/live-initialization-order--ef2b8-ss-repeated-fit-view-mounts-harness/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [harness] › parity/system/harness/live.spec.mjs:254:1 › initialization order reproduces across repeated fit-view mounts 

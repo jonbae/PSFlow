@@ -1,0 +1,6 @@
+$ node aamf/step3/repeatability/keyboard-experiment.mjs baseline 5
+{"mode":"baseline","round":1,"consistent":false,"differences":[{"kind":"order","path":["callbacks"]},{"kind":"changed","path":["callbacks",15,"args",1,"position","x"]}]}
+{"mode":"baseline","round":2,"consistent":true,"differences":[]}
+{"mode":"baseline","round":3,"consistent":true,"differences":[]}
+{"mode":"baseline","round":4,"consistent":true,"differences":[]}
+{"mode":"baseline","round":5,"consistent":false,"differences":[{"kind":"order","path":["callbacks"]},{"kind":"changed","path":["callbacks",15,"args",1,"position","x"]}]}

@@ -1,0 +1,803 @@
+$ npm run test:conformance
+
+> ps-flow@0.0.0 test:conformance
+> playwright test --config examples/react-smoke/playwright.config.ts --project=conformance
+
+[2m[WebServer] [22m(node:24457) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:24485) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:24485) [DEP0066] DeprecationWarning: OutgoingMessage.prototype._headers is deprecated
+
+Running 41 tests using 1 worker
+
+(node:24486) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24486) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   1 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:31:5 › Edges › selection › selecting an edge by click (4ms)
+(node:24487) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24487) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   2 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:39:5 › Edges › selection › selecting multiple edges by meta-click (5ms)
+(node:24488) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24488) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   3 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:60:5 › Edges › properties › classes get applied (5ms)
+(node:24490) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24490) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   4 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:66:5 › Edges › properties › styles get applied (5ms)
+(node:24491) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24491) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   5 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:72:5 › Edges › properties › hidden=true hides edge (5ms)
+(node:24492) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24492) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   6 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:78:5 › Edges › properties › animated=true add "animated" class (7ms)
+(node:24493) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24493) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   7 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:84:5 › Edges › properties › selectable=false prevents selecting of edges (6ms)
+(node:24503) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24503) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   8 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:103:5 › Edges › properties › deleting edges is possible (5ms)
+(node:24504) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24504) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   9 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:116:5 › Edges › properties › deletable=false prevents deleting of edges (5ms)
+(node:24505) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24505) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  10 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:137:5 › Edges › properties › zIndex sets z-index of edge svgs (6ms)
+(node:24506) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24506) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  11 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:144:5 › Edges › properties › aria-lable is working (5ms)
+(node:24507) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24507) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  12 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:150:5 › Edges › properties › interactionWidth is working (6ms)
+(node:24508) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24508) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  13 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:164:5 › Edges › properties › marker-start, marker-end set markers (5ms)
+(node:24509) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24509) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  14 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:173:5 › Edges › properties › z-index (5ms)
+(node:24510) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24510) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  15 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:180:5 › Edges › properties › sub flow: normal node to child node, z-index (7ms)
+(node:24511) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24511) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  16 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:187:5 › Edges › properties › sub flow: child node to child node, z-index (5ms)
+(node:24512) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24512) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  17 [conformance] › examples/react-smoke/tests/generic-node-toolbar.spec.ts:51:3 › Node Toolbar › all toolbars are positioned correctly (6ms)
+(node:24515) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24515) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  18 [conformance] › examples/react-smoke/tests/generic-node-toolbar.spec.ts:101:3 › Node Toolbar › toolbar default behaviour (9ms)
+(node:24516) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24516) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  19 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:25:5 › Nodes › selection › selecting a node by click (6ms)
+(node:24517) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24517) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  20 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:32:5 › Nodes › selection › selecting multiple nodes with shift drag (7ms)
+(node:24518) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24518) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  21 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:61:5 › Nodes › selection › selectable=false prevents selection (8ms)
+(node:24521) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24521) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  22 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:71:5 › Nodes › dragging › dragging a node (9ms)
+(node:24522) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24522) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  23 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:92:5 › Nodes › dragging › draggable=false prevents dragging (7ms)
+(node:24523) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24523) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  24 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:112:5 › Nodes › dragging › custom drag handle works (8ms)
+(node:24525) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24525) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  25 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:148:5 › Nodes › deleting › deleting a node and its edges (6ms)
+(node:24531) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24531) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  26 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:161:5 › Nodes › deleting › deletable=false prevents deletion (8ms)
+(node:24532) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24532) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  27 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:176:5 › Nodes › connecting › connecting two nodes (6ms)
+(node:24533) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24533) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  28 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:200:5 › Nodes › connecting › connectable=false prevents connections (13ms)
+(node:24534) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+  1) [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:31:5 › Edges › selection › selecting an edge by click 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-edges-Edges-selection-selecting-an-edge-by-click-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-edges-Edges-selection-selecting-an-edge-by-click-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-edges-Edges-selection-selecting-an-edge-by-click-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:39:5 › Edges › selection › selecting multiple edges by meta-click 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-edges-Edges-select-f56d7-ultiple-edges-by-meta-click-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-edges-Edges-select-f56d7-ultiple-edges-by-meta-click-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-edges-Edges-select-f56d7-ultiple-edges-by-meta-click-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:60:5 › Edges › properties › classes get applied 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-edges-Edges-properties-classes-get-applied-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-edges-Edges-properties-classes-get-applied-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-edges-Edges-properties-classes-get-applied-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:66:5 › Edges › properties › styles get applied 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-edges-Edges-properties-styles-get-applied-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-edges-Edges-properties-styles-get-applied-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-edges-Edges-properties-styles-get-applied-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:72:5 › Edges › properties › hidden=true hides edge 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-edges-Edges-properties-hidden-true-hides-edge-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-edges-Edges-properties-hidden-true-hides-edge-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-edges-Edges-properties-hidden-true-hides-edge-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:78:5 › Edges › properties › animated=true add "animated" class 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-edges-Edges-proper-4c59d-ted-true-add-animated-class-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-edges-Edges-proper-4c59d-ted-true-add-animated-class-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-edges-Edges-proper-4c59d-ted-true-add-animated-class-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:84:5 › Edges › properties › selectable=false prevents selecting of edges 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-edges-Edges-proper-1291e-prevents-selecting-of-edges-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-edges-Edges-proper-1291e-prevents-selecting-of-edges-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-edges-Edges-proper-1291e-prevents-selecting-of-edges-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8) [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:103:5 › Edges › properties › deleting edges is possible 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-edges-Edges-properties-deleting-edges-is-possible-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-edges-Edges-properties-deleting-edges-is-possible-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-edges-Edges-properties-deleting-edges-is-possible-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  9) [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:116:5 › Edges › properties › deletable=false prevents deleting of edges 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-edges-Edges-proper-9df3d--prevents-deleting-of-edges-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-edges-Edges-proper-9df3d--prevents-deleting-of-edges-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-edges-Edges-proper-9df3d--prevents-deleting-of-edges-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  10) [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:137:5 › Edges › properties › zIndex sets z-index of edge svgs 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-edges-Edges-proper-3821f-x-sets-z-index-of-edge-svgs-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-edges-Edges-proper-3821f-x-sets-z-index-of-edge-svgs-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-edges-Edges-proper-3821f-x-sets-z-index-of-edge-svgs-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  11) [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:144:5 › Edges › properties › aria-lable is working 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-edges-Edges-properties-aria-lable-is-working-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-edges-Edges-properties-aria-lable-is-working-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-edges-Edges-properties-aria-lable-is-working-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  12) [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:150:5 › Edges › properties › interactionWidth is working 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-edges-Edges-properties-interactionWidth-is-working-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-edges-Edges-properties-interactionWidth-is-working-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-edges-Edges-properties-interactionWidth-is-working-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  13) [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:164:5 › Edges › properties › marker-start, marker-end set markers 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-edges-Edges-proper-6501d-tart-marker-end-set-markers-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-edges-Edges-proper-6501d-tart-marker-end-set-markers-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-edges-Edges-proper-6501d-tart-marker-end-set-markers-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  14) [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:173:5 › Edges › properties › z-index 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-edges-Edges-properties-z-index-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-edges-Edges-properties-z-index-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-edges-Edges-properties-z-index-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  15) [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:180:5 › Edges › properties › sub flow: normal node to child node, z-index 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-edges-Edges-proper-87ba5--node-to-child-node-z-index-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-edges-Edges-proper-87ba5--node-to-child-node-z-index-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-edges-Edges-proper-87ba5--node-to-child-node-z-index-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  16) [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:187:5 › Edges › properties › sub flow: child node to child node, z-index 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-edges-Edges-proper-8dfbb--node-to-child-node-z-index-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-edges-Edges-proper-8dfbb--node-to-child-node-z-index-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-edges-Edges-proper-8dfbb--node-to-child-node-z-index-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  17) [conformance] › examples/react-smoke/tests/generic-node-toolbar.spec.ts:51:3 › Node Toolbar › all toolbars are positioned correctly 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-node-toolbar-Node--75ae0-rs-are-positioned-correctly-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-node-toolbar-Node--75ae0-rs-are-positioned-correctly-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-node-toolbar-Node--75ae0-rs-are-positioned-correctly-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  18) [conformance] › examples/react-smoke/tests/generic-node-toolbar.spec.ts:101:3 › Node Toolbar › toolbar default behaviour 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-node-toolbar-Node-Toolbar-toolbar-default-behaviour-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-node-toolbar-Node-Toolbar-toolbar-default-behaviour-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-node-toolbar-Node-Toolbar-toolbar-default-behaviour-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  19) [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:25:5 › Nodes › selection › selecting a node by click 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-nodes-Nodes-selection-selecting-a-node-by-click-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-nodes-Nodes-selection-selecting-a-node-by-click-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-nodes-Nodes-selection-selecting-a-node-by-click-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  20) [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:32:5 › Nodes › selection › selecting multiple nodes with shift drag 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-nodes-Nodes-select-2a0d8-tiple-nodes-with-shift-drag-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-nodes-Nodes-select-2a0d8-tiple-nodes-with-shift-drag-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-nodes-Nodes-select-2a0d8-tiple-nodes-with-shift-drag-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  21) [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:61:5 › Nodes › selection › selectable=false prevents selection 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-nodes-Nodes-select-2dca9-le-false-prevents-selection-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-nodes-Nodes-select-2dca9-le-false-prevents-selection-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-nodes-Nodes-select-2dca9-le-false-prevents-selection-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  22) [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:71:5 › Nodes › dragging › dragging a node 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-nodes-Nodes-dragging-dragging-a-node-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-nodes-Nodes-dragging-dragging-a-node-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-nodes-Nodes-dragging-dragging-a-node-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  23) [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:92:5 › Nodes › dragging › draggable=false prevents dragging 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-nodes-Nodes-draggi-e0cba-ble-false-prevents-dragging-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-nodes-Nodes-draggi-e0cba-ble-false-prevents-dragging-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-nodes-Nodes-draggi-e0cba-ble-false-prevents-dragging-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  24) [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:112:5 › Nodes › dragging › custom drag handle works 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-nodes-Nodes-dragging-custom-drag-handle-works-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-nodes-Nodes-dragging-custom-drag-handle-works-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-nodes-Nodes-dragging-custom-drag-handle-works-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  25) [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:148:5 › Nodes › deleting › deleting a node and its edges 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-nodes-Nodes-deleting-deleting-a-node-and-its-edges-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-nodes-Nodes-deleting-deleting-a-node-and-its-edges-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-nodes-Nodes-deleting-deleting-a-node-and-its-edges-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  26) [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:161:5 › Nodes › deleting › deletable=false prevents deletion 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-nodes-Nodes-deleti-08e5b-ble-false-prevents-deletion-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-nodes-Nodes-deleti-08e5b-ble-false-prevents-deletion-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-nodes-Nodes-deleti-08e5b-ble-false-prevents-deletion-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  27) [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:176:5 › Nodes › connecting › connecting two nodes 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-nodes-Nodes-connecting-connecting-two-nodes-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-nodes-Nodes-connecting-connecting-two-nodes-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-nodes-Nodes-connecting-connecting-two-nodes-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  28) [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:200:5 › Nodes › connecting › connectable=false prevents connections 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/jonathanbae/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-x64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/generic-nodes-Nodes-connec-38170--false-prevents-connections-conformance/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-nodes-Nodes-connec-38170--false-prevents-connections-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-nodes-Nodes-connec-38170--false-prevents-connections-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  28 failed
+    [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:31:5 › Edges › selection › selecting an edge by click 
+    [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:39:5 › Edges › selection › selecting multiple edges by meta-click 
+    [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:60:5 › Edges › properties › classes get applied 
+    [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:66:5 › Edges › properties › styles get applied 
+    [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:72:5 › Edges › properties › hidden=true hides edge 
+    [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:78:5 › Edges › properties › animated=true add "animated" class 
+    [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:84:5 › Edges › properties › selectable=false prevents selecting of edges 
+    [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:103:5 › Edges › properties › deleting edges is possible 
+    [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:116:5 › Edges › properties › deletable=false prevents deleting of edges 
+    [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:137:5 › Edges › properties › zIndex sets z-index of edge svgs 
+    [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:144:5 › Edges › properties › aria-lable is working 
+    [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:150:5 › Edges › properties › interactionWidth is working 
+    [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:164:5 › Edges › properties › marker-start, marker-end set markers 
+    [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:173:5 › Edges › properties › z-index 
+    [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:180:5 › Edges › properties › sub flow: normal node to child node, z-index 
+    [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:187:5 › Edges › properties › sub flow: child node to child node, z-index 
+    [conformance] › examples/react-smoke/tests/generic-node-toolbar.spec.ts:51:3 › Node Toolbar › all toolbars are positioned correctly 
+    [conformance] › examples/react-smoke/tests/generic-node-toolbar.spec.ts:101:3 › Node Toolbar › toolbar default behaviour 
+    [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:25:5 › Nodes › selection › selecting a node by click 
+    [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:32:5 › Nodes › selection › selecting multiple nodes with shift drag 
+    [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:61:5 › Nodes › selection › selectable=false prevents selection 
+    [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:71:5 › Nodes › dragging › dragging a node 
+    [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:92:5 › Nodes › dragging › draggable=false prevents dragging 
+    [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:112:5 › Nodes › dragging › custom drag handle works 
+    [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:148:5 › Nodes › deleting › deleting a node and its edges 
+    [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:161:5 › Nodes › deleting › deletable=false prevents deletion 
+    [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:176:5 › Nodes › connecting › connecting two nodes 
+    [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:200:5 › Nodes › connecting › connectable=false prevents connections 
+  13 did not run

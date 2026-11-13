@@ -1,0 +1,394 @@
+[
+  {
+    "scenario": "drag-node-autopan",
+    "round": 1,
+    "interpretable": true,
+    "fullGatePassed": true,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "drag-node-autopan",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "drag-node-autopan",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [],
+    "differences": []
+  },
+  {
+    "scenario": "drag-node-autopan",
+    "round": 2,
+    "interpretable": true,
+    "fullGatePassed": true,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "drag-node-autopan",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "drag-node-autopan",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [],
+    "differences": []
+  },
+  {
+    "scenario": "drag-node-reports-changes",
+    "round": 1,
+    "interpretable": true,
+    "fullGatePassed": true,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "drag-node-reports-changes",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "drag-node-reports-changes",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [],
+    "differences": []
+  },
+  {
+    "scenario": "drag-node-reports-changes",
+    "round": 2,
+    "interpretable": true,
+    "fullGatePassed": true,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "drag-node-reports-changes",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      },
+      {
+        "side": "psflow",
+        "scenario": "drag-node-reports-changes",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [],
+    "differences": []
+  },
+  {
+    "scenario": "pan-after-controlled-viewport-change",
+    "round": 1,
+    "interpretable": false,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "pan-after-controlled-viewport-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [
+          {
+            "kind": "order",
+            "path": [
+              "callbacks"
+            ],
+            "left": [
+              "onSelectionChange#1",
+              "onMoveStart#1",
+              "onMove#1",
+              "onMoveEnd#1",
+              "onNodesChange#1",
+              "onInit#1",
+              "onMoveStart#2",
+              "onMove#2",
+              "onMoveEnd#2",
+              "onPaneMouseEnter#1",
+              "onPaneMouseMove#1",
+              "onMoveStart#3",
+              "onPaneMouseMove#2",
+              "onViewportChange#1",
+              "onMove#3",
+              "onPaneMouseMove#3",
+              "onViewportChange#2",
+              "onMove#4",
+              "onMoveEnd#3"
+            ],
+            "right": [
+              "onSelectionChange#1",
+              "onMoveStart#1",
+              "onMove#1",
+              "onNodesChange#1",
+              "onMoveEnd#1",
+              "onInit#1",
+              "onMoveStart#2",
+              "onMove#2",
+              "onMoveEnd#2",
+              "onPaneMouseEnter#1",
+              "onPaneMouseMove#1",
+              "onMoveStart#3",
+              "onPaneMouseMove#2",
+              "onViewportChange#1",
+              "onMove#3",
+              "onPaneMouseMove#3",
+              "onViewportChange#2",
+              "onMove#4",
+              "onMoveEnd#3"
+            ]
+          }
+        ],
+        "consistent": false
+      },
+      {
+        "side": "psflow",
+        "scenario": "pan-after-controlled-viewport-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [
+      "self-inconsistent",
+      "unclaimed-difference"
+    ],
+    "differences": null
+  },
+  {
+    "scenario": "pan-after-controlled-viewport-change",
+    "round": 2,
+    "interpretable": false,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "pan-after-controlled-viewport-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [
+          {
+            "kind": "order",
+            "path": [
+              "callbacks"
+            ],
+            "left": [
+              "onSelectionChange#1",
+              "onMoveStart#1",
+              "onMove#1",
+              "onMoveEnd#1",
+              "onNodesChange#1",
+              "onInit#1",
+              "onMoveStart#2",
+              "onMove#2",
+              "onMoveEnd#2",
+              "onPaneMouseEnter#1",
+              "onPaneMouseMove#1",
+              "onMoveStart#3",
+              "onPaneMouseMove#2",
+              "onViewportChange#1",
+              "onMove#3",
+              "onPaneMouseMove#3",
+              "onViewportChange#2",
+              "onMove#4",
+              "onMoveEnd#3"
+            ],
+            "right": [
+              "onSelectionChange#1",
+              "onMoveStart#1",
+              "onMove#1",
+              "onNodesChange#1",
+              "onMoveEnd#1",
+              "onInit#1",
+              "onMoveStart#2",
+              "onMove#2",
+              "onMoveEnd#2",
+              "onPaneMouseEnter#1",
+              "onPaneMouseMove#1",
+              "onMoveStart#3",
+              "onPaneMouseMove#2",
+              "onViewportChange#1",
+              "onMove#3",
+              "onPaneMouseMove#3",
+              "onViewportChange#2",
+              "onMove#4",
+              "onMoveEnd#3"
+            ]
+          }
+        ],
+        "consistent": false
+      },
+      {
+        "side": "psflow",
+        "scenario": "pan-after-controlled-viewport-change",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "classes": [
+      "self-inconsistent",
+      "unclaimed-difference"
+    ],
+    "differences": null
+  }
+]

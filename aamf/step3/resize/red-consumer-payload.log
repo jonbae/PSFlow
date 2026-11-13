@@ -1,0 +1,46 @@
+$ node --input-type=module -e import {runXYResizerTests} from "./output/Test.System.XYResizer/index.js";runXYResizerTests();
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected "actual" to be reference-equal to "expected":
++ actual - expected
+
+  {
+-   custom: 'kept',
+    direction: [
+      1,
+      1
+    ],
+    height: 120,
++   width: 135,
+-   width: 321,
+    x: 30,
+    y: 40
+  }
+
+    at onResize (file:///Users/jonathanbae/repos/PSFlow/output/Test.System.XYResizer/foreign.js:150:43)
+    at file:///Users/jonathanbae/repos/PSFlow/output/Boundary.Callbacks/index.js:87:24
+    at file:///Users/jonathanbae/repos/PSFlow/output/Effect/foreign.js:10:16
+    at file:///Users/jonathanbae/repos/PSFlow/output/Effect/foreign.js:10:20
+    at file:///Users/jonathanbae/repos/PSFlow/output/Effect/foreign.js:10:16
+    at __do (file:///Users/jonathanbae/repos/PSFlow/output/System.XYResizer/index.js:377:43)
+    at __do (file:///Users/jonathanbae/repos/PSFlow/output/System.XYResizer/index.js:379:39)
+    at __do (file:///Users/jonathanbae/repos/PSFlow/output/System.XYResizer/index.js:381:34)
+    at file:///Users/jonathanbae/repos/PSFlow/output/System.FFI.D3Drag/foreign.js:11:50
+    at fire (file:///Users/jonathanbae/repos/PSFlow/output/Test.System.XYResizer/foreign.js:82:59) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: { x: 30, y: 40, width: 135, height: 120, direction: [ 1, 1 ] },
+  expected: {
+    x: 30,
+    y: 40,
+    width: 321,
+    height: 120,
+    direction: [ 1, 1 ],
+    custom: 'kept'
+  },
+  operator: 'strictEqual'
+}
+
+Node.js v22.18.0

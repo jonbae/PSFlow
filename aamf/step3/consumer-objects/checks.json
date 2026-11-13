@@ -1,0 +1,464 @@
+[
+  {
+    "name": "red-untouched",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/consumer-objects.test.mjs"
+    ],
+    "startedAt": "2026-11-10T16:42:10.507Z",
+    "finishedAt": "2026-11-10T16:42:14.811Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/red-untouched.log"
+  },
+  {
+    "name": "green-untouched",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/consumer-objects.test.mjs"
+    ],
+    "startedAt": "2026-11-10T16:42:38.040Z",
+    "finishedAt": "2026-11-10T16:42:42.842Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/green-untouched.log"
+  },
+  {
+    "name": "build-untouched",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T16:42:27.520Z",
+    "finishedAt": "2026-11-10T16:42:46.990Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/build-untouched.log"
+  },
+  {
+    "name": "green-untouched-fresh",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/consumer-objects.test.mjs"
+    ],
+    "startedAt": "2026-11-10T16:42:52.651Z",
+    "finishedAt": "2026-11-10T16:42:56.095Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/green-untouched-fresh.log"
+  },
+  {
+    "name": "red-changes",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/consumer-objects.test.mjs"
+    ],
+    "startedAt": "2026-11-10T16:43:15.399Z",
+    "finishedAt": "2026-11-10T16:43:21.214Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/red-changes.log"
+  },
+  {
+    "name": "build-changes",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T16:44:06.061Z",
+    "finishedAt": "2026-11-10T16:44:28.358Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/build-changes.log"
+  },
+  {
+    "name": "green-changes",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/consumer-objects.test.mjs"
+    ],
+    "startedAt": "2026-11-10T16:44:36.317Z",
+    "finishedAt": "2026-11-10T16:44:43.400Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/green-changes.log"
+  },
+  {
+    "name": "red-dimensions",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/consumer-objects.test.mjs"
+    ],
+    "startedAt": "2026-11-10T16:44:55.974Z",
+    "finishedAt": "2026-11-10T16:45:00.744Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/red-dimensions.log"
+  },
+  {
+    "name": "build-dimensions",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T16:45:14.888Z",
+    "finishedAt": "2026-11-10T16:45:33.155Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/build-dimensions.log"
+  },
+  {
+    "name": "green-dimensions",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/consumer-objects.test.mjs"
+    ],
+    "startedAt": "2026-11-10T16:45:41.008Z",
+    "finishedAt": "2026-11-10T16:45:44.973Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/green-dimensions.log"
+  },
+  {
+    "name": "red-add-edge",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/consumer-objects.test.mjs"
+    ],
+    "startedAt": "2026-11-10T16:45:57.423Z",
+    "finishedAt": "2026-11-10T16:46:02.458Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/red-add-edge.log"
+  },
+  {
+    "name": "build-add-edge",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T16:46:37.110Z",
+    "finishedAt": "2026-11-10T16:46:55.727Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/build-add-edge.log"
+  },
+  {
+    "name": "green-add-edge",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/consumer-objects.test.mjs"
+    ],
+    "startedAt": "2026-11-10T16:47:11.693Z",
+    "finishedAt": "2026-11-10T16:47:14.364Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/green-add-edge.log"
+  },
+  {
+    "name": "consumer-options",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/consumer-objects.test.mjs"
+    ],
+    "startedAt": "2026-11-10T16:47:49.465Z",
+    "finishedAt": "2026-11-10T16:47:53.674Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/consumer-options.log"
+  },
+  {
+    "name": "consumer-options-stable",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/consumer-objects.test.mjs"
+    ],
+    "startedAt": "2026-11-10T16:48:27.929Z",
+    "finishedAt": "2026-11-10T16:48:32.068Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/consumer-options-stable.log"
+  },
+  {
+    "name": "red-local-proxy",
+    "command": [
+      "spago",
+      "test"
+    ],
+    "startedAt": "2026-11-10T16:48:30.392Z",
+    "finishedAt": "2026-11-10T16:48:52.833Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/red-local-proxy.log"
+  },
+  {
+    "name": "build-final",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T16:49:25.491Z",
+    "finishedAt": "2026-11-10T16:49:42.143Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/build-final.log"
+  },
+  {
+    "name": "oracle",
+    "command": [
+      "npm",
+      "run",
+      "build:oracle"
+    ],
+    "startedAt": "2026-11-10T16:50:02.113Z",
+    "finishedAt": "2026-11-10T16:50:03.694Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/oracle.log"
+  },
+  {
+    "name": "surface",
+    "command": [
+      "npm",
+      "run",
+      "parity:surface"
+    ],
+    "startedAt": "2026-11-10T16:50:03.750Z",
+    "finishedAt": "2026-11-10T16:50:17.737Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/surface.log"
+  },
+  {
+    "name": "surface-tests",
+    "command": [
+      "npm",
+      "run",
+      "test:surface"
+    ],
+    "startedAt": "2026-11-10T16:51:22.791Z",
+    "finishedAt": "2026-11-10T16:51:30.785Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/surface-tests.log"
+  },
+  {
+    "name": "boundary",
+    "command": [
+      "npm",
+      "run",
+      "parity:boundary"
+    ],
+    "startedAt": "2026-11-10T16:51:22.747Z",
+    "finishedAt": "2026-11-10T16:51:54.361Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/boundary.log"
+  },
+  {
+    "name": "boundary-tests",
+    "command": [
+      "npm",
+      "run",
+      "test:boundary"
+    ],
+    "startedAt": "2026-11-10T16:51:22.778Z",
+    "finishedAt": "2026-11-10T16:51:57.344Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/boundary-tests.log"
+  },
+  {
+    "name": "function",
+    "command": [
+      "spago",
+      "test"
+    ],
+    "startedAt": "2026-11-10T16:51:22.720Z",
+    "finishedAt": "2026-11-10T16:52:04.172Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/function.log"
+  },
+  {
+    "name": "driver",
+    "command": [
+      "npm",
+      "run",
+      "build:driver"
+    ],
+    "startedAt": "2026-11-10T16:51:35.063Z",
+    "finishedAt": "2026-11-10T16:52:13.103Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/driver.log"
+  },
+  {
+    "name": "conformance",
+    "command": [
+      "npm",
+      "run",
+      "test:conformance"
+    ],
+    "startedAt": "2026-11-10T16:52:28.021Z",
+    "finishedAt": "2026-11-10T16:52:39.599Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/conformance.log"
+  },
+  {
+    "name": "smoke",
+    "command": [
+      "npm",
+      "run",
+      "test:smoke"
+    ],
+    "startedAt": "2026-11-10T16:52:28.031Z",
+    "finishedAt": "2026-11-10T16:52:54.860Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/smoke.log"
+  },
+  {
+    "name": "boundary-corrected",
+    "command": [
+      "npm",
+      "run",
+      "parity:boundary"
+    ],
+    "startedAt": "2026-11-10T16:53:24.110Z",
+    "finishedAt": "2026-11-10T16:53:35.294Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/boundary-corrected.log"
+  },
+  {
+    "name": "red-native-concat",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/consumer-objects.test.mjs"
+    ],
+    "startedAt": "2026-11-10T16:54:09.895Z",
+    "finishedAt": "2026-11-10T16:54:21.475Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/red-native-concat.log"
+  },
+  {
+    "name": "build-native-concat",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T16:54:36.098Z",
+    "finishedAt": "2026-11-10T16:55:21.087Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/build-native-concat.log"
+  },
+  {
+    "name": "driver-final",
+    "command": [
+      "npm",
+      "run",
+      "build:driver"
+    ],
+    "startedAt": "2026-11-10T16:56:05.630Z",
+    "finishedAt": "2026-11-10T16:56:48.719Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/driver-final.log"
+  },
+  {
+    "name": "surface-final",
+    "command": [
+      "npm",
+      "run",
+      "parity:surface"
+    ],
+    "startedAt": "2026-11-10T16:56:04.381Z",
+    "finishedAt": "2026-11-10T16:56:51.339Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/surface-final.log"
+  },
+  {
+    "name": "boundary-final",
+    "command": [
+      "npm",
+      "run",
+      "parity:boundary"
+    ],
+    "startedAt": "2026-11-10T16:57:12.962Z",
+    "finishedAt": "2026-11-10T16:58:44.329Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/boundary-final.log"
+  },
+  {
+    "name": "boundary-tests-final",
+    "command": [
+      "npm",
+      "run",
+      "test:boundary"
+    ],
+    "startedAt": "2026-11-10T16:57:13.011Z",
+    "finishedAt": "2026-11-10T16:58:53.382Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/boundary-tests-final.log"
+  },
+  {
+    "name": "function-final",
+    "command": [
+      "spago",
+      "test"
+    ],
+    "startedAt": "2026-11-10T16:57:13.095Z",
+    "finishedAt": "2026-11-10T16:59:19.633Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/function-final.log"
+  },
+  {
+    "name": "conformance-retry",
+    "command": [
+      "npm",
+      "run",
+      "test:conformance"
+    ],
+    "startedAt": "2026-11-10T16:53:32.528Z",
+    "finishedAt": "2026-11-10T17:00:59.849Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/conformance-retry.log"
+  },
+  {
+    "name": "conformance-failed-case",
+    "command": [
+      "npm",
+      "run",
+      "test:conformance",
+      "--",
+      "--grep",
+      "connectable=false"
+    ],
+    "startedAt": "2026-11-10T17:01:59.823Z",
+    "finishedAt": "2026-11-10T17:02:37.369Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/consumer-objects/conformance-failed-case.log"
+  }
+]

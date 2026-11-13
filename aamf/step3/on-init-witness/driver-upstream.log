@@ -1,0 +1,19 @@
+$ node parity/driver/build.mjs --side upstream
+▲ [WARNING] Cannot find base config file "@xyflow/tsconfig/react.json" [tsconfig.json]
+
+    xyflow/packages/react/tsconfig.json:2:13:
+      2 │   "extends": "@xyflow/tsconfig/react.json",
+        ╵              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+▲ [WARNING] Cannot find base config file "@xyflow/tsconfig/base.json" [tsconfig.json]
+
+    xyflow/packages/system/tsconfig.json:3:13:
+      3 │   "extends": "@xyflow/tsconfig/base.json",
+        ╵              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+2 warnings
+
+  parity/driver/dist/upstream.js  1.4mb ⚠️
+
+⚡ Done in 680ms
+driver [upstream]: 30 fixtures + 1 direct component(s), 49 observed callback props, library from `// xyflow/packages/react/src/` → dist/upstream.js

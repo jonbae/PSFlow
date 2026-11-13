@@ -4,6 +4,9 @@
 -- |   `NodeWrapper` click path and from the drag-start branch that
 -- |   wants single-click selection. Mirrors
 -- |   `xyflow/packages/react/src/components/Nodes/utils.ts`.
+-- | * `moveNodesByArrowKey` — the arrow-key branch of TS `NodeWrapper`'s
+-- |   `onKeyDown`, past its guards, kept out of the component so a test
+-- |   can call it without a DOM.
 -- |
 -- | The built-in node-type registry (`builtinNodeTypes`) lives in
 -- | `React.Component.NodeWrapper.Util`, where the wrapper's
@@ -12,14 +15,17 @@
 module React.Node.Util
   ( HandleNodeClickArgs
   , handleNodeClick
+  , MoveNodesByArrowKeyArgs
+  , moveNodesByArrowKey
   ) where
 
 import Prelude
 
 import Data.Foldable (for_)
 import Data.Map (lookup) as Map
-import Data.Maybe (Maybe(..))
+import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Nullable (Nullable, toMaybe)
+import Data.String (Pattern(..), Replacement(..), replace, toLower)
 import Effect (Effect)
 import React.Basic (Ref)
 import React.Basic.Hooks (readRef)
@@ -30,6 +36,7 @@ import React.Types.Nodes (Node)
 import System.Constants (ErrorCode(..), errorMessage)
 import System.Types.Ids (NodeId)
 import System.FFI.AnimationFrame (requestAnimationFrame)
+import System.Types.Geometry (XYPosition)
 import Unsafe.Coerce (unsafeCoerce)
 import Web.HTML.HTMLDivElement (HTMLDivElement, toHTMLElement)
 import Web.HTML.HTMLElement (blur)
@@ -103,3 +110,55 @@ handleNodeClick args = do
           for_ mDiv (blur <<< toHTMLElement)
       else
         pure unit
+
+type MoveNodesByArrowKeyArgs n e =
+  { id :: NodeId
+  , store :: Store n e
+  -- | The event's `key`: `ArrowUp`, `ArrowDown`, `ArrowLeft`, or
+  -- | `ArrowRight`.
+  , key :: String
+  , direction :: XYPosition
+  , factor :: Number
+  -- | The node's absolute position as the wrapper rendered it, for a node
+  -- | the lookup no longer holds.
+  , positionAbsolute :: XYPosition
+  , moveSelectedNodes :: XYPosition -> Number -> Effect Unit
+  }
+
+-- | TS `NodeWrapper`'s `onKeyDown`, once it has found an arrow key on a
+-- | selected, draggable node and prevented the browser's scroll. It
+-- | announces the move in the aria-live region, then makes it:
+-- |
+-- | ```ts
+-- | store.setState({
+-- |   ariaLiveMessage: ariaLabelConfig['node.a11yDescription.ariaLiveMessage']({
+-- |     direction: event.key.replace('Arrow', '').toLowerCase(),
+-- |     x: ~~internals.positionAbsolute.x,
+-- |     y: ~~internals.positionAbsolute.y,
+-- |   }),
+-- | });
+-- | moveSelectedNodes({ direction: arrowKeyDiffs[event.key], factor: event.shiftKey ? 4 : 1 });
+-- | ```
+-- |
+-- | **The position** is the node's before the move, truncated to an
+-- | integer. TS's `internals` is the lookup's own object, which
+-- | `moveSelectedNodes` writes each move into, so it holds the last move
+-- | even when React hasn't rendered the node since. ps-flow's rendered node
+-- | is a copy, so this reads the lookup.
+moveNodesByArrowKey :: forall n e. MoveNodesByArrowKeyArgs n e -> Effect Unit
+moveNodesByArrowKey args = do
+  state <- args.store.getState
+  let
+    at = fromMaybe args.positionAbsolute
+      (_.internals.positionAbsolute <$> Map.lookup args.id state.nodeLookup)
+    message = state.ariaLabelConfig.nodeA11yDescriptionAriaLiveMessage
+      { direction: toLower (replace (Pattern "Arrow") (Replacement "") args.key)
+      , x: toInt32 at.x
+      , y: toInt32 at.y
+      }
+  args.store.dispatch (PatchState _ { ariaLiveMessage = message })
+  args.moveSelectedNodes args.direction args.factor
+
+-- | JavaScript's `~~n`: `n` truncated toward zero and wrapped to a 32-bit
+-- | integer, with `NaN` and the infinities at 0.
+foreign import toInt32 :: Number -> Number

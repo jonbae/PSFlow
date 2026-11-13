@@ -34,10 +34,12 @@ import System.Types.Geometry (NodeOrigin(..), XYPosition)
 import System.Types.Ids (NodeId(..))
 import System.Types.Node (NodeBase)
 import System.Utils.Graph (getConnectedEdges, getIncomers, getNodesBounds, getOutgoers) as PS
+import System.Utils.General (getNodePositionWithOrigin, nodeToBox, nodeToRect) as PS
+import Data.Either (Either(..))
 import Test.Oracle (OracleBoundsNode, OracleEdge, OracleNode)
-import Test.Oracle (getConnectedEdges, getIncomers, getNodesBounds, getOutgoers, isEdge, isNode) as Oracle
+import Test.Oracle (getConnectedEdges, getIncomers, getNodePositionWithOrigin, getNodesBounds, getOutgoers, isEdge, isNode, nodeToBox, nodeToRect) as Oracle
 import Test.Parity.Builders (mkEdge, mkNode)
-import Test.Parity.Util (allGreen, expectGreen, falsify, rectMatch, strArrayMatch)
+import Test.Parity.Util (allGreen, boxMatch, expectGreen, falsify, rectMatch, strArrayMatch, xyMatch)
 import Test.Properties (coin, genFiniteNumber)
 import Test.QuickCheck (Result, quickCheck, (<?>))
 import Test.QuickCheck.Gen (Gen, chooseInt, elements, vectorOf)
@@ -271,6 +273,38 @@ runGraphParity = do
       xy = Oracle.getNodesBounds (map toOracleBoundsNode specs) origin
     pure (rectMatch "getNodesBounds" ps xy)
 
+  -- Step 3 H: the three per-node functions `getNodesBounds` folds over,
+  -- each on its own. A user node with no `internals` takes the
+  -- `getNodePositionWithOrigin` branch of `nodeToRect` and `nodeToBox`: the
+  -- node's own `origin` over the flow's, offset by the dimension fallback. The
+  -- internal-node branch reads `positionAbsolute`, which only a store fills.
+  quickCheck do
+    spec <- genBoundsNodeSpec
+    origin <- genOrigin
+    pure
+      ( xyMatch "getNodePositionWithOrigin"
+          (PS.getNodePositionWithOrigin (toPSBoundsNode spec) origin)
+          (Oracle.getNodePositionWithOrigin (toOracleBoundsNode spec) origin)
+      )
+
+  quickCheck do
+    spec <- genBoundsNodeSpec
+    origin <- genOrigin
+    pure
+      ( rectMatch "nodeToRect"
+          (PS.nodeToRect (Left (toPSBoundsNode spec)) origin)
+          (Oracle.nodeToRect (toOracleBoundsNode spec) origin)
+      )
+
+  quickCheck do
+    spec <- genBoundsNodeSpec
+    origin <- genOrigin
+    pure
+      ( boxMatch "nodeToBox"
+          (PS.nodeToBox (Left (toPSBoundsNode spec)) origin)
+          (Oracle.nodeToBox (toOracleBoundsNode spec) origin)
+      )
+
   expectGreen "isNode / isEdge agree across all 16 key combinations"
     (allGreen (map (\keys -> guardsMatch keys keys) allKeySets))
 
@@ -297,6 +331,16 @@ runGraphParity = do
         rectMatch "getNodesBounds falsification probe"
           (PS.getNodesBounds (map toPSBoundsNode specs) Nothing origin)
           (Oracle.getNodesBounds (map toOracleBoundsNode [ boundsSpec "n0" 0.0 0.0 10.0 10.0 ]) origin)
+    )
+
+  falsify "nodeToRect: XYFlow given the node's own centre origin, PSFlow none"
+    ( let
+        spec = boundsSpec "n0" 10.0 20.0 60.0 40.0
+        corner = NodeOrigin { ox: 0.0, oy: 0.0 }
+      in
+        rectMatch "nodeToRect falsification probe"
+          (PS.nodeToRect (Left (toPSBoundsNode spec)) corner)
+          (Oracle.nodeToRect (toOracleBoundsNode spec { origin = Just (NodeOrigin { ox: 0.5, oy: 0.5 }) }) corner)
     )
 
   -- The guards return a `Boolean`, so nothing can be perturbed by a margin —

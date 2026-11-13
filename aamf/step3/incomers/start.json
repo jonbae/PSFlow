@@ -1,0 +1,14 @@
+{
+  "startedAt": "2026-11-10T01:51:50.193Z",
+  "baseCommit": "98a3f77ab1bb17d481c6dec4fed2e23174448e45",
+  "workingTree": "Includes the earlier uncommitted W00 and getConnectedEdges work; inputs.json hashes the actual starting state.",
+  "files": 1274,
+  "skippedNonFiles": [
+    ".claude/worktrees/melodic-churning-boot"
+  ],
+  "sourceFiles": 171,
+  "sourceMismatches": 0,
+  "inputsSha256": "2480f79c391a38236f834f35b11477e131d1a6280a9d7e65a797561758234dcf",
+  "priorEvidenceManifestSha256": "f8463af5699fd2e2a7b9af18184ab2b7c8d57e1cd54abf6dbebec3842c324274",
+  "aamfInvoked": false
+}

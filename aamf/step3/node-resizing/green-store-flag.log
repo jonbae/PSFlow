@@ -1,0 +1,1 @@
+$ node --input-type=module -e import {runNodeResizingTests} from "./output/Test.Boundary.NodeResizing/index.js";runNodeResizingTests();

@@ -37,7 +37,7 @@ module System.Utils.General
   , identityTransform
   ) where
 
-import Prelude hiding (clamp)
+import Prelude hiding (clamp, min, max)
 
 import Data.Either (Either(..))
 import Data.Foldable (any, oneOf) as Foldable
@@ -66,6 +66,7 @@ import System.Types.Node
   , NodeExtent(..)
   , NodeLookup
   )
+import System.Utils.Number (min, max)
 
 -- | Default pan-zoom transform. Mirrors the TS literal `[0, 0, 1]` used as the
 -- | default `Transform` value in many callsites.
@@ -259,7 +260,7 @@ getViewportForBounds bounds width height minZoom maxZoom padding =
     xZoom = (width - p.x) / bounds.width
     yZoom = (height - p.y) / bounds.height
     zoom = min xZoom yZoom
-    clampedZoom = clamp zoom minZoom maxZoom
+    clampedZoom = min (max zoom minZoom) maxZoom
     boundsCenterX = bounds.x + bounds.width / 2.0
     boundsCenterY = bounds.y + bounds.height / 2.0
     x0 = width / 2.0 - boundsCenterX * clampedZoom

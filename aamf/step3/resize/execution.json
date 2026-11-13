@@ -1,0 +1,899 @@
+{
+  "completedAt": "2026-11-10T21:51:57.490925+00:00",
+  "task": "psflow-w05-resize",
+  "status": "complete",
+  "checks": [
+    {
+      "name": "build-proxy",
+      "command": [
+        "spago",
+        "build"
+      ],
+      "startedAt": "2026-11-10T20:37:23.313Z",
+      "finishedAt": "2026-11-10T20:37:28.311Z",
+      "exitCode": 1,
+      "signal": null,
+      "log": "aamf/step3/resize/build-proxy.log"
+    },
+    {
+      "name": "build-proxy-fixed",
+      "command": [
+        "spago",
+        "build"
+      ],
+      "startedAt": "2026-11-10T20:37:44.941Z",
+      "finishedAt": "2026-11-10T20:37:49.605Z",
+      "exitCode": 1,
+      "signal": null,
+      "log": "aamf/step3/resize/build-proxy-fixed.log"
+    },
+    {
+      "name": "build-proxy-transform",
+      "command": [
+        "spago",
+        "build"
+      ],
+      "startedAt": "2026-11-10T20:38:21.544Z",
+      "finishedAt": "2026-11-10T20:38:28.675Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/build-proxy-transform.log"
+    },
+    {
+      "name": "red-basic",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {runXYResizerTests} from \"./output/Test.System.XYResizer/index.js\";runXYResizerTests();"
+      ],
+      "startedAt": "2026-11-10T20:38:45.922Z",
+      "finishedAt": "2026-11-10T20:38:46.589Z",
+      "exitCode": 1,
+      "signal": null,
+      "log": "aamf/step3/resize/red-basic.log"
+    },
+    {
+      "name": "green-basic",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {runXYResizerTests} from \"./output/Test.System.XYResizer/index.js\";runXYResizerTests();"
+      ],
+      "startedAt": "2026-11-10T20:41:13.627Z",
+      "finishedAt": "2026-11-10T20:41:15.255Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/green-basic.log"
+    },
+    {
+      "name": "build-lifecycle",
+      "command": [
+        "spago",
+        "build"
+      ],
+      "startedAt": "2026-11-10T20:40:03.899Z",
+      "finishedAt": "2026-11-10T20:41:36.375Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/build-lifecycle.log"
+    },
+    {
+      "name": "build-children-proxy",
+      "command": [
+        "spago",
+        "build"
+      ],
+      "startedAt": "2026-11-10T20:42:28.206Z",
+      "finishedAt": "2026-11-10T20:42:35.234Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/build-children-proxy.log"
+    },
+    {
+      "name": "red-children",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {runXYResizerTests} from \"./output/Test.System.XYResizer/index.js\";runXYResizerTests();"
+      ],
+      "startedAt": "2026-11-10T20:42:39.793Z",
+      "finishedAt": "2026-11-10T20:42:40.655Z",
+      "exitCode": 1,
+      "signal": null,
+      "log": "aamf/step3/resize/red-children.log"
+    },
+    {
+      "name": "build-oracle-platform",
+      "command": [
+        "spago",
+        "build"
+      ],
+      "startedAt": "2026-11-10T20:42:53.946Z",
+      "finishedAt": "2026-11-10T20:43:00.920Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/build-oracle-platform.log"
+    },
+    {
+      "name": "red-child-corrections",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {runXYResizerTests} from \"./output/Test.System.XYResizer/index.js\";runXYResizerTests();"
+      ],
+      "startedAt": "2026-11-10T20:43:30.267Z",
+      "finishedAt": "2026-11-10T20:43:30.889Z",
+      "exitCode": 1,
+      "signal": null,
+      "log": "aamf/step3/resize/red-child-corrections.log"
+    },
+    {
+      "name": "build-child-corrections",
+      "command": [
+        "spago",
+        "build"
+      ],
+      "startedAt": "2026-11-10T20:43:57.693Z",
+      "finishedAt": "2026-11-10T20:45:28.767Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/build-child-corrections.log"
+    },
+    {
+      "name": "green-children",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {runXYResizerTests} from \"./output/Test.System.XYResizer/index.js\";runXYResizerTests();"
+      ],
+      "startedAt": "2026-11-10T20:45:45.175Z",
+      "finishedAt": "2026-11-10T20:45:45.778Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/green-children.log"
+    },
+    {
+      "name": "build-expand-proxy",
+      "command": [
+        "spago",
+        "build"
+      ],
+      "startedAt": "2026-11-10T20:45:57.497Z",
+      "finishedAt": "2026-11-10T20:46:04.385Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/build-expand-proxy.log"
+    },
+    {
+      "name": "red-expand-parent",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {runXYResizerTests} from \"./output/Test.System.XYResizer/index.js\";runXYResizerTests();"
+      ],
+      "startedAt": "2026-11-10T20:46:34.021Z",
+      "finishedAt": "2026-11-10T20:46:35.007Z",
+      "exitCode": 1,
+      "signal": null,
+      "log": "aamf/step3/resize/red-expand-parent.log"
+    },
+    {
+      "name": "green-expand-parent",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {runXYResizerTests} from \"./output/Test.System.XYResizer/index.js\";runXYResizerTests();"
+      ],
+      "startedAt": "2026-11-10T20:48:38.569Z",
+      "finishedAt": "2026-11-10T20:48:40.489Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/green-expand-parent.log"
+    },
+    {
+      "name": "build-expand-parent",
+      "command": [
+        "spago",
+        "build"
+      ],
+      "startedAt": "2026-11-10T20:47:19.642Z",
+      "finishedAt": "2026-11-10T20:48:54.856Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/build-expand-parent.log"
+    },
+    {
+      "name": "build-lifecycle-matrix",
+      "command": [
+        "spago",
+        "build"
+      ],
+      "startedAt": "2026-11-10T20:49:27.527Z",
+      "finishedAt": "2026-11-10T20:49:33.870Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/build-lifecycle-matrix.log"
+    },
+    {
+      "name": "lifecycle-matrix",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {runXYResizerTests} from \"./output/Test.System.XYResizer/index.js\";runXYResizerTests();"
+      ],
+      "startedAt": "2026-11-10T20:50:10.257Z",
+      "finishedAt": "2026-11-10T20:50:11.023Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/lifecycle-matrix.log"
+    },
+    {
+      "name": "build-payload-proxy",
+      "command": [
+        "spago",
+        "build"
+      ],
+      "startedAt": "2026-11-10T20:50:46.939Z",
+      "finishedAt": "2026-11-10T20:50:53.526Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/build-payload-proxy.log"
+    },
+    {
+      "name": "red-consumer-payload",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {runXYResizerTests} from \"./output/Test.System.XYResizer/index.js\";runXYResizerTests();"
+      ],
+      "startedAt": "2026-11-10T20:51:08.462Z",
+      "finishedAt": "2026-11-10T20:51:09.126Z",
+      "exitCode": 1,
+      "signal": null,
+      "log": "aamf/step3/resize/red-consumer-payload.log"
+    },
+    {
+      "name": "build-consumer-payload",
+      "command": [
+        "spago",
+        "build"
+      ],
+      "startedAt": "2026-11-10T20:51:58.973Z",
+      "finishedAt": "2026-11-10T20:52:52.738Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/build-consumer-payload.log"
+    },
+    {
+      "name": "green-consumer-payload",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {runXYResizerTests} from \"./output/Test.System.XYResizer/index.js\";runXYResizerTests();"
+      ],
+      "startedAt": "2026-11-10T20:54:33.651Z",
+      "finishedAt": "2026-11-10T20:54:34.211Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/green-consumer-payload.log"
+    },
+    {
+      "name": "build-control-proxy",
+      "command": [
+        "spago",
+        "build"
+      ],
+      "startedAt": "2026-11-10T20:54:57.279Z",
+      "finishedAt": "2026-11-10T20:55:03.343Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/build-control-proxy.log"
+    },
+    {
+      "name": "red-mounted-control",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {runXYResizerTests} from \"./output/Test.System.XYResizer/index.js\";runXYResizerTests();"
+      ],
+      "startedAt": "2026-11-10T20:55:07.069Z",
+      "finishedAt": "2026-11-10T20:55:08.443Z",
+      "exitCode": 1,
+      "signal": null,
+      "log": "aamf/step3/resize/red-mounted-control.log"
+    },
+    {
+      "name": "build-control-ref",
+      "command": [
+        "spago",
+        "build"
+      ],
+      "startedAt": "2026-11-10T20:55:22.702Z",
+      "finishedAt": "2026-11-10T20:55:28.913Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/build-control-ref.log"
+    },
+    {
+      "name": "red-control-retention",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {runXYResizerTests} from \"./output/Test.System.XYResizer/index.js\";runXYResizerTests();"
+      ],
+      "startedAt": "2026-11-10T20:55:29.215Z",
+      "finishedAt": "2026-11-10T20:55:30.648Z",
+      "exitCode": 1,
+      "signal": null,
+      "log": "aamf/step3/resize/red-control-retention.log"
+    },
+    {
+      "name": "build-control-retention",
+      "command": [
+        "spago",
+        "build"
+      ],
+      "startedAt": "2026-11-10T20:55:49.461Z",
+      "finishedAt": "2026-11-10T20:55:57.546Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/build-control-retention.log"
+    },
+    {
+      "name": "red-control-dependencies",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {runXYResizerTests} from \"./output/Test.System.XYResizer/index.js\";runXYResizerTests();"
+      ],
+      "startedAt": "2026-11-10T20:56:55.718Z",
+      "finishedAt": "2026-11-10T20:56:56.795Z",
+      "exitCode": 1,
+      "signal": null,
+      "log": "aamf/step3/resize/red-control-dependencies.log"
+    },
+    {
+      "name": "build-control-dependencies",
+      "command": [
+        "spago",
+        "build"
+      ],
+      "startedAt": "2026-11-10T20:57:47.583Z",
+      "finishedAt": "2026-11-10T20:57:56.131Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/build-control-dependencies.log"
+    },
+    {
+      "name": "red-js-resize-handler-identity",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {runXYResizerTests} from \"./output/Test.System.XYResizer/index.js\";runXYResizerTests();"
+      ],
+      "startedAt": "2026-11-10T20:58:20.195Z",
+      "finishedAt": "2026-11-10T20:58:21.635Z",
+      "exitCode": 1,
+      "signal": null,
+      "log": "aamf/step3/resize/red-js-resize-handler-identity.log"
+    },
+    {
+      "name": "build-resize-compatibility",
+      "command": [
+        "spago",
+        "build"
+      ],
+      "startedAt": "2026-11-10T20:58:54.180Z",
+      "finishedAt": "2026-11-10T21:00:30.532Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/build-resize-compatibility.log"
+    },
+    {
+      "name": "green-control-and-lifecycle",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {runXYResizerTests} from \"./output/Test.System.XYResizer/index.js\";runXYResizerTests();"
+      ],
+      "startedAt": "2026-11-10T21:00:42.515Z",
+      "finishedAt": "2026-11-10T21:00:44.075Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/green-control-and-lifecycle.log"
+    },
+    {
+      "name": "build-parent-control-proxy",
+      "command": [
+        "spago",
+        "build"
+      ],
+      "startedAt": "2026-11-10T21:01:42.598Z",
+      "finishedAt": "2026-11-10T21:01:48.707Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/build-parent-control-proxy.log"
+    },
+    {
+      "name": "red-parent-zero-position",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {runXYResizerTests} from \"./output/Test.System.XYResizer/index.js\";runXYResizerTests();"
+      ],
+      "startedAt": "2026-11-10T21:02:23.335Z",
+      "finishedAt": "2026-11-10T21:02:24.686Z",
+      "exitCode": 1,
+      "signal": null,
+      "log": "aamf/step3/resize/red-parent-zero-position.log"
+    },
+    {
+      "name": "build-parent-zero-position",
+      "command": [
+        "spago",
+        "build"
+      ],
+      "startedAt": "2026-11-10T21:02:41.502Z",
+      "finishedAt": "2026-11-10T21:02:51.182Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/build-parent-zero-position.log"
+    },
+    {
+      "name": "green-resize-final",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {runXYResizerTests} from \"./output/Test.System.XYResizer/index.js\";runXYResizerTests();"
+      ],
+      "startedAt": "2026-11-10T21:02:51.494Z",
+      "finishedAt": "2026-11-10T21:02:53.047Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/green-resize-final.log"
+    },
+    {
+      "name": "surface",
+      "command": [
+        "npm",
+        "run",
+        "parity:surface"
+      ],
+      "startedAt": "2026-11-10T21:03:11.870Z",
+      "finishedAt": "2026-11-10T21:03:17.798Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/surface.log"
+    },
+    {
+      "name": "boundary",
+      "command": [
+        "npm",
+        "run",
+        "parity:boundary"
+      ],
+      "startedAt": "2026-11-10T21:04:17.934Z",
+      "finishedAt": "2026-11-10T21:04:20.821Z",
+      "exitCode": 1,
+      "signal": null,
+      "log": "aamf/step3/resize/boundary.log"
+    },
+    {
+      "name": "boundary-tests",
+      "command": [
+        "npm",
+        "run",
+        "test:boundary"
+      ],
+      "startedAt": "2026-11-10T21:04:17.946Z",
+      "finishedAt": "2026-11-10T21:04:41.998Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/boundary-tests.log"
+    },
+    {
+      "name": "function",
+      "command": [
+        "spago",
+        "test"
+      ],
+      "startedAt": "2026-11-10T21:04:17.933Z",
+      "finishedAt": "2026-11-10T21:04:50.352Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/function.log"
+    },
+    {
+      "name": "boundary-current-schema",
+      "command": [
+        "npm",
+        "run",
+        "parity:boundary"
+      ],
+      "startedAt": "2026-11-10T21:05:17.222Z",
+      "finishedAt": "2026-11-10T21:05:24.781Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/boundary-current-schema.log"
+    },
+    {
+      "name": "build-parent-truthiness-proxy",
+      "command": [
+        "spago",
+        "build"
+      ],
+      "startedAt": "2026-11-10T21:16:19.976Z",
+      "finishedAt": "2026-11-10T21:16:27.211Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/build-parent-truthiness-proxy.log"
+    },
+    {
+      "name": "red-parent-nan-truthiness",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {runXYResizerTests} from \"./output/Test.System.XYResizer/index.js\";runXYResizerTests();"
+      ],
+      "startedAt": "2026-11-10T21:16:27.421Z",
+      "finishedAt": "2026-11-10T21:16:28.799Z",
+      "exitCode": 1,
+      "signal": null,
+      "log": "aamf/step3/resize/red-parent-nan-truthiness.log"
+    },
+    {
+      "name": "build-parent-truthiness",
+      "command": [
+        "spago",
+        "build"
+      ],
+      "startedAt": "2026-11-10T21:16:39.413Z",
+      "finishedAt": "2026-11-10T21:16:48.473Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/build-parent-truthiness.log"
+    },
+    {
+      "name": "green-combined-proxies",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {runXYResizerTests} from \"./output/Test.System.XYResizer/index.js\";import {runNodeResizingTests} from \"./output/Test.Boundary.NodeResizing/index.js\";runXYResizerTests();runNodeResizingTests();"
+      ],
+      "startedAt": "2026-11-10T21:17:24.450Z",
+      "finishedAt": "2026-11-10T21:17:26.045Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/green-combined-proxies.log"
+    },
+    {
+      "name": "build-resize-evidence",
+      "command": [
+        "spago",
+        "build"
+      ],
+      "startedAt": "2026-11-10T21:20:12.226Z",
+      "finishedAt": "2026-11-10T21:20:19.747Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/build-resize-evidence.log"
+    },
+    {
+      "name": "green-resize-evidence",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {runXYResizerTests} from \"./output/Test.System.XYResizer/index.js\";import {runNodeResizingTests} from \"./output/Test.Boundary.NodeResizing/index.js\";runXYResizerTests();runNodeResizingTests();"
+      ],
+      "startedAt": "2026-11-10T21:20:20.024Z",
+      "finishedAt": "2026-11-10T21:20:22.024Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/green-resize-evidence.log"
+    },
+    {
+      "name": "build-fractional-child-proxy",
+      "command": [
+        "spago",
+        "build"
+      ],
+      "startedAt": "2026-11-10T21:21:45.512Z",
+      "finishedAt": "2026-11-10T21:21:53.044Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/build-fractional-child-proxy.log"
+    },
+    {
+      "name": "red-fractional-child-extent",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {runXYResizerTests} from \"./output/Test.System.XYResizer/index.js\";runXYResizerTests();"
+      ],
+      "startedAt": "2026-11-10T21:21:53.356Z",
+      "finishedAt": "2026-11-10T21:21:55.317Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/red-fractional-child-extent.log"
+    },
+    {
+      "name": "build-fractional-child-extent",
+      "command": [
+        "spago",
+        "build"
+      ],
+      "startedAt": "2026-11-10T21:22:07.896Z",
+      "finishedAt": "2026-11-10T21:23:38.311Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/build-fractional-child-extent.log"
+    },
+    {
+      "name": "green-current-runtime",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {runXYResizerTests} from \"./output/Test.System.XYResizer/index.js\";import {runNodeResizingTests} from \"./output/Test.Boundary.NodeResizing/index.js\";runXYResizerTests();runNodeResizingTests();"
+      ],
+      "startedAt": "2026-11-10T21:23:58.731Z",
+      "finishedAt": "2026-11-10T21:24:00.120Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/green-current-runtime.log"
+    },
+    {
+      "name": "audit-tests",
+      "command": [
+        "npm",
+        "run",
+        "test:audit"
+      ],
+      "startedAt": "2026-11-10T21:26:15.873Z",
+      "finishedAt": "2026-11-10T21:26:20.204Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/audit-tests.log"
+    },
+    {
+      "name": "changelog",
+      "command": [
+        "npm",
+        "run",
+        "parity:changelog"
+      ],
+      "startedAt": "2026-11-10T21:26:15.884Z",
+      "finishedAt": "2026-11-10T21:26:20.543Z",
+      "exitCode": 0,
+      "signal": null,
+      "log": "aamf/step3/resize/changelog.log"
+    }
+  ],
+  "sourceAudit": "../node-resizing/source-audit.json",
+  "combinedCheckpoint": {
+    "sourceSnapshot": "../node-resizing/validation-snapshot.json",
+    "runtimeArchive": "../node-resizing/validation-runtime.tar.gz",
+    "conformance": {
+      "passed": 41,
+      "failed": 0
+    },
+    "smoke": {
+      "passed": 2,
+      "failed": 0
+    },
+    "boundaryCases": 119,
+    "system": {
+      "scenarios": 107,
+      "passed": 13,
+      "failed": 94,
+      "selfInconsistent": [
+        "arrow-key-selected-node",
+        "drag-node-autopan",
+        "drag-node-escape-mid-gesture",
+        "drag-node-reports-changes",
+        "resize-node-after-active-limit-change"
+      ],
+      "drivingDivergence": [],
+      "interpretable": 102
+    },
+    "coverage": {
+      "driven": 127,
+      "total": 156,
+      "declaredHoles": 29,
+      "undeclaredHoles": 0,
+      "behaviorDebtRows": 50
+    },
+    "sourceOutputAndPolicyChangesDuringValidation": []
+  },
+  "currentWitnesses": [
+    {
+      "scenario": "resize-node-with-direct-control",
+      "interpretable": true,
+      "selfConsistency": [
+        {
+          "side": "upstream",
+          "consistent": true
+        },
+        {
+          "side": "psflow",
+          "consistent": true
+        }
+      ],
+      "fullGatePassed": false,
+      "remainingDifferences": [
+        {
+          "kind": "changed",
+          "path": [
+            "api",
+            "queries",
+            "getInternalNode",
+            "internals",
+            "handleBounds",
+            "source"
+          ],
+          "left": null,
+          "right": []
+        },
+        {
+          "kind": "changed",
+          "path": [
+            "api",
+            "queries",
+            "getInternalNode",
+            "internals",
+            "handleBounds",
+            "target"
+          ],
+          "left": null,
+          "right": []
+        }
+      ],
+      "resize": {
+        "width": 180,
+        "height": 110
+      },
+      "callbacks": [
+        "control:start",
+        "control:resize",
+        "control:resize",
+        "control:resize",
+        "control:end"
+      ],
+      "witnessPassed": true
+    },
+    {
+      "scenario": "resize-node-with-resizer",
+      "interpretable": true,
+      "selfConsistency": [
+        {
+          "side": "upstream",
+          "consistent": true
+        },
+        {
+          "side": "psflow",
+          "consistent": true
+        }
+      ],
+      "fullGatePassed": false,
+      "remainingDifferences": [
+        {
+          "kind": "changed",
+          "path": [
+            "api",
+            "queries",
+            "getInternalNode",
+            "internals",
+            "handleBounds",
+            "source"
+          ],
+          "left": null,
+          "right": []
+        },
+        {
+          "kind": "changed",
+          "path": [
+            "api",
+            "queries",
+            "getInternalNode",
+            "internals",
+            "handleBounds",
+            "target"
+          ],
+          "left": null,
+          "right": []
+        }
+      ],
+      "resize": {
+        "width": 165,
+        "height": 110
+      },
+      "callbacks": [
+        "resizer:start",
+        "resizer:resize",
+        "resizer:resize",
+        "resizer:resize",
+        "resizer:end"
+      ],
+      "witnessPassed": true
+    },
+    {
+      "scenario": "resize-node-after-active-limit-change",
+      "interpretable": false,
+      "selfConsistency": [
+        {
+          "side": "upstream",
+          "consistent": false
+        },
+        {
+          "side": "psflow",
+          "consistent": true
+        }
+      ],
+      "fullGatePassed": false,
+      "remainingDifferences": null,
+      "witnessPassed": false,
+      "failure": "resize-node-after-active-limit-change: selected experiment must reproduce before interpretation"
+    }
+  ],
+  "activeResizeIndependentRepeat": [
+    {
+      "scenario": "resize-node-after-active-limit-change",
+      "interpretable": false,
+      "selfConsistency": [
+        {
+          "side": "upstream",
+          "consistent": false
+        },
+        {
+          "side": "psflow",
+          "consistent": true
+        }
+      ],
+      "fullGatePassed": false,
+      "remainingDifferences": null,
+      "witnessPassed": false,
+      "failure": "resize-node-after-active-limit-change: selected experiment must reproduce before interpretation"
+    }
+  ],
+  "interpretation": "F lifecycle, resize exports/witnesses and the optional store flag are complete in their defined scopes. Direct-control and NodeResizer scenarios reproduce with only PR195 handle-bound differences. Active-limit cross-side differences are not interpreted in the full wave or repeat because upstream does not reproduce. Local actual-control/store regressions remain green. E, broader G, remaining H and I are open.",
+  "aamfInvoked": false,
+  "localCases": {
+    "basicLifecycle": 1,
+    "vendoredSourceDifferential": 65,
+    "actualControlProxy": "prop update, stable callback dependencies, scale, final dimensions, parent truthiness, teardown"
+  },
+  "setupCorrections": [
+    "Missing test import and Transform label corrected before behavioral red",
+    "Oracle d3 shim initially omitted dragDisable/dragEnable; corrected before child regression",
+    "React 18 ref read corrected from props.ref to element.ref before control regression",
+    "red-fractional-child-extent exited zero before source arithmetic alignment and is not counted as a demonstrated failure"
+  ],
+  "changelogVerdictsMovedToUnit": [
+    5147,
+    5326,
+    5509,
+    5528,
+    5784
+  ]
+}

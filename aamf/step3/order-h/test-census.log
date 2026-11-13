@@ -1,0 +1,44 @@
+
+> ps-flow@0.0.0 test:census
+> node --test "parity/census/**/*.test.mjs"
+
+TAP version 13
+# Subtest: the standalone census distinguishes crossed exports that are ungated on the JS surface
+ok 1 - the standalone census distinguishes crossed exports that are ungated on the JS surface
+  ---
+  duration_ms: 227.139767
+  type: 'test'
+  ...
+# Subtest: the standalone census fails when a runtime export is absent from the boundary manifest
+ok 2 - the standalone census fails when a runtime export is absent from the boundary manifest
+  ---
+  duration_ms: 115.448882
+  type: 'test'
+  ...
+# Subtest: the standalone census rejects a manifest name that is both crossed and passthrough
+ok 3 - the standalone census rejects a manifest name that is both crossed and passthrough
+  ---
+  duration_ms: 114.854321
+  type: 'test'
+  ...
+# Subtest: the standalone census rejects specs that enter through the retired Example.Main page
+ok 4 - the standalone census rejects specs that enter through the retired Example.Main page
+  ---
+  duration_ms: 109.004293
+  type: 'test'
+  ...
+# Subtest: the standalone census checks unclassified specs for the retired page too
+ok 5 - the standalone census checks unclassified specs for the retired page too
+  ---
+  duration_ms: 139.390969
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 890.610974

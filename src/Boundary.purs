@@ -17,7 +17,7 @@
 -- |
 -- | ## Staging
 -- |
--- | The surface crossed in four stages, ordered by how detectable a mistake in
+-- | The surface crossed in five stages, ordered by how detectable a mistake in
 -- | each is. Anything that had not yet crossed was re-exported **unchanged** —
 -- | it resolved, but its shape was still the PureScript one. The `manifest`
 -- | says which is which, and is the only place that answer is written down.
@@ -34,26 +34,23 @@
 -- | there is nothing to get wrong but member names, which the record types
 -- | check.
 -- |
--- | **What is left in `passthrough` is eight pure functions.** Stage 5
--- | (`tickets/082-boundary-stage-5-pure-functions.md`) crosses the fourteen
--- | that stage 4 left, and its first half has landed: the six edge-path
--- | helpers a custom edge component calls, in `Boundary.EdgePaths`. The eight
--- | left are the six graph utilities, which are curried where upstream takes
--- | every argument at once, and `isNode` and `isEdge`, which agree with
--- | upstream on every call surface parity makes. `parity/surface/allowlist.json`
--- | carries one entry per difference they publish, and surface parity calls
--- | all of them and compares the results, so the differences are measured
--- | rather than assumed.
+-- | **Stage 5 is complete: `passthrough` is empty.** The fourteen standalone
+-- | functions left by stage 4 now have JS-native call and value conventions.
+-- | Edge paths live in `Boundary.EdgePaths`; viewport, traversal, bounds,
+-- | reconnection and native shape guards live in `Boundary.Utils`.
+-- | Direct JS-entry regressions observe their source branches and original
+-- | consumer references. Crossing is independent of full parity: a crossed
+-- | export matches upstream only where a gate proves it.
 -- |
--- | The converters are the rest, and they live in nineteen modules beneath
+-- | The converters are the rest, and they live in twenty modules beneath
 -- | this one, none of them on the PureScript surface:
 -- |
 -- |   * `Boundary.Undefined` — `undefined`, which is what a JavaScript caller
 -- |     means by a prop they did not set.
 -- |   * `Boundary.Untagged` — the runtime narrowing TypeScript does at the use
 -- |     site for unions like `string | string[]` and erases.
--- |   * `Boundary.Refusal` — the shape of a prop that resolves and does not
--- |     cross, and the guard that throws on one.
+-- |   * `Boundary.Original` — the consumer's own value behind a conversion,
+-- |     which a raw store read hands back as upstream's store does.
 -- |   * `Boundary.Enums` — string literals in, sum-type constructors out.
 -- |   * `Boundary.Elements` — `Node`, `Edge`, node props, the change objects,
 -- |     `Connection`, and the shapes a handler carries back out.
@@ -62,7 +59,8 @@
 -- |   * `Boundary.Flow` — the 124 flow props, and `ReactFlow` itself.
 -- |   * `Boundary.Utils` — `applyNodeChanges`, `applyEdgeChanges` and
 -- |     `addEdge`, which a controlled flow's own change handlers call, so a
--- |     driver reaches them on the first interaction.
+-- |     driver reaches them on the first interaction; and, from stage 5,
+-- |     `getViewportForBounds` and the padding it reads.
 -- |   * `Boundary.Chrome` — `Panel`, `Background`, `Controls` and `MiniMap`,
 -- |     which a driver mounts inside the flow, and since stage 4 the two
 -- |     pieces a consumer reaches *inside* two of them, `ControlButton` and
@@ -89,6 +87,8 @@
 -- |     hooks and the instance's `setNodes`/`setEdges`.
 -- |   * `Boundary.Instance` — the imperative `ReactFlowInstance`: thirty-two
 -- |     members, reached from `useReactFlow` and from `onInit`.
+-- |   * `Boundary.Store` — the store state in upstream's shape, with zustand's
+-- |     `setState` and `subscribe`: what `useStore` and `useStoreApi` hand over.
 -- |   * `Boundary.Hooks` — all 21 hooks. Two of them crossed in stage 1
 -- |     (`useNodesState`, `useEdgesState`) because they touch no instance; the
 -- |     rest could not, because `useReactFlow` returns one.
@@ -111,8 +111,7 @@
 -- | consumer mutating a shared enum is a bug in every case and PureScript's own
 -- | reasoning assumes these are immutable.
 module Boundary
-  ( module PublicSurface
-  , module CrossedSurface
+  ( module CrossedSurface
   , BackgroundVariantEnum
   , ConnectionLineTypeEnum
   , ConnectionModeEnum
@@ -139,9 +138,11 @@ module Boundary
 -- not from the PureScript surface, which still has the unconverted one. The
 -- three utilities come from `Boundary.Utils` for the same reason: a driver
 -- calls them with every argument at once, which a curried PureScript function
--- is not.
+-- is not. So does `getViewportForBounds`, stage 5's first graph utility, whose
+-- six arguments upstream takes in one call and whose `padding` is an untagged
+-- value; `Boundary.Utils` crosses both.
 import Boundary.Flow (reactFlow, reactFlowProvider) as CrossedSurface
-import Boundary.Utils (addEdge, applyEdgeChanges, applyNodeChanges) as CrossedSurface
+import Boundary.Utils (addEdge, applyEdgeChanges, applyNodeChanges, getConnectedEdges, getIncomers, getNodesBounds, getOutgoers, getViewportForBounds, isEdge, isNode, reconnectEdge) as CrossedSurface
 
 -- The four chrome components upstream's drivers mount. `Boundary.Chrome` says
 -- why each needed a wrapper at all; the short version is that a JavaScript
@@ -223,24 +224,8 @@ import Boundary.NodeChrome (handle, nodeToolbar) as CrossedSurface
 -- and a callback cannot cross without the record it hangs off.
 import Boundary.Resizer (nodeResizeControl, nodeResizer) as CrossedSurface
 
--- The rest of the public surface, passing through raw. How many that is, is
--- `manifest.passthrough`'s to say and not this comment's, but what *kind* of
--- thing they are is worth writing here: they are all pure functions, and not
--- one of them is a component. Ordered to mirror
--- `xyflow/packages/react/src/index.ts`, as `index.js` is, so future audits
--- stay mechanical.
-import React
-  ( -- Utilities
-    isNode
-  , isEdge
-  -- System functions
-  , getViewportForBounds
-  , getNodesBounds
-  , getIncomers
-  , getOutgoers
-  , reconnectEdge
-  , getConnectedEdges
-  ) as PublicSurface
+-- No value is re-exported raw from React after stage 5. The PureScript
+-- surface itself stays in React; these crossings belong only to index.js.
 
 -- | `Object.freeze`. The enum objects are built above it in PureScript so the
 -- | record type checks their members; this only stops a consumer writing to one.

@@ -1,0 +1,215 @@
+$ npm run parity:system
+
+> ps-flow@0.0.0 parity:system
+> node parity/system/net.mjs
+
+fork: 54 upstream unit(s) affirmed — 30 of 48 spec unit(s) lifted, 18 declined with a reason, and 6 depended-on source(s).
+driver [psflow]: 29 fixtures + 1 direct component(s), 48 observed callback props, library from `// output/Boundary/` → dist/psflow.js
+driver [upstream]: 29 fixtures + 1 direct component(s), 48 observed callback props, library from `// xyflow/packages/react/src/` → dist/upstream.js
+captured mount-baseline--edges-general
+captured mount-baseline--node-toolbar-general
+captured mount-baseline--nodes-general
+captured mount-baseline--pane-general
+captured mount-baseline--pane-non-defaults
+captured mount-baseline--chrome-background
+captured mount-baseline--chrome-controls
+captured mount-baseline--chrome-minimap-colors
+captured mount-baseline--chrome-minimap-hidden-nodes
+captured mount-baseline--chrome-panels
+captured mount-baseline--edges-base-edge-path
+captured mount-baseline--fitview-uncontrolled
+captured mount-baseline--flow-chrome-defaults
+captured mount-baseline--flow-custom-testid
+captured mount-baseline--flow-display-none
+captured mount-baseline--flow-limits-change
+captured mount-baseline--flow-not-selectable
+captured mount-baseline--flow-props-change
+captured mount-baseline--nodes-autopan
+captured mount-baseline--nodes-connections
+captured mount-baseline--nodes-expand-parent
+captured mount-baseline--nodes-no-select-on-drag
+captured mount-baseline--nodes-nowheel
+captured mount-baseline--nodes-props-record
+captured mount-baseline--nodes-tall
+captured mount-baseline--nodes-unmeasured
+captured mount-baseline--viewport-controlled
+captured mount-baseline--viewport-helpers
+captured mount-baseline--viewport-pan-on-scroll
+captured mount-baseline--examples-color-mode
+captured click-selects-edge
+captured multi-select-edges-with-modifier
+captured click-unselectable-edge
+captured delete-key-removes-edge
+captured delete-key-spares-undeletable-edge
+captured click-inside-interaction-width
+captured click-selects-node
+captured shift-drag-selects-nodes
+captured click-unselectable-node
+captured drag-moves-node
+captured drag-does-not-move-undraggable-node
+captured drag-by-custom-drag-handle
+captured delete-key-removes-node-and-edges
+captured delete-key-spares-undeletable-node
+captured connect-source-handle-to-target-handle
+captured connect-output-to-output-handle
+captured connect-input-to-input-handle
+captured connect-to-unconnectable-handle
+captured drag-pans-the-pane
+captured wheel-zooms-the-pane
+captured wheel-zooms-out-to-min
+captured wheel-zooms-in-to-max
+captured wheel-pans-with-panonscroll
+captured click-reveals-default-toolbar
+captured select-dark-color-mode
+captured drag-node-release
+captured drag-node-escape-mid-gesture
+captured drag-node-autopan
+captured drag-node-no-select-on-drag
+captured drag-child-expand-parent
+captured drag-unmeasured-node
+captured selection-box-from-node
+captured selection-box-then-click-node
+captured selection-box-mid-gesture
+captured selection-box-touch
+captured arrow-key-selected-node
+captured keyboard-focus-node
+captured connect-handle-to-handle
+captured connect-then-keyboard-move
+captured connect-second-touch-point
+captured probe-node-connections
+captured viewport-helpers-with-options
+captured pan-gesture-complete
+captured fitview-onnodeschange-variants
+captured uncontrolled-update-node
+captured flow-props-change-after-mount
+captured mount-in-display-none
+captured minimap-all-nodes-hidden
+captured minimap-custom-mask-colors
+captured controls-horizontal
+captured panel-center-positions
+captured background-custom-bgcolor
+captured flow-custom-testid
+captured custom-edge-baseedge-path
+captured pinch-over-nowheel-node
+captured minimap-default-click
+captured controls-default-zoom
+captured wheel-zoom-from-identity-viewport
+captured pane-drag-from-identity-viewport
+captured drag-node-reports-changes
+captured click-connect-reverse-direction
+captured connect-drag-holding-source
+captured connect-drag-released-on-pane
+captured node-props-record-parented
+captured wheel-zooms-to-changed-limits
+captured drag-pans-into-changed-extent
+captured pan-after-controlled-viewport-change
+captured ctrl-wheel-pinches-with-panonscroll
+captured pane-click-keeps-selection-when-not-selectable
+captured click-selects-node--probe-flow-node
+captured wheel-zooms-the-pane--probe-flow-node
+captured mount-baseline--edges-general--probe-edge
+captured connect-source-handle-to-target-handle--probe-connection-line
+
+100 of 103 scenario(s) failed:
+  mount-baseline--edges-general: unclaimed-difference
+  mount-baseline--node-toolbar-general: unclaimed-difference
+  mount-baseline--nodes-general: unclaimed-difference
+  mount-baseline--pane-general: unclaimed-difference
+  mount-baseline--pane-non-defaults: unclaimed-difference
+  mount-baseline--chrome-background: unclaimed-difference
+  mount-baseline--chrome-controls: unclaimed-difference
+  mount-baseline--chrome-minimap-colors: unclaimed-difference
+  mount-baseline--chrome-minimap-hidden-nodes: unclaimed-difference
+  mount-baseline--chrome-panels: unclaimed-difference
+  mount-baseline--edges-base-edge-path: unclaimed-difference
+  mount-baseline--fitview-uncontrolled: unclaimed-difference
+  mount-baseline--flow-chrome-defaults: unclaimed-difference
+  mount-baseline--flow-custom-testid: unclaimed-difference
+  mount-baseline--flow-display-none: unclaimed-difference
+  mount-baseline--flow-limits-change: unclaimed-difference
+  mount-baseline--flow-not-selectable: unclaimed-difference
+  mount-baseline--flow-props-change: unclaimed-difference
+  mount-baseline--nodes-autopan: unclaimed-difference
+  mount-baseline--nodes-connections: unclaimed-difference
+  mount-baseline--nodes-expand-parent: unclaimed-difference
+  mount-baseline--nodes-no-select-on-drag: unclaimed-difference
+  mount-baseline--nodes-nowheel: unclaimed-difference
+  mount-baseline--nodes-props-record: unclaimed-difference
+  mount-baseline--nodes-tall: unclaimed-difference
+  mount-baseline--nodes-unmeasured: unclaimed-difference
+  mount-baseline--viewport-controlled: unclaimed-difference
+  mount-baseline--viewport-helpers: unclaimed-difference
+  mount-baseline--viewport-pan-on-scroll: unclaimed-difference
+  click-selects-edge: unclaimed-difference
+  multi-select-edges-with-modifier: unclaimed-difference
+  click-unselectable-edge: unclaimed-difference
+  delete-key-removes-edge: unclaimed-difference
+  delete-key-spares-undeletable-edge: unclaimed-difference
+  click-inside-interaction-width: unclaimed-difference
+  click-selects-node: unclaimed-difference
+  shift-drag-selects-nodes: unclaimed-difference
+  click-unselectable-node: unclaimed-difference
+  drag-moves-node: unclaimed-difference
+  drag-does-not-move-undraggable-node: unclaimed-difference
+  drag-by-custom-drag-handle: unclaimed-difference
+  delete-key-removes-node-and-edges: unclaimed-difference
+  delete-key-spares-undeletable-node: unclaimed-difference
+  connect-source-handle-to-target-handle: unclaimed-difference
+  connect-output-to-output-handle: unclaimed-difference
+  connect-input-to-input-handle: unclaimed-difference
+  connect-to-unconnectable-handle: unclaimed-difference
+  drag-pans-the-pane: unclaimed-difference
+  wheel-zooms-the-pane: unclaimed-difference
+  wheel-zooms-out-to-min: unclaimed-difference
+  wheel-zooms-in-to-max: unclaimed-difference
+  wheel-pans-with-panonscroll: unclaimed-difference
+  click-reveals-default-toolbar: unclaimed-difference
+  drag-node-release: unclaimed-difference
+  drag-node-escape-mid-gesture: self-inconsistent, unclaimed-difference
+  drag-node-autopan: self-inconsistent, unclaimed-difference
+  drag-node-no-select-on-drag: unclaimed-difference
+  drag-child-expand-parent: unclaimed-difference
+  drag-unmeasured-node: unclaimed-difference
+  selection-box-from-node: unclaimed-difference
+  selection-box-then-click-node: unclaimed-difference
+  selection-box-mid-gesture: unclaimed-difference
+  selection-box-touch: unclaimed-difference
+  arrow-key-selected-node: unclaimed-difference
+  keyboard-focus-node: unclaimed-difference
+  connect-handle-to-handle: unclaimed-difference
+  connect-then-keyboard-move: unclaimed-difference
+  connect-second-touch-point: unclaimed-difference
+  probe-node-connections: unclaimed-difference
+  viewport-helpers-with-options: unclaimed-difference
+  pan-gesture-complete: self-inconsistent, unclaimed-difference
+  fitview-onnodeschange-variants: unclaimed-difference
+  uncontrolled-update-node: unclaimed-difference
+  flow-props-change-after-mount: unclaimed-difference
+  mount-in-display-none: unclaimed-difference
+  minimap-all-nodes-hidden: unclaimed-difference
+  minimap-custom-mask-colors: unclaimed-difference
+  controls-horizontal: unclaimed-difference
+  panel-center-positions: unclaimed-difference
+  background-custom-bgcolor: unclaimed-difference
+  flow-custom-testid: unclaimed-difference
+  custom-edge-baseedge-path: unclaimed-difference
+  pinch-over-nowheel-node: unclaimed-difference
+  minimap-default-click: unclaimed-difference
+  controls-default-zoom: unclaimed-difference
+  wheel-zoom-from-identity-viewport: unclaimed-difference
+  pane-drag-from-identity-viewport: unclaimed-difference
+  drag-node-reports-changes: self-inconsistent, unclaimed-difference
+  click-connect-reverse-direction: unclaimed-difference
+  connect-drag-holding-source: unclaimed-difference
+  connect-drag-released-on-pane: unclaimed-difference
+  node-props-record-parented: unclaimed-difference
+  wheel-zooms-to-changed-limits: unclaimed-difference
+  drag-pans-into-changed-extent: unclaimed-difference
+  pan-after-controlled-viewport-change: unclaimed-difference
+  ctrl-wheel-pinches-with-panonscroll: unclaimed-difference
+  pane-click-keeps-selection-when-not-selectable: unclaimed-difference
+  click-selects-node--probe-flow-node: unclaimed-difference
+  wheel-zooms-the-pane--probe-flow-node: unclaimed-difference
+  connect-source-handle-to-target-handle--probe-connection-line: unclaimed-difference
+coverage: 122 of 156 export-bearing entries driven, 34 declared hole(s), across 103 scenario(s) that ran — and 50 hand-declared behavior(s), counted apart.
+The report is parity/system/report.md and the coverage artifact is parity/system/coverage.md.

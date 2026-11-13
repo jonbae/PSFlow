@@ -176,6 +176,107 @@
             "edges": []
           }
         ]
+      },
+      {
+        "name": "onInit",
+        "args": [
+          {
+            "getNodes": {
+              "@ref": "function"
+            },
+            "setNodes": {
+              "@ref": "function"
+            },
+            "addNodes": {
+              "@ref": "function"
+            },
+            "getNode": {
+              "@ref": "function"
+            },
+            "getInternalNode": {
+              "@ref": "function"
+            },
+            "getEdges": {
+              "@ref": "function"
+            },
+            "setEdges": {
+              "@ref": "function"
+            },
+            "addEdges": {
+              "@ref": "function"
+            },
+            "getEdge": {
+              "@ref": "function"
+            },
+            "toObject": {
+              "@ref": "function"
+            },
+            "deleteElements": {
+              "@ref": "function"
+            },
+            "getIntersectingNodes": {
+              "@ref": "function"
+            },
+            "isNodeIntersecting": {
+              "@ref": "function"
+            },
+            "updateNode": {
+              "@ref": "function"
+            },
+            "updateNodeData": {
+              "@ref": "function"
+            },
+            "updateEdge": {
+              "@ref": "function"
+            },
+            "updateEdgeData": {
+              "@ref": "function"
+            },
+            "getNodesBounds": {
+              "@ref": "function"
+            },
+            "getHandleConnections": {
+              "@ref": "function"
+            },
+            "getNodeConnections": {
+              "@ref": "function"
+            },
+            "fitView": {
+              "@ref": "function"
+            },
+            "zoomIn": {
+              "@ref": "function"
+            },
+            "zoomOut": {
+              "@ref": "function"
+            },
+            "zoomTo": {
+              "@ref": "function"
+            },
+            "getZoom": {
+              "@ref": "function"
+            },
+            "setViewport": {
+              "@ref": "function"
+            },
+            "getViewport": {
+              "@ref": "function"
+            },
+            "setCenter": {
+              "@ref": "function"
+            },
+            "fitBounds": {
+              "@ref": "function"
+            },
+            "screenToFlowPosition": {
+              "@ref": "function"
+            },
+            "flowToScreenPosition": {
+              "@ref": "function"
+            },
+            "viewportInitialized": true
+          }
+        ]
       }
     ],
     "hooks": {},
@@ -184,59 +285,59 @@
         "getNodes": [
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 0,
               "y": 0
-            },
-            "data": {
-              "label": "Node-1"
             },
             "type": "input",
             "hidden": true
           },
           {
             "id": "Node-2",
+            "data": {
+              "label": "Node-2"
+            },
             "position": {
               "x": -100,
               "y": 100
-            },
-            "data": {
-              "label": "Node-2"
             },
             "hidden": true
           },
           {
             "id": "Node-3",
+            "data": {
+              "label": "Node-3"
+            },
             "position": {
               "x": 100,
               "y": 100
-            },
-            "data": {
-              "label": "Node-3"
             },
             "hidden": true
           }
         ],
         "getNode": {
           "id": "Node-1",
+          "data": {
+            "label": "Node-1"
+          },
           "position": {
             "x": 0,
             "y": 0
-          },
-          "data": {
-            "label": "Node-1"
           },
           "type": "input",
           "hidden": true
         },
         "getInternalNode": {
           "id": "Node-1",
+          "data": {
+            "label": "Node-1"
+          },
           "position": {
             "x": 0,
             "y": 0
-          },
-          "data": {
-            "label": "Node-1"
           },
           "type": "input",
           "hidden": true,
@@ -254,6 +355,18 @@
               "y": 0
             },
             "z": 0,
+            "userNode": {
+              "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "type": "input",
+              "hidden": true
+            },
             "handleBounds": {
               "@undefined": true
             }
@@ -274,35 +387,35 @@
         "getIntersectingNodes": [
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 0,
               "y": 0
-            },
-            "data": {
-              "label": "Node-1"
             },
             "type": "input",
             "hidden": true
           },
           {
             "id": "Node-2",
+            "data": {
+              "label": "Node-2"
+            },
             "position": {
               "x": -100,
               "y": 100
-            },
-            "data": {
-              "label": "Node-2"
             },
             "hidden": true
           },
           {
             "id": "Node-3",
+            "data": {
+              "label": "Node-3"
+            },
             "position": {
               "x": 100,
               "y": 100
-            },
-            "data": {
-              "label": "Node-3"
             },
             "hidden": true
           }
@@ -336,35 +449,35 @@
           "nodes": [
             {
               "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
               "position": {
                 "x": 0,
                 "y": 0
-              },
-              "data": {
-                "label": "Node-1"
               },
               "type": "input",
               "hidden": true
             },
             {
               "id": "Node-2",
+              "data": {
+                "label": "Node-2"
+              },
               "position": {
                 "x": -100,
                 "y": 100
-              },
-              "data": {
-                "label": "Node-2"
               },
               "hidden": true
             },
             {
               "id": "Node-3",
+              "data": {
+                "label": "Node-3"
+              },
               "position": {
                 "x": 100,
                 "y": 100
-              },
-              "data": {
-                "label": "Node-3"
               },
               "hidden": true
             }

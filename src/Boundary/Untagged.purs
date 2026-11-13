@@ -26,6 +26,7 @@ module Boundary.Untagged
   , asNumber
   , asString
   , oneOrMany
+  , truthy
   , typeName
   ) where
 
@@ -65,6 +66,11 @@ oneOrMany raw = fromMaybe [ raw ] (asArray raw)
 -- | apart before coercing either.
 asFunction :: Foreign -> Maybe (Foreign -> Foreign)
 asFunction = runFn3 asFunctionImpl Nothing Just
+
+-- | JavaScript's truthiness, which `||` and `if (x)` read: `false`, `0`, `-0`,
+-- | `0n`, `""`, `null`, `undefined` and `NaN` are false, and everything else
+-- | is true.
+foreign import truthy :: Foreign -> Boolean
 
 -- | What the value actually is, for the "expected one of" half of an error
 -- | message. `"array"` and `"null"` are separated out of `typeof`'s `"object"`

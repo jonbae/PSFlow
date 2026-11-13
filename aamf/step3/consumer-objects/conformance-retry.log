@@ -1,0 +1,98 @@
+$ npm run test:conformance
+
+> ps-flow@0.0.0 test:conformance
+> playwright test --config examples/react-smoke/playwright.config.ts --project=conformance
+
+[2m[WebServer] [22m(node:46452) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:46485) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m(node:46485) [DEP0066] DeprecationWarning: OutgoingMessage.prototype._headers is deprecated
+
+Running 41 tests using 1 worker
+
+(node:46498) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:46498) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:31:5 › Edges › selection › selecting an edge by click (8.1s)
+  ✓   2 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:39:5 › Edges › selection › selecting multiple edges by meta-click (11.4s)
+  ✓   3 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:60:5 › Edges › properties › classes get applied (6.1s)
+  ✓   4 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:66:5 › Edges › properties › styles get applied (7.4s)
+  ✓   5 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:72:5 › Edges › properties › hidden=true hides edge (6.4s)
+  ✓   6 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:78:5 › Edges › properties › animated=true add "animated" class (6.6s)
+  ✓   7 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:84:5 › Edges › properties › selectable=false prevents selecting of edges (6.6s)
+  ✓   8 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:103:5 › Edges › properties › deleting edges is possible (8.3s)
+  ✓   9 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:116:5 › Edges › properties › deletable=false prevents deleting of edges (10.0s)
+  ✓  10 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:137:5 › Edges › properties › zIndex sets z-index of edge svgs (4.9s)
+  ✓  11 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:144:5 › Edges › properties › aria-lable is working (4.3s)
+  ✓  12 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:150:5 › Edges › properties › interactionWidth is working (8.2s)
+  ✓  13 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:164:5 › Edges › properties › marker-start, marker-end set markers (4.6s)
+  ✓  14 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:173:5 › Edges › properties › z-index (5.6s)
+  ✓  15 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:180:5 › Edges › properties › sub flow: normal node to child node, z-index (4.1s)
+  ✓  16 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:187:5 › Edges › properties › sub flow: child node to child node, z-index (6.1s)
+  ✓  17 [conformance] › examples/react-smoke/tests/generic-node-toolbar.spec.ts:51:3 › Node Toolbar › all toolbars are positioned correctly (11.8s)
+  ✓  18 [conformance] › examples/react-smoke/tests/generic-node-toolbar.spec.ts:101:3 › Node Toolbar › toolbar default behaviour (9.0s)
+  ✓  19 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:25:5 › Nodes › selection › selecting a node by click (7.9s)
+  ✓  20 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:32:5 › Nodes › selection › selecting multiple nodes with shift drag (7.1s)
+  ✓  21 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:61:5 › Nodes › selection › selectable=false prevents selection (8.0s)
+  ✓  22 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:71:5 › Nodes › dragging › dragging a node (8.1s)
+  ✓  23 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:92:5 › Nodes › dragging › draggable=false prevents dragging (5.7s)
+  ✓  24 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:112:5 › Nodes › dragging › custom drag handle works (7.1s)
+  ✓  25 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:148:5 › Nodes › deleting › deleting a node and its edges (7.3s)
+  ✓  26 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:161:5 › Nodes › deleting › deletable=false prevents deletion (7.8s)
+  ✓  27 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:176:5 › Nodes › connecting › connecting two nodes (12.8s)
+  ✘  28 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:200:5 › Nodes › connecting › connectable=false prevents connections (16.4s)
+(node:48221) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:48221) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  29 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:223:3 › Nodes › hidden=true hides the node (11.4s)
+  ✓  30 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:229:3 › Nodes › classes get applied (10.4s)
+  ✓  31 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:236:3 › Nodes › styles get applied (9.1s)
+  ✓  32 [conformance] › examples/react-smoke/tests/generic-pane.spec.ts:48:5 › Pane default › pan & zoom › panning the pane moves it (9.2s)
+  ✓  33 [conformance] › examples/react-smoke/tests/generic-pane.spec.ts:83:5 › Pane default › pan & zoom › scrolling the default pane zooms it (6.4s)
+  ✓  34 [conformance] › examples/react-smoke/tests/generic-pane.spec.ts:101:5 › Pane default › minZoom & maxZoom › minZoom (5.2s)
+  ✓  35 [conformance] › examples/react-smoke/tests/generic-pane.spec.ts:116:5 › Pane default › minZoom & maxZoom › maxZoom (5.7s)
+  ✓  36 [conformance] › examples/react-smoke/tests/generic-pane.spec.ts:133:5 › Pane default › autoPan › autoPanOnNodeDrag (23.8s)
+  ✓  37 [conformance] › examples/react-smoke/tests/generic-pane.spec.ts:154:5 › Pane default › autoPan › autoPanOnConnect (21.0s)
+  ✓  38 [conformance] › examples/react-smoke/tests/generic-pane.spec.ts:186:5 › Pane non-default › pan & zoom › panOnScroll pans the pane on scrolling (6.5s)
+  ✓  39 [conformance] › examples/react-smoke/tests/generic-pane.spec.ts:203:5 › Pane non-default › pan & zoom › intialViewport (5.4s)
+  ✓  40 [conformance] › examples/react-smoke/tests/generic-props.spec.ts:23:5 › Props › colorMode › render default light color mode (6.3s)
+  ✓  41 [conformance] › examples/react-smoke/tests/generic-props.spec.ts:31:5 › Props › colorMode › render dark color mode (5.9s)
+
+
+  1) [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:200:5 › Nodes › connecting › connectable=false prevents connections 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('.react-flow') to be visible[22m
+    [2m    - locator resolved to visible <div class="react-flow" role="application" data-testid="rf__wrapper">…</div>[22m
+
+
+      19 |   test.beforeEach(async ({ page }) => {
+      20 |     await page.goto(ROUTE);
+    > 21 |     await page.waitForSelector(`.${FRAMEWORK}-flow`, { timeout: 10_000 });
+         |                ^
+      22 |   });
+      23 |
+      24 |   test.describe("selection", () => {
+        at /Users/jonathanbae/repos/PSFlow/examples/react-smoke/tests/generic-nodes.spec.ts:21:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/generic-nodes-Nodes-connec-38170--false-prevents-connections-conformance/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/generic-nodes-Nodes-connec-38170--false-prevents-connections-conformance/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/generic-nodes-Nodes-connec-38170--false-prevents-connections-conformance/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/generic-nodes-Nodes-connec-38170--false-prevents-connections-conformance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:200:5 › Nodes › connecting › connectable=false prevents connections 
+  40 passed (7.3m)

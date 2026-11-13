@@ -1,0 +1,134 @@
+[
+  {
+    "round": 1,
+    "side": "upstream",
+    "within": true,
+    "across": true,
+    "differences": []
+  },
+  {
+    "round": 1,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": []
+  },
+  {
+    "round": 2,
+    "side": "upstream",
+    "within": true,
+    "across": true,
+    "differences": []
+  },
+  {
+    "round": 2,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": []
+  },
+  {
+    "round": 3,
+    "side": "upstream",
+    "within": true,
+    "across": true,
+    "differences": []
+  },
+  {
+    "round": 3,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": []
+  },
+  {
+    "round": 4,
+    "side": "upstream",
+    "within": true,
+    "across": false,
+    "differences": [
+      {
+        "kind": "order",
+        "path": [
+          "callbacks"
+        ],
+        "left": [
+          "onSelectionChange#1",
+          "onNodesChange#1",
+          "onInit#1",
+          "onPaneMouseEnter#1",
+          "onNodeMouseEnter#1",
+          "onPaneMouseMove#1",
+          "onNodeMouseMove#1",
+          "onNodesChange#2",
+          "onNodeDragStart#1",
+          "onSelectionChange#2",
+          "onNodeDragStop#1",
+          "onNodeClick#1",
+          "onNodesChange#3",
+          "onNodesChange#4",
+          "onNodesChange#5",
+          "onNodesChange#6",
+          "onNodeMouseLeave#1",
+          "onNodesChange#7",
+          "onNodesChange#8"
+        ],
+        "right": [
+          "onSelectionChange#1",
+          "onNodesChange#1",
+          "onInit#1",
+          "onPaneMouseEnter#1",
+          "onNodeMouseEnter#1",
+          "onPaneMouseMove#1",
+          "onNodeMouseMove#1",
+          "onNodesChange#2",
+          "onNodeDragStart#1",
+          "onSelectionChange#2",
+          "onNodeDragStop#1",
+          "onNodeClick#1",
+          "onNodesChange#3",
+          "onNodesChange#4",
+          "onNodesChange#5",
+          "onNodesChange#6",
+          "onNodesChange#7",
+          "onNodeMouseLeave#1",
+          "onNodesChange#8"
+        ]
+      },
+      {
+        "kind": "changed",
+        "path": [
+          "callbacks",
+          16,
+          "args",
+          1,
+          "position",
+          "x"
+        ],
+        "left": 0,
+        "right": 5
+      }
+    ]
+  },
+  {
+    "round": 4,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": []
+  },
+  {
+    "round": 5,
+    "side": "upstream",
+    "within": true,
+    "across": true,
+    "differences": []
+  },
+  {
+    "round": 5,
+    "side": "psflow",
+    "within": true,
+    "across": true,
+    "differences": []
+  }
+]

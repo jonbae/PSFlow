@@ -1,0 +1,35 @@
+{
+  "id": "psflow-w02-is-edge",
+  "status": "complete",
+  "startedAt": "2026-11-10T02:51:32.856Z",
+  "source": "xyflow/packages/system/src/utils/graph.ts::isEdgeBase; React utils/general.ts::isEdge",
+  "seam": "Direct JS entry versus vendored oracle, including primitive errors and proxy has receipts",
+  "mechanism": "Check id, source and target key presence in that order with native in; no type/value prefilter",
+  "allowedOutputs": [
+    "src/Boundary/Utils.purs",
+    "src/Boundary.purs",
+    "src/Boundary.js",
+    "parity/boundary/is-edge.test.mjs",
+    "parity/surface/report.md",
+    "parity/driver/dist/psflow.js",
+    "AAMF_PORTING_PLAN.md",
+    "AAMF_STEP3_RESULTS.md",
+    "aamf/step3/README.md",
+    "aamf/step3/SHA256SUMS",
+    "aamf/step3/is-edge/"
+  ],
+  "readOnly": [
+    "core graph implementation and FFI",
+    "Boundary.Utils FFI",
+    "surface allowlist",
+    "previous tests and evidence",
+    "system corpus and registers"
+  ],
+  "acceptance": [
+    "Red before crossing, green after fresh build",
+    "Match primitives, function objects, inherited and explicitly undefined keys and short-circuit order",
+    "Pass surface/function/boundary checks and driver build",
+    "Keep stage 4 with reconnectEdge as sole passthrough"
+  ],
+  "aamfInvoked": false
+}

@@ -26,12 +26,11 @@
 -- | `unsafeRefEq` gives on the payload, and `Nothing` — upstream's `undefined`
 -- | — equals itself.
 -- |
--- | What this does *not* buy is a stable payload. `Boundary.Flow` wraps every
--- | callback and rebuilds every array and record on each render, so a field
--- | holding one of those still differs by reference and still re-dispatches.
--- | That is the same thing upstream does when a consumer passes a fresh object
--- | inline, and it is safe for the same reason: the fields where a repeated
--- | dispatch is not idempotent hold primitives, and those now compare equal.
+-- | The payload is stable too. `Boundary.Flow` converts each callback, array
+-- | and record once per consumer value (`Boundary.Original.stably`), so a
+-- | consumer who passes the same value again hands this the same payload, and
+-- | nothing re-dispatches. A consumer who passes a fresh object inline gets a
+-- | fresh conversion and a dispatch, which is what upstream does too.
 -- |
 -- | **The mount render.** React runs every effect on mount whatever its deps,
 -- | so the deps cache has nothing to say about the first comparison. Upstream

@@ -1,0 +1,4 @@
+{
+  "reason": "Copied upstream bundle predates resize fixture. All experiments in this initial batch are excluded from the controlled before/after comparison, including arrow experiments. Rebuilt upstream bundle explicitly with --side upstream.",
+  "completedBatch": false
+}

@@ -1,0 +1,62 @@
+$ spago test
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[1 of 2] Compiling Test.Boundary.UserNode
+[2 of 2] Compiling Test.Main
+           Src   Lib   All
+Warnings     0     0     0
+Errors       0     0     0
+
+✓ Build succeeded.
+
+Running tests for package: ps-flow
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ undefined
+- {
+-   [Symbol(consumer)]: 1,
+-   custom: {},
+-   data: {},
+-   id: 'a',
+-   optional: undefined,
+-   position: {
+-     x: 10,
+-     y: 20
+-   }
+- }
+
+    at verify (file:///Users/jonathanbae/repos/PSFlow/output/Test.Boundary.UserNode/foreign.js:15:14)
+    at Module.checkUserNode (file:///Users/jonathanbae/repos/PSFlow/output/Test.Boundary.UserNode/foreign.js:21:3)
+    at Module.runUserNodeTests (file:///Users/jonathanbae/repos/PSFlow/output/Test.Boundary.UserNode/index.js:13:21)
+    at __do (file:///Users/jonathanbae/repos/PSFlow/output/Test.Main/index.js:233:28)
+    at file:///Users/jonathanbae/repos/PSFlow/.spago/run/run.js:3:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:647:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: undefined,
+  expected: {
+    id: 'a',
+    position: { x: 10, y: 20 },
+    data: {},
+    custom: {},
+    optional: undefined,
+    [Symbol(consumer)]: 1
+  },
+  operator: 'strictEqual'
+}
+
+Node.js v22.18.0
+
+✘ Tests failed for package "ps-flow".
+

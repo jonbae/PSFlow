@@ -1,5 +1,7 @@
 module System.Types.Connection
   ( Connection
+  , withEdgeDefaults
+  , edgeDefaultsOf
   , HandleConnection
   , NodeConnection
   , IsValidConnection
@@ -31,13 +33,16 @@ module System.Types.Connection
 import Prelude
 
 import Data.Array.NonEmpty (NonEmptyArray)
+import Data.Function.Uncurried (Fn2)
 import Data.Enum (class BoundedEnum, class Enum, Cardinality(..))
 import Data.Enum.Generic (genericFromEnum, genericPred, genericSucc, genericToEnum)
 import Data.Generic.Rep (class Generic)
 import Data.List (List)
 import Data.Map (Map)
 import Data.Maybe (Maybe)
+import Data.Nullable (Nullable)
 import Data.Show.Generic (genericShow)
+import Foreign (Foreign)
 import System.Types.Geometry (Position, XYPosition)
 import System.Types.Handle (Handle)
 import System.Types.Ids (NodeId)
@@ -48,6 +53,16 @@ type Connection =
   , sourceHandle :: Maybe String
   , targetHandle :: Maybe String
   }
+
+-- | Upstream hands `onConnect` `{ ...defaultEdgeOptions, ...connection }`,
+-- | not the bare connection. `Connection` stays the PureScript type, as it is
+-- | upstream's declared type, and this associates the copy a handler receives
+-- | with the options it was merged over, so the JavaScript boundary can hand
+-- | the consumer the merged object. The options are the flow's
+-- | `DefaultEdgeOptions`, carried as `Foreign` because that type belongs to
+-- | the React layer.
+foreign import withEdgeDefaults :: Fn2 Foreign Connection Connection
+foreign import edgeDefaultsOf :: Connection -> Nullable Foreign
 
 type HandleConnection =
   { source :: NodeId

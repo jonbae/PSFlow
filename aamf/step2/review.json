@@ -1,0 +1,68 @@
+{
+  "sourceFiles": 171,
+  "sourceHashesMatch": true,
+  "psflowCommit": "7e41ee83cc9ea4c77509d9baacaab833558420c3",
+  "aamfCommit": "7dc475d81ef9796b5b90f57a29475eaafa375753",
+  "packages": {
+    "react": "12.11.0",
+    "system": "0.0.77"
+  },
+  "mappingDigest": "c3f6e1349865e8289755a588a8b5f5e6a0b4f371f48d28e0b7a2a24c649c1539",
+  "selectedTasks": [
+    "psflow-w01-viewport"
+  ],
+  "completedTasks": [
+    "psflow-w01-viewport"
+  ],
+  "completedPhases": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "resumeCount": 4,
+  "sourceContext": {
+    "tasks": 120,
+    "cyclicGroups": 4
+  },
+  "targetContext": {
+    "mode": "files",
+    "symbolCoverage": null,
+    "files": 23
+  },
+  "changed": [
+    "parity/surface/allowlist.json",
+    "parity/surface/psflow.json",
+    "parity/surface/report.md",
+    "src/Boundary.js",
+    "src/Boundary.purs",
+    "src/Boundary/Utils.js",
+    "src/Boundary/Utils.purs"
+  ],
+  "reusedTargetsUnchanged": true,
+  "scaffoldChanged": false,
+  "boundary": {
+    "stage": 4,
+    "passthrough": [
+      "getConnectedEdges",
+      "getIncomers",
+      "getNodesBounds",
+      "getOutgoers",
+      "isEdge",
+      "isNode",
+      "reconnectEdge"
+    ]
+  },
+  "tokenUsage": {
+    "total": 35471,
+    "byPhase": {
+      "4": 35471
+    },
+    "byAgent": {
+      "code-migrator": 16082,
+      "parity-verifier": 13559,
+      "test-writer": 5830
+    }
+  }
+}

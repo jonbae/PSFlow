@@ -1,0 +1,142 @@
+$ node --input-type=module -e import { runXYResizerTests } from "./output/Test.System.XYResizer/index.js"; runXYResizerTests();
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: a later child with NaN bounds poisons the aggregate extent
++ actual - expected
+... Skipped lines
+
+  [
+    [
+      'start',
+      {
+        height: 80,
+...
+        direction: [
+-         0,
+          1,
++         1
+        ],
+        height: 60,
++       width: 65,
++       x: 65,
+-       width: NaN,
+-       x: NaN,
+        y: 60
+      }
+    ],
+    [
+      'change',
+      {
+        height: 60,
++       width: 65,
++       x: 65,
+-       width: NaN,
+-       x: NaN,
+        y: 60
+      },
+      [
+        {
+          id: 'finite-child',
+          position: {
++           x: 5,
+-           x: NaN,
+            y: 0
+          }
+        },
+        {
+          id: 'nan-child',
+...
+        direction: [
+-         0,
+          -1,
++         -1
+        ],
+        height: 120,
+        width: 140,
+        x: -10,
+        y: 0
+...
+          position: {
++           x: 80,
+-           x: NaN,
+            y: 60
+          }
+        },
+        {
+          id: 'nan-child',
+
+    at compare (file:///Users/jonathanbae/repos/PSFlow/output/Test.System.XYResizer/foreign.js:89:14)
+    at Module.checkLifecycle (file:///Users/jonathanbae/repos/PSFlow/output/Test.System.XYResizer/foreign.js:122:5)
+    at checkCore (file:///Users/jonathanbae/repos/PSFlow/output/Test.System.XYResizer/index.js:19:21)
+    at __do (file:///Users/jonathanbae/repos/PSFlow/output/Test.System.XYResizer/index.js:80:5)
+    at file:///Users/jonathanbae/repos/PSFlow/[eval1]:1:78
+    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:269:26)
+    at async ModuleLoader.executeModuleJob (node:internal/modules/esm/loader:265:20)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: [
+    [ 'start', { width: 100, height: 80, x: 30, y: 40 } ],
+    [
+      'resize',
+      { width: 65, height: 60, x: 65, y: 60, direction: [ 1, 1 ] }
+    ],
+    [
+      'change',
+      { x: 65, y: 60, width: 65, height: 60 },
+      [
+        { id: 'finite-child', position: { x: 5, y: 0 } },
+        { id: 'nan-child', position: { x: NaN, y: 0 } }
+      ]
+    ],
+    [
+      'resize',
+      { width: 140, height: 120, x: -10, y: 0, direction: [ -1, -1 ] }
+    ],
+    [
+      'change',
+      { x: -10, y: 0, width: 140, height: 120 },
+      [
+        { id: 'finite-child', position: { x: 80, y: 60 } },
+        { id: 'nan-child', position: { x: NaN, y: 60 } }
+      ]
+    ],
+    [ 'resizeEnd', { width: 140, height: 120, x: -10, y: 0 } ],
+    [ 'end', { x: -10, y: 0, width: 140, height: 120 } ]
+  ],
+  expected: [
+    [ 'start', { width: 100, height: 80, x: 30, y: 40 } ],
+    [
+      'resize',
+      { width: NaN, height: 60, x: NaN, y: 60, direction: [ 0, 1 ] }
+    ],
+    [
+      'change',
+      { x: NaN, y: 60, width: NaN, height: 60 },
+      [
+        { id: 'finite-child', position: { x: NaN, y: 0 } },
+        { id: 'nan-child', position: { x: NaN, y: 0 } }
+      ]
+    ],
+    [
+      'resize',
+      { width: 140, height: 120, x: -10, y: 0, direction: [ 0, -1 ] }
+    ],
+    [
+      'change',
+      { x: -10, y: 0, width: 140, height: 120 },
+      [
+        { id: 'finite-child', position: { x: NaN, y: 60 } },
+        { id: 'nan-child', position: { x: NaN, y: 60 } }
+      ]
+    ],
+    [ 'resizeEnd', { width: 140, height: 120, x: -10, y: 0 } ],
+    [ 'end', { width: 140, height: 120, x: -10, y: 0 } ]
+  ],
+  operator: 'deepStrictEqual'
+}
+
+Node.js v22.18.0

@@ -1,0 +1,729 @@
+[
+  {
+    "name": "build-keyboard-red",
+    "command": [
+      "npm",
+      "exec",
+      "--yes",
+      "--package=purescript@0.15.16",
+      "--",
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-12T03:16:24.059Z",
+    "finishedAt": "2026-11-12T03:16:35.808Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/order-e/build-keyboard-red.log"
+  },
+  {
+    "name": "red-mounted",
+    "command": [
+      "node",
+      "aamf/step3/order-e/capture.mjs",
+      "before",
+      "2",
+      "arrow-key-selected-node",
+      "drag-node-autopan",
+      "drag-node-reports-changes",
+      "wheel-zoom-from-identity-viewport",
+      "ctrl-wheel-pinches-with-panonscroll",
+      "pan-after-controlled-viewport-change"
+    ],
+    "startedAt": "2026-11-12T03:15:52.441Z",
+    "finishedAt": "2026-11-12T03:16:45.511Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/order-e/red-mounted.log"
+  },
+  {
+    "name": "red-keyboard-unit",
+    "command": [
+      "npm",
+      "exec",
+      "--yes",
+      "--package=purescript@0.15.16",
+      "--",
+      "spago",
+      "test"
+    ],
+    "startedAt": "2026-11-12T03:16:43.785Z",
+    "finishedAt": "2026-11-12T03:17:29.091Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/order-e/red-keyboard-unit.log"
+  },
+  {
+    "name": "probe-paused-actions",
+    "command": [
+      "node",
+      "aamf/step3/order-e/probe-capture.mjs",
+      "paused-actions",
+      "2",
+      "drag-node-autopan",
+      "drag-node-reports-changes",
+      "pan-after-controlled-viewport-change"
+    ],
+    "startedAt": "2026-11-12T03:18:09.302Z",
+    "finishedAt": "2026-11-12T03:18:50.084Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/order-e/probe-paused-actions.log"
+  },
+  {
+    "name": "green-keyboard-unit",
+    "command": [
+      "npm",
+      "exec",
+      "--yes",
+      "--package=purescript@0.15.16",
+      "--",
+      "spago",
+      "test"
+    ],
+    "startedAt": "2026-11-12T03:18:08.185Z",
+    "finishedAt": "2026-11-12T03:19:01.226Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/green-keyboard-unit.log"
+  },
+  {
+    "name": "driver-keyboard",
+    "command": [
+      "node",
+      "parity/driver/build.mjs"
+    ],
+    "startedAt": "2026-11-12T03:19:12.059Z",
+    "finishedAt": "2026-11-12T03:19:18.889Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/driver-keyboard.log"
+  },
+  {
+    "name": "probe-mount-step",
+    "command": [
+      "node",
+      "aamf/step3/order-e/probe-mount-capture.mjs",
+      "mount-step",
+      "5",
+      "pan-after-controlled-viewport-change",
+      "mount-baseline--viewport-controlled"
+    ],
+    "startedAt": "2026-11-12T03:18:45.474Z",
+    "finishedAt": "2026-11-12T03:19:35.759Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/order-e/probe-mount-step.log"
+  },
+  {
+    "name": "probe-wheel-drain",
+    "command": [
+      "node",
+      "aamf/step3/order-e/probe-wheel-capture.mjs",
+      "wheel-drain",
+      "3",
+      "wheel-zoom-from-identity-viewport",
+      "ctrl-wheel-pinches-with-panonscroll"
+    ],
+    "startedAt": "2026-11-12T03:19:12.065Z",
+    "finishedAt": "2026-11-12T03:19:44.692Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/probe-wheel-drain.log"
+  },
+  {
+    "name": "probe-platform-activity",
+    "command": [
+      "node",
+      "aamf/step3/order-e/probe-activity-capture.mjs",
+      "activity",
+      "3",
+      "mount-baseline--viewport-controlled"
+    ],
+    "startedAt": "2026-11-12T03:19:52.245Z",
+    "finishedAt": "2026-11-12T03:20:04.219Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/order-e/probe-platform-activity.log"
+  },
+  {
+    "name": "probe-navigation-gate",
+    "command": [
+      "node",
+      "aamf/step3/order-e/probe-navigation-capture.mjs",
+      "navigation-gate",
+      "5",
+      "pan-after-controlled-viewport-change",
+      "mount-baseline--viewport-controlled",
+      "arrow-key-selected-node"
+    ],
+    "startedAt": "2026-11-12T03:21:21.295Z",
+    "finishedAt": "2026-11-12T03:22:28.986Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/probe-navigation-gate.log"
+  },
+  {
+    "name": "red-harness-timing",
+    "command": [
+      "npm",
+      "run",
+      "test:harness:live",
+      "--",
+      "--grep",
+      "complete drag-node-autopan|wheel dispatch"
+    ],
+    "startedAt": "2026-11-12T03:22:53.671Z",
+    "finishedAt": "2026-11-12T03:23:23.871Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/order-e/red-harness-timing.log"
+  },
+  {
+    "name": "harness-unit",
+    "command": [
+      "npm",
+      "run",
+      "test:harness"
+    ],
+    "startedAt": "2026-11-12T03:24:26.004Z",
+    "finishedAt": "2026-11-12T03:24:39.583Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/harness-unit.log"
+  },
+  {
+    "name": "surface-boundary",
+    "command": [
+      "sh",
+      "-c",
+      "npm run parity:surface && npm run parity:boundary && npm run test:boundary"
+    ],
+    "startedAt": "2026-11-12T03:26:25.705Z",
+    "finishedAt": "2026-11-12T03:27:11.790Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/surface-boundary.log"
+  },
+  {
+    "name": "red-focus",
+    "command": [
+      "npm",
+      "run",
+      "test:harness:live",
+      "--",
+      "--grep",
+      "only auto-pans"
+    ],
+    "startedAt": "2026-11-12T03:26:24.594Z",
+    "finishedAt": "2026-11-12T03:27:22.524Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/order-e/red-focus.log"
+  },
+  {
+    "name": "red-focus-pointer-mode",
+    "command": [
+      "npm",
+      "run",
+      "test:harness:live",
+      "--",
+      "--grep",
+      "only auto-pans"
+    ],
+    "startedAt": "2026-11-12T03:27:35.285Z",
+    "finishedAt": "2026-11-12T03:28:05.692Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/order-e/red-focus-pointer-mode.log"
+  },
+  {
+    "name": "green-harness-timing",
+    "command": [
+      "npm",
+      "run",
+      "test:harness:live"
+    ],
+    "startedAt": "2026-11-12T03:24:25.443Z",
+    "finishedAt": "2026-11-12T03:28:24.652Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/green-harness-timing.log"
+  },
+  {
+    "name": "focus-effect-probe",
+    "command": [
+      "sh",
+      "-c",
+      "npm exec --yes --package=purescript@0.15.16 -- spago build && node parity/driver/build.mjs && npm run test:harness:live -- --grep \"only auto-pans\""
+    ],
+    "startedAt": "2026-11-12T03:29:27.207Z",
+    "finishedAt": "2026-11-12T03:31:48.091Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/order-e/focus-effect-probe.log"
+  },
+  {
+    "name": "build-final",
+    "command": [
+      "npm",
+      "exec",
+      "--yes",
+      "--package=purescript@0.15.16",
+      "--",
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-12T03:32:14.705Z",
+    "finishedAt": "2026-11-12T03:32:43.690Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/build-final.log"
+  },
+  {
+    "name": "function-unit-final",
+    "command": [
+      "npm",
+      "exec",
+      "--yes",
+      "--package=purescript@0.15.16",
+      "--",
+      "spago",
+      "test"
+    ],
+    "startedAt": "2026-11-12T03:32:43.801Z",
+    "finishedAt": "2026-11-12T03:32:54.491Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/function-unit-final.log"
+  },
+  {
+    "name": "surface-final",
+    "command": [
+      "npm",
+      "run",
+      "parity:surface"
+    ],
+    "startedAt": "2026-11-12T03:32:54.613Z",
+    "finishedAt": "2026-11-12T03:33:01.235Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/surface-final.log"
+  },
+  {
+    "name": "boundary-final",
+    "command": [
+      "npm",
+      "run",
+      "parity:boundary"
+    ],
+    "startedAt": "2026-11-12T03:33:01.359Z",
+    "finishedAt": "2026-11-12T03:33:05.336Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/boundary-final.log"
+  },
+  {
+    "name": "boundary-tests-final",
+    "command": [
+      "npm",
+      "run",
+      "test:boundary"
+    ],
+    "startedAt": "2026-11-12T03:33:05.531Z",
+    "finishedAt": "2026-11-12T03:33:12.186Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/boundary-tests-final.log"
+  },
+  {
+    "name": "driver-final",
+    "command": [
+      "node",
+      "parity/driver/build.mjs"
+    ],
+    "startedAt": "2026-11-12T03:33:12.340Z",
+    "finishedAt": "2026-11-12T03:33:15.619Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/driver-final.log"
+  },
+  {
+    "name": "live-harness-final",
+    "command": [
+      "npm",
+      "run",
+      "test:harness:live"
+    ],
+    "startedAt": "2026-11-12T03:33:15.768Z",
+    "finishedAt": "2026-11-12T03:36:28.319Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/order-e/live-harness-final.log"
+  },
+  {
+    "name": "red-modifier-reset",
+    "command": [
+      "npm",
+      "run",
+      "test:harness:live",
+      "--",
+      "--grep",
+      "resets held keyboard"
+    ],
+    "startedAt": "2026-11-12T03:37:56.998Z",
+    "finishedAt": "2026-11-12T03:38:11.898Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/order-e/red-modifier-reset.log"
+  },
+  {
+    "name": "harness-unit-with-reset",
+    "command": [
+      "npm",
+      "run",
+      "test:harness"
+    ],
+    "startedAt": "2026-11-12T03:38:38.354Z",
+    "finishedAt": "2026-11-12T03:38:49.350Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/harness-unit-with-reset.log"
+  },
+  {
+    "name": "green-modifier-reset",
+    "command": [
+      "npm",
+      "run",
+      "test:harness:live",
+      "--",
+      "--grep",
+      "resets held keyboard|complete drag-node-autopan"
+    ],
+    "startedAt": "2026-11-12T03:38:37.227Z",
+    "finishedAt": "2026-11-12T03:39:15.530Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/order-e/green-modifier-reset.log"
+  },
+  {
+    "name": "split-frame-probe",
+    "command": [
+      "node",
+      "aamf/step3/order-e/capture.mjs",
+      "candidate",
+      "5",
+      "drag-node-autopan",
+      "arrow-key-selected-node",
+      "drag-node-reports-changes"
+    ],
+    "startedAt": "2026-11-12T03:41:17.059Z",
+    "finishedAt": "2026-11-12T03:43:30.850Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/order-e/split-frame-probe.log"
+  },
+  {
+    "name": "linux-image",
+    "command": [
+      "docker",
+      "pull",
+      "mcr.microsoft.com/playwright:v1.60.0-noble"
+    ],
+    "startedAt": "2026-11-12T03:46:57.731Z",
+    "finishedAt": "2026-11-12T03:49:38.639Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/linux-image.log"
+  },
+  {
+    "name": "linux-setup",
+    "command": [
+      "node",
+      "parity/system/linux.mjs",
+      "node",
+      "-e",
+      "console.log(JSON.stringify({node:process.version,platform:process.platform,playwright:require(\"@playwright/test/package.json\").version}))"
+    ],
+    "startedAt": "2026-11-12T03:48:34.988Z",
+    "finishedAt": "2026-11-12T03:50:03.249Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/linux-setup.log"
+  },
+  {
+    "name": "linux-driver-final",
+    "command": [
+      "/Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node",
+      "parity/system/linux.mjs",
+      "node",
+      "parity/driver/build.mjs"
+    ],
+    "startedAt": "2026-11-12T03:50:53.996Z",
+    "finishedAt": "2026-11-12T03:51:18.083Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/linux-driver-final.log"
+  },
+  {
+    "name": "linux-function-unit-final",
+    "command": [
+      "/Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node",
+      "parity/system/linux.mjs",
+      "node",
+      "--input-type=module",
+      "-e",
+      "const m=await import('./output/Test.Main/index.js');m.main();"
+    ],
+    "startedAt": "2026-11-12T03:51:21.250Z",
+    "finishedAt": "2026-11-12T03:51:47.065Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/linux-function-unit-final.log"
+  },
+  {
+    "name": "live-harness-paced-final",
+    "command": [
+      "/Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node",
+      "parity/system/linux.mjs",
+      "npm",
+      "run",
+      "test:harness:live"
+    ],
+    "startedAt": "2026-11-12T03:51:47.464Z",
+    "finishedAt": "2026-11-12T04:01:12.577Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/order-e/live-harness-paced-final.log"
+  },
+  {
+    "name": "live-harness-deadline-final",
+    "command": [
+      "/Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node",
+      "parity/system/linux.mjs",
+      "npm",
+      "run",
+      "test:harness:live",
+      "--",
+      "--grep",
+      "psflow reproduces the complete drag-node-reports-changes"
+    ],
+    "startedAt": "2026-11-12T04:02:17.112Z",
+    "finishedAt": "2026-11-12T04:02:45.331Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/live-harness-deadline-final.log"
+  },
+  {
+    "name": "harness-unit-final",
+    "command": [
+      "/Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node",
+      "parity/system/linux.mjs",
+      "npm",
+      "run",
+      "test:harness"
+    ],
+    "startedAt": "2026-11-12T04:02:47.004Z",
+    "finishedAt": "2026-11-12T04:02:57.975Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/harness-unit-final.log"
+  },
+  {
+    "name": "comparison-coverage-final",
+    "command": [
+      "/Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node",
+      "parity/system/linux.mjs",
+      "sh",
+      "-c",
+      "npm run test:compare && npm run test:coverage"
+    ],
+    "startedAt": "2026-11-12T04:02:58.128Z",
+    "finishedAt": "2026-11-12T04:03:02.478Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/comparison-coverage-final.log"
+  },
+  {
+    "name": "conformance-final",
+    "command": [
+      "/Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node",
+      "parity/system/linux.mjs",
+      "npm",
+      "run",
+      "test:conformance"
+    ],
+    "startedAt": "2026-11-12T04:03:02.621Z",
+    "finishedAt": "2026-11-12T04:05:03.119Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/conformance-final.log"
+  },
+  {
+    "name": "smoke-final",
+    "command": [
+      "/Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node",
+      "parity/system/linux.mjs",
+      "npm",
+      "run",
+      "test:smoke"
+    ],
+    "startedAt": "2026-11-12T04:05:03.340Z",
+    "finishedAt": "2026-11-12T04:05:24.278Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/smoke-final.log"
+  },
+  {
+    "name": "changelog-final",
+    "command": [
+      "/Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node",
+      "parity/system/linux.mjs",
+      "npm",
+      "run",
+      "parity:changelog"
+    ],
+    "startedAt": "2026-11-12T04:05:24.675Z",
+    "finishedAt": "2026-11-12T04:05:28.302Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/changelog-final.log"
+  },
+  {
+    "name": "final-focused-captures",
+    "command": [
+      "node",
+      "parity/system/linux.mjs",
+      "node",
+      "aamf/step3/order-e/capture.mjs",
+      "final",
+      "5",
+      "arrow-key-selected-node",
+      "drag-moves-node",
+      "drag-node-autopan",
+      "drag-node-reports-changes",
+      "pan-after-controlled-viewport-change",
+      "pan-gesture-complete",
+      "wheel-zoom-from-identity-viewport",
+      "ctrl-wheel-pinches-with-panonscroll",
+      "mount-baseline--viewport-controlled"
+    ],
+    "startedAt": "2026-11-12T04:06:24.397Z",
+    "finishedAt": "2026-11-12T04:13:27.610Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/final-focused-captures.log"
+  },
+  {
+    "name": "verify-focused",
+    "command": [
+      "node",
+      "aamf/step3/order-e/verify-candidates.mjs"
+    ],
+    "startedAt": "2026-11-12T04:13:28.052Z",
+    "finishedAt": "2026-11-12T04:13:36.058Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/verify-focused.log"
+  },
+  {
+    "name": "full-system-final",
+    "command": [
+      "node",
+      "parity/system/linux.mjs",
+      "npm",
+      "run",
+      "parity:system"
+    ],
+    "startedAt": "2026-11-12T04:13:36.285Z",
+    "finishedAt": "2026-11-12T04:27:18.979Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/order-e/full-system-final.log"
+  },
+  {
+    "name": "summarize-wave",
+    "command": [
+      "node",
+      "aamf/step3/order-e/summarize-wave.mjs"
+    ],
+    "startedAt": "2026-11-12T04:27:19.183Z",
+    "finishedAt": "2026-11-12T04:27:26.100Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/summarize-wave.log"
+  },
+  {
+    "name": "record-outputs",
+    "command": [
+      "python3",
+      "aamf/step3/order-e/finalize-artifacts.py"
+    ],
+    "startedAt": "2026-11-12T04:27:34.672Z",
+    "finishedAt": "2026-11-12T04:27:35.046Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/record-outputs.log"
+  },
+  {
+    "name": "archive-runtime",
+    "command": [
+      "python3",
+      "aamf/step3/order-e/archive-runtime.py"
+    ],
+    "startedAt": "2026-11-12T04:27:35.171Z",
+    "finishedAt": "2026-11-12T04:27:41.805Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/archive-runtime.log"
+  },
+  {
+    "name": "verify-runtime",
+    "command": [
+      "python3",
+      "aamf/step3/order-e/verify-runtime.py"
+    ],
+    "startedAt": "2026-11-12T04:27:41.885Z",
+    "finishedAt": "2026-11-12T04:27:42.768Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/verify-runtime.log"
+  },
+  {
+    "name": "record-completion",
+    "command": [
+      "python3",
+      "aamf/step3/order-e/write-results.py"
+    ],
+    "startedAt": "2026-11-12T04:27:42.861Z",
+    "finishedAt": "2026-11-12T04:27:43.171Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/record-completion.log"
+  },
+  {
+    "name": "source-audit-final",
+    "command": [
+      "python3",
+      "aamf/step3/order-e/audit.py"
+    ],
+    "startedAt": "2026-11-12T04:27:43.275Z",
+    "finishedAt": "2026-11-12T04:27:45.981Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/source-audit-final.log"
+  },
+  {
+    "name": "diff-check-final",
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "startedAt": "2026-11-12T04:27:46.084Z",
+    "finishedAt": "2026-11-12T04:27:47.021Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/order-e/diff-check-final.log"
+  }
+]

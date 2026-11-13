@@ -591,10 +591,10 @@
     "pkg": "react",
     "version": "12.5.4",
     "title": "Pass dimensions to final resize change event",
-    "bucket": "not-ported",
-    "evidence": "",
-    "ticket": "073",
-    "note": "src/System/XYResizer.purs:336-338 onEnd passes initResizeParams (zeros) instead of the final prevValues."
+    "bucket": "unit",
+    "evidence": "test/Test/System/XYResizer.purs runXYResizerTests with paired JS: nonzero controller onEnd payload and the mounted control final dimension change (including resizing:false).",
+    "ticket": null,
+    "note": "W05 completion; browser captures and full-system checkpoint are recorded separately in AAMF_STEP3_RESULTS.md. This unit classification does not claim the full system net passes."
   },
   "5148": {
     "pkg": "system",
@@ -988,10 +988,10 @@
     "pkg": "react",
     "version": "12.7.0",
     "title": "Add `ariaRole` prop to nodes and edges",
-    "bucket": "not-ported",
-    "evidence": "",
-    "ticket": "074",
-    "note": "src/React/Component/NodeWrapper.purs:38 and src/React/Component/EdgeWrapper.purs:33 document that ariaRole is not carried; EdgeWrapper substitutes a fixed \"img\"/\"group\"."
+    "bucket": "unit",
+    "ticket": null,
+    "evidence": "`NodeBase` and `EdgeBase` carry `ariaRole`, and `<NodeWrapper />` and `<EdgeWrapper />` set `role` from it, falling back to `\"group\"` for a focusable element and to no role for a node, or `\"img\"` for an edge, otherwise, as upstream's do. Guarded by `test/Test/React/Component/AriaRoleDomAttributes.purs` (run by `spago test`), and `parity/boundary/edge-fields.test.mjs`, which compares both wrappers with upstream's server render through `index.js`.",
+    "note": "Was `not-ported` under ticket 074, until Step 3 Order G added the member."
   },
   "5308": {
     "pkg": "react",
@@ -1006,10 +1006,10 @@
     "pkg": "react",
     "version": "12.7.0",
     "title": "Add `domAttributes` option for nodes and edges",
-    "bucket": "not-ported",
-    "evidence": "",
-    "ticket": "074",
-    "note": "src/React/Component/NodeWrapper.purs:38 and src/React/Component/EdgeWrapper.purs:33 both document that domAttributes is not carried on NodeBase/EdgeBase."
+    "bucket": "unit",
+    "ticket": null,
+    "evidence": "`NodeBase` and `EdgeBase` carry `domAttributes`, and both wrappers spread it onto their element after every attribute they set, as upstream's do. Guarded by `test/Test/React/Component/AriaRoleDomAttributes.purs` (run by `spago test`), and `parity/boundary/edge-fields.test.mjs`, which compares both wrappers with upstream's server render through `index.js`.",
+    "note": "Was `not-ported` under ticket 074, until Step 3 Order G added the member."
   },
   "5321": {
     "pkg": "system",
@@ -1024,10 +1024,10 @@
     "pkg": "react",
     "version": "12.7.0",
     "title": "Prevent NodeResizer controls to become too small when zooming out",
-    "bucket": "not-ported",
-    "evidence": "",
-    "ticket": "073",
-    "note": "NodeResizer control auto-scaling exists at src/React/Additional/NodeResizer/Control.purs:83 but the resize lifecycle it feeds is a scaffold."
+    "bucket": "unit",
+    "evidence": "test/Test/System/XYResizer.purs runXYResizerTests with paired JS: mounted control autoScale at zoom 0.5 and 2, plus disabled autoScale, while the active resize reaches its updated bound.",
+    "ticket": null,
+    "note": "W05 completion; browser captures and full-system checkpoint are recorded separately in AAMF_STEP3_RESULTS.md. This unit classification does not claim the full system net passes."
   },
   "5333": {
     "pkg": "react",
@@ -1129,10 +1129,10 @@
     "pkg": "react",
     "version": "12.8.2",
     "title": "Fix node fallback to respect custom default node type when unknown node type is encountered",
-    "bucket": "not-ported",
-    "evidence": "",
-    "ticket": "075",
-    "note": "src/React/Component/NodeWrapper.purs:196 falls back to `Object.lookup \"default\" builtinNodeTypes`, ignoring a user-supplied `default` in nodeTypes. Upstream NodeWrapper/index.tsx:61 is `nodeTypes?.['default'] || builtinNodeTypes.default`."
+    "bucket": "unit",
+    "ticket": null,
+    "evidence": "`resolveNodeComponent` in src/React/Component/NodeWrapper.purs falls back to `nodeTypes.default` before the built-in default, as upstream's NodeWrapper/index.tsx:61 does. Guarded by `test/Test/React/Component/TypeFallback.purs` (run by `spago test`), and `parity/boundary/type-fallback.test.mjs`, which compares the same cases with upstream through `index.js`.",
+    "note": "Was `not-ported` under ticket 075: the fallback ignored a consumer's own `default` node type. The same fix gives `edgeTypes` upstream's fallback, and the boundary drops falsy `nodeTypes` and `edgeTypes` entries, which upstream's `||` lookups skip."
   },
   "5394": {
     "pkg": "react",
@@ -1273,10 +1273,11 @@
     "pkg": "react",
     "version": "12.8.4",
     "title": "Remove dangerouslySetInnerHTML from domAttributes",
-    "bucket": "ported-ungated",
+    "bucket": "ts-only",
     "debt": "079",
-    "ticket": "074",
-    "note": "PSFlow never spreads domAttributes at all, so the vulnerability being removed does not exist here. Owned by 074; re-bucket when it lands."
+    "ticket": null,
+    "evidence": "Upstream's change is to the `domAttributes` type alone. Both of its wrappers spread the bag unfiltered at run time (NodeWrapper/index.tsx:226, EdgeWrapper/index.tsx:211), as ps-flow's do. The declarations ps-flow publishes are upstream's, whose `domAttributes` omits `dangerouslySetInnerHTML`, and `parity:package` type-checks a consumer against them.",
+    "note": "Was `ported-ungated` under ticket 074, until Step 3 Order G added `domAttributes`."
   },
   "5480": {
     "pkg": "react",
@@ -1330,10 +1331,10 @@
     "pkg": "react",
     "version": "12.8.5",
     "title": "Prevent calling onResizeEnd if node was not resized",
-    "bucket": "not-ported",
-    "evidence": "",
-    "ticket": "073",
-    "note": "src/System/XYResizer.purs:336-338 calls onResizeEnd unconditionally; upstream XYResizer.ts guards on `resizeDetected`. PSFlow allocates the Ref (:234,266) but never writes it."
+    "bucket": "unit",
+    "evidence": "test/Test/System/XYResizer.purs runXYResizerTests with paired JS: no-op and completely vetoed gestures emit no resize end, and accepted gestures emit exactly one end.",
+    "ticket": null,
+    "note": "W05 completion; browser captures and full-system checkpoint are recorded separately in AAMF_STEP3_RESULTS.md. This unit classification does not claim the full system net passes."
   },
   "5511": {
     "pkg": "react",
@@ -1371,10 +1372,10 @@
     "pkg": "react",
     "version": "12.9.0",
     "title": "Let `NodeResizer` props change during ongoing resize",
-    "bucket": "not-ported",
-    "evidence": "",
-    "ticket": "073",
-    "note": "The XYResizer drag lifecycle (onStart/onDrag/onEnd, src/System/XYResizer.purs:301-338) is a typed scaffold — onDrag emits literal zeros — so mid-resize prop updates cannot take effect."
+    "bucket": "unit",
+    "evidence": "test/Test/System/XYResizer.purs runXYResizerTests with paired JS: factory active-gesture closure/options comparison and mounted JS control width-limit update (180 becomes 145).",
+    "ticket": null,
+    "note": "W05 completion; browser captures and full-system checkpoint are recorded separately in AAMF_STEP3_RESULTS.md. This unit classification does not claim the full system net passes."
   },
   "5530": {
     "pkg": "react",
@@ -1688,10 +1689,10 @@
     "pkg": "react",
     "version": "12.10.2",
     "title": "Allow `type` field to be missing in `BuiltInNode` (no `type` field is the same as `type: \"default\"`)",
-    "bucket": "not-ported",
-    "evidence": "",
-    "ticket": "075",
-    "note": "Same resolution path as #5384: src/React/Component/NodeWrapper.purs:188-200 defaults a missing type to \"default\" correctly, but the custom-default fallback is wrong. Bundled into the same ticket."
+    "bucket": "unit",
+    "ticket": null,
+    "evidence": "A node with no `type` resolves as `'default'`, so it draws a consumer's own `default` node type, and the declarations ps-flow publishes are upstream's, where `BuiltInNode`'s `type` is optional. Guarded by the no-type case in `test/Test/React/Component/TypeFallback.purs` (run by `spago test`), and `parity/boundary/type-fallback.test.mjs`, which compares the same cases with upstream through `index.js`.",
+    "note": "Was `not-ported` under ticket 075 alongside #5384, whose fallback fix it relied on."
   },
   "5755": {
     "pkg": "react",
@@ -1727,10 +1728,10 @@
     "pkg": "react",
     "version": "12.11.0",
     "title": "Fix node resizing possible beyond absolute extents",
-    "bucket": "not-ported",
-    "evidence": "",
-    "ticket": "073",
-    "note": "Absolute-extent clamping during resize is unreachable while the resizer lifecycle is a scaffold (src/System/XYResizer.purs:301-338)."
+    "bucket": "unit",
+    "evidence": "test/Test/System/XYResizer.purs runXYResizerTests with paired JS: source-differential coordinate/parent/child extent constraint cases through the actual controller.",
+    "ticket": null,
+    "note": "W05 completion; browser captures and full-system checkpoint are recorded separately in AAMF_STEP3_RESULTS.md. This unit classification does not claim the full system net passes."
   },
   "5791": {
     "pkg": "react",

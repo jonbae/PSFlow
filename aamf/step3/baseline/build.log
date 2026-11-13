@@ -1,0 +1,13 @@
+$ spago build
+file:///Users/jonathanbae/.nvm/versions/node/v22.18.0/lib/node_modules/spago/bin/bundle.js:50085
+                  throw util.fromLeft(step3);
+                  ^
+
+[Error: EPERM: operation not permitted, mkdir '/Users/jonathanbae/Library/Caches/spago-nodejs'] {
+  errno: -1,
+  code: 'EPERM',
+  syscall: 'mkdir',
+  path: '/Users/jonathanbae/Library/Caches/spago-nodejs'
+}
+
+Node.js v22.18.0

@@ -3,8 +3,9 @@
 -- | `xyflow/packages/react/src/hooks/useHandleConnections.ts`.
 -- |
 -- | **Deprecated upstream.** Upstream marks this hook as deprecated in
--- | favour of `useNodeConnections`. We port it for API parity but new
--- | consumers should prefer `React.Hook.NodeConnections.useNodeConnections`.
+-- | favour of `useNodeConnections` and writes a `console.warn` on every
+-- | render; this port writes the same text. New consumers should prefer
+-- | `React.Hook.NodeConnections.useNodeConnections`.
 -- |
 -- | **Key construction.** Mirrors upstream — when `id` is `Nothing` the
 -- | lookup key is `"${nodeId}-${handleType}"`; when `Just h` it is
@@ -33,7 +34,8 @@ import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Newtype (class Newtype)
 import Effect (Effect)
-import React.Basic.Hooks (Hook, UnsafeReference(..), UseContext, UseEffect, UseRef, coerceHook, readRef, useEffect, useRef, writeRef)
+import Effect.Console (warn)
+import React.Basic.Hooks (Hook, UnsafeReference(..), UseContext, UseEffect, UseRef, coerceHook, readRef, unsafeRenderEffect, useEffect, useRef, writeRef)
 import React.Basic.Hooks as React
 import React.Context.NodeId (useNodeId)
 import React.Hook.Store (UseStore, useStore)
@@ -65,6 +67,11 @@ newtype UseHandleConnectionsHook hooks =
 derive instance newtypeUseHandleConnectionsHook ::
   Newtype (UseHandleConnectionsHook hooks) _
 
+-- | Upstream's text, written with `console.warn` on every call.
+deprecationWarning :: String
+deprecationWarning =
+  "[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections"
+
 -- | Build the lookup key. Public for testing.
 handleLookupKey :: String -> HandleType -> Maybe String -> String
 handleLookupKey nodeId hType mHandleId =
@@ -83,6 +90,8 @@ useHandleConnections
   :: UseHandleConnectionsParams
   -> Hook UseHandleConnectionsHook (Array HandleConnection)
 useHandleConnections params = coerceHook React.do
+  -- Upstream warns on every call, in the render, before reading anything.
+  unsafeRenderEffect (warn deprecationWarning)
   -- Fall back to the surrounding NodeIdContext when no explicit nodeId
   -- is supplied. If both are missing we use the empty string — the
   -- selector will then look up a key that cannot exist, returning [].

@@ -1,0 +1,4 @@
+{
+  "reason": "Upstream rebuild exited 2: vendored-source symlink made the provenance check reject the path. These partial captures are invalid and excluded. Copy vendored tree rather than symlink, then rebuild and require success before recapturing.",
+  "completedBatch": false
+}

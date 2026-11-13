@@ -1,0 +1,23 @@
+{
+  "verifiedAt": "2026-11-11T05:40:36.093387+00:00",
+  "archives": [
+    {
+      "archive": "diagnostic-runtime.tar.gz",
+      "verifiedInputs": 1334,
+      "mismatches": [],
+      "currentCheckpointFiles": 0
+    },
+    {
+      "archive": "mount-only-checkpoint.tar.gz",
+      "verifiedInputs": 1280,
+      "mismatches": [],
+      "currentCheckpointFiles": 0
+    },
+    {
+      "archive": "validation-runtime.tar.gz",
+      "verifiedInputs": 1508,
+      "mismatches": [],
+      "currentCheckpointFiles": 430
+    }
+  ]
+}

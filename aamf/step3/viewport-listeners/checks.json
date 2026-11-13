@@ -1,0 +1,251 @@
+[
+  {
+    "name": "build-proxy",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T17:28:49.273Z",
+    "finishedAt": "2026-11-10T17:28:58.527Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/viewport-listeners/build-proxy.log"
+  },
+  {
+    "name": "red-slot-install",
+    "command": [
+      "node",
+      "--input-type=module",
+      "-e",
+      "import {runViewportListenerTests} from \"./output/Test.React.Hook.ViewportListeners/index.js\"; runViewportListenerTests();"
+    ],
+    "startedAt": "2026-11-10T17:29:41.273Z",
+    "finishedAt": "2026-11-10T17:29:41.903Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/viewport-listeners/red-slot-install.log"
+  },
+  {
+    "name": "red-slot-install-repeat",
+    "command": [
+      "node",
+      "--input-type=module",
+      "-e",
+      "import {runViewportListenerTests} from \"./output/Test.React.Hook.ViewportListeners/index.js\"; runViewportListenerTests();"
+    ],
+    "startedAt": "2026-11-10T17:30:01.221Z",
+    "finishedAt": "2026-11-10T17:30:01.653Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/viewport-listeners/red-slot-install-repeat.log"
+  },
+  {
+    "name": "build-listeners",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T17:32:06.518Z",
+    "finishedAt": "2026-11-10T17:35:09.626Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/viewport-listeners/build-listeners.log"
+  },
+  {
+    "name": "build-public-proxy",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T17:37:14.175Z",
+    "finishedAt": "2026-11-10T17:37:22.182Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/viewport-listeners/build-public-proxy.log"
+  },
+  {
+    "name": "red-js-handler-identity",
+    "command": [
+      "node",
+      "--input-type=module",
+      "-e",
+      "import {runViewportListenerTests} from \"./output/Test.React.Hook.ViewportListeners/index.js\"; runViewportListenerTests();"
+    ],
+    "startedAt": "2026-11-10T17:37:53.241Z",
+    "finishedAt": "2026-11-10T17:37:54.460Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/viewport-listeners/red-js-handler-identity.log"
+  },
+  {
+    "name": "build-handler-identity",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T17:38:47.114Z",
+    "finishedAt": "2026-11-10T17:40:38.253Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/viewport-listeners/build-handler-identity.log"
+  },
+  {
+    "name": "green-public-proxy",
+    "command": [
+      "node",
+      "--input-type=module",
+      "-e",
+      "import {runViewportListenerTests} from \"./output/Test.React.Hook.ViewportListeners/index.js\"; runViewportListenerTests();"
+    ],
+    "startedAt": "2026-11-10T17:41:23.195Z",
+    "finishedAt": "2026-11-10T17:41:25.179Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/viewport-listeners/green-public-proxy.log"
+  },
+  {
+    "name": "surface",
+    "command": [
+      "npm",
+      "run",
+      "parity:surface"
+    ],
+    "startedAt": "2026-11-10T17:41:24.582Z",
+    "finishedAt": "2026-11-10T17:41:38.179Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/viewport-listeners/surface.log"
+  },
+  {
+    "name": "driver",
+    "command": [
+      "npm",
+      "run",
+      "build:driver"
+    ],
+    "startedAt": "2026-11-10T17:41:25.985Z",
+    "finishedAt": "2026-11-10T17:42:25.053Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/viewport-listeners/driver.log"
+  },
+  {
+    "name": "boundary",
+    "command": [
+      "npm",
+      "run",
+      "parity:boundary"
+    ],
+    "startedAt": "2026-11-10T17:42:57.556Z",
+    "finishedAt": "2026-11-10T17:43:12.450Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/viewport-listeners/boundary.log"
+  },
+  {
+    "name": "boundary-tests",
+    "command": [
+      "npm",
+      "run",
+      "test:boundary"
+    ],
+    "startedAt": "2026-11-10T17:42:57.556Z",
+    "finishedAt": "2026-11-10T17:43:14.160Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/viewport-listeners/boundary-tests.log"
+  },
+  {
+    "name": "function",
+    "command": [
+      "spago",
+      "test"
+    ],
+    "startedAt": "2026-11-10T17:42:57.561Z",
+    "finishedAt": "2026-11-10T17:43:17.852Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/viewport-listeners/function.log"
+  },
+  {
+    "name": "changelog",
+    "command": [
+      "npm",
+      "run",
+      "parity:changelog"
+    ],
+    "startedAt": "2026-11-10T17:50:00.249Z",
+    "finishedAt": "2026-11-10T17:50:01.505Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/viewport-listeners/changelog.log"
+  },
+  {
+    "name": "conformance-frozen",
+    "command": [
+      "npm",
+      "run",
+      "test:conformance"
+    ],
+    "startedAt": "2026-11-10T17:49:59.264Z",
+    "finishedAt": "2026-11-10T17:53:00.252Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "../../../../../../../Users/jonathanbae/repos/PSFlow/aamf/step3/viewport-listeners/conformance-frozen.log"
+  },
+  {
+    "name": "smoke-frozen",
+    "command": [
+      "npm",
+      "run",
+      "test:smoke"
+    ],
+    "startedAt": "2026-11-10T17:55:47.969Z",
+    "finishedAt": "2026-11-10T17:56:01.191Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "../../../../../../../Users/jonathanbae/repos/PSFlow/aamf/step3/viewport-listeners/smoke-frozen.log"
+  },
+  {
+    "name": "system-pan-frozen",
+    "command": [
+      "node",
+      "parity/system/net.mjs",
+      "--scenario",
+      "pan-gesture-complete"
+    ],
+    "startedAt": "2026-11-10T17:56:32.244Z",
+    "finishedAt": "2026-11-10T17:56:52.485Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "../../../../../../../Users/jonathanbae/repos/PSFlow/aamf/step3/viewport-listeners/system-pan-frozen.log"
+  },
+  {
+    "name": "system-parented-frozen",
+    "command": [
+      "node",
+      "parity/system/net.mjs",
+      "--scenario",
+      "node-props-record-parented"
+    ],
+    "startedAt": "2026-11-10T17:58:10.554Z",
+    "finishedAt": "2026-11-10T17:58:30.056Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "../../../../../../../Users/jonathanbae/repos/PSFlow/aamf/step3/viewport-listeners/system-parented-frozen.log"
+  },
+  {
+    "name": "system-pan-repeat-frozen",
+    "command": [
+      "node",
+      "parity/system/net.mjs",
+      "--scenario",
+      "pan-gesture-complete"
+    ],
+    "startedAt": "2026-11-10T17:59:48.233Z",
+    "finishedAt": "2026-11-10T18:00:05.112Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "../../../../../../../Users/jonathanbae/repos/PSFlow/aamf/step3/viewport-listeners/system-pan-repeat-frozen.log"
+  }
+]

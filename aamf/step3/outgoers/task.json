@@ -1,0 +1,48 @@
+{
+  "id": "psflow-w02-outgoers",
+  "status": "complete",
+  "source": "xyflow/packages/system/src/utils/graph.ts::getOutgoers",
+  "seam": "Direct JS calls through index.js compared with the rebuilt vendored oracle",
+  "startedAt": "2026-11-10T02:26:48.149Z",
+  "baseCommit": "98a3f77ab1bb17d481c6dec4fed2e23174448e45",
+  "workingTree": "Includes earlier uncommitted Step 3 work; inputs.json hashes its exact regular-file state",
+  "mechanism": "Return early for empty/absent query ids. Collect edge targets where source matches the query, then filter original nodes in node-array order. Retain identity, duplicate nodes and all keys, return a fresh array.",
+  "allowedOutputs": [
+    "src/Boundary/Utils.purs",
+    "src/Boundary.purs",
+    "src/Boundary.js",
+    "parity/boundary/outgoers.test.mjs",
+    "parity/surface/allowlist.json (this export only and count comment)",
+    "parity/surface/report.md",
+    "parity/driver/dist/psflow.js",
+    "AAMF_PORTING_PLAN.md",
+    "AAMF_STEP3_RESULTS.md",
+    "aamf/step3/README.md",
+    "aamf/step3/SHA256SUMS",
+    "aamf/step3/outgoers/"
+  ],
+  "readOnly": [
+    "src/System/Utils/Graph.purs",
+    "src/Boundary/Elements.purs",
+    "src/Boundary/Utils.js",
+    "package.json",
+    "package-lock.json",
+    "spago.yaml",
+    "spago.lock",
+    "parity/system/",
+    "aamf/step3/baseline/",
+    "aamf/step3/w02/",
+    "aamf/step3/incomers/"
+  ],
+  "acceptance": [
+    "Observe a JS-entry regression red before the crossing and green after a fresh build",
+    "Match direction, node-array order, guards, empty inputs, duplicate behavior and original references",
+    "Retire only getOutgoers arity/call-convention exceptions",
+    "Pass surface/function/boundary checks and integration rebuild",
+    "Keep stage 4 with four passthrough exports"
+  ],
+  "sourceFiles": 171,
+  "sourceMismatches": 0,
+  "aamfInvoked": false,
+  "route": "Current PSFlow workflow; pilot-only AAMF adapter unchanged"
+}

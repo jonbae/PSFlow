@@ -1,0 +1,113 @@
+$ node --test parity/driver/callbacks.test.mjs
+TAP version 13
+# Subtest: a prop is a callback exactly when its type is callable, whatever it is named
+ok 1 - a prop is a callback exactly when its type is callable, whatever it is named
+  ---
+  duration_ms: 4631.300132
+  type: 'test'
+  ...
+# Subtest: a member inherited from outside the library's own source is not one of its callbacks
+ok 2 - a member inherited from outside the library's own source is not one of its callbacks
+  ---
+  duration_ms: 2110.325946
+  type: 'test'
+  ...
+# Subtest: a source file that is not there fails, naming the vendored tree
+ok 3 - a source file that is not there fails, naming the vendored tree
+  ---
+  duration_ms: 6.327533
+  type: 'test'
+  ...
+# Subtest: a props type that is no longer declared fails rather than deriving nothing
+ok 4 - a props type that is no longer declared fails rather than deriving nothing
+  ---
+  duration_ms: 2139.309627
+  type: 'test'
+  ...
+# Subtest: CallbackDerivationError is what the derivation throws
+ok 5 - CallbackDerivationError is what the derivation throws
+  ---
+  duration_ms: 9.998828
+  type: 'test'
+  ...
+# Subtest: a withheld prop that upstream no longer declares as a callback is stale
+ok 6 - a withheld prop that upstream no longer declares as a callback is stale
+  ---
+  duration_ms: 1.842083
+  type: 'test'
+  ...
+# Subtest: an unset-answer entry that upstream no longer declares as a callback is stale
+ok 7 - an unset-answer entry that upstream no longer declares as a callback is stale
+  ---
+  duration_ms: 8.052143
+  type: 'test'
+  ...
+# Subtest: registers that name real callback props are not stale
+ok 8 - registers that name real callback props are not stale
+  ---
+  duration_ms: 45.494553
+  type: 'test'
+  ...
+# Subtest: an answer for a prop nothing installs is a contradiction, not a filter
+ok 9 - an answer for a prop nothing installs is a contradiction, not a filter
+  ---
+  duration_ms: 3.152835
+  type: 'test'
+  ...
+# Subtest: every hole carries a reason and the issue that lands it
+ok 10 - every hole carries a reason and the issue that lands it
+  ---
+  duration_ms: 3.31696
+  type: 'test'
+  ...
+# Subtest: the withheld props are the holes that name one
+ok 11 - the withheld props are the holes that name one
+  ---
+  duration_ms: 19.039005
+  type: 'test'
+  ...
+# Subtest: the census still assigns this section the exports the holes are counted against
+ok 12 - the census still assigns this section the exports the holes are counted against
+  ---
+  duration_ms: 0.689701
+  type: 'test'
+  ...
+# Subtest: every declared hole names an export the census assigns to this section
+ok 13 - every declared hole names an export the census assigns to this section
+  ---
+  duration_ms: 1.130833
+  type: 'test'
+  ...
+# Subtest: the exports outside ReactFlowProps are the ones declared
+ok 14 - the exports outside ReactFlowProps are the ones declared
+  ---
+  duration_ms: 4.905161
+  type: 'test'
+  ...
+# Subtest: upstream's own callback props are what the driver installs, minus the withheld ones
+ok 15 - upstream's own callback props are what the driver installs, minus the withheld ones
+  ---
+  duration_ms: 2071.418766
+  type: 'test'
+  ...
+# Subtest: no prop is both installed and withheld
+ok 16 - no prop is both installed and withheld
+  ---
+  duration_ms: 1231.034107
+  type: 'test'
+  ...
+# Subtest: both registers name props upstream still declares as callbacks
+ok 17 - both registers name props upstream still declares as callbacks
+  ---
+  duration_ms: 963.538964
+  type: 'test'
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 16871.407787

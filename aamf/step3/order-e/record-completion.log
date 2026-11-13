@@ -1,0 +1,8 @@
+$ python3 aamf/step3/order-e/write-results.py
+Order E is complete: keyboard announcements, focus panning, callback ordering
+and gesture reproducibility are validated. The fresh Linux checkpoint captures
+all 107 scenarios: **105 pass and 2 fail**, with **zero self-inconsistent
+scenarios and zero driving divergences**. The remaining two failures are the
+flow/node probes for G/H store, connection and node-prop compatibility. Coverage
+remains **128/156 driven, 28 declared holes**, with 50 separate behavior-debt rows.
+G–I and overall Step 3 completion remain open.

@@ -1,0 +1,84 @@
+{
+  "status": "complete (bounded H/W13 geometry and resize numeric slice)",
+  "completedAt": "2026-11-11T16:00:04.199776+00:00",
+  "aamfInvoked": false,
+  "productionMechanism": "PureScript binary Math.min/Math.max behavior propagates NaN and distinguishes zero signs in General geometry, resize solver and child-extent aggregation. No new production FFI.",
+  "redEvidence": [
+    "red-clamp.log",
+    "red-bounds.log",
+    "red-resize.log",
+    "red-child-extent-top-left.log"
+  ],
+  "notRedEvidence": "See probe-results.json; zero-exit diagnostic attempts and a terminated overlapping build are explicitly not regression proof.",
+  "exactSourceComparisons": {
+    "clamp": 2744,
+    "boxes": 784,
+    "rectangleUnions": 3136,
+    "rectangleOverlaps": 3136,
+    "positions": 840,
+    "viewports": 126,
+    "resize": 5168,
+    "total": 15934
+  },
+  "controllerSourceDifferentialCases": 66,
+  "faultChecks": [
+    "erase negative zero sign on a real clamp result",
+    "replace a real NaN clamp result with 1",
+    "corrupt real resize width",
+    "remove consumer-rendered resize receipts through the unchanged browser comparator"
+  ],
+  "checks": {
+    "build": "pass",
+    "surface": "pass",
+    "functionAndUnit": "pass",
+    "boundary": "pass",
+    "boundaryTests": {
+      "passed": 119,
+      "failed": 0
+    },
+    "driver": "pass",
+    "conformance": {
+      "passed": 41,
+      "failed": 0
+    },
+    "smoke": {
+      "passed": 2,
+      "failed": 0
+    }
+  },
+  "focusedBrowser": {
+    "rawTraces": 24,
+    "roundsPerScenario": 2,
+    "stableScenarios": [
+      "resize-node-after-active-limit-change",
+      "viewport-helpers-with-options"
+    ],
+    "withinAndAcrossRoundsStable": true,
+    "stableFullComparator": "Both scenarios still fail on the exact same two differences as the prior checkpoint in both rounds.",
+    "excludedScenario": "wheel-zooms-to-changed-limits",
+    "excludedRounds": [
+      1,
+      2
+    ],
+    "unstableSide": "upstream",
+    "selfDifference": "capture1 includes onMoveEnd; capture2 omits it",
+    "strictAllScenarioVerificationExitCode": 1,
+    "resizeConsumerWitnesses": "pass in both rounds, including deliberate receipt corruption rejected"
+  },
+  "lastCompleteWave": {
+    "newFullWaveRun": false,
+    "failed": 95,
+    "total": 107,
+    "selfInconsistent": 5,
+    "coverageDriven": 128,
+    "exportBearing": 156,
+    "declaredHoles": 28,
+    "canonicalFilesPreserved": 430
+  },
+  "runtimeArchive": "validation-runtime.tar.gz",
+  "runtimeVerifiedInputs": 2183,
+  "comparisonPolicyChanged": false,
+  "fixturesChanged": false,
+  "coverageRegisterChanged": false,
+  "remaining": "Wider E; G useStore/useStoreApi and default-edge options; H other witnesses, reference behavior and numeric sites beyond this slice; I distribution."
+}

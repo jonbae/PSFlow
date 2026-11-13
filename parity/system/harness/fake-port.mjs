@@ -27,6 +27,8 @@ export const createFakePort = ({ boxes = {}, bridge = null, dom = EMPTY_DOM, cal
   let ticks = 0;
 
   const port = {
+    async prepareMount() { return async () => {}; },
+    async finishMount() {},
     // The real port refuses to dispatch touch until this has been called, and
     // it has to be called before the page loads. The double has no page to
     // load, so it records the call for the ordering test and enforces nothing:

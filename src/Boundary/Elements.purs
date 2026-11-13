@@ -43,8 +43,10 @@
 -- | it is visible, not buried in a converter.
 module Boundary.Elements
   ( JsCoordinateExtent
+  , JsDefaultEdgeOptions
   , JsEdge
   , JsEdgeMarker
+  , JsEdgePathOptions
   , JsGraphSelection
   , JsHandle
   , JsInternalNode
@@ -68,19 +70,32 @@ module Boundary.Elements
   , fromCssObject
   , coordinateExtentIn
   , coordinateExtentOut
+  , defaultEdgeOptionsIn
+  , defaultEdgeOptionsOut
   , connectionIn
   , connectionOut
+  , connectionParamsOut
   , edgeIn
+  , edgeIdentityOut
   , edgeOut
+  , edgePathOptionsOut
+  , edgeReconnectableIn
+  , edgeReconnectableOut
   , edgeAriaLabelIn
   , edgeAriaLabelOut
   , edgeChangeIn
   , edgeChangeOut
   , graphSelectionOut
+  , handleIn
   , handleOut
+  , internalNodeIn
   , internalNodeOut
   , keyCodeIn
   , keyCodeValueIn
+  , labelBgPaddingIn
+  , labelBgPaddingOut
+  , nodeExtentIn
+  , nodeIdentityOut
   , nodeIn
   , nodeOut
   , nodeChangeIn
@@ -104,8 +119,9 @@ import Boundary.Enums
   , positionIn
   , positionOut
   )
+import Boundary.Original (originalOf, remembering)
 import Boundary.Undefined (Undefinable, defined, fromUndefinable, isNull, nullUndefinable, pruneUndefined, toUndefinable, undefined)
-import Boundary.Untagged (asArray, asBoolean, asString, typeName)
+import Boundary.Untagged (asArray, asBoolean, asString, truthy, typeName)
 import Boundary.Wrapper (mkComponentWrapper)
 import Data.Array (length) as Array
 import Data.Array.NonEmpty (fromArray) as NEA
@@ -113,19 +129,33 @@ import Data.Int (round, toNumber) as Int
 import Data.Maybe (Maybe(..), fromMaybe', maybe)
 import Data.Newtype (unwrap, wrap)
 import Data.Nullable (Nullable, toMaybe, toNullable)
+import Data.Function.Uncurried (Fn2, runFn2)
 import Effect.Exception.Unsafe (unsafeThrow)
 import Effect.Uncurried (mkEffectFn1)
 import Foreign (Foreign, unsafeToForeign)
 import Foreign.Object (Object)
-import Foreign.Object (mapWithKey) as Object
+import Foreign.Object (filter, mapWithKey) as Object
+import Record (insert) as Record
 import Record.Unsafe (unsafeSet)
+import Type.Proxy (Proxy(..))
 import React.Basic (ReactComponent, element)
-import React.Types.Edges (Style)
+import React.Types.Edges (DefaultEdgeOptions, Style)
 import React.Types.Nodes (NodeProps, NodeTypesMap)
-import System.Types.Connection (Connection, KeyCode(..), Viewport)
-import System.Types.Edge (EdgeAriaLabel(..), EdgeBase, EdgeChange(..), EdgeMarker, EdgeMarkerType(..))
+import System.Types.Connection (Connection, KeyCode(..), Viewport, edgeDefaultsOf)
+import System.Types.Edge
+  ( EdgeAriaLabel(..)
+  , EdgeBase
+  , EdgeChange(..)
+  , EdgeMarker
+  , EdgeMarkerType(..)
+  , EdgePathOptions
+  , EdgeReconnectable(..)
+  , originalUserEdge
+  , rememberDefaultEdgeOptions
+  , rememberUserEdge
+  )
 import System.Types.Geometry (CoordinateExtent, NodeOrigin, SnapGrid)
-import System.Types.Handle (Handle, HandleIdField(..), unSourceHandle, unTargetHandle)
+import System.Types.Handle (Handle, HandleIdField(..), SourceHandle(..), TargetHandle(..), unSourceHandle, unTargetHandle)
 import System.Types.Node
   ( InternalNodeBase
   , NodeBase
@@ -135,7 +165,10 @@ import System.Types.Node
   , NodeHandle
   , NodeHandleBounds
   , NodeInternals
+  , originalUserNode
+  , rememberUserNode
   )
+import System.Types.Opaque (opaque, unOpaque)
 import Unsafe.Coerce (unsafeCoerce)
 
 -- ────────────────────────────────────────────────────────────────────────
@@ -174,7 +207,7 @@ type JsNodeHandle =
   , height :: Undefinable Number
   }
 
--- | The 28 fields of `System.Types.Node.NodeBaseRow`, in upstream's shapes.
+-- | The 32 fields of `System.Types.Node.NodeBaseRow`, in upstream's shapes.
 -- |
 -- | `extent` is `Foreign` because upstream's is `'parent' | CoordinateExtent`,
 -- | narrowed at conversion time. `style` is `Foreign` because upstream's is
@@ -195,6 +228,7 @@ type JsNodeRow =
   , hidden :: Undefinable Boolean
   , selected :: Undefinable Boolean
   , dragging :: Undefinable Boolean
+  , resizing :: Undefinable Boolean
   , draggable :: Undefinable Boolean
   , selectable :: Undefinable Boolean
   , connectable :: Undefinable Boolean
@@ -214,6 +248,9 @@ type JsNodeRow =
   , measured :: Undefinable JsMeasured
   , className :: Undefinable String
   , style :: Undefinable Foreign
+  , focusable :: Undefinable Boolean
+  , ariaRole :: Undefinable String
+  , domAttributes :: Undefinable Foreign
   )
 
 type JsNode = { | JsNodeRow }
@@ -224,29 +261,21 @@ type JsNode = { | JsNodeRow }
 -- | handed, which is the only place on this surface an internal node crosses.
 type JsInternalNode = { internals :: JsNodeInternals | JsNodeRow }
 
--- | Upstream's `internals` bag, minus `userNode`.
--- |
--- | `userNode` holds upstream's reference to the object the consumer passed in,
--- | as a reference-equality optimisation. `System.Types.Node.NodeInternals`
--- | omits it on purpose — PureScript has no reference equality — so there is
--- | nothing here to emit it from, and a consumer reading `internals.userNode`
--- | gets `undefined` rather than their own node. A gap in the internals rather
--- | than something a converter can close.
+-- | Upstream's internals, including the actual original consumer node.
 type JsNodeInternals =
   { positionAbsolute :: JsXYPosition
   , z :: Number
   , rootParentIndex :: Undefinable Number
   , handleBounds :: Undefinable JsNodeHandleBounds
   , bounds :: Undefinable JsNodeBounds
+  , userNode :: JsNode
   }
 
--- | Upstream types both arrays `Handle[] | null`, where `null` means "not
--- | measured yet". `System.Types.Node.NodeHandleBounds` collapsed that
--- | distinction into the outer `Maybe` and left the arrays total, so there is
--- | no `null` to emit and this side says so by not claiming one.
+-- | A measured node with no handle of a side holds `null` there, as the
+-- | upstream DOM query returns. The bounds object itself is separately optional.
 type JsNodeHandleBounds =
-  { source :: Array JsHandle
-  , target :: Array JsHandle
+  { source :: Nullable (Array JsHandle)
+  , target :: Nullable (Array JsHandle)
   }
 
 type JsNodeBounds =
@@ -293,8 +322,9 @@ type JsEdgeMarker =
   , strokeWidth :: Undefinable Number
   }
 
--- | The 20 fields of `System.Types.Edge.EdgeBase`. `markerStart`/`markerEnd`
--- | are `Foreign` because upstream's `EdgeMarkerType` is `string | EdgeMarker`.
+-- | The 30 fields of `System.Types.Edge.EdgeBase`. `markerStart`/`markerEnd`
+-- | are `Foreign` because upstream's `EdgeMarkerType` is `string | EdgeMarker`,
+-- | and `reconnectable` is because upstream's is `boolean | HandleType`.
 type JsEdge =
   { id :: String
   , type :: Undefinable String
@@ -316,6 +346,25 @@ type JsEdge =
   , interactionWidth :: Undefinable Number
   , className :: Undefinable String
   , style :: Undefinable Foreign
+  , focusable :: Undefinable Boolean
+  , reconnectable :: Undefinable Foreign
+  , ariaRole :: Undefinable String
+  , domAttributes :: Undefinable Foreign
+  , labelStyle :: Undefinable Foreign
+  , labelShowBg :: Undefinable Boolean
+  , labelBgStyle :: Undefinable Foreign
+  , labelBgPadding :: Undefinable (Array Number)
+  , labelBgBorderRadius :: Undefinable Number
+  , pathOptions :: Undefinable JsEdgePathOptions
+  }
+
+-- | The union of the three built-in variants' `pathOptions`. See
+-- | `System.Types.Edge.EdgePathOptions`.
+type JsEdgePathOptions =
+  { curvature :: Undefinable Number
+  , offset :: Undefinable Number
+  , borderRadius :: Undefinable Number
+  , stepPosition :: Undefinable Number
   }
 
 -- | What a custom node component receives. Outbound only — a consumer's
@@ -326,8 +375,8 @@ type JsEdge =
 type JsNodeProps =
   { id :: String
   , data :: Foreign
-  , width :: Undefinable Number
-  , height :: Undefinable Number
+  , width :: Number
+  , height :: Number
   , sourcePosition :: Undefinable String
   , targetPosition :: Undefinable String
   , dragHandle :: Undefinable String
@@ -493,7 +542,7 @@ readKey field raw = case asString raw of
 -- ────────────────────────────────────────────────────────────────────────
 
 nodeIn :: JsNode -> NodeBase Foreign
-nodeIn n =
+nodeIn n = runFn2 rememberUserNode (unsafeCoerce n)
   { id: wrap n.id
   , position: n.position
   , data: n.data
@@ -502,6 +551,7 @@ nodeIn n =
   , hidden: fromUndefinable n.hidden
   , selected: fromUndefinable n.selected
   , dragging: fromUndefinable n.dragging
+  , resizing: fromUndefinable n.resizing
   , draggable: fromUndefinable n.draggable
   , selectable: fromUndefinable n.selectable
   , connectable: fromUndefinable n.connectable
@@ -522,6 +572,9 @@ nodeIn n =
   , nodeType: fromUndefinable n.type
   , className: fromUndefinable n.className
   , style: map asCssObject (fromUndefinable n.style)
+  , focusable: fromUndefinable n.focusable
+  , ariaRole: fromUndefinable n.ariaRole
+  , domAttributes: map opaque (fromUndefinable n.domAttributes)
   }
 
 -- | A consumer's node, as upstream hands it back: only the keys that hold a
@@ -541,6 +594,7 @@ nodeOut n = pruneUndefined
   , hidden: toUndefinable n.hidden
   , selected: toUndefinable n.selected
   , dragging: toUndefinable n.dragging
+  , resizing: toUndefinable n.resizing
   , draggable: toUndefinable n.draggable
   , selectable: toUndefinable n.selectable
   , connectable: toUndefinable n.connectable
@@ -560,6 +614,9 @@ nodeOut n = pruneUndefined
   , measured: if n.measured == emptyMeasured then undefined else defined (measuredOut n.measured)
   , className: toUndefinable n.className
   , style: toUndefinable (map fromCssObject n.style)
+  , focusable: toUndefinable n.focusable
+  , ariaRole: toUndefinable n.ariaRole
+  , domAttributes: toUndefinable (map unOpaque n.domAttributes)
   }
 
 -- | A node plus its `internals`. `nodeOut` is *not* reused here: it returns a
@@ -571,7 +628,16 @@ nodeOut n = pruneUndefined
 -- | `measured` keeps both its keys, because upstream builds it as
 -- | `{ width: userNode.measured?.width, height: userNode.measured?.height }`.
 internalNodeOut :: InternalNodeBase Foreign -> JsInternalNode
-internalNodeOut n = pruneUndefined
+internalNodeOut n = case toMaybe (originalUserNode n.internals.userNode) of
+  Nothing -> converted
+  -- Upstream builds the internal node as `{ ...userNode, measured, internals }`,
+  -- so a key only the consumer's node has is on the internal node too.
+  Just original -> runFn2 spreadUnder original converted
+  where
+  converted = internalNodeFields n
+
+internalNodeFields :: InternalNodeBase Foreign -> JsInternalNode
+internalNodeFields n = pruneUndefined
   { id: unwrap n.id
   , position: n.position
   , data: n.data
@@ -581,6 +647,7 @@ internalNodeOut n = pruneUndefined
   , hidden: toUndefinable n.hidden
   , selected: toUndefinable n.selected
   , dragging: toUndefinable n.dragging
+  , resizing: toUndefinable n.resizing
   , draggable: toUndefinable n.draggable
   , selectable: toUndefinable n.selectable
   , connectable: toUndefinable n.connectable
@@ -600,6 +667,9 @@ internalNodeOut n = pruneUndefined
   , measured: toUndefinable (Just (measuredOut n.measured))
   , className: toUndefinable n.className
   , style: toUndefinable (map fromCssObject n.style)
+  , focusable: toUndefinable n.focusable
+  , ariaRole: toUndefinable n.ariaRole
+  , domAttributes: toUndefinable (map unOpaque n.domAttributes)
   , internals: nodeInternalsOut n.internals
   }
 
@@ -608,19 +678,65 @@ internalNodeOut n = pruneUndefined
 -- | `rootParentIndex` is written only on a parent node, and `bounds` never
 -- | is. So the two optional keys are pruned, and `handleBounds` is set on the
 -- | pruned record whether or not it holds a value.
-nodeInternalsOut :: NodeInternals -> JsNodeInternals
+nodeInternalsOut :: NodeInternals Foreign -> JsNodeInternals
 nodeInternalsOut i =
   unsafeSet "handleBounds" (toUndefinable (map handleBoundsOut i.handleBounds)) $ pruneUndefined
     { positionAbsolute: i.positionAbsolute
     , z: i.z
     , rootParentIndex: toUndefinable (map Int.toNumber i.rootParentIndex)
     , bounds: toUndefinable (map nodeBoundsOut i.bounds)
+    , userNode: maybe (nodeOut i.userNode) unsafeCoerce (toMaybe (originalUserNode i.userNode))
     }
+
+-- | The way back, for a JavaScript consumer writing an internal node into the
+-- | store with `setState`. Upstream stores whatever it is handed; the base
+-- | node converts as `nodeIn` does, and `internals.userNode` keeps the
+-- | consumer's own node as `nodeIn` keeps any other.
+internalNodeIn :: JsInternalNode -> InternalNodeBase Foreign
+internalNodeIn n =
+  Record.insert (Proxy :: Proxy "internals") (nodeInternalsIn n.internals)
+    (nodeIn (unsafeCoerce n :: JsNode))
+
+nodeInternalsIn :: JsNodeInternals -> NodeInternals Foreign
+nodeInternalsIn i =
+  { positionAbsolute: i.positionAbsolute
+  , z: i.z
+  , rootParentIndex: map Int.round (fromUndefinable i.rootParentIndex)
+  , handleBounds: map handleBoundsIn (fromUndefinable i.handleBounds)
+  , bounds: map nodeBoundsIn (fromUndefinable i.bounds)
+  , userNode: nodeIn i.userNode
+  }
+
+handleBoundsIn :: JsNodeHandleBounds -> NodeHandleBounds
+handleBoundsIn b =
+  { source: map (map (SourceHandle <<< handleIn "internals.handleBounds.source")) (toMaybe b.source)
+  , target: map (map (TargetHandle <<< handleIn "internals.handleBounds.target")) (toMaybe b.target)
+  }
+
+nodeBoundsIn :: JsNodeBounds -> NodeBounds
+nodeBoundsIn b =
+  { x: b.x
+  , y: b.y
+  , width: fromUndefinable b.width
+  , height: fromUndefinable b.height
+  }
+
+handleIn :: String -> JsHandle -> Handle
+handleIn field h =
+  { id: handleIdIn h.id
+  , nodeId: wrap h.nodeId
+  , x: h.x
+  , y: h.y
+  , position: positionIn (field <> ".position") h.position
+  , handleType: handleTypeIn (field <> ".type") h.type
+  , width: h.width
+  , height: h.height
+  }
 
 handleBoundsOut :: NodeHandleBounds -> JsNodeHandleBounds
 handleBoundsOut b =
-  { source: map (handleOut <<< unSourceHandle) b.source
-  , target: map (handleOut <<< unTargetHandle) b.target
+  { source: toNullable (map (map (handleOut <<< unSourceHandle)) b.source)
+  , target: toNullable (map (map (handleOut <<< unTargetHandle)) b.target)
   }
 
 nodeBoundsOut :: NodeBounds -> JsNodeBounds
@@ -746,7 +862,7 @@ fromCssStyle = unsafeCoerce
 -- ────────────────────────────────────────────────────────────────────────
 
 edgeIn :: JsEdge -> EdgeBase Foreign
-edgeIn e =
+edgeIn e = runFn2 rememberUserEdge (unsafeCoerce e)
   { id: e.id
   , edgeType: fromUndefinable e.type
   , source: wrap e.source
@@ -767,6 +883,16 @@ edgeIn e =
   , interactionWidth: fromUndefinable e.interactionWidth
   , className: fromUndefinable e.className
   , style: map asCssObject (fromUndefinable e.style)
+  , focusable: fromUndefinable e.focusable
+  , reconnectable: map (edgeReconnectableIn "edge.reconnectable") (fromUndefinable e.reconnectable)
+  , ariaRole: fromUndefinable e.ariaRole
+  , domAttributes: map opaque (fromUndefinable e.domAttributes)
+  , labelStyle: map asCssObject (fromUndefinable e.labelStyle)
+  , labelShowBg: fromUndefinable e.labelShowBg
+  , labelBgStyle: map asCssObject (fromUndefinable e.labelBgStyle)
+  , labelBgPadding: map (labelBgPaddingIn "edge.labelBgPadding") (fromUndefinable e.labelBgPadding)
+  , labelBgBorderRadius: fromUndefinable e.labelBgBorderRadius
+  , pathOptions: map edgePathOptionsIn (fromUndefinable e.pathOptions)
   }
 
 -- | Polymorphic in the edge's data, where `nodeIn`/`nodeOut` are not: every
@@ -796,6 +922,71 @@ edgeOut e = pruneUndefined
   , interactionWidth: toUndefinable e.interactionWidth
   , className: toUndefinable e.className
   , style: toUndefinable (map fromCssObject e.style)
+  , focusable: toUndefinable e.focusable
+  , reconnectable: toUndefinable (map edgeReconnectableOut e.reconnectable)
+  , ariaRole: toUndefinable e.ariaRole
+  , domAttributes: toUndefinable (map unOpaque e.domAttributes)
+  , labelStyle: toUndefinable (map fromCssObject e.labelStyle)
+  , labelShowBg: toUndefinable e.labelShowBg
+  , labelBgStyle: toUndefinable (map fromCssObject e.labelBgStyle)
+  , labelBgPadding: toUndefinable (map labelBgPaddingOut e.labelBgPadding)
+  , labelBgBorderRadius: toUndefinable e.labelBgBorderRadius
+  , pathOptions: toUndefinable (map edgePathOptionsOut e.pathOptions)
+  }
+
+-- | The consumer's own edge object when this record was decoded from one,
+-- | and `edgeOut`'s copy otherwise. Upstream's store holds the consumer's
+-- | edges, so a raw store read hands the same objects back.
+edgeIdentityOut :: forall e. EdgeBase e -> JsEdge
+edgeIdentityOut e = maybe (edgeOut e) unsafeCoerce (toMaybe (originalUserEdge e))
+
+-- | The node counterpart of `edgeIdentityOut`.
+nodeIdentityOut :: NodeBase Foreign -> JsNode
+nodeIdentityOut n = maybe (nodeOut n) unsafeCoerce (toMaybe (originalUserNode n))
+
+-- | `boolean | HandleType`.
+edgeReconnectableIn :: String -> Foreign -> EdgeReconnectable
+edgeReconnectableIn field raw = case asBoolean raw of
+  Just flag -> ReconnectableFlag flag
+  Nothing -> case asString raw of
+    Just s -> ReconnectableEnd (handleTypeIn field s)
+    Nothing ->
+      unsafeThrow $
+        "ps-flow: `" <> field <> "` must be a boolean, \"source\" or \"target\", got "
+          <> typeName raw
+          <> "."
+
+edgeReconnectableOut :: EdgeReconnectable -> Foreign
+edgeReconnectableOut = case _ of
+  ReconnectableFlag flag -> unsafeToForeign flag
+  ReconnectableEnd end -> unsafeToForeign (handleTypeOut end)
+
+-- | `labelBgPadding` is `[number, number]` upstream and `{ x, y }` in
+-- | ps-flow's label records.
+labelBgPaddingIn :: String -> Array Number -> { x :: Number, y :: Number }
+labelBgPaddingIn field = case _ of
+  [ x, y ] -> { x, y }
+  _ ->
+    unsafeThrow $
+      "ps-flow: `" <> field <> "` must be [paddingX, paddingY]."
+
+labelBgPaddingOut :: { x :: Number, y :: Number } -> Array Number
+labelBgPaddingOut p = [ p.x, p.y ]
+
+edgePathOptionsIn :: JsEdgePathOptions -> EdgePathOptions
+edgePathOptionsIn o =
+  { curvature: fromUndefinable o.curvature
+  , offset: fromUndefinable o.offset
+  , borderRadius: fromUndefinable o.borderRadius
+  , stepPosition: fromUndefinable o.stepPosition
+  }
+
+edgePathOptionsOut :: EdgePathOptions -> JsEdgePathOptions
+edgePathOptionsOut o = pruneUndefined
+  { curvature: toUndefinable o.curvature
+  , offset: toUndefinable o.offset
+  , borderRadius: toUndefinable o.borderRadius
+  , stepPosition: toUndefinable o.stepPosition
   }
 
 -- | An edge's `ariaLabel`, where `null` turns the label off and absence
@@ -850,6 +1041,106 @@ edgeMarkerOut m = pruneUndefined
   }
 
 -- ────────────────────────────────────────────────────────────────────────
+-- Default edge options
+-- ────────────────────────────────────────────────────────────────────────
+
+-- | Upstream's `DefaultEdgeOptions`, which is `Edge` without its identity
+-- | fields and `selected`: the 23 members below. Each converts as the
+-- | matching `JsEdge` member does, because upstream spreads this object under
+-- | every edge it renders and under every connection `onConnect` receives.
+type JsDefaultEdgeOptions =
+  { type :: Undefinable String
+  , animated :: Undefinable Boolean
+  , hidden :: Undefinable Boolean
+  , deletable :: Undefinable Boolean
+  , selectable :: Undefinable Boolean
+  , data :: Undefinable Foreign
+  , markerStart :: Undefinable Foreign
+  , markerEnd :: Undefinable Foreign
+  , zIndex :: Undefinable Number
+  , ariaLabel :: Undefinable String
+  , interactionWidth :: Undefinable Number
+  , label :: Undefinable String
+  , labelStyle :: Undefinable Foreign
+  , labelShowBg :: Undefinable Boolean
+  , labelBgStyle :: Undefinable Foreign
+  , labelBgPadding :: Undefinable (Array Number)
+  , labelBgBorderRadius :: Undefinable Number
+  , style :: Undefinable Foreign
+  , className :: Undefinable String
+  , reconnectable :: Undefinable Foreign
+  , focusable :: Undefinable Boolean
+  , ariaRole :: Undefinable String
+  , domAttributes :: Undefinable Foreign
+  }
+
+-- | Remembers the consumer's object, which is what upstream's store holds
+-- | and what `defaultEdgeOptionsOut` hands back.
+defaultEdgeOptionsIn :: JsDefaultEdgeOptions -> DefaultEdgeOptions Foreign
+defaultEdgeOptionsIn js =
+  runFn2 rememberDefaultEdgeOptions (unsafeToForeign js) (decodeDefaultEdgeOptions js)
+
+decodeDefaultEdgeOptions :: JsDefaultEdgeOptions -> DefaultEdgeOptions Foreign
+decodeDefaultEdgeOptions = remembering \o ->
+  { edgeType: fromUndefinable o.type
+  , animated: fromUndefinable o.animated
+  , hidden: fromUndefinable o.hidden
+  , deletable: fromUndefinable o.deletable
+  , selectable: fromUndefinable o.selectable
+  , data: fromUndefinable o.data
+  , markerStart: map (markerIn "defaultEdgeOptions.markerStart") (fromUndefinable o.markerStart)
+  , markerEnd: map (markerIn "defaultEdgeOptions.markerEnd") (fromUndefinable o.markerEnd)
+  , zIndex: map Int.round (fromUndefinable o.zIndex)
+  , ariaLabel: edgeAriaLabelIn o.ariaLabel
+  , interactionWidth: fromUndefinable o.interactionWidth
+  , label: fromUndefinable o.label
+  , labelStyle: map asCssObject (fromUndefinable o.labelStyle)
+  , labelShowBg: fromUndefinable o.labelShowBg
+  , labelBgStyle: map asCssObject (fromUndefinable o.labelBgStyle)
+  , labelBgPadding:
+      map (labelBgPaddingIn "defaultEdgeOptions.labelBgPadding") (fromUndefinable o.labelBgPadding)
+  , labelBgBorderRadius: fromUndefinable o.labelBgBorderRadius
+  , style: map asCssObject (fromUndefinable o.style)
+  , className: fromUndefinable o.className
+  , reconnectable:
+      map (edgeReconnectableIn "defaultEdgeOptions.reconnectable") (fromUndefinable o.reconnectable)
+  , focusable: fromUndefinable o.focusable
+  , ariaRole: fromUndefinable o.ariaRole
+  , domAttributes: map opaque (fromUndefinable o.domAttributes)
+  }
+
+-- | The consumer's own object when there is one, and a pruned conversion
+-- | when the options were built in PureScript.
+defaultEdgeOptionsOut :: forall e. DefaultEdgeOptions e -> JsDefaultEdgeOptions
+defaultEdgeOptionsOut o = case originalOf o of
+  Just original -> unsafeCoerce original
+  Nothing -> pruneUndefined
+    { type: toUndefinable o.edgeType
+    , animated: toUndefinable o.animated
+    , hidden: toUndefinable o.hidden
+    , deletable: toUndefinable o.deletable
+    , selectable: toUndefinable o.selectable
+    , data: toUndefinable (map unsafeToForeign o.data)
+    , markerStart: toUndefinable (map markerOut o.markerStart)
+    , markerEnd: toUndefinable (map markerOut o.markerEnd)
+    , zIndex: toUndefinable (map Int.toNumber o.zIndex)
+    , ariaLabel: edgeAriaLabelOut o.ariaLabel
+    , interactionWidth: toUndefinable o.interactionWidth
+    , label: toUndefinable o.label
+    , labelStyle: toUndefinable (map fromCssObject o.labelStyle)
+    , labelShowBg: toUndefinable o.labelShowBg
+    , labelBgStyle: toUndefinable (map fromCssObject o.labelBgStyle)
+    , labelBgPadding: toUndefinable (map labelBgPaddingOut o.labelBgPadding)
+    , labelBgBorderRadius: toUndefinable o.labelBgBorderRadius
+    , style: toUndefinable (map fromCssObject o.style)
+    , className: toUndefinable o.className
+    , reconnectable: toUndefinable (map edgeReconnectableOut o.reconnectable)
+    , focusable: toUndefinable o.focusable
+    , ariaRole: toUndefinable o.ariaRole
+    , domAttributes: toUndefinable (map unOpaque o.domAttributes)
+    }
+
+-- ────────────────────────────────────────────────────────────────────────
 -- Node props, and the node-type map that delivers them
 -- ────────────────────────────────────────────────────────────────────────
 
@@ -857,8 +1148,8 @@ nodePropsOut :: NodeProps Foreign -> JsNodeProps
 nodePropsOut p =
   { id: p.id
   , data: p.data
-  , width: toUndefinable p.width
-  , height: toUndefinable p.height
+  , width: p.width
+  , height: p.height
   , sourcePosition: toUndefinable (map positionOut p.sourcePosition)
   , targetPosition: toUndefinable (map positionOut p.targetPosition)
   , dragHandle: toUndefinable p.dragHandle
@@ -883,9 +1174,15 @@ nodePropsOut p =
 -- | The map is an ordinary object at runtime on both sides (`NodeTypesMap` is
 -- | opaque in PureScript precisely so the renderer can treat it as one), so
 -- | the wrapping is a `mapWithKey` and a coercion back.
+-- |
+-- | Upstream reads the map with `||` (`nodeTypes?.[type] ||
+-- | builtinNodeTypes[type]`), so an entry holding a falsy value resolves
+-- | nothing. It is dropped before wrapping, and the renderer's lookup falls
+-- | through to the built-in type as upstream's does.
 nodeTypesIn :: Object (ReactComponent JsNodeProps) -> NodeTypesMap
 nodeTypesIn types =
-  unsafeCoerce (Object.mapWithKey (\_ c -> wrapNodeComponent c) types)
+  unsafeCoerce
+    (Object.mapWithKey (\_ c -> wrapNodeComponent c) (Object.filter (truthy <<< unsafeToForeign) types))
 
 wrapNodeComponent
   :: ReactComponent JsNodeProps
@@ -1107,6 +1404,22 @@ connectionOut c =
   , targetHandle: toNullable c.targetHandle
   }
 
+-- | What upstream's `onConnect` receives: `{ ...defaultEdgeOptions,
+-- | ...connection }`. The connection's own four members win, as the spread
+-- | writes them last. See `System.Types.Connection.withEdgeDefaults`.
+-- |
+-- | Typed `JsConnection` because the merged object is one, with the default
+-- | options' members beside the four.
+connectionParamsOut :: Connection -> JsConnection
+connectionParamsOut c = case toMaybe (edgeDefaultsOf c) of
+  Nothing -> connectionOut c
+  Just defaults ->
+    runFn2 spreadUnder
+      (defaultEdgeOptionsOut (unsafeCoerce defaults :: DefaultEdgeOptions Foreign))
+      (connectionOut c)
+
+foreign import spreadUnder :: forall a b c. Fn2 a b c
+
 -- ────────────────────────────────────────────────────────────────────────
 -- The viewport, and the two-array selection bag
 -- ────────────────────────────────────────────────────────────────────────
@@ -1117,10 +1430,12 @@ viewportIn v = { x: v.x, y: v.y, zoom: v.zoom }
 viewportOut :: Viewport -> JsViewport
 viewportOut v = { x: v.x, y: v.y, zoom: v.zoom }
 
+-- | Upstream hands these three callbacks the consumer's own node and edge
+-- | objects, so a node or edge decoded from one crosses back as that object.
 graphSelectionOut
   :: { nodes :: Array (NodeBase Foreign), edges :: Array (EdgeBase Foreign) }
   -> JsGraphSelection
 graphSelectionOut s =
-  { nodes: map nodeOut s.nodes
-  , edges: map edgeOut s.edges
+  { nodes: map nodeIdentityOut s.nodes
+  , edges: map edgeIdentityOut s.edges
   }

@@ -1,0 +1,21 @@
+fork: 54 upstream unit(s) affirmed — 30 of 48 spec unit(s) lifted, 18 declined with a reason, and 6 depended-on source(s).
+driver [psflow]: 32 fixtures + 1 direct component(s), 49 observed callback props, library from `// output/Boundary/` → dist/psflow.js
+driver [upstream]: 32 fixtures + 1 direct component(s), 49 observed callback props, library from `// xyflow/packages/react/src/` → dist/upstream.js
+captured mount-baseline--edges-types
+
+all 1 scenario(s) passed.
+coverage is not affirmed.
+3 hole entr(ies) no longer correspond to anything: something drove the
+export after all, or it left the surface. Split the entry or delete it — a hole is a written reason,
+and this one stopped being true of what it names:
+  EdgeLabelRenderer, EdgeLabelRendererProps, ViewportPortal — no fixture portals anything. GraphView draws both containers for every flow whether or not the export is used, so a container in every trace says nothing — only content inside one does, which is what the witness asks for. Boundary stage 4 (#62) crossed the component, so a fixture can now hand it upstream's props from JavaScript; what is missing is the fixture, and no issue owns writing one yet.
+  SimpleBezierEdge, SimpleBezierEdgeProps, SmoothStepEdge, SmoothStepEdgeProps, StepEdge, StepEdgeProps, StraightEdge, StraightEdgeProps — reachable only by an edge declaring the type, and the edges fixture declares none — every edge in the corpus renders as the default, which is BezierEdge. Each of their path functions has function parity, which is a different claim from the component rendering. Boundary stage 4 (#62) crossed all four, so a fixture can now register one as an edge type from JavaScript; what is missing is the fixture, and no issue owns writing one yet.
+  EdgeTypes — no fixture passes an edgeTypes map, so no edge carries a type outside the built-in set. NodeTypes is driven because the node-toolbar fixture registers one; the edges fixture registers no edge type at all. The prop itself crossed in boundary stage 4 (#62) — until then no fixture *could* pass one, because `edgeTypes`' values are the consumer's own components and the props record ps-flow hands them had not crossed. That blocker is gone and the fixture is still missing; no issue owns writing one yet.
+5 scenario(s) in the corpus have no stored trace, so nothing they would have driven
+counts here. Capture them (`npm run parity:system`):
+  mount-baseline--edges-default-options
+  click-reveals-edge-toolbar
+  reconnect-edge-to-another-handle
+  drag-selection-moves-selected-nodes
+  controlled-add-and-update-edge
+The report is parity/system/report.md and the coverage artifact is parity/system/coverage.md.

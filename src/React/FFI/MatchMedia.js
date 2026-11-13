@@ -2,7 +2,12 @@
 // wrapper. Returns `current` (the current boolean) and `subscribe`
 // (install a `change` listener, return a cleanup).
 
+// Upstream's `getMediaQuery` returns null without a window or `matchMedia`,
+// as on a server, and its hook then reads "light". So does this.
+const noMediaQuery = { current: () => false, subscribe: () => () => () => {} };
+
 export const prefersDarkMode = () => {
+  if (typeof window === "undefined" || !window.matchMedia) return noMediaQuery;
   const mql = window.matchMedia("(prefers-color-scheme: dark)");
   return {
     current: () => mql.matches,

@@ -6,6 +6,7 @@ module System.Utils.Edges.SmoothStep
   ) where
 
 import Prelude
+import System.Utils.Number as JsNumber
 
 import Data.Array (range, length, (!!)) as Array
 import Data.Foldable (foldl)
@@ -215,7 +216,7 @@ sameOrMixedBranch p sourceGapped targetGapped dirAxis currDir sourceDir targetDi
         in
           if diff <= p.offset then
             let
-              gapOffset = min (p.offset - 1.0) (p.offset - diff)
+              gapOffset = JsNumber.min (p.offset - 1.0) (p.offset - diff)
               srcSign =
                 if axisGet dirAxis sourceGapped > axisGet dirAxis p.source then -1.0
                 else 1.0
@@ -271,11 +272,11 @@ sameOrMixedBranch p sourceGapped targetGapped dirAxis currDir sourceDir targetDi
 
     firstPoint = fromMaybe { x: 0.0, y: 0.0 } (points Array.!! 0)
     maxXDistance =
-      max
+      JsNumber.max
         (Number.abs (sourceGapPoint.x - firstPoint.x))
         (Number.abs (targetGapPoint.x - firstPoint.x))
     maxYDistance =
-      max
+      JsNumber.max
         (Number.abs (sourceGapPoint.y - firstPoint.y))
         (Number.abs (targetGapPoint.y - firstPoint.y))
     centerX =
@@ -322,7 +323,8 @@ buildPathPoints source target points sourceGapOffset targetGapOffset sourceGappe
 getBend :: XYPosition -> XYPosition -> XYPosition -> Number -> String
 getBend a b c size =
   let
-    bendSize = min (min (distance a b / 2.0) (distance b c / 2.0)) size
+    -- `Math.min(distance(a, b) / 2, distance(b, c) / 2, size)`.
+    bendSize = JsNumber.min (JsNumber.min (distance a b / 2.0) (distance b c / 2.0)) size
   in
     if (a.x == b.x && b.x == c.x) || (a.y == b.y && b.y == c.y) then
       "L" <> showN b.x <> " " <> showN b.y

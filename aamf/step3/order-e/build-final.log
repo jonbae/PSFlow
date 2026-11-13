@@ -1,0 +1,27 @@
+$ npm exec --yes --package=purescript@0.15.16 -- spago build
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[ 1 of 14] Compiling React.Component.NodeWrapper
+[ 2 of 14] Compiling Test.System.XYDrag.DragSelection
+[ 3 of 14] Compiling Test.System.XYDrag.DragErrors
+[ 4 of 14] Compiling Test.System.XYDrag.DragUserNodes
+[ 5 of 14] Compiling Test.React.Component.AriaDescribedBy
+[ 6 of 14] Compiling React.Container.NodeRenderer
+[ 7 of 14] Compiling React.Container.GraphView
+[ 8 of 14] Compiling React.Container.ReactFlow
+[ 9 of 14] Compiling React
+[10 of 14] Compiling Boundary.Flow
+[11 of 14] Compiling Boundary
+[12 of 14] Compiling Test.Boundary.FlowWrapperAttributes
+[13 of 14] Compiling Test.React.Additional.BackgroundPattern
+[14 of 14] Compiling Test.Main
+           Src   Lib   All
+Warnings     0     0     0
+Errors       0     0     0
+
+✓ Build succeeded.
+

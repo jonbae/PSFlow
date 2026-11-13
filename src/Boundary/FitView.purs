@@ -39,7 +39,7 @@
 -- |      same error, on the same console, that the consumer would have got
 -- |      from upstream, which the net's `console` section compares.
 -- |
--- | This is deliberately *not* the rule `Boundary.Refusal` applies. A deferred
+-- | This is deliberately *not* the rule a deferred prop followed. A deferred
 -- | prop is one ps-flow has not implemented, where upstream has behaviour and
 -- | ps-flow has none, and throwing is the only honest answer. An invalid
 -- | padding is one **upstream** has no behaviour for either, beyond a

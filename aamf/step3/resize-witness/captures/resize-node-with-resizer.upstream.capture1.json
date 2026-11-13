@@ -1,0 +1,1231 @@
+{
+  "traceFormat": 2,
+  "scenario": "resize-node-with-resizer",
+  "side": "upstream",
+  "capture": 1,
+  "baseline": "12.11.0",
+  "sections": {
+    "dom": {
+      "page": {
+        "scrollX": 0,
+        "scrollY": 0,
+        "visualViewportScale": 1
+      },
+      "root": {
+        "tag": "div",
+        "attrs": {
+          "data-testid": "rf__wrapper",
+          "class": "react-flow light",
+          "role": "application",
+          "style": "width: 100%; height: 100%; overflow: hidden; position: relative; z-index: 0;"
+        },
+        "children": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__renderer",
+              "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+            },
+            "children": [
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__pane draggable",
+                  "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                },
+                "children": [
+                  {
+                    "tag": "div",
+                    "attrs": {
+                      "class": "react-flow__viewport xyflow__viewport react-flow__container",
+                      "style": "transform: translate(0px, 0px) scale(1);"
+                    },
+                    "children": [
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edges"
+                        },
+                        "children": []
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edgelabel-renderer"
+                        },
+                        "children": []
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__nodes",
+                          "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                        },
+                        "children": [
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-resizeReceipt nopan selectable draggable",
+                              "data-id": "resize",
+                              "data-testid": "rf__node-resize",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(195px, 150px); pointer-events: all; visibility: visible; width: 165px; height: 110px;"
+                            },
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-resize-history": "[{\"name\":\"resizer:start\",\"values\":{\"width\":120,\"height\":80,\"x\":240,\"y\":180}},{\"name\":\"resizer:resize\",\"values\":{\"width\":135,\"height\":90,\"x\":225,\"y\":170,\"direction\":[-1,-1]}},{\"name\":\"resizer:resize\",\"values\":{\"width\":150,\"height\":100,\"x\":210,\"y\":160,\"direction\":[-1,-1]}},{\"name\":\"resizer:resize\",\"values\":{\"width\":165,\"height\":110,\"x\":195,\"y\":150,\"direction\":[-1,-1]}},{\"name\":\"resizer:end\",\"values\":{\"width\":165,\"height\":110,\"x\":195,\"y\":150}}]",
+                                  "data-resize-max-width": "500",
+                                  "style": "width: 100%; height: 100%; background: rgb(238, 238, 238); border: 1px solid rgb(34, 34, 34); box-sizing: border-box;"
+                                },
+                                "text": "Resize",
+                                "children": [
+                                  {
+                                    "tag": "div",
+                                    "attrs": {
+                                      "class": "react-flow__resize-control nodrag top line"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "div",
+                                    "attrs": {
+                                      "class": "react-flow__resize-control nodrag right line"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "div",
+                                    "attrs": {
+                                      "class": "react-flow__resize-control nodrag bottom line"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "div",
+                                    "attrs": {
+                                      "class": "react-flow__resize-control nodrag left line"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "div",
+                                    "attrs": {
+                                      "class": "react-flow__resize-control nodrag top left handle",
+                                      "style": "scale: 1;"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "div",
+                                    "attrs": {
+                                      "class": "react-flow__resize-control nodrag top right handle",
+                                      "style": "scale: 1;"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "div",
+                                    "attrs": {
+                                      "class": "react-flow__resize-control nodrag bottom left handle",
+                                      "style": "scale: 1;"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "div",
+                                    "attrs": {
+                                      "class": "react-flow__resize-control nodrag bottom right handle",
+                                      "style": "scale: 1;"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "div",
+                                    "attrs": {
+                                      "class": "react-flow__resize-control nodrag bottom right handle resize-direct",
+                                      "style": "scale: 1;"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__viewport-portal"
+                        },
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__panel react-flow__attribution bottom right",
+              "data-message": "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
+            },
+            "children": [
+              {
+                "tag": "a",
+                "attrs": {
+                  "href": "https://reactflow.dev",
+                  "target": "_blank",
+                  "rel": "noopener noreferrer",
+                  "aria-label": "React Flow attribution"
+                },
+                "text": "React Flow",
+                "children": []
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__node-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__edge-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select an edge. You can then press delete to remove it or escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__aria-live-1",
+              "aria-live": "assertive",
+              "aria-atomic": "true",
+              "style": "position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(100%);"
+            },
+            "children": []
+          }
+        ]
+      }
+    },
+    "callbacks": [
+      {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": []
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "pointerenter",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 504.29999999701977,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 240,
+            "screenY": 180,
+            "clientX": 240,
+            "clientY": 180,
+            "pageX": 240,
+            "pageY": 180,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 0,
+            "relatedTarget": {
+              "@ref": "Window"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseenter",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 504.29999999701977,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 240,
+            "screenY": 180,
+            "clientX": 240,
+            "clientY": 180,
+            "pageX": 240,
+            "pageY": 180,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": {
+              "@ref": "Window"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "resize",
+            "type": "resizeReceipt",
+            "data": {},
+            "position": {
+              "x": 240,
+              "y": 180
+            },
+            "width": 120,
+            "height": 80,
+            "measured": {
+              "width": 120,
+              "height": 80
+            },
+            "style": {
+              "width": 120,
+              "height": 80
+            }
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 504.29999999701977,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 240,
+            "screenY": 180,
+            "clientX": 240,
+            "clientY": 180,
+            "pageX": 240,
+            "pageY": 180,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 0,
+            "relatedTarget": null,
+            "movementX": 241,
+            "movementY": 181,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseMove",
+            "_targetInst": null,
+            "type": "mousemove",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 504.29999999701977,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 240,
+            "screenY": 180,
+            "clientX": 240,
+            "clientY": 180,
+            "pageX": 240,
+            "pageY": 180,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": null,
+            "movementX": 241,
+            "movementY": 181,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "resize",
+            "type": "resizeReceipt",
+            "data": {},
+            "position": {
+              "x": 240,
+              "y": 180
+            },
+            "width": 120,
+            "height": 80,
+            "measured": {
+              "width": 120,
+              "height": 80
+            },
+            "style": {
+              "width": 120,
+              "height": 80
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodeMouseLeave",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseLeave",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseleave",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 519.5999999940395,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 225,
+            "screenY": 170,
+            "clientX": 225,
+            "clientY": 170,
+            "pageX": 225,
+            "pageY": 170,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 1,
+            "relatedTarget": {
+              "@ref": "DIV"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "resize",
+            "type": "resizeReceipt",
+            "data": {},
+            "position": {
+              "x": 240,
+              "y": 180
+            },
+            "width": 120,
+            "height": 80,
+            "measured": {
+              "width": 120,
+              "height": 80
+            },
+            "style": {
+              "width": 120,
+              "height": 80
+            }
+          }
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 519.5999999940395,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 225,
+            "screenY": 170,
+            "clientX": 225,
+            "clientY": 170,
+            "pageX": 225,
+            "pageY": 170,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 1,
+            "relatedTarget": null,
+            "movementX": -15,
+            "movementY": -10,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0.5,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "id": "resize",
+              "type": "position",
+              "position": {
+                "x": 225,
+                "y": 170
+              }
+            },
+            {
+              "id": "resize",
+              "type": "dimensions",
+              "resizing": true,
+              "setAttributes": true,
+              "dimensions": {
+                "width": 135,
+                "height": 90
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 538.8999999985099,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 210,
+            "screenY": 160,
+            "clientX": 210,
+            "clientY": 160,
+            "pageX": 210,
+            "pageY": 160,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 1,
+            "relatedTarget": null,
+            "movementX": -15,
+            "movementY": -10,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0.5,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "id": "resize",
+              "type": "position",
+              "position": {
+                "x": 210,
+                "y": 160
+              }
+            },
+            {
+              "id": "resize",
+              "type": "dimensions",
+              "resizing": true,
+              "setAttributes": true,
+              "dimensions": {
+                "width": 150,
+                "height": 100
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onPaneMouseMove",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onPointerMove",
+            "_targetInst": null,
+            "type": "pointermove",
+            "nativeEvent": {
+              "@class": "PointerEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 552.7999999970198,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 195,
+            "screenY": 150,
+            "clientX": 195,
+            "clientY": 150,
+            "pageX": 195,
+            "pageY": 150,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": -1,
+            "buttons": 1,
+            "relatedTarget": null,
+            "movementX": -15,
+            "movementY": -10,
+            "pointerId": 1,
+            "width": 1,
+            "height": 1,
+            "pressure": 0.5,
+            "tangentialPressure": 0,
+            "tiltX": 0,
+            "tiltY": 0,
+            "twist": 0,
+            "pointerType": "mouse",
+            "isPrimary": true,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "id": "resize",
+              "type": "position",
+              "position": {
+                "x": 195,
+                "y": 150
+              }
+            },
+            {
+              "id": "resize",
+              "type": "dimensions",
+              "resizing": true,
+              "setAttributes": true,
+              "dimensions": {
+                "width": 165,
+                "height": 110
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onNodeMouseEnter",
+        "args": [
+          {
+            "@class": "SyntheticBaseEvent",
+            "_reactName": "onMouseEnter",
+            "_targetInst": {
+              "@ref": "React fiber"
+            },
+            "type": "mouseenter",
+            "nativeEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "target": {
+              "@ref": "DIV"
+            },
+            "currentTarget": {
+              "@ref": "DIV"
+            },
+            "eventPhase": 3,
+            "bubbles": true,
+            "cancelable": true,
+            "timeStamp": 566.1999999955297,
+            "defaultPrevented": false,
+            "isTrusted": true,
+            "view": {
+              "@ref": "Window"
+            },
+            "detail": 0,
+            "screenX": 195,
+            "screenY": 150,
+            "clientX": 195,
+            "clientY": 150,
+            "pageX": 195,
+            "pageY": 150,
+            "ctrlKey": false,
+            "shiftKey": false,
+            "altKey": false,
+            "metaKey": false,
+            "getModifierState": {
+              "@ref": "function"
+            },
+            "button": 0,
+            "buttons": 0,
+            "relatedTarget": {
+              "@ref": "DIV"
+            },
+            "movementX": 0,
+            "movementY": 0,
+            "isDefaultPrevented": {
+              "@ref": "function"
+            },
+            "isPropagationStopped": {
+              "@ref": "function"
+            }
+          },
+          {
+            "id": "resize",
+            "type": "resizeReceipt",
+            "data": {},
+            "position": {
+              "x": 195,
+              "y": 150
+            },
+            "width": 165,
+            "height": 110,
+            "measured": {
+              "width": 165,
+              "height": 110
+            },
+            "style": {
+              "width": 120,
+              "height": 80
+            },
+            "resizing": true
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "id": "resize",
+              "type": "dimensions",
+              "resizing": false,
+              "dimensions": {
+                "width": 165,
+                "height": 110
+              }
+            }
+          ]
+        ]
+      }
+    ],
+    "hooks": {},
+    "api": {
+      "queries": {
+        "getNodes": [
+          {
+            "id": "resize",
+            "type": "resizeReceipt",
+            "data": {},
+            "position": {
+              "x": 195,
+              "y": 150
+            },
+            "width": 165,
+            "height": 110,
+            "measured": {
+              "width": 165,
+              "height": 110
+            },
+            "style": {
+              "width": 120,
+              "height": 80
+            },
+            "resizing": false
+          }
+        ],
+        "getNode": {
+          "id": "resize",
+          "type": "resizeReceipt",
+          "data": {},
+          "position": {
+            "x": 195,
+            "y": 150
+          },
+          "width": 165,
+          "height": 110,
+          "measured": {
+            "width": 165,
+            "height": 110
+          },
+          "style": {
+            "width": 120,
+            "height": 80
+          },
+          "resizing": false
+        },
+        "getInternalNode": {
+          "id": "resize",
+          "type": "resizeReceipt",
+          "data": {},
+          "position": {
+            "x": 195,
+            "y": 150
+          },
+          "width": 165,
+          "height": 110,
+          "measured": {
+            "width": 165,
+            "height": 110
+          },
+          "style": {
+            "width": 120,
+            "height": 80
+          },
+          "resizing": false,
+          "internals": {
+            "positionAbsolute": {
+              "x": 195,
+              "y": 150
+            },
+            "handleBounds": {
+              "source": null,
+              "target": null
+            },
+            "z": 0,
+            "userNode": {
+              "id": "resize",
+              "type": "resizeReceipt",
+              "data": {},
+              "position": {
+                "x": 195,
+                "y": 150
+              },
+              "width": 165,
+              "height": 110,
+              "measured": {
+                "width": 165,
+                "height": 110
+              },
+              "style": {
+                "width": 120,
+                "height": 80
+              },
+              "resizing": false
+            }
+          }
+        },
+        "getEdges": [],
+        "getEdge": {
+          "@undefined": true
+        },
+        "getIntersectingNodes": [
+          {
+            "id": "resize",
+            "type": "resizeReceipt",
+            "data": {},
+            "position": {
+              "x": 195,
+              "y": 150
+            },
+            "width": 165,
+            "height": 110,
+            "measured": {
+              "width": 165,
+              "height": 110
+            },
+            "style": {
+              "width": 120,
+              "height": 80
+            },
+            "resizing": false
+          }
+        ],
+        "isNodeIntersecting": true,
+        "getNodesBounds": {
+          "x": 195,
+          "y": 150,
+          "width": 165,
+          "height": 110
+        },
+        "getHandleConnections": [],
+        "getNodeConnections": [],
+        "toObject": {
+          "nodes": [
+            {
+              "id": "resize",
+              "type": "resizeReceipt",
+              "data": {},
+              "position": {
+                "x": 195,
+                "y": 150
+              },
+              "width": 165,
+              "height": 110,
+              "measured": {
+                "width": 165,
+                "height": 110
+              },
+              "style": {
+                "width": 120,
+                "height": 80
+              },
+              "resizing": false
+            }
+          ],
+          "edges": [],
+          "viewport": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        },
+        "getZoom": 1,
+        "getViewport": {
+          "x": 0,
+          "y": 0,
+          "zoom": 1
+        },
+        "screenToFlowPosition": {
+          "x": 0,
+          "y": 0
+        },
+        "flowToScreenPosition": {
+          "x": 0,
+          "y": 0
+        },
+        "viewportInitialized": true
+      },
+      "calls": []
+    },
+    "props": {},
+    "console": [
+      {
+        "level": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      }
+    ],
+    "driving": [
+      {
+        "index": 0,
+        "action": "mount",
+        "target": ".react-flow",
+        "resolved": true,
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "dispatched": {
+          "route": "/tests/generic/resize/lifecycle"
+        }
+      },
+      {
+        "index": 1,
+        "action": "pointerDown",
+        "target": ".react-flow__resize-control.top.left.handle",
+        "resolved": true,
+        "box": {
+          "x": 236.5,
+          "y": 176.5,
+          "width": 7,
+          "height": 7
+        },
+        "dispatched": {
+          "x": 240,
+          "y": 180,
+          "button": "left"
+        }
+      },
+      {
+        "index": 2,
+        "action": "pointerMove",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "x": 225,
+          "y": 170
+        }
+      },
+      {
+        "index": 3,
+        "action": "pointerMove",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "x": 210,
+          "y": 160
+        }
+      },
+      {
+        "index": 4,
+        "action": "pointerMove",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "x": 195,
+          "y": 150
+        }
+      },
+      {
+        "index": 5,
+        "action": "pointerUp",
+        "target": null,
+        "resolved": true,
+        "box": null,
+        "dispatched": {
+          "x": 195,
+          "y": 150,
+          "button": "left"
+        }
+      }
+    ]
+  }
+}

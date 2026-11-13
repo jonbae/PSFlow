@@ -1,0 +1,4597 @@
+{
+  "scenarios": 107,
+  "passed": 12,
+  "failed": 95,
+  "selfInconsistent": [
+    "mount-baseline--viewport-controlled",
+    "drag-node-autopan",
+    "wheel-zoom-from-identity-viewport",
+    "drag-node-reports-changes",
+    "pan-after-controlled-viewport-change"
+  ],
+  "drivingDivergence": [],
+  "rows": [
+    {
+      "scenario": "mount-baseline--edges-general",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--node-toolbar-general",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 1,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--nodes-general",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--pane-general",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--pane-non-defaults",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 1,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--chrome-background",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--chrome-controls",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--chrome-minimap-colors",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--chrome-minimap-hidden-nodes",
+      "passed": true,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [],
+      "unclaimed": 0,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--chrome-panels",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--edges-base-edge-path",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--fitview-uncontrolled",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--flow-chrome-defaults",
+      "passed": true,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [],
+      "unclaimed": 0,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--flow-custom-testid",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--flow-display-none",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--flow-limits-change",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 1,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--flow-not-selectable",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--flow-props-change",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--nodes-autopan",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 1,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--nodes-connections",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 1,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--nodes-expand-parent",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 1,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--nodes-no-select-on-drag",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--nodes-nowheel",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 1,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--nodes-props-record",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--nodes-tall",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 1,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--nodes-unmeasured",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--resize-lifecycle",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--viewport-controlled",
+      "passed": false,
+      "interpretable": false,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": false,
+          "differences": 1
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "self-inconsistent",
+        "unclaimed-difference"
+      ],
+      "unclaimed": null,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--viewport-helpers",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--viewport-pan-on-scroll",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 1,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--examples-color-mode",
+      "passed": true,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [],
+      "unclaimed": 0,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 0
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 0
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 0
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 0
+        }
+      ]
+    },
+    {
+      "scenario": "click-selects-edge",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "multi-select-edges-with-modifier",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "click-unselectable-edge",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "delete-key-removes-edge",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "delete-key-spares-undeletable-edge",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "click-inside-interaction-width",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "click-selects-node",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "shift-drag-selects-nodes",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "click-unselectable-node",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "drag-moves-node",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "drag-does-not-move-undraggable-node",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "drag-by-custom-drag-handle",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "delete-key-removes-node-and-edges",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "delete-key-spares-undeletable-node",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "connect-source-handle-to-target-handle",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 4,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "connect-output-to-output-handle",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 4,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "connect-input-to-input-handle",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 3,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "connect-to-unconnectable-handle",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 4,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "drag-pans-the-pane",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "wheel-zooms-the-pane",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "wheel-zooms-out-to-min",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "wheel-zooms-in-to-max",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "wheel-pans-with-panonscroll",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 1,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "click-reveals-default-toolbar",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 1,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "select-dark-color-mode",
+      "passed": true,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [],
+      "unclaimed": 0,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 0
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 0
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 0
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 0
+        }
+      ]
+    },
+    {
+      "scenario": "drag-node-release",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "drag-node-escape-mid-gesture",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "drag-node-autopan",
+      "passed": false,
+      "interpretable": false,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": false,
+          "differences": 74
+        },
+        {
+          "side": "psflow",
+          "consistent": false,
+          "differences": 32
+        }
+      ],
+      "classes": [
+        "self-inconsistent",
+        "unclaimed-difference"
+      ],
+      "unclaimed": null,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "drag-node-no-select-on-drag",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "drag-child-expand-parent",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 1,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "drag-unmeasured-node",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "selection-box-from-node",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "selection-box-then-click-node",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "selection-box-mid-gesture",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "selection-box-touch",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "arrow-key-selected-node",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "keyboard-focus-node",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 1,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "connect-handle-to-handle",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 4,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "connect-then-keyboard-move",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "connect-second-touch-point",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "probe-node-connections",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 1,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "viewport-helpers-with-options",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "pan-gesture-complete",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "fitview-onnodeschange-variants",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "uncontrolled-update-node",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "flow-props-change-after-mount",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-in-display-none",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "minimap-all-nodes-hidden",
+      "passed": true,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [],
+      "unclaimed": 0,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "minimap-custom-mask-colors",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "controls-horizontal",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "panel-center-positions",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "background-custom-bgcolor",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "flow-custom-testid",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "custom-edge-baseedge-path",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "pinch-over-nowheel-node",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 1,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "minimap-default-click",
+      "passed": true,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [],
+      "unclaimed": 0,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "controls-default-zoom",
+      "passed": true,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [],
+      "unclaimed": 0,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "wheel-zoom-from-identity-viewport",
+      "passed": false,
+      "interpretable": false,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": false,
+          "differences": 1
+        }
+      ],
+      "classes": [
+        "self-inconsistent",
+        "unclaimed-difference"
+      ],
+      "unclaimed": null,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "pane-drag-from-identity-viewport",
+      "passed": true,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [],
+      "unclaimed": 0,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "drag-node-reports-changes",
+      "passed": false,
+      "interpretable": false,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": false,
+          "differences": 109
+        },
+        {
+          "side": "psflow",
+          "consistent": false,
+          "differences": 94
+        }
+      ],
+      "classes": [
+        "self-inconsistent",
+        "unclaimed-difference"
+      ],
+      "unclaimed": null,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "click-connect-reverse-direction",
+      "passed": true,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [],
+      "unclaimed": 0,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "connect-drag-holding-source",
+      "passed": true,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [],
+      "unclaimed": 0,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "connect-drag-released-on-pane",
+      "passed": true,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [],
+      "unclaimed": 0,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "node-props-record-parented",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 3,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "resize-node-with-direct-control",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "resize-node-with-resizer",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "resize-node-after-active-limit-change",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "wheel-zooms-to-changed-limits",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "drag-pans-into-changed-extent",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 1,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "pan-after-controlled-viewport-change",
+      "passed": false,
+      "interpretable": false,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": false,
+          "differences": 1
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "self-inconsistent",
+        "unclaimed-difference"
+      ],
+      "unclaimed": null,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "ctrl-wheel-pinches-with-panonscroll",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 1,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "pane-click-keeps-selection-when-not-selectable",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "click-selects-node--probe-flow-node",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 27,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "wheel-zooms-the-pane--probe-flow-node",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 24,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "mount-baseline--edges-general--probe-edge",
+      "passed": true,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [],
+      "unclaimed": 0,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    },
+    {
+      "scenario": "connect-source-handle-to-target-handle--probe-connection-line",
+      "passed": false,
+      "interpretable": true,
+      "consistency": [
+        {
+          "side": "upstream",
+          "consistent": true,
+          "differences": 0
+        },
+        {
+          "side": "psflow",
+          "consistent": true,
+          "differences": 0
+        }
+      ],
+      "classes": [
+        "unclaimed-difference"
+      ],
+      "unclaimed": 2,
+      "onInit": [
+        {
+          "side": "psflow",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "psflow",
+          "capture": 2,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 1,
+          "calls": 1
+        },
+        {
+          "side": "upstream",
+          "capture": 2,
+          "calls": 1
+        }
+      ]
+    }
+  ]
+}

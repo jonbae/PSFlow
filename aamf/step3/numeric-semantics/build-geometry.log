@@ -1,0 +1,243 @@
+$ npm exec --yes --package=purescript@0.15.16 -- spago build
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[  1 of 203] Compiling System.Utils.General
+[  2 of 203] Compiling Test.System.Utils.NumericParity
+[  3 of 203] Compiling System.Utils.Dom
+[  4 of 203] Compiling System.Utils.Edges.General
+[  5 of 203] Compiling System.Utils.Graph
+[  6 of 203] Compiling System.XYDrag.Utils
+[  7 of 203] Compiling System.XYMinimap
+[  8 of 203] Compiling Test.System.Utils.MathRound
+[  9 of 203] Compiling System.XYPanZoom.Utils
+[ 10 of 203] Compiling System.Utils.Edges.Positions
+[ 11 of 203] Compiling System.XYPanZoom.EventHandler
+[ 12 of 203] Compiling System.XYPanZoom.Filter
+[ 13 of 203] Compiling React.Container.Pane.Internal
+[ 14 of 203] Compiling System.Utils.Store
+[ 15 of 203] Compiling React.Hook.KeyPress
+[ 16 of 203] Compiling System.XYResizer
+[ 17 of 203] Compiling Test.System.XYDrag.DragItemOrder
+[ 18 of 203] Compiling Test.React.Container.Pane
+[ 19 of 203] Compiling System.XYHandle.Utils
+[ 20 of 203] Compiling System.Utils.Edges.Bezier
+[ 21 of 203] Compiling System.Utils.Edges.Straight
+[ 22 of 203] Compiling System.Utils.Edges.SmoothStep
+[ 23 of 203] Compiling Test.Parity.Util
+[ 24 of 203] Compiling React.Edge.Straight
+[ 25 of 203] Compiling System.XYPanZoom
+[ 26 of 203] Compiling React.Edge.Bezier
+[ 27 of 203] Compiling System.Utils.Edges.SimpleBezier
+[ 28 of 203] Compiling Test.System.XYPanZoom.EventHandler
+[ 29 of 203] Compiling React.Util.General
+[ 30 of 203] Compiling System.XYDrag
+[ 31 of 203] Compiling React.Types.General
+[ 32 of 203] Compiling System.XYHandle
+[ 33 of 203] Compiling Test.Properties
+[ 34 of 203] Compiling React.Edge.SimpleBezier
+[ 35 of 203] Compiling React.Types.Instance
+[ 36 of 203] Compiling System.Utils.Edges
+[ 37 of 203] Compiling React.Edge.SmoothStep
+[ 38 of 203] Compiling Test.System.XYPanZoom.SourceEvents
+[ 39 of 203] Compiling Test.Oracle
+[ 40 of 203] Compiling React.Edge.Step
+[ 41 of 203] Compiling React.Component.EdgeWrapper.Util
+[ 42 of 203] Compiling Test.Parity.Connections
+[ 43 of 203] Compiling Test.Parity.Marker
+[ 44 of 203] Compiling Test.Parity.Toolbar
+[ 45 of 203] Compiling Test.Parity.Geometry
+[ 46 of 203] Compiling Test.Parity.Graph
+[ 47 of 203] Compiling Test.Parity.Changes
+[ 48 of 203] Compiling Test.Parity.Edges
+[ 49 of 203] Compiling Test.System.Utils.ConnectionOrder
+[ 50 of 203] Compiling Test.System.Utils.Store
+[ 51 of 203] Compiling Test.System.Utils.StorePanBy
+[ 52 of 203] Compiling React.Types.Component
+[ 53 of 203] Compiling React.Additional.MiniMap.Node
+[ 54 of 203] Compiling React.Additional.Controls.Button
+[ 55 of 203] Compiling React.Additional.Background.Patterns
+[ 57 of 203] Compiling React.Portal.Panel
+[ 56 of 203] Compiling Boundary.Enums
+[ 58 of 203] Compiling React.Container.Attribution
+[ 59 of 203] Compiling Test.React.Container.AttributionPanel
+[ 60 of 203] Compiling Boundary.Elements
+[ 61 of 203] Compiling Boundary.FitView
+[ 62 of 203] Compiling Boundary.EdgePaths
+[ 63 of 203] Compiling Test.Boundary.EdgePaths
+[ 64 of 203] Compiling Test.System.XYDrag
+[ 65 of 203] Compiling React.Hook.Drag
+[ 66 of 203] Compiling React.Types.Store
+[ 67 of 203] Compiling React.Types
+[ 68 of 203] Compiling React.Store.InitialState
+[ 69 of 203] Compiling React.Store.Action
+[ 70 of 203] Compiling React.Hook.VisibleIds.Pure
+[ 71 of 203] Compiling Test.React.Hook.DragRebind
+[ 72 of 203] Compiling Test.React.Hook.Drag
+[ 73 of 203] Compiling React.Store.Reduce
+[ 74 of 203] Compiling Test.System.Utils.MeasurementOrder
+[ 75 of 203] Compiling Test.System.Utils.MeasuredDimensions
+[ 76 of 203] Compiling Test.System.XYHandle
+[ 77 of 203] Compiling Test.React.Hook.NodeRenderOrder
+[ 78 of 203] Compiling Test.React.Hook.VisibleIds
+[ 79 of 203] Compiling Test.Boundary.NodeSelected
+[ 80 of 203] Compiling Test.Boundary.NodeHidden
+[ 81 of 203] Compiling Test.Boundary.HandleIdNull
+[ 82 of 203] Compiling Test.Boundary.DimensionResizing
+[ 83 of 203] Compiling Test.Boundary.NodeExpandParent
+[ 84 of 203] Compiling Test.Boundary.PrunedKeys
+[ 85 of 203] Compiling Boundary.Instance
+[ 86 of 203] Compiling Test.Boundary.ConnectionNullHandle
+[ 87 of 203] Compiling Boundary.Callbacks
+[ 88 of 203] Compiling Boundary.Utils
+[ 89 of 203] Compiling Test.Boundary.ConsumerObjects
+[ 90 of 203] Compiling Test.Boundary.NodeDragging
+[ 91 of 203] Compiling Test.Boundary.EdgeSelected
+[ 92 of 203] Compiling Test.React.Store.EmptyChanges
+[ 93 of 203] Compiling Test.React.Store.MergeNodeInternals
+[ 94 of 203] Compiling Test.React.Provider.InitPrevValues
+[ 95 of 203] Compiling React.Store.Shell
+[ 96 of 203] Compiling Test.React.Store.UpdateNodePositions
+[ 98 of 203] Compiling Test.React.Store.ResetSelection
+[ 97 of 203] Compiling Test.React.Store.Reduce
+[ 99 of 203] Compiling Test.React.Store.ZoomLimits
+[100 of 203] Compiling React.Node.Util
+[101 of 203] Compiling Test.React.Store.Shell
+[102 of 203] Compiling Test.System.XYResizer
+[104 of 203] Compiling React.Store.PanBy
+[103 of 203] Compiling React.Hook.Store
+[105 of 203] Compiling Test.React.Node.HandleNodeClick
+[106 of 203] Compiling React.Container.MarkerDefinitions
+[107 of 203] Compiling React.Hook.UpdateNodeInternals
+[108 of 203] Compiling React.Hook.NodeConnections
+[109 of 203] Compiling React.Hook.Selectors
+[110 of 203] Compiling React.Provider.SelectionListener
+[111 of 203] Compiling React.Handle
+[112 of 203] Compiling React.Additional.MiniMap.Nodes
+[113 of 203] Compiling React.Hook.StylesLoadedWarning
+[114 of 203] Compiling React.Hook.ResizeHandler
+[115 of 203] Compiling React.Additional.Background
+[116 of 203] Compiling React.Hook.MoveSelectedNodes
+[117 of 203] Compiling React.Hook.Middleware
+[118 of 203] Compiling React.Portal.EdgeLabelRenderer
+[119 of 203] Compiling React.Component.EdgeWrapper.UpdateAnchors
+[120 of 203] Compiling React.Additional.NodeToolbar.Portal
+[121 of 203] Compiling React.Hook.ViewportHelper
+[122 of 203] Compiling React.Container.A11yDescriptions
+[123 of 203] Compiling React.Portal.ViewportPortal
+[124 of 203] Compiling Test.React.Hook.Store
+[125 of 203] Compiling React.Provider.Batch
+[126 of 203] Compiling React.Hook.ViewportSync
+[127 of 203] Compiling React.Hook.VisibleIds
+[128 of 203] Compiling React.Hook.NodeObserver
+[129 of 203] Compiling React.Hook.NodeOrEdgeTypesWarning
+[130 of 203] Compiling React.Component.UserSelection
+[131 of 203] Compiling React.Additional.NodeResizer.Control
+[132 of 203] Compiling React.Container.Viewport
+[133 of 203] Compiling React.Hook.HandleConnections
+[134 of 203] Compiling React.Provider.StoreUpdater
+[135 of 203] Compiling React.Additional.MiniMap
+[136 of 203] Compiling React.Container.ZoomPane
+[137 of 203] Compiling Test.React.Additional.BackgroundOffset
+[138 of 203] Compiling React.Additional.EdgeToolbar
+[139 of 203] Compiling React.Additional.NodeToolbar
+[140 of 203] Compiling Test.React.Container.NodeA11yDescription
+[141 of 203] Compiling Boundary.Portals
+[142 of 203] Compiling Test.React.Hook.MoveSelectedNodes
+[143 of 203] Compiling React.Component.EdgeWrapper
+[144 of 203] Compiling React.Component.ConnectionLine
+[145 of 203] Compiling Test.React.Hook.ViewportSync
+[146 of 203] Compiling Test.React.Hook.NodeObserver
+[147 of 203] Compiling React.Container.Pane
+[148 of 203] Compiling Test.React.Provider.BatchQueue
+[149 of 203] Compiling React.Provider
+[150 of 203] Compiling Test.React.HandleNativeEvent
+[151 of 203] Compiling React.Node.Default
+[152 of 203] Compiling Test.React.Component.HandleDataId
+[153 of 203] Compiling React.Node.Output
+[154 of 203] Compiling React.Node.Input
+[155 of 203] Compiling Test.System.FinalConnectionState
+[156 of 203] Compiling React.Additional.NodeResizer
+[157 of 203] Compiling Test.React.Additional.MiniMapMask
+[158 of 203] Compiling React.Hook.ReactFlow
+[159 of 203] Compiling Boundary.Edges
+[160 of 203] Compiling Test.React.Additional.NodeToolbarPortal
+[161 of 203] Compiling Boundary.NodeChrome
+[162 of 203] Compiling Test.React.Additional.MiniMap
+[163 of 203] Compiling Test.React.Hook.ConnectionTo
+[164 of 203] Compiling React.Component.NodeWrapper.Util
+[165 of 203] Compiling Boundary.Resizer
+[166 of 203] Compiling React.Container.Wrapper
+[167 of 203] Compiling React.Container.EdgeRenderer
+[168 of 203] Compiling Test.React.Component.EdgeComponentProps
+[169 of 203] Compiling Test.Boundary.EdgeAnimated
+[170 of 203] Compiling Test.Boundary.EdgeHidden
+[171 of 203] Compiling Test.React.Component.EdgeAriaLabel
+[172 of 203] Compiling Test.Boundary.BaseEdgeAttributes
+[173 of 203] Compiling Test.Boundary.Wrapper
+[174 of 203] Compiling React.Component.NodeWrapper
+[175 of 203] Compiling React.Component.NodesSelection
+[176 of 203] Compiling Test.React.DomNumbers
+[177 of 203] Compiling Test.React.Component.NodeInlineDimensions
+[178 of 203] Compiling Test.React.Store.InPlaceSelection
+[179 of 203] Compiling Test.React.Component.NodesSelectionRect
+[180 of 203] Compiling React.Container.NodeRenderer
+[181 of 203] Compiling Test.System.XYDrag.DragErrors
+[182 of 203] Compiling Test.React.Component.AriaDescribedBy
+[183 of 203] Compiling Test.System.XYDrag.DragSelection
+[184 of 203] Compiling Test.System.XYDrag.DragUserNodes
+[185 of 203] Compiling React.Hook.Listeners
+[186 of 203] Compiling React.Hook.GlobalKeyHandler
+[187 of 203] Compiling React.Additional.Controls
+[188 of 203] Compiling Boundary.Chrome
+[190 of 203] Compiling Test.React.Hook.OnInitTiming
+[189 of 203] Compiling Boundary.Hooks
+[192 of 203] Compiling React.Container.FlowRenderer
+[191 of 203] Compiling Test.React.Hook.DeleteKey
+[193 of 203] Compiling React.Container.GraphView
+[194 of 203] Compiling Test.React.Hook.ViewportListeners
+[196 of 203] Compiling Test.Boundary.NodeResizing
+[195 of 203] Compiling Test.Boundary.UserNode
+[197 of 203] Compiling React.Container.ReactFlow
+[198 of 203] Compiling React
+[199 of 203] Compiling Boundary.Flow
+[200 of 203] Compiling Boundary
+[201 of 203] Compiling Test.Boundary.FlowWrapperAttributes
+[202 of 203] Compiling Test.React.Additional.BackgroundPattern
+[203 of 203] Compiling Test.Main
+[WARNING 1/3 UnusedExplicitImport] src/System/Utils/Store.purs:66:1
+
+  66  import System.Types.Ids (ParentId, parentToNode, nodeToParent)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  The import of module System.Types.Ids contains the following unused references:
+    nodeToParent
+  It could be replaced with:
+    import System.Types.Ids (ParentId, parentToNode)
+
+[WARNING 2/3 UnusedExplicitImport] src/System/XYDrag/Utils.purs:27:1
+
+  27  import System.Types.Ids (NodeId, ParentId, parentToNode, nodeToParent)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  The import of module System.Types.Ids contains the following unused references:
+    nodeToParent
+  It could be replaced with:
+    import System.Types.Ids (NodeId, ParentId, parentToNode)
+
+[WARNING 3/3 UnusedImport] test/Test/React/Store/Shell.purs:25:1
+
+  25  import Data.Maybe (Maybe(..))
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  The import of Data.Maybe is redundant
+
+           Src   Lib   All
+Warnings     3     0     3
+Errors       0     0     0
+
+✓ Build succeeded.
+

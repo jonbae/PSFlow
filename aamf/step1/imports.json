@@ -1,0 +1,5529 @@
+{
+  "method": "TypeScript source AST plus resolveModuleName using the isolated source tsconfig and installed source dependencies",
+  "parserVersion": "5.9.3",
+  "counts": {
+    "external": 158,
+    "scoped": 531
+  },
+  "kinds": {
+    "import": 579,
+    "reexport": 110
+  },
+  "unresolved": [],
+  "outsideScope": [],
+  "reactToSystem": 80,
+  "records": [
+    {
+      "from": "packages/react/src/additional-components/Background/Background.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/Background/Background.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "classcat",
+      "status": "external",
+      "to": "node_modules/classcat/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/Background/Background.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/additional-components/Background/Background.tsx",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/Background/Background.tsx",
+      "line": 6,
+      "kind": "import",
+      "specifier": "./Patterns",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/Background/Patterns.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/Background/Background.tsx",
+      "line": 7,
+      "kind": "import",
+      "specifier": "../../styles/utils",
+      "status": "scoped",
+      "to": "packages/react/src/styles/utils.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/Background/Background.tsx",
+      "line": 8,
+      "kind": "import",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/Background/types.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/Background/Background.tsx",
+      "line": 9,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/Background/Patterns.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "classcat",
+      "status": "external",
+      "to": "node_modules/classcat/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/Background/Patterns.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/Background/types.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/Background/index.tsx",
+      "line": 1,
+      "kind": "reexport",
+      "specifier": "./Background",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/Background/Background.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/Background/index.tsx",
+      "line": 2,
+      "kind": "reexport",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/Background/types.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/Background/types.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/Controls/ControlButton.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "classcat",
+      "status": "external",
+      "to": "node_modules/classcat/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/Controls/ControlButton.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/Controls/types.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/Controls/Controls.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/Controls/Controls.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "classcat",
+      "status": "external",
+      "to": "node_modules/classcat/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/Controls/Controls.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/additional-components/Controls/Controls.tsx",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/Controls/Controls.tsx",
+      "line": 6,
+      "kind": "import",
+      "specifier": "../../hooks/useReactFlow",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useReactFlow.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/Controls/Controls.tsx",
+      "line": 7,
+      "kind": "import",
+      "specifier": "../../components/Panel",
+      "status": "scoped",
+      "to": "packages/react/src/components/Panel/index.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/Controls/Controls.tsx",
+      "line": 8,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/Controls/Controls.tsx",
+      "line": 10,
+      "kind": "import",
+      "specifier": "./Icons/Plus",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/Controls/Icons/Plus.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/Controls/Controls.tsx",
+      "line": 11,
+      "kind": "import",
+      "specifier": "./Icons/Minus",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/Controls/Icons/Minus.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/Controls/Controls.tsx",
+      "line": 12,
+      "kind": "import",
+      "specifier": "./Icons/FitView",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/Controls/Icons/FitView.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/Controls/Controls.tsx",
+      "line": 13,
+      "kind": "import",
+      "specifier": "./Icons/Lock",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/Controls/Icons/Lock.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/Controls/Controls.tsx",
+      "line": 14,
+      "kind": "import",
+      "specifier": "./Icons/Unlock",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/Controls/Icons/Unlock.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/Controls/Controls.tsx",
+      "line": 15,
+      "kind": "import",
+      "specifier": "./ControlButton",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/Controls/ControlButton.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/Controls/Controls.tsx",
+      "line": 16,
+      "kind": "import",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/Controls/types.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/Controls/index.tsx",
+      "line": 1,
+      "kind": "reexport",
+      "specifier": "./Controls",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/Controls/Controls.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/Controls/index.tsx",
+      "line": 2,
+      "kind": "reexport",
+      "specifier": "./ControlButton",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/Controls/ControlButton.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/Controls/index.tsx",
+      "line": 3,
+      "kind": "reexport",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/Controls/types.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/Controls/types.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/Controls/types.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/Controls/types.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/EdgeToolbar/EdgeToolbar.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/EdgeToolbar/EdgeToolbar.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "classcat",
+      "status": "external",
+      "to": "node_modules/classcat/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/EdgeToolbar/EdgeToolbar.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/additional-components/EdgeToolbar/EdgeToolbar.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/EdgeToolbar/EdgeToolbar.tsx",
+      "line": 6,
+      "kind": "import",
+      "specifier": "../../components/EdgeLabelRenderer",
+      "status": "scoped",
+      "to": "packages/react/src/components/EdgeLabelRenderer/index.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/EdgeToolbar/EdgeToolbar.tsx",
+      "line": 7,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/EdgeToolbar/EdgeToolbar.tsx",
+      "line": 8,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/EdgeToolbar/EdgeToolbar.tsx",
+      "line": 9,
+      "kind": "import",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/EdgeToolbar/types.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/EdgeToolbar/index.tsx",
+      "line": 1,
+      "kind": "reexport",
+      "specifier": "./EdgeToolbar",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/EdgeToolbar/EdgeToolbar.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/EdgeToolbar/index.tsx",
+      "line": 2,
+      "kind": "reexport",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/EdgeToolbar/types.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/EdgeToolbar/types.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/EdgeToolbar/types.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/MiniMap/MiniMap.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/MiniMap/MiniMap.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "classcat",
+      "status": "external",
+      "to": "node_modules/classcat/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/MiniMap/MiniMap.tsx",
+      "line": 5,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/additional-components/MiniMap/MiniMap.tsx",
+      "line": 6,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/MiniMap/MiniMap.tsx",
+      "line": 8,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/MiniMap/MiniMap.tsx",
+      "line": 9,
+      "kind": "import",
+      "specifier": "../../components/Panel",
+      "status": "scoped",
+      "to": "packages/react/src/components/Panel/index.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/MiniMap/MiniMap.tsx",
+      "line": 10,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/MiniMap/MiniMap.tsx",
+      "line": 12,
+      "kind": "import",
+      "specifier": "./MiniMapNodes",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/MiniMap/MiniMapNodes.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/MiniMap/MiniMap.tsx",
+      "line": 13,
+      "kind": "import",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/MiniMap/types.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/MiniMap/MiniMapNode.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/MiniMap/MiniMapNode.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "classcat",
+      "status": "external",
+      "to": "node_modules/classcat/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/MiniMap/MiniMapNode.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/MiniMap/types.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/MiniMap/MiniMapNodes.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/MiniMap/MiniMapNodes.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/MiniMap/MiniMapNodes.tsx",
+      "line": 5,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/additional-components/MiniMap/MiniMapNodes.tsx",
+      "line": 7,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/MiniMap/MiniMapNodes.tsx",
+      "line": 8,
+      "kind": "import",
+      "specifier": "./MiniMapNode",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/MiniMap/MiniMapNode.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/MiniMap/MiniMapNodes.tsx",
+      "line": 9,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/MiniMap/MiniMapNodes.tsx",
+      "line": 10,
+      "kind": "import",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/MiniMap/types.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/MiniMap/index.tsx",
+      "line": 1,
+      "kind": "reexport",
+      "specifier": "./MiniMap",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/MiniMap/MiniMap.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/MiniMap/index.tsx",
+      "line": 2,
+      "kind": "reexport",
+      "specifier": "./MiniMapNode",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/MiniMap/MiniMapNode.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/MiniMap/index.tsx",
+      "line": 3,
+      "kind": "reexport",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/MiniMap/types.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/MiniMap/types.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/MiniMap/types.ts",
+      "line": 3,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/MiniMap/types.ts",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeResizer/NodeResizeControl.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeResizer/NodeResizeControl.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "classcat",
+      "status": "external",
+      "to": "node_modules/classcat/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeResizer/NodeResizeControl.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeResizer/NodeResizeControl.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeResizer/NodeResizeControl.tsx",
+      "line": 20,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeResizer/NodeResizeControl.tsx",
+      "line": 21,
+      "kind": "import",
+      "specifier": "../../contexts/NodeIdContext",
+      "status": "scoped",
+      "to": "packages/react/src/contexts/NodeIdContext.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeResizer/NodeResizeControl.tsx",
+      "line": 22,
+      "kind": "import",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/NodeResizer/types.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeResizer/NodeResizeControl.tsx",
+      "line": 23,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeResizer/NodeResizer.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeResizer/NodeResizer.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "./NodeResizeControl",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/NodeResizer/NodeResizeControl.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeResizer/NodeResizer.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/NodeResizer/types.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeResizer/index.tsx",
+      "line": 1,
+      "kind": "reexport",
+      "specifier": "./NodeResizer",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/NodeResizer/NodeResizer.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeResizer/index.tsx",
+      "line": 2,
+      "kind": "reexport",
+      "specifier": "./NodeResizeControl",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/NodeResizer/NodeResizeControl.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeResizer/index.tsx",
+      "line": 4,
+      "kind": "reexport",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/NodeResizer/types.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeResizer/types.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeResizer/types.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeToolbar/NodeToolbar.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeToolbar/NodeToolbar.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "classcat",
+      "status": "external",
+      "to": "node_modules/classcat/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeToolbar/NodeToolbar.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeToolbar/NodeToolbar.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeToolbar/NodeToolbar.tsx",
+      "line": 6,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeToolbar/NodeToolbar.tsx",
+      "line": 7,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeToolbar/NodeToolbar.tsx",
+      "line": 8,
+      "kind": "import",
+      "specifier": "../../contexts/NodeIdContext",
+      "status": "scoped",
+      "to": "packages/react/src/contexts/NodeIdContext.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeToolbar/NodeToolbar.tsx",
+      "line": 9,
+      "kind": "import",
+      "specifier": "./NodeToolbarPortal",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/NodeToolbar/NodeToolbarPortal.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeToolbar/NodeToolbar.tsx",
+      "line": 10,
+      "kind": "import",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/NodeToolbar/types.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeToolbar/NodeToolbarPortal.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeToolbar/NodeToolbarPortal.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "react-dom",
+      "status": "external",
+      "to": "node_modules/@types/react-dom/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeToolbar/NodeToolbarPortal.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeToolbar/NodeToolbarPortal.tsx",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeToolbar/index.tsx",
+      "line": 1,
+      "kind": "reexport",
+      "specifier": "./NodeToolbar",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/NodeToolbar/NodeToolbar.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeToolbar/index.tsx",
+      "line": 2,
+      "kind": "reexport",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/NodeToolbar/types.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeToolbar/types.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/NodeToolbar/types.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/additional-components/index.ts",
+      "line": 1,
+      "kind": "reexport",
+      "specifier": "./Background",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/Background/index.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/index.ts",
+      "line": 2,
+      "kind": "reexport",
+      "specifier": "./Controls",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/Controls/index.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/index.ts",
+      "line": 3,
+      "kind": "reexport",
+      "specifier": "./MiniMap",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/MiniMap/index.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/index.ts",
+      "line": 4,
+      "kind": "reexport",
+      "specifier": "./NodeResizer",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/NodeResizer/index.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/index.ts",
+      "line": 5,
+      "kind": "reexport",
+      "specifier": "./NodeToolbar",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/NodeToolbar/index.tsx"
+    },
+    {
+      "from": "packages/react/src/additional-components/index.ts",
+      "line": 6,
+      "kind": "reexport",
+      "specifier": "./EdgeToolbar",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/EdgeToolbar/index.tsx"
+    },
+    {
+      "from": "packages/react/src/components/A11yDescriptions/index.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/A11yDescriptions/index.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/components/A11yDescriptions/index.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/Attribution/index.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/Attribution/index.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "../Panel",
+      "status": "scoped",
+      "to": "packages/react/src/components/Panel/index.tsx"
+    },
+    {
+      "from": "packages/react/src/components/BatchProvider/index.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/BatchProvider/index.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/BatchProvider/index.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/components/BatchProvider/index.tsx",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../../utils",
+      "status": "scoped",
+      "to": "packages/react/src/utils/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/BatchProvider/index.tsx",
+      "line": 6,
+      "kind": "import",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/react/src/components/BatchProvider/types.ts"
+    },
+    {
+      "from": "packages/react/src/components/BatchProvider/index.tsx",
+      "line": 7,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/BatchProvider/index.tsx",
+      "line": 8,
+      "kind": "import",
+      "specifier": "./useQueue",
+      "status": "scoped",
+      "to": "packages/react/src/components/BatchProvider/useQueue.ts"
+    },
+    {
+      "from": "packages/react/src/components/BatchProvider/useQueue.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/BatchProvider/useQueue.ts",
+      "line": 3,
+      "kind": "import",
+      "specifier": "../../hooks/useIsomorphicLayoutEffect",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useIsomorphicLayoutEffect.ts"
+    },
+    {
+      "from": "packages/react/src/components/BatchProvider/useQueue.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/react/src/components/BatchProvider/types.ts"
+    },
+    {
+      "from": "packages/react/src/components/ConnectionLine/index.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/ConnectionLine/index.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/components/ConnectionLine/index.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "classcat",
+      "status": "external",
+      "to": "node_modules/classcat/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/ConnectionLine/index.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/ConnectionLine/index.tsx",
+      "line": 12,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/components/ConnectionLine/index.tsx",
+      "line": 13,
+      "kind": "import",
+      "specifier": "../Edges/SimpleBezierEdge",
+      "status": "scoped",
+      "to": "packages/react/src/components/Edges/SimpleBezierEdge.tsx"
+    },
+    {
+      "from": "packages/react/src/components/ConnectionLine/index.tsx",
+      "line": 14,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/ConnectionLine/index.tsx",
+      "line": 15,
+      "kind": "import",
+      "specifier": "../../hooks/useConnection",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useConnection.ts"
+    },
+    {
+      "from": "packages/react/src/components/EdgeLabelRenderer/index.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/EdgeLabelRenderer/index.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "react-dom",
+      "status": "external",
+      "to": "node_modules/@types/react-dom/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/EdgeLabelRenderer/index.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/components/EdgeLabelRenderer/index.tsx",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/EdgeWrapper/EdgeUpdateAnchors.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/EdgeWrapper/EdgeUpdateAnchors.tsx",
+      "line": 11,
+      "kind": "import",
+      "specifier": "../Edges/EdgeAnchor",
+      "status": "scoped",
+      "to": "packages/react/src/components/Edges/EdgeAnchor.tsx"
+    },
+    {
+      "from": "packages/react/src/components/EdgeWrapper/EdgeUpdateAnchors.tsx",
+      "line": 12,
+      "kind": "import",
+      "specifier": "../../types/edges",
+      "status": "scoped",
+      "to": "packages/react/src/types/edges.ts"
+    },
+    {
+      "from": "packages/react/src/components/EdgeWrapper/EdgeUpdateAnchors.tsx",
+      "line": 13,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/components/EdgeWrapper/index.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/EdgeWrapper/index.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "classcat",
+      "status": "external",
+      "to": "node_modules/classcat/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/EdgeWrapper/index.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/components/EdgeWrapper/index.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/EdgeWrapper/index.tsx",
+      "line": 12,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/components/EdgeWrapper/index.tsx",
+      "line": 13,
+      "kind": "import",
+      "specifier": "../A11yDescriptions",
+      "status": "scoped",
+      "to": "packages/react/src/components/A11yDescriptions/index.tsx"
+    },
+    {
+      "from": "packages/react/src/components/EdgeWrapper/index.tsx",
+      "line": 14,
+      "kind": "import",
+      "specifier": "./utils",
+      "status": "scoped",
+      "to": "packages/react/src/components/EdgeWrapper/utils.ts"
+    },
+    {
+      "from": "packages/react/src/components/EdgeWrapper/index.tsx",
+      "line": 15,
+      "kind": "import",
+      "specifier": "./EdgeUpdateAnchors",
+      "status": "scoped",
+      "to": "packages/react/src/components/EdgeWrapper/EdgeUpdateAnchors.tsx"
+    },
+    {
+      "from": "packages/react/src/components/EdgeWrapper/index.tsx",
+      "line": 16,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/EdgeWrapper/utils.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/EdgeWrapper/utils.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "../Edges",
+      "status": "scoped",
+      "to": "packages/react/src/components/Edges/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/Edges/BaseEdge.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/Edges/BaseEdge.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "classcat",
+      "status": "external",
+      "to": "node_modules/classcat/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/Edges/BaseEdge.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "./EdgeText",
+      "status": "scoped",
+      "to": "packages/react/src/components/Edges/EdgeText.tsx"
+    },
+    {
+      "from": "packages/react/src/components/Edges/BaseEdge.tsx",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/Edges/BezierEdge.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/Edges/BezierEdge.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/Edges/BezierEdge.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "./BaseEdge",
+      "status": "scoped",
+      "to": "packages/react/src/components/Edges/BaseEdge.tsx"
+    },
+    {
+      "from": "packages/react/src/components/Edges/BezierEdge.tsx",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/Edges/EdgeAnchor.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/Edges/EdgeAnchor.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "classcat",
+      "status": "external",
+      "to": "node_modules/classcat/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/Edges/EdgeAnchor.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/Edges/EdgeText.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/Edges/EdgeText.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "classcat",
+      "status": "external",
+      "to": "node_modules/classcat/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/Edges/EdgeText.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/Edges/EdgeText.tsx",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/Edges/SimpleBezierEdge.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/Edges/SimpleBezierEdge.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/Edges/SimpleBezierEdge.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "./BaseEdge",
+      "status": "scoped",
+      "to": "packages/react/src/components/Edges/BaseEdge.tsx"
+    },
+    {
+      "from": "packages/react/src/components/Edges/SimpleBezierEdge.tsx",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/Edges/SmoothStepEdge.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/Edges/SmoothStepEdge.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/Edges/SmoothStepEdge.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "./BaseEdge",
+      "status": "scoped",
+      "to": "packages/react/src/components/Edges/BaseEdge.tsx"
+    },
+    {
+      "from": "packages/react/src/components/Edges/SmoothStepEdge.tsx",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/Edges/StepEdge.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/Edges/StepEdge.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "./SmoothStepEdge",
+      "status": "scoped",
+      "to": "packages/react/src/components/Edges/SmoothStepEdge.tsx"
+    },
+    {
+      "from": "packages/react/src/components/Edges/StepEdge.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/Edges/StraightEdge.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/Edges/StraightEdge.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/Edges/StraightEdge.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "./BaseEdge",
+      "status": "scoped",
+      "to": "packages/react/src/components/Edges/BaseEdge.tsx"
+    },
+    {
+      "from": "packages/react/src/components/Edges/StraightEdge.tsx",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/Edges/index.ts",
+      "line": 7,
+      "kind": "reexport",
+      "specifier": "./SimpleBezierEdge",
+      "status": "scoped",
+      "to": "packages/react/src/components/Edges/SimpleBezierEdge.tsx"
+    },
+    {
+      "from": "packages/react/src/components/Edges/index.ts",
+      "line": 8,
+      "kind": "reexport",
+      "specifier": "./SmoothStepEdge",
+      "status": "scoped",
+      "to": "packages/react/src/components/Edges/SmoothStepEdge.tsx"
+    },
+    {
+      "from": "packages/react/src/components/Edges/index.ts",
+      "line": 9,
+      "kind": "reexport",
+      "specifier": "./StepEdge",
+      "status": "scoped",
+      "to": "packages/react/src/components/Edges/StepEdge.tsx"
+    },
+    {
+      "from": "packages/react/src/components/Edges/index.ts",
+      "line": 10,
+      "kind": "reexport",
+      "specifier": "./StraightEdge",
+      "status": "scoped",
+      "to": "packages/react/src/components/Edges/StraightEdge.tsx"
+    },
+    {
+      "from": "packages/react/src/components/Edges/index.ts",
+      "line": 11,
+      "kind": "reexport",
+      "specifier": "./BezierEdge",
+      "status": "scoped",
+      "to": "packages/react/src/components/Edges/BezierEdge.tsx"
+    },
+    {
+      "from": "packages/react/src/components/Handle/index.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/Handle/index.tsx",
+      "line": 8,
+      "kind": "import",
+      "specifier": "classcat",
+      "status": "external",
+      "to": "node_modules/classcat/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/Handle/index.tsx",
+      "line": 9,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/components/Handle/index.tsx",
+      "line": 10,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/Handle/index.tsx",
+      "line": 25,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/components/Handle/index.tsx",
+      "line": 26,
+      "kind": "import",
+      "specifier": "../../contexts/NodeIdContext",
+      "status": "scoped",
+      "to": "packages/react/src/contexts/NodeIdContext.ts"
+    },
+    {
+      "from": "packages/react/src/components/Handle/index.tsx",
+      "line": 27,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/Handle/index.tsx",
+      "line": 28,
+      "kind": "import",
+      "specifier": "../../utils",
+      "status": "scoped",
+      "to": "packages/react/src/utils/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/Handle/index.tsx",
+      "line": 29,
+      "kind": "import",
+      "specifier": "../../utils/edges",
+      "status": "scoped",
+      "to": "packages/react/src/utils/edges.ts"
+    },
+    {
+      "from": "packages/react/src/components/NodeWrapper/index.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/NodeWrapper/index.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "classcat",
+      "status": "external",
+      "to": "node_modules/classcat/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/NodeWrapper/index.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/components/NodeWrapper/index.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/NodeWrapper/index.tsx",
+      "line": 13,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/components/NodeWrapper/index.tsx",
+      "line": 14,
+      "kind": "import",
+      "specifier": "../../contexts/NodeIdContext",
+      "status": "scoped",
+      "to": "packages/react/src/contexts/NodeIdContext.ts"
+    },
+    {
+      "from": "packages/react/src/components/NodeWrapper/index.tsx",
+      "line": 15,
+      "kind": "import",
+      "specifier": "../A11yDescriptions",
+      "status": "scoped",
+      "to": "packages/react/src/components/A11yDescriptions/index.tsx"
+    },
+    {
+      "from": "packages/react/src/components/NodeWrapper/index.tsx",
+      "line": 16,
+      "kind": "import",
+      "specifier": "../../hooks/useDrag",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useDrag.ts"
+    },
+    {
+      "from": "packages/react/src/components/NodeWrapper/index.tsx",
+      "line": 17,
+      "kind": "import",
+      "specifier": "../../hooks/useMoveSelectedNodes",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useMoveSelectedNodes.ts"
+    },
+    {
+      "from": "packages/react/src/components/NodeWrapper/index.tsx",
+      "line": 18,
+      "kind": "import",
+      "specifier": "../Nodes/utils",
+      "status": "scoped",
+      "to": "packages/react/src/components/Nodes/utils.ts"
+    },
+    {
+      "from": "packages/react/src/components/NodeWrapper/index.tsx",
+      "line": 19,
+      "kind": "import",
+      "specifier": "./utils",
+      "status": "scoped",
+      "to": "packages/react/src/components/NodeWrapper/utils.tsx"
+    },
+    {
+      "from": "packages/react/src/components/NodeWrapper/index.tsx",
+      "line": 20,
+      "kind": "import",
+      "specifier": "./useNodeObserver",
+      "status": "scoped",
+      "to": "packages/react/src/components/NodeWrapper/useNodeObserver.ts"
+    },
+    {
+      "from": "packages/react/src/components/NodeWrapper/index.tsx",
+      "line": 21,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/NodeWrapper/useNodeObserver.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/NodeWrapper/useNodeObserver.ts",
+      "line": 3,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/NodeWrapper/useNodeObserver.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/components/NodeWrapper/utils.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/NodeWrapper/utils.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "../Nodes/InputNode",
+      "status": "scoped",
+      "to": "packages/react/src/components/Nodes/InputNode.tsx"
+    },
+    {
+      "from": "packages/react/src/components/NodeWrapper/utils.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../Nodes/DefaultNode",
+      "status": "scoped",
+      "to": "packages/react/src/components/Nodes/DefaultNode.tsx"
+    },
+    {
+      "from": "packages/react/src/components/NodeWrapper/utils.tsx",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../Nodes/GroupNode",
+      "status": "scoped",
+      "to": "packages/react/src/components/Nodes/GroupNode.tsx"
+    },
+    {
+      "from": "packages/react/src/components/NodeWrapper/utils.tsx",
+      "line": 6,
+      "kind": "import",
+      "specifier": "../Nodes/OutputNode",
+      "status": "scoped",
+      "to": "packages/react/src/components/Nodes/OutputNode.tsx"
+    },
+    {
+      "from": "packages/react/src/components/NodeWrapper/utils.tsx",
+      "line": 7,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/Nodes/DefaultNode.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/Nodes/DefaultNode.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "../../components/Handle",
+      "status": "scoped",
+      "to": "packages/react/src/components/Handle/index.tsx"
+    },
+    {
+      "from": "packages/react/src/components/Nodes/DefaultNode.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../../types/nodes",
+      "status": "scoped",
+      "to": "packages/react/src/types/nodes.ts"
+    },
+    {
+      "from": "packages/react/src/components/Nodes/InputNode.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/Nodes/InputNode.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "../../components/Handle",
+      "status": "scoped",
+      "to": "packages/react/src/components/Handle/index.tsx"
+    },
+    {
+      "from": "packages/react/src/components/Nodes/InputNode.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../../types/nodes",
+      "status": "scoped",
+      "to": "packages/react/src/types/nodes.ts"
+    },
+    {
+      "from": "packages/react/src/components/Nodes/OutputNode.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/Nodes/OutputNode.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "../../components/Handle",
+      "status": "scoped",
+      "to": "packages/react/src/components/Handle/index.tsx"
+    },
+    {
+      "from": "packages/react/src/components/Nodes/OutputNode.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../../types/nodes",
+      "status": "scoped",
+      "to": "packages/react/src/types/nodes.ts"
+    },
+    {
+      "from": "packages/react/src/components/Nodes/utils.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/Nodes/utils.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "zustand",
+      "status": "external",
+      "to": "node_modules/zustand/esm/index.d.mts"
+    },
+    {
+      "from": "packages/react/src/components/Nodes/utils.ts",
+      "line": 3,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/Nodes/utils.ts",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/NodesSelection/index.tsx",
+      "line": 5,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/NodesSelection/index.tsx",
+      "line": 6,
+      "kind": "import",
+      "specifier": "classcat",
+      "status": "external",
+      "to": "node_modules/classcat/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/NodesSelection/index.tsx",
+      "line": 7,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/components/NodesSelection/index.tsx",
+      "line": 8,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/NodesSelection/index.tsx",
+      "line": 10,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/components/NodesSelection/index.tsx",
+      "line": 11,
+      "kind": "import",
+      "specifier": "../../hooks/useDrag",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useDrag.ts"
+    },
+    {
+      "from": "packages/react/src/components/NodesSelection/index.tsx",
+      "line": 12,
+      "kind": "import",
+      "specifier": "../../hooks/useMoveSelectedNodes",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useMoveSelectedNodes.ts"
+    },
+    {
+      "from": "packages/react/src/components/NodesSelection/index.tsx",
+      "line": 13,
+      "kind": "import",
+      "specifier": "../NodeWrapper/utils",
+      "status": "scoped",
+      "to": "packages/react/src/components/NodeWrapper/utils.tsx"
+    },
+    {
+      "from": "packages/react/src/components/NodesSelection/index.tsx",
+      "line": 14,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/Panel/index.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/Panel/index.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "classcat",
+      "status": "external",
+      "to": "node_modules/classcat/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/Panel/index.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/ReactFlowProvider/index.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/ReactFlowProvider/index.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "../../contexts/StoreContext",
+      "status": "scoped",
+      "to": "packages/react/src/contexts/StoreContext.ts"
+    },
+    {
+      "from": "packages/react/src/components/ReactFlowProvider/index.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../../store",
+      "status": "scoped",
+      "to": "packages/react/src/store/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/ReactFlowProvider/index.tsx",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../BatchProvider",
+      "status": "scoped",
+      "to": "packages/react/src/components/BatchProvider/index.tsx"
+    },
+    {
+      "from": "packages/react/src/components/ReactFlowProvider/index.tsx",
+      "line": 6,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/ReactFlowProvider/index.tsx",
+      "line": 7,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/SelectionListener/index.tsx",
+      "line": 7,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/SelectionListener/index.tsx",
+      "line": 8,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/components/SelectionListener/index.tsx",
+      "line": 10,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/components/SelectionListener/index.tsx",
+      "line": 11,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/StoreUpdater/index.tsx",
+      "line": 6,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/StoreUpdater/index.tsx",
+      "line": 7,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/components/StoreUpdater/index.tsx",
+      "line": 8,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/StoreUpdater/index.tsx",
+      "line": 10,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/components/StoreUpdater/index.tsx",
+      "line": 11,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/StoreUpdater/index.tsx",
+      "line": 12,
+      "kind": "import",
+      "specifier": "../../container/ReactFlow/init-values",
+      "status": "scoped",
+      "to": "packages/react/src/container/ReactFlow/init-values.ts"
+    },
+    {
+      "from": "packages/react/src/components/UserSelection/index.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/components/UserSelection/index.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/components/UserSelection/index.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/components/ViewportPortal/index.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/ViewportPortal/index.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "react-dom",
+      "status": "external",
+      "to": "node_modules/@types/react-dom/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/components/ViewportPortal/index.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/components/ViewportPortal/index.tsx",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/container/EdgeRenderer/MarkerDefinitions.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/container/EdgeRenderer/MarkerDefinitions.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/container/EdgeRenderer/MarkerDefinitions.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/container/EdgeRenderer/MarkerDefinitions.tsx",
+      "line": 5,
+      "kind": "import",
+      "specifier": "./MarkerSymbols",
+      "status": "scoped",
+      "to": "packages/react/src/container/EdgeRenderer/MarkerSymbols.tsx"
+    },
+    {
+      "from": "packages/react/src/container/EdgeRenderer/MarkerSymbols.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/container/EdgeRenderer/MarkerSymbols.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/container/EdgeRenderer/MarkerSymbols.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/container/EdgeRenderer/index.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/container/EdgeRenderer/index.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/container/EdgeRenderer/index.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/container/EdgeRenderer/index.tsx",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../../hooks/useVisibleEdgeIds",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useVisibleEdgeIds.ts"
+    },
+    {
+      "from": "packages/react/src/container/EdgeRenderer/index.tsx",
+      "line": 6,
+      "kind": "import",
+      "specifier": "./MarkerDefinitions",
+      "status": "scoped",
+      "to": "packages/react/src/container/EdgeRenderer/MarkerDefinitions.tsx"
+    },
+    {
+      "from": "packages/react/src/container/EdgeRenderer/index.tsx",
+      "line": 7,
+      "kind": "import",
+      "specifier": "../GraphView",
+      "status": "scoped",
+      "to": "packages/react/src/container/GraphView/index.tsx"
+    },
+    {
+      "from": "packages/react/src/container/EdgeRenderer/index.tsx",
+      "line": 8,
+      "kind": "import",
+      "specifier": "../../components/EdgeWrapper",
+      "status": "scoped",
+      "to": "packages/react/src/components/EdgeWrapper/index.tsx"
+    },
+    {
+      "from": "packages/react/src/container/EdgeRenderer/index.tsx",
+      "line": 9,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/container/FlowRenderer/index.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/container/FlowRenderer/index.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/container/FlowRenderer/index.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/container/FlowRenderer/index.tsx",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../../hooks/useGlobalKeyHandler",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useGlobalKeyHandler.ts"
+    },
+    {
+      "from": "packages/react/src/container/FlowRenderer/index.tsx",
+      "line": 6,
+      "kind": "import",
+      "specifier": "../../hooks/useKeyPress",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useKeyPress.ts"
+    },
+    {
+      "from": "packages/react/src/container/FlowRenderer/index.tsx",
+      "line": 7,
+      "kind": "import",
+      "specifier": "../GraphView",
+      "status": "scoped",
+      "to": "packages/react/src/container/GraphView/index.tsx"
+    },
+    {
+      "from": "packages/react/src/container/FlowRenderer/index.tsx",
+      "line": 8,
+      "kind": "import",
+      "specifier": "../ZoomPane",
+      "status": "scoped",
+      "to": "packages/react/src/container/ZoomPane/index.tsx"
+    },
+    {
+      "from": "packages/react/src/container/FlowRenderer/index.tsx",
+      "line": 9,
+      "kind": "import",
+      "specifier": "../Pane",
+      "status": "scoped",
+      "to": "packages/react/src/container/Pane/index.tsx"
+    },
+    {
+      "from": "packages/react/src/container/FlowRenderer/index.tsx",
+      "line": 10,
+      "kind": "import",
+      "specifier": "../../components/NodesSelection",
+      "status": "scoped",
+      "to": "packages/react/src/components/NodesSelection/index.tsx"
+    },
+    {
+      "from": "packages/react/src/container/FlowRenderer/index.tsx",
+      "line": 11,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/container/GraphView/index.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/container/GraphView/index.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "../FlowRenderer",
+      "status": "scoped",
+      "to": "packages/react/src/container/FlowRenderer/index.tsx"
+    },
+    {
+      "from": "packages/react/src/container/GraphView/index.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../NodeRenderer",
+      "status": "scoped",
+      "to": "packages/react/src/container/NodeRenderer/index.tsx"
+    },
+    {
+      "from": "packages/react/src/container/GraphView/index.tsx",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../EdgeRenderer",
+      "status": "scoped",
+      "to": "packages/react/src/container/EdgeRenderer/index.tsx"
+    },
+    {
+      "from": "packages/react/src/container/GraphView/index.tsx",
+      "line": 6,
+      "kind": "import",
+      "specifier": "../Viewport",
+      "status": "scoped",
+      "to": "packages/react/src/container/Viewport/index.tsx"
+    },
+    {
+      "from": "packages/react/src/container/GraphView/index.tsx",
+      "line": 7,
+      "kind": "import",
+      "specifier": "../../hooks/useOnInitHandler",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useOnInitHandler.ts"
+    },
+    {
+      "from": "packages/react/src/container/GraphView/index.tsx",
+      "line": 8,
+      "kind": "import",
+      "specifier": "../../hooks/useViewportSync",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useViewportSync.ts"
+    },
+    {
+      "from": "packages/react/src/container/GraphView/index.tsx",
+      "line": 9,
+      "kind": "import",
+      "specifier": "../../components/ConnectionLine",
+      "status": "scoped",
+      "to": "packages/react/src/components/ConnectionLine/index.tsx"
+    },
+    {
+      "from": "packages/react/src/container/GraphView/index.tsx",
+      "line": 10,
+      "kind": "import",
+      "specifier": "./useNodeOrEdgeTypesWarning",
+      "status": "scoped",
+      "to": "packages/react/src/container/GraphView/useNodeOrEdgeTypesWarning.ts"
+    },
+    {
+      "from": "packages/react/src/container/GraphView/index.tsx",
+      "line": 11,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/container/GraphView/index.tsx",
+      "line": 12,
+      "kind": "import",
+      "specifier": "./useStylesLoadedWarning",
+      "status": "scoped",
+      "to": "packages/react/src/container/GraphView/useStylesLoadedWarning.ts"
+    },
+    {
+      "from": "packages/react/src/container/GraphView/useNodeOrEdgeTypesWarning.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/container/GraphView/useNodeOrEdgeTypesWarning.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/container/GraphView/useNodeOrEdgeTypesWarning.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/container/GraphView/useNodeOrEdgeTypesWarning.ts",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/container/GraphView/useStylesLoadedWarning.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/container/GraphView/useStylesLoadedWarning.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/container/GraphView/useStylesLoadedWarning.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/container/NodeRenderer/index.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/container/NodeRenderer/index.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/container/NodeRenderer/index.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../../hooks/useVisibleNodeIds",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useVisibleNodeIds.ts"
+    },
+    {
+      "from": "packages/react/src/container/NodeRenderer/index.tsx",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/container/NodeRenderer/index.tsx",
+      "line": 6,
+      "kind": "import",
+      "specifier": "../../styles/utils",
+      "status": "scoped",
+      "to": "packages/react/src/styles/utils.ts"
+    },
+    {
+      "from": "packages/react/src/container/NodeRenderer/index.tsx",
+      "line": 7,
+      "kind": "import",
+      "specifier": "../GraphView",
+      "status": "scoped",
+      "to": "packages/react/src/container/GraphView/index.tsx"
+    },
+    {
+      "from": "packages/react/src/container/NodeRenderer/index.tsx",
+      "line": 8,
+      "kind": "import",
+      "specifier": "./useResizeObserver",
+      "status": "scoped",
+      "to": "packages/react/src/container/NodeRenderer/useResizeObserver.ts"
+    },
+    {
+      "from": "packages/react/src/container/NodeRenderer/index.tsx",
+      "line": 9,
+      "kind": "import",
+      "specifier": "../../components/NodeWrapper",
+      "status": "scoped",
+      "to": "packages/react/src/components/NodeWrapper/index.tsx"
+    },
+    {
+      "from": "packages/react/src/container/NodeRenderer/index.tsx",
+      "line": 10,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/container/NodeRenderer/useResizeObserver.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/container/NodeRenderer/useResizeObserver.ts",
+      "line": 3,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/container/NodeRenderer/useResizeObserver.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/container/NodeRenderer/useResizeObserver.ts",
+      "line": 5,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/container/Pane/index.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/container/Pane/index.tsx",
+      "line": 11,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/container/Pane/index.tsx",
+      "line": 12,
+      "kind": "import",
+      "specifier": "classcat",
+      "status": "external",
+      "to": "node_modules/classcat/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/container/Pane/index.tsx",
+      "line": 13,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/container/Pane/index.tsx",
+      "line": 24,
+      "kind": "import",
+      "specifier": "../../components/UserSelection",
+      "status": "scoped",
+      "to": "packages/react/src/components/UserSelection/index.tsx"
+    },
+    {
+      "from": "packages/react/src/container/Pane/index.tsx",
+      "line": 25,
+      "kind": "import",
+      "specifier": "../../styles/utils",
+      "status": "scoped",
+      "to": "packages/react/src/styles/utils.ts"
+    },
+    {
+      "from": "packages/react/src/container/Pane/index.tsx",
+      "line": 26,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/container/Pane/index.tsx",
+      "line": 27,
+      "kind": "import",
+      "specifier": "../../utils",
+      "status": "scoped",
+      "to": "packages/react/src/utils/index.ts"
+    },
+    {
+      "from": "packages/react/src/container/Pane/index.tsx",
+      "line": 28,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/container/ReactFlow/Wrapper.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/container/ReactFlow/Wrapper.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "../../contexts/StoreContext",
+      "status": "scoped",
+      "to": "packages/react/src/contexts/StoreContext.ts"
+    },
+    {
+      "from": "packages/react/src/container/ReactFlow/Wrapper.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../../components/ReactFlowProvider",
+      "status": "scoped",
+      "to": "packages/react/src/components/ReactFlowProvider/index.tsx"
+    },
+    {
+      "from": "packages/react/src/container/ReactFlow/Wrapper.tsx",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/container/ReactFlow/Wrapper.tsx",
+      "line": 6,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/container/ReactFlow/index.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/container/ReactFlow/index.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "classcat",
+      "status": "external",
+      "to": "node_modules/classcat/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/container/ReactFlow/index.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/container/ReactFlow/index.tsx",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../../components/A11yDescriptions",
+      "status": "scoped",
+      "to": "packages/react/src/components/A11yDescriptions/index.tsx"
+    },
+    {
+      "from": "packages/react/src/container/ReactFlow/index.tsx",
+      "line": 6,
+      "kind": "import",
+      "specifier": "../../components/Attribution",
+      "status": "scoped",
+      "to": "packages/react/src/components/Attribution/index.tsx"
+    },
+    {
+      "from": "packages/react/src/container/ReactFlow/index.tsx",
+      "line": 7,
+      "kind": "import",
+      "specifier": "../../components/SelectionListener",
+      "status": "scoped",
+      "to": "packages/react/src/components/SelectionListener/index.tsx"
+    },
+    {
+      "from": "packages/react/src/container/ReactFlow/index.tsx",
+      "line": 8,
+      "kind": "import",
+      "specifier": "../../components/StoreUpdater",
+      "status": "scoped",
+      "to": "packages/react/src/components/StoreUpdater/index.tsx"
+    },
+    {
+      "from": "packages/react/src/container/ReactFlow/index.tsx",
+      "line": 9,
+      "kind": "import",
+      "specifier": "../../hooks/useColorModeClass",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useColorModeClass.ts"
+    },
+    {
+      "from": "packages/react/src/container/ReactFlow/index.tsx",
+      "line": 10,
+      "kind": "import",
+      "specifier": "../GraphView",
+      "status": "scoped",
+      "to": "packages/react/src/container/GraphView/index.tsx"
+    },
+    {
+      "from": "packages/react/src/container/ReactFlow/index.tsx",
+      "line": 11,
+      "kind": "import",
+      "specifier": "./Wrapper",
+      "status": "scoped",
+      "to": "packages/react/src/container/ReactFlow/Wrapper.tsx"
+    },
+    {
+      "from": "packages/react/src/container/ReactFlow/index.tsx",
+      "line": 12,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/container/ReactFlow/index.tsx",
+      "line": 13,
+      "kind": "import",
+      "specifier": "./init-values",
+      "status": "scoped",
+      "to": "packages/react/src/container/ReactFlow/init-values.ts"
+    },
+    {
+      "from": "packages/react/src/container/ReactFlow/index.tsx",
+      "line": 14,
+      "kind": "import",
+      "specifier": "../../utils/general",
+      "status": "scoped",
+      "to": "packages/react/src/utils/general.ts"
+    },
+    {
+      "from": "packages/react/src/container/ReactFlow/init-values.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/container/Viewport/index.tsx",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/container/Viewport/index.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/container/Viewport/index.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/container/ZoomPane/index.tsx",
+      "line": 2,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/container/ZoomPane/index.tsx",
+      "line": 3,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/container/ZoomPane/index.tsx",
+      "line": 4,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/container/ZoomPane/index.tsx",
+      "line": 6,
+      "kind": "import",
+      "specifier": "../../hooks/useKeyPress",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useKeyPress.ts"
+    },
+    {
+      "from": "packages/react/src/container/ZoomPane/index.tsx",
+      "line": 7,
+      "kind": "import",
+      "specifier": "../../hooks/useResizeHandler",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useResizeHandler.ts"
+    },
+    {
+      "from": "packages/react/src/container/ZoomPane/index.tsx",
+      "line": 8,
+      "kind": "import",
+      "specifier": "../../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/container/ZoomPane/index.tsx",
+      "line": 9,
+      "kind": "import",
+      "specifier": "../../styles/utils",
+      "status": "scoped",
+      "to": "packages/react/src/styles/utils.ts"
+    },
+    {
+      "from": "packages/react/src/container/ZoomPane/index.tsx",
+      "line": 10,
+      "kind": "import",
+      "specifier": "../FlowRenderer",
+      "status": "scoped",
+      "to": "packages/react/src/container/FlowRenderer/index.tsx"
+    },
+    {
+      "from": "packages/react/src/container/ZoomPane/index.tsx",
+      "line": 11,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/contexts/NodeIdContext.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/contexts/StoreContext.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/contexts/StoreContext.ts",
+      "line": 3,
+      "kind": "import",
+      "specifier": "../store",
+      "status": "scoped",
+      "to": "packages/react/src/store/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useColorModeClass.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useColorModeClass.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useConnection.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/hooks/useConnection.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useConnection.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "./useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useConnection.ts",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useDrag.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useDrag.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useDrag.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../components/Nodes/utils",
+      "status": "scoped",
+      "to": "packages/react/src/components/Nodes/utils.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useDrag.ts",
+      "line": 5,
+      "kind": "import",
+      "specifier": "./useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useEdges.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/hooks/useEdges.ts",
+      "line": 3,
+      "kind": "import",
+      "specifier": "../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useEdges.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useGlobalKeyHandler.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useGlobalKeyHandler.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useGlobalKeyHandler.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useGlobalKeyHandler.ts",
+      "line": 5,
+      "kind": "import",
+      "specifier": "./useKeyPress",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useKeyPress.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useGlobalKeyHandler.ts",
+      "line": 6,
+      "kind": "import",
+      "specifier": "./useReactFlow",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useReactFlow.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useGlobalKeyHandler.ts",
+      "line": 7,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useHandleConnections.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useHandleConnections.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useHandleConnections.ts",
+      "line": 10,
+      "kind": "import",
+      "specifier": "./useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useHandleConnections.ts",
+      "line": 11,
+      "kind": "import",
+      "specifier": "../contexts/NodeIdContext",
+      "status": "scoped",
+      "to": "packages/react/src/contexts/NodeIdContext.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useInternalNode.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useInternalNode.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/hooks/useInternalNode.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "./useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useInternalNode.ts",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useIsomorphicLayoutEffect.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useKeyPress.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useKeyPress.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useMoveSelectedNodes.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useMoveSelectedNodes.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useMoveSelectedNodes.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useMoveSelectedNodes.ts",
+      "line": 5,
+      "kind": "import",
+      "specifier": "./useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useNodeConnections.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useNodeConnections.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useNodeConnections.ts",
+      "line": 10,
+      "kind": "import",
+      "specifier": "./useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useNodeConnections.ts",
+      "line": 11,
+      "kind": "import",
+      "specifier": "../contexts/NodeIdContext",
+      "status": "scoped",
+      "to": "packages/react/src/contexts/NodeIdContext.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useNodes.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/hooks/useNodes.ts",
+      "line": 3,
+      "kind": "import",
+      "specifier": "../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useNodes.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useNodesData.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useNodesData.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useNodesData.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useNodesData.ts",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useNodesEdgesState.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useNodesEdgesState.ts",
+      "line": 3,
+      "kind": "import",
+      "specifier": "../utils/changes",
+      "status": "scoped",
+      "to": "packages/react/src/utils/changes.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useNodesEdgesState.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useNodesInitialized.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useNodesInitialized.ts",
+      "line": 3,
+      "kind": "import",
+      "specifier": "./useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useNodesInitialized.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useOnEdgesChangeMiddleware.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useOnEdgesChangeMiddleware.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useOnEdgesChangeMiddleware.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "./useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useOnEdgesChangeMiddleware.ts",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useOnInitHandler.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useOnInitHandler.ts",
+      "line": 3,
+      "kind": "import",
+      "specifier": "./useReactFlow",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useReactFlow.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useOnInitHandler.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useOnNodesChangeMiddleware.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useOnNodesChangeMiddleware.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useOnNodesChangeMiddleware.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "./useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useOnNodesChangeMiddleware.ts",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useOnSelectionChange.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useOnSelectionChange.ts",
+      "line": 3,
+      "kind": "import",
+      "specifier": "./useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useOnSelectionChange.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useOnViewportChange.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useOnViewportChange.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useOnViewportChange.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "./useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useReactFlow.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useReactFlow.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useReactFlow.ts",
+      "line": 15,
+      "kind": "import",
+      "specifier": "./useViewportHelper",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useViewportHelper.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useReactFlow.ts",
+      "line": 16,
+      "kind": "import",
+      "specifier": "./useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useReactFlow.ts",
+      "line": 17,
+      "kind": "import",
+      "specifier": "../components/BatchProvider",
+      "status": "scoped",
+      "to": "packages/react/src/components/BatchProvider/index.tsx"
+    },
+    {
+      "from": "packages/react/src/hooks/useReactFlow.ts",
+      "line": 18,
+      "kind": "import",
+      "specifier": "../utils",
+      "status": "scoped",
+      "to": "packages/react/src/utils/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useReactFlow.ts",
+      "line": 19,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useResizeHandler.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useResizeHandler.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useResizeHandler.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useStore.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useStore.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "zustand/traditional",
+      "status": "external",
+      "to": "node_modules/zustand/esm/traditional.d.mts"
+    },
+    {
+      "from": "packages/react/src/hooks/useStore.ts",
+      "line": 3,
+      "kind": "import",
+      "specifier": "zustand",
+      "status": "external",
+      "to": "node_modules/zustand/esm/index.d.mts"
+    },
+    {
+      "from": "packages/react/src/hooks/useStore.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useStore.ts",
+      "line": 6,
+      "kind": "import",
+      "specifier": "../contexts/StoreContext",
+      "status": "scoped",
+      "to": "packages/react/src/contexts/StoreContext.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useStore.ts",
+      "line": 7,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useUpdateNodeInternals.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useUpdateNodeInternals.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useUpdateNodeInternals.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useViewport.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/hooks/useViewport.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useViewport.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useViewport.ts",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useViewportHelper.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useViewportHelper.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useViewportHelper.ts",
+      "line": 10,
+      "kind": "import",
+      "specifier": "../hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useViewportHelper.ts",
+      "line": 11,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useViewportSync.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useViewportSync.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useViewportSync.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "./useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useViewportSync.ts",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useVisibleEdgeIds.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useVisibleEdgeIds.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/hooks/useVisibleEdgeIds.ts",
+      "line": 3,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useVisibleEdgeIds.ts",
+      "line": 5,
+      "kind": "import",
+      "specifier": "./useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useVisibleEdgeIds.ts",
+      "line": 6,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useVisibleNodeIds.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useVisibleNodeIds.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "zustand/shallow",
+      "status": "external",
+      "to": "node_modules/zustand/esm/shallow.d.mts"
+    },
+    {
+      "from": "packages/react/src/hooks/useVisibleNodeIds.ts",
+      "line": 3,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useVisibleNodeIds.ts",
+      "line": 5,
+      "kind": "import",
+      "specifier": "./useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/hooks/useVisibleNodeIds.ts",
+      "line": 6,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 1,
+      "kind": "reexport",
+      "specifier": "./container/ReactFlow",
+      "status": "scoped",
+      "to": "packages/react/src/container/ReactFlow/index.tsx"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 2,
+      "kind": "reexport",
+      "specifier": "./components/Handle",
+      "status": "scoped",
+      "to": "packages/react/src/components/Handle/index.tsx"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 3,
+      "kind": "reexport",
+      "specifier": "./components/Edges/EdgeText",
+      "status": "scoped",
+      "to": "packages/react/src/components/Edges/EdgeText.tsx"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 4,
+      "kind": "reexport",
+      "specifier": "./components/Edges/StraightEdge",
+      "status": "scoped",
+      "to": "packages/react/src/components/Edges/StraightEdge.tsx"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 5,
+      "kind": "reexport",
+      "specifier": "./components/Edges/StepEdge",
+      "status": "scoped",
+      "to": "packages/react/src/components/Edges/StepEdge.tsx"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 6,
+      "kind": "reexport",
+      "specifier": "./components/Edges/BezierEdge",
+      "status": "scoped",
+      "to": "packages/react/src/components/Edges/BezierEdge.tsx"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 7,
+      "kind": "reexport",
+      "specifier": "./components/Edges/SimpleBezierEdge",
+      "status": "scoped",
+      "to": "packages/react/src/components/Edges/SimpleBezierEdge.tsx"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 8,
+      "kind": "reexport",
+      "specifier": "./components/Edges/SmoothStepEdge",
+      "status": "scoped",
+      "to": "packages/react/src/components/Edges/SmoothStepEdge.tsx"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 9,
+      "kind": "reexport",
+      "specifier": "./components/Edges/BaseEdge",
+      "status": "scoped",
+      "to": "packages/react/src/components/Edges/BaseEdge.tsx"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 10,
+      "kind": "reexport",
+      "specifier": "./components/ReactFlowProvider",
+      "status": "scoped",
+      "to": "packages/react/src/components/ReactFlowProvider/index.tsx"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 11,
+      "kind": "reexport",
+      "specifier": "./components/Panel",
+      "status": "scoped",
+      "to": "packages/react/src/components/Panel/index.tsx"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 12,
+      "kind": "reexport",
+      "specifier": "./components/EdgeLabelRenderer",
+      "status": "scoped",
+      "to": "packages/react/src/components/EdgeLabelRenderer/index.tsx"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 13,
+      "kind": "reexport",
+      "specifier": "./components/ViewportPortal",
+      "status": "scoped",
+      "to": "packages/react/src/components/ViewportPortal/index.tsx"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 15,
+      "kind": "reexport",
+      "specifier": "./hooks/useReactFlow",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useReactFlow.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 16,
+      "kind": "reexport",
+      "specifier": "./hooks/useUpdateNodeInternals",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useUpdateNodeInternals.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 17,
+      "kind": "reexport",
+      "specifier": "./hooks/useNodes",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useNodes.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 18,
+      "kind": "reexport",
+      "specifier": "./hooks/useEdges",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useEdges.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 19,
+      "kind": "reexport",
+      "specifier": "./hooks/useViewport",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useViewport.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 20,
+      "kind": "reexport",
+      "specifier": "./hooks/useKeyPress",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useKeyPress.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 21,
+      "kind": "reexport",
+      "specifier": "./hooks/useNodesEdgesState",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useNodesEdgesState.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 22,
+      "kind": "reexport",
+      "specifier": "./hooks/useStore",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useStore.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 23,
+      "kind": "reexport",
+      "specifier": "./hooks/useOnViewportChange",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useOnViewportChange.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 24,
+      "kind": "reexport",
+      "specifier": "./hooks/useOnSelectionChange",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useOnSelectionChange.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 25,
+      "kind": "reexport",
+      "specifier": "./hooks/useNodesInitialized",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useNodesInitialized.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 26,
+      "kind": "reexport",
+      "specifier": "./hooks/useHandleConnections",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useHandleConnections.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 27,
+      "kind": "reexport",
+      "specifier": "./hooks/useNodeConnections",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useNodeConnections.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 28,
+      "kind": "reexport",
+      "specifier": "./hooks/useNodesData",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useNodesData.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 29,
+      "kind": "reexport",
+      "specifier": "./hooks/useConnection",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useConnection.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 30,
+      "kind": "reexport",
+      "specifier": "./hooks/useInternalNode",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useInternalNode.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 31,
+      "kind": "reexport",
+      "specifier": "./contexts/NodeIdContext",
+      "status": "scoped",
+      "to": "packages/react/src/contexts/NodeIdContext.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 33,
+      "kind": "reexport",
+      "specifier": "./hooks/useOnNodesChangeMiddleware",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useOnNodesChangeMiddleware.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 34,
+      "kind": "reexport",
+      "specifier": "./hooks/useOnEdgesChangeMiddleware",
+      "status": "scoped",
+      "to": "packages/react/src/hooks/useOnEdgesChangeMiddleware.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 36,
+      "kind": "reexport",
+      "specifier": "./utils/changes",
+      "status": "scoped",
+      "to": "packages/react/src/utils/changes.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 37,
+      "kind": "reexport",
+      "specifier": "./utils/general",
+      "status": "scoped",
+      "to": "packages/react/src/utils/general.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 39,
+      "kind": "reexport",
+      "specifier": "./additional-components",
+      "status": "scoped",
+      "to": "packages/react/src/additional-components/index.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 41,
+      "kind": "reexport",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 44,
+      "kind": "reexport",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 125,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 129,
+      "kind": "reexport",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/index.ts",
+      "line": 145,
+      "kind": "reexport",
+      "specifier": "./utils/edges",
+      "status": "scoped",
+      "to": "packages/react/src/utils/edges.ts"
+    },
+    {
+      "from": "packages/react/src/store/index.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "zustand/traditional",
+      "status": "external",
+      "to": "node_modules/zustand/esm/traditional.d.mts"
+    },
+    {
+      "from": "packages/react/src/store/index.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/store/index.ts",
+      "line": 22,
+      "kind": "import",
+      "specifier": "../utils/changes",
+      "status": "scoped",
+      "to": "packages/react/src/utils/changes.ts"
+    },
+    {
+      "from": "packages/react/src/store/index.ts",
+      "line": 23,
+      "kind": "import",
+      "specifier": "./initialState",
+      "status": "scoped",
+      "to": "packages/react/src/store/initialState.ts"
+    },
+    {
+      "from": "packages/react/src/store/index.ts",
+      "line": 24,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/store/initialState.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/store/initialState.ts",
+      "line": 19,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/styles/utils.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/types/component-props.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/types/component-props.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/types/component-props.ts",
+      "line": 29,
+      "kind": "import",
+      "specifier": ".",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/types/edges.ts",
+      "line": 3,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/types/edges.ts",
+      "line": 11,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/types/edges.ts",
+      "line": 28,
+      "kind": "import",
+      "specifier": ".",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/types/general.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/types/general.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/types/general.ts",
+      "line": 20,
+      "kind": "import",
+      "specifier": ".",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/types/index.ts",
+      "line": 1,
+      "kind": "reexport",
+      "specifier": "./nodes",
+      "status": "scoped",
+      "to": "packages/react/src/types/nodes.ts"
+    },
+    {
+      "from": "packages/react/src/types/index.ts",
+      "line": 2,
+      "kind": "reexport",
+      "specifier": "./edges",
+      "status": "scoped",
+      "to": "packages/react/src/types/edges.ts"
+    },
+    {
+      "from": "packages/react/src/types/index.ts",
+      "line": 3,
+      "kind": "reexport",
+      "specifier": "./component-props",
+      "status": "scoped",
+      "to": "packages/react/src/types/component-props.ts"
+    },
+    {
+      "from": "packages/react/src/types/index.ts",
+      "line": 4,
+      "kind": "reexport",
+      "specifier": "./general",
+      "status": "scoped",
+      "to": "packages/react/src/types/general.ts"
+    },
+    {
+      "from": "packages/react/src/types/index.ts",
+      "line": 5,
+      "kind": "reexport",
+      "specifier": "./store",
+      "status": "scoped",
+      "to": "packages/react/src/types/store.ts"
+    },
+    {
+      "from": "packages/react/src/types/index.ts",
+      "line": 6,
+      "kind": "reexport",
+      "specifier": "./instance",
+      "status": "scoped",
+      "to": "packages/react/src/types/instance.ts"
+    },
+    {
+      "from": "packages/react/src/types/instance.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/types/instance.ts",
+      "line": 3,
+      "kind": "import",
+      "specifier": ".",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/types/nodes.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/types/nodes.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/types/nodes.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "./general",
+      "status": "scoped",
+      "to": "packages/react/src/types/general.ts"
+    },
+    {
+      "from": "packages/react/src/types/store.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/types/store.ts",
+      "line": 36,
+      "kind": "import",
+      "specifier": ".",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/utils/changes.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/utils/changes.ts",
+      "line": 12,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/utils/edges.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/utils/general.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "react",
+      "status": "external",
+      "to": "node_modules/@types/react/index.d.ts"
+    },
+    {
+      "from": "packages/react/src/utils/general.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "@xyflow/system",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/react/src/utils/general.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/react/src/types/index.ts"
+    },
+    {
+      "from": "packages/react/src/utils/index.ts",
+      "line": 1,
+      "kind": "reexport",
+      "specifier": "./changes",
+      "status": "scoped",
+      "to": "packages/react/src/utils/changes.ts"
+    },
+    {
+      "from": "packages/react/src/utils/index.ts",
+      "line": 2,
+      "kind": "reexport",
+      "specifier": "./edges",
+      "status": "scoped",
+      "to": "packages/react/src/utils/edges.ts"
+    },
+    {
+      "from": "packages/react/src/utils/index.ts",
+      "line": 3,
+      "kind": "reexport",
+      "specifier": "./general",
+      "status": "scoped",
+      "to": "packages/react/src/utils/general.ts"
+    },
+    {
+      "from": "packages/system/src/constants.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/index.ts",
+      "line": 1,
+      "kind": "reexport",
+      "specifier": "./constants",
+      "status": "scoped",
+      "to": "packages/system/src/constants.ts"
+    },
+    {
+      "from": "packages/system/src/index.ts",
+      "line": 2,
+      "kind": "reexport",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/index.ts",
+      "line": 3,
+      "kind": "reexport",
+      "specifier": "./utils",
+      "status": "scoped",
+      "to": "packages/system/src/utils/index.ts"
+    },
+    {
+      "from": "packages/system/src/index.ts",
+      "line": 4,
+      "kind": "reexport",
+      "specifier": "./xydrag",
+      "status": "scoped",
+      "to": "packages/system/src/xydrag/index.ts"
+    },
+    {
+      "from": "packages/system/src/index.ts",
+      "line": 5,
+      "kind": "reexport",
+      "specifier": "./xyhandle",
+      "status": "scoped",
+      "to": "packages/system/src/xyhandle/index.ts"
+    },
+    {
+      "from": "packages/system/src/index.ts",
+      "line": 6,
+      "kind": "reexport",
+      "specifier": "./xyminimap",
+      "status": "scoped",
+      "to": "packages/system/src/xyminimap/index.ts"
+    },
+    {
+      "from": "packages/system/src/index.ts",
+      "line": 7,
+      "kind": "reexport",
+      "specifier": "./xypanzoom",
+      "status": "scoped",
+      "to": "packages/system/src/xypanzoom/index.ts"
+    },
+    {
+      "from": "packages/system/src/index.ts",
+      "line": 8,
+      "kind": "reexport",
+      "specifier": "./xyresizer",
+      "status": "scoped",
+      "to": "packages/system/src/xyresizer/index.ts"
+    },
+    {
+      "from": "packages/system/src/types/changes.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": ".",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/types/edges.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "./utils",
+      "status": "scoped",
+      "to": "packages/system/src/types/utils.ts"
+    },
+    {
+      "from": "packages/system/src/types/general.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "d3-selection",
+      "status": "external",
+      "to": "node_modules/@types/d3-selection/index.d.ts"
+    },
+    {
+      "from": "packages/system/src/types/general.ts",
+      "line": 3,
+      "kind": "import",
+      "specifier": "d3-drag",
+      "status": "external",
+      "to": "node_modules/@types/d3-drag/index.d.ts"
+    },
+    {
+      "from": "packages/system/src/types/general.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "d3-zoom",
+      "status": "external",
+      "to": "node_modules/@types/d3-zoom/index.d.ts"
+    },
+    {
+      "from": "packages/system/src/types/general.ts",
+      "line": 6,
+      "kind": "import",
+      "specifier": "d3-transition",
+      "status": "external",
+      "to": "node_modules/@types/d3-transition/index.d.ts"
+    },
+    {
+      "from": "packages/system/src/types/general.ts",
+      "line": 8,
+      "kind": "import",
+      "specifier": "./utils",
+      "status": "scoped",
+      "to": "packages/system/src/types/utils.ts"
+    },
+    {
+      "from": "packages/system/src/types/general.ts",
+      "line": 9,
+      "kind": "import",
+      "specifier": "./nodes",
+      "status": "scoped",
+      "to": "packages/system/src/types/nodes.ts"
+    },
+    {
+      "from": "packages/system/src/types/general.ts",
+      "line": 10,
+      "kind": "import",
+      "specifier": "./handles",
+      "status": "scoped",
+      "to": "packages/system/src/types/handles.ts"
+    },
+    {
+      "from": "packages/system/src/types/general.ts",
+      "line": 11,
+      "kind": "import",
+      "specifier": "./panzoom",
+      "status": "scoped",
+      "to": "packages/system/src/types/panzoom.ts"
+    },
+    {
+      "from": "packages/system/src/types/general.ts",
+      "line": 12,
+      "kind": "import",
+      "specifier": "..",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/system/src/types/handles.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": ".",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/types/index.ts",
+      "line": 1,
+      "kind": "reexport",
+      "specifier": "./changes",
+      "status": "scoped",
+      "to": "packages/system/src/types/changes.ts"
+    },
+    {
+      "from": "packages/system/src/types/index.ts",
+      "line": 2,
+      "kind": "reexport",
+      "specifier": "./general",
+      "status": "scoped",
+      "to": "packages/system/src/types/general.ts"
+    },
+    {
+      "from": "packages/system/src/types/index.ts",
+      "line": 3,
+      "kind": "reexport",
+      "specifier": "./nodes",
+      "status": "scoped",
+      "to": "packages/system/src/types/nodes.ts"
+    },
+    {
+      "from": "packages/system/src/types/index.ts",
+      "line": 4,
+      "kind": "reexport",
+      "specifier": "./edges",
+      "status": "scoped",
+      "to": "packages/system/src/types/edges.ts"
+    },
+    {
+      "from": "packages/system/src/types/index.ts",
+      "line": 5,
+      "kind": "reexport",
+      "specifier": "./handles",
+      "status": "scoped",
+      "to": "packages/system/src/types/handles.ts"
+    },
+    {
+      "from": "packages/system/src/types/index.ts",
+      "line": 6,
+      "kind": "reexport",
+      "specifier": "./utils",
+      "status": "scoped",
+      "to": "packages/system/src/types/utils.ts"
+    },
+    {
+      "from": "packages/system/src/types/index.ts",
+      "line": 7,
+      "kind": "reexport",
+      "specifier": "./panzoom",
+      "status": "scoped",
+      "to": "packages/system/src/types/panzoom.ts"
+    },
+    {
+      "from": "packages/system/src/types/nodes.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": ".",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/types/nodes.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "../utils/types",
+      "status": "scoped",
+      "to": "packages/system/src/utils/types.ts"
+    },
+    {
+      "from": "packages/system/src/types/panzoom.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "d3-zoom",
+      "status": "external",
+      "to": "node_modules/@types/d3-zoom/index.d.ts"
+    },
+    {
+      "from": "packages/system/src/types/panzoom.ts",
+      "line": 3,
+      "kind": "import",
+      "specifier": "./",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/utils/connections.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/utils/dom.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/utils/dom.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "./general",
+      "status": "scoped",
+      "to": "packages/system/src/utils/general.ts"
+    },
+    {
+      "from": "packages/system/src/utils/edges/bezier-edge.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/utils/edges/general.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "../..",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/system/src/utils/edges/general.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "../../types/general",
+      "status": "scoped",
+      "to": "packages/system/src/types/general.ts"
+    },
+    {
+      "from": "packages/system/src/utils/edges/general.ts",
+      "line": 3,
+      "kind": "import",
+      "specifier": "../general",
+      "status": "scoped",
+      "to": "packages/system/src/utils/general.ts"
+    },
+    {
+      "from": "packages/system/src/utils/edges/index.ts",
+      "line": 1,
+      "kind": "reexport",
+      "specifier": "./bezier-edge",
+      "status": "scoped",
+      "to": "packages/system/src/utils/edges/bezier-edge.ts"
+    },
+    {
+      "from": "packages/system/src/utils/edges/index.ts",
+      "line": 2,
+      "kind": "reexport",
+      "specifier": "./straight-edge",
+      "status": "scoped",
+      "to": "packages/system/src/utils/edges/straight-edge.ts"
+    },
+    {
+      "from": "packages/system/src/utils/edges/index.ts",
+      "line": 3,
+      "kind": "reexport",
+      "specifier": "./smoothstep-edge",
+      "status": "scoped",
+      "to": "packages/system/src/utils/edges/smoothstep-edge.ts"
+    },
+    {
+      "from": "packages/system/src/utils/edges/index.ts",
+      "line": 4,
+      "kind": "reexport",
+      "specifier": "./general",
+      "status": "scoped",
+      "to": "packages/system/src/utils/edges/general.ts"
+    },
+    {
+      "from": "packages/system/src/utils/edges/index.ts",
+      "line": 5,
+      "kind": "reexport",
+      "specifier": "./positions",
+      "status": "scoped",
+      "to": "packages/system/src/utils/edges/positions.ts"
+    },
+    {
+      "from": "packages/system/src/utils/edges/positions.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "../../types/edges",
+      "status": "scoped",
+      "to": "packages/system/src/types/edges.ts"
+    },
+    {
+      "from": "packages/system/src/utils/edges/positions.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "../../types/general",
+      "status": "scoped",
+      "to": "packages/system/src/types/general.ts"
+    },
+    {
+      "from": "packages/system/src/utils/edges/positions.ts",
+      "line": 3,
+      "kind": "import",
+      "specifier": "../../types/nodes",
+      "status": "scoped",
+      "to": "packages/system/src/types/nodes.ts"
+    },
+    {
+      "from": "packages/system/src/utils/edges/positions.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../../types/utils",
+      "status": "scoped",
+      "to": "packages/system/src/types/utils.ts"
+    },
+    {
+      "from": "packages/system/src/utils/edges/positions.ts",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../../constants",
+      "status": "scoped",
+      "to": "packages/system/src/constants.ts"
+    },
+    {
+      "from": "packages/system/src/utils/edges/positions.ts",
+      "line": 6,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/utils/edges/positions.ts",
+      "line": 7,
+      "kind": "import",
+      "specifier": "../general",
+      "status": "scoped",
+      "to": "packages/system/src/utils/general.ts"
+    },
+    {
+      "from": "packages/system/src/utils/edges/smoothstep-edge.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "./general",
+      "status": "scoped",
+      "to": "packages/system/src/utils/edges/general.ts"
+    },
+    {
+      "from": "packages/system/src/utils/edges/smoothstep-edge.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "../../types",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/utils/edges/straight-edge.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "./general",
+      "status": "scoped",
+      "to": "packages/system/src/utils/edges/general.ts"
+    },
+    {
+      "from": "packages/system/src/utils/general.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/utils/general.ts",
+      "line": 16,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/utils/general.ts",
+      "line": 17,
+      "kind": "import",
+      "specifier": "./graph",
+      "status": "scoped",
+      "to": "packages/system/src/utils/graph.ts"
+    },
+    {
+      "from": "packages/system/src/utils/general.ts",
+      "line": 18,
+      "kind": "import",
+      "specifier": "../constants",
+      "status": "scoped",
+      "to": "packages/system/src/constants.ts"
+    },
+    {
+      "from": "packages/system/src/utils/graph.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "./general",
+      "status": "scoped",
+      "to": "packages/system/src/utils/general.ts"
+    },
+    {
+      "from": "packages/system/src/utils/graph.ts",
+      "line": 14,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/utils/graph.ts",
+      "line": 30,
+      "kind": "import",
+      "specifier": "../constants",
+      "status": "scoped",
+      "to": "packages/system/src/constants.ts"
+    },
+    {
+      "from": "packages/system/src/utils/index.ts",
+      "line": 1,
+      "kind": "reexport",
+      "specifier": "./connections",
+      "status": "scoped",
+      "to": "packages/system/src/utils/connections.ts"
+    },
+    {
+      "from": "packages/system/src/utils/index.ts",
+      "line": 2,
+      "kind": "reexport",
+      "specifier": "./dom",
+      "status": "scoped",
+      "to": "packages/system/src/utils/dom.ts"
+    },
+    {
+      "from": "packages/system/src/utils/index.ts",
+      "line": 3,
+      "kind": "reexport",
+      "specifier": "./edges",
+      "status": "scoped",
+      "to": "packages/system/src/utils/edges/index.ts"
+    },
+    {
+      "from": "packages/system/src/utils/index.ts",
+      "line": 4,
+      "kind": "reexport",
+      "specifier": "./graph",
+      "status": "scoped",
+      "to": "packages/system/src/utils/graph.ts"
+    },
+    {
+      "from": "packages/system/src/utils/index.ts",
+      "line": 5,
+      "kind": "reexport",
+      "specifier": "./general",
+      "status": "scoped",
+      "to": "packages/system/src/utils/general.ts"
+    },
+    {
+      "from": "packages/system/src/utils/index.ts",
+      "line": 6,
+      "kind": "reexport",
+      "specifier": "./marker",
+      "status": "scoped",
+      "to": "packages/system/src/utils/marker.ts"
+    },
+    {
+      "from": "packages/system/src/utils/index.ts",
+      "line": 7,
+      "kind": "reexport",
+      "specifier": "./node-toolbar",
+      "status": "scoped",
+      "to": "packages/system/src/utils/node-toolbar.ts"
+    },
+    {
+      "from": "packages/system/src/utils/index.ts",
+      "line": 8,
+      "kind": "reexport",
+      "specifier": "./edge-toolbar",
+      "status": "scoped",
+      "to": "packages/system/src/utils/edge-toolbar.ts"
+    },
+    {
+      "from": "packages/system/src/utils/index.ts",
+      "line": 9,
+      "kind": "reexport",
+      "specifier": "./store",
+      "status": "scoped",
+      "to": "packages/system/src/utils/store.ts"
+    },
+    {
+      "from": "packages/system/src/utils/index.ts",
+      "line": 10,
+      "kind": "reexport",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/system/src/utils/types.ts"
+    },
+    {
+      "from": "packages/system/src/utils/index.ts",
+      "line": 11,
+      "kind": "reexport",
+      "specifier": "./shallow-node-data",
+      "status": "scoped",
+      "to": "packages/system/src/utils/shallow-node-data.ts"
+    },
+    {
+      "from": "packages/system/src/utils/marker.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/utils/node-toolbar.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "../",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/system/src/utils/shallow-node-data.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/utils/store.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "..",
+      "status": "scoped",
+      "to": "packages/system/src/index.ts"
+    },
+    {
+      "from": "packages/system/src/utils/store.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/utils/store.ts",
+      "line": 20,
+      "kind": "import",
+      "specifier": "./dom",
+      "status": "scoped",
+      "to": "packages/system/src/utils/dom.ts"
+    },
+    {
+      "from": "packages/system/src/utils/store.ts",
+      "line": 21,
+      "kind": "import",
+      "specifier": "./general",
+      "status": "scoped",
+      "to": "packages/system/src/utils/general.ts"
+    },
+    {
+      "from": "packages/system/src/utils/store.ts",
+      "line": 30,
+      "kind": "import",
+      "specifier": "./graph",
+      "status": "scoped",
+      "to": "packages/system/src/utils/graph.ts"
+    },
+    {
+      "from": "packages/system/src/utils/store.ts",
+      "line": 31,
+      "kind": "import",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/system/src/utils/types.ts"
+    },
+    {
+      "from": "packages/system/src/utils/types.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/xydrag/XYDrag.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "d3-drag",
+      "status": "external",
+      "to": "node_modules/@types/d3-drag/index.d.ts"
+    },
+    {
+      "from": "packages/system/src/xydrag/XYDrag.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "d3-selection",
+      "status": "external",
+      "to": "node_modules/@types/d3-selection/index.d.ts"
+    },
+    {
+      "from": "packages/system/src/xydrag/XYDrag.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../utils",
+      "status": "scoped",
+      "to": "packages/system/src/utils/index.ts"
+    },
+    {
+      "from": "packages/system/src/xydrag/XYDrag.ts",
+      "line": 13,
+      "kind": "import",
+      "specifier": "./utils",
+      "status": "scoped",
+      "to": "packages/system/src/xydrag/utils.ts"
+    },
+    {
+      "from": "packages/system/src/xydrag/XYDrag.ts",
+      "line": 14,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/xydrag/index.ts",
+      "line": 1,
+      "kind": "reexport",
+      "specifier": "./XYDrag",
+      "status": "scoped",
+      "to": "packages/system/src/xydrag/XYDrag.ts"
+    },
+    {
+      "from": "packages/system/src/xydrag/utils.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/xydrag/utils.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "../utils",
+      "status": "scoped",
+      "to": "packages/system/src/utils/index.ts"
+    },
+    {
+      "from": "packages/system/src/xyhandle/XYHandle.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "../utils",
+      "status": "scoped",
+      "to": "packages/system/src/utils/index.ts"
+    },
+    {
+      "from": "packages/system/src/xyhandle/XYHandle.ts",
+      "line": 9,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/xyhandle/XYHandle.ts",
+      "line": 21,
+      "kind": "import",
+      "specifier": "./utils",
+      "status": "scoped",
+      "to": "packages/system/src/xyhandle/utils.ts"
+    },
+    {
+      "from": "packages/system/src/xyhandle/XYHandle.ts",
+      "line": 22,
+      "kind": "import",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/system/src/xyhandle/types.ts"
+    },
+    {
+      "from": "packages/system/src/xyhandle/index.ts",
+      "line": 1,
+      "kind": "reexport",
+      "specifier": "./XYHandle",
+      "status": "scoped",
+      "to": "packages/system/src/xyhandle/XYHandle.ts"
+    },
+    {
+      "from": "packages/system/src/xyhandle/types.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/xyhandle/utils.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "../utils",
+      "status": "scoped",
+      "to": "packages/system/src/utils/index.ts"
+    },
+    {
+      "from": "packages/system/src/xyhandle/utils.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/xyminimap/index.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "d3-zoom",
+      "status": "external",
+      "to": "node_modules/@types/d3-zoom/index.d.ts"
+    },
+    {
+      "from": "packages/system/src/xyminimap/index.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "d3-selection",
+      "status": "external",
+      "to": "node_modules/@types/d3-selection/index.d.ts"
+    },
+    {
+      "from": "packages/system/src/xyminimap/index.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/xyminimap/index.ts",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../utils",
+      "status": "scoped",
+      "to": "packages/system/src/utils/index.ts"
+    },
+    {
+      "from": "packages/system/src/xypanzoom/XYPanZoom.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "d3-zoom",
+      "status": "external",
+      "to": "node_modules/@types/d3-zoom/index.d.ts"
+    },
+    {
+      "from": "packages/system/src/xypanzoom/XYPanZoom.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "d3-selection",
+      "status": "external",
+      "to": "node_modules/@types/d3-selection/index.d.ts"
+    },
+    {
+      "from": "packages/system/src/xypanzoom/XYPanZoom.ts",
+      "line": 3,
+      "kind": "import",
+      "specifier": "d3-interpolate",
+      "status": "external",
+      "to": "node_modules/@types/d3-interpolate/index.d.ts"
+    },
+    {
+      "from": "packages/system/src/xypanzoom/XYPanZoom.ts",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/xypanzoom/XYPanZoom.ts",
+      "line": 13,
+      "kind": "import",
+      "specifier": "../utils",
+      "status": "scoped",
+      "to": "packages/system/src/utils/index.ts"
+    },
+    {
+      "from": "packages/system/src/xypanzoom/XYPanZoom.ts",
+      "line": 14,
+      "kind": "import",
+      "specifier": "./utils",
+      "status": "scoped",
+      "to": "packages/system/src/xypanzoom/utils.ts"
+    },
+    {
+      "from": "packages/system/src/xypanzoom/XYPanZoom.ts",
+      "line": 15,
+      "kind": "import",
+      "specifier": "./eventhandler",
+      "status": "scoped",
+      "to": "packages/system/src/xypanzoom/eventhandler.ts"
+    },
+    {
+      "from": "packages/system/src/xypanzoom/XYPanZoom.ts",
+      "line": 22,
+      "kind": "import",
+      "specifier": "./filter",
+      "status": "scoped",
+      "to": "packages/system/src/xypanzoom/filter.ts"
+    },
+    {
+      "from": "packages/system/src/xypanzoom/XYPanZoom.ts",
+      "line": 24,
+      "kind": "import",
+      "specifier": "d3-transition",
+      "status": "external",
+      "to": "node_modules/@types/d3-transition/index.d.ts"
+    },
+    {
+      "from": "packages/system/src/xypanzoom/eventhandler.ts",
+      "line": 3,
+      "kind": "import",
+      "specifier": "d3-zoom",
+      "status": "external",
+      "to": "node_modules/@types/d3-zoom/index.d.ts"
+    },
+    {
+      "from": "packages/system/src/xypanzoom/eventhandler.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "d3-selection",
+      "status": "external",
+      "to": "node_modules/@types/d3-selection/index.d.ts"
+    },
+    {
+      "from": "packages/system/src/xypanzoom/eventhandler.ts",
+      "line": 6,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/xypanzoom/eventhandler.ts",
+      "line": 15,
+      "kind": "import",
+      "specifier": "./utils",
+      "status": "scoped",
+      "to": "packages/system/src/xypanzoom/utils.ts"
+    },
+    {
+      "from": "packages/system/src/xypanzoom/eventhandler.ts",
+      "line": 16,
+      "kind": "import",
+      "specifier": "../utils",
+      "status": "scoped",
+      "to": "packages/system/src/utils/index.ts"
+    },
+    {
+      "from": "packages/system/src/xypanzoom/eventhandler.ts",
+      "line": 17,
+      "kind": "import",
+      "specifier": "./XYPanZoom",
+      "status": "scoped",
+      "to": "packages/system/src/xypanzoom/XYPanZoom.ts"
+    },
+    {
+      "from": "packages/system/src/xypanzoom/filter.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "./utils",
+      "status": "scoped",
+      "to": "packages/system/src/xypanzoom/utils.ts"
+    },
+    {
+      "from": "packages/system/src/xypanzoom/index.ts",
+      "line": 1,
+      "kind": "reexport",
+      "specifier": "./XYPanZoom",
+      "status": "scoped",
+      "to": "packages/system/src/xypanzoom/XYPanZoom.ts"
+    },
+    {
+      "from": "packages/system/src/xypanzoom/utils.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "d3-zoom",
+      "status": "external",
+      "to": "node_modules/@types/d3-zoom/index.d.ts"
+    },
+    {
+      "from": "packages/system/src/xypanzoom/utils.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "d3-transition",
+      "status": "external",
+      "to": "node_modules/@types/d3-transition/index.d.ts"
+    },
+    {
+      "from": "packages/system/src/xypanzoom/utils.ts",
+      "line": 6,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/xypanzoom/utils.ts",
+      "line": 7,
+      "kind": "import",
+      "specifier": "../utils",
+      "status": "scoped",
+      "to": "packages/system/src/utils/index.ts"
+    },
+    {
+      "from": "packages/system/src/xyresizer/XYResizer.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "d3-drag",
+      "status": "external",
+      "to": "node_modules/@types/d3-drag/index.d.ts"
+    },
+    {
+      "from": "packages/system/src/xyresizer/XYResizer.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "d3-selection",
+      "status": "external",
+      "to": "node_modules/@types/d3-selection/index.d.ts"
+    },
+    {
+      "from": "packages/system/src/xyresizer/XYResizer.ts",
+      "line": 4,
+      "kind": "import",
+      "specifier": "./utils",
+      "status": "scoped",
+      "to": "packages/system/src/xyresizer/utils.ts"
+    },
+    {
+      "from": "packages/system/src/xyresizer/XYResizer.ts",
+      "line": 5,
+      "kind": "import",
+      "specifier": "../utils",
+      "status": "scoped",
+      "to": "packages/system/src/utils/index.ts"
+    },
+    {
+      "from": "packages/system/src/xyresizer/XYResizer.ts",
+      "line": 6,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/xyresizer/XYResizer.ts",
+      "line": 15,
+      "kind": "import",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/system/src/xyresizer/types.ts"
+    },
+    {
+      "from": "packages/system/src/xyresizer/index.ts",
+      "line": 1,
+      "kind": "reexport",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/system/src/xyresizer/types.ts"
+    },
+    {
+      "from": "packages/system/src/xyresizer/index.ts",
+      "line": 2,
+      "kind": "reexport",
+      "specifier": "./XYResizer",
+      "status": "scoped",
+      "to": "packages/system/src/xyresizer/XYResizer.ts"
+    },
+    {
+      "from": "packages/system/src/xyresizer/types.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "d3-drag",
+      "status": "external",
+      "to": "node_modules/@types/d3-drag/index.d.ts"
+    },
+    {
+      "from": "packages/system/src/xyresizer/utils.ts",
+      "line": 1,
+      "kind": "import",
+      "specifier": "../types",
+      "status": "scoped",
+      "to": "packages/system/src/types/index.ts"
+    },
+    {
+      "from": "packages/system/src/xyresizer/utils.ts",
+      "line": 2,
+      "kind": "import",
+      "specifier": "../utils",
+      "status": "scoped",
+      "to": "packages/system/src/utils/index.ts"
+    },
+    {
+      "from": "packages/system/src/xyresizer/utils.ts",
+      "line": 3,
+      "kind": "import",
+      "specifier": "./types",
+      "status": "scoped",
+      "to": "packages/system/src/xyresizer/types.ts"
+    }
+  ]
+}

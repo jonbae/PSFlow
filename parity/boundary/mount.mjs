@@ -40,8 +40,8 @@
 //      also where the one crossed callback a server render can *fire* lives:
 //      `addEdge`'s `options.onError`.
 //
-//   5. **Three of the four chrome components mount with no props at all**, and
-//      the fourth names the one prop upstream declares required. That is the
+//   5. **The four chrome components mount with no props at all**, and
+//      `<Panel />` takes upstream's default position. That is the
 //      dull case and the one that used to crash: React hands a component `{}`,
 //      every `Maybe` field of the PureScript record arrives `undefined`, and
 //      the first `case` over one falls off the end of its pattern match.
@@ -300,7 +300,7 @@ check("no flow prop is wired to `Nothing`", () => {
   assert(
     dropped.length === 0,
     `props wired to \`Nothing\`, so they are silently ignored: ${dropped.join(", ")}. ` +
-      `Convert them, or refuse them the way \`defaultEdgeOptions\`' dropped members are — ` +
+      `Convert them, or refuse them at mount with a message naming them — ` +
       `a prop ps-flow ignores in silence is indistinguishable from one the consumer never set.`
   );
 });
@@ -491,23 +491,42 @@ refuses("a null key code is refused rather than defaulted", { deleteKeyCode: nul
 
 refuses("a key code of the wrong type is refused", { selectionKeyCode: 42 }, "selectionKeyCode");
 
-// `defaultEdgeOptions` is upstream's `Edge` minus its identity fields; ps-flow's
-// own record carries ten of those 23. The other thirteen would be dropped on the
-// floor, so the boundary refuses them one by one.
-const refusedOptionsPattern = /^\s*[[,]?\s*(?:droppedOption|unmodelledOption)\s+"([^"]+)"/gm;
-const refusedOptions = [...flowText.matchAll(refusedOptionsPattern)].map((m) => m[1]);
+// `defaultEdgeOptions` is upstream's `Edge` minus its identity fields and
+// `selected`: 23 members. Until Step 3 G ps-flow's record carried ten and the
+// boundary refused the other thirteen here, one by one. All 23 convert now,
+// so the check is the other way round: a value for every member mounts.
+// `parity/boundary/drift.mjs` holds the member list against the record, and
+// `Test.Boundary.DefaultEdgeOptions` holds the merge against upstream's.
+const everyEdgeOption = {
+  type: "smoothstep",
+  animated: true,
+  hidden: false,
+  deletable: true,
+  selectable: true,
+  data: { probe: true },
+  markerStart: MarkerType.Arrow,
+  markerEnd: { type: "arrowclosed", color: "#000" },
+  zIndex: 1,
+  ariaLabel: "probe",
+  interactionWidth: 12,
+  label: "probe",
+  labelStyle: { fill: "red" },
+  labelShowBg: false,
+  labelBgStyle: { fill: "blue" },
+  labelBgPadding: [2, 4],
+  labelBgBorderRadius: 3,
+  style: { stroke: "red" },
+  className: "probe",
+  reconnectable: "target",
+  focusable: false,
+  ariaRole: "note",
+  domAttributes: { "data-probe": "1" },
+};
+const edgeOptionsAccepted = Object.keys(everyEdgeOption).length;
 
-if (refusedOptions.length === 0) {
-  fail(`read no refused defaultEdgeOptions members from ${flowSource} — the parse is wrong`);
-}
-
-for (const name of refusedOptions) {
-  refuses(
-    `\`defaultEdgeOptions.${name}\` is refused at mount`,
-    { defaultEdgeOptions: { ...convertedProps.defaultEdgeOptions, [name]: "probe" } },
-    `defaultEdgeOptions.${name}`
-  );
-}
+check(`every one of the ${edgeOptionsAccepted} \`defaultEdgeOptions\` members is accepted`, () => {
+  renderToStaticMarkup(createElement(ReactFlow, { ...convertedProps, defaultEdgeOptions: everyEdgeOption }));
+});
 
 // ── 4. The utilities a driver calls ─────────────────────────────────────
 //
@@ -584,11 +603,17 @@ check("edges come back JS-shaped, so they can go straight back into `edges`", ()
   assert(!("edgeType" in e), "the edge still carries `edgeType`");
 });
 
-throws(
-  "a change whose type nothing knows is refused, not dropped",
-  () => applyNodeChanges([{ type: "nonsense", id: "a" }], jsNodes),
-  "nonsense"
-);
+// Raw helpers retain upstream's default switch branch. This used to assert
+// the typed converter's extra refusal; W03's oracle regression established
+// that a matching unrecognized change still makes a shallow copy upstream.
+check("an unrecognized raw change keeps fields and copies only the touched node", () => {
+  const out = applyNodeChanges([{ type: "nonsense", id: "a" }], jsNodes);
+  assert(Array.isArray(out), "did not return nodes");
+  assert(out[0] !== jsNodes[0], "the touched node was not copied");
+  assert(out[0].data === jsNodes[0].data, "the copy was not shallow");
+  assert(out[0].type === jsNodes[0].type, "the copy lost its type");
+  assert(out[1] === jsNodes[1], "the untouched node was copied");
+});
 
 // `Edge | Connection` is untagged, and the narrowing is this module's: an
 // `Edge` keeps the id it arrived with, a `Connection` is handed to the id
@@ -656,7 +681,8 @@ check("`addEdge` reports nothing when it added an edge", () => {
 //
 // The claim that matters most is the dullest one: **with no props at all**.
 // Three of the four chrome components take none in upstream's ColorMode
-// example and `<Handle />` takes none in upstream's `ToolbarNode.tsx`, and
+// example, `<Panel />` declares its one prop optional, and `<Handle />` takes
+// none in upstream's `ToolbarNode.tsx`, and
 // before they crossed, a `{}` props object gave every `Maybe` field
 // `undefined` and the first `case` over one fell off the end of its pattern
 // match.
@@ -732,11 +758,12 @@ const throwsIn = (mount) => (what, element, ...mustMention) =>
 const chromeThrows = throwsIn(inFlow);
 const nodeChromeThrows = throwsIn(inNode);
 
-chromeThrows(
-  "`<Panel />` without a position says so rather than failing a pattern match",
+// Upstream destructures `position = 'top-left'` and declares the member
+// optional. ps-flow refused the omission until Step 3 I.
+mounts(
+  "`<Panel />` without a position takes upstream's `top-left`",
   createElement(Panel, {}, "x"),
-  "Panel.position",
-  "required"
+  "react-flow__panel top left"
 );
 chromeThrows(
   "an enum member that does not exist is refused, with the component named",
@@ -1933,24 +1960,40 @@ check("the listener and middleware hooks accept JS-shaped handlers", () => {
   });
 });
 
-// The two that refuse. See `Boundary.Hooks`: both hand over the internal store
-// state, which is an 85-field PureScript record with no JS shape, and both are
-// callable at upstream's arity so that surface parity sees them agree. That
-// they throw is this gate's to hold, and it is held the way the refused
-// `defaultEdgeOptions` members are — by making the call and reading the
-// message.
-throws(
-  "`useStore` refuses rather than handing over the PureScript store state",
-  () => insideFlow(() => useStore((s) => s)),
-  "useStore",
-  "nodeLookup"
-);
+// The two store hooks. Until Step 3 G both refused at the call, because the
+// state they hand over is a PureScript record; `Boundary.Store` gives it
+// upstream's shape. A server render reaches both, so this holds the shape a
+// consumer reads: upstream's members, its `Map` lookups, its `[x, y, zoom]`
+// transform, and zustand's three functions. `parity/boundary/store.test.mjs`
+// compares every member and the write semantics against upstream itself.
+check("`useStore` hands a selector the state in upstream's shape", () => {
+  const { slice, whole, api } = insideFlow((out) => {
+    out.slice = useStore((s) => ({ count: s.nodes.length, transform: s.transform, lookup: s.nodeLookup }));
+    out.whole = useStore();
+    out.api = useStoreApi();
+  });
+  assert(slice.count === psflowNodes.length, `selected ${slice.count} nodes, not ${psflowNodes.length}`);
+  assert(Array.isArray(slice.transform) && slice.transform.length === 3, "`transform` is not [x, y, zoom]");
+  assert(slice.lookup instanceof Map, "`nodeLookup` is not a JavaScript Map");
+  assert(whole === api.getState(), "`useStore()` with no selector is not the whole state");
+});
 
-throws(
-  "`useStoreApi` refuses rather than handing over the PureScript store state",
-  () => insideFlow(() => useStoreApi()),
-  "useStoreApi"
-);
+check("`useStoreApi` hands over getState, setState and subscribe", () => {
+  const { api } = insideFlow((out) => {
+    out.api = useStoreApi();
+  });
+  assert(
+    ["getState", "setState", "subscribe"].every((k) => typeof api[k] === "function"),
+    "missing one of getState, setState, subscribe"
+  );
+  let heard = 0;
+  const unsubscribe = api.subscribe(() => heard++);
+  api.setState({ nodesDraggable: false });
+  unsubscribe();
+  assert(heard === 1, `a subscriber heard ${heard} setState calls, not 1`);
+  assert(api.getState().nodesDraggable === false, "setState did not reach the state");
+  assert(typeof api.getState().setNodes === "function", "the actions are not on the state");
+});
 
 // `onInit` is the second path to the instance and the one that does not need a
 // component of the consumer's own. It was the last deferred callback prop, and
@@ -1992,6 +2035,6 @@ if (failures > 0) {
   process.exit(1);
 }
 
-console.log(`boundary mount: ${notes.length} checks, ${refusedOptions.length} defaultEdgeOptions members refused, 0 deferred props.`);
+console.log(`boundary mount: ${notes.length} checks, ${edgeOptionsAccepted} defaultEdgeOptions members accepted, 0 deferred props.`);
 console.log(notes.slice(0, 5).join("\n"));
 console.log(`  ✓ … and ${notes.length - 5} more`);

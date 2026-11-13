@@ -1,0 +1,2 @@
+$ node --input-type=module -e import {runEndTimingTests} from "./output/Test.System.XYPanZoom.EndTiming/index.js"; runEndTimingTests();
+viewport-end: native task order, real d3 measurement order, 0/150 ms coalescing and event identity match source; order fault rejected

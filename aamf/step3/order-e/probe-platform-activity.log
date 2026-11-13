@@ -1,0 +1,16 @@
+$ node aamf/step3/order-e/probe-activity-capture.mjs activity 3 mount-baseline--viewport-controlled
+{"phase":"activity","scenario":"mount-baseline--viewport-controlled","round":1,"side":"upstream","capture":1,"elapsedMs":893}
+{"phase":"activity","scenario":"mount-baseline--viewport-controlled","round":1,"side":"upstream","capture":2,"elapsedMs":482}
+{"phase":"activity","scenario":"mount-baseline--viewport-controlled","round":1,"side":"psflow","capture":1,"elapsedMs":955}
+{"phase":"activity","scenario":"mount-baseline--viewport-controlled","round":1,"side":"psflow","capture":2,"elapsedMs":614}
+{"scenario":"mount-baseline--viewport-controlled","round":1,"interpretable":false,"fullGatePassed":false,"consistency":[{"side":"upstream","consistent":false},{"side":"psflow","consistent":true}],"classes":["self-inconsistent","unclaimed-difference"],"differences":null}
+{"phase":"activity","scenario":"mount-baseline--viewport-controlled","round":2,"side":"upstream","capture":1,"elapsedMs":631}
+{"phase":"activity","scenario":"mount-baseline--viewport-controlled","round":2,"side":"upstream","capture":2,"elapsedMs":516}
+{"phase":"activity","scenario":"mount-baseline--viewport-controlled","round":2,"side":"psflow","capture":1,"elapsedMs":1007}
+{"phase":"activity","scenario":"mount-baseline--viewport-controlled","round":2,"side":"psflow","capture":2,"elapsedMs":577}
+{"scenario":"mount-baseline--viewport-controlled","round":2,"interpretable":true,"fullGatePassed":true,"consistency":[{"side":"upstream","consistent":true},{"side":"psflow","consistent":true}],"classes":[],"differences":0}
+{"phase":"activity","scenario":"mount-baseline--viewport-controlled","round":3,"side":"upstream","capture":1,"elapsedMs":668}
+{"phase":"activity","scenario":"mount-baseline--viewport-controlled","round":3,"side":"upstream","capture":2,"elapsedMs":425}
+{"phase":"activity","scenario":"mount-baseline--viewport-controlled","round":3,"side":"psflow","capture":1,"elapsedMs":923}
+{"phase":"activity","scenario":"mount-baseline--viewport-controlled","round":3,"side":"psflow","capture":2,"elapsedMs":546}
+{"scenario":"mount-baseline--viewport-controlled","round":3,"interpretable":false,"fullGatePassed":false,"consistency":[{"side":"upstream","consistent":false},{"side":"psflow","consistent":true}],"classes":["self-inconsistent","unclaimed-difference"],"differences":null}

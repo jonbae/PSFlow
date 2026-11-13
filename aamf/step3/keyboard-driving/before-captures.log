@@ -1,0 +1,16 @@
+$ node aamf/step3/keyboard-driving/capture.mjs before 5 arrow-key-selected-node resize-node-after-active-limit-change
+{"phase":"before","scenario":"arrow-key-selected-node","round":1,"interpretable":true,"fullGatePassed":false,"sides":[{"side":"upstream","consistent":true,"differences":0},{"side":"psflow","consistent":true,"differences":0}],"unclaimed":2}
+{"phase":"before","scenario":"arrow-key-selected-node","round":2,"interpretable":true,"fullGatePassed":false,"sides":[{"side":"upstream","consistent":true,"differences":0},{"side":"psflow","consistent":true,"differences":0}],"unclaimed":2}
+{"phase":"before","scenario":"arrow-key-selected-node","round":3,"interpretable":true,"fullGatePassed":false,"sides":[{"side":"upstream","consistent":true,"differences":0},{"side":"psflow","consistent":true,"differences":0}],"unclaimed":2}
+{"phase":"before","scenario":"arrow-key-selected-node","round":4,"interpretable":true,"fullGatePassed":false,"sides":[{"side":"upstream","consistent":true,"differences":0},{"side":"psflow","consistent":true,"differences":0}],"unclaimed":2}
+{"phase":"before","scenario":"arrow-key-selected-node","round":5,"interpretable":false,"fullGatePassed":false,"sides":[{"side":"upstream","consistent":false,"differences":2},{"side":"psflow","consistent":true,"differences":0}],"unclaimed":null}
+{"phase":"before","scenario":"resize-node-after-active-limit-change","round":1,"interpretable":false,"fullGatePassed":false,"sides":[{"side":"upstream","consistent":true,"differences":0},{"side":"psflow","consistent":true,"differences":0}],"unclaimed":null}
+{"phase":"before","scenario":"resize-node-after-active-limit-change","round":2,"interpretable":false,"fullGatePassed":false,"sides":[{"side":"upstream","consistent":true,"differences":0},{"side":"psflow","consistent":true,"differences":0}],"unclaimed":null}
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+browserContext.close: Target page, context or browser has been closed
+    at async file:///Users/jonathanbae/repos/PSFlow/aamf/step3/keyboard-driving/capture.mjs:40:17
+
+Node.js v22.18.0

@@ -52,13 +52,21 @@ export {
   snapPosition,
   pointToRendererPoint,
   rendererPointToPoint,
-  getViewportForBounds
+  getViewportForBounds,
+  nodeToRect,
+  nodeToBox
 } from "./xyflow/packages/system/src/utils/general";
 export { getNodeToolbarTransform } from "./xyflow/packages/system/src/utils/node-toolbar";
 export { getEdgeToolbarTransform } from "./xyflow/packages/system/src/utils/edge-toolbar";
 export { getMarkerId } from "./xyflow/packages/system/src/utils/marker";
 export { getConnectionStatus } from "./xyflow/packages/system/src/utils/connections";
-export { getOutgoers, getIncomers, getConnectedEdges, getNodesBounds } from "./xyflow/packages/system/src/utils/graph";
+export {
+  getOutgoers,
+  getIncomers,
+  getConnectedEdges,
+  getNodesBounds,
+  getNodePositionWithOrigin
+} from "./xyflow/packages/system/src/utils/graph";
 export { applyNodeChanges, applyEdgeChanges } from "./xyflow/packages/react/src/utils/changes";
 // The React-layer \`addEdge\`/\`reconnectEdge\` (not the system ones they
 // delegate to) — those are the names \`@xyflow/react\` exports, and the layer

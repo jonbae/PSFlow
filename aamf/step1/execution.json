@@ -1,0 +1,18 @@
+{
+  "startedAt": "2026-11-09T19:04:38.846873+00:00",
+  "elapsedSeconds": 13.1,
+  "command": [
+    "/Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node",
+    "<workspace>/AAMF/dist/index.js",
+    "migrate",
+    "-c",
+    "<workspace>/analysis.json",
+    "--phase",
+    "1"
+  ],
+  "exitCode": 0,
+  "statusExitCode": 0,
+  "psflowCommit": "04fd4f246eb02d311effbf4fb1debedcbc21ba01",
+  "aamfCommit": "7dc475d81ef9796b5b90f57a29475eaafa375753",
+  "nodeVersion": "v22.18.0"
+}

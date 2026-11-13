@@ -1,0 +1,557 @@
+[
+  {
+    "scenario": "arrow-key-selected-node",
+    "round": 1,
+    "interpretable": false,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [
+          {
+            "kind": "order",
+            "path": [
+              "callbacks"
+            ],
+            "left": [
+              "onSelectionChange#1",
+              "onNodesChange#1",
+              "onPaneMouseEnter#1",
+              "onNodeMouseEnter#1",
+              "onPaneMouseMove#1",
+              "onNodeMouseMove#1",
+              "onNodesChange#2",
+              "onNodeDragStart#1",
+              "onSelectionChange#2",
+              "onNodeDragStop#1",
+              "onNodeClick#1",
+              "onNodesChange#3",
+              "onNodesChange#4",
+              "onNodesChange#5",
+              "onNodesChange#6",
+              "onNodesChange#7",
+              "onNodeMouseLeave#1",
+              "onNodesChange#8"
+            ],
+            "right": [
+              "onSelectionChange#1",
+              "onNodesChange#1",
+              "onPaneMouseEnter#1",
+              "onNodeMouseEnter#1",
+              "onPaneMouseMove#1",
+              "onNodeMouseMove#1",
+              "onNodesChange#2",
+              "onNodeDragStart#1",
+              "onSelectionChange#2",
+              "onNodeDragStop#1",
+              "onNodeClick#1",
+              "onNodesChange#3",
+              "onNodesChange#4",
+              "onNodesChange#5",
+              "onNodesChange#6",
+              "onNodeMouseLeave#1",
+              "onNodesChange#7",
+              "onNodesChange#8"
+            ]
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "callbacks",
+              16,
+              "args",
+              1,
+              "position",
+              "x"
+            ],
+            "left": 5,
+            "right": 0
+          }
+        ],
+        "consistent": false
+      },
+      {
+        "side": "psflow",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "failureClasses": [
+      "self-inconsistent",
+      "unclaimed-difference"
+    ],
+    "differences": null
+  },
+  {
+    "scenario": "arrow-key-selected-node",
+    "round": 2,
+    "interpretable": false,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [
+          {
+            "kind": "order",
+            "path": [
+              "callbacks"
+            ],
+            "left": [
+              "onSelectionChange#1",
+              "onNodesChange#1",
+              "onPaneMouseEnter#1",
+              "onNodeMouseEnter#1",
+              "onPaneMouseMove#1",
+              "onNodeMouseMove#1",
+              "onNodesChange#2",
+              "onNodeDragStart#1",
+              "onSelectionChange#2",
+              "onNodeDragStop#1",
+              "onNodeClick#1",
+              "onNodesChange#3",
+              "onNodesChange#4",
+              "onNodesChange#5",
+              "onNodesChange#6",
+              "onNodeMouseLeave#1",
+              "onNodesChange#7",
+              "onNodesChange#8"
+            ],
+            "right": [
+              "onSelectionChange#1",
+              "onNodesChange#1",
+              "onPaneMouseEnter#1",
+              "onNodeMouseEnter#1",
+              "onPaneMouseMove#1",
+              "onNodeMouseMove#1",
+              "onNodesChange#2",
+              "onNodeDragStart#1",
+              "onSelectionChange#2",
+              "onNodeDragStop#1",
+              "onNodeClick#1",
+              "onNodesChange#3",
+              "onNodesChange#4",
+              "onNodesChange#5",
+              "onNodesChange#6",
+              "onNodesChange#7",
+              "onNodeMouseLeave#1",
+              "onNodesChange#8"
+            ]
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "callbacks",
+              15,
+              "args",
+              1,
+              "position",
+              "x"
+            ],
+            "left": 0,
+            "right": 5
+          }
+        ],
+        "consistent": false
+      },
+      {
+        "side": "psflow",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "failureClasses": [
+      "self-inconsistent",
+      "unclaimed-difference"
+    ],
+    "differences": null
+  },
+  {
+    "scenario": "arrow-key-selected-node",
+    "round": 3,
+    "interpretable": false,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [
+          {
+            "kind": "order",
+            "path": [
+              "callbacks"
+            ],
+            "left": [
+              "onSelectionChange#1",
+              "onNodesChange#1",
+              "onPaneMouseEnter#1",
+              "onNodeMouseEnter#1",
+              "onPaneMouseMove#1",
+              "onNodeMouseMove#1",
+              "onNodesChange#2",
+              "onNodeDragStart#1",
+              "onSelectionChange#2",
+              "onNodeDragStop#1",
+              "onNodeClick#1",
+              "onNodesChange#3",
+              "onNodesChange#4",
+              "onNodesChange#5",
+              "onNodesChange#6",
+              "onNodesChange#7",
+              "onNodeMouseLeave#1",
+              "onNodesChange#8"
+            ],
+            "right": [
+              "onSelectionChange#1",
+              "onNodesChange#1",
+              "onPaneMouseEnter#1",
+              "onNodeMouseEnter#1",
+              "onPaneMouseMove#1",
+              "onNodeMouseMove#1",
+              "onNodesChange#2",
+              "onNodeDragStart#1",
+              "onSelectionChange#2",
+              "onNodeDragStop#1",
+              "onNodeClick#1",
+              "onNodesChange#3",
+              "onNodesChange#4",
+              "onNodesChange#5",
+              "onNodesChange#6",
+              "onNodeMouseLeave#1",
+              "onNodesChange#7",
+              "onNodesChange#8"
+            ]
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "callbacks",
+              16,
+              "args",
+              1,
+              "position",
+              "x"
+            ],
+            "left": 5,
+            "right": 0
+          }
+        ],
+        "consistent": false
+      },
+      {
+        "side": "psflow",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "failureClasses": [
+      "self-inconsistent",
+      "unclaimed-difference"
+    ],
+    "differences": null
+  },
+  {
+    "scenario": "arrow-key-selected-node",
+    "round": 4,
+    "interpretable": false,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [
+          {
+            "kind": "order",
+            "path": [
+              "callbacks"
+            ],
+            "left": [
+              "onSelectionChange#1",
+              "onNodesChange#1",
+              "onPaneMouseEnter#1",
+              "onNodeMouseEnter#1",
+              "onPaneMouseMove#1",
+              "onNodeMouseMove#1",
+              "onNodesChange#2",
+              "onNodeDragStart#1",
+              "onSelectionChange#2",
+              "onNodeDragStop#1",
+              "onNodeClick#1",
+              "onNodesChange#3",
+              "onNodesChange#4",
+              "onNodesChange#5",
+              "onNodesChange#6",
+              "onNodesChange#7",
+              "onNodeMouseLeave#1",
+              "onNodesChange#8"
+            ],
+            "right": [
+              "onSelectionChange#1",
+              "onNodesChange#1",
+              "onPaneMouseEnter#1",
+              "onNodeMouseEnter#1",
+              "onPaneMouseMove#1",
+              "onNodeMouseMove#1",
+              "onNodesChange#2",
+              "onNodeDragStart#1",
+              "onSelectionChange#2",
+              "onNodeDragStop#1",
+              "onNodeClick#1",
+              "onNodesChange#3",
+              "onNodesChange#4",
+              "onNodesChange#5",
+              "onNodesChange#6",
+              "onNodeMouseLeave#1",
+              "onNodesChange#7",
+              "onNodesChange#8"
+            ]
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "callbacks",
+              16,
+              "args",
+              1,
+              "position",
+              "x"
+            ],
+            "left": 5,
+            "right": 0
+          }
+        ],
+        "consistent": false
+      },
+      {
+        "side": "psflow",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "failureClasses": [
+      "self-inconsistent",
+      "unclaimed-difference"
+    ],
+    "differences": null
+  },
+  {
+    "scenario": "arrow-key-selected-node",
+    "round": 5,
+    "interpretable": false,
+    "fullGatePassed": false,
+    "consistency": [
+      {
+        "side": "upstream",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [
+          {
+            "kind": "order",
+            "path": [
+              "callbacks"
+            ],
+            "left": [
+              "onSelectionChange#1",
+              "onNodesChange#1",
+              "onPaneMouseEnter#1",
+              "onNodeMouseEnter#1",
+              "onPaneMouseMove#1",
+              "onNodeMouseMove#1",
+              "onNodesChange#2",
+              "onNodeDragStart#1",
+              "onSelectionChange#2",
+              "onNodeDragStop#1",
+              "onNodeClick#1",
+              "onNodesChange#3",
+              "onNodesChange#4",
+              "onNodesChange#5",
+              "onNodesChange#6",
+              "onNodeMouseLeave#1",
+              "onNodesChange#7",
+              "onNodesChange#8"
+            ],
+            "right": [
+              "onSelectionChange#1",
+              "onNodesChange#1",
+              "onPaneMouseEnter#1",
+              "onNodeMouseEnter#1",
+              "onPaneMouseMove#1",
+              "onNodeMouseMove#1",
+              "onNodesChange#2",
+              "onNodeDragStart#1",
+              "onSelectionChange#2",
+              "onNodeDragStop#1",
+              "onNodeClick#1",
+              "onNodesChange#3",
+              "onNodesChange#4",
+              "onNodesChange#5",
+              "onNodesChange#6",
+              "onNodesChange#7",
+              "onNodeMouseLeave#1",
+              "onNodesChange#8"
+            ]
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "callbacks",
+              15,
+              "args",
+              1,
+              "position",
+              "x"
+            ],
+            "left": 0,
+            "right": 5
+          }
+        ],
+        "consistent": false
+      },
+      {
+        "side": "psflow",
+        "scenario": "arrow-key-selected-node",
+        "captures": [
+          1,
+          2
+        ],
+        "scope": [
+          "driving",
+          "dom",
+          "callbacks",
+          "hooks",
+          "api",
+          "props",
+          "console"
+        ],
+        "differences": [],
+        "consistent": true
+      }
+    ],
+    "failureClasses": [
+      "self-inconsistent",
+      "unclaimed-difference"
+    ],
+    "differences": null
+  }
+]

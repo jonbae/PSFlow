@@ -248,6 +248,107 @@
         ]
       },
       {
+        "name": "onInit",
+        "args": [
+          {
+            "getNodes": {
+              "@ref": "function"
+            },
+            "setNodes": {
+              "@ref": "function"
+            },
+            "addNodes": {
+              "@ref": "function"
+            },
+            "getNode": {
+              "@ref": "function"
+            },
+            "getInternalNode": {
+              "@ref": "function"
+            },
+            "getEdges": {
+              "@ref": "function"
+            },
+            "setEdges": {
+              "@ref": "function"
+            },
+            "addEdges": {
+              "@ref": "function"
+            },
+            "getEdge": {
+              "@ref": "function"
+            },
+            "toObject": {
+              "@ref": "function"
+            },
+            "deleteElements": {
+              "@ref": "function"
+            },
+            "getIntersectingNodes": {
+              "@ref": "function"
+            },
+            "isNodeIntersecting": {
+              "@ref": "function"
+            },
+            "updateNode": {
+              "@ref": "function"
+            },
+            "updateNodeData": {
+              "@ref": "function"
+            },
+            "updateEdge": {
+              "@ref": "function"
+            },
+            "updateEdgeData": {
+              "@ref": "function"
+            },
+            "getNodesBounds": {
+              "@ref": "function"
+            },
+            "getHandleConnections": {
+              "@ref": "function"
+            },
+            "getNodeConnections": {
+              "@ref": "function"
+            },
+            "fitView": {
+              "@ref": "function"
+            },
+            "zoomIn": {
+              "@ref": "function"
+            },
+            "zoomOut": {
+              "@ref": "function"
+            },
+            "zoomTo": {
+              "@ref": "function"
+            },
+            "getZoom": {
+              "@ref": "function"
+            },
+            "setViewport": {
+              "@ref": "function"
+            },
+            "getViewport": {
+              "@ref": "function"
+            },
+            "setCenter": {
+              "@ref": "function"
+            },
+            "fitBounds": {
+              "@ref": "function"
+            },
+            "screenToFlowPosition": {
+              "@ref": "function"
+            },
+            "flowToScreenPosition": {
+              "@ref": "function"
+            },
+            "viewportInitialized": true
+          }
+        ]
+      },
+      {
         "name": "onPaneMouseEnter",
         "args": [
           {
@@ -270,7 +371,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 292.7000000476837,
+            "timeStamp": 56,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -339,7 +440,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 292.7000000476837,
+            "timeStamp": 56,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -375,14 +476,14 @@
           },
           {
             "id": "props-parent",
+            "type": "propsRecord",
+            "data": {
+              "label": "props-parent"
+            },
             "position": {
               "x": 100,
               "y": 200
             },
-            "data": {
-              "label": "props-parent"
-            },
-            "type": "propsRecord",
             "width": 300,
             "height": 200,
             "measured": {
@@ -413,7 +514,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 292.7000000476837,
+            "timeStamp": 56,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -478,7 +579,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 292.7000000476837,
+            "timeStamp": 56,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -512,14 +613,14 @@
           },
           {
             "id": "props-parent",
+            "type": "propsRecord",
+            "data": {
+              "label": "props-parent"
+            },
             "position": {
               "x": 100,
               "y": 200
             },
-            "data": {
-              "label": "props-parent"
-            },
-            "type": "propsRecord",
             "width": 300,
             "height": 200,
             "measured": {
@@ -562,7 +663,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 303.10000002384186,
+            "timeStamp": 112,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -596,14 +697,14 @@
           },
           {
             "id": "props-parent",
+            "type": "propsRecord",
+            "data": {
+              "label": "props-parent"
+            },
             "position": {
               "x": 100,
               "y": 200
             },
-            "data": {
-              "label": "props-parent"
-            },
-            "type": "propsRecord",
             "width": 300,
             "height": 200,
             "measured": {
@@ -620,21 +721,21 @@
             "nodes": [
               {
                 "id": "props-parent",
+                "type": "propsRecord",
+                "data": {
+                  "label": "props-parent"
+                },
                 "position": {
                   "x": 100,
                   "y": 200
                 },
-                "data": {
-                  "label": "props-parent"
-                },
-                "type": "propsRecord",
-                "selected": true,
                 "width": 300,
                 "height": 200,
                 "measured": {
                   "width": 300,
                   "height": 200
-                }
+                },
+                "selected": true
               }
             ],
             "edges": []
@@ -664,7 +765,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 319.7000000476837,
+            "timeStamp": 144,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -700,21 +801,21 @@
           },
           {
             "id": "props-parent",
+            "type": "propsRecord",
+            "data": {
+              "label": "props-parent"
+            },
             "position": {
               "x": 100,
               "y": 200
             },
-            "data": {
-              "label": "props-parent"
-            },
-            "type": "propsRecord",
-            "selected": true,
             "width": 300,
             "height": 200,
             "measured": {
               "width": 300,
               "height": 200
-            }
+            },
+            "selected": true
           }
         ]
       },
@@ -741,7 +842,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 319.7000000476837,
+            "timeStamp": 144,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -777,20 +878,20 @@
           },
           {
             "id": "props-child",
+            "type": "propsRecord",
+            "data": {
+              "label": "props-child"
+            },
             "position": {
               "x": 50,
               "y": 25
             },
-            "data": {
-              "label": "props-child"
-            },
-            "type": "propsRecord",
-            "draggable": false,
+            "parentId": "props-parent",
             "selectable": false,
+            "draggable": false,
             "deletable": false,
             "width": 120,
             "height": 40,
-            "parentId": "props-parent",
             "measured": {
               "width": 120,
               "height": 40
@@ -819,7 +920,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 319.7000000476837,
+            "timeStamp": 144,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -884,7 +985,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 319.7000000476837,
+            "timeStamp": 144,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -918,20 +1019,20 @@
           },
           {
             "id": "props-child",
+            "type": "propsRecord",
+            "data": {
+              "label": "props-child"
+            },
             "position": {
               "x": 50,
               "y": 25
             },
-            "data": {
-              "label": "props-child"
-            },
-            "type": "propsRecord",
-            "draggable": false,
+            "parentId": "props-parent",
             "selectable": false,
+            "draggable": false,
             "deletable": false,
             "width": 120,
             "height": 40,
-            "parentId": "props-parent",
             "measured": {
               "width": 120,
               "height": 40
@@ -941,20 +1042,6 @@
       },
       {
         "name": "onMoveStart",
-        "args": [
-          {
-            "@class": "MouseEvent",
-            "isTrusted": true
-          },
-          {
-            "x": 140,
-            "y": -240,
-            "zoom": 2
-          }
-        ]
-      },
-      {
-        "name": "onMoveEnd",
         "args": [
           {
             "@class": "MouseEvent",
@@ -988,7 +1075,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 334.7000000476837,
+            "timeStamp": 208,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1022,24 +1109,38 @@
           },
           {
             "id": "props-child",
+            "type": "propsRecord",
+            "data": {
+              "label": "props-child"
+            },
             "position": {
               "x": 50,
               "y": 25
             },
-            "data": {
-              "label": "props-child"
-            },
-            "type": "propsRecord",
-            "draggable": false,
+            "parentId": "props-parent",
             "selectable": false,
+            "draggable": false,
             "deletable": false,
             "width": 120,
             "height": 40,
-            "parentId": "props-parent",
             "measured": {
               "width": 120,
               "height": 40
             }
+          }
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          {
+            "@class": "MouseEvent",
+            "isTrusted": true
+          },
+          {
+            "x": 140,
+            "y": -240,
+            "zoom": 2
           }
         ]
       }
@@ -1050,38 +1151,38 @@
         "getNodes": [
           {
             "id": "props-parent",
+            "type": "propsRecord",
+            "data": {
+              "label": "props-parent"
+            },
             "position": {
               "x": 100,
               "y": 200
             },
-            "data": {
-              "label": "props-parent"
-            },
-            "type": "propsRecord",
-            "selected": true,
             "width": 300,
             "height": 200,
             "measured": {
               "width": 300,
               "height": 200
-            }
+            },
+            "selected": true
           },
           {
             "id": "props-child",
+            "type": "propsRecord",
+            "data": {
+              "label": "props-child"
+            },
             "position": {
               "x": 50,
               "y": 25
             },
-            "data": {
-              "label": "props-child"
-            },
-            "type": "propsRecord",
-            "draggable": false,
+            "parentId": "props-parent",
             "selectable": false,
+            "draggable": false,
             "deletable": false,
             "width": 120,
             "height": 40,
-            "parentId": "props-parent",
             "measured": {
               "width": 120,
               "height": 40
@@ -1090,48 +1191,66 @@
         ],
         "getNode": {
           "id": "props-parent",
+          "type": "propsRecord",
+          "data": {
+            "label": "props-parent"
+          },
           "position": {
             "x": 100,
             "y": 200
           },
-          "data": {
-            "label": "props-parent"
-          },
-          "type": "propsRecord",
-          "selected": true,
           "width": 300,
           "height": 200,
           "measured": {
             "width": 300,
             "height": 200
-          }
+          },
+          "selected": true
         },
         "getInternalNode": {
           "id": "props-parent",
+          "type": "propsRecord",
+          "data": {
+            "label": "props-parent"
+          },
           "position": {
             "x": 100,
             "y": 200
           },
-          "data": {
-            "label": "props-parent"
-          },
-          "type": "propsRecord",
-          "selected": true,
           "width": 300,
           "height": 200,
           "measured": {
             "width": 300,
             "height": 200
           },
+          "selected": true,
           "internals": {
             "positionAbsolute": {
               "x": 100,
               "y": 200
             },
             "z": 1000,
+            "userNode": {
+              "id": "props-parent",
+              "type": "propsRecord",
+              "data": {
+                "label": "props-parent"
+              },
+              "position": {
+                "x": 100,
+                "y": 200
+              },
+              "width": 300,
+              "height": 200,
+              "measured": {
+                "width": 300,
+                "height": 200
+              },
+              "selected": true
+            },
             "handleBounds": {
-              "source": [],
-              "target": []
+              "source": null,
+              "target": null
             }
           }
         },
@@ -1142,38 +1261,38 @@
         "getIntersectingNodes": [
           {
             "id": "props-parent",
+            "type": "propsRecord",
+            "data": {
+              "label": "props-parent"
+            },
             "position": {
               "x": 100,
               "y": 200
             },
-            "data": {
-              "label": "props-parent"
-            },
-            "type": "propsRecord",
-            "selected": true,
             "width": 300,
             "height": 200,
             "measured": {
               "width": 300,
               "height": 200
-            }
+            },
+            "selected": true
           },
           {
             "id": "props-child",
+            "type": "propsRecord",
+            "data": {
+              "label": "props-child"
+            },
             "position": {
               "x": 50,
               "y": 25
             },
-            "data": {
-              "label": "props-child"
-            },
-            "type": "propsRecord",
-            "draggable": false,
+            "parentId": "props-parent",
             "selectable": false,
+            "draggable": false,
             "deletable": false,
             "width": 120,
             "height": 40,
-            "parentId": "props-parent",
             "measured": {
               "width": 120,
               "height": 40
@@ -1193,38 +1312,38 @@
           "nodes": [
             {
               "id": "props-parent",
+              "type": "propsRecord",
+              "data": {
+                "label": "props-parent"
+              },
               "position": {
                 "x": 100,
                 "y": 200
               },
-              "data": {
-                "label": "props-parent"
-              },
-              "type": "propsRecord",
-              "selected": true,
               "width": 300,
               "height": 200,
               "measured": {
                 "width": 300,
                 "height": 200
-              }
+              },
+              "selected": true
             },
             {
               "id": "props-child",
+              "type": "propsRecord",
+              "data": {
+                "label": "props-child"
+              },
               "position": {
                 "x": 50,
                 "y": 25
               },
-              "data": {
-                "label": "props-child"
-              },
-              "type": "propsRecord",
-              "draggable": false,
+              "parentId": "props-parent",
               "selectable": false,
+              "draggable": false,
               "deletable": false,
               "width": 120,
               "height": 40,
-              "parentId": "props-parent",
               "measured": {
                 "width": 120,
                 "height": 40

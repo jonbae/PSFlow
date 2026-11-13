@@ -1,0 +1,248 @@
+
+> ps-flow@0.0.0 test:coverage
+> node --test "parity/system/coverage/**/*.test.mjs"
+
+TAP version 13
+# Subtest: an export counts as driven only when a trace that ran actually held it
+ok 1 - an export counts as driven only when a trace that ran actually held it
+  ---
+  duration_ms: 8.272201
+  type: 'test'
+  ...
+# Subtest: an undeclared hole fails, and a declared one passes
+ok 2 - an undeclared hole fails, and a declared one passes
+  ---
+  duration_ms: 1.11162
+  type: 'test'
+  ...
+# Subtest: an export with no witness fails, which is what a bump that adds one looks like
+ok 3 - an export with no witness fails, which is what a bump that adds one looks like
+  ---
+  duration_ms: 0.678711
+  type: 'test'
+  ...
+# Subtest: a witness naming an export the census no longer carries is stale
+ok 4 - a witness naming an export the census no longer carries is stale
+  ---
+  duration_ms: 0.52133
+  type: 'test'
+  ...
+# Subtest: a hole over an export something did drive is stale — the reason stopped being true
+ok 5 - a hole over an export something did drive is stale — the reason stopped being true
+  ---
+  duration_ms: 0.982358
+  type: 'test'
+  ...
+# Subtest: a hole register entry covers as many exports as its reason covers
+ok 6 - a hole register entry covers as many exports as its reason covers
+  ---
+  duration_ms: 2.285252
+  type: 'test'
+  ...
+# Subtest: the register is refused when an entry names nothing, or names one export twice
+ok 7 - the register is refused when an entry names nothing, or names one export twice
+  ---
+  duration_ms: 1.467936
+  type: 'test'
+  ...
+# Subtest: the two counts are kept apart, and the termination condition is what green means
+ok 8 - the two counts are kept apart, and the termination condition is what green means
+  ---
+  duration_ms: 0.770318
+  type: 'test'
+  ...
+# Subtest: a field the noise policy deletes is unobserved, not driven
+ok 9 - a field the noise policy deletes is unobserved, not driven
+  ---
+  duration_ms: 1.946631
+  type: 'test'
+  ...
+# Subtest: the export-bearing entries and their sections are read off the census
+ok 10 - the export-bearing entries and their sections are read off the census
+  ---
+  duration_ms: 1.255419
+  type: 'test'
+  ...
+# Subtest: behavior coverage is hand-declared, and counted in its own currency
+ok 11 - behavior coverage is hand-declared, and counted in its own currency
+  ---
+  duration_ms: 24.583107
+  type: 'test'
+  ...
+# Subtest: a gate-pending row naming a scenario the corpus does not hold fails
+ok 12 - a gate-pending row naming a scenario the corpus does not hold fails
+  ---
+  duration_ms: 0.75165
+  type: 'test'
+  ...
+# Subtest: a gate-pending row that names no scenario cannot be joined to anything
+ok 13 - a gate-pending row that names no scenario cannot be joined to anything
+  ---
+  duration_ms: 0.472369
+  type: 'test'
+  ...
+# Subtest: a row against a reserved id resolves, and is counted apart from one against a written scenario
+ok 14 - a row against a reserved id resolves, and is counted apart from one against a written scenario
+  ---
+  duration_ms: 0.561803
+  type: 'test'
+  ...
+# Subtest: only a net-bound row joins the corpus; the others are counted and left alone
+ok 15 - only a net-bound row joins the corpus; the others are counted and left alone
+  ---
+  duration_ms: 0.530685
+  type: 'test'
+  ...
+# Subtest: the holes are queryable by section, which is what derives from the list
+ok 16 - the holes are queryable by section, which is what derives from the list
+  ---
+  duration_ms: 1.456623
+  type: 'test'
+  ...
+# Subtest: the artifact states the termination condition and whether it holds
+ok 17 - the artifact states the termination condition and whether it holds
+  ---
+  duration_ms: 7.260495
+  type: 'test'
+  ...
+# Subtest: the two counts are printed apart, and the report says why they are never summed
+ok 18 - the two counts are printed apart, and the report says why they are never summed
+  ---
+  duration_ms: 1.202934
+  type: 'test'
+  ...
+# Subtest: an undeclared hole is named in the artifact rather than only in the exit code
+ok 19 - an undeclared hole is named in the artifact rather than only in the exit code
+  ---
+  duration_ms: 1.122215
+  type: 'test'
+  ...
+# Subtest: every export's witness is printed, so a wrong one can be read and disputed
+ok 20 - every export's witness is printed, so a wrong one can be read and disputed
+  ---
+  duration_ms: 2.601633
+  type: 'test'
+  ...
+# Subtest: a clean register says so in one line; a broken one says what to fix
+ok 21 - a clean register says so in one line; a broken one says what to fix
+  ---
+  duration_ms: 2.466146
+  type: 'test'
+  ...
+# Subtest: holes sharing a reason are listed together, so the reason is written once
+ok 22 - holes sharing a reason are listed together, so the reason is written once
+  ---
+  duration_ms: 1.062885
+  type: 'test'
+  ...
+# Subtest: a witness that needed defending prints its defence, not just its rule
+ok 23 - a witness that needed defending prints its defence, not just its rule
+  ---
+  duration_ms: 1.374435
+  type: 'test'
+  ...
+# Subtest: each declared behavior says whether its scenario is written, reserved, or neither
+ok 24 - each declared behavior says whether its scenario is written, reserved, or neither
+  ---
+  duration_ms: 29.752638
+  type: 'test'
+  ...
+# Subtest: a class selector matches an element carrying that class token
+ok 25 - a class selector matches an element carrying that class token
+  ---
+  duration_ms: 5.383618
+  type: 'test'
+  ...
+# Subtest: a compound selector asks about the tag and every attribute at once
+ok 26 - a compound selector asks about the tag and every attribute at once
+  ---
+  duration_ms: 1.095968
+  type: 'test'
+  ...
+# Subtest: attribute presence, exact, token and substring are four different questions
+ok 27 - attribute presence, exact, token and substring are four different questions
+  ---
+  duration_ms: 0.723773
+  type: 'test'
+  ...
+# Subtest: a selector the language cannot express fails rather than matching nothing
+ok 28 - a selector the language cannot express fails rather than matching nothing
+  ---
+  duration_ms: 1.167371
+  type: 'test'
+  ...
+# Subtest: a dom witness searches the whole recorded subtree, root included
+ok 29 - a dom witness searches the whole recorded subtree, root included
+  ---
+  duration_ms: 0.676263
+  type: 'test'
+  ...
+# Subtest: a side that rendered no flow at all witnesses nothing
+ok 30 - a side that rendered no flow at all witnesses nothing
+  ---
+  duration_ms: 0.337463
+  type: 'test'
+  ...
+# Subtest: the callbacks section offers a handler's name, and its changes' discriminants
+ok 31 - the callbacks section offers a handler's name, and its changes' discriminants
+  ---
+  duration_ms: 0.774257
+  type: 'test'
+  ...
+# Subtest: the api section offers its query keys and the names of the calls that were made
+ok 32 - the api section offers its query keys and the names of the calls that were made
+  ---
+  duration_ms: 1.776101
+  type: 'test'
+  ...
+# Subtest: hooks and props are offered by probe id and by what the probe reported
+ok 33 - hooks and props are offered by probe id and by what the probe reported
+  ---
+  duration_ms: 1.135048
+  type: 'test'
+  ...
+# Subtest: an empty section offers nothing, which is what makes its exports holes
+ok 34 - an empty section offers nothing, which is what makes its exports holes
+  ---
+  duration_ms: 0.950197
+  type: 'test'
+  ...
+# Subtest: a compiled witness answers one question: did this trace's sections hold it?
+ok 35 - a compiled witness answers one question: did this trace's sections hold it?
+  ---
+  duration_ms: 0.956723
+  type: 'test'
+  ...
+# Subtest: a witness whose kind does not suit its section is a mis-edit, not a finding
+ok 36 - a witness whose kind does not suit its section is a mis-edit, not a finding
+  ---
+  duration_ms: 0.387937
+  type: 'test'
+  ...
+# Subtest: a witness that names nothing is refused, because it could never witness anything
+ok 37 - a witness that names nothing is refused, because it could never witness anything
+  ---
+  duration_ms: 0.292986
+  type: 'test'
+  ...
+# Subtest: a descendant chain asks about content inside a container, not the container
+ok 38 - a descendant chain asks about content inside a container, not the container
+  ---
+  duration_ms: 0.354556
+  type: 'test'
+  ...
+# Subtest: a chain matches across generations, not only parent and child
+ok 39 - a chain matches across generations, not only parent and child
+  ---
+  duration_ms: 0.276033
+  type: 'test'
+  ...
+1..39
+# tests 39
+# suites 0
+# pass 39
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 336.983136

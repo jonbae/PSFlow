@@ -1,0 +1,8 @@
+fork: 54 upstream unit(s) affirmed — 30 of 48 spec unit(s) lifted, 18 declined with a reason, and 6 depended-on source(s).
+driver [psflow]: 32 fixtures + 1 direct component(s), 49 observed callback props, library from `// output/Boundary/` → dist/psflow.js
+driver [upstream]: 32 fixtures + 1 direct component(s), 49 observed callback props, library from `// xyflow/packages/react/src/` → dist/upstream.js
+captured drag-node-autopan-past-extent
+
+all 1 scenario(s) passed.
+coverage: 155 of 156 export-bearing entries driven, 1 declared hole(s), across 115 scenario(s) that ran — and 50 hand-declared behavior(s), counted apart.
+The report is parity/system/report.md and the coverage artifact is parity/system/coverage.md.

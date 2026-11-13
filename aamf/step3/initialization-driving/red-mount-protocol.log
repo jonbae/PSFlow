@@ -1,0 +1,48 @@
+$ node --test --test-name-pattern mount scheduling parity/system/harness/scenario.test.mjs
+TAP version 13
+# Subtest: mount scheduling starts on a blank page and finishes before scenario actions
+not ok 1 - mount scheduling starts on a blank page and finishes before scenario actions
+  ---
+  duration_ms: 13.076663
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/system/harness/scenario.test.mjs:86:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+        'blank',
+    -   'prepare',
+        'driver',
+    -   'finish',
+        'action'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'blank'
+    1: 'prepare'
+    2: 'driver'
+    3: 'finish'
+    4: 'action'
+  actual:
+    0: 'blank'
+    1: 'driver'
+    2: 'action'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/system/harness/scenario.test.mjs:100:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 0
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 415.382695

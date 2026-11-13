@@ -1,0 +1,192 @@
+[
+  {
+    "name": "red",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/reconnect-edge.test.mjs"
+    ],
+    "startedAt": "2026-11-10T02:57:52.794Z",
+    "finishedAt": "2026-11-10T02:57:53.631Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/reconnect-edge/red.log"
+  },
+  {
+    "name": "build-call",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T02:59:36.794Z",
+    "finishedAt": "2026-11-10T02:59:42.762Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/reconnect-edge/build-call.log"
+  },
+  {
+    "name": "green",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/reconnect-edge.test.mjs"
+    ],
+    "startedAt": "2026-11-10T03:01:36.909Z",
+    "finishedAt": "2026-11-10T03:01:37.581Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/reconnect-edge/green.log"
+  },
+  {
+    "name": "cases",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/reconnect-edge.test.mjs"
+    ],
+    "startedAt": "2026-11-10T03:02:34.417Z",
+    "finishedAt": "2026-11-10T03:02:35.386Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/reconnect-edge/cases.log"
+  },
+  {
+    "name": "build-rest",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T03:03:24.843Z",
+    "finishedAt": "2026-11-10T03:03:30.587Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/reconnect-edge/build-rest.log"
+  },
+  {
+    "name": "green-rest",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/reconnect-edge.test.mjs"
+    ],
+    "startedAt": "2026-11-10T03:03:42.533Z",
+    "finishedAt": "2026-11-10T03:03:43.437Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/reconnect-edge/green-rest.log"
+  },
+  {
+    "name": "build-final",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T03:05:04.690Z",
+    "finishedAt": "2026-11-10T03:05:10.222Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/reconnect-edge/build-final.log"
+  },
+  {
+    "name": "cases-final",
+    "command": [
+      "node",
+      "--test",
+      "parity/boundary/reconnect-edge.test.mjs"
+    ],
+    "startedAt": "2026-11-10T03:05:15.537Z",
+    "finishedAt": "2026-11-10T03:05:16.429Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/reconnect-edge/cases-final.log"
+  },
+  {
+    "name": "build-stage5",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T03:06:30.931Z",
+    "finishedAt": "2026-11-10T03:06:33.375Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/reconnect-edge/build-stage5.log"
+  },
+  {
+    "name": "surface",
+    "command": [
+      "npm",
+      "run",
+      "parity:surface"
+    ],
+    "startedAt": "2026-11-10T03:07:34.152Z",
+    "finishedAt": "2026-11-10T03:07:38.511Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/reconnect-edge/surface.log"
+  },
+  {
+    "name": "surface-tests",
+    "command": [
+      "npm",
+      "run",
+      "test:surface"
+    ],
+    "startedAt": "2026-11-10T03:08:39.689Z",
+    "finishedAt": "2026-11-10T03:08:41.299Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/reconnect-edge/surface-tests.log"
+  },
+  {
+    "name": "boundary",
+    "command": [
+      "npm",
+      "run",
+      "parity:boundary"
+    ],
+    "startedAt": "2026-11-10T03:08:39.685Z",
+    "finishedAt": "2026-11-10T03:08:48.020Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/reconnect-edge/boundary.log"
+  },
+  {
+    "name": "boundary-tests",
+    "command": [
+      "npm",
+      "run",
+      "test:boundary"
+    ],
+    "startedAt": "2026-11-10T03:08:39.695Z",
+    "finishedAt": "2026-11-10T03:08:48.384Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/reconnect-edge/boundary-tests.log"
+  },
+  {
+    "name": "purescript",
+    "command": [
+      "spago",
+      "test"
+    ],
+    "startedAt": "2026-11-10T03:08:39.687Z",
+    "finishedAt": "2026-11-10T03:08:50.343Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/reconnect-edge/purescript.log"
+  },
+  {
+    "name": "driver",
+    "command": [
+      "npm",
+      "run",
+      "build:driver"
+    ],
+    "startedAt": "2026-11-10T03:09:43.138Z",
+    "finishedAt": "2026-11-10T03:09:48.972Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/reconnect-edge/driver.log"
+  }
+]

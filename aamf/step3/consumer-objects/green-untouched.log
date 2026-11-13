@@ -1,0 +1,120 @@
+$ node --test parity/boundary/consumer-objects.test.mjs
+TAP version 13
+# Subtest: applyNodeChanges retains untouched consumer references and keys
+not ok 1 - applyNodeChanges retains untouched consumer references and keys
+  ---
+  duration_ms: 21.672969
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/consumer-objects.test.mjs:7:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+        {
+    -     [Symbol(consumer)]: 1,
+    -     custom: {},
+          data: {},
+          id: 'a',
+    -     optional: undefined,
+          position: {
+            x: 0,
+            y: 0
+          },
+    -     source: 'a',
+    -     target: 'b'
+        }
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0:
+      id: 'a'
+      position:
+        x: 0
+        y: 0
+      data:
+      source: 'a'
+      target: 'b'
+      custom:
+  actual:
+    0:
+      id: 'a'
+      position:
+        x: 0
+        y: 0
+      data:
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/consumer-objects.test.mjs:14:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: applyEdgeChanges retains untouched consumer references and keys
+not ok 2 - applyEdgeChanges retains untouched consumer references and keys
+  ---
+  duration_ms: 7.686375
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/consumer-objects.test.mjs:7:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+        {
+    -     [Symbol(consumer)]: 1,
+    -     custom: {},
+          data: {},
+          id: 'a',
+    -     optional: undefined,
+    -     position: {
+    -       x: 0,
+    -       y: 0
+    -     },
+          source: 'a',
+          target: 'b'
+        }
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0:
+      id: 'a'
+      position:
+        x: 0
+        y: 0
+      data:
+      source: 'a'
+      target: 'b'
+      custom:
+  actual:
+    0:
+      id: 'a'
+      source: 'a'
+      target: 'b'
+      data:
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/consumer-objects.test.mjs:14:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 0
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4327.240098

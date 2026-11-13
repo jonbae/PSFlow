@@ -1,18 +1,19 @@
 -- | Listener-registration hooks: `useOnViewportChange`,
--- | `useOnSelectionChange`, `useOnInitHandler`. Each installs a
--- | callback into a slot or list on the `ReactFlowState` for the
--- | lifetime of the calling component. Mirrors
+-- | `useOnSelectionChange`, `useOnInitHandler`. Viewport slots have independent
+-- | effects; selection registration follows component lifetime; init schedules
+-- | once when eligible. Mirrors
 -- | `xyflow/packages/react/src/hooks/useOn{Viewport,Selection,Init}Handler.ts`.
 -- |
 -- | Registration goes through named `Action` constructors
--- | (`InstallViewportListeners`, `UninstallViewportListeners`,
--- | `AddSelectionChangeHandler`, `RemoveSelectionChangeHandler`). The
--- | atomic 3-slot patching and ref-equality clear logic for viewport
--- | listeners lives in `React.Store.Reduce`.
+-- | (`SetViewportChangeStartHandler`, `SetViewportChangeHandler`,
+-- | `SetViewportChangeEndHandler`, `AddSelectionChangeHandler`,
+-- | `RemoveSelectionChangeHandler`). Each viewport slot is a separate source
+-- | effect; only selection-change registration has an unmount cleanup.
 module React.Hook.Listeners
   ( UseOnViewportChangeOptions
   , UseOnSelectionChangeOptions
   , UseListenerEffect(..)
+  , UseViewportListenerEffects(..)
   , UseOnInitHandler(..)
   , useOnViewportChange
   , useOnSelectionChange
@@ -31,6 +32,7 @@ import React.Hook.Store (UseStoreApi, useStoreApi)
 import React.Store.Action (Action(..))
 import React.Types.General (OnSelectionChangeFunc, OnViewportChange)
 import React.Types.Instance (ReactFlowInstance)
+import System.FFI.Timer (setTimeout)
 
 -- | TS `UseOnViewportChangeOptions`.
 type UseOnViewportChangeOptions =
@@ -52,69 +54,74 @@ newtype UseListenerEffect deps hooks =
 derive instance newtypeUseListenerEffect ::
   Newtype (UseListenerEffect deps hooks) _
 
--- | Register up-to-three viewport-change callbacks (start, change, end)
--- | for the lifetime of the calling component. Each slot is overwritten
--- | on mount and cleared on unmount. If a slot is `Nothing` it is
--- | preserved as-is rather than overwritten — i.e. passing
--- | `{ onStart: Just _, onChange: Nothing, onEnd: Nothing }` only
--- | installs an `onStart` listener and leaves any previously installed
--- | `onChange`/`onEnd` slot alone.
--- |
--- | TS sets all three slots unconditionally on every render. PS chooses
--- | the safer "only touch slots you provided" semantics — pass an empty
--- | `{ Nothing, Nothing, Nothing }` record to install no listeners.
+-- | Three independent effects, as in useOnViewportChange.ts. Each observes
+-- | its callback payload by reference, sets its slot including absence, and
+-- | returns no cleanup. A different slot is left alone when a handler changes.
+newtype UseViewportListenerEffects hooks =
+  UseViewportListenerEffects
+    ( UseEffect (Maybe (UnsafeReference OnViewportChange))
+        ( UseEffect (Maybe (UnsafeReference OnViewportChange))
+            ( UseEffect (Maybe (UnsafeReference OnViewportChange))
+                (UseStoreApi hooks)
+            )
+        )
+    )
+
+derive instance newtypeUseViewportListenerEffects ::
+  Newtype (UseViewportListenerEffects hooks) _
+
 useOnViewportChange
   :: UseOnViewportChangeOptions
-  -> Hook (UseListenerEffect (UnsafeReference UseOnViewportChangeOptions)) Unit
+  -> Hook UseViewportListenerEffects Unit
 useOnViewportChange opts = coerceHook React.do
   store <- (useStoreApi :: Hook UseStoreApi _)
-  useEffect (UnsafeReference opts) do
-    store.dispatch
-      ( InstallViewportListeners
-          { onStart: opts.onStart
-          , onChange: opts.onChange
-          , onEnd: opts.onEnd
-          }
-      )
-    pure $ store.dispatch
-      ( UninstallViewportListeners
-          { onStart: opts.onStart
-          , onChange: opts.onChange
-          , onEnd: opts.onEnd
-          }
-      )
+  useEffect (map UnsafeReference opts.onStart) do
+    store.dispatch (SetViewportChangeStartHandler opts.onStart)
+    pure (pure unit)
+  useEffect (map UnsafeReference opts.onChange) do
+    store.dispatch (SetViewportChangeHandler opts.onChange)
+    pure (pure unit)
+  useEffect (map UnsafeReference opts.onEnd) do
+    store.dispatch (SetViewportChangeEndHandler opts.onEnd)
+    pure (pure unit)
 
 -- | Append a selection-change handler to the store's handler list. On
 -- | unmount the handler is removed by JS reference identity. Multiple
 -- | components may subscribe simultaneously; each gets its own slot.
+-- |
+-- | TS keys the effect on `[onChange]`, the handler itself, so a re-render
+-- | with the same handler leaves the list alone. Keying on the options record
+-- | re-registered on every render, since the record is new each time.
 useOnSelectionChange
   :: forall n e
    . UseOnSelectionChangeOptions n e
   -> Hook
-       (UseListenerEffect (UnsafeReference (UseOnSelectionChangeOptions n e)))
+       (UseListenerEffect (Maybe (UnsafeReference (OnSelectionChangeFunc n e))))
        Unit
 useOnSelectionChange opts = coerceHook React.do
   store <- (useStoreApi :: Hook UseStoreApi _)
-  useEffect (UnsafeReference opts) do
+  useEffect (map UnsafeReference opts.onChange) do
     case opts.onChange of
       Nothing -> pure (pure unit)
       Just cb -> do
         store.dispatch (AddSelectionChangeHandler cb)
         pure $ store.dispatch (RemoveSelectionChangeHandler cb)
 
--- | Fires `onInit` exactly once when `viewportInitialized` flips to
--- | `true`. Subsequent transitions are ignored. The callback receives
+-- | Schedules `onInit` exactly once when a handler and initialized viewport
+-- | are both present, including a handler added after readiness. It receives
 -- | the `ReactFlowInstance` so it can immediately drive viewport or
 -- | state-mutation methods.
 -- |
 -- | Mirrors `xyflow/packages/react/src/hooks/useOnInitHandler.ts`.
--- | TS schedules the callback through `setTimeout(fn, 1)` to dodge a
--- | corner-case where the instance is read mid-commit; the PS port
--- | fires inside `useEffect`, which already runs post-commit, so the
--- | extra microtask delay is unnecessary.
+-- | Preserve the source's setTimeout(fn, 1): the callback runs after commit,
+-- | with the instance and handler captured when it was scheduled. The flag
+-- | is written at scheduling time; source does not cancel this timer on unmount.
 newtype UseOnInitHandler n e hooks =
   UseOnInitHandler
-    ( UseEffect (UnsafeReference Boolean)
+    ( UseEffect
+        { onInit :: Maybe (UnsafeReference (ReactFlowInstance n e -> Effect Unit))
+        , viewportInitialized :: Boolean
+        }
         ( UseRef Boolean
             (UseReactFlow n e hooks)
         )
@@ -130,12 +137,12 @@ useOnInitHandler
 useOnInitHandler mOnInit = coerceHook React.do
   rfInstance <- useReactFlow
   initRef <- useRef false
-  useEffect (UnsafeReference rfInstance.viewportInitialized) do
+  useEffect { onInit: map UnsafeReference mOnInit, viewportInitialized: rfInstance.viewportInitialized } do
     initialized <- readRef initRef
     when (not initialized && rfInstance.viewportInitialized) do
       case mOnInit of
         Just onInit -> do
-          onInit rfInstance
+          _ <- setTimeout (onInit rfInstance) 1
           writeRef initRef true
         Nothing -> pure unit
     pure (pure unit)

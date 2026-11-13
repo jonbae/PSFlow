@@ -1,0 +1,221 @@
+$ node --test parity/system/harness/port.test.mjs parity/system/harness/scenario.test.mjs
+TAP version 13
+# Subtest: the real port and its double answer the same methods
+ok 1 - the real port and its double answer the same methods
+  ---
+  duration_ms: 8.969561
+  type: 'test'
+  ...
+# Subtest: the port is only ever the fourteen the harness above it uses
+ok 2 - the port is only ever the fourteen the harness above it uses
+  ---
+  duration_ms: 1.145155
+  type: 'test'
+  ...
+# Subtest: the real port refuses to dispatch touch before emulation is on
+ok 3 - the real port refuses to dispatch touch before emulation is on
+  ---
+  duration_ms: 3.199711
+  type: 'test'
+  ...
+# Subtest: keyboard press completes after dispatch and the browser frame cycle
+ok 4 - keyboard press completes after dispatch and the browser frame cycle
+  ---
+  duration_ms: 21.224526
+  type: 'test'
+  ...
+# Subtest: keyboard down completes after dispatch and the browser frame cycle
+ok 5 - keyboard down completes after dispatch and the browser frame cycle
+  ---
+  duration_ms: 14.182259
+  type: 'test'
+  ...
+# Subtest: keyboard up completes after dispatch and the browser frame cycle
+ok 6 - keyboard up completes after dispatch and the browser frame cycle
+  ---
+  duration_ms: 5.171245
+  type: 'test'
+  ...
+# Subtest: a scenario id is semantic, never a sequence number
+ok 7 - a scenario id is semantic, never a sequence number
+  ---
+  duration_ms: 16.288635
+  type: 'test'
+  ...
+# Subtest: a scenario needs a driver route and something to run
+ok 8 - a scenario needs a driver route and something to run
+  ---
+  duration_ms: 2.544622
+  type: 'test'
+  ...
+# Subtest: mount scheduling starts on a blank page and finishes before scenario actions
+ok 9 - mount scheduling starts on a blank page and finishes before scenario actions
+  ---
+  duration_ms: 29.906948
+  type: 'test'
+  ...
+# Subtest: a scenario declaring touch has emulation on before the page is navigated
+ok 10 - a scenario declaring touch has emulation on before the page is navigated
+  ---
+  duration_ms: 5.448254
+  type: 'test'
+  ...
+# Subtest: the pointer is parked off-viewport, and released, before the driver loads
+ok 11 - the pointer is parked off-viewport, and released, before the driver loads
+  ---
+  duration_ms: 5.512768
+  type: 'test'
+  ...
+# Subtest: a scenario that does not declare touch never turns emulation on
+ok 12 - a scenario that does not declare touch never turns emulation on
+  ---
+  duration_ms: 3.776471
+  type: 'test'
+  ...
+# Subtest: both sides load the same page, differing only in which bundle it imports
+ok 13 - both sides load the same page, differing only in which bundle it imports
+  ---
+  duration_ms: 1.94707
+  type: 'test'
+  ...
+# Subtest: a probed run names its variant in the driver URL while a plain run does not
+ok 14 - a probed run names its variant in the driver URL while a plain run does not
+  ---
+  duration_ms: 1.967093
+  type: 'test'
+  ...
+# Subtest: a run carries its selected hook callback experiment to the driver
+ok 15 - a run carries its selected hook callback experiment to the driver
+  ---
+  duration_ms: 5.636179
+  type: 'test'
+  ...
+# Subtest: the run is the envelope's, and the trace validates
+ok 16 - the run is the envelope's, and the trace validates
+  ---
+  duration_ms: 16.983867
+  type: 'test'
+  ...
+# Subtest: every capture starts on a document of its own, not on the one before it
+ok 17 - every capture starts on a document of its own, not on the one before it
+  ---
+  duration_ms: 6.071704
+  type: 'test'
+  ...
+# Subtest: no section mentions which side ran
+ok 18 - no section mentions which side ran
+  ---
+  duration_ms: 7.341624
+  type: 'test'
+  ...
+# Subtest: the mount is the first driving action, carrying the container's box
+ok 19 - the mount is the first driving action, carrying the container's box
+  ---
+  duration_ms: 1.974375
+  type: 'test'
+  ...
+# Subtest: a side that never mounts is recorded, and its scenario still drives
+ok 20 - a side that never mounts is recorded, and its scenario still drives
+  ---
+  duration_ms: 1.615376
+  type: 'test'
+  ...
+# Subtest: the scenario is handed the vocabulary and nothing else
+ok 21 - the scenario is handed the vocabulary and nothing else
+  ---
+  duration_ms: 1.859042
+  type: 'test'
+  ...
+# Subtest: what the page printed is captured, uncaught errors included
+ok 22 - what the page printed is captured, uncaught errors included
+  ---
+  duration_ms: 4.011769
+  type: 'test'
+  ...
+# Subtest: listeners are removed afterwards, so a second capture is not handed the first's output
+ok 23 - listeners are removed afterwards, so a second capture is not handed the first's output
+  ---
+  duration_ms: 3.466875
+  type: 'test'
+  ...
+# Subtest: a scenario that throws still lets go of the page
+ok 24 - a scenario that throws still lets go of the page
+  ---
+  duration_ms: 3.265816
+  type: 'test'
+  ...
+# Subtest: page-level state is captured, since two behaviours turn on a default not happening
+ok 25 - page-level state is captured, since two behaviours turn on a default not happening
+  ---
+  duration_ms: 2.644521
+  type: 'test'
+  ...
+# Subtest: the dom section is the settled snapshot, element tree and all
+ok 26 - the dom section is the settled snapshot, element tree and all
+  ---
+  duration_ms: 3.217474
+  type: 'test'
+  ...
+# Subtest: the callbacks section is the in-page log, read as part of the end state
+ok 27 - the callbacks section is the in-page log, read as part of the end state
+  ---
+  duration_ms: 44.952593
+  type: 'test'
+  ...
+# Subtest: hooks, api queries and props are read from the in-page observation bridge
+ok 28 - hooks, api queries and props are read from the in-page observation bridge
+  ---
+  duration_ms: 2.075576
+  type: 'test'
+  ...
+# Subtest: probe observations are read only after the end-state DOM has settled
+ok 29 - probe observations are read only after the end-state DOM has settled
+  ---
+  duration_ms: 2.54644
+  type: 'test'
+  ...
+# Subtest: a page that published no call log fails the capture rather than recording nothing
+ok 30 - a page that published no call log fails the capture rather than recording nothing
+  ---
+  duration_ms: 3.015086
+  type: 'test'
+  ...
+# Subtest: a call the page could not serialize fails the capture, since the sequence is what is compared
+ok 31 - a call the page could not serialize fails the capture, since the sequence is what is compared
+  ---
+  duration_ms: 2.741293
+  type: 'test'
+  ...
+# Subtest: the page is settled before the mount is measured and before the scenario acts
+ok 32 - the page is settled before the mount is measured and before the scenario acts
+  ---
+  duration_ms: 2.770196
+  type: 'test'
+  ...
+# Subtest: a side that never mounts is not settled on, and is still recorded as unresolved
+ok 33 - a side that never mounts is not settled on, and is still recorded as unresolved
+  ---
+  duration_ms: 1.961743
+  type: 'test'
+  ...
+# Subtest: a page that never settles fails the capture rather than being read mid-flight
+ok 34 - a page that never settles fails the capture rather than being read mid-flight
+  ---
+  duration_ms: 1.585407
+  type: 'test'
+  ...
+# Subtest: the envelope refuses a run it could not identify
+ok 35 - the envelope refuses a run it could not identify
+  ---
+  duration_ms: 2.862366
+  type: 'test'
+  ...
+1..35
+# tests 35
+# suites 0
+# pass 35
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 792.035862

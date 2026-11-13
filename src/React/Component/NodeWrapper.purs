@@ -9,8 +9,8 @@
 -- |      produces a new node object).
 -- |   2. Resolve the user-supplied node component from
 -- |      `props.nodeTypes` with fallback to `builtinNodeTypes`. On
--- |      miss, fire `onError "003"` and substitute the built-in
--- |      `defaultNode`.
+-- |      miss, fire `onError "003"` and substitute the consumer's own
+-- |      `default` node type, or the built-in `defaultNode` without one.
 -- |   3. Mount `useNodeObserver`, which hands the `<div>` to the shared
 -- |      `ResizeObserver` and returns its ref, and then `useDrag` on that
 -- |      ref.
@@ -35,13 +35,10 @@
 -- |   * `node.style.width` / `node.style.height` string fallbacks for
 -- |     inline dimensions are deferred (`Style` is `Foreign` with no
 -- |     typed accessor yet).
--- |   * `node.domAttributes` spread and `node.ariaRole` aren't carried on
--- |     `NodeBase` yet.
--- |   * Keyboard `:focus-visible` guard is dropped (no PS Web binding);
--- |     auto-pan fires on any focus when `autoPanOnNodeFocus` is on.
--- |   * `ariaLiveMessage` on arrow-key nudges is deferred (the
--- |     `AriaLabelConfig` method isn't surfaced through the wrapper
--- |     in a form that's ready for this call site).
+-- |   * `node.focusable` overrides `nodesFocusable` only when present,
+-- |     `role` is `node.ariaRole` falling back to "group" for a focusable
+-- |     node and to no attribute otherwise, and `node.domAttributes` is
+-- |     spread last onto the `<div>`, as TS writes all three.
 module React.Component.NodeWrapper
   ( nodeWrapper
   , mkDragStoreItems
@@ -49,11 +46,15 @@ module React.Component.NodeWrapper
 
 import Prelude
 
+import Record as Record
+import Type.Proxy (Proxy(..))
+
 import Data.Array (elem, null) as Array
 import Data.Foldable (for_)
 import Data.Map (lookup) as Map
-import Data.Maybe (Maybe(..), fromMaybe, isJust)
+import Data.Maybe (Maybe(..), fromMaybe, isJust, isNothing)
 import Data.Newtype (unwrap)
+import Data.Nullable (toMaybe)
 import Effect (Effect)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign, unsafeToForeign)
@@ -66,12 +67,12 @@ import React.Basic.Hooks as React
 import React.Component.NodeWrapper.Util (arrowKeyDiffs, builtinNodeTypes, getNodeInlineStyleDimensions, nodeTransform)
 import React.Container.A11yDescriptions (ariaNodeDescKey)
 import React.Context.NodeId (nodeIdProvider)
-import React.FFI.DOM (div_, opt)
+import React.FFI.DOM (div_, opt, spreadOver)
 import React.Hook.Drag (useDrag)
 import React.Hook.MoveSelectedNodes (useMoveSelectedNodes)
 import React.Hook.NodeObserver (useNodeObserver)
 import React.Hook.Store (UseStoreApi, useStore, useStoreApi)
-import React.Node.Util (handleNodeClick)
+import React.Node.Util (handleNodeClick, moveNodesByArrowKey)
 import React.Store.Action (Action(..))
 import React.Store.PanBy as StorePanBy
 import React.Store.Shell (Store)
@@ -85,6 +86,7 @@ import React.Types.Nodes
   )
 import React.Types.Store (ReactFlowState)
 import System.Constants (ErrorCode(..), elementSelectionKeys, errorMessage)
+import System.Types.Opaque (unOpaque)
 import System.Types.Geometry (Transform(..))
 import System.Types.Ids (NodeId(..), nodeToParent)
 import System.Types.Node (OnError)
@@ -93,6 +95,8 @@ import System.Utils.General (getNodeDimensions, nodeHasDimensions)
 import System.Utils.Graph (getNodesInside)
 import System.XYDrag (DragStoreItems)
 import Unsafe.Coerce (unsafeCoerce)
+import Web.DOM.Element as Element
+import Web.DOM.ParentNode (QuerySelector(..))
 import Web.Event.Event (preventDefault)
 import Web.HTML.HTMLDivElement (toElement)
 import Web.UIEvent.KeyboardEvent (KeyboardEvent)
@@ -134,42 +138,51 @@ selectNodeSlice nodeId state =
 
 placeholderNode :: forall n. NodeId -> InternalNode n
 placeholderNode nodeId =
-  { id: nodeId
-  , position: { x: 0.0, y: 0.0 }
-  , data: (unsafeCoerce {} :: n)
-  , sourcePosition: Nothing
-  , targetPosition: Nothing
-  , hidden: Just true
-  , selected: Nothing
-  , dragging: Nothing
-  , draggable: Nothing
-  , selectable: Nothing
-  , connectable: Nothing
-  , deletable: Nothing
-  , dragHandle: Nothing
-  , width: Nothing
-  , height: Nothing
-  , initialWidth: Nothing
-  , initialHeight: Nothing
-  , parentId: Nothing
-  , zIndex: Nothing
-  , extent: Nothing
-  , expandParent: Nothing
-  , ariaLabel: Nothing
-  , origin: Nothing
-  , handles: Nothing
-  , measured: { width: Nothing, height: Nothing }
-  , nodeType: Nothing
-  , className: Nothing
-  , style: Nothing
-  , internals:
+  let
+    originalUserNode =
+      { id: nodeId
+      , position: { x: 0.0, y: 0.0 }
+      , data: (unsafeCoerce {} :: n)
+      , sourcePosition: Nothing
+      , targetPosition: Nothing
+      , hidden: Just true
+      , selected: Nothing
+      , dragging: Nothing
+      , draggable: Nothing
+      , selectable: Nothing
+      , connectable: Nothing
+      , deletable: Nothing
+      , dragHandle: Nothing
+      , width: Nothing
+      , height: Nothing
+      , initialWidth: Nothing
+      , initialHeight: Nothing
+      , parentId: Nothing
+      , zIndex: Nothing
+      , extent: Nothing
+      , expandParent: Nothing
+      , resizing: Nothing
+      , ariaLabel: Nothing
+      , origin: Nothing
+      , handles: Nothing
+      , measured: { width: Nothing, height: Nothing }
+      , nodeType: Nothing
+      , className: Nothing
+      , style: Nothing
+      , focusable: Nothing
+      , ariaRole: Nothing
+      , domAttributes: Nothing
+      }
+  in
+    Record.insert (Proxy :: Proxy "internals")
       { positionAbsolute: { x: 0.0, y: 0.0 }
       , z: 0.0
       , rootParentIndex: Nothing
       , handleBounds: Nothing
       , bounds: Nothing
+      , userNode: originalUserNode
       }
-  }
+      originalUserNode
 
 nodeTypesAsObject
   :: Maybe NodeTypesMap
@@ -191,11 +204,15 @@ resolveNodeComponent mTypes mOnError nodeType = do
       Just c -> pure { nodeType, component: c }
       Nothing -> do
         for_ mOnError \cb -> cb "003" (errorMessage (E003 nodeType))
-        case Object.lookup "default" builtinNodeTypes of
+        -- TS `nodeTypes?.['default'] || builtinNodeTypes.default`: the
+        -- consumer's own default node type wins over the built-in one.
+        case Object.lookup "default" typesObj of
           Just c -> pure { nodeType: "default", component: c }
-          Nothing ->
-            -- Unreachable: the registry always carries "default".
-            pure { nodeType: "default", component: unsafeCoerce {} }
+          Nothing -> case Object.lookup "default" builtinNodeTypes of
+            Just c -> pure { nodeType: "default", component: c }
+            Nothing ->
+              -- Unreachable: the registry always carries "default".
+              pure { nodeType: "default", component: unsafeCoerce {} }
 
 -- ----------------------------------------------------------------------------
 -- Drag-store-items adapter
@@ -282,8 +299,8 @@ mkNodeProps
 mkNodeProps node nodeType selectable draggable connectable dragging =
   { id: unwrap node.id
   , data: (unsafeCoerce node.data) :: Foreign
-  , width: node.width
-  , height: node.height
+  , width: dimensions.width
+  , height: dimensions.height
   , sourcePosition: node.sourcePosition
   , targetPosition: node.targetPosition
   , dragHandle: node.dragHandle
@@ -299,6 +316,10 @@ mkNodeProps node nodeType selectable draggable connectable dragging =
   , positionAbsoluteX: node.internals.positionAbsolute.x
   , positionAbsoluteY: node.internals.positionAbsolute.y
   }
+  where
+  -- Upstream spreads `getNodeDimensions(node)` onto the node component, which
+  -- falls back to 0 where ps-flow's helper returns `Nothing`.
+  dimensions = fromMaybe { width: 0.0, height: 0.0 } (getNodeDimensions node)
 
 -- ----------------------------------------------------------------------------
 -- The component
@@ -326,7 +347,9 @@ nodeWrapper =
         isConnectable = case node.connectable of
           Just b -> b
           Nothing -> props.nodesConnectable
-        isFocusable = props.nodesFocusable
+        -- TS: `!!(node.focusable || (nodesFocusable && typeof node.focusable === 'undefined'))`.
+        isFocusable = fromMaybe false node.focusable
+          || (props.nodesFocusable && isNothing node.focusable)
         userNode :: Node n
         userNode = (unsafeCoerce node) :: Node n
         hasDims = nodeHasDimensions userNode
@@ -392,9 +415,11 @@ nodeWrapper =
             (mergeStyles baseStyle (fromMaybe emptyForeign (unsafeToForeign <$> node.style)))
             dimStyle
 
+        -- TS hands each handler `{ ...internals.userNode }`: the consumer's
+        -- node, which the boundary copies, rather than the internal one.
         fireMouseHandler :: Maybe (NodeMouseHandler n) -> MouseEvent -> Effect Unit
         fireMouseHandler mCb me = case mCb of
-          Just cb -> cb me userNode
+          Just cb -> cb me node.internals.userNode
           Nothing -> pure unit
 
         onMouseEnterHandler :: EventHandler
@@ -452,7 +477,15 @@ nodeWrapper =
               Just delta
                 | isDraggable && node.selected == Just true -> do
                     preventDefault (KE.toEvent ke)
-                    moveSelectedNodes delta (if shift then 4.0 else 1.0)
+                    moveNodesByArrowKey
+                      { id: NodeId props.id
+                      , store
+                      , key: k
+                      , direction: delta
+                      , factor: if shift then 4.0 else 1.0
+                      , positionAbsolute: node.internals.positionAbsolute
+                      , moveSelectedNodes
+                      }
               _ -> pure unit
 
         onKeyDownEventHandler :: EventHandler
@@ -462,34 +495,40 @@ nodeWrapper =
         onFocusHandler :: EventHandler
         onFocusHandler = handler_ do
           unless props.disableKeyboardA11y do
-            st <- store.getState
-            when st.autoPanOnNodeFocus do
-              let
-                Transform t = st.transform
-                paneRect =
-                  { x: 0.0, y: 0.0, width: st.width, height: st.height }
-                visible = getNodesInside
-                  [ node ]
-                  paneRect
-                  st.transform
-                  { partially: true, excludeNonSelectable: false }
-              when (Array.null visible) do
+            current <- toMaybe <$> React.readRef nodeRef
+            focusVisible <- case current of
+              Nothing -> pure false
+              Just el -> Element.matches (QuerySelector ":focus-visible") (toElement el)
+            when focusVisible do
+              st <- store.getState
+              when st.autoPanOnNodeFocus do
                 let
-                  cx = node.position.x + dims.width / 2.0
-                  cy = node.position.y + dims.height / 2.0
-                store.dispatch
-                  ( SetCenter cx cy
-                      { duration: Nothing
-                      , ease: Nothing
-                      , interpolate: Nothing
-                      , zoom: Just t.scale
-                      }
-                  )
+                  Transform t = st.transform
+                  paneRect =
+                    { x: 0.0, y: 0.0, width: st.width, height: st.height }
+                  visible = getNodesInside
+                    [ node ]
+                    paneRect
+                    st.transform
+                    { partially: true, excludeNonSelectable: false }
+                when (Array.null visible) do
+                  let
+                    cx = node.position.x + dims.width / 2.0
+                    cy = node.position.y + dims.height / 2.0
+                  store.dispatch
+                    ( SetCenter cx cy
+                        { duration: Nothing
+                        , ease: Nothing
+                        , interpolate: Nothing
+                        , zoom: Just t.scale
+                        }
+                    )
 
       pure $
         if node.hidden == Just true then mempty
         else
           div_
+            ( spreadOver (map unOpaque node.domAttributes)
             { className: buildNodeClassName
                 { nodeType
                 , noPanClassName: props.noPanClassName
@@ -512,8 +551,13 @@ nodeWrapper =
             , onDoubleClick: onDoubleClickHandler
             , onKeyDown: if isFocusable then onKeyDownEventHandler else handler_ (pure unit)
             , onFocus: if isFocusable then onFocusHandler else handler_ (pure unit)
-            , tabIndex: if isFocusable then 0 else -1
-            , role: if isFocusable then "group" else ""
+            -- TS `tabIndex={isFocusable ? 0 : undefined}` and
+            -- `role={node.ariaRole ?? (isFocusable ? 'group' : undefined)}`:
+            -- neither attribute is written for a node that cannot take focus.
+            , tabIndex: opt (if isFocusable then Just 0 else Nothing)
+            , role: opt (case node.ariaRole of
+                Just role -> Just role
+                Nothing -> if isFocusable then Just "group" else Nothing)
             , "aria-roledescription": "node"
             , "aria-describedby":
                 opt
@@ -522,6 +566,7 @@ nodeWrapper =
                   )
             , "aria-label": opt node.ariaLabel
             }
+            )
             [ nodeIdProvider (Just props.id)
                 [ element userComponent
                     (mkNodeProps node nodeType isSelectable isDraggable isConnectable dragging)

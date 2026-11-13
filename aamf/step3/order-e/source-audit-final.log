@@ -1,0 +1,15 @@
+$ python3 aamf/step3/order-e/audit.py
+{
+  "excludedUserSurface": ".claude/ (same exclusion as before-inputs; no edits owned here)",
+  "verifiedAt": "2026-11-12T04:27:45.949128+00:00",
+  "changedExistingInputs": 412,
+  "newOwnedInputs": 593,
+  "generatedBrowserOutputs": 0,
+  "unexpectedChanges": 0,
+  "unexpectedNewInputs": 0,
+  "frozenRuntimeChanges": 0,
+  "certifiedVendoredFiles": 171,
+  "vendoredChanges": 0,
+  "priorCanonicalArchiveFilesVerified": 430,
+  "priorEvidenceChanges": 0
+}

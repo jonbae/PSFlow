@@ -41,3 +41,7 @@ parity/changelog-audit/entries.json
 # Claude Code finds no SKILL.md and every skill silently disappears.
 .claude/skills/
 
+# The package `npm run build:package` builds and `npm pack` publishes. Its
+# sources are index.js, the compiled output and the vendored baseline;
+# `distribution/README.md` describes it.
+/dist/

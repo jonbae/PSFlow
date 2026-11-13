@@ -1,0 +1,39 @@
+$ node --input-type=module -e import {runViewportListenerTests} from "./output/Test.React.Hook.ViewportListeners/index.js"; runViewportListenerTests();
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: second caller clears unspecified slots
++ actual - expected
+
+  {
++   onChange: [Function: change],
++   onEnd: [Function: end],
+-   onChange: undefined,
+-   onEnd: undefined,
+    onStart: [Function: otherStart]
+  }
+
+    at Module.checkListeners (file:///Users/jonathanbae/repos/PSFlow/output/Test.React.Hook.ViewportListeners/foreign.js:20:10)
+    at runViewportListenerTests (file:///Users/jonathanbae/repos/PSFlow/output/Test.React.Hook.ViewportListeners/index.js:10:21)
+    at file:///Users/jonathanbae/repos/PSFlow/[eval1]:1:95
+    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:269:26)
+    at async ModuleLoader.executeModuleJob (node:internal/modules/esm/loader:265:20)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: {
+    onStart: [Function: otherStart],
+    onChange: [Function: change],
+    onEnd: [Function: end]
+  },
+  expected: {
+    onStart: [Function: otherStart],
+    onChange: undefined,
+    onEnd: undefined
+  },
+  operator: 'deepStrictEqual'
+}
+
+Node.js v22.18.0

@@ -16,3 +16,5 @@ export const typeName = (x) => {
   if (Array.isArray(x)) return "array";
   return typeof x;
 };
+
+export const truthy = (x) => Boolean(x);

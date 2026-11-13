@@ -1,0 +1,31 @@
+{
+  "id": "psflow-w12-resize-witness",
+  "status": "complete",
+  "startedAt": "2026-11-10T20:47:03.327676+00:00",
+  "dependency": "W05 resize lifecycle implementation",
+  "seam": "Same mounted JS fixture and ordinary input vocabulary on both vendored source and crossed PSFlow. Consumer node renders lifecycle receipts in DOM, as PropsRecordNode does for props.",
+  "fixture": "parity/system/fixtures/resize/lifecycle.ts",
+  "allowedOutputs": [
+    "parity/system/fixtures/resize/lifecycle.ts",
+    "parity/system/fixtures/resize/components/ResizeNode.tsx",
+    "parity/system/corpus/hole-closing.mjs",
+    "parity/system/coverage/holes.json",
+    "parity/system/fixtures/README.md",
+    "aamf/step3/resize-witness/",
+    "AAMF_PORTING_PLAN.md",
+    "AAMF_STEP3_RESULTS.md",
+    "aamf/step3/README.md",
+    "aamf/step3/SHA256SUMS",
+    "parity/driver/dist/psflow.js"
+  ],
+  "acceptance": [
+    "Both components are mounted; drag a real control on each side",
+    "Lifecycle receipts include start, nonzero resize, end in source order; node dimensions actually change",
+    "Source and candidate mid-drag prop update agree; port a demonstrated Control defect in a separately scoped W05 extension",
+    "Retire only the exact resize hole after captured DOM proves existing witnesses on both sides",
+    "Harness/coverage/compare/fork checks; retain any unresolved system differences"
+  ],
+  "aamfInvoked": false,
+  "completedAt": "2026-11-10T21:51:57.490925+00:00",
+  "limitation": "Mounted exports and targeted lifecycle witnesses complete. The final-wave active-limit experiment and its independent repeat are upstream-self-inconsistent, remain red, and are excluded from cross-side interpretation; E remains open."
+}

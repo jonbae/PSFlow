@@ -1,0 +1,47 @@
+{
+  "id": "psflow-w02-node-bounds",
+  "status": "complete",
+  "startedAt": "2026-11-10T02:36:08.729Z",
+  "source": "xyflow/packages/system/src/utils/graph.ts::getNodesBounds; utils/general.ts::nodeToBox; graph.ts::getNodePositionWithOrigin",
+  "seam": "Direct index.js calls against rebuilt vendored oracle; a test-local development bundle checks NODE_ENV-specific warnings",
+  "mechanism": "Honor omitted options, node-origin overrides, Node/InternalNode/id input selection and JS Map lookups. Missing lookups contribute zero boxes; internal inputs bypass lookup and use absolute positions. Match dimension fallback, numeric min/max, warning and error timing. Reuse existing PureScript origin and rect geometry.",
+  "scopeReason": "The core API accepts decoded nodes and a PureScript Map; it cannot represent the complete upstream JS union/Map and missing-lookup rules. This narrower task explicitly owns the additional platform FFI required by W02.",
+  "allowedOutputs": [
+    "src/Boundary/Utils.purs",
+    "src/Boundary/Utils.js (default second argument, property presence, Boolean coercion, Map.get and environment read only)",
+    "src/Boundary.purs",
+    "src/Boundary.js",
+    "parity/boundary/node-bounds.test.mjs",
+    "parity/surface/allowlist.json (getNodesBounds call-convention entry only)",
+    "parity/surface/report.md",
+    "parity/driver/dist/psflow.js",
+    "AAMF_PORTING_PLAN.md",
+    "AAMF_STEP3_RESULTS.md",
+    "aamf/step3/README.md",
+    "aamf/step3/SHA256SUMS",
+    "aamf/step3/node-bounds/"
+  ],
+  "readOnly": [
+    "src/System/Utils/Graph.purs",
+    "src/System/Utils/General.purs",
+    "src/Boundary/Elements.purs",
+    "package.json",
+    "package-lock.json",
+    "spago.yaml",
+    "spago.lock",
+    "parity/system/",
+    "aamf/step3/baseline/",
+    "aamf/step3/w02/",
+    "aamf/step3/incomers/",
+    "aamf/step3/outgoers/"
+  ],
+  "acceptance": [
+    "Observe JS-entry regression red then green after fresh build",
+    "Cover ids/plain/internal nodes, lookup hit/miss, zero contribution, origin/default options, independent dimension fallbacks, empty input, warnings and numeric edge cases",
+    "Do not decode or read unrelated node fields",
+    "Only platform operations in JS; selection, branching and arithmetic in PureScript",
+    "Retire only this export call-convention exception, keep stage 4 with three passthroughs",
+    "Pass surface, spago test, boundary checks/tests, surface tests, integration driver build"
+  ],
+  "route": "Current PSFlow workflow; no AAMF runtime invocation or new resume claim"
+}

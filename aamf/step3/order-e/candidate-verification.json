@@ -1,0 +1,281 @@
+{
+  "rows": [
+    {
+      "scenario": "arrow-key-selected-node",
+      "round": 1,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "arrow-key-selected-node",
+      "round": 2,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "arrow-key-selected-node",
+      "round": 3,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "arrow-key-selected-node",
+      "round": 4,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "arrow-key-selected-node",
+      "round": 5,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "drag-moves-node",
+      "round": 1,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "drag-moves-node",
+      "round": 2,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "drag-moves-node",
+      "round": 3,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "drag-moves-node",
+      "round": 4,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "drag-moves-node",
+      "round": 5,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "drag-node-autopan",
+      "round": 1,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "drag-node-autopan",
+      "round": 2,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "drag-node-autopan",
+      "round": 3,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "drag-node-autopan",
+      "round": 4,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "drag-node-autopan",
+      "round": 5,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "drag-node-reports-changes",
+      "round": 1,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "drag-node-reports-changes",
+      "round": 2,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "drag-node-reports-changes",
+      "round": 3,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "drag-node-reports-changes",
+      "round": 4,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "drag-node-reports-changes",
+      "round": 5,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "pan-after-controlled-viewport-change",
+      "round": 1,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "pan-after-controlled-viewport-change",
+      "round": 2,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "pan-after-controlled-viewport-change",
+      "round": 3,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "pan-after-controlled-viewport-change",
+      "round": 4,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "pan-after-controlled-viewport-change",
+      "round": 5,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "pan-gesture-complete",
+      "round": 1,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "pan-gesture-complete",
+      "round": 2,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "pan-gesture-complete",
+      "round": 3,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "pan-gesture-complete",
+      "round": 4,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "pan-gesture-complete",
+      "round": 5,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "wheel-zoom-from-identity-viewport",
+      "round": 1,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "wheel-zoom-from-identity-viewport",
+      "round": 2,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "wheel-zoom-from-identity-viewport",
+      "round": 3,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "wheel-zoom-from-identity-viewport",
+      "round": 4,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "wheel-zoom-from-identity-viewport",
+      "round": 5,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "ctrl-wheel-pinches-with-panonscroll",
+      "round": 1,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "ctrl-wheel-pinches-with-panonscroll",
+      "round": 2,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "ctrl-wheel-pinches-with-panonscroll",
+      "round": 3,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "ctrl-wheel-pinches-with-panonscroll",
+      "round": 4,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "ctrl-wheel-pinches-with-panonscroll",
+      "round": 5,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "mount-baseline--viewport-controlled",
+      "round": 1,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "mount-baseline--viewport-controlled",
+      "round": 2,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "mount-baseline--viewport-controlled",
+      "round": 3,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "mount-baseline--viewport-controlled",
+      "round": 4,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    },
+    {
+      "scenario": "mount-baseline--viewport-controlled",
+      "round": 5,
+      "fullGatePassed": true,
+      "acrossRoundsStable": true
+    }
+  ],
+  "rawTraces": 180,
+  "faults": {
+    "missingAnnouncementRejected": true,
+    "missingWheelEndRejected": true,
+    "missingAutoPanFrameRejected": true,
+    "initialOrderFaultRejected": true
+  }
+}

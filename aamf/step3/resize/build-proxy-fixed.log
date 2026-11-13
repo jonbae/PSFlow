@@ -1,0 +1,80 @@
+$ spago build
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[1 of 2] Compiling Test.System.XYResizer
+[ERROR 1/1 TypesDoNotUnify] test/Test/System/XYResizer.purs:46:51
+
+                                                        v
+  46  runXYResizerTests = runEffectFn1 checkLifecycle $ mkEffectFn1 \p -> do
+  47    instance_ <- createXYResizer
+  48      { domNode: p.domNode, nodeId: NodeId p.nodeId
+      ...
+  76          }
+  77      , destroy: instance_.destroy
+  78      }
+          ^
+
+  Could not match type
+    ( tx :: Number
+    , ty :: Number
+    ...
+    )
+  with type
+    ( x :: Number
+    , y :: Number
+    ...
+    )
+  while trying to match type { scale :: Number
+                             , tx :: Number
+                             , ty :: Number
+                             }
+    with type { scale :: Number
+              , x :: Number
+              , y :: Number
+              }
+  while matching label transform
+  while matching label getStoreItems
+  while checking that expression mkEffectFn1 (\p ->
+                                                (bind (...)) (\instance_ ->
+                                                                ...
+                                                             )
+                                             )
+    has type EffectFn1
+               { domNode :: HTMLDivElement
+               , getStoreItems :: Effect
+                                    { nodeOrigin :: ...
+                                    , nodes :: ...
+                                    , paneDomNode :: ...
+                                    , snapGrid :: ...
+                                    , snapToGrid :: Boolean
+                                    , transform :: ...
+                                    }
+               , nodeId :: String
+               , onChange :: EffectFn2 Foreign Foreign Unit
+               , onEnd :: EffectFn1 Foreign Unit
+               }
+               { destroy :: Effect Unit
+               , update :: EffectFn1
+                             { boundaries :: ...
+                             , controlPosition :: String
+                             , keepAspectRatio :: Boolean
+                             , onResize :: ...
+                             , onResizeEnd :: ...
+                             , onResizeStart :: ...
+                             , resizeDirection :: ...
+                             , shouldResize :: ...
+                             }
+                             Unit
+               }
+  in value declaration runXYResizerTests
+
+           Src   Lib   All
+Warnings     0     0     0
+Errors       1     0     1
+
+✘ Failed to build.
+

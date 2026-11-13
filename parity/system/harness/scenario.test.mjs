@@ -8,6 +8,7 @@ import { VOCABULARY } from "./vocabulary.mjs";
 import { ScenarioError, defineScenario, driverUrl, runScenario } from "./scenario.mjs";
 
 const FLOW = { x: 0, y: 0, width: 800, height: 600 };
+const MODIFIER_RESETS = ["Shift", "Control", "Alt", "Meta"].map(key => ({ kind: "keyboard", action: "up", key }));
 const NODE = { x: 75, y: 25, width: 150, height: 36 };
 
 const flow = (label) => ({ page: EMPTY_DOM.page, root: { tag: "div", attrs: { "data-x": label }, children: [] } });
@@ -83,6 +84,33 @@ test("a scenario needs a driver route and something to run", () => {
   );
 });
 
+test("mount scheduling starts on a blank page and finishes before scenario actions", async () => {
+  const page = fakePage();
+  const { port } = createFakePort({ boxes: { ".react-flow": FLOW } });
+  const order = [];
+  const watched = {
+    ...port,
+    async prepareMount() { order.push("prepare"); return async () => { order.push("advance"); }; },
+    async finishMount() { order.push("finish"); },
+  };
+  await runScenario(
+    { ...page, async goto(url) { order.push(url === "about:blank" ? "blank" : "driver"); } },
+    scenario(async () => { order.push("action"); }),
+    { side: "psflow", capture: 1, baseline: "12.11.0", port: watched }
+  );
+  assert.deepEqual(order, ["blank", "prepare", "driver", "advance", "finish", "action"]);
+});
+
+test("mount scheduling is released when layout never settles", async () => {
+  const { port } = createFakePort({ boxes: { ".react-flow": FLOW }, dom: [flow("before"), flow("after")] });
+  let released = 0;
+  await assert.rejects(() => runScenario(fakePage(), scenario(), {
+    side: "psflow", capture: 1, baseline: "12.11.0", settle: { polls: 1 },
+    port: { ...port, async finishMount() { released++; } },
+  }), SettleError);
+  assert.equal(released, 1);
+});
+
 // Emulation applied after the document has loaded leaves every touch inert, so
 // the order is the whole point of the flag existing.
 test("a scenario declaring touch has emulation on before the page is navigated", async () => {
@@ -105,10 +133,11 @@ test("a scenario declaring touch has emulation on before the page is navigated",
   assert.deepEqual(
     sent,
     [
+      ...MODIFIER_RESETS,
       { kind: "mouse", type: "move", x: -1, y: -1 },
       { kind: "mouse", type: "up", x: -1, y: -1 },
     ],
-    "the only thing dispatched by a scenario that drove nothing is the parked pointer"
+    "an empty scenario only resets browser input on the blank document"
   );
 });
 
@@ -130,6 +159,10 @@ test("the pointer is parked off-viewport, and released, before the driver loads"
   const order = [];
   const watched = {
     ...port,
+    async keyboard(action, key) {
+      order.push(`key:${key}:${action}`);
+      return port.keyboard(action, key);
+    },
     async mouse(type, at) {
       order.push(`mouse:${type}`);
       return port.mouse(type, at);
@@ -150,8 +183,9 @@ test("the pointer is parked off-viewport, and released, before the driver loads"
     port: watched,
   });
 
-  assert.deepEqual(order, ["blank", "mouse:move", "mouse:up", "driver"]);
+  assert.deepEqual(order, ["blank", "key:Shift:up", "key:Control:up", "key:Alt:up", "key:Meta:up", "mouse:move", "mouse:up", "driver"]);
   assert.deepEqual(sent, [
+    ...MODIFIER_RESETS,
     { kind: "mouse", type: "move", x: -1, y: -1 },
     { kind: "mouse", type: "up", x: -1, y: -1 },
   ]);
@@ -468,9 +502,9 @@ test("the page is settled before the mount is measured and before the scenario a
     { side: "psflow", capture: 1, baseline: "12.11.0", port: watched }
   );
 
-  // Wait for the flow, settle, measure the container, then let the action
-  // resolve its own target — never the other way round.
-  assert.deepEqual(seen.slice(0, 5), ["box:.react-flow", "dom", "dom", "box:.react-flow", "box:.node"]);
+  // Wait for the flow, settle native layout then timer work, measure the
+  // container, and only then let the action resolve its own target.
+  assert.deepEqual(seen.slice(0, 7), ["box:.react-flow", "dom", "dom", "dom", "dom", "box:.react-flow", "box:.node"]);
 });
 
 // A side that never renders a flow must not spend the poll ceiling on a page

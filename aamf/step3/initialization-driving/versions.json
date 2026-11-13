@@ -1,0 +1,10 @@
+{
+  "node": "v22.18.0",
+  "purescript": "0.15.16",
+  "spago": "1.0.4",
+  "playwright": "1.60.0",
+  "chromium": "Google Chrome for Testing 148.0.7778.96",
+  "react": "18.3.1",
+  "xyflowReact": "12.11.0",
+  "xyflowSystem": "0.0.77"
+}

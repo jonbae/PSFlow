@@ -24,6 +24,10 @@ export const title_ = mk("title");
 // names explicitly wins, as upstream's `<path {...props} d={path} />` does.
 export const spreadUnderImpl = (attributes, props) => ({ ...attributes, ...props });
 
+// `{ ...props, ...attributes }`: a consumer's `domAttributes` come last, as
+// upstream spreads them after every attribute its wrapper sets.
+export const spreadOverImpl = (attributes, props) => ({ ...props, ...attributes });
+
 export const scrollResetHandlerImpl = (cb) => (event) => {
   if (event && event.currentTarget && event.currentTarget.scrollTo) {
     event.currentTarget.scrollTo({ top: 0, left: 0, behavior: "instant" });

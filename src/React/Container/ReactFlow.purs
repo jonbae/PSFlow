@@ -8,8 +8,8 @@
 -- |     <Wrapper>
 -- |       <StoreUpdater />
 -- |       <GraphView ... />
--- |       {children}
 -- |       <SelectionListener />
+-- |       {children}
 -- |       <Attribution />
 -- |       <A11yDescriptions />
 -- |     </Wrapper>
@@ -86,7 +86,8 @@ import React.Provider.StoreUpdater (storeUpdater)
 import React.Types.Component (ReactFlowProps)
 import React.Types.Edges (Style)
 import System.Types.Connection
-  ( ColorModeClass(..)
+  ( ColorMode(..)
+  , ColorModeClass(..)
   , KeyCode(..)
   , PanOnScrollMode(..)
   , SelectionMode(..)
@@ -115,14 +116,11 @@ mergeStyle = case _ of
 -- | FFI: shallow-merge two style objects (TS `{ ...style, ...wrapperStyle }`).
 foreign import mergeStyleImpl :: Style -> Foreign -> Foreign
 
--- | Map `Maybe ColorModeClass` back to its className string. `Nothing`
--- | (system mode while the media query hasn't resolved) renders no
--- | extra class, matching TS.
-colorModeClass :: Maybe ColorModeClass -> String
+-- | The color mode class's className string.
+colorModeClass :: ColorModeClass -> String
 colorModeClass = case _ of
-  Just Light -> "light"
-  Just Dark -> "dark"
-  Nothing -> ""
+  Light -> "light"
+  Dark -> "dark"
 
 -- | Build the outer-div className with optional user class slot.
 buildOuterClass :: String -> Maybe String -> String
@@ -168,7 +166,8 @@ reactFlow :: forall n e. ReactComponent (ReactFlowProps n e)
 reactFlow =
   unsafePerformEffect $ reactComponentWithChildren "ReactFlow"
     \(props :: ReactFlowProps n e) -> React.do
-      colorModeCls <- useColorModeClass props.colorMode
+      -- TS destructures `colorMode = 'light'`.
+      colorModeCls <- useColorModeClass (fromMaybe LightMode props.colorMode)
       let
         rfId = Init.defaultRfId
         -- The six `<ReactFlow />` resolves and then hands to two components,
@@ -301,7 +300,9 @@ reactFlow =
           , edgesFocusable: props.edgesFocusable
           , edgesReconnectable: props.edgesReconnectable
           , elevateNodesOnSelect: props.elevateNodesOnSelect
-          , elevateEdgesOnSelect: props.elevateEdgesOnSelect
+          -- TS `elevateEdgesOnSelect = false` in the parameter list, so the
+          -- updater writes it over the store's initial `true` on mount.
+          , elevateEdgesOnSelect: Just (fromMaybe false props.elevateEdgesOnSelect)
           , minZoom: storeSeeded.minZoom
           , maxZoom: storeSeeded.maxZoom
           , nodeExtent: props.nodeExtent
@@ -349,12 +350,12 @@ reactFlow =
         innerChildren =
           [ storeUpdaterEl
           , graphViewEl
+          , element selectionListener
+              { onSelectionChange: props.onSelectionChange }
           ]
           <> reactChildrenToArray props.children
           <>
-          [ element selectionListener
-              { onSelectionChange: props.onSelectionChange }
-          , element attribution
+          [ element attribution
               { proOptions: props.proOptions
               , position: props.attributionPosition
               }

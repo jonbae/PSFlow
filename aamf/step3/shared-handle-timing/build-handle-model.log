@@ -1,0 +1,741 @@
+$ npm exec --yes --package=purescript@0.15.16 -- spago build
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[  1 of 216] Compiling System.Types.Node
+[  2 of 216] Compiling System.XYResizer.Types
+[  3 of 216] Compiling Test.Parity.Builders
+[  4 of 216] Compiling React.Types.Nodes
+[  5 of 216] Compiling System.Utils.Toolbar
+[  6 of 216] Compiling System.Utils.General
+[  7 of 216] Compiling React.Node.Group
+[  8 of 216] Compiling React.Types.Edges
+[ 10 of 216] Compiling React.Edge.Text
+[  9 of 216] Compiling React.Store.Changes
+[ 11 of 216] Compiling System.XYResizer.Utils
+[ 12 of 216] Compiling React.Edge.Base
+[ 13 of 216] Compiling System.Utils.Graph
+[ 14 of 216] Compiling Test.System.Utils.MathRound
+[ 15 of 216] Compiling System.Utils.Edges.General
+[ 16 of 216] Compiling System.XYDrag.Utils
+[ 17 of 216] Compiling System.XYMinimap
+[ 18 of 216] Compiling System.XYPanZoom.Utils
+[ 19 of 216] Compiling System.Utils.Edges.Positions
+[ 20 of 216] Compiling System.Utils.Dom
+[ 21 of 216] Compiling System.XYPanZoom.EventHandler
+[ 22 of 216] Compiling System.XYPanZoom.Filter
+[ 23 of 216] Compiling Test.System.XYDrag.DragItemOrder
+[ 25 of 216] Compiling System.Utils.Edges.Bezier
+[ 24 of 216] Compiling System.Utils.Edges.Straight
+[ 26 of 216] Compiling System.Utils.Edges.SmoothStep
+[ 27 of 216] Compiling React.Hook.NodesEdgesState
+[ 28 of 216] Compiling Test.Parity.Util
+[ 29 of 216] Compiling React.Container.Pane.Internal
+[ 31 of 216] Compiling React.Hook.KeyPress
+[ 30 of 216] Compiling System.Utils.Store
+[ 32 of 216] Compiling System.XYHandle.Utils
+[ 33 of 216] Compiling React.Edge.Straight
+[ 34 of 216] Compiling Test.System.Utils.NumericParity
+[ 35 of 216] Compiling System.XYResizer
+[ 36 of 216] Compiling React.Edge.Bezier
+[ 37 of 216] Compiling System.Utils.Edges.SimpleBezier
+[ 38 of 216] Compiling Test.React.Container.Pane
+[ 39 of 216] Compiling System.XYPanZoom
+[ 40 of 216] Compiling Test.System.XYPanZoom.EventHandler
+[ 41 of 216] Compiling React.Util.General
+[ 42 of 216] Compiling React.Types.General
+[ 44 of 216] Compiling System.XYDrag
+[ 43 of 216] Compiling Test.Properties
+[ 45 of 216] Compiling React.Edge.SimpleBezier
+[ 46 of 216] Compiling System.XYHandle
+[ 47 of 216] Compiling React.Types.Instance
+[ 48 of 216] Compiling Test.Oracle
+[ 49 of 216] Compiling System.Utils.Edges
+[ 50 of 216] Compiling React.Edge.SmoothStep
+[ 51 of 216] Compiling Test.System.XYPanZoom.SourceEvents
+[ 52 of 216] Compiling React.Edge.Step
+[ 53 of 216] Compiling React.Component.EdgeWrapper.Util
+[ 54 of 216] Compiling Test.Parity.Marker
+[ 55 of 216] Compiling Test.Parity.Connections
+[ 56 of 216] Compiling Test.Parity.Changes
+[ 57 of 216] Compiling Test.Parity.Toolbar
+[ 58 of 216] Compiling Test.Parity.Graph
+[ 59 of 216] Compiling Test.Parity.Geometry
+[ 60 of 216] Compiling Test.Parity.Edges
+[ 61 of 216] Compiling Test.System.Utils.ConnectionOrder
+[ 63 of 216] Compiling Test.System.Utils.Store
+[ 62 of 216] Compiling Test.System.Utils.StorePanBy
+[ 64 of 216] Compiling React.Types.Component
+[ 65 of 216] Compiling React.Additional.Controls.Button
+[ 66 of 216] Compiling Boundary.Enums
+[ 67 of 216] Compiling React.Portal.Panel
+[ 68 of 216] Compiling React.Additional.MiniMap.Node
+[ 69 of 216] Compiling React.Additional.Background.Patterns
+[ 70 of 216] Compiling React.Container.Attribution
+[ 71 of 216] Compiling Test.React.Container.AttributionPanel
+[ 72 of 216] Compiling React.Hook.Drag
+[ 73 of 216] Compiling React.Types.Store
+[ 74 of 216] Compiling Test.System.XYDrag
+[ 75 of 216] Compiling Boundary.Elements
+[ 76 of 216] Compiling Boundary.EdgePaths
+[ 77 of 216] Compiling Boundary.FitView
+[ 78 of 216] Compiling React.Store.Action
+[ 79 of 216] Compiling React.Store.InitialState
+[ 80 of 216] Compiling React.Hook.VisibleIds.Pure
+[ 81 of 216] Compiling React.Types
+[ 82 of 216] Compiling Test.Boundary.EdgePaths
+[ 83 of 216] Compiling Test.System.Utils.MeasurementOrder
+[ 84 of 216] Compiling Test.System.Utils.MeasuredDimensions
+[ 85 of 216] Compiling React.Store.Reduce
+[ 86 of 216] Compiling Test.React.Hook.DragRebind
+[ 87 of 216] Compiling Test.React.Hook.Drag
+[ 88 of 216] Compiling Test.System.XYHandle
+[ 89 of 216] Compiling Test.React.Hook.VisibleIds
+[ 90 of 216] Compiling Test.React.Hook.NodeRenderOrder
+[ 91 of 216] Compiling Test.Boundary.DimensionResizing
+[ 92 of 216] Compiling Test.Boundary.NodeSelected
+[ 93 of 216] Compiling Test.Boundary.HandleIdNull
+[ 94 of 216] Compiling Test.System.Utils.HandleBoundsNull
+[ 95 of 216] Compiling Test.Boundary.PrunedKeys
+[ 96 of 216] Compiling Boundary.Instance
+[ 97 of 216] Compiling Test.Boundary.NodeHidden
+[ 98 of 216] Compiling Test.Boundary.NodeExpandParent
+[100 of 216] Compiling Test.Boundary.ConnectionNullHandle
+[ 99 of 216] Compiling Boundary.Callbacks
+[101 of 216] Compiling Boundary.Utils
+[102 of 216] Compiling Test.Boundary.EdgeSelected
+[103 of 216] Compiling Test.Boundary.NodeDragging
+[104 of 216] Compiling Test.Boundary.ConsumerObjects
+[105 of 216] Compiling Test.React.Store.MergeNodeInternals
+[106 of 216] Compiling Test.React.Store.EmptyChanges
+[107 of 216] Compiling Test.React.Provider.InitPrevValues
+[108 of 216] Compiling Test.React.Store.Reduce
+[109 of 216] Compiling Test.React.Store.ResetSelection
+[110 of 216] Compiling React.Store.Shell
+[111 of 216] Compiling Test.React.Store.UpdateNodePositions
+[112 of 216] Compiling React.Node.Util
+[113 of 216] Compiling React.Hook.Store
+[114 of 216] Compiling Test.React.Store.ZoomLimits
+[115 of 216] Compiling Test.System.XYResizer
+[117 of 216] Compiling React.Store.PanBy
+[116 of 216] Compiling Test.React.Store.Shell
+[118 of 216] Compiling Test.React.Node.HandleNodeClick
+[119 of 216] Compiling React.Hook.MoveSelectedNodes
+[120 of 216] Compiling React.Hook.VisibleIds
+[121 of 216] Compiling React.Additional.MiniMap.Nodes
+[122 of 216] Compiling React.Additional.NodeResizer.Control
+[124 of 216] Compiling React.Hook.Selectors
+[123 of 216] Compiling React.Portal.ViewportPortal
+[125 of 216] Compiling React.Hook.HandleConnections
+[126 of 216] Compiling React.Portal.EdgeLabelRenderer
+[127 of 216] Compiling React.Hook.NodeOrEdgeTypesWarning
+[128 of 216] Compiling React.Component.UserSelection
+[129 of 216] Compiling React.Hook.StylesLoadedWarning
+[130 of 216] Compiling React.Container.A11yDescriptions
+[131 of 216] Compiling React.Provider.Batch
+[132 of 216] Compiling React.Handle
+[133 of 216] Compiling React.Hook.NodeConnections
+[134 of 216] Compiling React.Additional.NodeToolbar.Portal
+[135 of 216] Compiling React.Component.EdgeWrapper.UpdateAnchors
+[136 of 216] Compiling React.Hook.UpdateNodeInternals
+[137 of 216] Compiling React.Provider.SelectionListener
+[138 of 216] Compiling React.Hook.NodeObserver
+[139 of 216] Compiling React.Container.MarkerDefinitions
+[141 of 216] Compiling React.Hook.ResizeHandler
+[140 of 216] Compiling React.Hook.ViewportSync
+[142 of 216] Compiling React.Hook.Middleware
+[143 of 216] Compiling React.Hook.ViewportHelper
+[144 of 216] Compiling React.Container.Viewport
+[145 of 216] Compiling React.Additional.Background
+[146 of 216] Compiling Test.React.Hook.Store
+[147 of 216] Compiling React.Provider.StoreUpdater
+[148 of 216] Compiling React.Additional.MiniMap
+[149 of 216] Compiling Boundary.Portals
+[150 of 216] Compiling React.Additional.EdgeToolbar
+[151 of 216] Compiling React.Container.Pane
+[152 of 216] Compiling Test.React.Container.NodeA11yDescription
+[153 of 216] Compiling React.Additional.NodeToolbar
+[154 of 216] Compiling Test.React.Hook.MoveSelectedNodes
+[155 of 216] Compiling React.Additional.NodeResizer
+[156 of 216] Compiling Test.React.Provider.BatchQueue
+[157 of 216] Compiling React.Provider
+[158 of 216] Compiling Test.React.Hook.NodeObserver
+[159 of 216] Compiling React.Component.ConnectionLine
+[160 of 216] Compiling React.Component.EdgeWrapper
+[161 of 216] Compiling React.Container.ZoomPane
+[162 of 216] Compiling Test.React.Hook.ViewportSync
+[163 of 216] Compiling Test.React.Additional.BackgroundOffset
+[165 of 216] Compiling Test.React.Additional.MiniMapMask
+[164 of 216] Compiling Boundary.Edges
+[166 of 216] Compiling React.Node.Input
+[167 of 216] Compiling React.Node.Default
+[168 of 216] Compiling Test.System.FinalConnectionState
+[169 of 216] Compiling Test.React.Component.HandleDataId
+[170 of 216] Compiling Test.React.HandleNativeEvent
+[171 of 216] Compiling React.Node.Output
+[172 of 216] Compiling Boundary.Resizer
+[173 of 216] Compiling Test.React.Additional.NodeToolbarPortal
+[174 of 216] Compiling Boundary.NodeChrome
+[175 of 216] Compiling React.Hook.ReactFlow
+[176 of 216] Compiling React.Container.Wrapper
+[177 of 216] Compiling Test.React.Hook.ConnectionTo
+[178 of 216] Compiling Test.React.Additional.MiniMap
+[179 of 216] Compiling Test.React.Store.InPlaceSelection
+[180 of 216] Compiling React.Component.NodeWrapper.Util
+[181 of 216] Compiling Test.Boundary.BaseEdgeAttributes
+[182 of 216] Compiling Test.Boundary.Wrapper
+[183 of 216] Compiling Test.React.Component.EdgeAriaLabel
+[184 of 216] Compiling Test.Boundary.EdgeHidden
+[185 of 216] Compiling React.Container.EdgeRenderer
+[186 of 216] Compiling Test.React.Component.EdgeComponentProps
+[187 of 216] Compiling Test.Boundary.EdgeAnimated
+[188 of 216] Compiling React.Component.NodeWrapper
+[189 of 216] Compiling React.Component.NodesSelection
+[190 of 216] Compiling Test.React.Component.NodeInlineDimensions
+[191 of 216] Compiling Test.React.DomNumbers
+[192 of 216] Compiling Test.React.Component.NodesSelectionRect
+[193 of 216] Compiling React.Container.NodeRenderer
+[194 of 216] Compiling Test.System.XYDrag.DragErrors
+[195 of 216] Compiling Test.React.Component.AriaDescribedBy
+[196 of 216] Compiling Test.System.XYDrag.DragUserNodes
+[197 of 216] Compiling Test.System.XYDrag.DragSelection
+[198 of 216] Compiling React.Hook.GlobalKeyHandler
+[199 of 216] Compiling React.Additional.Controls
+[200 of 216] Compiling React.Hook.Listeners
+[201 of 216] Compiling Boundary.Chrome
+[202 of 216] Compiling Test.React.Hook.DeleteKey
+[203 of 216] Compiling React.Container.FlowRenderer
+[204 of 216] Compiling Test.React.Hook.OnInitTiming
+[205 of 216] Compiling Boundary.Hooks
+[206 of 216] Compiling React.Container.GraphView
+[207 of 216] Compiling Test.React.Hook.ViewportListeners
+[208 of 216] Compiling Test.Boundary.UserNode
+[209 of 216] Compiling Test.Boundary.NodeResizing
+[210 of 216] Compiling React.Container.ReactFlow
+[211 of 216] Compiling Boundary.Flow
+[212 of 216] Compiling React
+[213 of 216] Compiling Boundary
+[214 of 216] Compiling Test.Boundary.FlowWrapperAttributes
+[215 of 216] Compiling Test.React.Additional.BackgroundPattern
+[WARNING 1/3 UnusedExplicitImport] src/System/Utils/Store.purs:66:1
+
+  66  import System.Types.Ids (ParentId, parentToNode, nodeToParent)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  The import of module System.Types.Ids contains the following unused references:
+    nodeToParent
+  It could be replaced with:
+    import System.Types.Ids (ParentId, parentToNode)
+
+[WARNING 2/3 UnusedExplicitImport] src/System/XYDrag/Utils.purs:27:1
+
+  27  import System.Types.Ids (NodeId, ParentId, parentToNode, nodeToParent)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  The import of module System.Types.Ids contains the following unused references:
+    nodeToParent
+  It could be replaced with:
+    import System.Types.Ids (NodeId, ParentId, parentToNode)
+
+[WARNING 3/3 UnusedImport] test/Test/React/Store/Shell.purs:25:1
+
+  25  import Data.Maybe (Maybe(..))
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  The import of Data.Maybe is redundant
+
+[ERROR 1/4 TypesDoNotUnify] test/Test/React/Component/NodeInlineDimensions.purs:57:62
+
+  57    internal { internals = internal.internals { handleBounds = Just { source: Just [], target: Just [] } } }
+                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  Could not match type
+    Array
+  with type
+    Maybe
+  while trying to match type Array t0
+    with type Maybe (Array SourceHandle)
+  while matching label source
+  while checking that expression Just { source: []
+                                      , target: []
+                                      }
+    has type Maybe
+               { source :: Maybe (Array SourceHandle)
+               , target :: Maybe (Array TargetHandle)
+               }
+  in value declaration measured
+  where t0 is an unknown type
+
+[ERROR 2/4 TypesDoNotUnify] test/Test/React/Hook/NodeObserver.purs:112:52
+
+  112  measured = unmeasured { internals { handleBounds = Just { source: Just [], target: Just [] } } }
+                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  Could not match type
+    Array
+  with type
+    Maybe
+  while trying to match type Array t0
+    with type Maybe (Array SourceHandle)
+  while matching label source
+  while checking that expression Just { source: []
+                                      , target: []
+                                      }
+    has type Maybe
+               { source :: Maybe (Array SourceHandle)
+               , target :: Maybe (Array TargetHandle)
+               }
+  in value declaration measured
+  where t0 is an unknown type
+
+[ERROR 3/4 TypesDoNotUnify] test/Test/React/Hook/NodeRenderOrder.purs:75:5
+
+  75      Record.insert (Proxy :: Proxy "internals")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  Could not match type
+    Array
+  with type
+    Maybe
+  while trying to match type Array t1
+    with type Maybe (Array SourceHandle)
+  while matching label source
+  while matching label handleBounds
+  while matching label internals
+  while solving type class constraint
+    Prim.Row.Cons "internals"
+                  { bounds :: Maybe t3
+                  , handleBounds :: Maybe
+                                      { source :: Array t1
+                                      , target :: Array t2
+                                      }
+                  , positionAbsolute :: { x :: Number
+                                        , y :: Number
+                                        }
+                  , rootParentIndex :: Maybe t0
+                  , userNode :: { ariaLabel :: Maybe t23
+                                , className :: Maybe t27
+                                , connectable :: Maybe t11
+                                , data :: Unit
+                                , deletable :: Maybe t12
+                                , dragHandle :: Maybe t13
+                                , draggable :: Maybe t9
+                                , dragging :: Maybe t8
+                                , expandParent :: Maybe t21
+                                , extent :: Maybe t20
+                                , handles :: Maybe t25
+                                , height :: Maybe t15
+                                , hidden :: Maybe t6
+                                , id :: NodeId
+                                , initialHeight :: Maybe t17
+                                , initialWidth :: Maybe t16
+                                , measured :: { height :: Maybe Number
+                                              , width :: Maybe Number
+                                              }
+                                , nodeType :: Maybe t26
+                                , origin :: Maybe t24
+                                , parentId :: Maybe t18
+                                , position :: { x :: Number
+                                              , y :: Number
+                                              }
+                                , resizing :: Maybe t22
+                                , selectable :: Maybe t10
+                                , selected :: Maybe t7
+                                , sourcePosition :: Maybe t4
+                                , style :: Maybe t28
+                                , targetPosition :: Maybe t5
+                                , width :: Maybe t14
+                                , zIndex :: Maybe t19
+                                }
+                  , z :: Number
+                  }
+                  ( ariaLabel :: Maybe t23
+                  , className :: Maybe t27
+                  , connectable :: Maybe t11
+                  , data :: Unit
+                  , deletable :: Maybe t12
+                  , dragHandle :: Maybe t13
+                  , draggable :: Maybe t9
+                  , dragging :: Maybe t8
+                  , expandParent :: Maybe t21
+                  , extent :: Maybe t20
+                  , handles :: Maybe t25
+                  , height :: Maybe t15
+                  , hidden :: Maybe t6
+                  , id :: NodeId
+                  , initialHeight :: Maybe t17
+                  , initialWidth :: Maybe t16
+                  , measured :: { height :: Maybe Number
+                                , width :: Maybe Number
+                                }
+                  , nodeType :: Maybe t26
+                  , origin :: Maybe t24
+                  , parentId :: Maybe t18
+                  , position :: { x :: Number
+                                , y :: Number
+                                }
+                  , resizing :: Maybe t22
+                  , selectable :: Maybe t10
+                  , selected :: Maybe t7
+                  , sourcePosition :: Maybe t4
+                  , style :: Maybe t28
+                  , targetPosition :: Maybe t5
+                  , width :: Maybe t14
+                  , zIndex :: Maybe t19
+                  )
+                  ( ariaLabel :: Maybe String
+                  , className :: Maybe String
+                  , connectable :: Maybe Boolean
+                  , data :: Unit
+                  , deletable :: Maybe Boolean
+                  , dragHandle :: Maybe String
+                  , draggable :: Maybe Boolean
+                  , dragging :: Maybe Boolean
+                  , expandParent :: Maybe Boolean
+                  , extent :: Maybe NodeExtent
+                  , handles :: Maybe
+                                 (Array
+                                    { handleType :: HandleType
+                                    , height :: ...
+                                    , id :: HandleIdField
+                                    , position :: Position
+                                    , width :: ...
+                                    , x :: Number
+                                    , y :: Number
+                                    }
+                                 )
+                  , height :: Maybe Number
+                  , hidden :: Maybe Boolean
+                  , id :: NodeId
+                  , initialHeight :: Maybe Number
+                  , initialWidth :: Maybe Number
+                  , internals :: { bounds :: Maybe
+                                               { height :: ...
+                                               , width :: ...
+                                               , x :: Number
+                                               , y :: Number
+                                               }
+                                 , handleBounds :: Maybe
+                                                     { source :: ...
+                                                     , target :: ...
+                                                     }
+                                 , positionAbsolute :: { x :: Number
+                                                       , y :: Number
+                                                       }
+                                 , rootParentIndex :: Maybe Int
+                                 , userNode :: { ariaLabel :: Maybe String
+                                               , className :: Maybe String
+                                               , connectable :: Maybe Boolean
+                                               , data :: Unit
+                                               , deletable :: Maybe Boolean
+                                               , dragHandle :: Maybe String
+                                               , draggable :: Maybe Boolean
+                                               , dragging :: Maybe Boolean
+                                               , expandParent :: Maybe Boolean
+                                               , extent :: Maybe NodeExtent
+                                               , handles :: Maybe ...
+                                               , height :: Maybe Number
+                                               , hidden :: Maybe Boolean
+                                               , id :: NodeId
+                                               , initialHeight :: Maybe Number
+                                               , initialWidth :: Maybe Number
+                                               , measured :: { height :: ...
+                                                             , width :: ...
+                                                             }
+                                               , nodeType :: Maybe String
+                                               , origin :: Maybe NodeOrigin
+                                               , parentId :: Maybe ParentId
+                                               , position :: { x :: Number
+                                                             , y :: Number
+                                                             }
+                                               , resizing :: Maybe Boolean
+                                               , selectable :: Maybe Boolean
+                                               , selected :: Maybe Boolean
+                                               , sourcePosition :: Maybe Position
+                                               , style :: Maybe ...
+                                               , targetPosition :: Maybe Position
+                                               , width :: Maybe Number
+                                               , zIndex :: Maybe Int
+                                               }
+                                 , z :: Number
+                                 }
+                  , measured :: { height :: Maybe Number
+                                , width :: Maybe Number
+                                }
+                  , nodeType :: Maybe String
+                  , origin :: Maybe NodeOrigin
+                  , parentId :: Maybe ParentId
+                  , position :: { x :: Number
+                                , y :: Number
+                                }
+                  , resizing :: Maybe Boolean
+                  , selectable :: Maybe Boolean
+                  , selected :: Maybe Boolean
+                  , sourcePosition :: Maybe Position
+                  , style :: Maybe (Object String)
+                  , targetPosition :: Maybe Position
+                  , width :: Maybe Number
+                  , zIndex :: Maybe Int
+                  )
+  while inferring the type of insert Proxy
+  in value declaration internalNode
+  where t4 is an unknown type
+        t5 is an unknown type
+        t6 is an unknown type
+        t7 is an unknown type
+        t8 is an unknown type
+        t9 is an unknown type
+        t10 is an unknown type
+        t11 is an unknown type
+        t12 is an unknown type
+        t13 is an unknown type
+        t14 is an unknown type
+        t15 is an unknown type
+        t16 is an unknown type
+        t17 is an unknown type
+        t18 is an unknown type
+        t19 is an unknown type
+        t20 is an unknown type
+        t21 is an unknown type
+        t22 is an unknown type
+        t23 is an unknown type
+        t24 is an unknown type
+        t25 is an unknown type
+        t26 is an unknown type
+        t27 is an unknown type
+        t28 is an unknown type
+        t0 is an unknown type
+        t1 is an unknown type
+        t2 is an unknown type
+        t3 is an unknown type
+
+[ERROR 4/4 TypesDoNotUnify] test/Test/React/Hook/VisibleIds.purs:72:5
+
+  72      Record.insert (Proxy :: Proxy "internals")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  Could not match type
+    Array
+  with type
+    Maybe
+  while trying to match type Array t1
+    with type Maybe (Array SourceHandle)
+  while matching label source
+  while matching label handleBounds
+  while matching label internals
+  while solving type class constraint
+    Prim.Row.Cons "internals"
+                  { bounds :: Maybe t3
+                  , handleBounds :: Maybe
+                                      { source :: Array t1
+                                      , target :: Array t2
+                                      }
+                  , positionAbsolute :: { x :: Number
+                                        , y :: Number
+                                        }
+                  , rootParentIndex :: Maybe t0
+                  , userNode :: { ariaLabel :: Maybe t23
+                                , className :: Maybe t27
+                                , connectable :: Maybe t11
+                                , data :: Unit
+                                , deletable :: Maybe t12
+                                , dragHandle :: Maybe t13
+                                , draggable :: Maybe t9
+                                , dragging :: Maybe t8
+                                , expandParent :: Maybe t21
+                                , extent :: Maybe t20
+                                , handles :: Maybe t25
+                                , height :: Maybe t15
+                                , hidden :: Maybe t6
+                                , id :: NodeId
+                                , initialHeight :: Maybe t17
+                                , initialWidth :: Maybe t16
+                                , measured :: { height :: Maybe Number
+                                              , width :: Maybe Number
+                                              }
+                                , nodeType :: Maybe t26
+                                , origin :: Maybe t24
+                                , parentId :: Maybe t18
+                                , position :: { x :: Number
+                                              , y :: Number
+                                              }
+                                , resizing :: Maybe t22
+                                , selectable :: Maybe t10
+                                , selected :: Maybe t7
+                                , sourcePosition :: Maybe t4
+                                , style :: Maybe t28
+                                , targetPosition :: Maybe t5
+                                , width :: Maybe t14
+                                , zIndex :: Maybe t19
+                                }
+                  , z :: Number
+                  }
+                  ( ariaLabel :: Maybe t23
+                  , className :: Maybe t27
+                  , connectable :: Maybe t11
+                  , data :: Unit
+                  , deletable :: Maybe t12
+                  , dragHandle :: Maybe t13
+                  , draggable :: Maybe t9
+                  , dragging :: Maybe t8
+                  , expandParent :: Maybe t21
+                  , extent :: Maybe t20
+                  , handles :: Maybe t25
+                  , height :: Maybe t15
+                  , hidden :: Maybe t6
+                  , id :: NodeId
+                  , initialHeight :: Maybe t17
+                  , initialWidth :: Maybe t16
+                  , measured :: { height :: Maybe Number
+                                , width :: Maybe Number
+                                }
+                  , nodeType :: Maybe t26
+                  , origin :: Maybe t24
+                  , parentId :: Maybe t18
+                  , position :: { x :: Number
+                                , y :: Number
+                                }
+                  , resizing :: Maybe t22
+                  , selectable :: Maybe t10
+                  , selected :: Maybe t7
+                  , sourcePosition :: Maybe t4
+                  , style :: Maybe t28
+                  , targetPosition :: Maybe t5
+                  , width :: Maybe t14
+                  , zIndex :: Maybe t19
+                  )
+                  ( ariaLabel :: Maybe String
+                  , className :: Maybe String
+                  , connectable :: Maybe Boolean
+                  , data :: Unit
+                  , deletable :: Maybe Boolean
+                  , dragHandle :: Maybe String
+                  , draggable :: Maybe Boolean
+                  , dragging :: Maybe Boolean
+                  , expandParent :: Maybe Boolean
+                  , extent :: Maybe NodeExtent
+                  , handles :: Maybe
+                                 (Array
+                                    { handleType :: HandleType
+                                    , height :: ...
+                                    , id :: HandleIdField
+                                    , position :: Position
+                                    , width :: ...
+                                    , x :: Number
+                                    , y :: Number
+                                    }
+                                 )
+                  , height :: Maybe Number
+                  , hidden :: Maybe Boolean
+                  , id :: NodeId
+                  , initialHeight :: Maybe Number
+                  , initialWidth :: Maybe Number
+                  , internals :: { bounds :: Maybe
+                                               { height :: ...
+                                               , width :: ...
+                                               , x :: Number
+                                               , y :: Number
+                                               }
+                                 , handleBounds :: Maybe
+                                                     { source :: ...
+                                                     , target :: ...
+                                                     }
+                                 , positionAbsolute :: { x :: Number
+                                                       , y :: Number
+                                                       }
+                                 , rootParentIndex :: Maybe Int
+                                 , userNode :: { ariaLabel :: Maybe String
+                                               , className :: Maybe String
+                                               , connectable :: Maybe Boolean
+                                               , data :: Unit
+                                               , deletable :: Maybe Boolean
+                                               , dragHandle :: Maybe String
+                                               , draggable :: Maybe Boolean
+                                               , dragging :: Maybe Boolean
+                                               , expandParent :: Maybe Boolean
+                                               , extent :: Maybe NodeExtent
+                                               , handles :: Maybe ...
+                                               , height :: Maybe Number
+                                               , hidden :: Maybe Boolean
+                                               , id :: NodeId
+                                               , initialHeight :: Maybe Number
+                                               , initialWidth :: Maybe Number
+                                               , measured :: { height :: ...
+                                                             , width :: ...
+                                                             }
+                                               , nodeType :: Maybe String
+                                               , origin :: Maybe NodeOrigin
+                                               , parentId :: Maybe ParentId
+                                               , position :: { x :: Number
+                                                             , y :: Number
+                                                             }
+                                               , resizing :: Maybe Boolean
+                                               , selectable :: Maybe Boolean
+                                               , selected :: Maybe Boolean
+                                               , sourcePosition :: Maybe Position
+                                               , style :: Maybe ...
+                                               , targetPosition :: Maybe Position
+                                               , width :: Maybe Number
+                                               , zIndex :: Maybe Int
+                                               }
+                                 , z :: Number
+                                 }
+                  , measured :: { height :: Maybe Number
+                                , width :: Maybe Number
+                                }
+                  , nodeType :: Maybe String
+                  , origin :: Maybe NodeOrigin
+                  , parentId :: Maybe ParentId
+                  , position :: { x :: Number
+                                , y :: Number
+                                }
+                  , resizing :: Maybe Boolean
+                  , selectable :: Maybe Boolean
+                  , selected :: Maybe Boolean
+                  , sourcePosition :: Maybe Position
+                  , style :: Maybe (Object String)
+                  , targetPosition :: Maybe Position
+                  , width :: Maybe Number
+                  , zIndex :: Maybe Int
+                  )
+  while inferring the type of insert Proxy
+  in value declaration mkNode
+  where t4 is an unknown type
+        t5 is an unknown type
+        t6 is an unknown type
+        t7 is an unknown type
+        t8 is an unknown type
+        t9 is an unknown type
+        t10 is an unknown type
+        t11 is an unknown type
+        t12 is an unknown type
+        t13 is an unknown type
+        t14 is an unknown type
+        t15 is an unknown type
+        t16 is an unknown type
+        t17 is an unknown type
+        t18 is an unknown type
+        t19 is an unknown type
+        t20 is an unknown type
+        t21 is an unknown type
+        t22 is an unknown type
+        t23 is an unknown type
+        t24 is an unknown type
+        t25 is an unknown type
+        t26 is an unknown type
+        t27 is an unknown type
+        t28 is an unknown type
+        t0 is an unknown type
+        t1 is an unknown type
+        t2 is an unknown type
+        t3 is an unknown type
+
+           Src   Lib   All
+Warnings     3     0     3
+Errors       4     0     4
+
+✘ Failed to build.
+

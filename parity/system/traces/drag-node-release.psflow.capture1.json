@@ -89,7 +89,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(44.490082508180194 82.58003060410662)",
+                                      "transform": "translate(44.49620128259426 82.58003060410662)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -99,7 +99,7 @@
                                         "attrs": {
                                           "x": "-2",
                                           "y": "-4",
-                                          "width": "23.28203010559082",
+                                          "width": "23.269792556762695",
                                           "height": "18.6814022064209",
                                           "class": "react-flow__edge-textbg",
                                           "rx": "2",
@@ -189,7 +189,7 @@
                                   {
                                     "tag": "g",
                                     "attrs": {
-                                      "transform": "translate(144.4900825081802 82.58003060410662)",
+                                      "transform": "translate(144.49620128259426 82.58003060410662)",
                                       "class": "react-flow__edge-textwrapper",
                                       "visibility": "visible"
                                     },
@@ -199,7 +199,7 @@
                                         "attrs": {
                                           "x": "-2",
                                           "y": "-4",
-                                          "width": "23.28203010559082",
+                                          "width": "23.269792556762695",
                                           "height": "18.6814022064209",
                                           "class": "react-flow__edge-textbg",
                                           "rx": "2",
@@ -652,17 +652,6 @@
         ]
       },
       {
-        "name": "onMoveEnd",
-        "args": [
-          null,
-          {
-            "x": 537.0172684458398,
-            "y": 32,
-            "zoom": 1.0298273155416013
-          }
-        ]
-      },
-      {
         "name": "onNodesChange",
         "args": [
           [
@@ -742,6 +731,118 @@
         ]
       },
       {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 537.0172684458398,
+            "y": 32,
+            "zoom": 1.0298273155416013
+          }
+        ]
+      },
+      {
+        "name": "onInit",
+        "args": [
+          {
+            "getNodes": {
+              "@ref": "function"
+            },
+            "setNodes": {
+              "@ref": "function"
+            },
+            "addNodes": {
+              "@ref": "function"
+            },
+            "getNode": {
+              "@ref": "function"
+            },
+            "getInternalNode": {
+              "@ref": "function"
+            },
+            "getEdges": {
+              "@ref": "function"
+            },
+            "setEdges": {
+              "@ref": "function"
+            },
+            "addEdges": {
+              "@ref": "function"
+            },
+            "getEdge": {
+              "@ref": "function"
+            },
+            "toObject": {
+              "@ref": "function"
+            },
+            "deleteElements": {
+              "@ref": "function"
+            },
+            "getIntersectingNodes": {
+              "@ref": "function"
+            },
+            "isNodeIntersecting": {
+              "@ref": "function"
+            },
+            "updateNode": {
+              "@ref": "function"
+            },
+            "updateNodeData": {
+              "@ref": "function"
+            },
+            "updateEdge": {
+              "@ref": "function"
+            },
+            "updateEdgeData": {
+              "@ref": "function"
+            },
+            "getNodesBounds": {
+              "@ref": "function"
+            },
+            "getHandleConnections": {
+              "@ref": "function"
+            },
+            "getNodeConnections": {
+              "@ref": "function"
+            },
+            "fitView": {
+              "@ref": "function"
+            },
+            "zoomIn": {
+              "@ref": "function"
+            },
+            "zoomOut": {
+              "@ref": "function"
+            },
+            "zoomTo": {
+              "@ref": "function"
+            },
+            "getZoom": {
+              "@ref": "function"
+            },
+            "setViewport": {
+              "@ref": "function"
+            },
+            "getViewport": {
+              "@ref": "function"
+            },
+            "setCenter": {
+              "@ref": "function"
+            },
+            "fitBounds": {
+              "@ref": "function"
+            },
+            "screenToFlowPosition": {
+              "@ref": "function"
+            },
+            "flowToScreenPosition": {
+              "@ref": "function"
+            },
+            "viewportInitialized": true
+          }
+        ]
+      },
+      {
         "name": "onPaneMouseEnter",
         "args": [
           {
@@ -764,7 +865,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 280.2000000476837,
+            "timeStamp": 60,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -833,7 +934,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 280.2000000476837,
+            "timeStamp": 60,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -869,14 +970,14 @@
           },
           {
             "id": "Node-2",
+            "type": "output",
+            "data": {
+              "label": "Node-2"
+            },
             "position": {
               "x": -100,
               "y": 100
             },
-            "data": {
-              "label": "Node-2"
-            },
-            "type": "output",
             "measured": {
               "width": 150,
               "height": 37
@@ -905,7 +1006,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 280.2000000476837,
+            "timeStamp": 60,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -970,7 +1071,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 280.2000000476837,
+            "timeStamp": 60,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1004,14 +1105,14 @@
           },
           {
             "id": "Node-2",
+            "type": "output",
+            "data": {
+              "label": "Node-2"
+            },
             "position": {
               "x": -100,
               "y": 100
             },
-            "data": {
-              "label": "Node-2"
-            },
-            "type": "output",
             "measured": {
               "width": 150,
               "height": 37
@@ -1040,36 +1141,36 @@
           },
           {
             "id": "Node-2",
+            "type": "output",
+            "data": {
+              "label": "Node-2"
+            },
             "position": {
               "x": -100,
               "y": 100
             },
-            "data": {
-              "label": "Node-2"
-            },
-            "type": "output",
-            "dragging": true,
             "measured": {
               "width": 150,
               "height": 37
-            }
+            },
+            "dragging": true
           },
           [
             {
               "id": "Node-2",
+              "type": "output",
+              "data": {
+                "label": "Node-2"
+              },
               "position": {
                 "x": -100,
                 "y": 100
               },
-              "data": {
-                "label": "Node-2"
-              },
-              "type": "output",
-              "dragging": true,
               "measured": {
                 "width": 150,
                 "height": 37
-              }
+              },
+              "dragging": true
             }
           ]
         ]
@@ -1081,19 +1182,19 @@
             "nodes": [
               {
                 "id": "Node-2",
+                "type": "output",
+                "data": {
+                  "label": "Node-2"
+                },
                 "position": {
                   "x": -100,
                   "y": 100
                 },
-                "data": {
-                  "label": "Node-2"
-                },
-                "type": "output",
-                "selected": true,
                 "measured": {
                   "width": 150,
                   "height": 37
-                }
+                },
+                "selected": true
               }
             ],
             "edges": []
@@ -1109,38 +1210,38 @@
           },
           {
             "id": "Node-2",
+            "type": "output",
+            "data": {
+              "label": "Node-2"
+            },
             "position": {
               "x": -100,
               "y": 100
             },
-            "data": {
-              "label": "Node-2"
-            },
-            "type": "output",
-            "selected": true,
-            "dragging": false,
             "measured": {
               "width": 150,
               "height": 37
-            }
+            },
+            "selected": true,
+            "dragging": false
           },
           [
             {
               "id": "Node-2",
+              "type": "output",
+              "data": {
+                "label": "Node-2"
+              },
               "position": {
                 "x": -100,
                 "y": 100
               },
-              "data": {
-                "label": "Node-2"
-              },
-              "type": "output",
-              "selected": true,
-              "dragging": false,
               "measured": {
                 "width": 150,
                 "height": 37
-              }
+              },
+              "selected": true,
+              "dragging": false
             }
           ]
         ]
@@ -1166,7 +1267,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 305,
+            "timeStamp": 112,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1200,19 +1301,19 @@
           },
           {
             "id": "Node-2",
+            "type": "output",
+            "data": {
+              "label": "Node-2"
+            },
             "position": {
               "x": -100,
               "y": 100
             },
-            "data": {
-              "label": "Node-2"
-            },
-            "type": "output",
-            "selected": true,
             "measured": {
               "width": 150,
               "height": 37
-            }
+            },
+            "selected": true
           }
         ]
       },
@@ -1239,7 +1340,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 311.7000000476837,
+            "timeStamp": 144,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1275,19 +1376,19 @@
           },
           {
             "id": "Node-2",
+            "type": "output",
+            "data": {
+              "label": "Node-2"
+            },
             "position": {
               "x": -100,
               "y": 100
             },
-            "data": {
-              "label": "Node-2"
-            },
-            "type": "output",
-            "selected": true,
             "measured": {
               "width": 150,
               "height": 37
-            }
+            },
+            "selected": true
           }
         ]
       },
@@ -1314,7 +1415,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 311.7000000476837,
+            "timeStamp": 144,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1350,21 +1451,21 @@
           },
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 0,
               "y": 0
             },
-            "data": {
-              "label": "Node-1"
-            },
             "type": "input",
-            "measured": {
-              "width": 150,
-              "height": 37
-            },
             "className": "playwright-test-class-123",
             "style": {
               "backgroundColor": "red"
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
             }
           }
         ]
@@ -1390,7 +1491,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 311.7000000476837,
+            "timeStamp": 144,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1455,7 +1556,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 311.7000000476837,
+            "timeStamp": 144,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1489,21 +1590,21 @@
           },
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 0,
               "y": 0
             },
-            "data": {
-              "label": "Node-1"
-            },
             "type": "input",
-            "measured": {
-              "width": 150,
-              "height": 37
-            },
             "className": "playwright-test-class-123",
             "style": {
               "backgroundColor": "red"
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
             }
           }
         ]
@@ -1534,44 +1635,44 @@
           },
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 0,
               "y": 0
             },
-            "data": {
-              "label": "Node-1"
-            },
             "type": "input",
-            "dragging": true,
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            },
             "measured": {
               "width": 150,
               "height": 37
             },
-            "className": "playwright-test-class-123",
-            "style": {
-              "backgroundColor": "red"
-            }
+            "dragging": true
           },
           [
             {
               "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
               "position": {
                 "x": 0,
                 "y": 0
               },
-              "data": {
-                "label": "Node-1"
-              },
               "type": "input",
-              "dragging": true,
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              },
               "measured": {
                 "width": 150,
                 "height": 37
               },
-              "className": "playwright-test-class-123",
-              "style": {
-                "backgroundColor": "red"
-              }
+              "dragging": true
             }
           ]
         ]
@@ -1583,23 +1684,23 @@
             "nodes": [
               {
                 "id": "Node-1",
+                "data": {
+                  "label": "Node-1"
+                },
                 "position": {
                   "x": 0,
                   "y": 0
                 },
-                "data": {
-                  "label": "Node-1"
-                },
                 "type": "input",
-                "selected": true,
+                "className": "playwright-test-class-123",
+                "style": {
+                  "backgroundColor": "red"
+                },
                 "measured": {
                   "width": 150,
                   "height": 37
                 },
-                "className": "playwright-test-class-123",
-                "style": {
-                  "backgroundColor": "red"
-                }
+                "selected": true
               }
             ],
             "edges": []
@@ -1627,7 +1728,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 333.90000009536743,
+            "timeStamp": 208,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1696,46 +1797,46 @@
           },
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 23.30487804878048,
               "y": 15.536585365853657
             },
-            "data": {
-              "label": "Node-1"
-            },
             "type": "input",
-            "selected": true,
-            "dragging": true,
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            },
             "measured": {
               "width": 150,
               "height": 37
             },
-            "className": "playwright-test-class-123",
-            "style": {
-              "backgroundColor": "red"
-            }
+            "selected": true,
+            "dragging": true
           },
           [
             {
               "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
               "position": {
                 "x": 23.30487804878048,
                 "y": 15.536585365853657
               },
-              "data": {
-                "label": "Node-1"
-              },
               "type": "input",
-              "selected": true,
-              "dragging": true,
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              },
               "measured": {
                 "width": 150,
                 "height": 37
               },
-              "className": "playwright-test-class-123",
-              "style": {
-                "backgroundColor": "red"
-              }
+              "selected": true,
+              "dragging": true
             }
           ]
         ]
@@ -1761,7 +1862,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 364.5,
+            "timeStamp": 240,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1830,46 +1931,46 @@
           },
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 46.60975609756096,
               "y": 31.07317073170731
             },
-            "data": {
-              "label": "Node-1"
-            },
             "type": "input",
-            "selected": true,
-            "dragging": true,
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            },
             "measured": {
               "width": 150,
               "height": 37
             },
-            "className": "playwright-test-class-123",
-            "style": {
-              "backgroundColor": "red"
-            }
+            "selected": true,
+            "dragging": true
           },
           [
             {
               "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
               "position": {
                 "x": 46.60975609756096,
                 "y": 31.07317073170731
               },
-              "data": {
-                "label": "Node-1"
-              },
               "type": "input",
-              "selected": true,
-              "dragging": true,
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              },
               "measured": {
                 "width": 150,
                 "height": 37
               },
-              "className": "playwright-test-class-123",
-              "style": {
-                "backgroundColor": "red"
-              }
+              "selected": true,
+              "dragging": true
             }
           ]
         ]
@@ -1895,7 +1996,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 394.7000000476837,
+            "timeStamp": 272,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1964,46 +2065,46 @@
           },
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 69.91463414634146,
               "y": 46.60975609756096
             },
-            "data": {
-              "label": "Node-1"
-            },
             "type": "input",
-            "selected": true,
-            "dragging": true,
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            },
             "measured": {
               "width": 150,
               "height": 37
             },
-            "className": "playwright-test-class-123",
-            "style": {
-              "backgroundColor": "red"
-            }
+            "selected": true,
+            "dragging": true
           },
           [
             {
               "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
               "position": {
                 "x": 69.91463414634146,
                 "y": 46.60975609756096
               },
-              "data": {
-                "label": "Node-1"
-              },
               "type": "input",
-              "selected": true,
-              "dragging": true,
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              },
               "measured": {
                 "width": 150,
                 "height": 37
               },
-              "className": "playwright-test-class-123",
-              "style": {
-                "backgroundColor": "red"
-              }
+              "selected": true,
+              "dragging": true
             }
           ]
         ]
@@ -2029,7 +2130,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 411.5,
+            "timeStamp": 304,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2098,46 +2199,46 @@
           },
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 93.21951219512195,
               "y": 62.14634146341463
             },
-            "data": {
-              "label": "Node-1"
-            },
             "type": "input",
-            "selected": true,
-            "dragging": true,
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            },
             "measured": {
               "width": 150,
               "height": 37
             },
-            "className": "playwright-test-class-123",
-            "style": {
-              "backgroundColor": "red"
-            }
+            "selected": true,
+            "dragging": true
           },
           [
             {
               "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
               "position": {
                 "x": 93.21951219512195,
                 "y": 62.14634146341463
               },
-              "data": {
-                "label": "Node-1"
-              },
               "type": "input",
-              "selected": true,
-              "dragging": true,
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              },
               "measured": {
                 "width": 150,
                 "height": 37
               },
-              "className": "playwright-test-class-123",
-              "style": {
-                "backgroundColor": "red"
-              }
+              "selected": true,
+              "dragging": true
             }
           ]
         ]
@@ -2163,7 +2264,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 428.10000002384186,
+            "timeStamp": 336,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2232,46 +2333,46 @@
           },
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 116.52439024390242,
               "y": 77.68292682926828
             },
-            "data": {
-              "label": "Node-1"
-            },
             "type": "input",
-            "selected": true,
-            "dragging": true,
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            },
             "measured": {
               "width": 150,
               "height": 37
             },
-            "className": "playwright-test-class-123",
-            "style": {
-              "backgroundColor": "red"
-            }
+            "selected": true,
+            "dragging": true
           },
           [
             {
               "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
               "position": {
                 "x": 116.52439024390242,
                 "y": 77.68292682926828
               },
-              "data": {
-                "label": "Node-1"
-              },
               "type": "input",
-              "selected": true,
-              "dragging": true,
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              },
               "measured": {
                 "width": 150,
                 "height": 37
               },
-              "className": "playwright-test-class-123",
-              "style": {
-                "backgroundColor": "red"
-              }
+              "selected": true,
+              "dragging": true
             }
           ]
         ]
@@ -2301,46 +2402,46 @@
           },
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 116.52439024390242,
               "y": 77.68292682926828
             },
-            "data": {
-              "label": "Node-1"
-            },
             "type": "input",
-            "selected": true,
-            "dragging": false,
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            },
             "measured": {
               "width": 150,
               "height": 37
             },
-            "className": "playwright-test-class-123",
-            "style": {
-              "backgroundColor": "red"
-            }
+            "selected": true,
+            "dragging": false
           },
           [
             {
               "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
               "position": {
                 "x": 116.52439024390242,
                 "y": 77.68292682926828
               },
-              "data": {
-                "label": "Node-1"
-              },
               "type": "input",
-              "selected": true,
-              "dragging": false,
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              },
               "measured": {
                 "width": 150,
                 "height": 37
               },
-              "className": "playwright-test-class-123",
-              "style": {
-                "backgroundColor": "red"
-              }
+              "selected": true,
+              "dragging": false
             }
           ]
         ]
@@ -2366,7 +2467,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 462.90000009536743,
+            "timeStamp": 400,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2431,7 +2532,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 462.90000009536743,
+            "timeStamp": 400,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2465,24 +2566,24 @@
           },
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 116.52439024390242,
               "y": 77.68292682926828
             },
-            "data": {
-              "label": "Node-1"
-            },
             "type": "input",
-            "selected": true,
-            "dragging": false,
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            },
             "measured": {
               "width": 150,
               "height": 37
             },
-            "className": "playwright-test-class-123",
-            "style": {
-              "backgroundColor": "red"
-            }
+            "selected": true,
+            "dragging": false
           }
         ]
       },
@@ -2495,46 +2596,46 @@
           },
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 116.52439024390242,
               "y": 77.68292682926828
             },
-            "data": {
-              "label": "Node-1"
-            },
             "type": "input",
-            "selected": true,
-            "dragging": true,
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            },
             "measured": {
               "width": 150,
               "height": 37
             },
-            "className": "playwright-test-class-123",
-            "style": {
-              "backgroundColor": "red"
-            }
+            "selected": true,
+            "dragging": true
           },
           [
             {
               "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
               "position": {
                 "x": 116.52439024390242,
                 "y": 77.68292682926828
               },
-              "data": {
-                "label": "Node-1"
-              },
               "type": "input",
-              "selected": true,
-              "dragging": true,
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              },
               "measured": {
                 "width": 150,
                 "height": 37
               },
-              "className": "playwright-test-class-123",
-              "style": {
-                "backgroundColor": "red"
-              }
+              "selected": true,
+              "dragging": true
             }
           ]
         ]
@@ -2560,7 +2661,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 467.60000002384186,
+            "timeStamp": 464,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2629,46 +2730,46 @@
           },
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 104.87195121951217,
               "y": 69.91463414634146
             },
-            "data": {
-              "label": "Node-1"
-            },
             "type": "input",
-            "selected": true,
-            "dragging": true,
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            },
             "measured": {
               "width": 150,
               "height": 37
             },
-            "className": "playwright-test-class-123",
-            "style": {
-              "backgroundColor": "red"
-            }
+            "selected": true,
+            "dragging": true
           },
           [
             {
               "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
               "position": {
                 "x": 104.87195121951217,
                 "y": 69.91463414634146
               },
-              "data": {
-                "label": "Node-1"
-              },
               "type": "input",
-              "selected": true,
-              "dragging": true,
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              },
               "measured": {
                 "width": 150,
                 "height": 37
               },
-              "className": "playwright-test-class-123",
-              "style": {
-                "backgroundColor": "red"
-              }
+              "selected": true,
+              "dragging": true
             }
           ]
         ]
@@ -2694,7 +2795,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 492.60000002384186,
+            "timeStamp": 496,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2763,46 +2864,46 @@
           },
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 93.21951219512195,
               "y": 62.14634146341463
             },
-            "data": {
-              "label": "Node-1"
-            },
             "type": "input",
-            "selected": true,
-            "dragging": true,
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            },
             "measured": {
               "width": 150,
               "height": 37
             },
-            "className": "playwright-test-class-123",
-            "style": {
-              "backgroundColor": "red"
-            }
+            "selected": true,
+            "dragging": true
           },
           [
             {
               "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
               "position": {
                 "x": 93.21951219512195,
                 "y": 62.14634146341463
               },
-              "data": {
-                "label": "Node-1"
-              },
               "type": "input",
-              "selected": true,
-              "dragging": true,
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              },
               "measured": {
                 "width": 150,
                 "height": 37
               },
-              "className": "playwright-test-class-123",
-              "style": {
-                "backgroundColor": "red"
-              }
+              "selected": true,
+              "dragging": true
             }
           ]
         ]
@@ -2828,7 +2929,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 511.60000002384186,
+            "timeStamp": 528,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2897,46 +2998,46 @@
           },
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 81.5670731707317,
               "y": 54.3780487804878
             },
-            "data": {
-              "label": "Node-1"
-            },
             "type": "input",
-            "selected": true,
-            "dragging": true,
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            },
             "measured": {
               "width": 150,
               "height": 37
             },
-            "className": "playwright-test-class-123",
-            "style": {
-              "backgroundColor": "red"
-            }
+            "selected": true,
+            "dragging": true
           },
           [
             {
               "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
               "position": {
                 "x": 81.5670731707317,
                 "y": 54.3780487804878
               },
-              "data": {
-                "label": "Node-1"
-              },
               "type": "input",
-              "selected": true,
-              "dragging": true,
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              },
               "measured": {
                 "width": 150,
                 "height": 37
               },
-              "className": "playwright-test-class-123",
-              "style": {
-                "backgroundColor": "red"
-              }
+              "selected": true,
+              "dragging": true
             }
           ]
         ]
@@ -2962,7 +3063,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 526.2000000476837,
+            "timeStamp": 560,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3031,46 +3132,46 @@
           },
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 69.91463414634146,
               "y": 46.60975609756096
             },
-            "data": {
-              "label": "Node-1"
-            },
             "type": "input",
-            "selected": true,
-            "dragging": true,
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            },
             "measured": {
               "width": 150,
               "height": 37
             },
-            "className": "playwright-test-class-123",
-            "style": {
-              "backgroundColor": "red"
-            }
+            "selected": true,
+            "dragging": true
           },
           [
             {
               "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
               "position": {
                 "x": 69.91463414634146,
                 "y": 46.60975609756096
               },
-              "data": {
-                "label": "Node-1"
-              },
               "type": "input",
-              "selected": true,
-              "dragging": true,
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              },
               "measured": {
                 "width": 150,
                 "height": 37
               },
-              "className": "playwright-test-class-123",
-              "style": {
-                "backgroundColor": "red"
-              }
+              "selected": true,
+              "dragging": true
             }
           ]
         ]
@@ -3096,7 +3197,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 544.3000000715256,
+            "timeStamp": 592,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -3165,46 +3266,46 @@
           },
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 58.26219512195121,
               "y": 38.84146341463414
             },
-            "data": {
-              "label": "Node-1"
-            },
             "type": "input",
-            "selected": true,
-            "dragging": true,
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            },
             "measured": {
               "width": 150,
               "height": 37
             },
-            "className": "playwright-test-class-123",
-            "style": {
-              "backgroundColor": "red"
-            }
+            "selected": true,
+            "dragging": true
           },
           [
             {
               "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
               "position": {
                 "x": 58.26219512195121,
                 "y": 38.84146341463414
               },
-              "data": {
-                "label": "Node-1"
-              },
               "type": "input",
-              "selected": true,
-              "dragging": true,
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              },
               "measured": {
                 "width": 150,
                 "height": 37
               },
-              "className": "playwright-test-class-123",
-              "style": {
-                "backgroundColor": "red"
-              }
+              "selected": true,
+              "dragging": true
             }
           ]
         ]
@@ -3234,46 +3335,46 @@
           },
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 58.26219512195121,
               "y": 38.84146341463414
             },
-            "data": {
-              "label": "Node-1"
-            },
             "type": "input",
-            "selected": true,
-            "dragging": false,
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            },
             "measured": {
               "width": 150,
               "height": 37
             },
-            "className": "playwright-test-class-123",
-            "style": {
-              "backgroundColor": "red"
-            }
+            "selected": true,
+            "dragging": false
           },
           [
             {
               "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
               "position": {
                 "x": 58.26219512195121,
                 "y": 38.84146341463414
               },
-              "data": {
-                "label": "Node-1"
-              },
               "type": "input",
-              "selected": true,
-              "dragging": false,
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              },
               "measured": {
                 "width": 150,
                 "height": 37
               },
-              "className": "playwright-test-class-123",
-              "style": {
-                "backgroundColor": "red"
-              }
+              "selected": true,
+              "dragging": false
             }
           ]
         ]
@@ -3285,49 +3386,49 @@
         "getNodes": [
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 58.26219512195121,
               "y": 38.84146341463414
             },
-            "data": {
-              "label": "Node-1"
-            },
             "type": "input",
-            "selected": true,
-            "dragging": false,
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            },
             "measured": {
               "width": 150,
               "height": 37
             },
-            "className": "playwright-test-class-123",
-            "style": {
-              "backgroundColor": "red"
-            }
+            "selected": true,
+            "dragging": false
           },
           {
             "id": "Node-2",
+            "type": "output",
+            "data": {
+              "label": "Node-2"
+            },
             "position": {
               "x": -100,
               "y": 100
             },
-            "data": {
-              "label": "Node-2"
-            },
-            "type": "output",
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
-            }
+            },
+            "selected": false
           },
           {
             "id": "Node-3",
+            "data": {
+              "label": "Node-3"
+            },
             "position": {
               "x": 100,
               "y": 100
-            },
-            "data": {
-              "label": "Node-3"
             },
             "measured": {
               "width": 150,
@@ -3336,12 +3437,12 @@
           },
           {
             "id": "Node-4",
+            "data": {
+              "label": "Node-4"
+            },
             "position": {
               "x": 0,
               "y": 200
-            },
-            "data": {
-              "label": "Node-4"
             },
             "type": "output",
             "measured": {
@@ -3351,12 +3452,12 @@
           },
           {
             "id": "drag-handle",
+            "data": {
+              "label": "Drag Handle"
+            },
             "position": {
               "x": 200,
               "y": 0
-            },
-            "data": {
-              "label": "Drag Handle"
             },
             "type": "DragHandleNode",
             "dragHandle": ".custom-drag-handle",
@@ -3367,14 +3468,14 @@
           },
           {
             "id": "notConnectable",
+            "type": "output",
+            "data": {
+              "label": "notConnectable"
+            },
             "position": {
               "x": 0,
               "y": 300
             },
-            "data": {
-              "label": "notConnectable"
-            },
-            "type": "output",
             "connectable": false,
             "measured": {
               "width": 150,
@@ -3383,12 +3484,12 @@
           },
           {
             "id": "notDraggable",
+            "data": {
+              "label": "notDraggable"
+            },
             "position": {
               "x": 0,
               "y": 400
-            },
-            "data": {
-              "label": "notDraggable"
             },
             "draggable": false,
             "measured": {
@@ -3398,12 +3499,12 @@
           },
           {
             "id": "notSelectable",
+            "data": {
+              "label": "notSelectable"
+            },
             "position": {
               "x": 0,
               "y": 500
-            },
-            "data": {
-              "label": "notSelectable"
             },
             "selectable": false,
             "measured": {
@@ -3413,12 +3514,12 @@
           },
           {
             "id": "notDeletable",
+            "data": {
+              "label": "notDeletable"
+            },
             "position": {
               "x": 0,
               "y": 600
-            },
-            "data": {
-              "label": "notDeletable"
             },
             "deletable": false,
             "measured": {
@@ -3428,63 +3529,84 @@
           },
           {
             "id": "hidden",
+            "data": {
+              "label": "hidden"
+            },
             "position": {
               "x": 0,
               "y": 700
-            },
-            "data": {
-              "label": "hidden"
             },
             "hidden": true
           }
         ],
         "getNode": {
           "id": "Node-1",
+          "data": {
+            "label": "Node-1"
+          },
           "position": {
             "x": 58.26219512195121,
             "y": 38.84146341463414
           },
-          "data": {
-            "label": "Node-1"
-          },
           "type": "input",
-          "selected": true,
-          "dragging": false,
+          "className": "playwright-test-class-123",
+          "style": {
+            "backgroundColor": "red"
+          },
           "measured": {
             "width": 150,
             "height": 37
           },
-          "className": "playwright-test-class-123",
-          "style": {
-            "backgroundColor": "red"
-          }
+          "selected": true,
+          "dragging": false
         },
         "getInternalNode": {
           "id": "Node-1",
+          "data": {
+            "label": "Node-1"
+          },
           "position": {
             "x": 58.26219512195121,
             "y": 38.84146341463414
           },
-          "data": {
-            "label": "Node-1"
-          },
           "type": "input",
-          "selected": true,
-          "dragging": false,
-          "measured": {
-            "width": 150,
-            "height": 37
-          },
           "className": "playwright-test-class-123",
           "style": {
             "backgroundColor": "red"
           },
+          "measured": {
+            "width": 150,
+            "height": 37
+          },
+          "selected": true,
+          "dragging": false,
           "internals": {
             "positionAbsolute": {
               "x": 58.26219512195121,
               "y": 38.84146341463414
             },
             "z": 1000,
+            "userNode": {
+              "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
+              "position": {
+                "x": 58.26219512195121,
+                "y": 38.84146341463414
+              },
+              "type": "input",
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
+              },
+              "selected": true,
+              "dragging": false
+            },
             "handleBounds": {
               "source": [
                 {
@@ -3498,7 +3620,7 @@
                   "height": 8
                 }
               ],
-              "target": []
+              "target": null
             }
           }
         },
@@ -3528,49 +3650,49 @@
         "getIntersectingNodes": [
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 58.26219512195121,
               "y": 38.84146341463414
             },
-            "data": {
-              "label": "Node-1"
-            },
             "type": "input",
-            "selected": true,
-            "dragging": false,
+            "className": "playwright-test-class-123",
+            "style": {
+              "backgroundColor": "red"
+            },
             "measured": {
               "width": 150,
               "height": 37
             },
-            "className": "playwright-test-class-123",
-            "style": {
-              "backgroundColor": "red"
-            }
+            "selected": true,
+            "dragging": false
           },
           {
             "id": "Node-2",
+            "type": "output",
+            "data": {
+              "label": "Node-2"
+            },
             "position": {
               "x": -100,
               "y": 100
             },
-            "data": {
-              "label": "Node-2"
-            },
-            "type": "output",
-            "selected": false,
             "measured": {
               "width": 150,
               "height": 37
-            }
+            },
+            "selected": false
           },
           {
             "id": "Node-3",
+            "data": {
+              "label": "Node-3"
+            },
             "position": {
               "x": 100,
               "y": 100
-            },
-            "data": {
-              "label": "Node-3"
             },
             "measured": {
               "width": 150,
@@ -3579,12 +3701,12 @@
           },
           {
             "id": "Node-4",
+            "data": {
+              "label": "Node-4"
+            },
             "position": {
               "x": 0,
               "y": 200
-            },
-            "data": {
-              "label": "Node-4"
             },
             "type": "output",
             "measured": {
@@ -3594,12 +3716,12 @@
           },
           {
             "id": "drag-handle",
+            "data": {
+              "label": "Drag Handle"
+            },
             "position": {
               "x": 200,
               "y": 0
-            },
-            "data": {
-              "label": "Drag Handle"
             },
             "type": "DragHandleNode",
             "dragHandle": ".custom-drag-handle",
@@ -3610,14 +3732,14 @@
           },
           {
             "id": "notConnectable",
+            "type": "output",
+            "data": {
+              "label": "notConnectable"
+            },
             "position": {
               "x": 0,
               "y": 300
             },
-            "data": {
-              "label": "notConnectable"
-            },
-            "type": "output",
             "connectable": false,
             "measured": {
               "width": 150,
@@ -3626,12 +3748,12 @@
           },
           {
             "id": "notDraggable",
+            "data": {
+              "label": "notDraggable"
+            },
             "position": {
               "x": 0,
               "y": 400
-            },
-            "data": {
-              "label": "notDraggable"
             },
             "draggable": false,
             "measured": {
@@ -3641,12 +3763,12 @@
           },
           {
             "id": "notSelectable",
+            "data": {
+              "label": "notSelectable"
+            },
             "position": {
               "x": 0,
               "y": 500
-            },
-            "data": {
-              "label": "notSelectable"
             },
             "selectable": false,
             "measured": {
@@ -3656,12 +3778,12 @@
           },
           {
             "id": "notDeletable",
+            "data": {
+              "label": "notDeletable"
+            },
             "position": {
               "x": 0,
               "y": 600
-            },
-            "data": {
-              "label": "notDeletable"
             },
             "deletable": false,
             "measured": {
@@ -3671,12 +3793,12 @@
           },
           {
             "id": "hidden",
+            "data": {
+              "label": "hidden"
+            },
             "position": {
               "x": 0,
               "y": 700
-            },
-            "data": {
-              "label": "hidden"
             },
             "hidden": true
           }
@@ -3724,49 +3846,49 @@
           "nodes": [
             {
               "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
               "position": {
                 "x": 58.26219512195121,
                 "y": 38.84146341463414
               },
-              "data": {
-                "label": "Node-1"
-              },
               "type": "input",
-              "selected": true,
-              "dragging": false,
+              "className": "playwright-test-class-123",
+              "style": {
+                "backgroundColor": "red"
+              },
               "measured": {
                 "width": 150,
                 "height": 37
               },
-              "className": "playwright-test-class-123",
-              "style": {
-                "backgroundColor": "red"
-              }
+              "selected": true,
+              "dragging": false
             },
             {
               "id": "Node-2",
+              "type": "output",
+              "data": {
+                "label": "Node-2"
+              },
               "position": {
                 "x": -100,
                 "y": 100
               },
-              "data": {
-                "label": "Node-2"
-              },
-              "type": "output",
-              "selected": false,
               "measured": {
                 "width": 150,
                 "height": 37
-              }
+              },
+              "selected": false
             },
             {
               "id": "Node-3",
+              "data": {
+                "label": "Node-3"
+              },
               "position": {
                 "x": 100,
                 "y": 100
-              },
-              "data": {
-                "label": "Node-3"
               },
               "measured": {
                 "width": 150,
@@ -3775,12 +3897,12 @@
             },
             {
               "id": "Node-4",
+              "data": {
+                "label": "Node-4"
+              },
               "position": {
                 "x": 0,
                 "y": 200
-              },
-              "data": {
-                "label": "Node-4"
               },
               "type": "output",
               "measured": {
@@ -3790,12 +3912,12 @@
             },
             {
               "id": "drag-handle",
+              "data": {
+                "label": "Drag Handle"
+              },
               "position": {
                 "x": 200,
                 "y": 0
-              },
-              "data": {
-                "label": "Drag Handle"
               },
               "type": "DragHandleNode",
               "dragHandle": ".custom-drag-handle",
@@ -3806,14 +3928,14 @@
             },
             {
               "id": "notConnectable",
+              "type": "output",
+              "data": {
+                "label": "notConnectable"
+              },
               "position": {
                 "x": 0,
                 "y": 300
               },
-              "data": {
-                "label": "notConnectable"
-              },
-              "type": "output",
               "connectable": false,
               "measured": {
                 "width": 150,
@@ -3822,12 +3944,12 @@
             },
             {
               "id": "notDraggable",
+              "data": {
+                "label": "notDraggable"
+              },
               "position": {
                 "x": 0,
                 "y": 400
-              },
-              "data": {
-                "label": "notDraggable"
               },
               "draggable": false,
               "measured": {
@@ -3837,12 +3959,12 @@
             },
             {
               "id": "notSelectable",
+              "data": {
+                "label": "notSelectable"
+              },
               "position": {
                 "x": 0,
                 "y": 500
-              },
-              "data": {
-                "label": "notSelectable"
               },
               "selectable": false,
               "measured": {
@@ -3852,12 +3974,12 @@
             },
             {
               "id": "notDeletable",
+              "data": {
+                "label": "notDeletable"
+              },
               "position": {
                 "x": 0,
                 "y": 600
-              },
-              "data": {
-                "label": "notDeletable"
               },
               "deletable": false,
               "measured": {
@@ -3867,12 +3989,12 @@
             },
             {
               "id": "hidden",
+              "data": {
+                "label": "hidden"
+              },
               "position": {
                 "x": 0,
                 "y": 700
-              },
-              "data": {
-                "label": "hidden"
               },
               "hidden": true
             }

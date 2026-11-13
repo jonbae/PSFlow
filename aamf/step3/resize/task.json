@@ -1,0 +1,55 @@
+{
+  "id": "psflow-w05-resize",
+  "status": "complete",
+  "startedAt": "2026-11-10T20:36:17.999089+00:00",
+  "source": [
+    "packages/system/src/xyresizer/XYResizer.ts",
+    "packages/system/src/xyresizer/types.ts",
+    "packages/system/src/xyresizer/utils.ts",
+    "packages/react/src/additional-components/NodeResizer/NodeResizeControl.tsx"
+  ],
+  "seam": "Actual createXYResizer controller through native d3 drag handlers at the external selection.call boundary; consumer callbacks/change records. Mounted JS NodeResizeControl fixture for the browser witness.",
+  "allowedOutputs": [
+    "src/System/XYResizer.purs",
+    "src/System/XYResizer.js",
+    "src/System/XYResizer/Utils.purs",
+    "src/React/Additional/NodeResizer/Control.purs",
+    "test/Test/Main.purs",
+    "src/System/XYResizer/Types.purs",
+    "test/Test/System/XYResizer.purs",
+    "test/Test/System/XYResizer.js",
+    "aamf/step3/resize/",
+    "AAMF_PORTING_PLAN.md",
+    "AAMF_STEP3_RESULTS.md",
+    "aamf/step3/README.md",
+    "aamf/step3/SHA256SUMS",
+    "parity/driver/dist/psflow.js",
+    "parity/surface/report.md",
+    "src/Boundary/Callbacks.purs",
+    "src/Boundary/Callbacks.js",
+    "src/Boundary/Resizer.purs",
+    "parity/boundary/drift.mjs",
+    "parity/changelog-audit/verdicts.json",
+    "parity/changelog-audit/report.md"
+  ],
+  "scopeClarifications": [
+    "Move existing shared resizer types into System.XYResizer.Types with unchanged public re-exports to break the factory/math import cycle; upstream also separates these types.",
+    "Carry explicit node order into ResizerStoreItems from the actual store node array so child collection follows source Map insertion order.",
+    "Generic platform property writes are permitted for owned mutable child-change records; resize decisions remain PureScript.",
+    "Source-differential JS-callback proxy demonstrates that shouldResize and onResize must receive the same converted next-values object. Preserve its conversion by native weak association, without changing other callback families.",
+    "Mounted JS-entry/local proxy also demonstrates fresh resize callback adapters reinstalling d3 with unchanged handlers; memoize only the four resize adapters by native callback identity.",
+    "Consumer-rendered receipts expose source field enumeration order (width,height,x,y,direction); retain that order in resize payload converters.",
+    "Match the upstream Control effect: retain controller in update cleanup, compare callback payload references, and leave resizeDirection outside its dependency list.",
+    "Boundary drift stores two explicit resize schema file pointers. Follow the declarations into System/XYResizer/Types.purs without changing labels, comparisons, falsification checks or refusals.",
+    "Reassess exactly resize PR verdicts 5147, 5326, 5509, 5528 and 5784 against new local tests; replace obsolete scaffold/not-ported claims with specific unit evidence. Keep full-system claims separate."
+  ],
+  "acceptance": [
+    "Demonstrated red local lifecycle regression before implementation",
+    "Nonzero start/drag/end payloads and callback ordering; constraints and child corrections",
+    "shouldResize suppression, repeat gestures, fresh store transform/origin, mid-gesture update closure behavior",
+    "Genuine mounted resize witness with start/resize/end on both sides",
+    "Applicable gates and preserved source/validation receipts"
+  ],
+  "aamfInvoked": false,
+  "completedAt": "2026-11-10T21:51:57.490925+00:00"
+}

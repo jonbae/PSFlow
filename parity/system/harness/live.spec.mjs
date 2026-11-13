@@ -19,6 +19,7 @@ import { dirname, resolve } from "node:path";
 import { CALL_LOG, OBSERVE } from "./call-log.mjs";
 import { checkSelfConsistency } from "../compare/consistency.mjs";
 import { defineScenario, driverUrl, runScenario } from "./scenario.mjs";
+import { createPagePort } from "./port.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(here, "..", "..", "..");
@@ -49,6 +50,52 @@ const NODE = '.react-flow__node[data-id="Node-1"]';
 const drive = (page, scenario, side = "psflow") => runScenario(page, scenario, { side, capture: 1, baseline });
 
 const entriesOf = (trace, action) => trace.sections.driving.filter((e) => e.action === action);
+
+test("keyboard actions finish the native frame work and retain held modifiers", async ({ page }) => {
+  await page.setContent(`<output></output><script>
+    for (const type of ['keydown', 'keyup']) {
+      document.addEventListener(type, event => {
+        const receipt = [type, event.key, event.shiftKey];
+        requestAnimationFrame(() => requestAnimationFrame(() => setTimeout(() => {
+          const output = document.querySelector('output');
+          const receipts = JSON.parse(output.textContent || '[]');
+          receipts.push(receipt);
+          output.textContent = JSON.stringify(receipts);
+        }, 0)));
+      });
+    }
+  </script>`);
+  const port = createPagePort(page);
+  const receipts = [];
+  for (const [action, key, expected] of [
+    ["down", "Shift", [["keydown", "Shift", true]]],
+    ["press", "ArrowRight", [["keydown", "ArrowRight", true], ["keyup", "ArrowRight", true]]],
+    ["up", "Shift", [["keyup", "Shift", false]]],
+  ]) {
+    await port.keyboard(action, key);
+    receipts.push(...expected);
+    // Read once, without Playwright's retrying assertions: a later receipt
+    // would conceal the port returning before the browser work completed.
+    expect(JSON.parse(await page.locator("output").textContent() || "[]")).toEqual(receipts);
+  }
+});
+
+for (const side of ["psflow", "upstream"]) {
+  test(`${side} records onInit with its initialized JS instance`, async ({ page }) => {
+    test.skip(side === "upstream" && !existsSync(resolve(repoRoot, "parity/driver/dist/upstream.js")), "no upstream bundle");
+    const trace = await drive(page, defineScenario({
+      id: "live--initialized-instance",
+      route: NODES_GENERAL,
+      run: async () => {},
+    }), side);
+    const calls = trace.sections.callbacks.filter(entry => entry.name === "onInit");
+    expect(calls).toHaveLength(1);
+    expect(calls[0].args).toHaveLength(1);
+    expect(calls[0].args[0].viewportInitialized).toBe(true);
+    expect(calls[0].args[0].getNodes).toEqual({ "@ref": "function" });
+    expect(calls[0].args[0].setViewport).toEqual({ "@ref": "function" });
+  });
+}
 
 test("a mount resolves the container, and the trace it produces is a valid trace", async ({ page }) => {
   const trace = await drive(
@@ -202,6 +249,63 @@ test("upstream reproduces its whole trace, call log included, across two capture
   const result = checkSelfConsistency(first, second, { rules });
   expect(result.differences).toEqual([]);
   expect(result.consistent).toBe(true);
+});
+
+test("initialization order reproduces across repeated fit-view mounts", async ({ page }) => {
+  test.setTimeout(120_000); // Ten complete captures, including VM browser tracing.
+  test.skip(!existsSync(resolve(repoRoot, "parity/driver/dist/upstream.js")), "no upstream bundle");
+  const mount = defineScenario({ id: "live--init-order", route: EDGES_GENERAL, run: async () => {} });
+  for (let pair = 0; pair < 5; pair++) {
+    const traces = [];
+    for (const capture of [1, 2]) {
+      const trace = await runScenario(page, mount, { side: "upstream", capture, baseline });
+      // Consistency must include real initialization and viewport work, not
+      // two empty or starved captures that happen to agree.
+      const names = trace.sections.callbacks.map(entry => entry.name);
+      expect(names.filter(name => name === "onInit")).toHaveLength(1);
+      expect(names.filter(name => name === "onMoveEnd")).toHaveLength(1);
+      traces.push(trace);
+    }
+    expect(checkSelfConsistency(...traces, { rules }).differences).toEqual([]);
+  }
+});
+
+test("mount scheduling delivers native resize work before timers and paces action frames afterward", async ({ page }) => {
+  await page.goto("about:blank");
+  const port = createPagePort(page);
+  const advance = await port.prepareMount();
+  await page.setContent(`<div id="target" style="width:10px;height:10px"></div><script>
+    window.receipts = [];
+    const observer = new ResizeObserver(() => { receipts.push('resize'); observer.disconnect(); });
+    observer.observe(document.querySelector('#target'));
+    setTimeout(() => receipts.push('timer'), 1);
+    requestAnimationFrame(() => receipts.push('frame'));
+  </script>`);
+  expect(await port.box("#target")).not.toBeNull();
+  await port.tick();
+  expect(await page.evaluate(() => window.receipts)).toEqual(["resize"]);
+  await advance();
+  await port.tick();
+  expect(await page.evaluate(() => window.receipts)).toEqual(["resize", "timer", "frame"]);
+  await port.finishMount();
+  await page.evaluate(() => { window.actionTimer = false; setTimeout(() => { window.actionTimer = true; }, 0); });
+  await port.tick();
+  expect(await page.evaluate(() => window.actionTimer)).toBe(true);
+  await page.evaluate(() => {
+    const target = document.querySelector("#target");
+    let desired = 10;
+    window.observedWidth = 10;
+    const observer = new ResizeObserver(entries => { window.observedWidth = entries[0].contentRect.width; });
+    observer.observe(target);
+    document.addEventListener("keydown", () => {
+      const next = desired += 10;
+      requestAnimationFrame(() => requestAnimationFrame(() => { target.style.width = `${next}px`; }));
+    });
+  });
+  for (const width of [20, 30, 40, 50, 60]) {
+    await port.keyboard("press", "ArrowRight");
+    expect(await page.evaluate(() => window.observedWidth)).toBe(width);
+  }
 });
 
 // ── The call log against a real page ───────────────────────────────────────

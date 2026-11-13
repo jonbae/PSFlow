@@ -1,0 +1,169 @@
+[
+  {
+    "name": "build",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T01:24:40.180Z",
+    "finishedAt": "2026-11-10T01:24:40.799Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/baseline/build.log"
+  },
+  {
+    "name": "build-retry",
+    "command": [
+      "spago",
+      "build"
+    ],
+    "startedAt": "2026-11-10T01:25:22.121Z",
+    "finishedAt": "2026-11-10T01:25:25.280Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/baseline/build-retry.log"
+  },
+  {
+    "name": "oracle",
+    "command": [
+      "npm",
+      "run",
+      "build:oracle"
+    ],
+    "startedAt": "2026-11-10T01:25:41.204Z",
+    "finishedAt": "2026-11-10T01:25:41.906Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/baseline/oracle.log"
+  },
+  {
+    "name": "driver",
+    "command": [
+      "npm",
+      "run",
+      "build:driver"
+    ],
+    "startedAt": "2026-11-10T01:25:42.107Z",
+    "finishedAt": "2026-11-10T01:25:48.325Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/baseline/driver.log"
+  },
+  {
+    "name": "surface",
+    "command": [
+      "npm",
+      "run",
+      "parity:surface"
+    ],
+    "startedAt": "2026-11-10T01:25:53.230Z",
+    "finishedAt": "2026-11-10T01:25:58.751Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/baseline/surface.log"
+  },
+  {
+    "name": "purescript",
+    "command": [
+      "spago",
+      "test"
+    ],
+    "startedAt": "2026-11-10T01:26:01.332Z",
+    "finishedAt": "2026-11-10T01:26:07.258Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/baseline/purescript.log"
+  },
+  {
+    "name": "boundary",
+    "command": [
+      "npm",
+      "run",
+      "parity:boundary"
+    ],
+    "startedAt": "2026-11-10T01:26:32.670Z",
+    "finishedAt": "2026-11-10T01:26:34.718Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/baseline/boundary.log"
+  },
+  {
+    "name": "conformance",
+    "command": [
+      "npm",
+      "run",
+      "test:conformance"
+    ],
+    "startedAt": "2026-11-10T01:26:33.923Z",
+    "finishedAt": "2026-11-10T01:27:16.927Z",
+    "exitCode": 130,
+    "signal": null,
+    "log": "aamf/step3/baseline/conformance.log"
+  },
+  {
+    "name": "browser-install",
+    "command": [
+      "npx",
+      "playwright",
+      "install",
+      "chromium"
+    ],
+    "startedAt": "2026-11-10T01:27:15.495Z",
+    "finishedAt": "2026-11-10T01:27:37.578Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/baseline/browser-install.log"
+  },
+  {
+    "name": "changelog",
+    "command": [
+      "npm",
+      "run",
+      "parity:changelog"
+    ],
+    "startedAt": "2026-11-10T01:27:45.314Z",
+    "finishedAt": "2026-11-10T01:27:46.376Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/baseline/changelog.log"
+  },
+  {
+    "name": "conformance-retry",
+    "command": [
+      "npm",
+      "run",
+      "test:conformance"
+    ],
+    "startedAt": "2026-11-10T01:27:44.024Z",
+    "finishedAt": "2026-11-10T01:29:03.615Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/baseline/conformance-retry.log"
+  },
+  {
+    "name": "smoke",
+    "command": [
+      "npm",
+      "run",
+      "test:smoke"
+    ],
+    "startedAt": "2026-11-10T01:29:19.591Z",
+    "finishedAt": "2026-11-10T01:29:29.375Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "aamf/step3/baseline/smoke.log"
+  },
+  {
+    "name": "system",
+    "command": [
+      "npm",
+      "run",
+      "parity:system"
+    ],
+    "startedAt": "2026-11-10T01:29:38.115Z",
+    "finishedAt": "2026-11-10T01:34:21.257Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "aamf/step3/baseline/system.log"
+  }
+]
