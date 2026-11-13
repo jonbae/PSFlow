@@ -620,8 +620,8 @@ type JsReactFlowProviderProps =
 
 convertProvider :: JsReactFlowProviderProps -> ReactFlowProviderProps Foreign Foreign
 convertProvider p =
-  { initialNodes: map (map nodeIn) (fromUndefinable p.initialNodes)
-  , initialEdges: map (map edgeIn) (fromUndefinable p.initialEdges)
+  { initialNodes: map (remembering (map nodeIn)) (fromUndefinable p.initialNodes)
+  , initialEdges: map (remembering (map edgeIn)) (fromUndefinable p.initialEdges)
   , defaultNodes: map (remembering (map nodeIn)) (fromUndefinable p.defaultNodes)
   , defaultEdges: map (remembering (map edgeIn)) (fromUndefinable p.defaultEdges)
   , initialWidth: fromUndefinable p.initialWidth

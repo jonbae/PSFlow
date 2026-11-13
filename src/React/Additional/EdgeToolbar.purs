@@ -9,7 +9,7 @@ import Prelude
 
 import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe)
-import Data.Newtype (class Newtype)
+import Data.Nullable (toMaybe)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)
 import Foreign.Object (Object)
@@ -18,12 +18,12 @@ import React.Basic (ReactComponent, element)
 import React.Basic.Hooks (UnsafeReference(..), reactChildrenFromArray, reactChildrenToArray, reactComponentWithChildren)
 import React.Basic.Hooks as React
 import React.FFI.DOM (div_)
-import React.Hook.Store (useStore)
+import React.Hook.Store (sameValue, shallow, useStoreWith)
 import React.Portal.EdgeLabelRenderer (edgeLabelRenderer)
 import React.Types.Component (EdgeToolbarProps)
 import React.Types.Edges (Edge)
 import React.Types.Store (ReactFlowState)
-import System.Types.Edge (AlignX(..), AlignY(..))
+import System.Types.Edge (AlignX(..), AlignY(..), originalUserEdge)
 import System.Types.Geometry (Transform(..))
 import System.Utils.Toolbar (getEdgeToolbarTransform)
 import Unsafe.Coerce (unsafeCoerce)
@@ -31,29 +31,36 @@ import Unsafe.Coerce (unsafeCoerce)
 toForeignStyle :: Object String -> Foreign
 toForeignStyle = unsafeCoerce
 
-newtype EtSlice e = EtSlice
-  { edge :: UnsafeReference (Maybe (Edge e))
-  , zoom :: Number
-  }
+-- | TS's `edgeSelector`, the edge the toolbar is for.
+selectEdge :: forall n e. String -> ReactFlowState n e -> Maybe (Edge e)
+selectEdge edgeId s = Map.lookup edgeId s.edgeLookup
 
-derive instance newtypeEtSlice :: Newtype (EtSlice e) _
-derive newtype instance eqEtSlice :: Eq (EtSlice e)
+-- | TS's `zoomSelector`, compared by `Object.is` as `useStore` compares a
+-- | selection upstream hands it no equality for.
+selectZoom :: forall n e. ReactFlowState n e -> Number
+selectZoom s = let Transform t = s.transform in t.scale
 
-selectorFor :: forall e n. String -> ReactFlowState n e -> EtSlice e
-selectorFor edgeId s =
-  let Transform t = s.transform
-  in EtSlice
-    { edge: UnsafeReference (Map.lookup edgeId s.edgeLookup)
-    , zoom: t.scale
-    }
+-- | TS's `shallow` over the edge its store holds. Upstream's store holds the
+-- | consumer's own edge object, and an edge decoded from one keeps it, so two
+-- | such edges compare by their objects' keys: a copy of an edge with the
+-- | same values is the same edge. Any other edge is the same only as itself.
+sameEdge :: forall e. Maybe (Edge e) -> Maybe (Edge e) -> Boolean
+sameEdge = case _, _ of
+  Nothing, Nothing -> true
+  Just a, Just b ->
+    UnsafeReference a == UnsafeReference b
+      || case toMaybe (originalUserEdge a), toMaybe (originalUserEdge b) of
+        Just original, Just other -> shallow original other
+        _, _ -> false
+  _, _ -> false
 
 edgeToolbar :: ReactComponent EdgeToolbarProps
 edgeToolbar =
   unsafePerformEffect $ reactComponentWithChildren "EdgeToolbar"
     \(props :: EdgeToolbarProps) -> React.do
-      EtSlice slice <- useStore (selectorFor props.edgeId)
+      mEdge <- useStoreWith (selectEdge props.edgeId) sameEdge
+      zoom <- useStoreWith selectZoom sameValue
       let
-        UnsafeReference mEdge = slice.edge
         isActive = case props.isVisible of
           Just b -> b
           Nothing -> case mEdge of
@@ -64,7 +71,7 @@ edgeToolbar =
         let
           alignX = fromMaybe AlignXCenter props.alignX
           alignY = fromMaybe AlignYCenter props.alignY
-          transformStr = getEdgeToolbarTransform props.x props.y slice.zoom alignX alignY
+          transformStr = getEdgeToolbarTransform props.x props.y zoom alignX alignY
           baseZIndex = case mEdge of
             Just e -> fromMaybe 0 e.zIndex
             Nothing -> 0

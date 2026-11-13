@@ -26,18 +26,25 @@
 -- | may only be called during a render, so the caller is inside one, and
 -- | `reactComponent` runs its own hooks by exactly this route.
 -- |
--- | ## The `Eq` a consumer's data gets
+-- | ## The equality each slice hook compares with
 -- |
--- | Six of the hooks are constrained `Eq n` or `Eq e`, because they subscribe
--- | to a store slice and re-render when it changes. A JavaScript consumer's
--- | node data is `Foreign`, which has no `Eq`, so this module supplies one:
--- | `React.Basic.Hooks.UnsafeReference`, whose instance is JavaScript
--- | reference equality. That is deliberate rather than a workaround — upstream
--- | compares these slices with zustand's `shallow`, which is `Object.is` per
--- | element, so reference equality on the leaf is nearer upstream than a
--- | structural comparison would be. It is not *identical* to upstream, which
--- | compares the whole node object by identity; the difference is recorded on
--- | the divergence backlog.
+-- | Upstream's slice hooks are each `useStore(selector, equality)`, and the
+-- | equality decides when a consumer's component renders and which object it
+-- | reads back. So each one here builds what the consumer reads inside its
+-- | selector, and compares that with upstream's equality, through
+-- | `React.Hook.Store.useStoreWith`:
+-- |
+-- |   * `useNodes` and `useEdges` read the store's own `nodes` and `edges`,
+-- |     the consumer's arrays, through the view `useStore` hands out.
+-- |   * `useInternalNode` reads the internal node that `nodeLookup` holds.
+-- |   * `useViewport` and `useConnection` read a fresh object per state.
+-- |   * `useNodesData` compares with `shallowNodeData`, and the other five
+-- |     with zustand's `shallow`.
+-- |
+-- | An unchanged slice keeps the object read before, as upstream's selection
+-- | memo keeps it. The PureScript selector hooks compare PureScript values by
+-- | their `Eq` instances, and a consumer's data is `Foreign`, so these share
+-- | the PureScript hooks' selectors and not their equalities.
 -- |
 -- | ## The store hooks
 -- |
@@ -108,7 +115,6 @@ import Boundary.Elements
   , edgeChangeOut
   , edgeIn
   , edgeOut
-  , internalNodeOut
   , keyCodeValueIn
   , nodeChangeIn
   , nodeChangeOut
@@ -118,7 +124,14 @@ import Boundary.Elements
   )
 import Boundary.Enums (handleTypeIn)
 import Boundary.Original (remembering, stably)
-import Boundary.Store (JsStoreApi, equalityFor, selectorThrough, storeViewOf, useStoreApiObject)
+import Boundary.Store
+  ( JsStoreApi
+  , equalityFor
+  , internalNodeOutCached
+  , selectorThrough
+  , storeViewOf
+  , useStoreApiObject
+  )
 import Boundary.Instance
   ( JsHandleConnection
   , JsReactFlowInstance
@@ -128,9 +141,11 @@ import Boundary.Instance
 import Boundary.SetState (setStateOut)
 import Boundary.Undefined (Undefinable, fromUndefinable, toUndefinable)
 import Boundary.Untagged (asArray, asString, oneOrMany, typeName)
-import Data.Function.Uncurried (Fn2, Fn3, runFn2, runFn3)
+import Data.Array (head) as Array
+import Data.Function.Uncurried (Fn3, runFn3)
+import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isJust)
-import Data.Newtype (unwrap, wrap)
+import Data.Newtype (wrap)
 import Data.Nullable (Nullable, toNullable)
 import Effect (Effect)
 import Effect.Exception.Unsafe (unsafeThrow)
@@ -142,8 +157,8 @@ import Effect.Uncurried
   , runEffectFn1
   )
 import Effect.Unsafe (unsafePerformEffect)
-import Foreign (Foreign, unsafeToForeign)
-import React.Basic.Hooks (Render, UnsafeReference)
+import Foreign (Foreign, isNull, unsafeToForeign)
+import React.Basic.Hooks (Render)
 import React.Context.NodeId (useNodeId) as PS
 import React.Hook.HandleConnections (useHandleConnections) as PS
 import React.Hook.KeyPress (useKeyPress) as PS
@@ -155,31 +170,32 @@ import React.Hook.NodeConnections (useNodeConnections) as PS
 import React.Hook.NodesEdgesState (useEdgesState, useNodesState) as PS
 import React.Hook.ReactFlow (useReactFlow) as PS
 import React.Hook.Selectors
-  ( useConnectionWith
-  , useEdges
-  , useInternalNode
-  , useNodes
-  , useNodesData
+  ( selectConnection
+  , selectNodesData
+  , selectViewport
   , useNodesInitialized
-  , useViewport
   ) as PS
 import React.Hook.Listeners (useOnSelectionChange, useOnViewportChange) as PS
+import React.Hook.Store (sameValue, shallow)
 import React.Hook.Store (useStoreApi, useStoreWith) as PS
 import React.Store.Shell (Store)
 import React.Hook.UpdateNodeInternals (useUpdateNodeInternals) as PS
 import React.Types.Edges (Edge)
-import React.Types.Nodes (InternalNode, Node)
+import React.Types.Nodes (Node)
+import React.Types.Store (ReactFlowState)
 import System.Types.Connection
   ( Connection
   , ConnectionState(..)
   , NodeConnection
   )
 import System.Types.Edge (EdgeChange)
+import System.Types.Ids (NodeId)
 import System.Types.Node (InternalNodeBase, NodeChange)
+import System.Utils.ShallowNodeData (NodeSummary, shallowNodeData)
 import Unsafe.Coerce (unsafeCoerce)
 
 -- ────────────────────────────────────────────────────────────────────────
--- Running a hook, and the `Eq` for consumer data
+-- Running a hook
 -- ────────────────────────────────────────────────────────────────────────
 
 -- | See the module header: a `Hook` is a `Render`, which is a newtype over
@@ -187,21 +203,9 @@ import Unsafe.Coerce (unsafeCoerce)
 runHook :: forall hooks newHook a. Render hooks newHook a -> Effect a
 runHook = unsafeCoerce
 
--- | A consumer's node or edge data, carrying the `Eq` the store hooks need.
--- | `UnsafeReference` is a newtype, so this is `Foreign` at runtime and the
--- | coercions below move between the two views of the same value.
-type JsData = UnsafeReference Foreign
-
--- | Read a slice back as `Foreign` once the hook has produced it. The
--- | `Eq` wrapper is a newtype, so this is the identity at runtime and its only
--- | job is to hand the converters the type they are written against.
-transparent :: forall a b. a -> b
-transparent = unsafeCoerce
-
--- | Each store hook pins its own `n` by the type of the `transparent` it is
--- | read through — the local signature is what chooses the `Eq` dictionary,
--- | and there is no shorter place to say it, because the hook-effect tag in
--- | `Hook`'s first parameter differs for every one of them.
+-- | The flow's state with a JavaScript consumer's data in it. The store holds
+-- | the data as it came, so a selector reads it as `Foreign`.
+type JsState = ReactFlowState Foreign Foreign
 
 -- ────────────────────────────────────────────────────────────────────────
 -- The JS shapes
@@ -323,20 +327,39 @@ useReactFlow = instanceOut <$> runHook PS.useReactFlow
 -- The store-slice hooks
 -- ────────────────────────────────────────────────────────────────────────
 
+-- | Upstream's `useStore((s) => s.nodes, shallow)`. The selector reads the
+-- | view `useStore` hands a consumer, so the answer is the array
+-- | `getState().nodes` holds, which is the consumer's own when they passed it.
 useNodes :: Effect (Array JsNode)
-useNodes = map nodeOut <<< out <$> runHook PS.useNodes
+useNodes = unsafeCoerce <$> throughView readNodes
   where
-  out :: Array (Node JsData) -> Array (Node Foreign)
-  out = transparent
+  readNodes :: { nodes :: Foreign } -> Foreign
+  readNodes = _.nodes
 
+-- | Upstream's `useStore((s) => s.edges, shallow)`, as `useNodes` reads it.
 useEdges :: Effect (Array JsEdge)
-useEdges = map edgeOut <<< out <$> runHook PS.useEdges
+useEdges = unsafeCoerce <$> throughView readEdges
   where
-  out :: Array (Edge JsData) -> Array (Edge Foreign)
-  out = transparent
+  readEdges :: { edges :: Foreign } -> Foreign
+  readEdges = _.edges
 
+-- | `useStore(selector, shallow)` with a selector over the state a consumer
+-- | reads. The view keeps one adapter per selector, so `read` is a top-level
+-- | function and the selection memo survives a render.
+throughView :: forall view. (view -> Foreign) -> Effect Foreign
+throughView read = do
+  store <- runHook PS.useStoreApi
+  let view = storeViewOf (store :: Store Foreign Foreign)
+  runHook (PS.useStoreWith (selectorThrough view (toUndefinable (Just (unsafeToForeign read)))) shallow)
+
+-- | Upstream's `useStore(viewportSelector, shallow)`: `{ x, y, zoom }`, a new
+-- | object per state, and the one read before while all three are the same
+-- | by `Object.is`.
 useViewport :: Effect JsViewport
-useViewport = viewportOut <$> runHook PS.useViewport
+useViewport = runHook (PS.useStoreWith selectViewportOut shallow)
+
+selectViewportOut :: JsState -> JsViewport
+selectViewportOut = viewportOut <<< PS.selectViewport
 
 -- | Upstream's `options` parameter has a default, so it is optional at the
 -- | call site and `includeHiddenNodes` defaults to `false`.
@@ -347,55 +370,73 @@ useNodesInitialized = mkEffectFn1 \options ->
         { includeHiddenNodes: fromMaybe false (member options _.includeHiddenNodes) }
     )
 
+-- | Upstream's `useStore((s) => s.nodeLookup.get(id), shallow)`. The answer
+-- | is the internal node `getState().nodeLookup` holds, the same object for
+-- | as long as the store keeps the node.
 useInternalNode :: EffectFn1 String (Undefinable JsInternalNode)
-useInternalNode = mkEffectFn1 \id ->
-  toUndefinable <<< map internalNodeOut <<< out <$> runHook (PS.useInternalNode (wrap id))
+useInternalNode = mkEffectFn1 \id -> runHook (PS.useStoreWith (selectInternalNode (wrap id)) shallow)
   where
-  out :: Maybe (InternalNode JsData) -> Maybe (InternalNode Foreign)
-  out = transparent
+  selectInternalNode :: NodeId -> JsState -> Undefinable JsInternalNode
+  selectInternalNode id s =
+    toUndefinable (map (unsafeCoerce <<< internalNodeOutCached) (Map.lookup id s.nodeLookup))
 
 -- | `string | string[]`, and the shape of the answer follows the shape of the
 -- | argument: upstream's two overloads return a single pick-or-`null` for one
--- | id and an array for an array. ps-flow's single `Array NodeId -> …`
--- | signature does not make that distinction and this restores it.
+-- | id and an array for an array.
 -- |
--- | The three fields are upstream's `DistributivePick`. ps-flow answers with
--- | whole internal nodes, so the narrowing to `{ id, type, data }` happens
--- | here — handing over the whole node would be a superset, and on a surface
--- | the net compares by every enumerable own property a superset is a
--- | divergence like any other.
+-- | The three fields are upstream's `DistributivePick`, built in the selector
+-- | so that `sameNodeData` compares what the consumer reads.
 useNodesData :: EffectFn1 Foreign Foreign
-useNodesData = mkEffectFn1 \ids -> do
-  let requested = oneOrMany ids
-  found <- out <$> runHook (PS.useNodesData (map (wrap <<< readNodeId "useNodesData") requested))
-  let picks = map nodeDataOut found
-  pure
-    if isJust (asArray ids) then unsafeToForeign picks
-    else unsafeToForeign (toNullable (single picks))
-  where
-  out :: Array (InternalNode JsData) -> Array (InternalNode Foreign)
-  out = transparent
+useNodesData = mkEffectFn1 \ids ->
+  let
+    requested = map (wrap <<< readNodeId "useNodesData") (oneOrMany ids)
 
-  -- ps-flow drops ids it cannot find, so a single id that is not in the
-  -- lookup comes back as an empty array and upstream's `null` is what that
-  -- means.
-  single picks = case picks of
-    [ only ] -> Just only
-    _ -> Nothing
+    picks :: JsState -> Array JsNodeData
+    picks s = map nodeDataOut (PS.selectNodesData requested s)
 
-nodeDataOut :: InternalNode Foreign -> JsNodeData
+    select :: JsState -> Foreign
+    select
+      | isJust (asArray ids) = unsafeToForeign <<< picks
+      | otherwise = unsafeToForeign <<< toNullable <<< Array.head <<< picks
+  in
+    runHook (PS.useStoreWith select sameNodeData)
+
+nodeDataOut :: NodeSummary Foreign -> JsNodeData
 nodeDataOut n =
-  { id: unwrap n.id
+  { id: n.id
   , "type": toUndefinable n.nodeType
   , data: n.data
   }
 
+-- | Upstream's `shallowNodeData`, over the answer a consumer reads. `null` is
+-- | never the same as anything, a single pick compares as an array of one,
+-- | and `data` compares by `Object.is`.
+sameNodeData :: Foreign -> Foreign -> Boolean
+sameNodeData a b = shallowNodeData (summariesIn a) (summariesIn b)
+  where
+  summariesIn v
+    | isNull v = Nothing
+    | otherwise = Just (map summaryIn (fromMaybe [ v ] (asArray v)))
+
+  summaryIn v =
+    let
+      pick = unsafeCoerce v :: JsNodeData
+    in
+      { id: pick.id, nodeType: fromUndefinable pick."type", data: SameValue pick.data }
+
+-- | A consumer's value, equal to another only by `Object.is`.
+newtype SameValue = SameValue Foreign
+
+instance eqSameValue :: Eq SameValue where
+  eq (SameValue a) (SameValue b) = sameValue a b
+
 -- | Upstream's `useConnection(selector?)`: with no selector it answers the
 -- | whole `ConnectionState`, and with one it answers the projection.
 -- |
--- | ps-flow splits that overload into two hooks and exports only the nullary
--- | one, so both forms are served here by the internal `useConnectionWith`.
--- | Either way the consumer's function is handed the **JS-shaped** state —
+-- | ps-flow's PureScript surface splits that overload into two hooks. Both
+-- | forms are served here by upstream's `storeSelector`, which is
+-- | `selectConnection`. Either way the consumer's function is handed the
+-- | **JS-shaped** state —
 -- | the same object `onConnectEnd` receives — rather than the PureScript sum
 -- | type it would otherwise see.
 -- |
@@ -413,8 +454,11 @@ useConnection = mkEffectFn1 \selector ->
       Nothing -> unsafeToForeign
       Just f -> \state -> unsafePerformEffect (runEffectFn1 f state)
   in
-    (\(Shallow v) -> v) <$> runHook (PS.useConnectionWith (Shallow <<< project <<< stateOut))
+    runHook (PS.useStoreWith (project <<< stateOut <<< selectConnectionOf) shallow)
   where
+  selectConnectionOf :: JsState -> ConnectionState (InternalNodeBase Foreign)
+  selectConnectionOf = PS.selectConnection
+
   -- Upstream's `ConnectionState`, so `inProgress` leads, as the store's own
   -- `connection` member has it. A connection in progress always has a
   -- `toPosition`; only the final state `onConnectEnd` receives drops it.
@@ -445,14 +489,6 @@ stableViewportChangeIn :: JsOnViewportChange -> OnViewportChange
 stableViewportChangeIn = cacheCallback (remembering onViewportChangeIn)
 
 foreign import cacheCallback :: forall a b. (a -> b) -> a -> b
-
-foreign import shallowEqual :: Fn2 Foreign Foreign Boolean
-
--- | A JavaScript value compared the way zustand's `shallow` compares it.
-newtype Shallow = Shallow Foreign
-
-instance eqShallow :: Eq Shallow where
-  eq (Shallow a) (Shallow b) = runFn2 shallowEqual a b
 
 useOnSelectionChange :: EffectFn1 JsUseOnSelectionChangeOptions Unit
 useOnSelectionChange = mkEffectFn1 \options ->
@@ -591,7 +627,7 @@ edgesMiddlewareIn middleware changes =
 useStore :: EffectFn2 (Undefinable Foreign) (Undefinable Foreign) Foreign
 useStore = mkEffectFn2 \selector equalityFn -> do
   store <- runHook PS.useStoreApi
-  let view = storeViewOf (store :: Store JsData JsData)
+  let view = storeViewOf (store :: Store Foreign Foreign)
   runHook (PS.useStoreWith (selectorThrough view selector) (equalityFor equalityFn))
 
 -- | Upstream's `useStoreApi()`: `{ getState, setState, subscribe }`, one
@@ -602,7 +638,7 @@ useStore = mkEffectFn2 \selector equalityFn -> do
 useStoreApi :: Effect JsStoreApi
 useStoreApi = do
   store <- runHook PS.useStoreApi
-  runEffectFn1 useStoreApiObject (storeViewOf (store :: Store JsData JsData))
+  runEffectFn1 useStoreApiObject (storeViewOf (store :: Store Foreign Foreign))
 
 -- ────────────────────────────────────────────────────────────────────────
 -- Small helpers

@@ -58,6 +58,7 @@ module Boundary.Store
   , useStoreApiObject
   , selectorThrough
   , equalityFor
+  , internalNodeOutCached
   , panZoomOut
   ) where
 
@@ -596,8 +597,10 @@ devWarnOut = unsafeToForeign (mkEffectFn2 (devWarn isDevelopment))
 -- Nodes, edges and their lookups
 -- ────────────────────────────────────────────────────────────────────────
 
-nodeOutCached :: InternalNodeBase Foreign -> Foreign
-nodeOutCached = reversibleImpl (unsafeToForeign <<< internalNodeOut)
+-- | An internal node as `nodeLookup` hands it out: one object per PureScript
+-- | node, so an unchanged node reads back as the object read before.
+internalNodeOutCached :: InternalNodeBase Foreign -> Foreign
+internalNodeOutCached = reversibleImpl (unsafeToForeign <<< internalNodeOut)
 
 -- | The consumer's own array when the store holds the one decoded from it,
 -- | as upstream's `nodes` is the array the consumer passed. An array the
@@ -629,7 +632,7 @@ entry key value = [ unsafeToForeign key, value ]
 nodeLookupOut :: State -> NodeLookup Foreign -> Foreign
 nodeLookupOut s lookup =
   newMap $ Array.catMaybes $ map
-    (\id -> map (\n -> entry (unwrap id) (nodeOutCached n)) (Map.lookup id lookup))
+    (\id -> map (\n -> entry (unwrap id) (internalNodeOutCached n)) (Map.lookup id lookup))
     (ordered (map _.id s.nodes) (Set.toUnfoldable (Map.keys lookup)))
 
 parentLookupOut :: State -> ParentLookup Foreign -> Foreign
@@ -637,7 +640,7 @@ parentLookupOut s lookup =
   newMap $ Array.catMaybes $ map
     ( \parent -> map
         ( \children -> entry (unwrap parent) $ newMap $ Array.catMaybes $ map
-            (\id -> map (\n -> entry (unwrap id) (nodeOutCached n)) (Map.lookup id children))
+            (\id -> map (\n -> entry (unwrap id) (internalNodeOutCached n)) (Map.lookup id children))
             (ordered (map _.id s.nodes) (Set.toUnfoldable (Map.keys children)))
         )
         (Map.lookup parent lookup)
@@ -1035,15 +1038,25 @@ mapValuesIn key v = map (\(Tuple _ value) -> unsafeCoerce value) (entriesOf key 
 
 type JsUnselectParams = { nodes :: Undefinable (Array Foreign), edges :: Undefinable (Array Foreign) }
 
+-- | The nodes an action is handed, remembering the consumer's array.
+-- | Upstream's `setNodes(nodes)` stores the array itself, so
+-- | `getState().nodes` reads it back, and `nodesOut` hands back this one.
+nodeList :: String -> Foreign -> Array (NodeBase Foreign)
+nodeList key = remembering (listOf key (reversible nodeIn))
+
+-- | `nodeList` for edges, which `edgesOut` hands back.
+edgeList :: String -> Foreign -> Array (EdgeBase Foreign)
+edgeList key = remembering (listOf key (reversible edgeIn))
+
 actionsOut :: Store Foreign Foreign -> Foreign
 actionsOut store = unsafeToForeign
-  { setNodes: mkEffectFn1 \nodes -> store.dispatch (SetNodes (listOf "setNodes" (reversible nodeIn) nodes))
-  , setEdges: mkEffectFn1 \edges -> store.dispatch (SetEdges (listOf "setEdges" (reversible edgeIn) edges))
+  { setNodes: mkEffectFn1 \nodes -> store.dispatch (SetNodes (nodeList "setNodes" nodes))
+  , setEdges: mkEffectFn1 \edges -> store.dispatch (SetEdges (edgeList "setEdges" edges))
   , setDefaultNodesAndEdges: mkEffectFn2 \nodes edges ->
       store.dispatch
         ( SetDefaultNodesAndEdges
-            (map (listOf "setDefaultNodesAndEdges" (reversible nodeIn)) (fromUndefinable nodes))
-            (map (listOf "setDefaultNodesAndEdges" (reversible edgeIn)) (fromUndefinable edges))
+            (map (nodeList "setDefaultNodesAndEdges") (fromUndefinable nodes))
+            (map (edgeList "setDefaultNodesAndEdges") (fromUndefinable edges))
         )
   , updateNodeInternals: mkEffectFn1 \updates ->
       store.dispatch

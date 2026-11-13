@@ -8,6 +8,12 @@
 -- | is gone; consumers either derive `Eq` on their node/edge data row
 -- | or wrap it in a `newtype`. `useStore` re-renders only when the
 -- | selector projection changes per its `Eq` instance — see ticket 027.
+-- | `useNodesData` compares what upstream's `shallowNodeData` compares,
+-- | each node's `id`, `type` and `data`, with `Eq` on the data.
+-- |
+-- | JavaScript consumers don't come through these hooks' equalities.
+-- | `Boundary.Hooks` runs upstream's own: zustand's `shallow`, and
+-- | `shallowNodeData` with `data` compared by `Object.is`.
 -- |
 -- | **`useConnection` is split into two functions.** TS overloads
 -- | `useConnection()` (full state) and `useConnection(selector, eq?)`
@@ -32,6 +38,8 @@ module React.Hook.Selectors
   , useConnection
   , useConnectionWith
   , selectConnection
+  , selectViewport
+  , selectNodesData
   , useNodesData
   , useInternalNode
   , useNodesInitialized
@@ -39,14 +47,14 @@ module React.Hook.Selectors
 
 import Prelude
 
-import Data.Array (foldl, length, nub) as Array
+import Data.Array (length, mapMaybe) as Array
 import Data.List (List)
 import Data.List (foldl) as List
 import Data.Map (lookup, values) as Map
 import Data.Maybe (Maybe(..))
 import Data.Newtype (unwrap)
 import React.Basic.Hooks (Hook)
-import React.Hook.Store (UseStore, useStore)
+import React.Hook.Store (UseStore, useStore, useStoreWith)
 import React.Types.Edges (Edge)
 import React.Types.Nodes (InternalNode, Node)
 import React.Types.Store (ReactFlowState)
@@ -54,6 +62,7 @@ import System.Types.Connection (ConnectionState(..), Viewport)
 import System.Types.Ids (NodeId)
 import System.Types.Node (InternalNodeBase)
 import System.Utils.General (pointToRendererPoint)
+import System.Utils.ShallowNodeData (NodeSummary, shallowNodeData)
 
 -- | Mirrors the TS `UseNodesInitializedOptions = { includeHiddenNodes?: boolean }`.
 -- | TS optional becomes a `Boolean` with a default of `false` chosen at
@@ -88,14 +97,15 @@ useEdges = useStore selectEdges
 -- | The viewport `{ x, y, zoom }` projection of the store's `Transform`
 -- | newtype. Re-renders when any of the three numbers change.
 useViewport :: Hook (UseStore Viewport) Viewport
-useViewport = useStore selectViewport
-  where
-  selectViewport :: ReactFlowState Unit Unit -> Viewport
-  selectViewport s =
-    let
-      t = unwrap s.transform
-    in
-      { x: t.tx, y: t.ty, zoom: t.scale }
+useViewport = useStore (selectViewport :: ReactFlowState Unit Unit -> Viewport)
+
+-- | TS's `viewportSelector`: the store's transform as `{ x, y, zoom }`.
+selectViewport :: forall n e. ReactFlowState n e -> Viewport
+selectViewport s =
+  let
+    t = unwrap s.transform
+  in
+    { x: t.tx, y: t.ty, zoom: t.scale }
 
 -- | The full `ConnectionState`, through `selectConnection` (TS no-arg
 -- | `useConnection()`). Re-renders
@@ -135,28 +145,33 @@ selectConnection s = case s.connection of
   ConnectionInProgress d -> ConnectionInProgress d { to = pointToRendererPoint d.to s.transform Nothing }
   NoConnection -> NoConnection
 
--- | Look up many nodes by id at once. Duplicate ids in the input are
--- | de-duplicated before the lookup so a caller can safely pass an
--- | unfiltered list. Missing ids are silently dropped — the result is
--- | only the nodes that exist, in input order.
+-- | The `id`, `type` and `data` of each node asked for, as TS's
+-- | `useNodesData` selects them. Ids not in the lookup are skipped, and an
+-- | id asked for twice answers twice, in the order asked.
+-- |
+-- | Re-renders when `shallowNodeData` finds a difference: a node moving
+-- | or being selected changes none of the three, so it renders nothing.
 useNodesData
   :: forall n
    . Eq n
   => Array NodeId
-  -> Hook (UseStore (Array (InternalNode n))) (Array (InternalNode n))
-useNodesData ids = useStore selectNodesData
+  -> Hook (UseStore (Array (NodeSummary n))) (Array (NodeSummary n))
+useNodesData ids = useStoreWith select same
   where
-  uniqueIds = Array.nub ids
+  select :: ReactFlowState n Unit -> Array (NodeSummary n)
+  select = selectNodesData ids
 
-  selectNodesData :: ReactFlowState n Unit -> Array (InternalNode n)
-  selectNodesData s =
-    Array.foldl
-      ( \acc i -> case Map.lookup i s.nodeLookup of
-          Just n -> acc <> [ n ]
-          Nothing -> acc
-      )
-      []
-      uniqueIds
+  same a b = shallowNodeData (Just a) (Just b)
+
+-- | TS's `useNodesData` selector: for each id in order, the node's three
+-- | fields, when the lookup has the node.
+selectNodesData :: forall n e. Array NodeId -> ReactFlowState n e -> Array (NodeSummary n)
+selectNodesData ids s =
+  Array.mapMaybe
+    ( \i -> Map.lookup i s.nodeLookup <#> \n ->
+        { id: unwrap n.id, nodeType: n.nodeType, data: n.data }
+    )
+    ids
 
 -- | Look up a single node by id. Returns `Nothing` if no such node is
 -- | currently in the lookup.
