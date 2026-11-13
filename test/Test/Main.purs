@@ -44,6 +44,7 @@ import React.Container.Pane.Internal (buildPaneClass, paneIsDraggable)
 import Test.React.Node.ArrowKeyMessage (runArrowKeyMessageTests)
 import Test.Parity.Adoption (runAdoptionParity)
 import Test.Parity.Handle (runHandleParity)
+import Test.Parity.Dom (runDomParity)
 import Test.Parity.Changes (runChangesParity)
 import Test.Parity.Connections (runConnectionsParity)
 import Test.Parity.Edges (runEdgeParity)
@@ -1288,3 +1289,4 @@ main = do
   runChangesParity
   runAdoptionParity
   runHandleParity
+  runDomParity
