@@ -89,3 +89,17 @@ test("every bucket declares one of the four kinds, and every target is a covered
     if (meta.target) assert.equal(meta.kind, "covered", `${bucket} is a covered bucket to graduate into`);
   }
 });
+
+// The audit counts the misfiled rows by `misfiled`, so the field has to agree
+// with the bucket while a row is unported and has to survive the port.
+test("a misfiled row says so, and only a filed row can be misfiled", () => {
+  const unported = { bucket: "not-ported", debt: "078", note: "ported in shape only" };
+  assert.deepEqual(problems({ ...unported, misfiled: true }), []);
+  assert.match(problems(unported)[0], /carries `misfiled`/);
+
+  const ported = { bucket: "system", evidence: "the net drives it", debt: "078", misfiled: true };
+  assert.deepEqual(problems(ported), []);
+
+  assert.match(problems({ bucket: "system", evidence: "the net drives it", misfiled: true })[0], /only a row with `debt`/);
+  assert.match(problems({ ...unported, misfiled: "yes" })[0], /`true` or absent/);
+});

@@ -35,10 +35,10 @@
  * in-range PR is covered by `smoke.spec.ts` — an empty bucket is carried only
  * where something already points at it.
  *
- * `system` is the exception that proves that rule. It holds no row today and is
- * carried anyway, because fifty `gate-pending` rows name it as their target: it
- * is where they graduate, and `target` is what says so. A bucket nothing can
- * name and nothing holds would be the empty bucket the rule refuses.
+ * `system` was the exception that proves that rule. It was carried while it
+ * held no row, because fifty `gate-pending` rows name it as their target: it is
+ * where they graduate, and `target` is what says so. A bucket nothing can name
+ * and nothing holds would be the empty bucket the rule refuses.
  */
 export const BUCKETS = {
   docs: { kind: "covered", label: "Docs / types / tooling only — no runtime behavior" },
@@ -130,6 +130,16 @@ export const rowProblems = (pr, row, { scenarios = null } = {}) => {
     stray(row, "reason", "accepted-ungated"),
   ]) {
     if (problem) say(problem);
+  }
+
+  // `debt` names the ticket that filed a row as ported and ungated, and
+  // `misfiled` says that filing was wrong: the row was never ported. A filed
+  // row in `not-ported` is misfiled by definition, and the audit's counts read
+  // `misfiled` rather than the bucket, so they survive the port landing.
+  if (row.misfiled !== undefined && row.misfiled !== true) say("carries `misfiled`, which is `true` or absent");
+  if (row.misfiled && !filled(row.debt)) say("carries `misfiled`, which only a row with `debt` uses");
+  if (filled(row.debt) && row.bucket === "not-ported" && !row.misfiled) {
+    say('was filed as ported (`debt`) and is "not-ported", so it carries `misfiled`');
   }
 
   if (row.bucket === "gate-pending") said.push(...pendingProblems(pr, row, scenarios));
