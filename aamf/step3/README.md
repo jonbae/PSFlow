@@ -146,10 +146,17 @@ stage-5 wave checkpoint; W00 and that checkpoint are distinct experiments. Each
 driver rebuild passed; output hashes identify the bundles. The W00 baseline
 bundle is also recoverable from its recorded Git commit.
 
-From the repository root, verify the evidence and the final owned outputs:
+The checksum file records the Step 3 checkpoint. Work after Step 3 changes
+some of the files it covers, so verify it at the last commit that wrote it.
+Every file it covers is tracked by Git, so a worktree at that commit holds all
+of them. From the repository root, verify the evidence and the final owned
+outputs:
 
 ```sh
-shasum -a 256 -c aamf/step3/SHA256SUMS
+seal=$(git log -1 --format=%H -- aamf/step3/SHA256SUMS)
+git worktree add --detach ../psflow-step3-seal "$seal"
+(cd ../psflow-step3-seal && shasum -a 256 -c --quiet aamf/step3/SHA256SUMS)
+git worktree remove ../psflow-step3-seal
 ```
 
 The checksum file covers this directory, the results/status documents, the

@@ -183,8 +183,9 @@ upstream's declarations allow a consumer to leave out, ps-flow accepts.
 `test:ci` is the gates workflow's self-test: it holds `.github/workflows/gates.yml`
 to the five-gate table above — the four cheap gates each run once, under the
 command this file documents, with surface parity first and system parity absent —
-and covers the baseline vendoring script CI runs. Editing either file without the
-other goes red.
+and to the checks that [Continuous integration](#continuous-integration) names
+after them. It also covers the baseline vendoring script CI runs. Editing either
+file without the other goes red.
 
 ## Continuous integration
 
@@ -194,10 +195,17 @@ smoke test suite, in that order, each failing the pull request check when it is
 red. `spago test` is the whole PureScript suite, so that step is stricter than
 function parity alone — never weaker.
 
+**Two checks that are not gates run after the four.** The boundary checks,
+`npm run parity:boundary`, mount every crossing through `index.js` with server
+renders, which no browser suite reaches. The package check builds the package
+with `npm run build:package` and then installs it into a scratch consumer with
+`npm run parity:package`. Both run after the smoke suite, so a red one never
+withholds a gate's result.
+
 **Surface parity runs first and blocks.** It is the only hard precondition, so
-when it is red the three gates after it do not run and the run's summary says
-why they were withheld rather than leaving them skipped in silence. Everything
-below it is interpretation order.
+when it is red the three gates and two checks after it do not run, and the
+run's summary says why they were withheld rather than leaving them skipped in
+silence. Everything below it is interpretation order.
 
 **System parity is not in the per-PR workflow.** Its per-run cost is not
 knowable until the corpus exists — a floor of ~60 scenarios, which at two sides

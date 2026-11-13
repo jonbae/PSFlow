@@ -1,4 +1,5 @@
-# The four cheap gates, on every pull request.
+# The four cheap gates, and two checks outside the gate scheme, on every pull
+# request.
 #
 # "Gates CI" in this repo's prose used to mean "gates whoever remembered to run
 # the script". This is the thing that makes it mean CI: surface parity,
@@ -16,6 +17,14 @@
 # guessing. It is also red on purpose today, while the divergence backlog is
 # worked, so a per-PR run would train everyone to ignore a red pull request
 # check — the failure mode this whole effort exists to close.
+#
+# **Two checks that are not gates run after them.** README lists both among
+# the checks that are not gates in the five-gate sense. The boundary checks
+# (`parity:boundary`) mount every crossing through `index.js` with server
+# renders, which no browser suite reaches. The package check (`parity:package`)
+# installs the packed package into a scratch consumer and holds it to
+# `index.js`. They run after the smoke suite, so a red one never withholds a
+# gate's result, and `npm run test:ci` holds this file to that order.
 #
 # **Ordering is not arbitrary.** Surface parity is the only *hard*
 # precondition: interop breakage has a cheap static signature and an expensive
@@ -108,7 +117,7 @@ jobs:
 
       # The blocking half is that the steps below are skipped. This is the
       # reporting half: skipped-in-silence reads as "CI did not bother", and
-      # what happened is that three results were withheld because they could
+      # what happened is that five results were withheld because they could
       # not have been read.
       - name: Surface parity is red — the rest of the run was not interpreted
         if: failure() && steps.surface_parity.outcome == 'failure'
@@ -116,8 +125,9 @@ jobs:
           cat >> "$GITHUB_STEP_SUMMARY" <<'SUMMARY'
           ### Surface parity is red
 
-          Function parity, the conformance test suite and the smoke test suite
-          did not run. Their results are withheld, not passed.
+          Function parity, the conformance test suite, the smoke test suite,
+          the boundary checks and the package check did not run. Their results
+          are withheld, not passed.
 
           Surface parity is the only hard precondition among the gates. Its
           failures are interop-shaped — an export that does not resolve, a
@@ -132,7 +142,7 @@ jobs:
 
           Fix surface parity first, then read the rest.
           SUMMARY
-          echo "::error title=Surface parity is red::The three gates after it did not run — see the job summary."
+          echo "::error title=Surface parity is red::The three gates and two checks after it did not run — see the job summary."
 
       - name: Function parity — `spago test` also runs the unit tests
         run: spago test
@@ -142,6 +152,18 @@ jobs:
 
       - name: Smoke test suite
         run: npm run test:smoke
+
+      # ── Checks outside the gate scheme ───────────────────────────────────
+
+      - name: Boundary checks
+        run: npm run parity:boundary
+
+      # The package check reads `dist/`, which only the package build writes.
+      - name: Build the package
+        run: npm run build:package
+
+      - name: Package check
+        run: npm run parity:package
 
       # A browser gate's failure is a trace and a screenshot, and neither
       # survives the runner.

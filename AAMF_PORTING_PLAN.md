@@ -412,7 +412,7 @@ unrelated known differences block all progress.
 |---|---|---|
 | Baseline / integration point | `spago build`, `npm run build:oracle`, `npm run build:driver` | Gates read current compiled output and regenerated bundles. The driver build includes a build too. |
 | Every task | `npm run parity:surface`, then `spago test` | Surface convention remains usable, and function parity/unit tests pass. A behavior-fix task includes a local test demonstrated red before its fix. |
-| Boundary or hook change | `npm run parity:boundary` and relevant existing boundary tests | Includes checks that the per-PR CI does not run, such as server rendering hooks. |
+| Boundary or hook change | `npm run parity:boundary` and relevant existing boundary tests | Per-PR CI runs `parity:boundary`, including its server-rendering hook checks, but not the boundary tests; run both locally. |
 | Browser behavior change | `npm run test:conformance`, `npm run test:smoke`, and `node parity/system/net.mjs --scenario <existing-or-added-id>` | Compare affected behavior from a freshly compiled target. If a scenario cannot see the class, add evidence in a task that explicitly owns that change. |
 | Corpus / gate machinery change | Relevant `test:harness`, `test:coverage`, `test:compare`, `test:census`, `test:surface`, or `test:boundary`; `npm run parity:fork` | Verify the apparatus and its registers, in addition to behavior. |
 | Wave / final checkpoint | `npm run parity:system`, `npm run parity:changelog` | Re-capture the full corpus and reassess debt against the fixed baseline. |
