@@ -1,6 +1,6 @@
 # System parity
 
-The dual-run net over 115 scenario(s), against vendored `@xyflow/react` 12.11.0.
+The dual-run net over 116 scenario(s), against vendored `@xyflow/react` 12.11.0.
 
 Captured by this run: both sides mounted the same unmodified fixtures through the same driver, bundled twice.
 
@@ -119,6 +119,7 @@ Captured by this run: both sides mounted the same unmodified fixtures through th
 | `handlers-keep-consumer-keys` | passed | — | 0 |
 | `drag-node-autopan-past-extent` | passed | — | 0 |
 | `controlled-add-and-update-edge` | passed | — | 0 |
+| `viewport-helpers-animated` | passed | — | 0 |
 | `click-selects-node--probe-flow-node` | passed | — | 0 |
 | `wheel-zooms-the-pane--probe-flow-node` | passed | — | 0 |
 | `mount-baseline--edges-general--probe-edge` | passed | — | 0 |
@@ -3962,6 +3963,37 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 ---
 
 # Comparison report — controlled-add-and-update-edge
+
+upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
+
+**No unclaimed differences.** The two traces agree everywhere.
+
+
+---
+
+# System parity run — viewport-helpers-animated
+
+**Passed.** Both sides reproduced themselves, and the two sides agree everywhere unclaimed.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
+## Self-consistency
+
+Each side is captured twice and compared against itself **before** the sides are compared at all: a
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
+
+| side | captures | verdict | differences |
+|---|---|---|---|
+| upstream | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | reproduced | 0 |
+
+---
+
+# Comparison report — viewport-helpers-animated
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
 
