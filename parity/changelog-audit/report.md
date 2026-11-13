@@ -25,8 +25,8 @@ design (as `parity:surface` does).
 
 ## Summary
 
-- **covered** (no action): 125
-- **gaps** (a gate coming, a ticket, or fixed in-branch): 50
+- **covered** (no action): 133
+- **gaps** (a gate coming, a ticket, or fixed in-branch): 42
 - **accepted** (ungated by decision): 3
 - **n/a**: 2
 
@@ -35,11 +35,11 @@ design (as `parity:surface` does).
 | `docs` | covered | 44 | Docs / types / tooling only — no runtime behavior |
 | `ts-only` | covered | 12 | TypeScript-only (type signature, generics, inference) |
 | `surface` | covered | 24 | Surface change — gated by parity:surface |
-| `function` | covered | 14 | Pure-math change — gated by function parity, differential against the @psflow/oracle bundle |
+| `function` | covered | 18 | Pure-math change — gated by function parity, differential against the @psflow/oracle bundle |
 | `conformance` | covered | 15 | Behavior covered by a spec in the conformance test suite |
-| `unit` | covered | 15 | Behavior covered by a PureScript unit/property test |
+| `unit` | covered | 19 | Behavior covered by a PureScript unit/property test |
 | `system` | covered | 1 | Behavior driven by the dual-run net — gated by parity:system |
-| `gate-pending` | gap | 50 | Ported and ungated, with a named gate coming (a gap, never a covered bucket) |
+| `gate-pending` | gap | 42 | Ported and ungated, with a named gate coming (a gap, never a covered bucket) |
 | `ported-ungated` | gap | 0 | Ported and correct, but no gate exercises it and none is planned (test debt) |
 | `not-ported` | gap | 0 | Behavior not present in PSFlow |
 | `accepted-ungated` | accepted | 3 | Ported, and deliberately never gated — carries the written reason |
@@ -49,16 +49,16 @@ design (as `parity:surface` does).
 
 Tickets 076–079 filed **57 rows** as ported-but-ungated after the
 12.3.5 → 12.11.0 sweep, and `tickets/080-test-debt-dispositions.md` decided what
-becomes of each. **56 of them are the debt.**
+becomes of each. **54 of them are the debt.**
 
-One row is not: [#5276](https://github.com/xyflow/xyflow/pull/5276). Filed as ported and correct and found to be neither. It has since been ported, and its entry under `system` below says what proves it. A row that was never ported was never test debt, which is the whole of the difference between 57 and 56.
+3 rows are not: [#5118](https://github.com/xyflow/xyflow/pull/5118), [#5263](https://github.com/xyflow/xyflow/pull/5263), [#5276](https://github.com/xyflow/xyflow/pull/5276). Filed as ported and correct and found to be neither. [#5118](https://github.com/xyflow/xyflow/pull/5118) has since been ported, and its entry under `unit` below says what proves it. [#5263](https://github.com/xyflow/xyflow/pull/5263) has since been ported, and its entry under `unit` below says what proves it. [#5276](https://github.com/xyflow/xyflow/pull/5276) has since been ported, and its entry under `system` below says what proves it. A row that was never ported was never test debt, which is the whole of the difference between 57 and 54.
 
 Neither number is typed. `debt` marks the rows 076–079 filed and `misfiled` the ones
 found never ported, and both counts are this file reading those two fields — which is
 what keeps the correction from going stale the next time one moves.
 
-Where the 56 went: `ts-only` 1, `surface` 1, `gate-pending` 50, `accepted-ungated` 3, `n/a` 1.
-2 of them have since moved into a covered bucket (#4826, #5472); the rest are still gaps, and a gate that is coming is still one.
+Where the 54 went: `ts-only` 1, `surface` 1, `function` 4, `unit` 2, `gate-pending` 42, `accepted-ungated` 3, `n/a` 1.
+8 of them have since moved into a covered bucket (#4826, #4880, #4929, #5090, #5266, #5472, #5515, #5550); the rest are still gaps, and a gate that is coming is still one.
 
 ## Gaps
 
@@ -74,16 +74,12 @@ is what makes the first of the three worth having.
 | [#4844](https://github.com/xyflow/xyflow/pull/4844) | react | 12.3.6 | Allow custom data-testid for ReactFlow component | `system` | `flow-custom-testid` | 1 |
 | [#4855](https://github.com/xyflow/xyflow/pull/4855) | react | 12.3.6 | Support passing `path` element attributes to `BaseEdge` component. | `system` | `custom-edge-baseedge-path` | 1 |
 | [#4862](https://github.com/xyflow/xyflow/pull/4862) | react | 12.3.6 | Prevent default scrolling behavior when nodes or a selection is moved with an arrow key press. | `system` | `arrow-key-selected-node` | 1 |
-| [#4880](https://github.com/xyflow/xyflow/pull/4880) | react | 12.4.0 | Add type check for all event targets | `unit` | one predicate test over `isInputDOMNode` (src/System/Utils/Dom.purs), covering the node kinds #4880, #5090, #5118 and #5263 all touched | — |
-| [#4929](https://github.com/xyflow/xyflow/pull/4929) | react | 12.4.0 | Optimize selections and take into account if edges connected to selected nodes are actually selectable. | `function` | a function-parity entry over the selection helpers in `src/System/Utils/Store.purs`, differential against the @psflow/oracle bundle | — |
 | [#4949](https://github.com/xyflow/xyflow/pull/4949) | react | 12.4.1 | Fix useNodeConnection hook not returning all connected edges. | `system` | `probe-node-connections` | 3 |
 | [#4991](https://github.com/xyflow/xyflow/pull/4991) | react | 12.4.3 | Fix viewport shifting on node focus | `system` | `keyboard-focus-node` | 1 |
 | [#5012](https://github.com/xyflow/xyflow/pull/5012) | react | 12.4.3 | Add snapGrid option to screenToFlowPosition and set snapToGrid to false | `system` | `viewport-helpers-with-options` | 3 |
 | [#5042](https://github.com/xyflow/xyflow/pull/5042) | react | 12.4.4 | Allow click connections when target sets `isConnectableStart` | `system` | `connect-handle-to-handle` | 2 |
 | [#5043](https://github.com/xyflow/xyflow/pull/5043) | react | 12.4.4 | Use current expandParent value on drag to be able to update it while dragging | `system` | `drag-child-expand-parent` | 1 |
 | [#5052](https://github.com/xyflow/xyflow/pull/5052) | react | 12.4.4 | Show an error if user drags uninitialized node | `system` | `drag-unmeasured-node` | 1 |
-| [#5090](https://github.com/xyflow/xyflow/pull/5090) | react | 12.5.0 | Release key even when an inout field is focused | `unit` | one predicate test over `isInputDOMNode` (src/System/Utils/Dom.purs), covering the node kinds #4880, #5090, #5118 and #5263 all touched | — |
-| [#5118](https://github.com/xyflow/xyflow/pull/5118) | system | 0.0.53 | Do not swallow key events when a button is focused | `unit` | one predicate test over `isInputDOMNode` (src/System/Utils/Dom.purs), covering the node kinds #4880, #5090, #5118 and #5263 all touched | — |
 | [#5120](https://github.com/xyflow/xyflow/pull/5120) | react | 12.5.1 | Handle fitView for uncontrolled flows | `system` | `fitview-onnodeschange-variants` | 2 |
 | [#5127](https://github.com/xyflow/xyflow/pull/5127) | react | 12.5.2 | Fix `fitView` not working when returning early in `onNodesChange`. | `system` | `fitview-onnodeschange-variants` | 2 |
 | [#5132](https://github.com/xyflow/xyflow/pull/5132) | react | 12.5.3 | Fix fitView not working when onNodesChange is not defined. | `system` | `fitview-onnodeschange-variants` | 2 |
@@ -93,8 +89,6 @@ is what makes the first of the three worth having.
 | [#5249](https://github.com/xyflow/xyflow/pull/5249) | react | 12.6.1 | Call `onNodesChange` for uncontrolled flows that use `updateNode` | `system` | `uncontrolled-update-node` | 3 |
 | [#5252](https://github.com/xyflow/xyflow/pull/5252) | system | 0.0.58 | Center panel correctly when bottom-center or top-center position is used | `system` | `panel-center-positions` | 1 |
 | [#5259](https://github.com/xyflow/xyflow/pull/5259) | react | 12.6.3 | Fix background-color css variable fallback. | `system` | `background-custom-bgcolor` | 1 |
-| [#5263](https://github.com/xyflow/xyflow/pull/5263) | react | 12.6.4 | Multi select key works when input is focused | `unit` | one predicate test over `isInputDOMNode` (src/System/Utils/Dom.purs), covering the node kinds #4880, #5090, #5118 and #5263 all touched | — |
-| [#5266](https://github.com/xyflow/xyflow/pull/5266) | react | 12.6.4 | Fix connection snapping for handles larger than connectionRadius | `function` | a function-parity entry over the connection-snapping path in `src/System/XYHandle/Utils.purs`, differential against the @psflow/oracle bundle | — |
 | [#5362](https://github.com/xyflow/xyflow/pull/5362) | react | 12.8.0 | Remove pointer events from Panel via CSS while a selection gets dragged | `system` | `selection-box-mid-gesture` | 1 |
 | [#5368](https://github.com/xyflow/xyflow/pull/5368) | react | 12.8.0 | Cleanup store updater | `system` | `flow-props-change-after-mount` | 2 |
 | [#5428](https://github.com/xyflow/xyflow/pull/5428) | react | 12.8.3 | Fix clicking on detached handle elements not initiating drawing of connections | `system` | `connect-handle-to-handle` | 2 |
@@ -102,10 +96,8 @@ is what makes the first of the three worth having.
 | [#5455](https://github.com/xyflow/xyflow/pull/5455) | react | 12.8.5 | Fix warning when display is set to none on the wrapper div | `system` | `mount-in-display-none` | 1 |
 | [#5480](https://github.com/xyflow/xyflow/pull/5480) | react | 12.8.5 | Prevent multi-touch events while making a new connection | `system` | `connect-second-touch-point` | 2 |
 | [#5512](https://github.com/xyflow/xyflow/pull/5512) | react | 12.8.6 | Prevent native page zoom when pinch zooming on node with nowheel class | `system` | `pinch-over-nowheel-node` | 1 |
-| [#5515](https://github.com/xyflow/xyflow/pull/5515) | react | 12.8.6 | Fix id of static handles not being parsed | `unit` | a parsing test for static handle ids against `src/React/Handle.purs` | — |
 | [#5546](https://github.com/xyflow/xyflow/pull/5546) | system | 0.0.71 | Do not crash mini map if all nodes are hidden | `system` | `minimap-all-nodes-hidden` | 1 |
 | [#5547](https://github.com/xyflow/xyflow/pull/5547) | react | 12.9.0 | Always call `onMoveEnd` when `onMoveStart` was called | `system` | `pan-gesture-complete` | 2 |
-| [#5550](https://github.com/xyflow/xyflow/pull/5550) | react | 12.9.0 | Prevent child nodes of different parents from overlapping | `function` | a function-parity entry over the parent-chain walk in `src/System/XYDrag/Utils.purs`, differential against the @psflow/oracle bundle | — |
 | [#5551](https://github.com/xyflow/xyflow/pull/5551) | react | 12.9.0 | Allow to start a selection above a node | `system` | `selection-box-from-node` | 1 |
 | [#5578](https://github.com/xyflow/xyflow/pull/5578) | react | 12.9.3 | Pass current pointer position to connection | `system` | `connect-handle-to-handle` | 2 |
 | [#5593](https://github.com/xyflow/xyflow/pull/5593) | react | 12.9.2 | Reset selection box when user selects a node | `system` | `selection-box-then-click-node` | 1 |
@@ -186,9 +178,11 @@ The rule the rest of the table follows — no bucket without a row — is what k
 | PR | Pkg | Version | Change | Evidence |
 |---|---|---|---|---|
 | [#4877](https://github.com/xyflow/xyflow/pull/4877) | react | 12.3.6 | Fix intersections for nodes with origins other than [0,0]. Thanks [@gmvrpw](https://github.com/gmvrpw)! | nodeToRect takes nodeOrigin at src/React/Hook/ReactFlow.purs:289-294; nodeOrigin geometry gated by test/Test/Parity/Geometry.purs. |
+| [#4880](https://github.com/xyflow/xyflow/pull/4880) | react | 12.4.0 | Add type check for all event targets | `isInputDOMNode` in src/System/Utils/Dom.js answers `false` for a target that isn't an element, and `hasSelector` in src/System/XYDrag/Utils.js skips a target without `matches` and climbs to its parent, as upstream's do. Gated by `Test.Parity.Dom` (run by `spago test`), which hands PSFlow's predicates and upstream's, from the @psflow/oracle bundle, the same stand-ins for every kind of target: an element, a text node, the document, the window and `null`, inside and outside `.nokey` and `.nodrag` regions, through `event.target` and through `composedPath()`. It compares the answers, a throw included. With either guard removed, a text node makes PSFlow's predicate throw where upstream's answers. |
 | [#5067](https://github.com/xyflow/xyflow/pull/5067) | react | 12.5.0 | You can now express paddings in fitViewOptions as pixels ('30px'), as viewport percentages ('20%') and define different paddings for each side. | src/System/Utils/Graph.purs:47-48 Padding/PaddingValue (px + ratio + per-side), defaultFitViewPadding = UniformPadding (RatioPadding 0.1) at :309-310; Padding smart constructors unit-tested in test/Test/Main.purs (`Padding smart-construct both variants`). |
 | [#5191](https://github.com/xyflow/xyflow/pull/5191) | react | 12.5.6 | Fix legacy padding being slightly larger than before | Same Padding model as #5067 — src/System/Utils/Graph.purs:309-310 pins the 0.1 ratio default that this PR corrected. |
 | [#5221](https://github.com/xyflow/xyflow/pull/5221) | system | 0.0.57 | Allow zero as a valid node width/height value | test/Test/Parity/Geometry.purs geometry differentials; zero width/height flow through as plain Numbers with no truthiness guard (PureScript has no falsy-0 hazard). |
+| [#5266](https://github.com/xyflow/xyflow/pull/5266) | react | 12.6.4 | Fix connection snapping for handles larger than connectionRadius | `isValidHandle` in src/System/XYHandle.purs returns the handle it settles on at its absolute center, through `getHandle(…, true)`, and `connectionEnd` snaps the connection to that handle rather than to the closest one, as upstream's `XYHandle` does. Gated by `Test.Parity.Handle` (run by `spago test`), which runs `isValidHandle` and upstream's `XYHandle.isValid`, from the @psflow/oracle bundle, over the same stand-in document and adopted nodes: a handle larger than the connection radius, and 400 generated drags. It checks `connectionEnd` against upstream's expression. Passing `false` to `getHandle` fails the first check, and snapping to the closest handle fails the second. |
 | [#5321](https://github.com/xyflow/xyflow/pull/5321) | system | 0.0.66 | Fix incorrect node position clamping for non-child nodes | test/Test/Parity/Geometry.purs — clampPosition differential vs the @psflow/oracle bundle; src/System/Utils/General.purs clampPosition. |
 | [#5350](https://github.com/xyflow/xyflow/pull/5350) | system | 0.0.63 | Only send node position updates if positions changed | src/System/Utils/Store.purs:572-573,617-618 gate position/dimension updates on an actual delta; unit-tested in test/Test/System/Utils/Store.purs. |
 | [#5376](https://github.com/xyflow/xyflow/pull/5376) | react | 12.8.2 | Add stepPosition param to step edge | test/Test/Parity/Edges.purs — getSmoothStepPath/step differential; `stepPosition` at src/System/Utils/Edges/SmoothStep.purs:28,155,161 and src/System/Types/Edge.purs:161. |
@@ -198,6 +192,8 @@ The rule the rest of the table follows — no bucket without a row — is what k
 | [#5453](https://github.com/xyflow/xyflow/pull/5453) | react | 12.8.3 | Snap selection instead of separate nodes when snap grid is enabled | src/System/XYDrag/Utils.purs:205-223 calculateSnapOffset snaps one reference point and applies the offset to the whole selection; snapPosition itself gated by test/Test/Parity/Geometry.purs and test/Test/Main.purs:418-425. |
 | [#5482](https://github.com/xyflow/xyflow/pull/5482) | react | 12.8.5 | Make isNodeIntersecting behave the same as getIntersectingNodes | src/React/Hook/ReactFlow.purs:305-317 — isNodeIntersecting uses the identical predicate to getIntersectingNodes, matching useReactFlow.ts:245-252. |
 | [#5489](https://github.com/xyflow/xyflow/pull/5489) | system | 0.0.69 | Fix nodeDragThreshold changing with zoom level | src/System/XYDrag.purs:355-360 computes the threshold distance from getEventPosition (container/client space), matching xyflow/packages/system/src/xydrag/XYDrag.ts:347-350 — zoom-independent. |
+| [#5515](https://github.com/xyflow/xyflow/pull/5515) | react | 12.8.6 | Fix id of static handles not being parsed | `parseHandles` in src/System/Utils/Store.purs copies each static handle's `id` into its handle bounds, as upstream's does. Gated by `Test.Parity.Adoption` (run by `spago test`), which adopts generated node forests through PSFlow's `adoptUserNodes` and upstream's, from the @psflow/oracle bundle, with absent, `null`, empty and named handle ids, and compares the handle bounds. `Test.Boundary.HandleIdNull` reads them back through the boundary. Dropping the id fails both. |
+| [#5550](https://github.com/xyflow/xyflow/pull/5550) | react | 12.9.0 | Prevent child nodes of different parents from overlapping | `adoptUserNodes` in src/System/Utils/Store.purs raises each root parent by `rootParentIndex × 10` under `zIndexMode: 'auto'`, in the order its children are adopted, and a rebuilt root parent starts without its index, as upstream's does. Gated by `Test.Parity.Adoption` (run by `spago test`), which adopts generated forests twice into the same lookups, through PSFlow's `adoptUserNodes` and upstream's from the @psflow/oracle bundle, under all three `zIndexMode`s, and compares every internal node's `z` and `rootParentIndex`. Removing the raise fails it. |
 | [#5730](https://github.com/xyflow/xyflow/pull/5730) | system | 0.0.76 | Fix missing border radius on `getSmoothStepPath` edge bends when using `stepPosition` | test/Test/Parity/Edges.purs — getSmoothStepPath differential vs the vendored oracle; borderRadius applied via getBend at src/System/Utils/Edges/SmoothStep.purs:380, stepPosition at :155,161. |
 
 ### `conformance` — Behavior covered by a spec in the conformance test suite
@@ -225,9 +221,13 @@ The rule the rest of the table follows — no bucket without a row — is what k
 | PR | Pkg | Version | Change | Evidence |
 |---|---|---|---|---|
 | [#4874](https://github.com/xyflow/xyflow/pull/4874) | system | 0.0.47 | Refactor isInputDOMNode so that it handles non-html objects | src/System/Utils/Dom.purs isInputDOMNode; guarded by the element-selection-key assertions in test/Test/Main.purs:195. |
+| [#4929](https://github.com/xyflow/xyflow/pull/4929) | react | 12.4.0 | Optimize selections and take into account if edges connected to selected nodes are actually selectable. | In src/React/Container/Pane/Internal.purs, `collectIncidentEdgeIds` selects an edge connected to a selected node only if `edge.selectable ?? defaultEdgeOptions?.selectable ?? true`, and `selectionStep` compares each move's sets with `areSetsEqual` rather than by size, as upstream's `<Pane />` does. Guarded by `Test.React.Container.PaneSelection` (run by `spago test`), which also compares `areSetsEqual` with upstream's, from the @psflow/oracle bundle, over every pair of subsets of four ids. Selecting every connected edge fails its edge cases, and comparing sizes fails its step cases. |
 | [#4968](https://github.com/xyflow/xyflow/pull/4968) | system | 0.0.50 | Make internal nodes immutable | PureScript records are immutable by construction, so `make internal nodes immutable` has no PSFlow analogue to port; src/System/Utils/Store.purs rebuilds node records per update, exercised by test/Test/System/Utils/Store.purs runStoreProperties (adoptUserNodes idempotence). |
+| [#5090](https://github.com/xyflow/xyflow/pull/5090) | react | 12.5.0 | Release key even when an inout field is focused | `keyUp` in src/React/Hook/KeyPress.purs releases a key without asking `isInputDOMNode`, as upstream's `upHandler` does. Guarded by `Test.React.Hook.KeyPress` (run by `spago test`), and by `parity/boundary/key-press.test.mjs`, which mounts both libraries' `useKeyPress` through `index.js` and compares what each answers after every key event, and which events each prevented. Ignoring a keyup inside an input fails both. |
+| [#5118](https://github.com/xyflow/xyflow/pull/5118) | system | 0.0.53 | Do not swallow key events when a button is focused | `keyDown` in src/React/Hook/KeyPress.purs counts Alt as a modifier. It prevents a matched key's default unless the target is a `<button>` or an `<a>` and no modifier is held, or the consumer passed `preventDefault: false`, as upstream's `downHandler` does. Guarded by `Test.React.Hook.KeyPress` (run by `spago test`), and by `parity/boundary/key-press.test.mjs`, which compares both libraries' `useKeyPress` through `index.js`. Leaving Alt out fails both, and so does preventing every matched key. |
 | [#5147](https://github.com/xyflow/xyflow/pull/5147) | react | 12.5.4 | Pass dimensions to final resize change event | test/Test/System/XYResizer.purs runXYResizerTests with paired JS: nonzero controller onEnd payload and the mounted control final dimension change (including resizing:false). |
 | [#5192](https://github.com/xyflow/xyflow/pull/5192) | react | 12.5.6 | Optimize performance of nodesInitialized | test/Test/React/Hook/VisibleIds.purs + src/React/Hook/VisibleIds/Pure.purs cover the initialization/visibility computation. |
+| [#5263](https://github.com/xyflow/xyflow/pull/5263) | react | 12.6.4 | Multi select key works when input is focused | `defaultUseKeyPressOptions` in src/React/Hook/KeyPress.purs, and the JavaScript `useKeyPress`, take `actInsideInputWithModifier` as `true` unless it's set, so the multi-selection key is pressed while an input is focused. The delete key passes `false`, as upstream's `useGlobalKeyHandler` does. Guarded by `Test.React.Hook.KeyPress` (run by `spago test`), and by `parity/boundary/key-press.test.mjs`, which compares both libraries' `useKeyPress` through `index.js` with no options, with `{}`, and with a `null` member. A `false` default fails both. |
 | [#5299](https://github.com/xyflow/xyflow/pull/5299) | react | 12.7.0 | Add `ariaRole` prop to nodes and edges | `NodeBase` and `EdgeBase` carry `ariaRole`, and `<NodeWrapper />` and `<EdgeWrapper />` set `role` from it, falling back to `"group"` for a focusable element and to no role for a node, or `"img"` for an edge, otherwise, as upstream's do. Guarded by `test/Test/React/Component/AriaRoleDomAttributes.purs` (run by `spago test`), and `parity/boundary/edge-fields.test.mjs`, which compares both wrappers with upstream's server render through `index.js`. |
 | [#5317](https://github.com/xyflow/xyflow/pull/5317) | react | 12.7.0 | Add `domAttributes` option for nodes and edges | `NodeBase` and `EdgeBase` carry `domAttributes`, and both wrappers spread it onto their element after every attribute they set, as upstream's do. Guarded by `test/Test/React/Component/AriaRoleDomAttributes.purs` (run by `spago test`), and `parity/boundary/edge-fields.test.mjs`, which compares both wrappers with upstream's server render through `index.js`. |
 | [#5326](https://github.com/xyflow/xyflow/pull/5326) | react | 12.7.0 | Prevent NodeResizer controls to become too small when zooming out | test/Test/System/XYResizer.purs runXYResizerTests with paired JS: mounted control autoScale at zoom 0.5 and 2, plus disabled autoScale, while the active resize reaches its updated bound. |

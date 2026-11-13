@@ -31,7 +31,7 @@ The corpus is done when every one of the export-bearing entries is **either driv
 
 Hand-declared, and not derivable: "drag while autopan is ongoing" appears as no token in any trace, and no selector matches a condition. A `gate-pending` row in the changelog audit names the gate that will prove the behavior and the scenario or test that will do it, and a scenario's name means nothing until the corpus holds it or has reserved it.
 
-**50 behavior(s) declared**, 42 awaiting `system`, 5 awaiting `unit`, 3 awaiting `function`.
+**42 behavior(s) declared**, 42 awaiting `system`.
 
 A net-bound row's scenario is **written** when the corpus holds it and **reserved** when `parity/system/corpus/reserved.mjs` is holding the id for a scenario nobody has written yet. Both resolve — the register is gated, so no other source can take a reserved id and satisfy the row with a scenario written for something else — and they are printed apart because they are different kinds of waiting. A row against a name in neither is the failure, and it is what stops a plan from being a name somebody typed wrong.
 
@@ -44,16 +44,12 @@ The rows are the changelog audit's, and `parity/changelog-audit/report.md` is wh
 | 4844 | system | `flow-custom-testid` | 1 | written |
 | 4855 | system | `custom-edge-baseedge-path` | 1 | written |
 | 4862 | system | `arrow-key-selected-node` | 1 | written |
-| 4880 | unit | one predicate test over `isInputDOMNode` (src/System/Utils/Dom.purs), covering the node kinds #4880, #5090, #5118 and #5263 all touched | — | — |
-| 4929 | function | a function-parity entry over the selection helpers in `src/System/Utils/Store.purs`, differential against the @psflow/oracle bundle | — | — |
 | 4949 | system | `probe-node-connections` | 3 | written |
 | 4991 | system | `keyboard-focus-node` | 1 | written |
 | 5012 | system | `viewport-helpers-with-options` | 3 | written |
 | 5042 | system | `connect-handle-to-handle` | 2 | written |
 | 5043 | system | `drag-child-expand-parent` | 1 | written |
 | 5052 | system | `drag-unmeasured-node` | 1 | written |
-| 5090 | unit | one predicate test over `isInputDOMNode` (src/System/Utils/Dom.purs), covering the node kinds #4880, #5090, #5118 and #5263 all touched | — | — |
-| 5118 | unit | one predicate test over `isInputDOMNode` (src/System/Utils/Dom.purs), covering the node kinds #4880, #5090, #5118 and #5263 all touched | — | — |
 | 5120 | system | `fitview-onnodeschange-variants` | 2 | written |
 | 5127 | system | `fitview-onnodeschange-variants` | 2 | written |
 | 5132 | system | `fitview-onnodeschange-variants` | 2 | written |
@@ -63,8 +59,6 @@ The rows are the changelog audit's, and `parity/changelog-audit/report.md` is wh
 | 5249 | system | `uncontrolled-update-node` | 3 | written |
 | 5252 | system | `panel-center-positions` | 1 | written |
 | 5259 | system | `background-custom-bgcolor` | 1 | written |
-| 5263 | unit | one predicate test over `isInputDOMNode` (src/System/Utils/Dom.purs), covering the node kinds #4880, #5090, #5118 and #5263 all touched | — | — |
-| 5266 | function | a function-parity entry over the connection-snapping path in `src/System/XYHandle/Utils.purs`, differential against the @psflow/oracle bundle | — | — |
 | 5362 | system | `selection-box-mid-gesture` | 1 | written |
 | 5368 | system | `flow-props-change-after-mount` | 2 | written |
 | 5428 | system | `connect-handle-to-handle` | 2 | written |
@@ -72,10 +66,8 @@ The rows are the changelog audit's, and `parity/changelog-audit/report.md` is wh
 | 5455 | system | `mount-in-display-none` | 1 | written |
 | 5480 | system | `connect-second-touch-point` | 2 | written |
 | 5512 | system | `pinch-over-nowheel-node` | 1 | written |
-| 5515 | unit | a parsing test for static handle ids against `src/React/Handle.purs` | — | — |
 | 5546 | system | `minimap-all-nodes-hidden` | 1 | written |
 | 5547 | system | `pan-gesture-complete` | 2 | written |
-| 5550 | function | a function-parity entry over the parent-chain walk in `src/System/XYDrag/Utils.purs`, differential against the @psflow/oracle bundle | — | — |
 | 5551 | system | `selection-box-from-node` | 1 | written |
 | 5578 | system | `connect-handle-to-handle` | 2 | written |
 | 5593 | system | `selection-box-then-click-node` | 1 | written |
