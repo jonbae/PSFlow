@@ -203,7 +203,7 @@ too.
 **System parity runs on every pull request, last among the gates.** It is the
 only gate that sees most of the port's runtime behavior, so a schedule that ran
 it less often would let a regression reach `master` before anything noticed.
-It costs about fifteen minutes of a run whose other steps take three. CI runs
+It takes about nine minutes of an eleven-minute run, image pull included. CI runs
 it as `node parity/system/linux.mjs npm run parity:system`, in the Playwright
 image that matches `package-lock.json`: the recorded checkpoints were captured
 there, and the capture environment is part of each receipt. It was kept out of

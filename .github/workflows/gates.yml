@@ -13,7 +13,8 @@
 # **System parity runs on every pull request, last among the gates.** It is the
 # only gate that sees most of the port's runtime behavior, so a schedule that
 # ran it less often would let a regression reach `master` before anything
-# noticed. It costs about fifteen minutes of a run whose other steps take three.
+# noticed. It takes about nine minutes of an eleven-minute run, image pull
+# included.
 # It was kept out while the divergence backlog held it red on purpose; it
 # passes, so a red one is a regression. The trigger has no branch or path
 # filter: a stacked pull request and a docs-only one run it too.
@@ -65,8 +66,8 @@ jobs:
     # to. 24.04 is also the OS of the Playwright image
     # `parity/system/linux.mjs` captures the net in.
     runs-on: ubuntu-24.04
-    # The net is most of the run, and a Linux wave has taken 13–15 minutes.
-    timeout-minutes: 60
+    # The net is most of the run: about nine of its eleven minutes.
+    timeout-minutes: 30
 
     steps:
       - uses: actions/checkout@v7
@@ -142,7 +143,7 @@ jobs:
           — and interop breakage has a cheap static signature and an expensive
           runtime shadow. The two browser suites and the net enter through the
           same door that just failed, so what they would report is a reading of
-          the door rather than of the port, at twenty minutes a go. Function parity
+          the door rather than of the port, at ten minutes a go. Function parity
           measures below that door, at the oracle seam, and may well still be
           green — which is the reassurance to distrust while the surface is
           red.

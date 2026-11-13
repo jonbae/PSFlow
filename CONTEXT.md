@@ -95,8 +95,8 @@ _Avoid_: layer, check, suite (when a gate is meant)
 **The four cheap gates**:
 The five minus **system parity** — what per-PR CI runs before the net
 (`.github/workflows/gates.yml`). *Cheap* is per-run cost and nothing else: the
-one left out is the gate that costs about fifteen minutes a run, not the one
-with the coarsest grain. Not a sixth thing that goes red, and not a tier — the
+one left out is the gate that takes about nine minutes of a CI run, not the
+one with the coarsest grain. Not a sixth thing that goes red, and not a tier — the
 collective exists because CI's ordering and the completion criteria need one
 word for it.
 _Avoid_: the fast gates, the CI gates, the cheap ladder
