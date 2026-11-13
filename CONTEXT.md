@@ -93,11 +93,12 @@ sits.
 _Avoid_: layer, check, suite (when a gate is meant)
 
 **The four cheap gates**:
-The five minus **system parity** — what per-PR CI runs
+The five minus **system parity** — what per-PR CI runs before the net
 (`.github/workflows/gates.yml`). *Cheap* is per-run cost and nothing else: the
-one left out is the gate whose cost is not yet measurable, not the one with the
-coarsest grain. Not a sixth thing that goes red, and not a tier — the collective
-exists because CI's scope needed one word for it.
+one left out is the gate that costs about fifteen minutes a run, not the one
+with the coarsest grain. Not a sixth thing that goes red, and not a tier — the
+collective exists because CI's ordering and the completion criteria need one
+word for it.
 _Avoid_: the fast gates, the CI gates, the cheap ladder
 
 **Parity gate**:
@@ -198,13 +199,13 @@ are re-reported by `node-props-record-parented`. It did **not** retire on the
 condition written down for it ("when the net's `props` section is green"): both
 of its claims are about the graph, and a probed run compares only its own
 observation level and not the graph the probe replaced, so they are re-reported
-through `dom` instead. The `props` section is still red, on three things the
+through `dom` instead. The `props` section was red then, on three things the
 spec never saw — `EdgeProps` and `ConnectionLineComponentProps` being `left
 only`, and `NodeProps.width`/`height` reading `undefined` against upstream's `0`
 on an unmeasured node (#22). The first two were blocked on `edgeTypes` and
 `connectionLineComponent` not having crossed; boundary stage 4 (#62) crossed
-both, so what is left there is a fixture that sets one, which is the `EdgeTypes`
-**hole**. The census names the screenshot spec as a gate on
+both. All three are fixed, the section passes, and the `EdgeTypes` **hole** has
+retired. The census names the screenshot spec as a gate on
 individual rows because *something* would go red; it is not one of the five.
 
 `parity:boundary` is likewise not one of the five gates, but the census names

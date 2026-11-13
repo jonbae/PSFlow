@@ -66,14 +66,14 @@ which drives a fixture whose nodes render the record into the DOM on both sides.
 It did **not** retire on the condition written down for it, "when the net's
 `props` section is green": both of its claims are about the graph, and a probed
 run compares only its own observation level rather than the graph the probe
-replaced. That section is still red on three things the spec never saw —
+replaced. That section was red then on three things the spec never saw —
 `EdgeProps` and `ConnectionLineComponentProps` reaching it from one side only,
 and `NodeProps.width` / `height` reading `undefined` against upstream's `0` on
 an unmeasured node ([#22](https://github.com/jonbae/PSFlow/issues/22)). The
 first two were blocked on `edgeTypes` and `connectionLineComponent` not having
 crossed, which boundary stage 4
-([#62](https://github.com/jonbae/PSFlow/issues/62)) has since done; what is left
-there is a fixture that sets one.
+([#62](https://github.com/jonbae/PSFlow/issues/62)) did. All three are fixed,
+and the section passes.
 
 **Ordering.** Surface parity green is a hard precondition — its failures are
 interop-shaped and shadow every other gate at once. Everything else is
@@ -95,30 +95,32 @@ arity cannot, especially a labelled record where upstream returns a positional
 array. Known differences are keyed by export *and difference class*; every one
 names its retiring boundary stage and fails as stale when it stops matching.
 
-**System parity is red, and that is where it is meant to be.** It mounts
-upstream and ps-flow on the same unmodified fixtures, settles each on its own
-clock, captures each twice, and diffs all seven trace sections. Selective probe
+**System parity passes, so a red run is a regression.** It mounts upstream
+and ps-flow on the same unmodified fixtures, settles each on its own clock,
+captures each twice, and diffs all seven trace sections. Selective probe
 variants compare only their declared observation level, so a replacement probe's
-DOM cannot be mistaken for library behavior; its
-first run found nine classes of divergence, and the call log added its own —
-handlers ps-flow never fires, handlers it fires twice, and a call sequence it
-does not reproduce between its own two captures. Both lists live on the
-divergence backlog ([#22](https://github.com/jonbae/PSFlow/issues/22)) rather
-than being fixed. A difference is answered by a fix in the port or by a
-**region** in `parity/system/regions.json` — never by loosening what the net
-looks at. It builds both driver bundles itself, so it cannot measure code that
-is not in the tree, and needs `spago build` first for the ps-flow side. Its
-detail is `parity/system/README.md`; the report is `parity/system/report.md`
-and the traces behind it are committed under `parity/system/traces/`.
+DOM cannot be mistaken for library behavior. Its first run found nine classes
+of divergence, and the call log added its own — handlers ps-flow never fired,
+handlers it fired twice, and a call sequence it did not reproduce between its
+own two captures. The divergence backlog
+([#22](https://github.com/jonbae/PSFlow/issues/22)) tracked them until each was
+fixed in the port, and `parity/system/regions.json` claims nothing. A
+difference is answered by a fix in the port or by a **region** in that file —
+never by loosening what the net looks at. It builds both driver bundles itself,
+so it cannot measure code that is not in the tree, and needs `spago build`
+first for the ps-flow side. Its detail is `parity/system/README.md`; the report
+is `parity/system/report.md` and the traces behind it are committed under
+`parity/system/traces/`.
 
 It also says **what it reached**. `parity/system/coverage.md` is derived from the
 traces that ran rather than declared: every export-bearing census entry carries a
 **witness** — a selector for `dom`, a name mapping for the other four sections —
 and counts as driven only if some captured trace holds it. What nothing drove is
-a **hole** with a written reason, and an *undeclared* hole fails the run. Today
-124 of 156 are driven and 32 are declared holes, with no undeclared residue.
-That is what the corpus's termination condition is stated against. It regenerates from the committed
-traces in milliseconds, with no browser and no vendored checkout.
+a **hole** with a written reason, and an *undeclared* hole fails the run.
+Every export-bearing entry is driven or a declared hole, so the corpus's
+termination condition holds; `coverage.md` gives the counts. It regenerates
+from the committed traces in milliseconds, with no browser and no vendored
+checkout.
 
 ```sh
 npm run parity:system                    # build both bundles, capture the corpus, diff, cover
@@ -134,7 +136,7 @@ npm run parity:boundary   # boundary module — outbound drift + every crossing 
 npm run parity:changelog  # 12.3.5→12.11.0 changelog audit; gates on unbucketed PRs
 npm run test:audit        # node --test over the audit's bucket table and its rules
 npm run test:surface      # node --test over surface parity's shape and allowlist logic
-npm run test:boundary     # node --test over the PureScript record reader both boundary checks share
+npm run test:boundary     # node --test over the crossings' JS entries against upstream, and the record reader the boundary checks share
 npm run test:census       # node --test over the standalone census generator and its staleness logic
 npm run test:compare      # node --test over the system-parity comparison core
 npm run test:coverage     # node --test over the witness language, the coverage join and its artifact
@@ -181,39 +183,46 @@ needs `npm run build:package` first. The boundary test
 upstream's declarations allow a consumer to leave out, ps-flow accepts.
 
 `test:ci` is the gates workflow's self-test: it holds `.github/workflows/gates.yml`
-to the five-gate table above — the four cheap gates each run once, under the
-command this file documents, with surface parity first and system parity absent —
-and to the checks that [Continuous integration](#continuous-integration) names
-after them. It also covers the baseline vendoring script CI runs. Editing either
-file without the other goes red.
+to the five-gate table above — each gate runs once, under the command this file
+documents, with surface parity first and system parity last, through the Linux
+runner — to a pull request trigger with no filter, and to the checks that
+[Continuous integration](#continuous-integration) names after the gates. It also
+covers the baseline vendoring script CI runs. Editing either file without the
+other goes red.
 
 ## Continuous integration
 
-`.github/workflows/gates.yml` runs **the four cheap gates on every pull
-request**: surface parity, function parity, the conformance test suite and the
-smoke test suite, in that order, each failing the pull request check when it is
-red. `spago test` is the whole PureScript suite, so that step is stricter than
-function parity alone — never weaker.
+`.github/workflows/gates.yml` runs **all five gates on every pull request**:
+surface parity, function parity, the conformance test suite, the smoke test
+suite and system parity, in that order, each failing the pull request check
+when it is red. `spago test` is the whole PureScript suite, so that step is
+stricter than function parity alone — never weaker. The trigger has no branch
+or path filter, so a stacked pull request and a docs-only one run every gate
+too.
 
-**Two checks that are not gates run after the four.** The boundary checks,
+**System parity runs on every pull request, last among the gates.** It is the
+only gate that sees most of the port's runtime behavior, so a schedule that ran
+it less often would let a regression reach `master` before anything noticed.
+It costs about fifteen minutes of a run whose other steps take three. CI runs
+it as `node parity/system/linux.mjs npm run parity:system`, in the Playwright
+image that matches `package-lock.json`: the recorded checkpoints were captured
+there, and the capture environment is part of each receipt. It was kept out of
+CI while the divergence backlog held it red on purpose. When it is red, the
+job keeps its report and traces as the `system-parity` artifact.
+
+**Three checks that are not gates run after the five.** The boundary checks,
 `npm run parity:boundary`, mount every crossing through `index.js` with server
-renders, which no browser suite reaches. The package check builds the package
-with `npm run build:package` and then installs it into a scratch consumer with
-`npm run parity:package`. Both run after the smoke suite, so a red one never
+renders, which no browser suite reaches. The boundary tests,
+`npm run test:boundary`, hold each crossing's JS entry to upstream. The package
+check builds the package with `npm run build:package` and then installs it
+into a scratch consumer with
+`npm run parity:package`. All three run after system parity, so a red one never
 withholds a gate's result.
 
 **Surface parity runs first and blocks.** It is the only hard precondition, so
-when it is red the three gates and two checks after it do not run, and the
+when it is red the four gates and three checks after it do not run, and the
 run's summary says why they were withheld rather than leaving them skipped in
 silence. Everything below it is interpretation order.
-
-**System parity is not in the per-PR workflow.** Its per-run cost is not
-knowable until the corpus exists — a floor of ~60 scenarios, which at two sides
-by two captures is ~240 captures, each settling on its own clock — and
-multiplying the two is what answers the per-PR / nightly / bump-only question.
-Until that measurement exists, a schedule would be a guess; and while the
-divergence backlog is being worked, a per-PR run that is red on purpose would
-train everyone to ignore a red pull request check.
 
 CI vendors the parity baseline itself, since `xyflow/` is gitignored:
 
