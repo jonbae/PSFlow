@@ -81,7 +81,7 @@ type UpdateOptions = { replace :: Boolean }
 -- | shape field-for-field so the helpers can forward straight into
 -- | `panZoom.scaleBy` / `panZoom.setViewport`.
 type ZoomOptions =
-  { duration :: Maybe Int
+  { duration :: Maybe Number
   , ease :: Maybe (Number -> Number)
   , interpolate :: Maybe InterpolateMode
   }
@@ -89,7 +89,7 @@ type ZoomOptions =
 -- | Options for `fitBounds`. TS `FitBoundsOptions = ViewportHelperFunctionOptions & { padding? }`.
 type FitBoundsOptions =
   { padding :: Maybe Number
-  , duration :: Maybe Int
+  , duration :: Maybe Number
   , ease :: Maybe (Number -> Number)
   , interpolate :: Maybe InterpolateMode
   }

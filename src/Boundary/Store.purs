@@ -58,6 +58,7 @@ module Boundary.Store
   , useStoreApiObject
   , selectorThrough
   , equalityFor
+  , panZoomOut
   ) where
 
 import Prelude
@@ -116,7 +117,6 @@ import Boundary.Undefined (Undefinable, fromUndefinable, isDefined, isNull, prun
 import Boundary.Untagged (asArray, asBoolean, asFunction, asNumber, asString, typeName)
 import Data.Array (catMaybes, filter, nub, reverse) as Array
 import Data.Function.Uncurried (mkFn1)
-import Data.Int (round, toNumber) as Int
 import Data.List (fromFoldable, toUnfoldable) as List
 import Data.Map (Map)
 import Data.Map (fromFoldable, keys, lookup, toUnfoldable) as Map
@@ -850,7 +850,7 @@ fitViewOptionsOut o = case originalOf o of
     , includeHiddenNodes: o.includeHiddenNodes
     , minZoom: toUndefinable o.minZoom
     , maxZoom: toUndefinable o.maxZoom
-    , duration: toUndefinable (map Int.toNumber o.duration)
+    , duration: toUndefinable o.duration
     , ease: toUndefinable o.ease
     , interpolate: toUndefinable (map interpolateOut o.interpolate)
     , nodes: toUndefinable (map (map \n -> { id: unwrap n.id }) o.nodes)
@@ -935,7 +935,7 @@ zoomTransformOut :: ZoomTransform -> Foreign
 zoomTransformOut = unsafeCoerce
 
 type JsTransformOptions =
-  { duration :: Undefinable Number
+  { duration :: Undefinable Foreign
   , ease :: Undefinable (Number -> Number)
   , interpolate :: Undefinable String
   }
@@ -944,7 +944,7 @@ transformOptionsIn :: Undefinable JsTransformOptions -> PanZoomTransformOptions
 transformOptionsIn options = case fromUndefinable options of
   Nothing -> { duration: Nothing, ease: Nothing, interpolate: Nothing }
   Just o ->
-    { duration: map Int.round (fromUndefinable o.duration)
+    { duration: fromUndefinable o.duration >>= asNumber
     , ease: fromUndefinable o.ease
     , interpolate: map (interpolateModeIn "panZoom.interpolate") (fromUndefinable o.interpolate)
     }

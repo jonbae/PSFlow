@@ -131,6 +131,7 @@ import Test.System.XYDrag.DragItemOrder (runDragItemOrderTests)
 import Test.System.XYHandle (runXYHandleTests)
 import Test.System.XYPanZoom.EventHandler (runEventHandlerTests)
 import Test.System.XYPanZoom.SourceEvents (runSourceEventTests)
+import Test.System.XYPanZoom.Transitions (runTransitionTests)
 
 assert :: String -> Boolean -> Effect Unit
 assert label cond =
@@ -1234,6 +1235,7 @@ main = do
   runMeasurementOrderTests
   runHandleBoundsNullTests
   runEndTimingTests
+  runTransitionTests
   runDeleteKeyTests
   runHandleNativeEventTests
   runDragRebindTests

@@ -60,7 +60,6 @@ import Prelude
 import Boundary.Enums (interpolateModeIn)
 import Boundary.Undefined (Undefinable, fromUndefinable)
 import Boundary.Untagged (asNumber, asString)
-import Data.Int (round) as Int
 import Data.Maybe (Maybe(..), fromMaybe, fromMaybe', isJust)
 import Data.Newtype (wrap)
 import Data.Number as Number
@@ -77,7 +76,7 @@ type JsFitViewOptions =
   , includeHiddenNodes :: Undefinable Boolean
   , minZoom :: Undefinable Number
   , maxZoom :: Undefinable Number
-  , duration :: Undefinable Number
+  , duration :: Undefinable Foreign
   , ease :: Undefinable (Number -> Number)
   , interpolate :: Undefinable String
   , nodes :: Undefinable (Array { id :: String })
@@ -89,7 +88,7 @@ fitViewOptionsIn o =
   , includeHiddenNodes: fromMaybe false (fromUndefinable o.includeHiddenNodes)
   , minZoom: fromUndefinable o.minZoom
   , maxZoom: fromUndefinable o.maxZoom
-  , duration: map Int.round (fromUndefinable o.duration)
+  , duration: fromUndefinable o.duration >>= asNumber
   , ease: fromUndefinable o.ease
   , interpolate:
       map (interpolateModeIn "fitViewOptions.interpolate") (fromUndefinable o.interpolate)

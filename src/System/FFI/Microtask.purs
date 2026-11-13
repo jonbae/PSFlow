@@ -1,5 +1,6 @@
 -- | FFI wrapper for `queueMicrotask`, exposed as the one `Aff` that needs it.
--- | Used by the auto-pan loop in `System.XYDrag`.
+-- | Used by the auto-pan loop in `System.XYDrag` and by animated viewport
+-- | changes in `System.XYPanZoom`.
 module System.FFI.Microtask
   ( awaitMicrotask
   ) where

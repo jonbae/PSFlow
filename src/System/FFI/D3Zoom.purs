@@ -1,11 +1,15 @@
--- | Thin FFI wrapper around `d3-zoom` and `d3-interpolate`. Used by
--- | `System.XYPanZoom` and `System.XYMinimap`. Functions are exposed as
--- | one-shot `Effect` actions; callers chain them in `do`-blocks.
+-- | Thin FFI wrapper around `d3-zoom`, `d3-interpolate` and the transitions
+-- | `d3-transition` adds to a selection. Used by `System.XYPanZoom` and
+-- | `System.XYMinimap`. Functions are exposed as one-shot `Effect` actions;
+-- | callers chain them in `do`-blocks.
 module System.FFI.D3Zoom
   ( ZoomTransform(..)
   , D3ZoomBehavior
   , D3ZoomEvent
   , D3Interpolate
+  , ZoomTarget
+  , selectionTarget
+  , selectionTransition
   , zoomTransformX
   , zoomTransformY
   , zoomTransformK
@@ -55,6 +59,20 @@ newtype ZoomTransform = ZoomTransform Foreign
 foreign import data D3ZoomBehavior :: Type
 foreign import data D3ZoomEvent :: Type
 foreign import data D3Interpolate :: Type
+
+-- | What `transform`, `scaleTo` and `scaleBy` apply a change to. d3-zoom
+-- | accepts a selection, which takes the change at once, or a transition on
+-- | one, which takes it frame by frame.
+foreign import data ZoomTarget :: Type
+
+-- | The selection itself.
+foreign import selectionTarget :: D3Selection -> ZoomTarget
+
+-- | `selection.transition().duration(duration).ease(ease).on('end', onEnd)`.
+-- | `onEnd` runs when the last frame has drawn. d3 never runs it for a
+-- | transition that a later change interrupts.
+foreign import selectionTransition
+  :: D3Selection -> Number -> (Number -> Number) -> Effect Unit -> Effect ZoomTarget
 
 -- | Component accessors on `ZoomTransform`. Pure: `d3.ZoomTransform` is an
 -- | immutable triple of `(x, y, k)`. The PS phantom around `Foreign` is
@@ -117,9 +135,9 @@ foreign import setZoomFilter
 foreign import setInterpolate
   :: D3Interpolate -> D3ZoomBehavior -> Effect D3ZoomBehavior
 
--- | `behavior.transform(selection, transform)` — programmatic transform set.
+-- | `behavior.transform(target, transform)` — programmatic transform set.
 foreign import zoomBehaviorTransform
-  :: D3ZoomBehavior -> D3Selection -> ZoomTransform -> Effect Unit
+  :: D3ZoomBehavior -> ZoomTarget -> ZoomTransform -> Effect Unit
 
 -- | Controlled-viewport sync: `transform(selection, transform, null,
 -- | { sync: true })`. The marker tells the zoom handler not to feed the
@@ -128,7 +146,7 @@ foreign import zoomBehaviorTransformSync
   :: D3ZoomBehavior -> D3Selection -> ZoomTransform -> Effect Unit
 
 foreign import zoomBehaviorScaleTo
-  :: D3ZoomBehavior -> D3Selection -> Number -> Effect Unit
+  :: D3ZoomBehavior -> ZoomTarget -> Number -> Effect Unit
 
 -- | Trackpad pinch under pan-on-scroll: scale about `pointer(event)` and keep
 -- | the original wheel event as d3's source event.
@@ -136,7 +154,7 @@ foreign import zoomBehaviorScaleToAtPointer
   :: D3ZoomBehavior -> D3Selection -> Number -> Foreign -> Effect Unit
 
 foreign import zoomBehaviorScaleBy
-  :: D3ZoomBehavior -> D3Selection -> Number -> Effect Unit
+  :: D3ZoomBehavior -> ZoomTarget -> Number -> Effect Unit
 
 foreign import zoomBehaviorTranslateBy
   :: D3ZoomBehavior -> D3Selection -> Number -> Number -> Effect Unit
