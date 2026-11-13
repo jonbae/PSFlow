@@ -4,11 +4,12 @@
 // misconfigured, not that the port broke.
 //
 // It exists because everything it asserts is otherwise a claim in prose. "CI
-// runs the four cheap gates" and "system parity is excluded" are true of the
-// workflow the day it is written and silently false the day someone edits one
-// of the two files — which is the **stale** failure mode this repo treats as
-// first-class everywhere else. README's five-gate table is the source of truth
-// here: the workflow is checked against it, not the other way around.
+// runs the five gates on every pull request" and "the net runs in the image its
+// checkpoints were captured in" are true of the workflow the day it is written
+// and silently false the day someone edits one of the two files — which is the
+// **stale** failure mode this repo treats as first-class everywhere else.
+// README's five-gate table is the source of truth here: the workflow is checked
+// against it, not the other way around.
 //
 // Every claim is a function of the files it reads, so the **falsification
 // probes** at the bottom can drive *the same* comparison against a deliberately
@@ -38,8 +39,20 @@ const SOURCES = {
   packageJson: read("package.json"),
 };
 
-/** The checks outside the gate scheme that CI runs after the four gates, in order. */
-const BEYOND_GATES = ["npm run parity:boundary", "npm run build:package", "npm run parity:package"];
+/** The checks outside the gate scheme that CI runs after the five gates, in order. */
+const BEYOND_GATES = [
+  "npm run parity:boundary",
+  "npm run test:boundary",
+  "npm run build:package",
+  "npm run parity:package",
+];
+
+/**
+ * What CI puts in front of system parity's documented command: the runner that
+ * captures in the Playwright image matching `package-lock.json`, which is where
+ * the recorded checkpoints were captured.
+ */
+const LINUX_RUNNER = "node parity/system/linux.mjs";
 
 const indentOf = (line) => line.match(/^\s*/)[0].length;
 
@@ -130,6 +143,11 @@ function view({ workflow, readme, packageJson }) {
     table,
     ciSection: ciEnd === -1 ? ci : ci.slice(0, ciEnd),
     cheap: table.filter(({ gate }) => gate !== "system parity"),
+    /** All five gates, each with the command line CI runs it by. */
+    gates: table.map(({ gate, command }) => ({
+      gate,
+      command: gate === "system parity" ? `${LINUX_RUNNER} ${command}` : command,
+    })),
     scripts: JSON.parse(packageJson).scripts,
     /** Steps whose `run` executes `command` as a command line of its own. */
     running: (command) =>
@@ -145,10 +163,21 @@ const CLAIMS = {
     assert.equal(steps.length, declared.length, "every step the file declares was parsed");
   },
 
+  // Every pull request is the schedule, so a filter is a change to it: a
+  // `branches` filter skips the stacked pull requests this repo opens, and a
+  // `paths` filter skips the ones whose files someone judged harmless.
   "the workflow runs on every pull request": ({ uncommented }) => {
-    const on = uncommented.slice(uncommented.indexOf("\non:"), uncommented.indexOf("\njobs:"));
+    const on = uncommented.slice(uncommented.indexOf("\non:"), uncommented.indexOf("\njobs:")).split("\n");
+    const at = on.findIndex((line) => /^\s*pull_request:/.test(line));
 
-    assert.match(on, /^\s*pull_request:/m);
+    assert.notEqual(at, -1, "the workflow has a pull_request trigger");
+    assert.match(on[at], /^\s*pull_request:\s*$/, "with no inline filter");
+
+    const next = on.slice(at + 1).find((line) => line.trim() !== "");
+    assert.ok(
+      next === undefined || indentOf(next) <= indentOf(on[at]),
+      `pull_request carries no filter: ${next?.trim()}`
+    );
   },
 
   "README's five-gate table still lists five gates": ({ table, cheap }) => {
@@ -169,25 +198,30 @@ const CLAIMS = {
     }
   },
 
-  // Not an omission — a decision, and one that has to survive the next edit.
-  // Its per-run cost is not knowable until the corpus exists (~60 scenarios,
-  // which at two sides by two captures is ~240 captures, each side settling on
-  // its own clock), and that measurement is what answers the per-PR / nightly /
-  // bump-only question.
-  "system parity is not in the per-PR workflow, and the reason is recorded": ({
+  // A decision, and one that has to survive the next edit. The net runs on
+  // every pull request because it is the only gate that sees most runtime
+  // behavior. It runs in the image its checkpoints were captured in, because
+  // the capture environment is part of each receipt, and a bare
+  // `npm run parity:system` on the runner would capture somewhere no recorded
+  // wave has. It runs last among the gates because it is the most expensive.
+  "system parity runs once, through the Linux runner, after the four cheap gates": ({
     table,
+    cheap,
+    steps,
     running,
-    uncommented,
-    workflow,
+    ciSection,
   }) => {
     const [systemParity] = table.filter(({ gate }) => gate === "system parity");
+    const command = `${LINUX_RUNNER} ${systemParity.command}`;
+    const at = (line) => steps.indexOf(running(line)[0]);
 
-    assert.equal(running(systemParity.command).length, 0);
-    assert.ok(
-      !uncommented.includes(systemParity.command),
-      `${systemParity.command} in ${WORKFLOW}`
-    );
-    assert.match(workflow, /system parity/i, "the workflow records why it is excluded");
+    assert.equal(running(command).length, 1, `\`${command}\` in ${WORKFLOW}`);
+    assert.equal(running(systemParity.command).length, 0, "the net is not run on the host as well");
+    assert.equal(running(command)[0].if, undefined, "it runs unconditionally");
+    for (const { gate, command: line } of cheap) {
+      assert.ok(at(line) < at(command), `${gate} runs before system parity`);
+    }
+    assert.ok(ciSection.includes(`\`${command}\``), `README's CI section names \`${command}\``);
   },
 
   // Surface parity is the only **hard precondition**, so the gates after it are
@@ -196,14 +230,14 @@ const CLAIMS = {
   // without restoring the precondition, and every other claim here would stay
   // green.
   "surface parity runs first, and no gate after it is exempt from its failure": ({
-    cheap,
+    gates,
     steps,
     running,
   }) => {
     const at = (command) => steps.indexOf(running(command)[0]);
     const surface = at("npm run parity:surface");
 
-    for (const { gate, command } of cheap.filter((row) => row.gate !== "surface parity")) {
+    for (const { gate, command } of gates.filter((row) => row.gate !== "surface parity")) {
       assert.ok(surface < at(command), `surface parity runs before ${gate}`);
       assert.equal(running(command)[0].if, undefined, `${gate} runs unconditionally`);
     }
@@ -241,17 +275,17 @@ const CLAIMS = {
   },
 
   // Not gates, so the five-gate table cannot hold them: this list does, and
-  // README's CI section has to name each one. They run after every cheap gate,
-  // so a red one never withholds a gate's result, and in this order, because
-  // the package check reads the `dist/` that the package build writes.
-  "the checks outside the gate scheme each run once, in order, after the four gates": ({
-    cheap,
+  // README's CI section has to name each one. They run after every gate, so a
+  // red one never withholds a gate's result, and in this order, because the
+  // package check reads the `dist/` that the package build writes.
+  "the checks outside the gate scheme each run once, in order, after the five gates": ({
+    gates,
     steps,
     running,
     ciSection,
   }) => {
     const at = (command) => steps.indexOf(running(command)[0]);
-    let previous = Math.max(...cheap.map(({ command }) => at(command)));
+    let previous = Math.max(...gates.map(({ command }) => at(command)));
 
     for (const command of BEYOND_GATES) {
       assert.equal(running(command).length, 1, `\`${command}\` in ${WORKFLOW}`);
@@ -295,6 +329,18 @@ const PROBES = [
     patch: { workflow: (w) => w.replace("\n  pull_request:", "") },
   },
   {
+    breaks: "the workflow runs on every pull request",
+    by: "a paths filter skipping the pull requests that touch nothing in it",
+    patch: {
+      workflow: (w) => w.replace("\n  pull_request:\n", '\n  pull_request:\n    paths: ["src/**"]\n'),
+    },
+  },
+  {
+    breaks: "the workflow runs on every pull request",
+    by: "a branches filter skipping stacked pull requests",
+    patch: { workflow: (w) => w.replace("\n  pull_request:\n", "\n  pull_request: { branches: [master] }\n") },
+  },
+  {
     breaks: "each cheap gate is run by exactly one step, by its documented command",
     by: "a gate dropping out of the workflow",
     patch: { workflow: (w) => w.replace("        run: spago test\n", "") },
@@ -305,9 +351,45 @@ const PROBES = [
     patch: { readme: (r) => r.replace("`npm run test:conformance`", "`npm run test:conform`") },
   },
   {
-    breaks: "system parity is not in the per-PR workflow, and the reason is recorded",
-    by: "the expensive gate arriving in the per-PR run",
-    patch: { workflow: (w) => w.replace("npm run parity:surface", "npm run parity:system") },
+    breaks: "system parity runs once, through the Linux runner, after the four cheap gates",
+    by: "the net dropping out of the workflow",
+    patch: {
+      workflow: (w) => w.replace("        run: node parity/system/linux.mjs npm run parity:system\n", ""),
+    },
+  },
+  {
+    breaks: "system parity runs once, through the Linux runner, after the four cheap gates",
+    by: "the net capturing on the host instead of in the image",
+    patch: {
+      workflow: (w) =>
+        w.replace("run: node parity/system/linux.mjs npm run parity:system", "run: npm run parity:system"),
+    },
+  },
+  {
+    breaks: "system parity runs once, through the Linux runner, after the four cheap gates",
+    by: "the net running before the smoke suite",
+    patch: {
+      workflow: (w) =>
+        w
+          .replace("run: npm run test:smoke", "run: SWAP")
+          .replace("run: node parity/system/linux.mjs npm run parity:system", "run: npm run test:smoke")
+          .replace("run: SWAP", "run: node parity/system/linux.mjs npm run parity:system"),
+    },
+  },
+  {
+    breaks: "system parity runs once, through the Linux runner, after the four cheap gates",
+    by: "README's CI section no longer naming how CI runs the net",
+    patch: {
+      readme: (r) => r.replace("`node parity/system/linux.mjs npm run parity:system`", "the net"),
+    },
+  },
+  {
+    breaks: "surface parity runs first, and no gate after it is exempt from its failure",
+    by: "the net exempting itself from the precondition",
+    patch: {
+      workflow: (w) =>
+        w.replace("        id: system_parity\n", "        id: system_parity\n        if: always()\n"),
+    },
   },
   {
     breaks: "surface parity runs first, and no gate after it is exempt from its failure",
@@ -337,12 +419,28 @@ const PROBES = [
     },
   },
   {
-    breaks: "the checks outside the gate scheme each run once, in order, after the four gates",
+    breaks: "the checks outside the gate scheme each run once, in order, after the five gates",
     by: "the boundary checks dropping out of the workflow",
     patch: { workflow: (w) => w.replace("        run: npm run parity:boundary\n", "") },
   },
   {
-    breaks: "the checks outside the gate scheme each run once, in order, after the four gates",
+    breaks: "the checks outside the gate scheme each run once, in order, after the five gates",
+    by: "the boundary tests dropping out of the workflow",
+    patch: { workflow: (w) => w.replace("        run: npm run test:boundary\n", "") },
+  },
+  {
+    breaks: "the checks outside the gate scheme each run once, in order, after the five gates",
+    by: "a check running before the net, where a red one would withhold the net's result",
+    patch: {
+      workflow: (w) =>
+        w
+          .replace("run: npm run parity:boundary", "run: SWAP")
+          .replace("run: node parity/system/linux.mjs npm run parity:system", "run: npm run parity:boundary")
+          .replace("run: SWAP", "run: node parity/system/linux.mjs npm run parity:system"),
+    },
+  },
+  {
+    breaks: "the checks outside the gate scheme each run once, in order, after the five gates",
     by: "the package check running before the build it reads",
     patch: {
       workflow: (w) =>
@@ -353,7 +451,7 @@ const PROBES = [
     },
   },
   {
-    breaks: "the checks outside the gate scheme each run once, in order, after the four gates",
+    breaks: "the checks outside the gate scheme each run once, in order, after the five gates",
     by: "README's CI section no longer naming the package check",
     patch: {
       readme: (r) =>

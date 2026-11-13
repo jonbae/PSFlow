@@ -1,30 +1,33 @@
-# The four cheap gates, and two checks outside the gate scheme, on every pull
+# The five gates, and three checks outside the gate scheme, on every pull
 # request.
 #
 # "Gates CI" in this repo's prose used to mean "gates whoever remembered to run
 # the script". This is the thing that makes it mean CI: surface parity,
-# function parity, the conformance test suite and the smoke test suite, run
-# against every PR, each one failing the pull request check when it is red.
-# README's five-gate table is what this file is held to — `npm run test:ci`
-# compares the two, so a gate renamed in one place goes red rather than quietly
-# dropping out of CI. That section of README says all of this at more length.
+# function parity, the conformance test suite, the smoke test suite and system
+# parity, run against every PR, each one failing the pull request check when it
+# is red. README's five-gate table is what this file is held to —
+# `npm run test:ci` compares the two, so a gate renamed in one place goes red
+# rather than quietly dropping out of CI. That section of README says all of
+# this at more length.
 #
-# **System parity is deliberately not here.** Its per-run cost is not knowable
-# until the corpus exists: its floor is ~60 scenarios, which at two sides by two
-# captures is ~240 captures, and each side settles on its own clock, so what one
-# costs is measured and not predicted. Multiply the two and the per-PR /
-# nightly / bump-only question answers itself; picking a schedule now would be
-# guessing. It is also red on purpose today, while the divergence backlog is
-# worked, so a per-PR run would train everyone to ignore a red pull request
-# check — the failure mode this whole effort exists to close.
+# **System parity runs on every pull request, last among the gates.** It is the
+# only gate that sees most of the port's runtime behavior, so a schedule that
+# ran it less often would let a regression reach `master` before anything
+# noticed. It takes about nine minutes of an eleven-minute run, image pull
+# included.
+# It was kept out while the divergence backlog held it red on purpose; it
+# passes, so a red one is a regression. The trigger has no branch or path
+# filter: a stacked pull request and a docs-only one run it too.
 #
-# **Two checks that are not gates run after them.** README lists both among
+# **Three checks that are not gates run after them.** README lists each among
 # the checks that are not gates in the five-gate sense. The boundary checks
 # (`parity:boundary`) mount every crossing through `index.js` with server
-# renders, which no browser suite reaches. The package check (`parity:package`)
-# installs the packed package into a scratch consumer and holds it to
-# `index.js`. They run after the smoke suite, so a red one never withholds a
-# gate's result, and `npm run test:ci` holds this file to that order.
+# renders, which no browser suite reaches. The boundary tests (`test:boundary`)
+# hold each crossing's JS entry to upstream. The package check
+# (`parity:package`) installs the packed package into a scratch consumer and
+# holds it to `index.js`. They run after system parity, so a red one never
+# withholds a gate's result, and `npm run test:ci` holds this file to that
+# order.
 #
 # **Ordering is not arbitrary.** Surface parity is the only *hard*
 # precondition: interop breakage has a cheap static signature and an expensive
@@ -56,13 +59,14 @@ permissions:
   contents: read
 
 jobs:
-  cheap-gates:
-    name: the four cheap gates
+  gates:
+    name: the five gates
     # Pinned, as the toolchain is: the locked Playwright 1.60.0 installs its
     # Chromium on Ubuntu 24.04 and not on the release `ubuntu-latest` moved
     # to. 24.04 is also the OS of the Playwright image
     # `parity/system/linux.mjs` captures the net in.
     runs-on: ubuntu-24.04
+    # The net is most of the run: about nine of its eleven minutes.
     timeout-minutes: 30
 
     steps:
@@ -130,23 +134,23 @@ jobs:
           ### Surface parity is red
 
           Function parity, the conformance test suite, the smoke test suite,
-          the boundary checks and the package check did not run. Their results
-          are withheld, not passed.
+          system parity, the boundary checks, the boundary tests and the
+          package check did not run. Their results are withheld, not passed.
 
           Surface parity is the only hard precondition among the gates. Its
           failures are interop-shaped — an export that does not resolve, a
           shape that changed, a positional array arriving as a labelled record
           — and interop breakage has a cheap static signature and an expensive
-          runtime shadow. The two browser suites enter through the same door
-          that just failed, so what they would report is a reading of the door
-          rather than of the port, at five minutes a go. Function parity
+          runtime shadow. The two browser suites and the net enter through the
+          same door that just failed, so what they would report is a reading of
+          the door rather than of the port, at ten minutes a go. Function parity
           measures below that door, at the oracle seam, and may well still be
           green — which is the reassurance to distrust while the surface is
           red.
 
           Fix surface parity first, then read the rest.
           SUMMARY
-          echo "::error title=Surface parity is red::The three gates and two checks after it did not run — see the job summary."
+          echo "::error title=Surface parity is red::The four gates and three checks after it did not run — see the job summary."
 
       - name: Function parity — `spago test` also runs the unit tests
         run: spago test
@@ -157,10 +161,21 @@ jobs:
       - name: Smoke test suite
         run: npm run test:smoke
 
+      # In the Playwright image that matches `package-lock.json`, which is
+      # where the recorded checkpoints were captured: the capture environment
+      # is part of each receipt. The runner mounts this checkout, and the net
+      # rebuilds both driver bundles from the `output/` built above.
+      - name: System parity
+        id: system_parity
+        run: node parity/system/linux.mjs npm run parity:system
+
       # ── Checks outside the gate scheme ───────────────────────────────────
 
       - name: Boundary checks
         run: npm run parity:boundary
+
+      - name: Boundary tests
+        run: npm run test:boundary
 
       # The package check reads `dist/`, which only the package build writes.
       - name: Build the package
@@ -179,3 +194,16 @@ jobs:
           path: test-results/
           retention-days: 7
           if-no-files-found: ignore
+
+      # A red net is read from its report and the traces behind it, which the
+      # net wrote into the checkout and which do not survive the runner either.
+      - name: Keep what the net recorded
+        if: failure() && steps.system_parity.outcome == 'failure'
+        uses: actions/upload-artifact@v7
+        with:
+          name: system-parity
+          path: |
+            parity/system/report.md
+            parity/system/coverage.md
+            parity/system/traces/
+          retention-days: 7
