@@ -83,7 +83,6 @@ export { hasSelector } from "./xyflow/packages/system/src/xydrag/utils";
 export { adoptUserNodes } from "./xyflow/packages/system/src/utils/store";
 // \`XYHandle.isValid\` reads the document only through \`querySelector\` and
 // \`elementFromPoint\`, so a property can hand it a stand-in document.
-export { getHandle } from "./xyflow/packages/system/src/xyhandle/utils";
 export { XYHandle } from "./xyflow/packages/system/src/xyhandle/XYHandle";
 `;
 

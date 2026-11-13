@@ -1601,7 +1601,6 @@ export {
   getConnectionStatus,
   getEdgeCenter,
   getEdgeToolbarTransform,
-  getHandle,
   getIncomers,
   getMarkerId,
   getNodePositionWithOrigin,
