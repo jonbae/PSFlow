@@ -1,0 +1,62 @@
+
+> ps-flow@0.0.0 test:package
+> node --test "distribution/**/*.test.mjs"
+
+TAP version 13
+# Subtest: relayout drops each package's src directory
+ok 1 - relayout drops each package's src directory
+  ---
+  duration_ms: 2.184278
+  type: 'test'
+  ...
+# Subtest: specifiers finds import, export and import-type specifiers with their positions
+ok 2 - specifiers finds import, export and import-type specifiers with their positions
+  ---
+  duration_ms: 9.363073
+  type: 'test'
+  ...
+# Subtest: link names every file, maps the system package, and keeps other bare specifiers
+ok 3 - link names every file, maps the system package, and keeps other bare specifiers
+  ---
+  duration_ms: 2.712745
+  type: 'test'
+  ...
+# Subtest: link refuses a relative specifier that names no emitted file
+ok 4 - link refuses a relative specifier that names no emitted file
+  ---
+  duration_ms: 0.426103
+  type: 'test'
+  ...
+# Subtest: reachable follows rewritten specifiers from the entry and nothing else
+ok 5 - reachable follows rewritten specifiers from the entry and nothing else
+  ---
+  duration_ms: 1.188928
+  type: 'test'
+  ...
+# Subtest: an overlay applies once, and fails as stale or ambiguous otherwise
+ok 6 - an overlay applies once, and fails as stale or ambiguous otherwise
+  ---
+  duration_ms: 0.385962
+  type: 'test'
+  ...
+# Subtest: an overlay replacement is inserted literally
+ok 7 - an overlay replacement is inserted literally
+  ---
+  duration_ms: 0.224754
+  type: 'test'
+  ...
+# Subtest: every gap names the work that accepted it, and ids are unique
+ok 8 - every gap names the work that accepted it, and ids are unique
+  ---
+  duration_ms: 0.382892
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 570.109048

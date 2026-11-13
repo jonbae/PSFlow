@@ -1,4 +1,7 @@
-// ps-flow — the JS surface, and the door `package.json` `main` points at.
+// ps-flow — the JS surface. `npm run build:package` bundles this file into
+// `dist/index.js`, the door `package.json` points a consumer at;
+// `distribution/README.md` says how, and `npm run parity:package` holds the
+// two to the same surface.
 //
 // A bare re-export of the compiled boundary module (`src/Boundary.purs`).
 // Every JS-facing conversion lives there, in PureScript, against the real

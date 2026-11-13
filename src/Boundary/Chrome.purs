@@ -150,7 +150,9 @@ type JsPanelProps =
 
 convertPanel :: JsPanelProps -> Nullable Foreign -> PanelProps
 convertPanel p forwarded =
-  { position: panelPositionIn "Panel.position" (requiredProp "Panel.position" p.position)
+  -- Upstream destructures `position = 'top-left'`, and its `PanelProps`
+  -- declares the member optional.
+  { position: panelPositionIn "Panel.position" (fromMaybe "top-left" (fromUndefinable p.position))
   , className: fromUndefinable p.className
   , style: map asCssObject (fromUndefinable p.style)
   , "aria-label": fromUndefinable p."aria-label"

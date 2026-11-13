@@ -3,10 +3,23 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "main": "./index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./index.js"
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./dist/base.css": "./dist/base.css",
+    "./dist/style.css": "./dist/style.css"
   },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
   "scripts": {
     "build:driver": "spago build && node parity/driver/build.mjs",
     "test:conformance": "playwright test --config examples/react-smoke/playwright.config.ts --project=conformance",
@@ -26,23 +39,42 @@
     "test:harness": "node --test \"parity/system/harness/**/*.test.mjs\" \"parity/system/corpus/**/*.test.mjs\" \"parity/system/net/**/*.test.mjs\" \"parity/driver/**/*.test.mjs\"",
     "test:harness:live": "playwright test --config parity/system/harness/playwright.config.mjs",
     "test:ci": "node --test .github/scripts/*.test.mjs",
-    "build:oracle": "node oracle/esbuild.mjs"
+    "build:oracle": "node oracle/esbuild.mjs",
+    "build:package": "spago build && node distribution/build.mjs",
+    "parity:package": "node distribution/check.mjs",
+    "test:package": "node --test \"distribution/**/*.test.mjs\"",
+    "prepack": "npm run build:package"
   },
   "dependencies": {
+    "@types/d3-drag": "^3.0.7",
+    "@types/d3-selection": "^3.0.10",
+    "@types/d3-zoom": "^3.0.8",
     "d3-drag": "^3.0.0",
     "d3-interpolate": "^3.0.1",
     "d3-selection": "^3.0.0",
-    "d3-zoom": "^3.0.0",
+    "d3-zoom": "^3.0.0"
+  },
+  "peerDependencies": {
+    "@types/react": "^18.3.0",
     "react": "^18.3.0",
     "react-dom": "^18.3.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@playwright/test": "^1.48.0",
     "@psflow/oracle": "file:./oracle",
+    "@types/react": "18.3.29",
+    "@types/react-dom": "18.3.7",
     "@xyflow/react": "12.11.0",
     "@xyflow/system": "0.0.77",
     "esbuild": "^0.24.0",
     "http-server": "^14.1.1",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
     "typescript": "^5.6.0"
   }
 }

@@ -1,0 +1,71 @@
+npm warn deprecated whatwg-encoding@2.0.0: Use @exodus/bytes instead for a more spec-conformant and faster implementation
+
+added 84 packages, and audited 86 packages in 6s
+
+15 packages are looking for funding
+  run `npm fund` for details
+
+3 vulnerabilities (2 moderate, 1 high)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+npm notice
+npm notice New major version of npm available! 11.12.1 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+
+> ps-flow@0.0.0 test:conformance
+> playwright test --config examples/react-smoke/playwright.config.ts --project=conformance
+
+
+Running 41 tests using 1 worker
+
+  ✓   1 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:31:5 › Edges › selection › selecting an edge by click (2.5s)
+  ✓   2 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:39:5 › Edges › selection › selecting multiple edges by meta-click (3.4s)
+  ✓   3 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:60:5 › Edges › properties › classes get applied (2.0s)
+  ✓   4 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:66:5 › Edges › properties › styles get applied (2.5s)
+  ✓   5 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:72:5 › Edges › properties › hidden=true hides edge (2.2s)
+  ✓   6 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:78:5 › Edges › properties › animated=true add "animated" class (1.9s)
+  ✓   7 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:84:5 › Edges › properties › selectable=false prevents selecting of edges (3.0s)
+  ✓   8 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:103:5 › Edges › properties › deleting edges is possible (3.6s)
+  ✓   9 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:116:5 › Edges › properties › deletable=false prevents deleting of edges (5.0s)
+  ✓  10 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:137:5 › Edges › properties › zIndex sets z-index of edge svgs (3.7s)
+  ✓  11 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:144:5 › Edges › properties › aria-lable is working (2.8s)
+  ✓  12 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:150:5 › Edges › properties › interactionWidth is working (3.1s)
+  ✓  13 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:164:5 › Edges › properties › marker-start, marker-end set markers (3.5s)
+  ✓  14 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:173:5 › Edges › properties › z-index (2.5s)
+  ✓  15 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:180:5 › Edges › properties › sub flow: normal node to child node, z-index (2.2s)
+  ✓  16 [conformance] › examples/react-smoke/tests/generic-edges.spec.ts:187:5 › Edges › properties › sub flow: child node to child node, z-index (3.1s)
+  ✓  17 [conformance] › examples/react-smoke/tests/generic-node-toolbar.spec.ts:51:3 › Node Toolbar › all toolbars are positioned correctly (4.8s)
+  ✓  18 [conformance] › examples/react-smoke/tests/generic-node-toolbar.spec.ts:101:3 › Node Toolbar › toolbar default behaviour (2.5s)
+  ✓  19 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:25:5 › Nodes › selection › selecting a node by click (2.3s)
+  ✓  20 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:32:5 › Nodes › selection › selecting multiple nodes with shift drag (3.4s)
+  ✓  21 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:61:5 › Nodes › selection › selectable=false prevents selection (2.8s)
+  ✓  22 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:71:5 › Nodes › dragging › dragging a node (4.1s)
+  ✓  23 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:92:5 › Nodes › dragging › draggable=false prevents dragging (2.9s)
+  ✓  24 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:112:5 › Nodes › dragging › custom drag handle works (4.0s)
+  ✓  25 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:148:5 › Nodes › deleting › deleting a node and its edges (3.1s)
+  ✓  26 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:161:5 › Nodes › deleting › deletable=false prevents deletion (3.2s)
+  ✓  27 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:176:5 › Nodes › connecting › connecting two nodes (3.4s)
+  ✓  28 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:200:5 › Nodes › connecting › connectable=false prevents connections (3.4s)
+  ✓  29 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:223:3 › Nodes › hidden=true hides the node (3.0s)
+  ✓  30 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:229:3 › Nodes › classes get applied (2.3s)
+  ✓  31 [conformance] › examples/react-smoke/tests/generic-nodes.spec.ts:236:3 › Nodes › styles get applied (2.7s)
+  ✓  32 [conformance] › examples/react-smoke/tests/generic-pane.spec.ts:48:5 › Pane default › pan & zoom › panning the pane moves it (2.8s)
+  ✓  33 [conformance] › examples/react-smoke/tests/generic-pane.spec.ts:83:5 › Pane default › pan & zoom › scrolling the default pane zooms it (2.9s)
+  ✓  34 [conformance] › examples/react-smoke/tests/generic-pane.spec.ts:101:5 › Pane default › minZoom & maxZoom › minZoom (2.2s)
+  ✓  35 [conformance] › examples/react-smoke/tests/generic-pane.spec.ts:116:5 › Pane default › minZoom & maxZoom › maxZoom (2.3s)
+  ✓  36 [conformance] › examples/react-smoke/tests/generic-pane.spec.ts:133:5 › Pane default › autoPan › autoPanOnNodeDrag (10.7s)
+  ✓  37 [conformance] › examples/react-smoke/tests/generic-pane.spec.ts:154:5 › Pane default › autoPan › autoPanOnConnect (12.7s)
+  ✓  38 [conformance] › examples/react-smoke/tests/generic-pane.spec.ts:186:5 › Pane non-default › pan & zoom › panOnScroll pans the pane on scrolling (3.2s)
+  ✓  39 [conformance] › examples/react-smoke/tests/generic-pane.spec.ts:203:5 › Pane non-default › pan & zoom › intialViewport (2.5s)
+  ✓  40 [conformance] › examples/react-smoke/tests/generic-props.spec.ts:23:5 › Props › colorMode › render default light color mode (2.2s)
+  ✓  41 [conformance] › examples/react-smoke/tests/generic-props.spec.ts:31:5 › Props › colorMode › render dark color mode (3.0s)
+
+  41 passed (2.5m)

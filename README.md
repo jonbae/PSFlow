@@ -10,7 +10,12 @@ run.
 ```sh
 npm run build:driver   # spago build + esbuild bundles the browser driver page (see its README)
 npm run build:oracle   # regenerate oracle/index.js, the @psflow/oracle bundle
+npm run build:package  # spago build + dist/, the package a JS or TS consumer installs
 ```
+
+The package is `index.js` bundled, upstream's declarations with ps-flow's gaps
+written in, and upstream's stylesheets; [`distribution/README.md`](distribution/README.md)
+says how each is built.
 
 ## The five gates
 
@@ -136,6 +141,8 @@ npm run test:coverage     # node --test over the witness language, the coverage 
 npm run test:harness      # node --test over its capture half and the driver's registries and sides
 npm run test:harness:live # the net harness against a real page — a browser, but no parity claim
 npm run test:ci           # node --test over the gates workflow and the baseline vendoring script
+npm run parity:package    # the packed package, installed into a scratch consumer, against index.js
+npm run test:package      # node --test over the declaration pipeline and its gap register
 ```
 
 `parity:boundary` is two staleness checks over `src/Boundary/`. `drift.mjs`
@@ -149,9 +156,9 @@ is refused rather than ignored, that every **callback** prop that has crossed is
 accepted rather than refused and is converted from its own field by a handler
 type a JavaScript caller can satisfy in one call, that the graph utilities a
 driver calls are callable from JavaScript with their round trip closing and
-`addEdge` reporting an empty endpoint through `options.onError`, that three of
-the four chrome components mount with no props at all and the fourth names the
-prop upstream declares required, that the four components a consumer's own node
+`addEdge` reporting an empty endpoint through `options.onError`, that the four
+chrome components mount with no props at all, `<Panel />` on upstream's default
+position, that the four components a consumer's own node
 component mounts do so — `<Handle />` on upstream's defaults for the two props
 ps-flow's record makes required, `<NodeToolbar />`, `<NodeResizer />` and
 `<NodeResizeControl />` beside it — and that `useNodesState` / `useEdgesState`
@@ -165,6 +172,13 @@ holds that it was called.
 
 `parity:changelog` measures what a baseline bump costs, not what detects a
 divergence.
+
+`parity:package` compares the package with `index.js`, not with upstream: the
+same names and shapes, the same server render, the stylesheets the driver page
+loads, and a TypeScript consumer that type-checks against the declarations. It
+needs `npm run build:package` first. The boundary test
+`declared-minimum.test.mjs` is the upstream side of the same claim: whatever
+upstream's declarations allow a consumer to leave out, ps-flow accepts.
 
 `test:ci` is the gates workflow's self-test: it holds `.github/workflows/gates.yml`
 to the five-gate table above — the four cheap gates each run once, under the

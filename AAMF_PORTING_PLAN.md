@@ -34,7 +34,7 @@ See [Step 2 results](AAMF_STEP2_RESULTS.md), the
 workspace is gone; the completed Step 1 and Step 2 evidence now survives in
 the repository.
 
-**Step 3 is in progress, updated 2026-11-12 UTC.** W00 established a fresh baseline at
+**Step 3's queue is complete, updated 2026-11-13 UTC.** W00 established a fresh baseline at
 `98a3f77ab1bb17d481c6dec4fed2e23174448e45`: the four cheap gates and boundary
 checks passed, while 100 of 103 system scenarios failed. Its four self-inconsistent
 scenarios were excluded pending E; the current isolated checkpoint reproduces all scenarios. All seven W02 crossings
@@ -62,8 +62,14 @@ has a witness on both sides, the flow-node probes pass, and consumers read back
 their own objects as upstream hands them; see
 [Order H results](AAMF_STEP3_RESULTS.md#order-h-completion-november-12-utc).
 The fresh Linux checkpoint captures all 115 scenarios: **115 pass and 0 fail**, with **zero self-inconsistent scenarios and zero driving divergences**. Coverage is
-**155/156 driven, 1 declared hole**, with 50 separate behavior-debt rows. I and
-overall Step 3 completion remain open.
+**155/156 driven, 1 declared hole**, with 50 separate behavior-debt rows.
+**Order I is complete, 2026-11-13 UTC:** `npm run build:package` builds a
+package for JavaScript and TypeScript consumers: one ES module bundled from
+`index.js`, upstream's declarations with ps-flow's gaps written in, and
+upstream's stylesheets. `npm run parity:package` holds the packed package to
+`index.js`, and the declarations exposed two runtime differences, both fixed;
+see [Order I results](AAMF_STEP3_RESULTS.md#order-i-completion-november-13-utc).
+Overall port completion remains open.
 
 
 **H / bounded W13 numeric work is implemented, November 11:** shared geometry
@@ -107,8 +113,9 @@ when a later baseline update is intentional.
 | Public API | [Census](parity/census/report.md): 68 value exports and 142 type exports | Track source behavior, boundary conversion, and evidence separately. |
 | Boundary | [Manifest](src/Boundary.js): stage 5, all 68 values crossed, zero passthroughs | W02 and W03 are complete; the three consumer-object exceptions have retired. Order G replaced the store-hook and `defaultEdgeOptions` refusals with conversions; four precise exclusions remain, such as replacing the whole store state. |
 | Surface report | [Current snapshot](parity/surface/report.md) refreshed at stage 5 | Passed; all stage-5 call-convention exceptions retired. [Step 3 results](AAMF_STEP3_RESULTS.md) distinguish baseline and checkpoint evidence. |
-| System report | [Order H Linux checkpoint](parity/system/report.md): 115 of 115 passed, zero self-inconsistent | The Order G checkpoint it replaces is [preserved](aamf/step3/order-h/before-checkpoint.tar.gz), as are the Order E checkpoint ([archive](aamf/step3/order-g/before-checkpoint.tar.gz)) and the preceding 99-pass/8-failure Mac checkpoint ([archive](aamf/step3/order-e/before-canonical-checkpoint.tar.gz)); earlier checkpoints remain in their task archives. Capture platform, exact runtime, unchanged comparison policy and reproducibility evidence are recorded in [Order E](aamf/step3/order-e/). |
+| System report | [Order I Linux checkpoint](parity/system/report.md): 115 of 115 passed, zero self-inconsistent | The Order H checkpoint it replaces is [preserved](aamf/step3/order-i/before-checkpoint.tar.gz), as are the Order G checkpoint ([archive](aamf/step3/order-h/before-checkpoint.tar.gz)), the Order E checkpoint ([archive](aamf/step3/order-g/before-checkpoint.tar.gz)) and the preceding 99-pass/8-failure Mac checkpoint ([archive](aamf/step3/order-e/before-canonical-checkpoint.tar.gz)); earlier checkpoints remain in their task archives. Capture platform, exact runtime, unchanged comparison policy and reproducibility evidence are recorded in [Order E](aamf/step3/order-e/). |
 | Coverage | [Current coverage](parity/system/coverage.md): 155 of 156 export-bearing entries driven, 1 declared hole; 50 behaviors still awaiting gates | A declared hole is accounted for, not implemented or verified by that declaration. Export coverage and behavior coverage are different measures. |
+| Package | `npm run build:package` writes `dist/`, which `npm pack` publishes; [how it is built](distribution/README.md) | `npm run parity:package` holds it to `index.js` in a scratch consumer. `package.json` stays `private`: publishing is a separate decision. |
 | Porting contract | [PORTING.md](PORTING.md), [CONTEXT.md](CONTEXT.md), and the [five gates](README.md#the-five-gates) | Use these as the migration and verification rules. |
 
 The live issue index is [Close the divergence backlog](https://github.com/jonbae/PSFlow/issues/93).
@@ -333,7 +340,7 @@ describe that fallback as a completed autonomous AAMF migration.
 **Status: started, 2026-11-09.** A / W00's baseline capture and triage are
 complete; its original unstable experiments remain archived. E now supplies
 reproducible replacement captures under the isolated protocol. **B / W02 is complete: stage 5, 68 crossed, zero passthroughs.** See the
-[execution results](AAMF_STEP3_RESULTS.md). C through H are also complete; I remains.
+[execution results](AAMF_STEP3_RESULTS.md). C through I are also complete.
 
 The following is a proposed queue, to refine against fresh captures. Independent
 branches may proceed once their prerequisites and target-file ownership are
@@ -349,7 +356,7 @@ clear. Each behavior fix needs its own observable acceptance criterion.
 | F | **Complete.** XYResizer maintains gesture state and uses the existing solver. The mounted JS controls resize and receive changed limits during a drag. | Basic lifecycle plus 65 vendored-source differential cases, actual control/store proxies, and mounted receipts. The full net remains red on separate differences; see [results](AAMF_STEP3_RESULTS.md). |
 | G | **Complete.** `Boundary.Store` gives the store upstream's JavaScript shape: 85 members and 20 actions, the consumer's own objects, zustand's `setState`/`subscribe`/direct-write semantics, and `useStore`'s selector and `equalityFn`. `Edge`, `Node` and `DefaultEdgeOptions` carry every upstream member, and the edge merge, `onConnect` parameters, rendering and markers follow upstream's. | Store members, identity and write semantics match upstream in JS-entry tests; edge and node rendering match upstream's server render; the merge matches upstream's spread and `addEdge`. Four precise exclusions throw with messages. The flow probes lost every store difference. See [Order G results](AAMF_STEP3_RESULTS.md#order-g-completion-november-12-utc). |
 | H | **Complete.** Every hole upstream can fire has a witness on both sides; one store-action hole stays declared. The flow-node probes pass after node-size, deprecation-warning, selection-listener and render-count fixes. Consumer reads, handler payloads and the server snapshot follow upstream's objects, and the remaining W13 numeric call sites and three node-geometry functions are under exact or oracle comparison. | A new witness must fire upstream as well as PSFlow. Retire the matching hole only after capture proves it. Keep declared behavior debt separate from export counts. |
-| I | Finish distribution compatibility after runtime behavior is settled: `.d.ts` for JS/TS consumers, package entry points, and distributable styles/assets. | Declarations describe the actual crossed JS API and accepted gaps. They must not expose PureScript ADT representations or blindly promise all upstream behavior. PureScript remains the implementation language. |
+| I | **Complete.** `npm run build:package` writes `dist/`: `index.js` and the compiled PureScript as one ES module, upstream's declarations generated from the vendored source with ps-flow's gaps written in, and upstream's stylesheets byte for byte. `package.json` exports them at upstream's paths, with React as a peer. Giving every export only what its declaration requires found `<Panel />` refusing an omitted `position` and server renders logging a layout-effect warning; both are fixed. | `parity:package` installs the packed package into a scratch consumer: the same names, shapes and server render as `index.js`, the stylesheets the driver loads, and a consumer that type-checks under bundler and Node 16 resolution. The declarations expose no PureScript type, and their header and two overlays state every known difference. PureScript remains the implementation language. See [Order I results](AAMF_STEP3_RESULTS.md#order-i-completion-november-13-utc). |
 
 D and E are high-impact investigation candidates: the committed report repeats
 missing `internals.userNode`, callback ordering differences, and null-vs-empty
@@ -447,5 +454,7 @@ G's `node.resizing` field are complete. E's bounded keyboard protocol and H's
 also complete. E / W11 is now complete, including keyboard behavior and isolated
 viewport/gesture reproducibility. G is complete: the JS store view and the
 default-edge, edge and node members. H is complete: the witnesses, reference
-reads and numeric call sites. Step 3 I and overall port completion remain open.
-A–H are complete.
+reads and numeric call sites. I is complete: the package, its declarations and
+stylesheets, and `parity:package`. A–I are complete. Overall port completion
+remains open: 50 behavior-debt rows await their gates, and
+`getInternalNodesBounds` and `getNodesInside` have no function parity.

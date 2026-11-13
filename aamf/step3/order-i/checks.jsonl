@@ -1,0 +1,23 @@
+{"check":"build","command":"spago build","start":"2026-11-13T02:03:25Z","end":"2026-11-13T02:03:28Z","exit":0,"log":"aamf/step3/order-i/build.log"}
+{"check":"oracle","command":"npm run build:oracle","start":"2026-11-13T02:03:28Z","end":"2026-11-13T02:03:29Z","exit":0,"log":"aamf/step3/order-i/oracle.log"}
+{"check":"driver","command":"npm run build:driver","start":"2026-11-13T02:03:29Z","end":"2026-11-13T02:03:36Z","exit":0,"log":"aamf/step3/order-i/driver.log"}
+{"check":"spago-test","command":"spago test","start":"2026-11-13T02:03:36Z","end":"2026-11-13T02:03:42Z","exit":0,"log":"aamf/step3/order-i/spago-test.log"}
+{"check":"surface","command":"npm run parity:surface","start":"2026-11-13T02:03:42Z","end":"2026-11-13T02:03:47Z","exit":0,"log":"aamf/step3/order-i/surface.log"}
+{"check":"boundary","command":"npm run parity:boundary","start":"2026-11-13T02:03:47Z","end":"2026-11-13T02:03:49Z","exit":0,"log":"aamf/step3/order-i/boundary.log"}
+{"check":"boundary-tests","command":"npm run test:boundary","start":"2026-11-13T02:03:49Z","end":"2026-11-13T02:03:59Z","exit":0,"log":"aamf/step3/order-i/boundary-tests.log"}
+{"check":"test-surface","command":"npm run test:surface","start":"2026-11-13T02:03:59Z","end":"2026-11-13T02:03:59Z","exit":0,"log":"aamf/step3/order-i/test-surface.log"}
+{"check":"test-harness","command":"npm run test:harness","start":"2026-11-13T02:03:59Z","end":"2026-11-13T02:04:07Z","exit":0,"log":"aamf/step3/order-i/test-harness.log"}
+{"check":"test-compare","command":"npm run test:compare","start":"2026-11-13T02:04:07Z","end":"2026-11-13T02:04:09Z","exit":0,"log":"aamf/step3/order-i/test-compare.log"}
+{"check":"test-coverage","command":"npm run test:coverage","start":"2026-11-13T02:04:09Z","end":"2026-11-13T02:04:10Z","exit":0,"log":"aamf/step3/order-i/test-coverage.log"}
+{"check":"test-census","command":"npm run test:census","start":"2026-11-13T02:04:10Z","end":"2026-11-13T02:04:11Z","exit":0,"log":"aamf/step3/order-i/test-census.log"}
+{"check":"test-ci","command":"npm run test:ci","start":"2026-11-13T02:04:11Z","end":"2026-11-13T02:04:12Z","exit":0,"log":"aamf/step3/order-i/test-ci.log"}
+{"check":"test-audit","command":"npm run test:audit","start":"2026-11-13T02:04:12Z","end":"2026-11-13T02:04:13Z","exit":0,"log":"aamf/step3/order-i/test-audit.log"}
+{"check":"fork","command":"npm run parity:fork","start":"2026-11-13T02:04:13Z","end":"2026-11-13T02:04:14Z","exit":0,"log":"aamf/step3/order-i/fork.log"}
+{"check":"changelog","command":"npm run parity:changelog","start":"2026-11-13T02:04:14Z","end":"2026-11-13T02:04:15Z","exit":0,"log":"aamf/step3/order-i/changelog.log"}
+{"check":"conformance","command":"node parity/system/linux.mjs npm run test:conformance","start":"2026-11-13T02:05:31Z","end":"2026-11-13T02:08:08Z","exit":0,"log":"aamf/step3/order-i/conformance.log"}
+{"check":"smoke","command":"node parity/system/linux.mjs npm run test:smoke","start":"2026-11-13T02:08:08Z","end":"2026-11-13T02:08:22Z","exit":0,"log":"aamf/step3/order-i/smoke.log"}
+{"check":"system","command":"node parity/system/linux.mjs npm run parity:system","start":"2026-11-13T02:08:22Z","end":"2026-11-13T02:23:32Z","exit":0,"log":"aamf/step3/order-i/system.log"}
+{"check":"package-build","command":"npm run build:package","start":"2026-11-13T02:24:03Z","end":"2026-11-13T02:24:13Z","exit":0,"log":"aamf/step3/order-i/package-build.log"}
+{"check":"package-check","command":"npm run parity:package","start":"2026-11-13T02:24:13Z","end":"2026-11-13T02:24:26Z","exit":0,"log":"aamf/step3/order-i/package-check.log"}
+{"check":"package-tests","command":"npm run test:package","start":"2026-11-13T02:24:26Z","end":"2026-11-13T02:24:27Z","exit":0,"log":"aamf/step3/order-i/package-tests.log"}
+{"check":"falsify","command":"aamf/step3/order-i/falsify.sh","start":"2026-11-13T02:24:27Z","end":"2026-11-13T02:24:50Z","exit":0,"log":"aamf/step3/order-i/falsify.log"}

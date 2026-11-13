@@ -1,0 +1,30 @@
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: ps-flow
+
+Downloading dependencies...
+Building...
+[ 1 of 18] Compiling Boundary.Chrome
+[ 2 of 18] Compiling React.Hook.IsomorphicLayoutEffect
+[ 3 of 18] Compiling React.Provider.Batch
+[ 4 of 18] Compiling React.Provider
+[ 5 of 18] Compiling Test.React.Provider.BatchQueue
+[ 6 of 18] Compiling React.Container.Wrapper
+[ 7 of 18] Compiling React.Container.ReactFlow
+[ 8 of 18] Compiling Boundary.Flow
+[ 9 of 18] Compiling React
+[10 of 18] Compiling Test.React.Additional.BackgroundPattern
+[11 of 18] Compiling Test.Boundary.FlowWrapperAttributes
+[12 of 18] Compiling Boundary.Store
+[13 of 18] Compiling Boundary.Hooks
+[14 of 18] Compiling Test.Boundary.UserNode
+[15 of 18] Compiling Boundary
+[16 of 18] Compiling Test.React.Hook.ViewportListeners
+[17 of 18] Compiling Test.Boundary.NodeResizing
+[18 of 18] Compiling Test.Main
+           Src   Lib   All
+Warnings     0     0     0
+Errors       0     0     0
+
+✓ Build succeeded.
+

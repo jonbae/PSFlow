@@ -1,17 +1,17 @@
 # Step 3 execution evidence
 
-**Latest checkpoint (November 12 UTC): Order H complete; 115/115 scenarios pass. Zero self-inconsistent scenarios or driving divergences.**
-Every coverage hole upstream can fire has a witness on both sides, leaving one
-declared hole of 156, and the flow-node probes, consumer reference reads and
-named numeric call sites match upstream. See [Order H](order-h/README.md) for
-the current evidence, and [Order G](order-g/README.md) and
-[Order E](order-e/README.md) for the checkpoints before it.
+**Latest checkpoint (November 13 UTC): Order I complete; 115/115 scenarios pass. Zero self-inconsistent scenarios or driving divergences.**
+ps-flow builds a package for JavaScript and TypeScript consumers, and
+`npm run parity:package` holds it to `index.js`. See [Order I](order-i/README.md)
+for the current evidence, and [Order H](order-h/README.md),
+[Order G](order-g/README.md) and [Order E](order-e/README.md) for the
+checkpoints before it.
 
 This directory preserves the November 9, 2026 W00 baseline, all seven W02
 crossings and stage-5 checkpoint, plus November 10 W03/W04 and W08a/W08b work. See [the results](../../AAMF_STEP3_RESULTS.md)
 for interpretation and remaining work. **Step 3 B / boundary stage 5 is complete:
 68 crossed exports, zero passthroughs. Step 3 C / W03 and D / W04 are also
-complete, along with W08a/W08b and F/W05. The resize witnesses, G node.resizing field, bounded keyboard protocol and H onInit witness are complete. E and G are now complete; H and I remain open.**
+complete, along with W08a/W08b and F/W05. The resize witnesses, G node.resizing field, bounded keyboard protocol and H onInit witness are complete. E, G, H and I are now complete.**
 
 ## Baseline
 
@@ -391,3 +391,17 @@ behavior-debt rows. Step 3 I and overall port completion remain open.
 [Execution evidence](order-h/README.md) includes the red runs, the focused
 captures, the gates, the first full wave before the drag-payload fix, and the
 Order G checkpoint the final wave replaces.
+
+## Order I complete
+
+Order I is complete: the package, its declarations and stylesheets, and the
+check that installs it. Giving every export only what upstream's declarations
+require found two runtime differences, both fixed. The fresh Linux checkpoint
+captures all 115 scenarios: **115 pass and 0 fail**, with **zero
+self-inconsistent scenarios and zero driving divergences**. Coverage is
+**155/156 driven, 1 declared hole**, with 50 separate behavior-debt rows.
+Step 3's queue is complete; overall port completion remains open.
+
+[Execution evidence](order-i/README.md) includes the red runs from a rebuild of
+the starting commit, the falsification probes, the gates, the package checks
+and the Order H checkpoint the final wave replaces.

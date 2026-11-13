@@ -1,0 +1,1651 @@
+TAP version 13
+# Subtest: the tables cover every callable export the declarations publish
+ok 1 - the tables cover every callable export the declarations publish
+  ---
+  duration_ms: 3.201014
+  type: 'test'
+  ...
+# Subtest: <ReactFlow /> mounts with only its required props
+not ok 2 - <ReactFlow /> mounts with only its required props
+  ---
+  duration_ms: 45.345366
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:257:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error mounting <ReactFlow />
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:263:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: <ReactFlowProvider /> mounts with only its required props
+not ok 3 - <ReactFlowProvider /> mounts with only its required props
+  ---
+  duration_ms: 1.974894
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:257:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error mounting <ReactFlowProvider />
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:263:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: <Panel /> mounts with only its required props
+not ok 4 - <Panel /> mounts with only its required props
+  ---
+  duration_ms: 25.884065
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:257:3'
+  failureType: 'testCodeFailure'
+  error: 'ps-flow: `Panel.position` is required and was not supplied.'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    Module.error (file:///Users/jonathanbae/repos/PSFlow/output/Effect.Exception/foreign.js:6:10)
+    Module.unsafeThrow (file:///Users/jonathanbae/repos/PSFlow/output/Effect.Exception.Unsafe/index.js:8:50)
+    file:///Users/jonathanbae/repos/PSFlow/output/Boundary.Undefined/index.js:40:44
+    file:///Users/jonathanbae/repos/PSFlow/output/Boundary.Chrome/index.js:116:121
+    file:///Users/jonathanbae/repos/PSFlow/output/Boundary.Chrome/index.js:129:77
+    file:///Users/jonathanbae/repos/PSFlow/output/React.FFI.ForwardRef/foreign.js:4:63
+    renderWithHooks (/Users/jonathanbae/repos/PSFlow/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5662:16)
+    renderForwardRef (/Users/jonathanbae/repos/PSFlow/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5857:18)
+    renderElement (/Users/jonathanbae/repos/PSFlow/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6020:11)
+    renderNodeDestructiveImpl (/Users/jonathanbae/repos/PSFlow/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6119:11)
+  ...
+# Subtest: <Background /> mounts with only its required props
+not ok 5 - <Background /> mounts with only its required props
+  ---
+  duration_ms: 12.033694
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:257:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error mounting <Background />
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:263:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: <Controls /> mounts with only its required props
+not ok 6 - <Controls /> mounts with only its required props
+  ---
+  duration_ms: 14.478554
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:257:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error mounting <Controls />
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:263:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: <ControlButton /> mounts with only its required props
+not ok 7 - <ControlButton /> mounts with only its required props
+  ---
+  duration_ms: 10.293808
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:257:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error mounting <ControlButton />
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:263:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: <MiniMap /> mounts with only its required props
+not ok 8 - <MiniMap /> mounts with only its required props
+  ---
+  duration_ms: 16.280896
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:257:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error mounting <MiniMap />
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:263:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: <MiniMapNode /> mounts with only its required props
+not ok 9 - <MiniMapNode /> mounts with only its required props
+  ---
+  duration_ms: 12.008821
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:257:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error mounting <MiniMapNode />
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:263:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: <ViewportPortal /> mounts with only its required props
+not ok 10 - <ViewportPortal /> mounts with only its required props
+  ---
+  duration_ms: 9.620382
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:257:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error mounting <ViewportPortal />
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:263:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: <Handle /> mounts with only its required props
+not ok 11 - <Handle /> mounts with only its required props
+  ---
+  duration_ms: 12.481632
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:257:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error mounting <Handle />
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:263:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: <NodeToolbar /> mounts with only its required props
+not ok 12 - <NodeToolbar /> mounts with only its required props
+  ---
+  duration_ms: 11.343283
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:257:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error mounting <NodeToolbar />
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:263:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: <NodeResizer /> mounts with only its required props
+not ok 13 - <NodeResizer /> mounts with only its required props
+  ---
+  duration_ms: 13.979628
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:257:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error mounting <NodeResizer />
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:263:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: <NodeResizeControl /> mounts with only its required props
+not ok 14 - <NodeResizeControl /> mounts with only its required props
+  ---
+  duration_ms: 7.629273
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:257:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error mounting <NodeResizeControl />
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:263:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: <EdgeText /> mounts with only its required props
+not ok 15 - <EdgeText /> mounts with only its required props
+  ---
+  duration_ms: 8.371254
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:257:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error mounting <EdgeText />
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:263:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: <BaseEdge /> mounts with only its required props
+not ok 16 - <BaseEdge /> mounts with only its required props
+  ---
+  duration_ms: 6.709371
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:257:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error mounting <BaseEdge />
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:263:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: <StraightEdge /> mounts with only its required props
+not ok 17 - <StraightEdge /> mounts with only its required props
+  ---
+  duration_ms: 6.343032
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:257:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error mounting <StraightEdge />
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:263:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: <StepEdge /> mounts with only its required props
+not ok 18 - <StepEdge /> mounts with only its required props
+  ---
+  duration_ms: 9.413707
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:257:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error mounting <StepEdge />
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:263:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: <BezierEdge /> mounts with only its required props
+not ok 19 - <BezierEdge /> mounts with only its required props
+  ---
+  duration_ms: 5.677559
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:257:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error mounting <BezierEdge />
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:263:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: <SimpleBezierEdge /> mounts with only its required props
+not ok 20 - <SimpleBezierEdge /> mounts with only its required props
+  ---
+  duration_ms: 5.149372
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:257:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error mounting <SimpleBezierEdge />
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:263:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: <SmoothStepEdge /> mounts with only its required props
+not ok 21 - <SmoothStepEdge /> mounts with only its required props
+  ---
+  duration_ms: 8.622762
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:257:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error mounting <SmoothStepEdge />
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:263:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: <EdgeToolbar /> mounts with only its required props
+not ok 22 - <EdgeToolbar /> mounts with only its required props
+  ---
+  duration_ms: 5.488858
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:257:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error mounting <EdgeToolbar />
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:263:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: <EdgeLabelRenderer /> mounts with only its required props
+not ok 23 - <EdgeLabelRenderer /> mounts with only its required props
+  ---
+  duration_ms: 4.901511
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:257:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error mounting <EdgeLabelRenderer />
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:263:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: useReactFlow() runs with only its required arguments
+not ok 24 - useReactFlow() runs with only its required arguments
+  ---
+  duration_ms: 4.696916
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:273:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error running useReactFlow
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:284:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: useUpdateNodeInternals() runs with only its required arguments
+not ok 25 - useUpdateNodeInternals() runs with only its required arguments
+  ---
+  duration_ms: 4.378586
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:273:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error running useUpdateNodeInternals
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:284:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: useNodes() runs with only its required arguments
+not ok 26 - useNodes() runs with only its required arguments
+  ---
+  duration_ms: 6.848966
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:273:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error running useNodes
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:284:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: useEdges() runs with only its required arguments
+not ok 27 - useEdges() runs with only its required arguments
+  ---
+  duration_ms: 5.104063
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:273:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error running useEdges
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:284:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: useViewport() runs with only its required arguments
+not ok 28 - useViewport() runs with only its required arguments
+  ---
+  duration_ms: 4.268979
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:273:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error running useViewport
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:284:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: useKeyPress() runs with only its required arguments
+not ok 29 - useKeyPress() runs with only its required arguments
+  ---
+  duration_ms: 3.837857
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:273:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error running useKeyPress
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:284:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: useNodesState() runs with only its required arguments
+not ok 30 - useNodesState() runs with only its required arguments
+  ---
+  duration_ms: 4.321951
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:273:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error running useNodesState
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:284:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: useEdgesState() runs with only its required arguments
+not ok 31 - useEdgesState() runs with only its required arguments
+  ---
+  duration_ms: 4.381011
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:273:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error running useEdgesState
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:284:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: useStore() runs with only its required arguments
+not ok 32 - useStore() runs with only its required arguments
+  ---
+  duration_ms: 5.53237
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:273:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error running useStore
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:284:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: useStoreApi() runs with only its required arguments
+not ok 33 - useStoreApi() runs with only its required arguments
+  ---
+  duration_ms: 3.83777
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:273:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error running useStoreApi
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:284:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: useOnViewportChange() runs with only its required arguments
+not ok 34 - useOnViewportChange() runs with only its required arguments
+  ---
+  duration_ms: 4.321358
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:273:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error running useOnViewportChange
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:284:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: useOnSelectionChange() runs with only its required arguments
+not ok 35 - useOnSelectionChange() runs with only its required arguments
+  ---
+  duration_ms: 3.894623
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:273:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error running useOnSelectionChange
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:284:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: useNodesInitialized() runs with only its required arguments
+not ok 36 - useNodesInitialized() runs with only its required arguments
+  ---
+  duration_ms: 4.502137
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:273:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error running useNodesInitialized
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:284:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: useHandleConnections() runs with only its required arguments
+not ok 37 - useHandleConnections() runs with only its required arguments
+  ---
+  duration_ms: 6.286192
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:273:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error running useHandleConnections
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:284:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: useNodeConnections() runs with only its required arguments
+not ok 38 - useNodeConnections() runs with only its required arguments
+  ---
+  duration_ms: 4.52911
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:273:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error running useNodeConnections
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:284:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: useNodesData() runs with only its required arguments
+not ok 39 - useNodesData() runs with only its required arguments
+  ---
+  duration_ms: 4.982646
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:273:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error running useNodesData
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:284:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: useConnection() runs with only its required arguments
+not ok 40 - useConnection() runs with only its required arguments
+  ---
+  duration_ms: 4.450893
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:273:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error running useConnection
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:284:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: useInternalNode() runs with only its required arguments
+not ok 41 - useInternalNode() runs with only its required arguments
+  ---
+  duration_ms: 5.661662
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:273:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error running useInternalNode
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:284:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: useNodeId() runs with only its required arguments
+not ok 42 - useNodeId() runs with only its required arguments
+  ---
+  duration_ms: 3.761793
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:273:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error running useNodeId
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:284:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: experimental_useOnNodesChangeMiddleware() runs with only its required arguments
+not ok 43 - experimental_useOnNodesChangeMiddleware() runs with only its required arguments
+  ---
+  duration_ms: 4.918677
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:273:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error running experimental_useOnNodesChangeMiddleware
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:284:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: experimental_useOnEdgesChangeMiddleware() runs with only its required arguments
+not ok 44 - experimental_useOnEdgesChangeMiddleware() runs with only its required arguments
+  ---
+  duration_ms: 4.154585
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:273:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    psflow logged an error running experimental_useOnEdgesChangeMiddleware
+    + actual - expected
+    
+    + [
+    +   [
+    +     'error',
+    +     "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+    +   ]
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      0: 'error'
+      1: "Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.%s"
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/declared-minimum.test.mjs:284:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: getSimpleBezierPath() returns upstream's value with only its required arguments
+ok 45 - getSimpleBezierPath() returns upstream's value with only its required arguments
+  ---
+  duration_ms: 0.69645
+  type: 'test'
+  ...
+# Subtest: getBezierPath() returns upstream's value with only its required arguments
+ok 46 - getBezierPath() returns upstream's value with only its required arguments
+  ---
+  duration_ms: 0.399245
+  type: 'test'
+  ...
+# Subtest: getSmoothStepPath() returns upstream's value with only its required arguments
+ok 47 - getSmoothStepPath() returns upstream's value with only its required arguments
+  ---
+  duration_ms: 0.444451
+  type: 'test'
+  ...
+# Subtest: getStraightPath() returns upstream's value with only its required arguments
+ok 48 - getStraightPath() returns upstream's value with only its required arguments
+  ---
+  duration_ms: 0.215151
+  type: 'test'
+  ...
+# Subtest: getEdgeCenter() returns upstream's value with only its required arguments
+ok 49 - getEdgeCenter() returns upstream's value with only its required arguments
+  ---
+  duration_ms: 0.306808
+  type: 'test'
+  ...
+# Subtest: getBezierEdgeCenter() returns upstream's value with only its required arguments
+ok 50 - getBezierEdgeCenter() returns upstream's value with only its required arguments
+  ---
+  duration_ms: 0.228906
+  type: 'test'
+  ...
+# Subtest: getViewportForBounds() returns upstream's value with only its required arguments
+ok 51 - getViewportForBounds() returns upstream's value with only its required arguments
+  ---
+  duration_ms: 1.171899
+  type: 'test'
+  ...
+# Subtest: getNodesBounds() returns upstream's value with only its required arguments
+ok 52 - getNodesBounds() returns upstream's value with only its required arguments
+  ---
+  duration_ms: 1.549878
+  type: 'test'
+  ...
+# Subtest: getIncomers() returns upstream's value with only its required arguments
+ok 53 - getIncomers() returns upstream's value with only its required arguments
+  ---
+  duration_ms: 0.642927
+  type: 'test'
+  ...
+# Subtest: getOutgoers() returns upstream's value with only its required arguments
+ok 54 - getOutgoers() returns upstream's value with only its required arguments
+  ---
+  duration_ms: 0.478597
+  type: 'test'
+  ...
+# Subtest: getConnectedEdges() returns upstream's value with only its required arguments
+ok 55 - getConnectedEdges() returns upstream's value with only its required arguments
+  ---
+  duration_ms: 0.293553
+  type: 'test'
+  ...
+# Subtest: addEdge() returns upstream's value with only its required arguments
+ok 56 - addEdge() returns upstream's value with only its required arguments
+  ---
+  duration_ms: 1.020824
+  type: 'test'
+  ...
+# Subtest: reconnectEdge() returns upstream's value with only its required arguments
+ok 57 - reconnectEdge() returns upstream's value with only its required arguments
+  ---
+  duration_ms: 0.786872
+  type: 'test'
+  ...
+# Subtest: applyNodeChanges() returns upstream's value with only its required arguments
+ok 58 - applyNodeChanges() returns upstream's value with only its required arguments
+  ---
+  duration_ms: 1.002781
+  type: 'test'
+  ...
+# Subtest: applyEdgeChanges() returns upstream's value with only its required arguments
+ok 59 - applyEdgeChanges() returns upstream's value with only its required arguments
+  ---
+  duration_ms: 0.257633
+  type: 'test'
+  ...
+# Subtest: isNode() returns upstream's value with only its required arguments
+ok 60 - isNode() returns upstream's value with only its required arguments
+  ---
+  duration_ms: 0.188713
+  type: 'test'
+  ...
+# Subtest: isEdge() returns upstream's value with only its required arguments
+ok 61 - isEdge() returns upstream's value with only its required arguments
+  ---
+  duration_ms: 0.134226
+  type: 'test'
+  ...
+1..61
+# tests 61
+# suites 0
+# pass 18
+# fail 43
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3336.959834

@@ -9,9 +9,16 @@ across the parity effort, where several ordinary words carry precise meanings.
 ### Surfaces and gating
 
 **JS surface**:
-The public API as reached through `index.js` — the door `package.json` `main`
-points at, and the one the audience this repo exists for comes through.
+The public API as reached through `index.js` — the door the package bundles,
+and the one the audience this repo exists for comes through.
 _Avoid_: primary surface, the shim, the public API (unqualified)
+
+**Package**:
+What `npm pack` publishes from `dist/`: `index.js` bundled with the compiled
+PureScript it reaches, upstream's declarations with ps-flow's gaps written in,
+and upstream's stylesheets. `npm run parity:package` holds it to the JS surface;
+`distribution/README.md` says how it is built.
+_Avoid_: the bundle (the driver has two), the build
 
 **PureScript surface**:
 The public API as reached through the `React` module — the door PureScript
@@ -294,7 +301,7 @@ findings without anyone noticing.
 | sense | is | who reads it |
 |---|---|---|
 | vendored source | the `xyflow/` checkout | all three parity gates |
-| published build | `node_modules/@xyflow/*` | nothing — a version pin the repo must not import |
+| published build | `node_modules/@xyflow/*` | no parity gate. The boundary tests' upstream side, the driver page's stylesheets, and the package's stylesheets and declaration cross-check |
 | running behaviour | the vendored source, mounted and driven | system parity |
 | asserted intent | `xyflow/examples/react/src/generic-tests/` | the conformance test suite |
 

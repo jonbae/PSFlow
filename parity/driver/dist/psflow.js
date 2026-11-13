@@ -42951,7 +42951,7 @@ var numberPairIn = function(field2) {
           return unsafeThrow("ps-flow: the " + (name15 + (" entry of `" + (field2 + ("` must be a number, got " + (typeName(value12) + "."))))));
         }
         ;
-        throw new Error("Failed pattern match at Boundary.Chrome (line 220, column 21 - line 226, column 17): " + [v2.constructor.name]);
+        throw new Error("Failed pattern match at Boundary.Chrome (line 222, column 21 - line 228, column 17): " + [v2.constructor.name]);
       };
     };
     var v = asNumber(raw);
@@ -42968,7 +42968,7 @@ var numberPairIn = function(field2) {
       return unsafeThrow("ps-flow: `" + (field2 + ("` must be a number or a pair of numbers, got " + (typeName(raw) + "."))));
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Chrome (line 210, column 26 - line 218, column 17): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Chrome (line 212, column 26 - line 220, column 17): " + [v.constructor.name]);
   };
 };
 var nodeAttributeIn = function(field2) {
@@ -42983,7 +42983,7 @@ var nodeAttributeIn = function(field2) {
         return unsafeThrow("ps-flow: `" + (field2 + ("` returned " + (typeName(value12) + ", not a string."))));
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Chrome (line 367, column 22 - line 371, column 86): " + [v2.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Chrome (line 369, column 22 - line 373, column 86): " + [v2.constructor.name]);
     };
     var v = asFunction(raw);
     if (v instanceof Just) {
@@ -43002,10 +43002,10 @@ var nodeAttributeIn = function(field2) {
         return unsafeThrow("ps-flow: `" + (field2 + ("` must be a function of a node, got " + (typeName(raw) + "."))));
       }
       ;
-      throw new Error("Failed pattern match at Boundary.Chrome (line 355, column 14 - line 365, column 17): " + [v1.constructor.name]);
+      throw new Error("Failed pattern match at Boundary.Chrome (line 357, column 14 - line 367, column 17): " + [v1.constructor.name]);
     }
     ;
-    throw new Error("Failed pattern match at Boundary.Chrome (line 353, column 29 - line 365, column 17): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Boundary.Chrome (line 355, column 29 - line 367, column 17): " + [v.constructor.name]);
   };
 };
 var miniMapNodePropsOut = function(p) {
@@ -43034,7 +43034,7 @@ var wrapMiniMapNodeComponent = function(userComponent) {
 var convertPanel = function(p) {
   return function(forwarded) {
     return {
-      position: panelPositionIn("Panel.position")(requiredProp("Panel.position")(p.position)),
+      position: panelPositionIn("Panel.position")(fromMaybe("top-left")(fromUndefinable(p.position))),
       className: fromUndefinable(p.className),
       style: map29(asCssObject)(fromUndefinable(p.style)),
       "aria-label": fromUndefinable(p["aria-label"]),
@@ -57614,9 +57614,21 @@ var seededStoreProps = function(props) {
   };
 };
 
+// output/React.Hook.IsomorphicLayoutEffect/foreign.js
+var hasWindow = typeof window !== "undefined";
+
 // output/React.Hook.IsomorphicLayoutEffect/index.js
 var useIsomorphicLayoutEffect = function(dictEq) {
-  return useLayoutEffect(dictEq);
+  var useEffect24 = useEffect(dictEq);
+  if (hasWindow) {
+    return useLayoutEffect(dictEq);
+  }
+  ;
+  return function(deps) {
+    return function(effect) {
+      return useEffect24(deps)(effect);
+    };
+  };
 };
 
 // output/React.Provider.Batch/index.js

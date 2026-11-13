@@ -1,6 +1,6 @@
 # AAMF Step 3: completion work and validation
 
-**Step 3 is in progress, updated 2026-11-12 UTC.** W00's fresh baseline and all seven W02
+**Step 3's queue is complete, updated 2026-11-13 UTC.** W00's fresh baseline and all seven W02
 crossings are complete. **Step 3 B / boundary stage 5 is complete: 68 crossed,
 zero passthroughs.** W03 / Step 3 C is also complete (November 10).
 W04 / Step 3 D and W05 / Step 3 F are complete. Resize witnesses and G's
@@ -17,8 +17,14 @@ has a witness on both sides, and the flow-node probes, consumer reference reads
 and named numeric call sites match upstream. The fresh Linux checkpoint captures
 all 115 scenarios: **115 pass and 0 fail**, with **zero self-inconsistent scenarios and zero driving divergences**. Coverage is **155/156 driven, 1 declared hole**,
 with 50 separate behavior-debt rows. See
-[Order H results](#order-h-completion-november-12-utc). Step 3 I and overall
-port completion remain open.
+[Order H results](#order-h-completion-november-12-utc).
+**Order I is complete, 2026-11-13 UTC:** `npm run build:package` builds a
+package for JavaScript and TypeScript consumers: one ES module, upstream's
+declarations with ps-flow's gaps written in, and upstream's stylesheets. Its
+declarations exposed two runtime differences, both fixed. Its fresh Linux
+checkpoint also passes all 115 scenarios. See
+[Order I results](#order-i-completion-november-13-utc). Overall port completion
+remains open.
 
 ## Fresh baseline (Step 3 A / W00)
 
@@ -1084,3 +1090,150 @@ H's witnesses and reference reads are done. Step 3 I, distribution
 compatibility, remains, as does overall port completion: 50 behavior-debt rows
 await their gates, and `getInternalNodesBounds` and `getNodesInside` have no
 function parity.
+
+## Order I completion (November 13 UTC)
+
+**Order I is complete.** ps-flow builds a package that a JavaScript or
+TypeScript consumer installs in place of `@xyflow/react`: one ES module bundled
+from `index.js`, upstream's declarations with ps-flow's gaps written in, and
+upstream's stylesheets. Writing the declarations exposed two runtime
+differences, both fixed. The full net still passes: **115 of 115 scenarios**,
+every side reproducing itself.
+[Task evidence](aamf/step3/order-i/) keeps the red runs, the falsification
+probes, the gates and the wave. No AAMF migration agent was invoked, and no PR
+was merged or cherry-picked.
+
+### The package
+
+`npm run build:package` writes `dist/`, and `npm pack` publishes it.
+[`distribution/README.md`](distribution/README.md) says how each piece is built.
+
+| File | What it is |
+|---|---|
+| `dist/index.js` | `index.js` and the 581 compiled modules it reaches, as one ES module. It imports `react`, `react-dom` and four `d3` packages, and the build fails if it inlines anything outside `index.js` and `output/`, or imports a package the manifest does not declare. |
+| `dist/index.d.ts`, `dist/types/` | Upstream's declarations: 103 files, with every difference ps-flow knowingly has listed in the entry's header. |
+| `dist/style.css`, `dist/base.css` | Upstream's stylesheets, byte for byte, from the pinned package: the files the driver page loads on both sides of every net run. |
+| `dist/xyflow-LICENSE` | Upstream's MIT license, which covers the copied declarations and stylesheets. |
+
+`package.json` names `dist/index.js` and `dist/index.d.ts` as `main` and
+`types`, and exports `.`, `./package.json` and the two stylesheets at
+upstream's paths, with upstream's `sideEffects: ["*.css"]`. React and React
+DOM move to `peerDependencies` at `^18.3.0`, the version every gate runs, and
+stay installed as development dependencies. A library that depends on React
+directly can install a second copy beside the consumer's, and hooks fail
+across two copies. The package stays `private` at `0.0.0`: publishing is a
+separate decision.
+
+### The declarations
+
+ps-flow publishes upstream's declarations, not declarations derived from its
+PureScript types, so no PureScript record or sum type reaches a consumer.
+`distribution/declarations.mjs` compiles the vendored source with upstream's
+compiler options and keeps the declarations. The compile has no diagnostics,
+and each of the 170 files equals the published package's, apart from its
+source-map comment. The build then:
+
+- Rewrites each module specifier. `@xyflow/system` becomes a path into the
+  published system tree, and each relative specifier names its file with
+  `.js`, which Node 16 resolution needs in a package whose `type` is `module`.
+  Without it, a falsification probe shows Node 16 resolution losing every
+  export while bundler resolution still passes.
+- Keeps the 103 files the entry reaches. The rest describe upstream internals,
+  and three of them import `zustand`, which ps-flow does not use. What remains
+  imports `react` and three `d3` packages, so `@types/d3-drag`,
+  `@types/d3-selection` and `@types/d3-zoom` are dependencies, as they are of
+  `@xyflow/system`, and `@types/react` is an optional peer, as it is upstream.
+- Applies `distribution/gaps.mjs`. Its two overlays narrow `setState`'s
+  `replace` to `false | undefined` and add the other store exclusions to
+  `useStoreApi`'s documentation. An overlay whose text stops occurring once
+  fails the build. Its five notes become the header of `dist/index.d.ts`: the
+  store writes, `defaultEdgeOptions` keys outside its type, handlers on rebuilt
+  nodes in an uncontrolled flow, the styles warning's wording, and the absence
+  of a UMD build.
+
+The documentation comments stay upstream's. Usage examples in them import from
+`ps-flow`; the header says that the behavior they describe is upstream's, which
+ps-flow matches where its gates say so.
+
+### What the declarations found
+
+`parity/boundary/declared-minimum.test.mjs` reads upstream's published
+declarations with the TypeScript checker and gives every component, hook and
+function only the props or arguments they require. Its tables must supply
+exactly the declared required members, and they cover all 61 callable exports.
+Each component mounts where a consumer puts it, each hook runs inside a custom
+node, and each function must return upstream's value. At the starting commit
+`6ebf1f19`, **43 of 61 failed** for two reasons:
+
+- **`<Panel />` without `position` threw.** Upstream's `PanelProps` declares
+  the member optional and its component defaults it to `'top-left'`. The mount
+  check asserted the throw and claimed upstream declares the prop required. The
+  boundary now defaults it, and the mount check holds the default.
+- **Every server render logged React's `useLayoutEffect` warning.** Upstream's
+  `useIsomorphicLayoutEffect` picks `useEffect` where there is no `window`.
+  ps-flow's had collapsed the choice to `useLayoutEffect`, on the stated
+  assumption that it never renders on a server. It now makes upstream's choice
+  when the module loads; in a browser it is `useLayoutEffect`, as before.
+
+After both fixes, 61 of 61 pass.
+
+### What `parity:package` checks
+
+`npm run parity:package` packs `dist/`, installs the tarball into a scratch
+consumer that has only the manifest's dependencies and peers, and runs 10
+checks:
+
+- The tarball holds `package.json`, `README.md` and `dist/` (110 files), with
+  every path the manifest names.
+- `import 'ps-flow'` publishes `index.js`'s 68 names in the same shapes, and
+  `require('ps-flow')` reaches them too.
+- A flow with the chrome components renders the same markup through the package
+  as through `index.js` and logs nothing, and so does an esbuild bundle of a
+  consumer that imports the package and its stylesheet.
+- The stylesheets are the bytes the driver page loads.
+- `distribution/consumer/consumer.tsx` type-checks under bundler and Node 16
+  resolution with `skipLibCheck` off. Its `@ts-expect-error` line fails if the
+  `setState` overlay stops applying.
+- The declarations name upstream's 68 value and 142 type exports, and their
+  values are the runtime's.
+
+Three falsification probes on an installed package each turn a check red:
+removing the overlay, dropping the `.js` from relative specifiers, and forcing
+the layout effect on the server.
+
+### Precise exclusions
+
+- One ES module, with no UMD build or browser global. Upstream publishes both.
+  `require('ps-flow')` works on Node versions that load ES modules through
+  `require`, as Node 22.18 does.
+- React 18.3 and later 18.x as the peer range. Upstream accepts React 17 and
+  later; ps-flow claims only the version its gates run.
+- The development warning for missing styles keeps upstream's wording, which
+  names `@xyflow/react/dist/style.css`.
+
+### Evidence
+
+| Check | Result |
+|---|---|
+| `declared-minimum.test.mjs` at the starting commit, rebuilt | 43 of 61 fail: `<Panel />` and 42 server-render warnings |
+| Updated mount check at the starting commit | Fails on the `<Panel />` default |
+| `spago build`, `spago test` | Passed |
+| `npm run parity:surface` | Passed; 68 shapes, 65 same, 3 allowlisted |
+| `npm run parity:boundary` | Passed; 208 mount checks |
+| `npm run test:boundary` | 213/213; 152 before this task |
+| `test:surface`, `test:harness`, `test:compare`, `test:coverage`, `test:census`, `test:ci`, `test:audit` | 30, 279, 109, 39, 5, 26 and 9 passed |
+| `npm run parity:fork`, `npm run parity:changelog` | Passed |
+| `npm run build:package`, `npm run parity:package`, `npm run test:package` | Built; 10/10 checks; 8/8 tests |
+| Falsification probes | Each of the three turns its check red |
+| Linux conformance and smoke | 41/41 and 2/2 |
+| Linux full net, final code | **115/115 pass**; 230/230 sides reproduce themselves; coverage 155/156 driven, 1 declared hole. The report and coverage file are unchanged from Order H's, and the only trace values that changed are 1,391 event `timeStamp`s |
+
+Reproduce the wave with `node parity/system/linux.mjs npm run parity:system`
+after `npm run build:driver`.
+
+### What remains
+
+Step 3's queue, A through I, is complete. Overall port completion remains open:
+50 behavior-debt rows await their gates, `getInternalNodesBounds` and
+`getNodesInside` have no function parity, and the gates workflow does not run
+`parity:package`. Publishing the package is a separate decision.

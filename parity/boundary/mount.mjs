@@ -40,8 +40,8 @@
 //      also where the one crossed callback a server render can *fire* lives:
 //      `addEdge`'s `options.onError`.
 //
-//   5. **Three of the four chrome components mount with no props at all**, and
-//      the fourth names the one prop upstream declares required. That is the
+//   5. **The four chrome components mount with no props at all**, and
+//      `<Panel />` takes upstream's default position. That is the
 //      dull case and the one that used to crash: React hands a component `{}`,
 //      every `Maybe` field of the PureScript record arrives `undefined`, and
 //      the first `case` over one falls off the end of its pattern match.
@@ -681,7 +681,8 @@ check("`addEdge` reports nothing when it added an edge", () => {
 //
 // The claim that matters most is the dullest one: **with no props at all**.
 // Three of the four chrome components take none in upstream's ColorMode
-// example and `<Handle />` takes none in upstream's `ToolbarNode.tsx`, and
+// example, `<Panel />` declares its one prop optional, and `<Handle />` takes
+// none in upstream's `ToolbarNode.tsx`, and
 // before they crossed, a `{}` props object gave every `Maybe` field
 // `undefined` and the first `case` over one fell off the end of its pattern
 // match.
@@ -757,11 +758,12 @@ const throwsIn = (mount) => (what, element, ...mustMention) =>
 const chromeThrows = throwsIn(inFlow);
 const nodeChromeThrows = throwsIn(inNode);
 
-chromeThrows(
-  "`<Panel />` without a position says so rather than failing a pattern match",
+// Upstream destructures `position = 'top-left'` and declares the member
+// optional. ps-flow refused the omission until Step 3 I.
+mounts(
+  "`<Panel />` without a position takes upstream's `top-left`",
   createElement(Panel, {}, "x"),
-  "Panel.position",
-  "required"
+  "react-flow__panel top left"
 );
 chromeThrows(
   "an enum member that does not exist is refused, with the component named",
