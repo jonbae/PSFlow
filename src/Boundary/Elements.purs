@@ -124,7 +124,6 @@ import Boundary.Undefined (Undefinable, defined, fromUndefinable, isNull, nullUn
 import Boundary.Untagged (asArray, asBoolean, asString, truthy, typeName)
 import Boundary.Wrapper (mkComponentWrapper)
 import Data.Array (length) as Array
-import Data.Array.NonEmpty (fromArray) as NEA
 import Data.Int (round, toNumber) as Int
 import Data.Maybe (Maybe(..), fromMaybe', maybe)
 import Data.Newtype (unwrap, wrap)
@@ -512,16 +511,7 @@ keyCodeValueIn field raw =
   case asString raw of
     Just s -> SingleKey s
     Nothing -> case asArray raw of
-      Just entries ->
-        case NEA.fromArray (map (readKey field) entries) of
-          Just nea -> MultiKey nea
-          -- Upstream's empty array listens for nothing, and so does
-          -- `SingleKey ""`: no `KeyboardEvent.key` is the empty string, so the
-          -- matcher never fires. `MultiKey` cannot say it — its array is
-          -- non-empty by construction — and answering `Nothing` is not
-          -- available either, because the caller has already established that
-          -- a key code *was* supplied.
-          Nothing -> SingleKey ""
+      Just entries -> MultiKey (map (readKey field) entries)
       Nothing ->
         unsafeThrow $
           "ps-flow: `" <> field <> "` must be a string or an array of strings, got "

@@ -112,6 +112,7 @@ import Test.React.Container.AttributionPanel (runAttributionPanelTests)
 import Test.React.Container.NodeA11yDescription (runNodeA11yDescriptionTests)
 import Test.React.Container.Pane (runPaneAutoPanTests)
 import Test.React.Container.PaneSelection (runPaneSelectionTests)
+import Test.React.Hook.KeyPress (runKeyPressTests)
 import Test.React.Container.SeededProps (runSeededPropsTests)
 import Test.React.Hook.Drag (runDragHookTests)
 import Test.React.Hook.Store (runUseStoreTests)
@@ -1212,6 +1213,7 @@ main = do
   runSourceEventTests
   runPaneAutoPanTests
   runPaneSelectionTests
+  runKeyPressTests
   runStorePanByTests
   runTrackedPropTests
   runInitPrevValuesTests

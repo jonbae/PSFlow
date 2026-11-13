@@ -144,7 +144,7 @@ import Boundary.Untagged (asArray, asString, oneOrMany, typeName)
 import Data.Array (head) as Array
 import Data.Function.Uncurried (Fn3, runFn3)
 import Data.Map (lookup) as Map
-import Data.Maybe (Maybe(..), fromMaybe, isJust)
+import Data.Maybe (Maybe(..), fromMaybe, isJust, maybe)
 import Data.Newtype (wrap)
 import Data.Nullable (Nullable, toNullable)
 import Effect (Effect)
@@ -161,7 +161,7 @@ import Foreign (Foreign, isNull, unsafeToForeign)
 import React.Basic.Hooks (Render)
 import React.Context.NodeId (useNodeId) as PS
 import React.Hook.HandleConnections (useHandleConnections) as PS
-import React.Hook.KeyPress (useKeyPress) as PS
+import React.Hook.KeyPress (KeyPressTarget(..), UseKeyPressOptions, defaultUseKeyPressOptions, useKeyPress) as PS
 import React.Hook.Middleware
   ( useOnEdgesChangeMiddleware
   , useOnNodesChangeMiddleware
@@ -226,7 +226,14 @@ type JsNodesState =
 type JsEdgesState =
   JsTriple (Array JsEdge) (EffectFn1 Foreign Unit) (EffectFn1 (Array JsEdgeChange) Unit)
 
-type JsUseKeyPressOptions = { actInsideInputWithModifier :: Undefinable Boolean }
+-- | Upstream reads `target` and `actInsideInputWithModifier` with `??`, so
+-- | `null` takes the default as absence does, and `preventDefault` with
+-- | `!== false`, so only `false` turns it off.
+type JsUseKeyPressOptions =
+  { target :: Undefinable Foreign
+  , actInsideInputWithModifier :: Undefinable Foreign
+  , preventDefault :: Undefinable Foreign
+  }
 
 type JsUseNodesInitializedOptions = { includeHiddenNodes :: Undefinable Boolean }
 
@@ -575,11 +582,25 @@ useKeyPress = mkEffectFn2 \keyCode options ->
   runHook
     ( PS.useKeyPress
         (map (keyCodeValueIn "useKeyPress") (fromUndefinable keyCode))
-        ( map
-            (\o -> { actInsideInputWithModifier: fromMaybe false (fromUndefinable o.actInsideInputWithModifier) })
-            (fromUndefinable options)
-        )
+        (maybe PS.defaultUseKeyPressOptions keyPressOptionsIn (fromUndefinable options))
     )
+
+keyPressOptionsIn :: JsUseKeyPressOptions -> PS.UseKeyPressOptions
+keyPressOptionsIn o =
+  { target: maybe PS.OnDocument (PS.On <<< unsafeCoerce) (nullish o.target)
+  , actInsideInputWithModifier: maybe true (unsafeCoerce :: Foreign -> Boolean) (nullish o.actInsideInputWithModifier)
+  , preventDefault: not (strictlyFalse o.preventDefault)
+  }
+  where
+  nullish :: Undefinable Foreign -> Maybe Foreign
+  nullish u = case fromUndefinable u of
+    Just v | not (isNull v) -> Just v
+    _ -> Nothing
+
+  strictlyFalse :: Undefinable Foreign -> Boolean
+  strictlyFalse u = case fromUndefinable u of
+    Just v -> sameValue v (unsafeToForeign false)
+    Nothing -> false
 
 -- | `string | null` — upstream's `NodeIdContext` defaults to `null` and not to
 -- | `undefined`, so this is the one place on the surface where `Nullable` is

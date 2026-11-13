@@ -185,7 +185,7 @@ import React.Hook.NodesEdgesState
   , useNodesState
   , useEdgesState
   ) as ReExportHookNodesEdgesState
-import React.Hook.KeyPress (UseKeyPressOptions, KeyMatcher, useKeyPress) as ReExportHookKeyPress
+import React.Hook.KeyPress (KeyPressTarget(..), UseKeyPressOptions, KeyMatcher, defaultUseKeyPressOptions, useKeyPress) as ReExportHookKeyPress
 import React.Hook.Listeners
   ( UseOnViewportChangeOptions
   , UseOnSelectionChangeOptions
