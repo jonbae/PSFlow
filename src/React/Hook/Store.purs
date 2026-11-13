@@ -34,11 +34,14 @@ module React.Hook.Store
   , useStore
   , useStoreWith
   , useStoreApi
+  , shallow
+  , sameValue
   , opaqueToStore
   ) where
 
 import Prelude
 
+import Data.Function.Uncurried (Fn2, runFn2)
 import Data.Maybe (Maybe(..))
 import Data.Newtype (class Newtype)
 import Effect.Exception.Unsafe (unsafeThrow)
@@ -126,6 +129,22 @@ useStoreWith selector isEqual = coerceHook React.do
       Nothing -> unsafeThrow (errorMessage E001)
       Just opaque -> opaqueToStore opaque
   unsafeHook (runEffectFn3 useStoreImpl store selector isEqual)
+
+foreign import shallowImpl :: forall a. Fn2 a a Boolean
+foreign import sameValueImpl :: forall a. Fn2 a a Boolean
+
+-- | zustand's `shallow`, the equality upstream hands `useStore` for most of
+-- | its selectors: `Object.is`, then one level of an object's own keys, or a
+-- | `Map`'s or `Set`'s entries. It compares the JavaScript values a selection
+-- | holds, so a record compares field by field, and a `Maybe` or another
+-- | PureScript wrapper compares by reference.
+shallow :: forall a. a -> a -> Boolean
+shallow a b = runFn2 shallowImpl a b
+
+-- | `Object.is`, the equality `useStore` falls back to when upstream hands
+-- | it none. `NaN` is itself, and the two zeros differ.
+sameValue :: forall a. a -> a -> Boolean
+sameValue a b = runFn2 sameValueImpl a b
 
 -- | The sanctioned `OpaqueStore -> Store n e` cast. Documented in
 -- | `React.Context.Store`'s module header — this is the one place the

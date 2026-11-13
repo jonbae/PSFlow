@@ -22,12 +22,10 @@ type NodeSummary nodeData =
 
 -- | Compare two arrays of node summaries field-by-field.
 -- |
--- | Divergence from the TS original: TS uses `Object.is` to do reference-
--- | identity equality on `data`, an optimization for React's render cycle. PS
--- | has no reference equality, so this implementation requires `Eq nodeData`
--- | and uses structural equality. The semantics are strictly stronger —
--- | structurally equal but referentially distinct values now compare equal,
--- | which only reduces spurious `false` results.
+-- | TS compares `data` with `Object.is`; this compares it with `Eq nodeData`.
+-- | `Boundary.Hooks` instantiates it with a newtype whose `Eq` is `Object.is`,
+-- | so `useNodesData` from JavaScript compares as upstream's does. A
+-- | PureScript caller's own `Eq` decides what counts as the same data.
 -- |
 -- | The TS variant accepts `NodeData | NodeData[] | null`. Here, `Nothing`
 -- | replaces `null` and an `Array` is always required. Use

@@ -11,10 +11,11 @@ import Prelude
 
 import Data.Array (filter, foldl, fromFoldable, length) as Array
 import Data.Either (Either(..))
+import Data.FoldableWithIndex (allWithIndex)
 import Data.Map (Map)
-import Data.Map (empty, insert, isEmpty, lookup, values) as Map
-import Data.Maybe (Maybe(..), fromMaybe)
-import Data.Newtype (class Newtype, unwrap)
+import Data.Map (empty, insert, isEmpty, lookup, size, values) as Map
+import Data.Maybe (Maybe(..), fromMaybe, maybe)
+import Data.Newtype (unwrap)
 import Data.Number (infinity)
 import Data.Number.Format (toString) as Number
 import Data.String (trim) as String
@@ -23,12 +24,12 @@ import Foreign (Foreign)
 import Foreign.Object (Object)
 import Foreign.Object as Object
 import React.Basic (ReactComponent, element)
-import React.Basic.Hooks (UnsafeReference(..), reactChildrenFromArray, reactChildrenToArray, reactComponentWithChildren)
+import React.Basic.Hooks (reactChildrenFromArray, reactChildrenToArray, reactComponentWithChildren)
 import React.Basic.Hooks as React
 import React.Additional.NodeToolbar.Portal (nodeToolbarPortal)
 import React.Context.NodeId (useNodeId)
 import React.FFI.DOM (div_)
-import React.Hook.Store (useStore)
+import React.Hook.Store (shallow, useStoreWith)
 import React.Types.Component (NodeToolbarProps)
 import React.Types.Nodes (InternalNode)
 import React.Types.Store (ReactFlowState)
@@ -63,26 +64,44 @@ toolbarWrapperStyle style transform zIndex =
         # Object.insert "zIndex" (Number.toString zIndex)
     )
 
--- | Slice the store for the transform + selectedCount used to decide
--- | visibility. `UnsafeReference` covers the bundled node-lookup that
--- | the toolbar reads each render.
-newtype TbSlice n = TbSlice
+-- | TS's `storeSelector`: what the toolbar reads besides its nodes, compared
+-- | with `shallow`, so a pan to `-0` from `0` renders it again.
+type ToolbarView =
   { x :: Number
   , y :: Number
   , zoom :: Number
   , selectedNodesCount :: Int
-  , nodes :: UnsafeReference (Map NodeId (InternalNode n))
   }
 
-derive instance newtypeTbSlice :: Newtype (TbSlice n) _
+selectView :: forall n e. ReactFlowState n e -> ToolbarView
+selectView s =
+  let
+    Transform t = s.transform
+  in
+    { x: t.tx
+    , y: t.ty
+    , zoom: t.scale
+    , selectedNodesCount: Array.length (Array.filter (\n -> n.selected == Just true) s.nodes)
+    }
 
-instance eqTbSlice :: Eq (TbSlice n) where
-  eq (TbSlice a) (TbSlice b) =
-    a.x == b.x
-      && a.y == b.y
-      && a.zoom == b.zoom
-      && a.selectedNodesCount == b.selectedNodesCount
-      && a.nodes == b.nodes
+-- | TS's `nodesEqualityFn`: the same ids, each drawn from the same place,
+-- | size, selection and `internals.z`. A move of another node, or a change to
+-- | a node's data, doesn't render the toolbar again.
+sameToolbarNodes :: forall n. Map NodeId (InternalNode n) -> Map NodeId (InternalNode n) -> Boolean
+sameToolbarNodes a b =
+  Map.size a == Map.size b
+    && allWithIndex (\id node -> maybe false (sameToolbarNode node) (Map.lookup id b)) a
+
+-- | TS's `nodeEqualityFn` turned around. Upstream's answers `true` for a
+-- | difference and compares with `!==`, which is PureScript's `/=` on each.
+sameToolbarNode :: forall n. InternalNode n -> InternalNode n -> Boolean
+sameToolbarNode a b =
+  a.internals.positionAbsolute.x == b.internals.positionAbsolute.x
+    && a.internals.positionAbsolute.y == b.internals.positionAbsolute.y
+    && a.measured.width == b.measured.width
+    && a.measured.height == b.measured.height
+    && a.selected == b.selected
+    && a.internals.z == b.internals.z
 
 idsFromProp
   :: Maybe (Either String (Array String))
@@ -95,6 +114,7 @@ idsFromProp mProp ctxId = case mProp of
     Just s -> [ NodeId s ]
     Nothing -> [ NodeId "" ]
 
+-- | TS's `nodesSelector`: the toolbar's nodes the lookup has, by id.
 lookupNodes
   :: forall n e
    . Array NodeId
@@ -109,32 +129,15 @@ lookupNodes ids s =
     Map.empty
     ids
 
-selectorFor
-  :: forall n e
-   . Array NodeId
-  -> ReactFlowState n e
-  -> TbSlice n
-selectorFor ids s =
-  let
-    Transform t = s.transform
-  in
-    TbSlice
-      { x: t.tx
-      , y: t.ty
-      , zoom: t.scale
-      , selectedNodesCount: Array.length (Array.filter (\n -> n.selected == Just true) s.nodes)
-      , nodes: UnsafeReference (lookupNodes ids s)
-      }
-
 nodeToolbar :: ReactComponent NodeToolbarProps
 nodeToolbar =
   unsafePerformEffect $ reactComponentWithChildren "NodeToolbar"
     \(props :: NodeToolbarProps) -> React.do
       ctxId <- useNodeId
       let ids = idsFromProp props.nodeId ctxId
-      TbSlice slice <- useStore (selectorFor ids)
+      nodes <- useStoreWith (lookupNodes ids) sameToolbarNodes
+      view <- useStoreWith selectView shallow
       let
-        UnsafeReference nodes = slice.nodes
         nodesArr = Array.fromFoldable (Map.values nodes)
         isActive = case props.isVisible of
           Just b -> b
@@ -143,12 +146,12 @@ nodeToolbar =
               && (case nodesArr of
                     [ n ] -> n.selected == Just true
                     _ -> false)
-              && slice.selectedNodesCount == 1
+              && view.selectedNodesCount == 1
       if not isActive || Map.isEmpty nodes then pure mempty
       else
         let
           nodeRect = getInternalNodesBounds nodes Nothing
-          viewport = { x: slice.x, y: slice.y, zoom: slice.zoom }
+          viewport = { x: view.x, y: view.y, zoom: view.zoom }
           position = fromMaybe PosTop props.position
           offset = fromMaybe 10.0 props.offset
           align = fromMaybe AlignCenter props.align
