@@ -1,0 +1,60 @@
+TAP version 13
+# Subtest: getNodesBounds unions boxes as Math.min and Math.max do
+ok 1 - getNodesBounds unions boxes as Math.min and Math.max do
+  ---
+  duration_ms: 12.394146
+  type: 'test'
+  ...
+# Subtest: getSmoothStepPath bends and centers as upstream does for any coordinate
+not ok 2 - getSmoothStepPath bends and centers as upstream does for any coordinate
+  ---
+  duration_ms: 4.582811
+  type: 'test'
+  location: '/Users/jonathanbae/repos/PSFlow/parity/boundary/numeric.test.mjs:34:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    case 1: {"sourceX":null,"sourceY":0,"targetX":100,"targetY":80,"sourcePosition":"top","targetPosition":"top"}
+    + actual - expected
+    
+      [
+    +   'M-Infinity 0L -Infinity,-15Q -Infinity,-20 -Infinity,-20L 95,-20Q 100,-20 100,-15L100 60L100 80',
+    -   'M-Infinity 0L -Infinity,NaNQ -Infinity,-20 NaN,-20L 95,-20Q 100,-20 100,-15L100 60L100 80',
+        -Infinity,
+        -20,
+        Infinity,
+        40
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'M-Infinity 0L -Infinity,NaNQ -Infinity,-20 NaN,-20L 95,-20Q 100,-20 100,-15L100 60L100 80'
+    1: -Infinity
+    2: -20
+    3: Infinity
+    4: 40
+  actual:
+    0: 'M-Infinity 0L -Infinity,-15Q -Infinity,-20 -Infinity,-20L 95,-20Q 100,-20 100,-15L100 60L100 80'
+    1: -Infinity
+    2: -20
+    3: Infinity
+    4: 40
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/jonathanbae/repos/PSFlow/parity/boundary/numeric.test.mjs:43:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 1
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 858.517205

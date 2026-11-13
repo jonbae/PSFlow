@@ -865,7 +865,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 56,
+            "timeStamp": 70,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -934,7 +934,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 56,
+            "timeStamp": 70,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -970,12 +970,12 @@
           },
           {
             "id": "drag-handle",
+            "data": {
+              "label": "Drag Handle"
+            },
             "position": {
               "x": 200,
               "y": 0
-            },
-            "data": {
-              "label": "Drag Handle"
             },
             "type": "DragHandleNode",
             "dragHandle": ".custom-drag-handle",
@@ -1007,7 +1007,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 56,
+            "timeStamp": 70,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1072,7 +1072,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 56,
+            "timeStamp": 70,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1106,12 +1106,12 @@
           },
           {
             "id": "drag-handle",
+            "data": {
+              "label": "Drag Handle"
+            },
             "position": {
               "x": 200,
               "y": 0
-            },
-            "data": {
-              "label": "Drag Handle"
             },
             "type": "DragHandleNode",
             "dragHandle": ".custom-drag-handle",
@@ -1143,7 +1143,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 112,
+            "timeStamp": 128,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1208,7 +1208,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 112,
+            "timeStamp": 128,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1242,12 +1242,12 @@
           },
           {
             "id": "drag-handle",
+            "data": {
+              "label": "Drag Handle"
+            },
             "position": {
               "x": 200,
               "y": 0
-            },
-            "data": {
-              "label": "Drag Handle"
             },
             "type": "DragHandleNode",
             "dragHandle": ".custom-drag-handle",
@@ -1281,7 +1281,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 144,
+            "timeStamp": 160,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1317,12 +1317,12 @@
           },
           {
             "id": "drag-handle",
+            "data": {
+              "label": "Drag Handle"
+            },
             "position": {
               "x": 200,
               "y": 0
-            },
-            "data": {
-              "label": "Drag Handle"
             },
             "type": "DragHandleNode",
             "dragHandle": ".custom-drag-handle",
@@ -1354,7 +1354,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 144,
+            "timeStamp": 160,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1419,7 +1419,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 176,
+            "timeStamp": 192,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1484,7 +1484,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 208,
+            "timeStamp": 224,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1549,7 +1549,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 240,
+            "timeStamp": 256,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1614,7 +1614,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 272,
+            "timeStamp": 288,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1671,7 +1671,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 304,
+            "timeStamp": 320,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1707,12 +1707,12 @@
           },
           {
             "id": "drag-handle",
+            "data": {
+              "label": "Drag Handle"
+            },
             "position": {
               "x": 200,
               "y": 0
-            },
-            "data": {
-              "label": "Drag Handle"
             },
             "type": "DragHandleNode",
             "dragHandle": ".custom-drag-handle",
@@ -1744,7 +1744,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 304,
+            "timeStamp": 320,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1809,7 +1809,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 304,
+            "timeStamp": 320,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1843,12 +1843,12 @@
           },
           {
             "id": "drag-handle",
+            "data": {
+              "label": "Drag Handle"
+            },
             "position": {
               "x": 200,
               "y": 0
-            },
-            "data": {
-              "label": "Drag Handle"
             },
             "type": "DragHandleNode",
             "dragHandle": ".custom-drag-handle",
@@ -1880,38 +1880,38 @@
           },
           {
             "id": "drag-handle",
+            "data": {
+              "label": "Drag Handle"
+            },
             "position": {
               "x": 200,
               "y": 0
             },
-            "data": {
-              "label": "Drag Handle"
-            },
             "type": "DragHandleNode",
-            "dragging": true,
             "dragHandle": ".custom-drag-handle",
             "measured": {
               "width": 100,
               "height": 50
-            }
+            },
+            "dragging": true
           },
           [
             {
               "id": "drag-handle",
+              "data": {
+                "label": "Drag Handle"
+              },
               "position": {
                 "x": 200,
                 "y": 0
               },
-              "data": {
-                "label": "Drag Handle"
-              },
               "type": "DragHandleNode",
-              "dragging": true,
               "dragHandle": ".custom-drag-handle",
               "measured": {
                 "width": 100,
                 "height": 50
-              }
+              },
+              "dragging": true
             }
           ]
         ]
@@ -1923,20 +1923,20 @@
             "nodes": [
               {
                 "id": "drag-handle",
+                "data": {
+                  "label": "Drag Handle"
+                },
                 "position": {
                   "x": 200,
                   "y": 0
                 },
-                "data": {
-                  "label": "Drag Handle"
-                },
                 "type": "DragHandleNode",
-                "selected": true,
                 "dragHandle": ".custom-drag-handle",
                 "measured": {
                   "width": 100,
                   "height": 50
-                }
+                },
+                "selected": true
               }
             ],
             "edges": []
@@ -1966,7 +1966,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 368,
+            "timeStamp": 384,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2002,20 +2002,20 @@
           },
           {
             "id": "drag-handle",
+            "data": {
+              "label": "Drag Handle"
+            },
             "position": {
               "x": 200,
               "y": 0
             },
-            "data": {
-              "label": "Drag Handle"
-            },
             "type": "DragHandleNode",
-            "selected": true,
             "dragHandle": ".custom-drag-handle",
             "measured": {
               "width": 100,
               "height": 50
-            }
+            },
+            "selected": true
           }
         ]
       },
@@ -2040,7 +2040,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 368,
+            "timeStamp": 384,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2109,40 +2109,40 @@
           },
           {
             "id": "drag-handle",
+            "data": {
+              "label": "Drag Handle"
+            },
             "position": {
               "x": 238.84146341463418,
               "y": 38.84146341463414
             },
-            "data": {
-              "label": "Drag Handle"
-            },
             "type": "DragHandleNode",
-            "selected": true,
-            "dragging": true,
             "dragHandle": ".custom-drag-handle",
             "measured": {
               "width": 100,
               "height": 50
-            }
+            },
+            "selected": true,
+            "dragging": true
           },
           [
             {
               "id": "drag-handle",
+              "data": {
+                "label": "Drag Handle"
+              },
               "position": {
                 "x": 238.84146341463418,
                 "y": 38.84146341463414
               },
-              "data": {
-                "label": "Drag Handle"
-              },
               "type": "DragHandleNode",
-              "selected": true,
-              "dragging": true,
               "dragHandle": ".custom-drag-handle",
               "measured": {
                 "width": 100,
                 "height": 50
-              }
+              },
+              "selected": true,
+              "dragging": true
             }
           ]
         ]
@@ -2168,7 +2168,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 400,
+            "timeStamp": 416,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2237,40 +2237,40 @@
           },
           {
             "id": "drag-handle",
+            "data": {
+              "label": "Drag Handle"
+            },
             "position": {
               "x": 277.6829268292683,
               "y": 77.6829268292683
             },
-            "data": {
-              "label": "Drag Handle"
-            },
             "type": "DragHandleNode",
-            "selected": true,
-            "dragging": true,
             "dragHandle": ".custom-drag-handle",
             "measured": {
               "width": 100,
               "height": 50
-            }
+            },
+            "selected": true,
+            "dragging": true
           },
           [
             {
               "id": "drag-handle",
+              "data": {
+                "label": "Drag Handle"
+              },
               "position": {
                 "x": 277.6829268292683,
                 "y": 77.6829268292683
               },
-              "data": {
-                "label": "Drag Handle"
-              },
               "type": "DragHandleNode",
-              "selected": true,
-              "dragging": true,
               "dragHandle": ".custom-drag-handle",
               "measured": {
                 "width": 100,
                 "height": 50
-              }
+              },
+              "selected": true,
+              "dragging": true
             }
           ]
         ]
@@ -2296,7 +2296,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 432,
+            "timeStamp": 448,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2365,40 +2365,40 @@
           },
           {
             "id": "drag-handle",
+            "data": {
+              "label": "Drag Handle"
+            },
             "position": {
               "x": 316.5243902439024,
               "y": 116.52439024390242
             },
-            "data": {
-              "label": "Drag Handle"
-            },
             "type": "DragHandleNode",
-            "selected": true,
-            "dragging": true,
             "dragHandle": ".custom-drag-handle",
             "measured": {
               "width": 100,
               "height": 50
-            }
+            },
+            "selected": true,
+            "dragging": true
           },
           [
             {
               "id": "drag-handle",
+              "data": {
+                "label": "Drag Handle"
+              },
               "position": {
                 "x": 316.5243902439024,
                 "y": 116.52439024390242
               },
-              "data": {
-                "label": "Drag Handle"
-              },
               "type": "DragHandleNode",
-              "selected": true,
-              "dragging": true,
               "dragHandle": ".custom-drag-handle",
               "measured": {
                 "width": 100,
                 "height": 50
-              }
+              },
+              "selected": true,
+              "dragging": true
             }
           ]
         ]
@@ -2424,7 +2424,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 464,
+            "timeStamp": 480,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2493,40 +2493,40 @@
           },
           {
             "id": "drag-handle",
+            "data": {
+              "label": "Drag Handle"
+            },
             "position": {
               "x": 355.3658536585366,
               "y": 155.36585365853657
             },
-            "data": {
-              "label": "Drag Handle"
-            },
             "type": "DragHandleNode",
-            "selected": true,
-            "dragging": true,
             "dragHandle": ".custom-drag-handle",
             "measured": {
               "width": 100,
               "height": 50
-            }
+            },
+            "selected": true,
+            "dragging": true
           },
           [
             {
               "id": "drag-handle",
+              "data": {
+                "label": "Drag Handle"
+              },
               "position": {
                 "x": 355.3658536585366,
                 "y": 155.36585365853657
               },
-              "data": {
-                "label": "Drag Handle"
-              },
               "type": "DragHandleNode",
-              "selected": true,
-              "dragging": true,
               "dragHandle": ".custom-drag-handle",
               "measured": {
                 "width": 100,
                 "height": 50
-              }
+              },
+              "selected": true,
+              "dragging": true
             }
           ]
         ]
@@ -2552,7 +2552,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 496,
+            "timeStamp": 512,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2621,40 +2621,40 @@
           },
           {
             "id": "drag-handle",
+            "data": {
+              "label": "Drag Handle"
+            },
             "position": {
               "x": 394.2073170731707,
               "y": 194.2073170731707
             },
-            "data": {
-              "label": "Drag Handle"
-            },
             "type": "DragHandleNode",
-            "selected": true,
-            "dragging": true,
             "dragHandle": ".custom-drag-handle",
             "measured": {
               "width": 100,
               "height": 50
-            }
+            },
+            "selected": true,
+            "dragging": true
           },
           [
             {
               "id": "drag-handle",
+              "data": {
+                "label": "Drag Handle"
+              },
               "position": {
                 "x": 394.2073170731707,
                 "y": 194.2073170731707
               },
-              "data": {
-                "label": "Drag Handle"
-              },
               "type": "DragHandleNode",
-              "selected": true,
-              "dragging": true,
               "dragHandle": ".custom-drag-handle",
               "measured": {
                 "width": 100,
                 "height": 50
-              }
+              },
+              "selected": true,
+              "dragging": true
             }
           ]
         ]
@@ -2682,7 +2682,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 528,
+            "timeStamp": 544,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -2718,21 +2718,21 @@
           },
           {
             "id": "drag-handle",
+            "data": {
+              "label": "Drag Handle"
+            },
             "position": {
               "x": 394.2073170731707,
               "y": 194.2073170731707
             },
-            "data": {
-              "label": "Drag Handle"
-            },
             "type": "DragHandleNode",
-            "selected": true,
-            "dragging": true,
             "dragHandle": ".custom-drag-handle",
             "measured": {
               "width": 100,
               "height": 50
-            }
+            },
+            "selected": true,
+            "dragging": true
           }
         ]
       },
@@ -2761,40 +2761,40 @@
           },
           {
             "id": "drag-handle",
+            "data": {
+              "label": "Drag Handle"
+            },
             "position": {
               "x": 394.2073170731707,
               "y": 194.2073170731707
             },
-            "data": {
-              "label": "Drag Handle"
-            },
             "type": "DragHandleNode",
-            "selected": true,
-            "dragging": false,
             "dragHandle": ".custom-drag-handle",
             "measured": {
               "width": 100,
               "height": 50
-            }
+            },
+            "selected": true,
+            "dragging": false
           },
           [
             {
               "id": "drag-handle",
+              "data": {
+                "label": "Drag Handle"
+              },
               "position": {
                 "x": 394.2073170731707,
                 "y": 194.2073170731707
               },
-              "data": {
-                "label": "Drag Handle"
-              },
               "type": "DragHandleNode",
-              "selected": true,
-              "dragging": false,
               "dragHandle": ".custom-drag-handle",
               "measured": {
                 "width": 100,
                 "height": 50
-              }
+              },
+              "selected": true,
+              "dragging": false
             }
           ]
         ]
@@ -2806,33 +2806,33 @@
         "getNodes": [
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 0,
               "y": 0
             },
-            "data": {
-              "label": "Node-1"
-            },
             "type": "input",
-            "measured": {
-              "width": 150,
-              "height": 37
-            },
             "className": "playwright-test-class-123",
             "style": {
               "backgroundColor": "red"
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
             }
           },
           {
             "id": "Node-2",
+            "type": "output",
+            "data": {
+              "label": "Node-2"
+            },
             "position": {
               "x": -100,
               "y": 100
             },
-            "data": {
-              "label": "Node-2"
-            },
-            "type": "output",
             "measured": {
               "width": 150,
               "height": 37
@@ -2840,12 +2840,12 @@
           },
           {
             "id": "Node-3",
+            "data": {
+              "label": "Node-3"
+            },
             "position": {
               "x": 100,
               "y": 100
-            },
-            "data": {
-              "label": "Node-3"
             },
             "measured": {
               "width": 150,
@@ -2854,12 +2854,12 @@
           },
           {
             "id": "Node-4",
+            "data": {
+              "label": "Node-4"
+            },
             "position": {
               "x": 0,
               "y": 200
-            },
-            "data": {
-              "label": "Node-4"
             },
             "type": "output",
             "measured": {
@@ -2869,32 +2869,32 @@
           },
           {
             "id": "drag-handle",
+            "data": {
+              "label": "Drag Handle"
+            },
             "position": {
               "x": 394.2073170731707,
               "y": 194.2073170731707
             },
-            "data": {
-              "label": "Drag Handle"
-            },
             "type": "DragHandleNode",
-            "selected": true,
-            "dragging": false,
             "dragHandle": ".custom-drag-handle",
             "measured": {
               "width": 100,
               "height": 50
-            }
+            },
+            "selected": true,
+            "dragging": false
           },
           {
             "id": "notConnectable",
+            "type": "output",
+            "data": {
+              "label": "notConnectable"
+            },
             "position": {
               "x": 0,
               "y": 300
             },
-            "data": {
-              "label": "notConnectable"
-            },
-            "type": "output",
             "connectable": false,
             "measured": {
               "width": 150,
@@ -2903,12 +2903,12 @@
           },
           {
             "id": "notDraggable",
+            "data": {
+              "label": "notDraggable"
+            },
             "position": {
               "x": 0,
               "y": 400
-            },
-            "data": {
-              "label": "notDraggable"
             },
             "draggable": false,
             "measured": {
@@ -2918,12 +2918,12 @@
           },
           {
             "id": "notSelectable",
+            "data": {
+              "label": "notSelectable"
+            },
             "position": {
               "x": 0,
               "y": 500
-            },
-            "data": {
-              "label": "notSelectable"
             },
             "selectable": false,
             "measured": {
@@ -2933,12 +2933,12 @@
           },
           {
             "id": "notDeletable",
+            "data": {
+              "label": "notDeletable"
+            },
             "position": {
               "x": 0,
               "y": 600
-            },
-            "data": {
-              "label": "notDeletable"
             },
             "deletable": false,
             "measured": {
@@ -2948,33 +2948,33 @@
           },
           {
             "id": "hidden",
+            "data": {
+              "label": "hidden"
+            },
             "position": {
               "x": 0,
               "y": 700
-            },
-            "data": {
-              "label": "hidden"
             },
             "hidden": true
           }
         ],
         "getNode": {
           "id": "Node-1",
+          "data": {
+            "label": "Node-1"
+          },
           "position": {
             "x": 0,
             "y": 0
           },
-          "data": {
-            "label": "Node-1"
-          },
           "type": "input",
-          "measured": {
-            "width": 150,
-            "height": 37
-          },
           "className": "playwright-test-class-123",
           "style": {
             "backgroundColor": "red"
+          },
+          "measured": {
+            "width": 150,
+            "height": 37
           }
         },
         "getInternalNode": {
@@ -3063,33 +3063,33 @@
         "getIntersectingNodes": [
           {
             "id": "Node-1",
+            "data": {
+              "label": "Node-1"
+            },
             "position": {
               "x": 0,
               "y": 0
             },
-            "data": {
-              "label": "Node-1"
-            },
             "type": "input",
-            "measured": {
-              "width": 150,
-              "height": 37
-            },
             "className": "playwright-test-class-123",
             "style": {
               "backgroundColor": "red"
+            },
+            "measured": {
+              "width": 150,
+              "height": 37
             }
           },
           {
             "id": "Node-2",
+            "type": "output",
+            "data": {
+              "label": "Node-2"
+            },
             "position": {
               "x": -100,
               "y": 100
             },
-            "data": {
-              "label": "Node-2"
-            },
-            "type": "output",
             "measured": {
               "width": 150,
               "height": 37
@@ -3097,12 +3097,12 @@
           },
           {
             "id": "Node-3",
+            "data": {
+              "label": "Node-3"
+            },
             "position": {
               "x": 100,
               "y": 100
-            },
-            "data": {
-              "label": "Node-3"
             },
             "measured": {
               "width": 150,
@@ -3111,12 +3111,12 @@
           },
           {
             "id": "Node-4",
+            "data": {
+              "label": "Node-4"
+            },
             "position": {
               "x": 0,
               "y": 200
-            },
-            "data": {
-              "label": "Node-4"
             },
             "type": "output",
             "measured": {
@@ -3126,32 +3126,32 @@
           },
           {
             "id": "drag-handle",
+            "data": {
+              "label": "Drag Handle"
+            },
             "position": {
               "x": 394.2073170731707,
               "y": 194.2073170731707
             },
-            "data": {
-              "label": "Drag Handle"
-            },
             "type": "DragHandleNode",
-            "selected": true,
-            "dragging": false,
             "dragHandle": ".custom-drag-handle",
             "measured": {
               "width": 100,
               "height": 50
-            }
+            },
+            "selected": true,
+            "dragging": false
           },
           {
             "id": "notConnectable",
+            "type": "output",
+            "data": {
+              "label": "notConnectable"
+            },
             "position": {
               "x": 0,
               "y": 300
             },
-            "data": {
-              "label": "notConnectable"
-            },
-            "type": "output",
             "connectable": false,
             "measured": {
               "width": 150,
@@ -3160,12 +3160,12 @@
           },
           {
             "id": "notDraggable",
+            "data": {
+              "label": "notDraggable"
+            },
             "position": {
               "x": 0,
               "y": 400
-            },
-            "data": {
-              "label": "notDraggable"
             },
             "draggable": false,
             "measured": {
@@ -3175,12 +3175,12 @@
           },
           {
             "id": "notSelectable",
+            "data": {
+              "label": "notSelectable"
+            },
             "position": {
               "x": 0,
               "y": 500
-            },
-            "data": {
-              "label": "notSelectable"
             },
             "selectable": false,
             "measured": {
@@ -3190,12 +3190,12 @@
           },
           {
             "id": "notDeletable",
+            "data": {
+              "label": "notDeletable"
+            },
             "position": {
               "x": 0,
               "y": 600
-            },
-            "data": {
-              "label": "notDeletable"
             },
             "deletable": false,
             "measured": {
@@ -3205,12 +3205,12 @@
           },
           {
             "id": "hidden",
+            "data": {
+              "label": "hidden"
+            },
             "position": {
               "x": 0,
               "y": 700
-            },
-            "data": {
-              "label": "hidden"
             },
             "hidden": true
           }
@@ -3258,33 +3258,33 @@
           "nodes": [
             {
               "id": "Node-1",
+              "data": {
+                "label": "Node-1"
+              },
               "position": {
                 "x": 0,
                 "y": 0
               },
-              "data": {
-                "label": "Node-1"
-              },
               "type": "input",
-              "measured": {
-                "width": 150,
-                "height": 37
-              },
               "className": "playwright-test-class-123",
               "style": {
                 "backgroundColor": "red"
+              },
+              "measured": {
+                "width": 150,
+                "height": 37
               }
             },
             {
               "id": "Node-2",
+              "type": "output",
+              "data": {
+                "label": "Node-2"
+              },
               "position": {
                 "x": -100,
                 "y": 100
               },
-              "data": {
-                "label": "Node-2"
-              },
-              "type": "output",
               "measured": {
                 "width": 150,
                 "height": 37
@@ -3292,12 +3292,12 @@
             },
             {
               "id": "Node-3",
+              "data": {
+                "label": "Node-3"
+              },
               "position": {
                 "x": 100,
                 "y": 100
-              },
-              "data": {
-                "label": "Node-3"
               },
               "measured": {
                 "width": 150,
@@ -3306,12 +3306,12 @@
             },
             {
               "id": "Node-4",
+              "data": {
+                "label": "Node-4"
+              },
               "position": {
                 "x": 0,
                 "y": 200
-              },
-              "data": {
-                "label": "Node-4"
               },
               "type": "output",
               "measured": {
@@ -3321,32 +3321,32 @@
             },
             {
               "id": "drag-handle",
+              "data": {
+                "label": "Drag Handle"
+              },
               "position": {
                 "x": 394.2073170731707,
                 "y": 194.2073170731707
               },
-              "data": {
-                "label": "Drag Handle"
-              },
               "type": "DragHandleNode",
-              "selected": true,
-              "dragging": false,
               "dragHandle": ".custom-drag-handle",
               "measured": {
                 "width": 100,
                 "height": 50
-              }
+              },
+              "selected": true,
+              "dragging": false
             },
             {
               "id": "notConnectable",
+              "type": "output",
+              "data": {
+                "label": "notConnectable"
+              },
               "position": {
                 "x": 0,
                 "y": 300
               },
-              "data": {
-                "label": "notConnectable"
-              },
-              "type": "output",
               "connectable": false,
               "measured": {
                 "width": 150,
@@ -3355,12 +3355,12 @@
             },
             {
               "id": "notDraggable",
+              "data": {
+                "label": "notDraggable"
+              },
               "position": {
                 "x": 0,
                 "y": 400
-              },
-              "data": {
-                "label": "notDraggable"
               },
               "draggable": false,
               "measured": {
@@ -3370,12 +3370,12 @@
             },
             {
               "id": "notSelectable",
+              "data": {
+                "label": "notSelectable"
+              },
               "position": {
                 "x": 0,
                 "y": 500
-              },
-              "data": {
-                "label": "notSelectable"
               },
               "selectable": false,
               "measured": {
@@ -3385,12 +3385,12 @@
             },
             {
               "id": "notDeletable",
+              "data": {
+                "label": "notDeletable"
+              },
               "position": {
                 "x": 0,
                 "y": 600
-              },
-              "data": {
-                "label": "notDeletable"
               },
               "deletable": false,
               "measured": {
@@ -3400,12 +3400,12 @@
             },
             {
               "id": "hidden",
+              "data": {
+                "label": "hidden"
+              },
               "position": {
                 "x": 0,
                 "y": 700
-              },
-              "data": {
-                "label": "hidden"
               },
               "hidden": true
             }

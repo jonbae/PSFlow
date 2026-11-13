@@ -12,6 +12,7 @@ module React.Store.Reduce
   ) where
 
 import Prelude
+import System.Utils.Number as JsNumber
 
 import Data.Array (filter, foldl, mapMaybe, null, snoc) as Array
 import Data.Foldable (foldl) as Foldable
@@ -313,7 +314,10 @@ reduceUpdateNodePositions state items dragging =
         change = NodePositionChange
           { id: item.id
           , position: Just case expandParentOf of
-              Just _ -> { x: max 0.0 item.position.x, y: max 0.0 item.position.y }
+              Just _ ->
+                { x: JsNumber.max 0.0 item.position.x
+                , y: JsNumber.max 0.0 item.position.y
+                }
               Nothing -> item.position
           , positionAbsolute: Nothing
           , dragging: Just dragging

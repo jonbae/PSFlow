@@ -1,0 +1,17 @@
+{"check":"build","command":"spago build","start":"2026-11-12T23:26:36Z","end":"2026-11-12T23:26:41Z","exit":0,"log":"aamf/step3/order-h/build.log"}
+{"check":"oracle","command":"npm run build:oracle","start":"2026-11-12T23:26:41Z","end":"2026-11-12T23:26:42Z","exit":0,"log":"aamf/step3/order-h/oracle.log"}
+{"check":"driver","command":"npm run build:driver","start":"2026-11-12T23:26:42Z","end":"2026-11-12T23:26:51Z","exit":0,"log":"aamf/step3/order-h/driver.log"}
+{"check":"spago-test","command":"spago test","start":"2026-11-12T23:26:51Z","end":"2026-11-12T23:27:01Z","exit":0,"log":"aamf/step3/order-h/spago-test.log"}
+{"check":"surface","command":"npm run parity:surface","start":"2026-11-12T23:27:01Z","end":"2026-11-12T23:27:08Z","exit":0,"log":"aamf/step3/order-h/surface.log"}
+{"check":"boundary","command":"npm run parity:boundary","start":"2026-11-12T23:27:08Z","end":"2026-11-12T23:27:11Z","exit":0,"log":"aamf/step3/order-h/boundary.log"}
+{"check":"boundary-tests","command":"npm run test:boundary","start":"2026-11-12T23:27:11Z","end":"2026-11-12T23:27:23Z","exit":0,"log":"aamf/step3/order-h/boundary-tests.log"}
+{"check":"test-surface","command":"npm run test:surface","start":"2026-11-12T23:27:23Z","end":"2026-11-12T23:27:24Z","exit":0,"log":"aamf/step3/order-h/test-surface.log"}
+{"check":"test-harness","command":"npm run test:harness","start":"2026-11-12T23:27:24Z","end":"2026-11-12T23:27:33Z","exit":0,"log":"aamf/step3/order-h/test-harness.log"}
+{"check":"test-compare","command":"npm run test:compare","start":"2026-11-12T23:27:33Z","end":"2026-11-12T23:27:35Z","exit":0,"log":"aamf/step3/order-h/test-compare.log"}
+{"check":"test-coverage","command":"npm run test:coverage","start":"2026-11-12T23:27:35Z","end":"2026-11-12T23:27:36Z","exit":0,"log":"aamf/step3/order-h/test-coverage.log"}
+{"check":"test-census","command":"npm run test:census","start":"2026-11-12T23:27:36Z","end":"2026-11-12T23:27:38Z","exit":0,"log":"aamf/step3/order-h/test-census.log"}
+{"check":"fork","command":"npm run parity:fork","start":"2026-11-12T23:27:38Z","end":"2026-11-12T23:27:39Z","exit":0,"log":"aamf/step3/order-h/fork.log"}
+{"check":"changelog","command":"npm run parity:changelog","start":"2026-11-12T23:27:39Z","end":"2026-11-12T23:27:40Z","exit":0,"log":"aamf/step3/order-h/changelog.log"}
+{"check":"conformance","command":"node parity/system/linux.mjs npm run test:conformance","start":"2026-11-12T23:27:46Z","end":"2026-11-12T23:30:34Z","exit":0,"log":"aamf/step3/order-h/conformance.log"}
+{"check":"smoke","command":"node parity/system/linux.mjs npm run test:smoke","start":"2026-11-12T23:30:34Z","end":"2026-11-12T23:30:48Z","exit":0,"log":"aamf/step3/order-h/smoke.log"}
+{"check":"system","command":"node parity/system/linux.mjs npm run parity:system","start":"2026-11-12T23:30:48Z","end":"2026-11-12T23:48:26Z","exit":0,"log":"aamf/step3/order-h/system.log"}

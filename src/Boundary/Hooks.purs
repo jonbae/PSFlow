@@ -117,7 +117,7 @@ import Boundary.Elements
   , viewportOut
   )
 import Boundary.Enums (handleTypeIn)
-import Boundary.Original (remembering)
+import Boundary.Original (remembering, stably)
 import Boundary.Store (JsStoreApi, equalityFor, selectorThrough, storeViewOf, useStoreApiObject)
 import Boundary.Instance
   ( JsHandleConnection
@@ -128,7 +128,7 @@ import Boundary.Instance
 import Boundary.SetState (setStateOut)
 import Boundary.Undefined (Undefinable, fromUndefinable, toUndefinable)
 import Boundary.Untagged (asArray, asString, oneOrMany, typeName)
-import Data.Function.Uncurried (Fn3, runFn3)
+import Data.Function.Uncurried (Fn2, Fn3, runFn2, runFn3)
 import Data.Maybe (Maybe(..), fromMaybe, isJust)
 import Data.Newtype (unwrap, wrap)
 import Data.Nullable (Nullable, toNullable)
@@ -143,7 +143,7 @@ import Effect.Uncurried
   )
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign, unsafeToForeign)
-import React.Basic.Hooks (Render, UnsafeReference(..))
+import React.Basic.Hooks (Render, UnsafeReference)
 import React.Context.NodeId (useNodeId) as PS
 import React.Hook.HandleConnections (useHandleConnections) as PS
 import React.Hook.KeyPress (useKeyPress) as PS
@@ -399,11 +399,12 @@ nodeDataOut n =
 -- | the same object `onConnectEnd` receives — rather than the PureScript sum
 -- | type it would otherwise see.
 -- |
--- | The result is wrapped in `UnsafeReference` for the store hook's `Eq`, so
--- | a projection that returns a fresh object each render re-renders each
--- | render. That is upstream's behaviour too: its `useConnection` passes
--- | `shallow`, which compares one level, and a fresh nested object defeats it
--- | the same way.
+-- | The result is compared with zustand's `shallow`, as upstream's
+-- | `useConnection` compares it: one level of keys by `Object.is`. The state
+-- | is a fresh object on every read, so reference equality would never hold,
+-- | and the hook would re-render on every store update and again whenever
+-- | React re-reads the selection after a commit. A projection that returns a
+-- | fresh nested object still re-renders each time, upstream's too.
 useConnection :: EffectFn1 (Undefinable (EffectFn1 JsConnectionState Foreign)) Foreign
 useConnection = mkEffectFn1 \selector ->
   let
@@ -412,7 +413,7 @@ useConnection = mkEffectFn1 \selector ->
       Nothing -> unsafeToForeign
       Just f -> \state -> unsafePerformEffect (runEffectFn1 f state)
   in
-    unwrap <$> runHook (PS.useConnectionWith (UnsafeReference <<< project <<< stateOut))
+    (\(Shallow v) -> v) <$> runHook (PS.useConnectionWith (Shallow <<< project <<< stateOut))
   where
   -- Upstream's `ConnectionState`, so `inProgress` leads, as the store's own
   -- `connection` member has it. A connection in progress always has a
@@ -444,6 +445,14 @@ stableViewportChangeIn :: JsOnViewportChange -> OnViewportChange
 stableViewportChangeIn = cacheCallback (remembering onViewportChangeIn)
 
 foreign import cacheCallback :: forall a b. (a -> b) -> a -> b
+
+foreign import shallowEqual :: Fn2 Foreign Foreign Boolean
+
+-- | A JavaScript value compared the way zustand's `shallow` compares it.
+newtype Shallow = Shallow Foreign
+
+instance eqShallow :: Eq Shallow where
+  eq (Shallow a) (Shallow b) = runFn2 shallowEqual a b
 
 useOnSelectionChange :: EffectFn1 JsUseOnSelectionChangeOptions Unit
 useOnSelectionChange = mkEffectFn1 \options ->
@@ -545,20 +554,32 @@ useNodeId = toNullable <$> runHook PS.useNodeId
 experimental_useOnNodesChangeMiddleware
   :: EffectFn1 (EffectFn1 (Array JsNodeChange) (Array JsNodeChange)) Unit
 experimental_useOnNodesChangeMiddleware = mkEffectFn1 \middleware ->
-  runHook
-    ( PS.useOnNodesChangeMiddleware \changes ->
-        map nodeChangeIn
-          (unsafePerformEffect (runEffectFn1 middleware (map nodeChangeOut changes)))
-    )
+  runHook (PS.useOnNodesChangeMiddleware (stably "useOnNodesChangeMiddleware" nodesMiddlewareIn middleware))
+
+-- | One adapter per consumer function. Upstream's effect depends on the
+-- | consumer's `fn`, so a stable one registers once; an adapter made on each
+-- | render would remove and re-add the middleware after every render, and
+-- | each of those store writes notifies every subscriber.
+nodesMiddlewareIn
+  :: EffectFn1 (Array JsNodeChange) (Array JsNodeChange)
+  -> Array (NodeChange Foreign)
+  -> Array (NodeChange Foreign)
+nodesMiddlewareIn middleware changes =
+  map nodeChangeIn
+    (unsafePerformEffect (runEffectFn1 middleware (map nodeChangeOut changes)))
 
 experimental_useOnEdgesChangeMiddleware
   :: EffectFn1 (EffectFn1 (Array JsEdgeChange) (Array JsEdgeChange)) Unit
 experimental_useOnEdgesChangeMiddleware = mkEffectFn1 \middleware ->
-  runHook
-    ( PS.useOnEdgesChangeMiddleware \changes ->
-        map edgeChangeIn
-          (unsafePerformEffect (runEffectFn1 middleware (map edgeChangeOut changes)))
-    )
+  runHook (PS.useOnEdgesChangeMiddleware (stably "useOnEdgesChangeMiddleware" edgesMiddlewareIn middleware))
+
+edgesMiddlewareIn
+  :: EffectFn1 (Array JsEdgeChange) (Array JsEdgeChange)
+  -> Array (EdgeChange Foreign)
+  -> Array (EdgeChange Foreign)
+edgesMiddlewareIn middleware changes =
+  map edgeChangeIn
+    (unsafePerformEffect (runEffectFn1 middleware (map edgeChangeOut changes)))
 
 -- ────────────────────────────────────────────────────────────────────────
 -- The store

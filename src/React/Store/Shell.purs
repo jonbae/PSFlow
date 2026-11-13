@@ -58,6 +58,10 @@ newtype Subscribe n e = Subscribe
 -- | Refs directly.
 type Store n e =
   { getState :: Effect (ReactFlowState n e)
+  -- | Zustand's `getInitialState`: the state the store was created with. Its
+  -- | `useStore` reads this one during a server render, where React asks for
+  -- | the server snapshot.
+  , getInitialState :: Effect (ReactFlowState n e)
   , setState :: (ReactFlowState n e -> ReactFlowState n e) -> Effect Unit
   , subscribe :: Subscribe n e
   -- | Zustand's own `subscribe(listener)`: the listener runs after every
@@ -82,7 +86,8 @@ type StoreApi n e = Store n e
 
 createStore :: forall n e. InitialStateOptions n e -> Effect (Store n e)
 createStore opts = do
-  stateRef <- Ref.new (initialState opts)
+  let firstState = initialState opts
+  stateRef <- Ref.new firstState
   subsRef <- Ref.new ([] :: Array (Subscriber n e))
   nextSubKeyRef <- Ref.new 0
   middlewareKeyRef <- Ref.new 0
@@ -253,6 +258,7 @@ createStore opts = do
 
   pure
     { getState
+    , getInitialState: pure firstState
     , setState
     , subscribe
     , subscribeAll

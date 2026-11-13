@@ -620,6 +620,38 @@
         ]
       },
       {
+        "name": "onResizeStart",
+        "args": [
+          {
+            "@class": "DragEvent",
+            "type": "start",
+            "sourceEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "subject": {
+              "x": -1,
+              "y": -1
+            },
+            "target": {
+              "@ref": "function"
+            },
+            "identifier": "mouse",
+            "active": 0,
+            "x": -1,
+            "y": -1,
+            "dx": 0,
+            "dy": 0
+          },
+          {
+            "width": 120,
+            "height": 80,
+            "x": 240,
+            "y": 180
+          }
+        ]
+      },
+      {
         "name": "onNodeMouseLeave",
         "args": [
           {
@@ -759,6 +791,78 @@
             "isPropagationStopped": {
               "@ref": "function"
             }
+          }
+        ]
+      },
+      {
+        "name": "shouldResize",
+        "args": [
+          {
+            "@class": "DragEvent",
+            "type": "drag",
+            "sourceEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "subject": {
+              "x": -1,
+              "y": -1
+            },
+            "target": {
+              "@ref": "function"
+            },
+            "identifier": "mouse",
+            "active": 1,
+            "x": -16,
+            "y": -11,
+            "dx": -15,
+            "dy": -10
+          },
+          {
+            "width": 135,
+            "height": 90,
+            "x": 225,
+            "y": 170,
+            "direction": [
+              -1,
+              -1
+            ]
+          }
+        ]
+      },
+      {
+        "name": "onResize",
+        "args": [
+          {
+            "@class": "DragEvent",
+            "type": "drag",
+            "sourceEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "subject": {
+              "x": -1,
+              "y": -1
+            },
+            "target": {
+              "@ref": "function"
+            },
+            "identifier": "mouse",
+            "active": 1,
+            "x": -16,
+            "y": -11,
+            "dx": -15,
+            "dy": -10
+          },
+          {
+            "width": 135,
+            "height": 90,
+            "x": 225,
+            "y": 170,
+            "direction": [
+              -1,
+              -1
+            ]
           }
         ]
       },
@@ -1011,6 +1115,78 @@
         ]
       },
       {
+        "name": "shouldResize",
+        "args": [
+          {
+            "@class": "DragEvent",
+            "type": "drag",
+            "sourceEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "subject": {
+              "x": -1,
+              "y": -1
+            },
+            "target": {
+              "@ref": "function"
+            },
+            "identifier": "mouse",
+            "active": 1,
+            "x": -16,
+            "y": -11,
+            "dx": 0,
+            "dy": 0
+          },
+          {
+            "width": 150,
+            "height": 100,
+            "x": 210,
+            "y": 160,
+            "direction": [
+              -1,
+              -1
+            ]
+          }
+        ]
+      },
+      {
+        "name": "onResize",
+        "args": [
+          {
+            "@class": "DragEvent",
+            "type": "drag",
+            "sourceEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "subject": {
+              "x": -1,
+              "y": -1
+            },
+            "target": {
+              "@ref": "function"
+            },
+            "identifier": "mouse",
+            "active": 1,
+            "x": -16,
+            "y": -11,
+            "dx": 0,
+            "dy": 0
+          },
+          {
+            "width": 150,
+            "height": 100,
+            "x": 210,
+            "y": 160,
+            "direction": [
+              -1,
+              -1
+            ]
+          }
+        ]
+      },
+      {
         "name": "onNodesChange",
         "args": [
           [
@@ -1259,6 +1435,78 @@
         ]
       },
       {
+        "name": "shouldResize",
+        "args": [
+          {
+            "@class": "DragEvent",
+            "type": "drag",
+            "sourceEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "subject": {
+              "x": -1,
+              "y": -1
+            },
+            "target": {
+              "@ref": "function"
+            },
+            "identifier": "mouse",
+            "active": 1,
+            "x": -16,
+            "y": -11,
+            "dx": 0,
+            "dy": 0
+          },
+          {
+            "width": 165,
+            "height": 110,
+            "x": 195,
+            "y": 150,
+            "direction": [
+              -1,
+              -1
+            ]
+          }
+        ]
+      },
+      {
+        "name": "onResize",
+        "args": [
+          {
+            "@class": "DragEvent",
+            "type": "drag",
+            "sourceEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "subject": {
+              "x": -1,
+              "y": -1
+            },
+            "target": {
+              "@ref": "function"
+            },
+            "identifier": "mouse",
+            "active": 1,
+            "x": -16,
+            "y": -11,
+            "dx": 0,
+            "dy": 0
+          },
+          {
+            "width": 165,
+            "height": 110,
+            "x": 195,
+            "y": 150,
+            "direction": [
+              -1,
+              -1
+            ]
+          }
+        ]
+      },
+      {
         "name": "onNodesChange",
         "args": [
           [
@@ -1359,6 +1607,38 @@
               "height": 80
             },
             "resizing": true
+          }
+        ]
+      },
+      {
+        "name": "onResizeEnd",
+        "args": [
+          {
+            "@class": "DragEvent",
+            "type": "end",
+            "sourceEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "subject": {
+              "x": -1,
+              "y": -1
+            },
+            "target": {
+              "@ref": "function"
+            },
+            "identifier": "mouse",
+            "active": 0,
+            "x": -1,
+            "y": -1,
+            "dx": 15,
+            "dy": 10
+          },
+          {
+            "width": 165,
+            "height": 110,
+            "x": 195,
+            "y": 150
           }
         ]
       },

@@ -10,12 +10,14 @@ import Effect (Effect)
 import Effect.Uncurried (EffectFn1, runEffectFn1)
 import System.Types.Connection (Padding(..), PaddingValue(..), Viewport)
 import System.Utils.General as General
-import System.Types.Geometry (Box, CoordinateExtent(..), NodeOrigin(..), Rect, XYPosition)
+import Data.Newtype (unwrap)
+import System.Types.Geometry (BoundingBox(..), Box, CoordinateExtent(..), NodeOrigin(..), Rect, XYPosition)
 import System.XYResizer.Types (ResizeBoundaries, ResizeParams)
 import System.XYResizer.Utils (ControlDirection, PointerPosition, ResizeStartValues, getDimensionsAfterResize)
 
 foreign import checkClamp :: EffectFn1 (Fn3 Number Number Number Number) Unit
 foreign import checkBounds :: EffectFn1 (Fn2 Box Box Box) Unit
+foreign import checkBoundingBoxMonoid :: EffectFn1 (Fn2 Box Box Box) Unit
 foreign import checkResize :: EffectFn1 (Fn1 ResizeInput ResizeParams) Unit
 foreign import checkGeometry
   :: EffectFn1
@@ -43,6 +45,9 @@ runNumericParityTests :: Effect Unit
 runNumericParityTests = do
   runEffectFn1 checkClamp (mkFn3 General.clamp)
   runEffectFn1 checkBounds (mkFn2 General.getBoundsOfBoxes)
+  -- `getNodesBounds` and `getInternalNodesBounds` fold this monoid, so its
+  -- `<>` is upstream's `getBoundsOfBoxes` too.
+  runEffectFn1 checkBoundingBoxMonoid (mkFn2 \a b -> unwrap (BoundingBox a <> BoundingBox b))
   runEffectFn1 checkGeometry
     { rectangles: mkFn2 General.getBoundsOfRects
     , overlap: mkFn2 General.getOverlappingArea

@@ -1,0 +1,1737 @@
+{
+  "traceFormat": 2,
+  "scenario": "mount-baseline--edges-types",
+  "side": "upstream",
+  "capture": 1,
+  "baseline": "12.11.0",
+  "sections": {
+    "dom": {
+      "page": {
+        "scrollX": 0,
+        "scrollY": 0,
+        "visualViewportScale": 1
+      },
+      "root": {
+        "tag": "div",
+        "attrs": {
+          "data-testid": "rf__wrapper",
+          "class": "react-flow light",
+          "role": "application",
+          "style": "width: 100%; height: 100%; overflow: hidden; position: relative; z-index: 0;"
+        },
+        "children": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__renderer",
+              "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+            },
+            "children": [
+              {
+                "tag": "div",
+                "attrs": {
+                  "class": "react-flow__pane draggable",
+                  "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                },
+                "children": [
+                  {
+                    "tag": "div",
+                    "attrs": {
+                      "class": "react-flow__viewport xyflow__viewport react-flow__container",
+                      "style": "transform: translate(58px, 246.005px) scale(0.961983);"
+                    },
+                    "children": [
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edges"
+                        },
+                        "children": [
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 0;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-simplebezier nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "simplebezier",
+                                  "data-testid": "rf__edge-simplebezier",
+                                  "aria-label": "Edge from simplebezier-source to simplebezier-target",
+                                  "aria-describedby": "react-flow__edge-desc-1"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M75,40 C75,98.5 75,98.5 75,157",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M75,40 C75,98.5 75,98.5 75,157",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "75",
+                                      "cy": "50",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "75",
+                                      "cy": "147",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 0;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-smoothstep nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "smoothstep",
+                                  "data-testid": "rf__edge-smoothstep",
+                                  "aria-label": "Edge from smoothstep-source to smoothstep-target",
+                                  "aria-describedby": "react-flow__edge-desc-1"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M295 40L295 60L 295,93.5Q 295,98.5 300,98.5L 390,98.5Q 395,98.5 395,103.5L395 137L395 157",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M295 40L295 60L 295,93.5Q 295,98.5 300,98.5L 390,98.5Q 395,98.5 395,103.5L395 137L395 157",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "g",
+                                    "attrs": {
+                                      "transform": "translate(322.14490699768066 92.78264570236206)",
+                                      "class": "react-flow__edge-textwrapper",
+                                      "visibility": "visible"
+                                    },
+                                    "children": [
+                                      {
+                                        "tag": "rect",
+                                        "attrs": {
+                                          "width": "49.71018600463867",
+                                          "x": "-2",
+                                          "y": "-4",
+                                          "height": "19.43470859527588",
+                                          "class": "react-flow__edge-textbg",
+                                          "rx": "2",
+                                          "ry": "2"
+                                        },
+                                        "children": []
+                                      },
+                                      {
+                                        "tag": "text",
+                                        "attrs": {
+                                          "class": "react-flow__edge-text",
+                                          "y": "5.7173542976379395",
+                                          "dy": "0.3em"
+                                        },
+                                        "text": "smoothstep",
+                                        "children": []
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "295",
+                                      "cy": "50",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "395",
+                                      "cy": "147",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 0;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-step nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "step",
+                                  "data-testid": "rf__edge-step",
+                                  "aria-label": "Edge from step-source to step-target",
+                                  "aria-describedby": "react-flow__edge-desc-1"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M555 40L555 60L 555,98.5Q 555,98.5 555,98.5L 655,98.5Q 655,98.5 655,98.5L655 137L655 157",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M555 40L555 60L 555,98.5Q 555,98.5 555,98.5L 655,98.5Q 655,98.5 655,98.5L655 137L655 157",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "555",
+                                      "cy": "50",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "655",
+                                      "cy": "147",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 0;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-straight nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "straight",
+                                  "data-testid": "rf__edge-straight",
+                                  "aria-label": "Edge from straight-source to straight-target",
+                                  "aria-describedby": "react-flow__edge-desc-1"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M 815,40L 815,157",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M 815,40L 815,157",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "g",
+                                    "attrs": {
+                                      "transform": "translate(799.8471031188965 92.78264570236206)",
+                                      "class": "react-flow__edge-textwrapper",
+                                      "visibility": "visible"
+                                    },
+                                    "children": [
+                                      {
+                                        "tag": "rect",
+                                        "attrs": {
+                                          "width": "34.30579376220703",
+                                          "x": "-2",
+                                          "y": "-4",
+                                          "height": "19.43470859527588",
+                                          "class": "react-flow__edge-textbg",
+                                          "rx": "2",
+                                          "ry": "2"
+                                        },
+                                        "children": []
+                                      },
+                                      {
+                                        "tag": "text",
+                                        "attrs": {
+                                          "class": "react-flow__edge-text",
+                                          "y": "5.7173542976379395",
+                                          "dy": "0.3em"
+                                        },
+                                        "text": "straight",
+                                        "children": []
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "815",
+                                      "cy": "50",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "815",
+                                      "cy": "147",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "svg",
+                            "attrs": {
+                              "style": "z-index: 0;"
+                            },
+                            "children": [
+                              {
+                                "tag": "g",
+                                "attrs": {
+                                  "class": "react-flow__edge react-flow__edge-custom nopan selectable",
+                                  "tabindex": "0",
+                                  "role": "group",
+                                  "aria-roledescription": "edge",
+                                  "data-id": "custom",
+                                  "data-testid": "rf__edge-custom",
+                                  "aria-label": "Edge from custom-source to custom-target",
+                                  "aria-describedby": "react-flow__edge-desc-1"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "id": "custom",
+                                      "d": "M1035,40 C1035,118.5 1135,118.5 1135,197",
+                                      "fill": "none",
+                                      "class": "react-flow__edge-path"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "path",
+                                    "attrs": {
+                                      "d": "M1035,40 C1035,118.5 1135,118.5 1135,197",
+                                      "fill": "none",
+                                      "stroke-opacity": "0",
+                                      "stroke-width": "20",
+                                      "class": "react-flow__edge-interaction"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-source",
+                                      "cx": "1035",
+                                      "cy": "50",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  },
+                                  {
+                                    "tag": "circle",
+                                    "attrs": {
+                                      "class": "react-flow__edgeupdater react-flow__edgeupdater-target",
+                                      "cx": "1135",
+                                      "cy": "187",
+                                      "r": "10",
+                                      "stroke": "transparent",
+                                      "fill": "transparent"
+                                    },
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__edgelabel-renderer"
+                        },
+                        "children": [
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "portal-edge-label nodrag nopan",
+                              "style": "position: absolute; transform: translate(-50%, -50%) translate(1085px, 78.5px); pointer-events: all;"
+                            },
+                            "text": "custom",
+                            "children": []
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__nodes",
+                          "style": "position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                        },
+                        "children": [
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-input nopan selectable draggable",
+                              "data-id": "simplebezier-source",
+                              "data-testid": "rf__node-simplebezier-source",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(0px, 0px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "simplebezier-source",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "simplebezier-source",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-simplebezier-source-null-source",
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-output nopan selectable draggable",
+                              "data-id": "simplebezier-target",
+                              "data-testid": "rf__node-simplebezier-target",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(0px, 160px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "simplebezier-target",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "simplebezier-target",
+                                  "data-handlepos": "top",
+                                  "data-id": "1-simplebezier-target-null-target",
+                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-input nopan selectable draggable",
+                              "data-id": "smoothstep-source",
+                              "data-testid": "rf__node-smoothstep-source",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(220px, 0px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "smoothstep-source",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "smoothstep-source",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-smoothstep-source-null-source",
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-output nopan selectable draggable",
+                              "data-id": "smoothstep-target",
+                              "data-testid": "rf__node-smoothstep-target",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(320px, 160px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "smoothstep-target",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "smoothstep-target",
+                                  "data-handlepos": "top",
+                                  "data-id": "1-smoothstep-target-null-target",
+                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-input nopan selectable draggable",
+                              "data-id": "step-source",
+                              "data-testid": "rf__node-step-source",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(480px, 0px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "step-source",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "step-source",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-step-source-null-source",
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-output nopan selectable draggable",
+                              "data-id": "step-target",
+                              "data-testid": "rf__node-step-target",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(580px, 160px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "step-target",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "step-target",
+                                  "data-handlepos": "top",
+                                  "data-id": "1-step-target-null-target",
+                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-input nopan selectable draggable",
+                              "data-id": "straight-source",
+                              "data-testid": "rf__node-straight-source",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(740px, 0px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "straight-source",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "straight-source",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-straight-source-null-source",
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-output nopan selectable draggable",
+                              "data-id": "straight-target",
+                              "data-testid": "rf__node-straight-target",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(740px, 160px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "straight-target",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "straight-target",
+                                  "data-handlepos": "top",
+                                  "data-id": "1-straight-target-null-target",
+                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-input nopan selectable draggable",
+                              "data-id": "custom-source",
+                              "data-testid": "rf__node-custom-source",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(960px, 0px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "custom-source",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "custom-source",
+                                  "data-handlepos": "bottom",
+                                  "data-id": "1-custom-source-null-source",
+                                  "class": "react-flow__handle react-flow__handle-bottom nodrag nopan source connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "react-flow__node react-flow__node-output nopan selectable draggable",
+                              "data-id": "custom-target",
+                              "data-testid": "rf__node-custom-target",
+                              "tabindex": "0",
+                              "role": "group",
+                              "aria-roledescription": "node",
+                              "aria-describedby": "react-flow__node-desc-1",
+                              "style": "z-index: 0; transform: translate(1060px, 200px); pointer-events: all; visibility: visible;"
+                            },
+                            "text": "custom-target",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "attrs": {
+                                  "data-nodeid": "custom-target",
+                                  "data-handlepos": "top",
+                                  "data-id": "1-custom-target-null-target",
+                                  "class": "react-flow__handle react-flow__handle-top nodrag nopan target connectable connectablestart connectableend connectionindicator"
+                                },
+                                "children": []
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "attrs": {
+                          "class": "react-flow__viewport-portal"
+                        },
+                        "children": [
+                          {
+                            "tag": "div",
+                            "attrs": {
+                              "class": "portal-edge-viewport-content",
+                              "style": "position: absolute; transform: translate(1135px, 221px);"
+                            },
+                            "text": "portal",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "react-flow__panel react-flow__attribution bottom right",
+              "data-message": "Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
+            },
+            "children": [
+              {
+                "tag": "a",
+                "attrs": {
+                  "href": "https://reactflow.dev",
+                  "target": "_blank",
+                  "rel": "noopener noreferrer",
+                  "aria-label": "React Flow attribution"
+                },
+                "text": "React Flow",
+                "children": []
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__node-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__edge-desc-1",
+              "style": "display: none;"
+            },
+            "text": "Press enter or space to select an edge. You can then press delete to remove it or escape to cancel.",
+            "children": []
+          },
+          {
+            "tag": "div",
+            "attrs": {
+              "id": "react-flow__aria-live-1",
+              "aria-live": "assertive",
+              "aria-atomic": "true",
+              "style": "position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(100%);"
+            },
+            "children": []
+          }
+        ]
+      }
+    },
+    "callbacks": [
+      {
+        "name": "onSelectionChange",
+        "args": [
+          {
+            "nodes": [],
+            "edges": []
+          }
+        ]
+      },
+      {
+        "name": "onMoveStart",
+        "args": [
+          null,
+          {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          }
+        ]
+      },
+      {
+        "name": "onViewportChange",
+        "args": [
+          {
+            "x": 58,
+            "y": 246.00495867768595,
+            "zoom": 0.9619834710743802
+          }
+        ]
+      },
+      {
+        "name": "onMove",
+        "args": [
+          null,
+          {
+            "x": 58,
+            "y": 246.00495867768595,
+            "zoom": 0.9619834710743802
+          }
+        ]
+      },
+      {
+        "name": "onNodesChange",
+        "args": [
+          [
+            {
+              "id": "simplebezier-source",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "simplebezier-target",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "smoothstep-source",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "smoothstep-target",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "step-source",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "step-target",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "straight-source",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "straight-target",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "custom-source",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "custom-target",
+              "type": "dimensions",
+              "dimensions": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "name": "onMoveEnd",
+        "args": [
+          null,
+          {
+            "x": 58,
+            "y": 246.00495867768595,
+            "zoom": 0.9619834710743802
+          }
+        ]
+      },
+      {
+        "name": "onInit",
+        "args": [
+          {
+            "getNodes": {
+              "@ref": "function"
+            },
+            "getNode": {
+              "@ref": "function"
+            },
+            "getInternalNode": {
+              "@ref": "function"
+            },
+            "getEdges": {
+              "@ref": "function"
+            },
+            "getEdge": {
+              "@ref": "function"
+            },
+            "setNodes": {
+              "@ref": "function"
+            },
+            "setEdges": {
+              "@ref": "function"
+            },
+            "addNodes": {
+              "@ref": "function"
+            },
+            "addEdges": {
+              "@ref": "function"
+            },
+            "toObject": {
+              "@ref": "function"
+            },
+            "deleteElements": {
+              "@ref": "function"
+            },
+            "getIntersectingNodes": {
+              "@ref": "function"
+            },
+            "isNodeIntersecting": {
+              "@ref": "function"
+            },
+            "updateNode": {
+              "@ref": "function"
+            },
+            "updateNodeData": {
+              "@ref": "function"
+            },
+            "updateEdge": {
+              "@ref": "function"
+            },
+            "updateEdgeData": {
+              "@ref": "function"
+            },
+            "getNodesBounds": {
+              "@ref": "function"
+            },
+            "getHandleConnections": {
+              "@ref": "function"
+            },
+            "getNodeConnections": {
+              "@ref": "function"
+            },
+            "fitView": {
+              "@ref": "function"
+            },
+            "zoomIn": {
+              "@ref": "function"
+            },
+            "zoomOut": {
+              "@ref": "function"
+            },
+            "zoomTo": {
+              "@ref": "function"
+            },
+            "getZoom": {
+              "@ref": "function"
+            },
+            "setViewport": {
+              "@ref": "function"
+            },
+            "getViewport": {
+              "@ref": "function"
+            },
+            "setCenter": {
+              "@ref": "function"
+            },
+            "fitBounds": {
+              "@ref": "function"
+            },
+            "screenToFlowPosition": {
+              "@ref": "function"
+            },
+            "flowToScreenPosition": {
+              "@ref": "function"
+            },
+            "viewportInitialized": true
+          }
+        ]
+      }
+    ],
+    "hooks": {},
+    "api": {
+      "queries": {
+        "getNodes": [
+          {
+            "id": "simplebezier-source",
+            "data": {
+              "label": "simplebezier-source"
+            },
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "type": "input",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "simplebezier-target",
+            "data": {
+              "label": "simplebezier-target"
+            },
+            "position": {
+              "x": 0,
+              "y": 160
+            },
+            "type": "output",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "smoothstep-source",
+            "data": {
+              "label": "smoothstep-source"
+            },
+            "position": {
+              "x": 220,
+              "y": 0
+            },
+            "type": "input",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "smoothstep-target",
+            "data": {
+              "label": "smoothstep-target"
+            },
+            "position": {
+              "x": 320,
+              "y": 160
+            },
+            "type": "output",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "step-source",
+            "data": {
+              "label": "step-source"
+            },
+            "position": {
+              "x": 480,
+              "y": 0
+            },
+            "type": "input",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "step-target",
+            "data": {
+              "label": "step-target"
+            },
+            "position": {
+              "x": 580,
+              "y": 160
+            },
+            "type": "output",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "straight-source",
+            "data": {
+              "label": "straight-source"
+            },
+            "position": {
+              "x": 740,
+              "y": 0
+            },
+            "type": "input",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "straight-target",
+            "data": {
+              "label": "straight-target"
+            },
+            "position": {
+              "x": 740,
+              "y": 160
+            },
+            "type": "output",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "custom-source",
+            "data": {
+              "label": "custom-source"
+            },
+            "position": {
+              "x": 960,
+              "y": 0
+            },
+            "type": "input",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "custom-target",
+            "data": {
+              "label": "custom-target"
+            },
+            "position": {
+              "x": 1060,
+              "y": 200
+            },
+            "type": "output",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          }
+        ],
+        "getNode": {
+          "id": "simplebezier-source",
+          "data": {
+            "label": "simplebezier-source"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "type": "input",
+          "measured": {
+            "width": 150,
+            "height": 37
+          }
+        },
+        "getInternalNode": {
+          "id": "simplebezier-source",
+          "data": {
+            "label": "simplebezier-source"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "type": "input",
+          "measured": {
+            "width": 150,
+            "height": 37
+          },
+          "internals": {
+            "positionAbsolute": {
+              "x": 0,
+              "y": 0
+            },
+            "handleBounds": {
+              "source": [
+                {
+                  "id": null,
+                  "type": "source",
+                  "nodeId": "simplebezier-source",
+                  "position": "bottom",
+                  "x": 71,
+                  "y": 32,
+                  "width": 8,
+                  "height": 8
+                }
+              ],
+              "target": null
+            },
+            "z": 0,
+            "userNode": {
+              "id": "simplebezier-source",
+              "data": {
+                "label": "simplebezier-source"
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "type": "input",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          }
+        },
+        "getEdges": [
+          {
+            "id": "simplebezier",
+            "type": "simplebezier",
+            "source": "simplebezier-source",
+            "target": "simplebezier-target"
+          },
+          {
+            "id": "smoothstep",
+            "type": "smoothstep",
+            "source": "smoothstep-source",
+            "target": "smoothstep-target",
+            "label": "smoothstep"
+          },
+          {
+            "id": "step",
+            "type": "step",
+            "source": "step-source",
+            "target": "step-target"
+          },
+          {
+            "id": "straight",
+            "type": "straight",
+            "source": "straight-source",
+            "target": "straight-target",
+            "label": "straight"
+          },
+          {
+            "id": "custom",
+            "type": "custom",
+            "source": "custom-source",
+            "target": "custom-target",
+            "data": {
+              "label": "custom"
+            }
+          }
+        ],
+        "getEdge": {
+          "id": "simplebezier",
+          "type": "simplebezier",
+          "source": "simplebezier-source",
+          "target": "simplebezier-target"
+        },
+        "getIntersectingNodes": [
+          {
+            "id": "simplebezier-source",
+            "data": {
+              "label": "simplebezier-source"
+            },
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "type": "input",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "simplebezier-target",
+            "data": {
+              "label": "simplebezier-target"
+            },
+            "position": {
+              "x": 0,
+              "y": 160
+            },
+            "type": "output",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "smoothstep-source",
+            "data": {
+              "label": "smoothstep-source"
+            },
+            "position": {
+              "x": 220,
+              "y": 0
+            },
+            "type": "input",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "smoothstep-target",
+            "data": {
+              "label": "smoothstep-target"
+            },
+            "position": {
+              "x": 320,
+              "y": 160
+            },
+            "type": "output",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "step-source",
+            "data": {
+              "label": "step-source"
+            },
+            "position": {
+              "x": 480,
+              "y": 0
+            },
+            "type": "input",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "step-target",
+            "data": {
+              "label": "step-target"
+            },
+            "position": {
+              "x": 580,
+              "y": 160
+            },
+            "type": "output",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "straight-source",
+            "data": {
+              "label": "straight-source"
+            },
+            "position": {
+              "x": 740,
+              "y": 0
+            },
+            "type": "input",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "straight-target",
+            "data": {
+              "label": "straight-target"
+            },
+            "position": {
+              "x": 740,
+              "y": 160
+            },
+            "type": "output",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "custom-source",
+            "data": {
+              "label": "custom-source"
+            },
+            "position": {
+              "x": 960,
+              "y": 0
+            },
+            "type": "input",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          },
+          {
+            "id": "custom-target",
+            "data": {
+              "label": "custom-target"
+            },
+            "position": {
+              "x": 1060,
+              "y": 200
+            },
+            "type": "output",
+            "measured": {
+              "width": 150,
+              "height": 37
+            }
+          }
+        ],
+        "isNodeIntersecting": true,
+        "getNodesBounds": {
+          "x": 0,
+          "y": 0,
+          "width": 1210,
+          "height": 237
+        },
+        "getHandleConnections": [
+          {
+            "edgeId": "simplebezier",
+            "source": "simplebezier-source",
+            "target": "simplebezier-target",
+            "sourceHandle": null,
+            "targetHandle": null
+          }
+        ],
+        "getNodeConnections": [
+          {
+            "edgeId": "simplebezier",
+            "source": "simplebezier-source",
+            "target": "simplebezier-target",
+            "sourceHandle": null,
+            "targetHandle": null
+          }
+        ],
+        "toObject": {
+          "nodes": [
+            {
+              "id": "simplebezier-source",
+              "data": {
+                "label": "simplebezier-source"
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "type": "input",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "simplebezier-target",
+              "data": {
+                "label": "simplebezier-target"
+              },
+              "position": {
+                "x": 0,
+                "y": 160
+              },
+              "type": "output",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "smoothstep-source",
+              "data": {
+                "label": "smoothstep-source"
+              },
+              "position": {
+                "x": 220,
+                "y": 0
+              },
+              "type": "input",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "smoothstep-target",
+              "data": {
+                "label": "smoothstep-target"
+              },
+              "position": {
+                "x": 320,
+                "y": 160
+              },
+              "type": "output",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "step-source",
+              "data": {
+                "label": "step-source"
+              },
+              "position": {
+                "x": 480,
+                "y": 0
+              },
+              "type": "input",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "step-target",
+              "data": {
+                "label": "step-target"
+              },
+              "position": {
+                "x": 580,
+                "y": 160
+              },
+              "type": "output",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "straight-source",
+              "data": {
+                "label": "straight-source"
+              },
+              "position": {
+                "x": 740,
+                "y": 0
+              },
+              "type": "input",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "straight-target",
+              "data": {
+                "label": "straight-target"
+              },
+              "position": {
+                "x": 740,
+                "y": 160
+              },
+              "type": "output",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "custom-source",
+              "data": {
+                "label": "custom-source"
+              },
+              "position": {
+                "x": 960,
+                "y": 0
+              },
+              "type": "input",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            },
+            {
+              "id": "custom-target",
+              "data": {
+                "label": "custom-target"
+              },
+              "position": {
+                "x": 1060,
+                "y": 200
+              },
+              "type": "output",
+              "measured": {
+                "width": 150,
+                "height": 37
+              }
+            }
+          ],
+          "edges": [
+            {
+              "id": "simplebezier",
+              "type": "simplebezier",
+              "source": "simplebezier-source",
+              "target": "simplebezier-target"
+            },
+            {
+              "id": "smoothstep",
+              "type": "smoothstep",
+              "source": "smoothstep-source",
+              "target": "smoothstep-target",
+              "label": "smoothstep"
+            },
+            {
+              "id": "step",
+              "type": "step",
+              "source": "step-source",
+              "target": "step-target"
+            },
+            {
+              "id": "straight",
+              "type": "straight",
+              "source": "straight-source",
+              "target": "straight-target",
+              "label": "straight"
+            },
+            {
+              "id": "custom",
+              "type": "custom",
+              "source": "custom-source",
+              "target": "custom-target",
+              "data": {
+                "label": "custom"
+              }
+            }
+          ],
+          "viewport": {
+            "x": 58,
+            "y": 246.00495867768595,
+            "zoom": 0.9619834710743802
+          }
+        },
+        "getZoom": 0.9619834710743802,
+        "getViewport": {
+          "x": 58,
+          "y": 246.00495867768595,
+          "zoom": 0.9619834710743802
+        },
+        "screenToFlowPosition": {
+          "x": -60.29209621993127,
+          "y": -255.72680412371133
+        },
+        "flowToScreenPosition": {
+          "x": 58,
+          "y": 246.00495867768595
+        },
+        "viewportInitialized": true
+      },
+      "calls": []
+    },
+    "props": {},
+    "console": [
+      {
+        "level": "info",
+        "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      }
+    ],
+    "driving": [
+      {
+        "index": 0,
+        "action": "mount",
+        "target": ".react-flow",
+        "resolved": true,
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "dispatched": {
+          "route": "/tests/generic/edges/types"
+        }
+      }
+    ]
+  }
+}

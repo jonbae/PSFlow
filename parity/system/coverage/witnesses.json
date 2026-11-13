@@ -98,8 +98,8 @@
     { "export": "ControlPosition", "selector": ".react-flow__resize-control.handle" },
     {
       "export": "DefaultEdgeOptions",
-      "selector": ".react-flow__edge-smoothstep",
-      "note": "nothing in the DOM is unique to the default options — they are merged into edges that declare none — so the witness names the shape a fixture exercising them should take: a `defaultEdgeOptions.type` of smoothstep over edges that declare no type. It shares its selector with SmoothStepEdge on purpose, and both are holes until such a fixture exists"
+      "selector": ".react-flow__edge-smoothstep.from-default-edge-options",
+      "note": "nothing in the DOM is unique to the default options — they are merged into edges that declare none — so the witness is the merge's result: a smoothstep edge carrying the class that only `fixtures/edges/default-options.ts`' options give it. A smoothstep edge that declares its own type, such as the one in `edges/types.ts`, does not satisfy it"
     },
     { "export": "Edge", "selector": ".react-flow__edge[data-id]" },
     { "export": "EdgeLabelOptions", "selector": ".react-flow__edge-textbg" },

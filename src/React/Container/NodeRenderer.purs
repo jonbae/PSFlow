@@ -160,6 +160,10 @@ nodeRenderer =
       flags <- useStore selectFlags
       nodeIds <- useVisibleNodeIds props.onlyRenderVisibleElements
       observer <- useResizeObserver
+      -- One `Just` for the observer's lifetime. A fresh one per render is a new
+      -- prop to every memoized `<NodeWrapper />`, which then re-renders the
+      -- consumer's node component on each of this component's own updates.
+      resizeObserver <- useMemo (UnsafeReference observer) \_ -> Just observer
       let
         UnsafeReference onError = flags.onError
         children :: Array JSX
@@ -180,7 +184,7 @@ nodeRenderer =
                 , noPanClassName: props.noPanClassName
                 , rfId: props.rfId
                 , disableKeyboardA11y: props.disableKeyboardA11y
-                , resizeObserver: Just observer
+                , resizeObserver
                 , nodesDraggable: flags.nodesDraggable
                 , nodesConnectable: flags.nodesConnectable
                 , nodesFocusable: flags.nodesFocusable

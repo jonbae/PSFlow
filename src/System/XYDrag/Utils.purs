@@ -17,6 +17,7 @@ import Prelude
 import Data.Array (find, foldl, head, mapMaybe, nub, snoc) as Array
 import Data.Map (Map)
 import Data.Map (fromFoldable, lookup) as Map
+import Data.Function.Uncurried (runFn2)
 import Data.Maybe (Maybe(..), fromMaybe, maybe)
 import Data.Tuple (Tuple(..))
 import Data.Set (Set)
@@ -30,6 +31,7 @@ import System.Types.Node
   , NodeBase
   , NodeDragItem
   , NodeLookup
+  , rememberDraggedNode
   )
 import System.Utils.General (snapPosition)
 
@@ -156,19 +158,23 @@ getEventHandlerParams mNodeId dragItems userNodes dragging =
     users :: Map NodeId (NodeBase n)
     users = Map.fromFoldable (map (\n -> Tuple n.id n) userNodes)
 
+    -- TS's `{ ...node, position, dragging }`: the consumer's node with two
+    -- members replaced, which crosses back with every key it had.
+    dragged :: NodeBase n -> XYPosition -> NodeBase n
+    dragged node position =
+      runFn2 rememberDraggedNode node (node { position = position, dragging = Just dragging })
+
     allNodes :: Array (NodeBase n)
     allNodes = Array.mapMaybe
-      (\item -> Map.lookup item.id users <#> _ { position = item.position, dragging = Just dragging })
+      (\item -> Map.lookup item.id users <#> \node -> dragged node item.position)
       dragItems
 
     -- TS: `position: dragItems.get(nodeId)?.position || node.position`.
     currentNode :: Maybe (NodeBase n)
     currentNode = case mNodeId >>= \nid -> Map.lookup nid users of
       Nothing -> Array.head allNodes
-      Just node -> Just node
-        { position = maybe node.position _.position (Array.find (\i -> i.id == node.id) dragItems)
-        , dragging = Just dragging
-        }
+      Just node -> Just $ dragged node
+        (maybe node.position _.position (Array.find (\i -> i.id == node.id) dragItems))
   in
     { currentNode, allNodes }
 

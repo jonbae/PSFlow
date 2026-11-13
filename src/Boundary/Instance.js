@@ -55,3 +55,8 @@ export const asDataField = (value) => ({ data: value });
 // Curried, because its PureScript type is: `Fn2` would be the alternative and
 // buys nothing for two arguments neither side ever partially applies.
 export const mergeInto = (target) => (source) => Object.assign({}, target, source);
+
+// Upstream's `{ ...n }`: `getNodes`, `getEdges` and `toObject` hand back a
+// shallow copy of each node and edge the store holds, keeping every key the
+// consumer gave it.
+export const shallowCopy = (value) => ({ ...value });

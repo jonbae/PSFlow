@@ -797,12 +797,12 @@
             "nodes": [
               {
                 "id": "3",
+                "data": {
+                  "label": "3"
+                },
                 "position": {
                   "x": 260,
                   "y": 240
-                },
-                "data": {
-                  "label": "3"
                 },
                 "measured": {
                   "width": 150,
@@ -849,12 +849,12 @@
           [
             {
               "id": "3",
+              "data": {
+                "label": "3"
+              },
               "position": {
                 "x": 260,
                 "y": 240
-              },
-              "data": {
-                "label": "3"
               },
               "measured": {
                 "width": 150,
@@ -882,12 +882,12 @@
             "nodes": [
               {
                 "id": "3",
+                "data": {
+                  "label": "3"
+                },
                 "position": {
                   "x": 260,
                   "y": 240
-                },
-                "data": {
-                  "label": "3"
                 },
                 "measured": {
                   "width": 150,
@@ -923,12 +923,12 @@
         "getNodes": [
           {
             "id": "1",
+            "data": {
+              "label": "1"
+            },
             "position": {
               "x": 0,
               "y": 0
-            },
-            "data": {
-              "label": "1"
             },
             "type": "input",
             "measured": {
@@ -938,12 +938,12 @@
           },
           {
             "id": "2",
+            "data": {
+              "label": "2"
+            },
             "position": {
               "x": -260,
               "y": 240
-            },
-            "data": {
-              "label": "2"
             },
             "measured": {
               "width": 150,
@@ -952,12 +952,12 @@
           },
           {
             "id": "4",
+            "data": {
+              "label": "4"
+            },
             "position": {
               "x": 0,
               "y": 520
-            },
-            "data": {
-              "label": "4"
             },
             "type": "output",
             "measured": {
@@ -968,12 +968,12 @@
         ],
         "getNode": {
           "id": "1",
+          "data": {
+            "label": "1"
+          },
           "position": {
             "x": 0,
             "y": 0
-          },
-          "data": {
-            "label": "1"
           },
           "type": "input",
           "measured": {
@@ -1053,12 +1053,12 @@
         "getIntersectingNodes": [
           {
             "id": "1",
+            "data": {
+              "label": "1"
+            },
             "position": {
               "x": 0,
               "y": 0
-            },
-            "data": {
-              "label": "1"
             },
             "type": "input",
             "measured": {
@@ -1068,12 +1068,12 @@
           },
           {
             "id": "2",
+            "data": {
+              "label": "2"
+            },
             "position": {
               "x": -260,
               "y": 240
-            },
-            "data": {
-              "label": "2"
             },
             "measured": {
               "width": 150,
@@ -1082,12 +1082,12 @@
           },
           {
             "id": "4",
+            "data": {
+              "label": "4"
+            },
             "position": {
               "x": 0,
               "y": 520
-            },
-            "data": {
-              "label": "4"
             },
             "type": "output",
             "measured": {
@@ -1125,12 +1125,12 @@
           "nodes": [
             {
               "id": "1",
+              "data": {
+                "label": "1"
+              },
               "position": {
                 "x": 0,
                 "y": 0
-              },
-              "data": {
-                "label": "1"
               },
               "type": "input",
               "measured": {
@@ -1140,12 +1140,12 @@
             },
             {
               "id": "2",
+              "data": {
+                "label": "2"
+              },
               "position": {
                 "x": -260,
                 "y": 240
-              },
-              "data": {
-                "label": "2"
               },
               "measured": {
                 "width": 150,
@@ -1154,12 +1154,12 @@
             },
             {
               "id": "4",
+              "data": {
+                "label": "4"
+              },
               "position": {
                 "x": 0,
                 "y": 520
-              },
-              "data": {
-                "label": "4"
               },
               "type": "output",
               "measured": {
@@ -1306,12 +1306,12 @@
             "deletedNodes": [
               {
                 "id": "3",
+                "data": {
+                  "label": "3"
+                },
                 "position": {
                   "x": 260,
                   "y": 240
-                },
-                "data": {
-                  "label": "3"
                 },
                 "measured": {
                   "width": 150,

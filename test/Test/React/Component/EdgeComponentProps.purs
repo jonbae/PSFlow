@@ -150,8 +150,11 @@ wrapperProps elementsSelectable =
   , disableKeyboardA11y: Just false
   }
 
+-- | These tests write the state and then render on the server, where React
+-- | reads the store's server snapshot, its initial state. They render the
+-- | state they wrote, so the store handed over serves that one instead.
 storeToOpaque :: Store Unit Unit -> OpaqueStore
-storeToOpaque = unsafeCoerce
+storeToOpaque store = unsafeCoerce (store { getInitialState = store.getState })
 
 -- | The props the edge component receives, in a flow with
 -- | `elementsSelectable`, holding `a` above `b` and `edge` between them.

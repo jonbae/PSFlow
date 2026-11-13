@@ -1381,7 +1381,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 53,
+            "timeStamp": 69,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1450,7 +1450,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 53,
+            "timeStamp": 69,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1486,20 +1486,20 @@
           },
           {
             "id": "default-node",
-            "position": {
-              "x": 0,
-              "y": -200
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar top",
               "toolbarPosition": "top"
             },
-            "type": "ToolbarNode",
+            "position": {
+              "x": 0,
+              "y": -200
+            },
+            "className": "react-flow__node-default",
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           }
         ]
       },
@@ -1524,7 +1524,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 53,
+            "timeStamp": 69,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1589,7 +1589,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 53,
+            "timeStamp": 69,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1623,20 +1623,20 @@
           },
           {
             "id": "default-node",
-            "position": {
-              "x": 0,
-              "y": -200
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar top",
               "toolbarPosition": "top"
             },
-            "type": "ToolbarNode",
+            "position": {
+              "x": 0,
+              "y": -200
+            },
+            "className": "react-flow__node-default",
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           }
         ]
       },
@@ -1673,7 +1673,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 112,
+            "timeStamp": 128,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1707,20 +1707,20 @@
           },
           {
             "id": "default-node",
-            "position": {
-              "x": 0,
-              "y": -200
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar top",
               "toolbarPosition": "top"
             },
-            "type": "ToolbarNode",
+            "position": {
+              "x": 0,
+              "y": -200
+            },
+            "className": "react-flow__node-default",
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           }
         ]
       },
@@ -1731,21 +1731,21 @@
             "nodes": [
               {
                 "id": "default-node",
-                "position": {
-                  "x": 0,
-                  "y": -200
-                },
+                "type": "ToolbarNode",
                 "data": {
                   "label": "toolbar top",
                   "toolbarPosition": "top"
                 },
-                "type": "ToolbarNode",
-                "selected": true,
+                "position": {
+                  "x": 0,
+                  "y": -200
+                },
+                "className": "react-flow__node-default",
                 "measured": {
                   "width": 150,
                   "height": 37
                 },
-                "className": "react-flow__node-default"
+                "selected": true
               }
             ],
             "edges": []
@@ -1759,268 +1759,268 @@
         "getNodes": [
           {
             "id": "default-node",
-            "position": {
-              "x": 0,
-              "y": -200
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar top",
               "toolbarPosition": "top"
             },
-            "type": "ToolbarNode",
-            "selected": true,
+            "position": {
+              "x": 0,
+              "y": -200
+            },
+            "className": "react-flow__node-default",
             "measured": {
               "width": 150,
               "height": 37
             },
-            "className": "react-flow__node-default"
+            "selected": true
           },
           {
             "id": "node-start-top",
-            "position": {
-              "x": 0,
-              "y": 0
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar top start",
               "toolbarPosition": "top",
               "toolbarAlign": "start",
               "toolbarVisible": true
             },
-            "type": "ToolbarNode",
+            "className": "react-flow__node-default",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           },
           {
             "id": "node-center-top",
-            "position": {
-              "x": 0,
-              "y": 100
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar top center",
               "toolbarPosition": "top",
               "toolbarAlign": "center",
               "toolbarVisible": true
             },
-            "type": "ToolbarNode",
+            "className": "react-flow__node-default",
+            "position": {
+              "x": 0,
+              "y": 100
+            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           },
           {
             "id": "node-end-top",
-            "position": {
-              "x": 0,
-              "y": 200
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar top end",
               "toolbarPosition": "top",
               "toolbarAlign": "end",
               "toolbarVisible": true
             },
-            "type": "ToolbarNode",
+            "className": "react-flow__node-default",
+            "position": {
+              "x": 0,
+              "y": 200
+            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           },
           {
             "id": "node-start-right",
-            "position": {
-              "x": 300,
-              "y": 0
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar right start",
               "toolbarPosition": "right",
               "toolbarAlign": "start",
               "toolbarVisible": true
             },
-            "type": "ToolbarNode",
+            "className": "react-flow__node-default",
+            "position": {
+              "x": 300,
+              "y": 0
+            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           },
           {
             "id": "node-center-right",
-            "position": {
-              "x": 300,
-              "y": 100
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar right center",
               "toolbarPosition": "right",
               "toolbarAlign": "center",
               "toolbarVisible": true
             },
-            "type": "ToolbarNode",
+            "className": "react-flow__node-default",
+            "position": {
+              "x": 300,
+              "y": 100
+            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           },
           {
             "id": "node-end-right",
-            "position": {
-              "x": 300,
-              "y": 200
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar right end",
               "toolbarPosition": "right",
               "toolbarAlign": "end",
               "toolbarVisible": true
             },
-            "type": "ToolbarNode",
+            "className": "react-flow__node-default",
+            "position": {
+              "x": 300,
+              "y": 200
+            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           },
           {
             "id": "node-start-bottom",
-            "position": {
-              "x": 600,
-              "y": 0
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar bottom start",
               "toolbarPosition": "bottom",
               "toolbarAlign": "start",
               "toolbarVisible": true
             },
-            "type": "ToolbarNode",
+            "className": "react-flow__node-default",
+            "position": {
+              "x": 600,
+              "y": 0
+            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           },
           {
             "id": "node-center-bottom",
-            "position": {
-              "x": 600,
-              "y": 100
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar bottom center",
               "toolbarPosition": "bottom",
               "toolbarAlign": "center",
               "toolbarVisible": true
             },
-            "type": "ToolbarNode",
+            "className": "react-flow__node-default",
+            "position": {
+              "x": 600,
+              "y": 100
+            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           },
           {
             "id": "node-end-bottom",
-            "position": {
-              "x": 600,
-              "y": 200
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar bottom end",
               "toolbarPosition": "bottom",
               "toolbarAlign": "end",
               "toolbarVisible": true
             },
-            "type": "ToolbarNode",
+            "className": "react-flow__node-default",
+            "position": {
+              "x": 600,
+              "y": 200
+            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           },
           {
             "id": "node-start-left",
-            "position": {
-              "x": 900,
-              "y": 0
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar left start",
               "toolbarPosition": "left",
               "toolbarAlign": "start",
               "toolbarVisible": true
             },
-            "type": "ToolbarNode",
+            "className": "react-flow__node-default",
+            "position": {
+              "x": 900,
+              "y": 0
+            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           },
           {
             "id": "node-center-left",
-            "position": {
-              "x": 900,
-              "y": 100
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar left center",
               "toolbarPosition": "left",
               "toolbarAlign": "center",
               "toolbarVisible": true
             },
-            "type": "ToolbarNode",
+            "className": "react-flow__node-default",
+            "position": {
+              "x": 900,
+              "y": 100
+            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           },
           {
             "id": "node-end-left",
-            "position": {
-              "x": 900,
-              "y": 200
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar left end",
               "toolbarPosition": "left",
               "toolbarAlign": "end",
               "toolbarVisible": true
             },
-            "type": "ToolbarNode",
+            "className": "react-flow__node-default",
+            "position": {
+              "x": 900,
+              "y": 200
+            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           }
         ],
         "getNode": {
           "id": "default-node",
-          "position": {
-            "x": 0,
-            "y": -200
-          },
+          "type": "ToolbarNode",
           "data": {
             "label": "toolbar top",
             "toolbarPosition": "top"
           },
-          "type": "ToolbarNode",
-          "selected": true,
+          "position": {
+            "x": 0,
+            "y": -200
+          },
+          "className": "react-flow__node-default",
           "measured": {
             "width": 150,
             "height": 37
           },
-          "className": "react-flow__node-default"
+          "selected": true
         },
         "getInternalNode": {
           "id": "default-node",
@@ -2106,249 +2106,249 @@
         "getIntersectingNodes": [
           {
             "id": "default-node",
-            "position": {
-              "x": 0,
-              "y": -200
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar top",
               "toolbarPosition": "top"
             },
-            "type": "ToolbarNode",
-            "selected": true,
+            "position": {
+              "x": 0,
+              "y": -200
+            },
+            "className": "react-flow__node-default",
             "measured": {
               "width": 150,
               "height": 37
             },
-            "className": "react-flow__node-default"
+            "selected": true
           },
           {
             "id": "node-start-top",
-            "position": {
-              "x": 0,
-              "y": 0
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar top start",
               "toolbarPosition": "top",
               "toolbarAlign": "start",
               "toolbarVisible": true
             },
-            "type": "ToolbarNode",
+            "className": "react-flow__node-default",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           },
           {
             "id": "node-center-top",
-            "position": {
-              "x": 0,
-              "y": 100
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar top center",
               "toolbarPosition": "top",
               "toolbarAlign": "center",
               "toolbarVisible": true
             },
-            "type": "ToolbarNode",
+            "className": "react-flow__node-default",
+            "position": {
+              "x": 0,
+              "y": 100
+            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           },
           {
             "id": "node-end-top",
-            "position": {
-              "x": 0,
-              "y": 200
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar top end",
               "toolbarPosition": "top",
               "toolbarAlign": "end",
               "toolbarVisible": true
             },
-            "type": "ToolbarNode",
+            "className": "react-flow__node-default",
+            "position": {
+              "x": 0,
+              "y": 200
+            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           },
           {
             "id": "node-start-right",
-            "position": {
-              "x": 300,
-              "y": 0
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar right start",
               "toolbarPosition": "right",
               "toolbarAlign": "start",
               "toolbarVisible": true
             },
-            "type": "ToolbarNode",
+            "className": "react-flow__node-default",
+            "position": {
+              "x": 300,
+              "y": 0
+            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           },
           {
             "id": "node-center-right",
-            "position": {
-              "x": 300,
-              "y": 100
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar right center",
               "toolbarPosition": "right",
               "toolbarAlign": "center",
               "toolbarVisible": true
             },
-            "type": "ToolbarNode",
+            "className": "react-flow__node-default",
+            "position": {
+              "x": 300,
+              "y": 100
+            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           },
           {
             "id": "node-end-right",
-            "position": {
-              "x": 300,
-              "y": 200
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar right end",
               "toolbarPosition": "right",
               "toolbarAlign": "end",
               "toolbarVisible": true
             },
-            "type": "ToolbarNode",
+            "className": "react-flow__node-default",
+            "position": {
+              "x": 300,
+              "y": 200
+            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           },
           {
             "id": "node-start-bottom",
-            "position": {
-              "x": 600,
-              "y": 0
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar bottom start",
               "toolbarPosition": "bottom",
               "toolbarAlign": "start",
               "toolbarVisible": true
             },
-            "type": "ToolbarNode",
+            "className": "react-flow__node-default",
+            "position": {
+              "x": 600,
+              "y": 0
+            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           },
           {
             "id": "node-center-bottom",
-            "position": {
-              "x": 600,
-              "y": 100
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar bottom center",
               "toolbarPosition": "bottom",
               "toolbarAlign": "center",
               "toolbarVisible": true
             },
-            "type": "ToolbarNode",
+            "className": "react-flow__node-default",
+            "position": {
+              "x": 600,
+              "y": 100
+            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           },
           {
             "id": "node-end-bottom",
-            "position": {
-              "x": 600,
-              "y": 200
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar bottom end",
               "toolbarPosition": "bottom",
               "toolbarAlign": "end",
               "toolbarVisible": true
             },
-            "type": "ToolbarNode",
+            "className": "react-flow__node-default",
+            "position": {
+              "x": 600,
+              "y": 200
+            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           },
           {
             "id": "node-start-left",
-            "position": {
-              "x": 900,
-              "y": 0
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar left start",
               "toolbarPosition": "left",
               "toolbarAlign": "start",
               "toolbarVisible": true
             },
-            "type": "ToolbarNode",
+            "className": "react-flow__node-default",
+            "position": {
+              "x": 900,
+              "y": 0
+            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           },
           {
             "id": "node-center-left",
-            "position": {
-              "x": 900,
-              "y": 100
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar left center",
               "toolbarPosition": "left",
               "toolbarAlign": "center",
               "toolbarVisible": true
             },
-            "type": "ToolbarNode",
+            "className": "react-flow__node-default",
+            "position": {
+              "x": 900,
+              "y": 100
+            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           },
           {
             "id": "node-end-left",
-            "position": {
-              "x": 900,
-              "y": 200
-            },
+            "type": "ToolbarNode",
             "data": {
               "label": "toolbar left end",
               "toolbarPosition": "left",
               "toolbarAlign": "end",
               "toolbarVisible": true
             },
-            "type": "ToolbarNode",
+            "className": "react-flow__node-default",
+            "position": {
+              "x": 900,
+              "y": 200
+            },
             "measured": {
               "width": 150,
               "height": 37
-            },
-            "className": "react-flow__node-default"
+            }
           }
         ],
         "isNodeIntersecting": true,
@@ -2380,249 +2380,249 @@
           "nodes": [
             {
               "id": "default-node",
-              "position": {
-                "x": 0,
-                "y": -200
-              },
+              "type": "ToolbarNode",
               "data": {
                 "label": "toolbar top",
                 "toolbarPosition": "top"
               },
-              "type": "ToolbarNode",
-              "selected": true,
+              "position": {
+                "x": 0,
+                "y": -200
+              },
+              "className": "react-flow__node-default",
               "measured": {
                 "width": 150,
                 "height": 37
               },
-              "className": "react-flow__node-default"
+              "selected": true
             },
             {
               "id": "node-start-top",
-              "position": {
-                "x": 0,
-                "y": 0
-              },
+              "type": "ToolbarNode",
               "data": {
                 "label": "toolbar top start",
                 "toolbarPosition": "top",
                 "toolbarAlign": "start",
                 "toolbarVisible": true
               },
-              "type": "ToolbarNode",
+              "className": "react-flow__node-default",
+              "position": {
+                "x": 0,
+                "y": 0
+              },
               "measured": {
                 "width": 150,
                 "height": 37
-              },
-              "className": "react-flow__node-default"
+              }
             },
             {
               "id": "node-center-top",
-              "position": {
-                "x": 0,
-                "y": 100
-              },
+              "type": "ToolbarNode",
               "data": {
                 "label": "toolbar top center",
                 "toolbarPosition": "top",
                 "toolbarAlign": "center",
                 "toolbarVisible": true
               },
-              "type": "ToolbarNode",
+              "className": "react-flow__node-default",
+              "position": {
+                "x": 0,
+                "y": 100
+              },
               "measured": {
                 "width": 150,
                 "height": 37
-              },
-              "className": "react-flow__node-default"
+              }
             },
             {
               "id": "node-end-top",
-              "position": {
-                "x": 0,
-                "y": 200
-              },
+              "type": "ToolbarNode",
               "data": {
                 "label": "toolbar top end",
                 "toolbarPosition": "top",
                 "toolbarAlign": "end",
                 "toolbarVisible": true
               },
-              "type": "ToolbarNode",
+              "className": "react-flow__node-default",
+              "position": {
+                "x": 0,
+                "y": 200
+              },
               "measured": {
                 "width": 150,
                 "height": 37
-              },
-              "className": "react-flow__node-default"
+              }
             },
             {
               "id": "node-start-right",
-              "position": {
-                "x": 300,
-                "y": 0
-              },
+              "type": "ToolbarNode",
               "data": {
                 "label": "toolbar right start",
                 "toolbarPosition": "right",
                 "toolbarAlign": "start",
                 "toolbarVisible": true
               },
-              "type": "ToolbarNode",
+              "className": "react-flow__node-default",
+              "position": {
+                "x": 300,
+                "y": 0
+              },
               "measured": {
                 "width": 150,
                 "height": 37
-              },
-              "className": "react-flow__node-default"
+              }
             },
             {
               "id": "node-center-right",
-              "position": {
-                "x": 300,
-                "y": 100
-              },
+              "type": "ToolbarNode",
               "data": {
                 "label": "toolbar right center",
                 "toolbarPosition": "right",
                 "toolbarAlign": "center",
                 "toolbarVisible": true
               },
-              "type": "ToolbarNode",
+              "className": "react-flow__node-default",
+              "position": {
+                "x": 300,
+                "y": 100
+              },
               "measured": {
                 "width": 150,
                 "height": 37
-              },
-              "className": "react-flow__node-default"
+              }
             },
             {
               "id": "node-end-right",
-              "position": {
-                "x": 300,
-                "y": 200
-              },
+              "type": "ToolbarNode",
               "data": {
                 "label": "toolbar right end",
                 "toolbarPosition": "right",
                 "toolbarAlign": "end",
                 "toolbarVisible": true
               },
-              "type": "ToolbarNode",
+              "className": "react-flow__node-default",
+              "position": {
+                "x": 300,
+                "y": 200
+              },
               "measured": {
                 "width": 150,
                 "height": 37
-              },
-              "className": "react-flow__node-default"
+              }
             },
             {
               "id": "node-start-bottom",
-              "position": {
-                "x": 600,
-                "y": 0
-              },
+              "type": "ToolbarNode",
               "data": {
                 "label": "toolbar bottom start",
                 "toolbarPosition": "bottom",
                 "toolbarAlign": "start",
                 "toolbarVisible": true
               },
-              "type": "ToolbarNode",
+              "className": "react-flow__node-default",
+              "position": {
+                "x": 600,
+                "y": 0
+              },
               "measured": {
                 "width": 150,
                 "height": 37
-              },
-              "className": "react-flow__node-default"
+              }
             },
             {
               "id": "node-center-bottom",
-              "position": {
-                "x": 600,
-                "y": 100
-              },
+              "type": "ToolbarNode",
               "data": {
                 "label": "toolbar bottom center",
                 "toolbarPosition": "bottom",
                 "toolbarAlign": "center",
                 "toolbarVisible": true
               },
-              "type": "ToolbarNode",
+              "className": "react-flow__node-default",
+              "position": {
+                "x": 600,
+                "y": 100
+              },
               "measured": {
                 "width": 150,
                 "height": 37
-              },
-              "className": "react-flow__node-default"
+              }
             },
             {
               "id": "node-end-bottom",
-              "position": {
-                "x": 600,
-                "y": 200
-              },
+              "type": "ToolbarNode",
               "data": {
                 "label": "toolbar bottom end",
                 "toolbarPosition": "bottom",
                 "toolbarAlign": "end",
                 "toolbarVisible": true
               },
-              "type": "ToolbarNode",
+              "className": "react-flow__node-default",
+              "position": {
+                "x": 600,
+                "y": 200
+              },
               "measured": {
                 "width": 150,
                 "height": 37
-              },
-              "className": "react-flow__node-default"
+              }
             },
             {
               "id": "node-start-left",
-              "position": {
-                "x": 900,
-                "y": 0
-              },
+              "type": "ToolbarNode",
               "data": {
                 "label": "toolbar left start",
                 "toolbarPosition": "left",
                 "toolbarAlign": "start",
                 "toolbarVisible": true
               },
-              "type": "ToolbarNode",
+              "className": "react-flow__node-default",
+              "position": {
+                "x": 900,
+                "y": 0
+              },
               "measured": {
                 "width": 150,
                 "height": 37
-              },
-              "className": "react-flow__node-default"
+              }
             },
             {
               "id": "node-center-left",
-              "position": {
-                "x": 900,
-                "y": 100
-              },
+              "type": "ToolbarNode",
               "data": {
                 "label": "toolbar left center",
                 "toolbarPosition": "left",
                 "toolbarAlign": "center",
                 "toolbarVisible": true
               },
-              "type": "ToolbarNode",
+              "className": "react-flow__node-default",
+              "position": {
+                "x": 900,
+                "y": 100
+              },
               "measured": {
                 "width": 150,
                 "height": 37
-              },
-              "className": "react-flow__node-default"
+              }
             },
             {
               "id": "node-end-left",
-              "position": {
-                "x": 900,
-                "y": 200
-              },
+              "type": "ToolbarNode",
               "data": {
                 "label": "toolbar left end",
                 "toolbarPosition": "left",
                 "toolbarAlign": "end",
                 "toolbarVisible": true
               },
-              "type": "ToolbarNode",
+              "className": "react-flow__node-default",
+              "position": {
+                "x": 900,
+                "y": 200
+              },
               "measured": {
                 "width": 150,
                 "height": 37
-              },
-              "className": "react-flow__node-default"
+              }
             }
           ],
           "edges": [

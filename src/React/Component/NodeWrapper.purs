@@ -295,8 +295,8 @@ mkNodeProps
 mkNodeProps node nodeType selectable draggable connectable dragging =
   { id: unwrap node.id
   , data: (unsafeCoerce node.data) :: Foreign
-  , width: node.width
-  , height: node.height
+  , width: dimensions.width
+  , height: dimensions.height
   , sourcePosition: node.sourcePosition
   , targetPosition: node.targetPosition
   , dragHandle: node.dragHandle
@@ -312,6 +312,10 @@ mkNodeProps node nodeType selectable draggable connectable dragging =
   , positionAbsoluteX: node.internals.positionAbsolute.x
   , positionAbsoluteY: node.internals.positionAbsolute.y
   }
+  where
+  -- Upstream spreads `getNodeDimensions(node)` onto the node component, which
+  -- falls back to 0 where ps-flow's helper returns `Nothing`.
+  dimensions = fromMaybe { width: 0.0, height: 0.0 } (getNodeDimensions node)
 
 -- ----------------------------------------------------------------------------
 -- The component
@@ -407,9 +411,11 @@ nodeWrapper =
             (mergeStyles baseStyle (fromMaybe emptyForeign (unsafeToForeign <$> node.style)))
             dimStyle
 
+        -- TS hands each handler `{ ...internals.userNode }`: the consumer's
+        -- node, which the boundary copies, rather than the internal one.
         fireMouseHandler :: Maybe (NodeMouseHandler n) -> MouseEvent -> Effect Unit
         fireMouseHandler mCb me = case mCb of
-          Just cb -> cb me userNode
+          Just cb -> cb me node.internals.userNode
           Nothing -> pure unit
 
         onMouseEnterHandler :: EventHandler

@@ -1550,12 +1550,12 @@
         "getNodes": [
           {
             "id": "1",
+            "data": {
+              "label": "1"
+            },
             "position": {
               "x": 0,
               "y": 0
-            },
-            "data": {
-              "label": "1"
             },
             "type": "input",
             "measured": {
@@ -1565,12 +1565,12 @@
           },
           {
             "id": "2",
+            "data": {
+              "label": "2"
+            },
             "position": {
               "x": -100,
               "y": 100
-            },
-            "data": {
-              "label": "2"
             },
             "measured": {
               "width": 150,
@@ -1579,24 +1579,24 @@
           },
           {
             "id": "3",
+            "data": {
+              "label": "3"
+            },
             "position": {
               "x": 100,
               "y": 100
-            },
-            "data": {
-              "label": "3"
             },
             "type": "__psflow_node_probe"
           }
         ],
         "getNode": {
           "id": "1",
+          "data": {
+            "label": "1"
+          },
           "position": {
             "x": 0,
             "y": 0
-          },
-          "data": {
-            "label": "1"
           },
           "type": "input",
           "measured": {
@@ -1676,12 +1676,12 @@
         "getIntersectingNodes": [
           {
             "id": "1",
+            "data": {
+              "label": "1"
+            },
             "position": {
               "x": 0,
               "y": 0
-            },
-            "data": {
-              "label": "1"
             },
             "type": "input",
             "measured": {
@@ -1691,12 +1691,12 @@
           },
           {
             "id": "2",
+            "data": {
+              "label": "2"
+            },
             "position": {
               "x": -100,
               "y": 100
-            },
-            "data": {
-              "label": "2"
             },
             "measured": {
               "width": 150,
@@ -1705,12 +1705,12 @@
           },
           {
             "id": "3",
+            "data": {
+              "label": "3"
+            },
             "position": {
               "x": 100,
               "y": 100
-            },
-            "data": {
-              "label": "3"
             },
             "type": "__psflow_node_probe"
           }
@@ -1758,12 +1758,12 @@
           "nodes": [
             {
               "id": "1",
+              "data": {
+                "label": "1"
+              },
               "position": {
                 "x": 0,
                 "y": 0
-              },
-              "data": {
-                "label": "1"
               },
               "type": "input",
               "measured": {
@@ -1773,12 +1773,12 @@
             },
             {
               "id": "2",
+              "data": {
+                "label": "2"
+              },
               "position": {
                 "x": -100,
                 "y": 100
-              },
-              "data": {
-                "label": "2"
               },
               "measured": {
                 "width": 150,
@@ -1787,12 +1787,12 @@
             },
             {
               "id": "3",
+              "data": {
+                "label": "3"
+              },
               "position": {
                 "x": 100,
                 "y": 100
-              },
-              "data": {
-                "label": "3"
               },
               "type": "__psflow_node_probe"
             }
@@ -1839,12 +1839,8 @@
         "data": {
           "label": "3"
         },
-        "width": {
-          "@undefined": true
-        },
-        "height": {
-          "@undefined": true
-        },
+        "width": 0,
+        "height": 0,
         "sourcePosition": {
           "@undefined": true
         },
@@ -1873,6 +1869,18 @@
       {
         "level": "info",
         "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+      },
+      {
+        "level": "warning",
+        "text": "[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections"
+      },
+      {
+        "level": "warning",
+        "text": "[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections"
+      },
+      {
+        "level": "warning",
+        "text": "[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections"
       }
     ],
     "driving": [

@@ -2067,8 +2067,8 @@
             "id": "not-selectable-edge",
             "source": "4",
             "target": "6",
-            "selectable": false,
-            "label": "not-selectable"
+            "label": "not-selectable",
+            "selectable": false
           }
         ]
       },
@@ -2194,8 +2194,8 @@
             "id": "not-selectable-edge",
             "source": "4",
             "target": "6",
-            "selectable": false,
-            "label": "not-selectable"
+            "label": "not-selectable",
+            "selectable": false
           }
         ]
       },
@@ -2256,8 +2256,8 @@
             "id": "not-selectable-edge",
             "source": "4",
             "target": "6",
-            "selectable": false,
-            "label": "not-selectable"
+            "label": "not-selectable",
+            "selectable": false
           }
         ]
       }
@@ -2268,12 +2268,12 @@
         "getNodes": [
           {
             "id": "1",
+            "data": {
+              "label": "1"
+            },
             "position": {
               "x": 0,
               "y": 0
-            },
-            "data": {
-              "label": "1"
             },
             "type": "input",
             "measured": {
@@ -2283,12 +2283,12 @@
           },
           {
             "id": "2",
+            "data": {
+              "label": "2"
+            },
             "position": {
               "x": -100,
               "y": 100
-            },
-            "data": {
-              "label": "2"
             },
             "measured": {
               "width": 150,
@@ -2297,12 +2297,12 @@
           },
           {
             "id": "3",
+            "data": {
+              "label": "3"
+            },
             "position": {
               "x": 100,
               "y": 100
-            },
-            "data": {
-              "label": "3"
             },
             "measured": {
               "width": 150,
@@ -2311,12 +2311,12 @@
           },
           {
             "id": "4",
+            "data": {
+              "label": "4"
+            },
             "position": {
               "x": -100,
               "y": 200
-            },
-            "data": {
-              "label": "4"
             },
             "measured": {
               "width": 150,
@@ -2325,12 +2325,12 @@
           },
           {
             "id": "5",
+            "data": {
+              "label": "5"
+            },
             "position": {
               "x": 100,
               "y": 200
-            },
-            "data": {
-              "label": "5"
             },
             "measured": {
               "width": 150,
@@ -2339,12 +2339,12 @@
           },
           {
             "id": "6",
+            "data": {
+              "label": "6"
+            },
             "position": {
               "x": -100,
               "y": 300
-            },
-            "data": {
-              "label": "6"
             },
             "measured": {
               "width": 150,
@@ -2353,12 +2353,12 @@
           },
           {
             "id": "7",
+            "data": {
+              "label": "7"
+            },
             "position": {
               "x": 100,
               "y": 300
-            },
-            "data": {
-              "label": "7"
             },
             "measured": {
               "width": 150,
@@ -2367,12 +2367,12 @@
           },
           {
             "id": "8",
+            "data": {
+              "label": "8"
+            },
             "position": {
               "x": -100,
               "y": 400
-            },
-            "data": {
-              "label": "8"
             },
             "measured": {
               "width": 150,
@@ -2381,12 +2381,12 @@
           },
           {
             "id": "9",
+            "data": {
+              "label": "9"
+            },
             "position": {
               "x": 100,
               "y": 400
-            },
-            "data": {
-              "label": "9"
             },
             "measured": {
               "width": 150,
@@ -2395,12 +2395,12 @@
           },
           {
             "id": "10",
+            "data": {
+              "label": "10"
+            },
             "position": {
               "x": -100,
               "y": 500
-            },
-            "data": {
-              "label": "10"
             },
             "measured": {
               "width": 150,
@@ -2409,12 +2409,12 @@
           },
           {
             "id": "11",
+            "data": {
+              "label": "11"
+            },
             "position": {
               "x": 100,
               "y": 500
-            },
-            "data": {
-              "label": "11"
             },
             "measured": {
               "width": 150,
@@ -2423,12 +2423,12 @@
           },
           {
             "id": "12",
+            "data": {
+              "label": "12"
+            },
             "position": {
               "x": 100,
               "y": 600
-            },
-            "data": {
-              "label": "12"
             },
             "width": 200,
             "height": 100,
@@ -2439,16 +2439,16 @@
           },
           {
             "id": "12-a",
+            "parentId": "12",
+            "data": {
+              "label": "12-a"
+            },
             "position": {
               "x": 10,
               "y": 20
             },
-            "data": {
-              "label": "12-a"
-            },
             "width": 50,
             "height": 50,
-            "parentId": "12",
             "measured": {
               "width": 50,
               "height": 50
@@ -2456,16 +2456,16 @@
           },
           {
             "id": "12-b",
+            "parentId": "12",
+            "data": {
+              "label": "12-b"
+            },
             "position": {
               "x": 140,
               "y": 20
             },
-            "data": {
-              "label": "12-b"
-            },
             "width": 50,
             "height": 50,
-            "parentId": "12",
             "measured": {
               "width": 50,
               "height": 50
@@ -2474,12 +2474,12 @@
         ],
         "getNode": {
           "id": "1",
+          "data": {
+            "label": "1"
+          },
           "position": {
             "x": 0,
             "y": 0
-          },
-          "data": {
-            "label": "1"
           },
           "type": "input",
           "measured": {
@@ -2558,36 +2558,36 @@
             "id": "hidden-edge",
             "source": "2",
             "target": "4",
-            "hidden": true,
-            "label": "hidden"
+            "label": "hidden",
+            "hidden": true
           },
           {
             "id": "animated-edge",
             "source": "3",
             "target": "5",
-            "animated": true,
-            "label": "animated"
+            "label": "animated",
+            "animated": true
           },
           {
             "id": "not-selectable-edge",
             "source": "4",
             "target": "6",
-            "selectable": false,
-            "label": "not-selectable"
+            "label": "not-selectable",
+            "selectable": false
           },
           {
             "id": "not-deletable",
             "source": "5",
             "target": "7",
-            "deletable": false,
-            "label": "not-deletable"
+            "label": "not-deletable",
+            "deletable": false
           },
           {
             "id": "z-index",
             "source": "6",
             "target": "8",
-            "zIndex": 3141592,
-            "label": "z-index"
+            "label": "z-index",
+            "zIndex": 3141592
           },
           {
             "id": "aria-label",
@@ -2607,13 +2607,13 @@
             "id": "markers",
             "source": "9",
             "target": "11",
-            "markerStart": {
-              "type": "arrowclosed"
-            },
+            "label": "markers",
             "markerEnd": {
               "type": "arrow"
             },
-            "label": "markers"
+            "markerStart": {
+              "type": "arrowclosed"
+            }
           },
           {
             "id": "subflow-edge",
@@ -2635,12 +2635,12 @@
         "getIntersectingNodes": [
           {
             "id": "1",
+            "data": {
+              "label": "1"
+            },
             "position": {
               "x": 0,
               "y": 0
-            },
-            "data": {
-              "label": "1"
             },
             "type": "input",
             "measured": {
@@ -2650,12 +2650,12 @@
           },
           {
             "id": "2",
+            "data": {
+              "label": "2"
+            },
             "position": {
               "x": -100,
               "y": 100
-            },
-            "data": {
-              "label": "2"
             },
             "measured": {
               "width": 150,
@@ -2664,12 +2664,12 @@
           },
           {
             "id": "3",
+            "data": {
+              "label": "3"
+            },
             "position": {
               "x": 100,
               "y": 100
-            },
-            "data": {
-              "label": "3"
             },
             "measured": {
               "width": 150,
@@ -2678,12 +2678,12 @@
           },
           {
             "id": "4",
+            "data": {
+              "label": "4"
+            },
             "position": {
               "x": -100,
               "y": 200
-            },
-            "data": {
-              "label": "4"
             },
             "measured": {
               "width": 150,
@@ -2692,12 +2692,12 @@
           },
           {
             "id": "5",
+            "data": {
+              "label": "5"
+            },
             "position": {
               "x": 100,
               "y": 200
-            },
-            "data": {
-              "label": "5"
             },
             "measured": {
               "width": 150,
@@ -2706,12 +2706,12 @@
           },
           {
             "id": "6",
+            "data": {
+              "label": "6"
+            },
             "position": {
               "x": -100,
               "y": 300
-            },
-            "data": {
-              "label": "6"
             },
             "measured": {
               "width": 150,
@@ -2720,12 +2720,12 @@
           },
           {
             "id": "7",
+            "data": {
+              "label": "7"
+            },
             "position": {
               "x": 100,
               "y": 300
-            },
-            "data": {
-              "label": "7"
             },
             "measured": {
               "width": 150,
@@ -2734,12 +2734,12 @@
           },
           {
             "id": "8",
+            "data": {
+              "label": "8"
+            },
             "position": {
               "x": -100,
               "y": 400
-            },
-            "data": {
-              "label": "8"
             },
             "measured": {
               "width": 150,
@@ -2748,12 +2748,12 @@
           },
           {
             "id": "9",
+            "data": {
+              "label": "9"
+            },
             "position": {
               "x": 100,
               "y": 400
-            },
-            "data": {
-              "label": "9"
             },
             "measured": {
               "width": 150,
@@ -2762,12 +2762,12 @@
           },
           {
             "id": "10",
+            "data": {
+              "label": "10"
+            },
             "position": {
               "x": -100,
               "y": 500
-            },
-            "data": {
-              "label": "10"
             },
             "measured": {
               "width": 150,
@@ -2776,12 +2776,12 @@
           },
           {
             "id": "11",
+            "data": {
+              "label": "11"
+            },
             "position": {
               "x": 100,
               "y": 500
-            },
-            "data": {
-              "label": "11"
             },
             "measured": {
               "width": 150,
@@ -2790,12 +2790,12 @@
           },
           {
             "id": "12",
+            "data": {
+              "label": "12"
+            },
             "position": {
               "x": 100,
               "y": 600
-            },
-            "data": {
-              "label": "12"
             },
             "width": 200,
             "height": 100,
@@ -2806,16 +2806,16 @@
           },
           {
             "id": "12-a",
+            "parentId": "12",
+            "data": {
+              "label": "12-a"
+            },
             "position": {
               "x": 10,
               "y": 20
             },
-            "data": {
-              "label": "12-a"
-            },
             "width": 50,
             "height": 50,
-            "parentId": "12",
             "measured": {
               "width": 50,
               "height": 50
@@ -2823,16 +2823,16 @@
           },
           {
             "id": "12-b",
+            "parentId": "12",
+            "data": {
+              "label": "12-b"
+            },
             "position": {
               "x": 140,
               "y": 20
             },
-            "data": {
-              "label": "12-b"
-            },
             "width": 50,
             "height": 50,
-            "parentId": "12",
             "measured": {
               "width": 50,
               "height": 50
@@ -2882,12 +2882,12 @@
           "nodes": [
             {
               "id": "1",
+              "data": {
+                "label": "1"
+              },
               "position": {
                 "x": 0,
                 "y": 0
-              },
-              "data": {
-                "label": "1"
               },
               "type": "input",
               "measured": {
@@ -2897,12 +2897,12 @@
             },
             {
               "id": "2",
+              "data": {
+                "label": "2"
+              },
               "position": {
                 "x": -100,
                 "y": 100
-              },
-              "data": {
-                "label": "2"
               },
               "measured": {
                 "width": 150,
@@ -2911,12 +2911,12 @@
             },
             {
               "id": "3",
+              "data": {
+                "label": "3"
+              },
               "position": {
                 "x": 100,
                 "y": 100
-              },
-              "data": {
-                "label": "3"
               },
               "measured": {
                 "width": 150,
@@ -2925,12 +2925,12 @@
             },
             {
               "id": "4",
+              "data": {
+                "label": "4"
+              },
               "position": {
                 "x": -100,
                 "y": 200
-              },
-              "data": {
-                "label": "4"
               },
               "measured": {
                 "width": 150,
@@ -2939,12 +2939,12 @@
             },
             {
               "id": "5",
+              "data": {
+                "label": "5"
+              },
               "position": {
                 "x": 100,
                 "y": 200
-              },
-              "data": {
-                "label": "5"
               },
               "measured": {
                 "width": 150,
@@ -2953,12 +2953,12 @@
             },
             {
               "id": "6",
+              "data": {
+                "label": "6"
+              },
               "position": {
                 "x": -100,
                 "y": 300
-              },
-              "data": {
-                "label": "6"
               },
               "measured": {
                 "width": 150,
@@ -2967,12 +2967,12 @@
             },
             {
               "id": "7",
+              "data": {
+                "label": "7"
+              },
               "position": {
                 "x": 100,
                 "y": 300
-              },
-              "data": {
-                "label": "7"
               },
               "measured": {
                 "width": 150,
@@ -2981,12 +2981,12 @@
             },
             {
               "id": "8",
+              "data": {
+                "label": "8"
+              },
               "position": {
                 "x": -100,
                 "y": 400
-              },
-              "data": {
-                "label": "8"
               },
               "measured": {
                 "width": 150,
@@ -2995,12 +2995,12 @@
             },
             {
               "id": "9",
+              "data": {
+                "label": "9"
+              },
               "position": {
                 "x": 100,
                 "y": 400
-              },
-              "data": {
-                "label": "9"
               },
               "measured": {
                 "width": 150,
@@ -3009,12 +3009,12 @@
             },
             {
               "id": "10",
+              "data": {
+                "label": "10"
+              },
               "position": {
                 "x": -100,
                 "y": 500
-              },
-              "data": {
-                "label": "10"
               },
               "measured": {
                 "width": 150,
@@ -3023,12 +3023,12 @@
             },
             {
               "id": "11",
+              "data": {
+                "label": "11"
+              },
               "position": {
                 "x": 100,
                 "y": 500
-              },
-              "data": {
-                "label": "11"
               },
               "measured": {
                 "width": 150,
@@ -3037,12 +3037,12 @@
             },
             {
               "id": "12",
+              "data": {
+                "label": "12"
+              },
               "position": {
                 "x": 100,
                 "y": 600
-              },
-              "data": {
-                "label": "12"
               },
               "width": 200,
               "height": 100,
@@ -3053,16 +3053,16 @@
             },
             {
               "id": "12-a",
+              "parentId": "12",
+              "data": {
+                "label": "12-a"
+              },
               "position": {
                 "x": 10,
                 "y": 20
               },
-              "data": {
-                "label": "12-a"
-              },
               "width": 50,
               "height": 50,
-              "parentId": "12",
               "measured": {
                 "width": 50,
                 "height": 50
@@ -3070,16 +3070,16 @@
             },
             {
               "id": "12-b",
+              "parentId": "12",
+              "data": {
+                "label": "12-b"
+              },
               "position": {
                 "x": 140,
                 "y": 20
               },
-              "data": {
-                "label": "12-b"
-              },
               "width": 50,
               "height": 50,
-              "parentId": "12",
               "measured": {
                 "width": 50,
                 "height": 50
@@ -3105,36 +3105,36 @@
               "id": "hidden-edge",
               "source": "2",
               "target": "4",
-              "hidden": true,
-              "label": "hidden"
+              "label": "hidden",
+              "hidden": true
             },
             {
               "id": "animated-edge",
               "source": "3",
               "target": "5",
-              "animated": true,
-              "label": "animated"
+              "label": "animated",
+              "animated": true
             },
             {
               "id": "not-selectable-edge",
               "source": "4",
               "target": "6",
-              "selectable": false,
-              "label": "not-selectable"
+              "label": "not-selectable",
+              "selectable": false
             },
             {
               "id": "not-deletable",
               "source": "5",
               "target": "7",
-              "deletable": false,
-              "label": "not-deletable"
+              "label": "not-deletable",
+              "deletable": false
             },
             {
               "id": "z-index",
               "source": "6",
               "target": "8",
-              "zIndex": 3141592,
-              "label": "z-index"
+              "label": "z-index",
+              "zIndex": 3141592
             },
             {
               "id": "aria-label",
@@ -3154,13 +3154,13 @@
               "id": "markers",
               "source": "9",
               "target": "11",
-              "markerStart": {
-                "type": "arrowclosed"
-              },
+              "label": "markers",
               "markerEnd": {
                 "type": "arrow"
               },
-              "label": "markers"
+              "markerStart": {
+                "type": "arrowclosed"
+              }
             },
             {
               "id": "subflow-edge",

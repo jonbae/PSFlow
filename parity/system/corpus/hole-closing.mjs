@@ -44,6 +44,11 @@ const CONTROLLED_VIEWPORT = routeOf("./viewport/controlled.ts");
 const PAN_ON_SCROLL = routeOf("./viewport/pan-on-scroll.ts");
 const NOT_SELECTABLE = routeOf("./flow/not-selectable.ts");
 const RESIZE_LIFECYCLE = routeOf("./resize/lifecycle.ts");
+const EDGES = routeOf("./edges/general.ts");
+const EDGE_TYPES = routeOf("./edges/types.ts");
+const DEFAULT_EDGE_OPTIONS = routeOf("./edges/default-options.ts");
+const NODES = routeOf("./nodes/general.ts");
+const AUTOPAN = routeOf("./nodes/autopan.ts");
 
 const control = (name) => `[data-testid="${name}"]`;
 
@@ -220,5 +225,102 @@ const holeClosing = [
     },
   },
 ];
+
+// Step 3 H: the witnesses `coverage/holes.json` declared nothing had driven.
+holeClosing.push(
+  // A click on the consumer's own `custom` edge, which selects it and so shows
+  // its `EdgeToolbar`: upstream's toolbar follows the edge's selection unless
+  // `isVisible` says otherwise. The mount baseline of `edges/types.ts` already
+  // carries the label and the viewport portal; this is the toolbar's witness,
+  // and it is driven by the condition that decides whether one renders.
+  {
+    id: "click-reveals-edge-toolbar",
+    route: EDGE_TYPES,
+    run: (a) => a.click(".react-flow__edge-custom"),
+  },
+
+  // The target end of `edge-with-class` (1 to 2) dragged onto node 5's target
+  // handle. The driver installs `onReconnect`, which is what draws the
+  // reconnect anchors, and nothing had ever dragged one; this is the gesture,
+  // and `onReconnectStart`, `onReconnect` and `onReconnectEnd` its receipts.
+  // The fixture's own `onReconnect` is absent, so the edge stays where it was.
+  {
+    id: "reconnect-edge-to-another-handle",
+    route: EDGES,
+    async run(a) {
+      await a.pointerDown('g[data-id="edge-with-class"] circle.react-flow__edgeupdater-target');
+      await a.pointerMove(null, { dx: 40, dy: 40 });
+      await a.pointerMove('.react-flow__node[data-id="5"] .react-flow__handle.target');
+      await a.pointerUp(null);
+    },
+  },
+
+  // Issue #111: a selection of more than one node, dragged by its selection
+  // rectangle. The box is `shift-drag-selects-nodes`' own, which selects two
+  // nodes and leaves the rectangle up; the drag starts on the rectangle rather
+  // than on a node, which is the branch upstream's `XYDrag` reports through
+  // `onSelectionDragStart`, `onSelectionDrag` and `onSelectionDragStop`.
+  {
+    id: "drag-selection-moves-selected-nodes",
+    route: NODES,
+    async run(a) {
+      await a.selectionBox(
+        { target: ".react-flow__node", origin: "topLeft", dx: -150, dy: -25 },
+        { target: ".react-flow__node", origin: "topLeft", dx: 275, dy: 200 }
+      );
+      await a.dragNode(".react-flow__nodesselection-rect", { dx: 60, dy: 40, steps: 3 });
+    },
+  },
+
+  // A click on an edge that `defaultEdgeOptions` completed, a click on a node,
+  // then a drag of it. Upstream hands `onEdgeClick` the merged edge,
+  // `{ ...defaultEdgeOptions, ...edge }`, `onNodeClick` `{ ...internals.userNode
+  // }`, and the three drag handlers `{ ...userNode, position, dragging }`, so
+  // each payload carries the fixture's `owner` key, which no type declares.
+  // The edge is clicked on the label the options gave it, which is drawn
+  // inside the edge's own `<g>` and so reaches the same handler.
+  {
+    id: "handlers-keep-consumer-keys",
+    route: DEFAULT_EDGE_OPTIONS,
+    async run(a) {
+      await a.click('g[data-id="1-2"] .react-flow__edge-textwrapper');
+      await a.click('.react-flow__node[data-id="Node-2"]');
+      await a.dragNode('.react-flow__node[data-id="Node-2"]', { dx: 40, dy: 20, steps: 2 });
+    },
+  },
+
+  // Issue #108: auto-pan held past the translate extent. `drag-node-autopan`
+  // reaches the extent on its last driven frame, so no frame after it is ever
+  // refused. Four more inputs at the pane's corner each advance two frames
+  // against the extent; upstream's `panBy` reports that nothing moved, and the
+  // frame neither pans nor drags the node. The receipts are the `onMove` and
+  // `onNodeDrag` calls that do not happen after the viewport reaches it.
+  {
+    id: "drag-node-autopan-past-extent",
+    route: AUTOPAN,
+    async run(a) {
+      await a.pointerDown('.react-flow__node[data-id="Node-1"]');
+      for (const [dx, dy] of [[6, 6], [5, 6], [6, 5], [5, 5], [6, 6], [5, 6], [6, 5], [5, 5]]) {
+        await a.pointerMove(".react-flow__pane", { origin: "topLeft", dx, dy });
+      }
+      await a.pointerUp(null);
+    },
+  },
+
+  // `addEdges` and `updateEdge` on a controlled flow. The edge pair's hole said
+  // nothing raised an edge `add` or `replace`, and that holds for an
+  // uncontrolled flow, which `uncontrolled-update-node` drives: there upstream
+  // sets the edges directly. A controlled flow has no edges of its own to set,
+  // so upstream's batch hands the difference to `onEdgesChange` instead, as
+  // one `add` change and one `replace` change.
+  {
+    id: "controlled-add-and-update-edge",
+    route: EDGES,
+    async run(a) {
+      await a.call("addEdges", [{ id: "added-edge", source: "4", target: "5" }]);
+      await a.call("updateEdge", ["edge-with-style", { label: "updated edge" }]);
+    },
+  }
+);
 
 export const holeClosingScenarios = holeClosing.map(defineScenario);

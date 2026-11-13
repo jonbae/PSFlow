@@ -1,0 +1,9 @@
+
+> ps-flow@0.0.0 parity:changelog
+> node parity/changelog-audit/extract-entries.mjs && node parity/changelog-audit/audit.mjs
+
+[extract-entries] react 12.11.0 (>12.3.5) / system 0.0.77 (>0.0.46): 154 react + 85 system entries → 180 unique PRs → /Users/jonathanbae/repos/PSFlow/parity/changelog-audit/entries.json
+[audit] 180 PRs: covered=119 gaps=56 accepted=3 n/a=2
+[audit] 50 gate-pending row(s), 0 naming a scenario the corpus has reserved but not written
+[audit] report → /Users/jonathanbae/repos/PSFlow/parity/changelog-audit/report.md
+[audit] OK: every in-range PR has a well-formed verdict.

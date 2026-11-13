@@ -38,7 +38,7 @@ import System.XYResizer (ControlLinePosition(..), ControlPosition(..), CornerPos
 import System.XYResizer.Utils as ResizerU
 import System.XYMinimap as XYMinimap
 import Data.Either (Either(..))
-import Data.Number (abs) as Number
+import Data.Number (abs, nan) as Number
 import Data.Tuple (Tuple(..))
 import React.Container.Pane.Internal (buildPaneClass, paneIsDraggable)
 import Test.React.Node.ArrowKeyMessage (runArrowKeyMessageTests)
@@ -984,6 +984,29 @@ main = do
     (case near of
       Just _ -> true
       Nothing -> false)
+
+  -- Step 3 H: upstream's loop passes over a handle whose distance is `NaN`
+  -- (`NaN < minDistance` and `NaN === minDistance` are both false), so the
+  -- finite handle before it is still the closest. A `min` fold took the `NaN`
+  -- as the minimum and matched nothing.
+  let
+    nanTarget = handleT { x = Number.nan }
+    lookupNaN =
+      Map.fromFoldable
+        [ Tuple (NodeId "n1")
+            nodeWithHandles
+              { internals = nodeWithHandles.internals
+                  { handleBounds = Just
+                      { source: Just [ SourceHandle handleS ]
+                      , target: Just [ TargetHandle nanTarget ]
+                      }
+                  }
+              }
+        ] :: NodeLookup Unit
+    closestPastNaN = XYHandle.getClosestHandle { x: 108.0, y: 58.0 } 50.0 lookupNaN
+      { nodeId: NodeId "other", id: HandleIdNull, handleType: Target }
+  assert "getClosestHandle: a NaN distance is passed over, as upstream's loop does"
+    (map _.id closestPastNaN == Just (HandleIdSet "out"))
 
   -- 019: XYResizer pure utilities --------------------------------------------
 

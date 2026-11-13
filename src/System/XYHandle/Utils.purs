@@ -144,12 +144,18 @@ getClosestHandle position connectionRadius lookup fromHandle =
       []
       pairs
 
-    minDistance = Array.foldl (\acc r -> min acc r.distance) infinity annotated
-
-    closest = Array.foldl
-      ( \acc r -> if r.distance == minDistance then acc <> [ r.handle ] else acc
+    -- Upstream's loop: a strictly nearer handle replaces the set, an equally
+    -- near one joins it, and anything else, a `NaN` distance included, is
+    -- passed over.
+    closest = _.handles $ Array.foldl
+      ( \acc r ->
+          if r.distance < acc.minDistance then
+            { minDistance: r.distance, handles: [ r.handle ] }
+          else if r.distance == acc.minDistance then
+            acc { handles = acc.handles <> [ r.handle ] }
+          else acc
       )
-      []
+      { minDistance: infinity, handles: [] }
       annotated
 
     oppositeType = case fromHandle.handleType of

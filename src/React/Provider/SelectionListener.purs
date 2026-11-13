@@ -6,6 +6,8 @@
 -- | TS uses two components — a thin outer one that decides whether to
 -- | mount the inner subscriber, and the inner subscriber itself. PS does
 -- | the same: only the inner subscribes to the store and runs an effect.
+-- | `<ReactFlow />` renders it before its children, as TS does, so its
+-- | mount effect runs before any child's.
 -- |
 -- | **Eq-dedup via id arrays.** TS uses `shallow(a.map(id), b.map(id))`
 -- | as the equality comparator for `useStore`. `Selected`'s `Eq` compares
@@ -19,10 +21,10 @@ module React.Provider.SelectionListener
 
 import Prelude
 
-import Data.Array (filter, null) as Array
+import Data.Array (mapMaybe) as Array
 import Data.Foldable (for_)
 import Data.Map (lookup) as Map
-import Data.Maybe (Maybe(..), isJust)
+import Data.Maybe (Maybe(..))
 import Effect.Unsafe (unsafePerformEffect)
 import React.Basic (ReactComponent, element)
 import React.Basic.Hooks (UnsafeReference(..), reactComponent, useEffect)
@@ -40,23 +42,27 @@ instance eqSelected :: Eq (Selected n e) where
   eq (Selected a) (Selected b) =
     map _.id a.nodes == map _.id b.nodes && map _.id a.edges == map _.id b.edges
 
--- | TS's `selector`: for each node whose internal node is selected, its
+-- | TS's `selector`: for each internal node that is selected, its
 -- | `internals.userNode`, and each selected edge in the edge lookup.
 -- |
 -- | A selection box or a click sets the internal node's `selected` in place,
 -- | which notifies nobody, so this reads it at the next update that does. A
 -- | box's own `setState` follows at once, so a controlled flow reports the
 -- | boxed nodes as the consumer gave them. A click has none, so it reports
--- | the node when the consumer's update lands, selected. ps-flow's internal
--- | node has no `userNode`, so the user's node is the one in `nodes`, which
--- | is also the lookup's order.
+-- | the node when the consumer's update lands, selected. Upstream walks the
+-- | lookups in insertion order; ps-flow's lookups are ordered maps, so the
+-- | walk follows `nodes` and `edges`, which are the order they were filled in.
 selectSelected :: forall n e. ReactFlowState n e -> Selected n e
 selectSelected s = Selected
-  { nodes: Array.filter
-      (\n -> (Map.lookup n.id s.nodeLookup >>= _.selected) == Just true)
+  { nodes: Array.mapMaybe
+      ( \n -> Map.lookup n.id s.nodeLookup >>= \internal ->
+          if internal.selected == Just true then Just internal.internals.userNode else Nothing
+      )
       s.nodes
-  , edges: Array.filter
-      (\e -> (Map.lookup e.id s.edgeLookup >>= _.selected) == Just true)
+  , edges: Array.mapMaybe
+      ( \e -> Map.lookup e.id s.edgeLookup >>= \edge ->
+          if edge.selected == Just true then Just edge else Nothing
+      )
       s.edges
   }
 
@@ -77,12 +83,13 @@ selectionListenerInner =
         pure (pure unit)
       pure mempty
 
+-- | TS mounts the inner component when `onSelectionChange || !!s.onSelectionChangeHandlers`.
+-- | The handlers are an array, which is always truthy, so the inner one is
+-- | always mounted. That matters: a handler `useOnSelectionChange` registers
+-- | after the mount is not called until the selection changes, because the
+-- | inner component's effect has already run.
 selectionListener :: forall n e. ReactComponent (SelectionListenerProps n e)
 selectionListener =
   unsafePerformEffect $ reactComponent "SelectionListener"
-    \(props :: SelectionListenerProps n e) -> React.do
-      hasHandlers <- useStore (not <<< Array.null <<< _.onSelectionChangeHandlers)
-      pure $
-        if isJust props.onSelectionChange || hasHandlers
-          then element selectionListenerInner props
-          else mempty
+    \(props :: SelectionListenerProps n e) ->
+      pure (element selectionListenerInner props)

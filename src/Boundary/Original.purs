@@ -9,17 +9,19 @@
 module Boundary.Original
   ( remembering
   , originalOf
+  , stably
   ) where
 
 import Prelude
 
-import Data.Function.Uncurried (Fn2, runFn2)
+import Data.Function.Uncurried (Fn2, Fn3, runFn2, runFn3)
 import Data.Maybe (Maybe)
 import Data.Nullable (Nullable, toMaybe)
 import Foreign (Foreign, unsafeToForeign)
 
 foreign import rememberOriginal :: forall a. Fn2 Foreign a a
 foreign import originalOf_ :: forall a. a -> Nullable Foreign
+foreign import stablyImpl :: forall js ps. Fn3 String (js -> ps) js ps
 
 -- | Convert, and keep the original beside the result.
 remembering :: forall js ps. (js -> ps) -> js -> ps
@@ -27,3 +29,11 @@ remembering convert js = runFn2 rememberOriginal (unsafeToForeign js) (convert j
 
 originalOf :: forall a. a -> Maybe Foreign
 originalOf = toMaybe <<< originalOf_
+
+-- | `convert`, made once per consumer value for the prop `key`. Upstream
+-- | compares a prop the consumer passes again with `!==` and finds nothing
+-- | changed; a conversion made on every render would be a new value each time,
+-- | which `<StoreUpdater />` re-dispatches and a `memo` boundary re-renders on.
+-- | The conversion must depend on nothing but the value it is handed.
+stably :: forall js ps. String -> (js -> ps) -> js -> ps
+stably key convert js = runFn3 stablyImpl key convert js

@@ -151,6 +151,7 @@ import System.Types.Edge
   , EdgePathOptions
   , EdgeReconnectable(..)
   , originalUserEdge
+  , rememberDefaultEdgeOptions
   , rememberUserEdge
   )
 import System.Types.Geometry (CoordinateExtent, NodeOrigin, SnapGrid)
@@ -374,8 +375,8 @@ type JsEdgePathOptions =
 type JsNodeProps =
   { id :: String
   , data :: Foreign
-  , width :: Undefinable Number
-  , height :: Undefinable Number
+  , width :: Number
+  , height :: Number
   , sourcePosition :: Undefinable String
   , targetPosition :: Undefinable String
   , dragHandle :: Undefinable String
@@ -1076,7 +1077,11 @@ type JsDefaultEdgeOptions =
 -- | Remembers the consumer's object, which is what upstream's store holds
 -- | and what `defaultEdgeOptionsOut` hands back.
 defaultEdgeOptionsIn :: JsDefaultEdgeOptions -> DefaultEdgeOptions Foreign
-defaultEdgeOptionsIn = remembering \o ->
+defaultEdgeOptionsIn js =
+  runFn2 rememberDefaultEdgeOptions (unsafeToForeign js) (decodeDefaultEdgeOptions js)
+
+decodeDefaultEdgeOptions :: JsDefaultEdgeOptions -> DefaultEdgeOptions Foreign
+decodeDefaultEdgeOptions = remembering \o ->
   { edgeType: fromUndefinable o.type
   , animated: fromUndefinable o.animated
   , hidden: fromUndefinable o.hidden
@@ -1143,8 +1148,8 @@ nodePropsOut :: NodeProps Foreign -> JsNodeProps
 nodePropsOut p =
   { id: p.id
   , data: p.data
-  , width: toUndefinable p.width
-  , height: toUndefinable p.height
+  , width: p.width
+  , height: p.height
   , sourcePosition: toUndefinable (map positionOut p.sourcePosition)
   , targetPosition: toUndefinable (map positionOut p.targetPosition)
   , dragHandle: toUndefinable p.dragHandle
@@ -1419,10 +1424,12 @@ viewportIn v = { x: v.x, y: v.y, zoom: v.zoom }
 viewportOut :: Viewport -> JsViewport
 viewportOut v = { x: v.x, y: v.y, zoom: v.zoom }
 
+-- | Upstream hands these three callbacks the consumer's own node and edge
+-- | objects, so a node or edge decoded from one crosses back as that object.
 graphSelectionOut
   :: { nodes :: Array (NodeBase Foreign), edges :: Array (EdgeBase Foreign) }
   -> JsGraphSelection
 graphSelectionOut s =
-  { nodes: map nodeOut s.nodes
-  , edges: map edgeOut s.edges
+  { nodes: map nodeIdentityOut s.nodes
+  , edges: map edgeIdentityOut s.edges
   }

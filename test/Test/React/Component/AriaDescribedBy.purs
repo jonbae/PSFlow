@@ -174,8 +174,11 @@ edgeProps a11y =
   , disableKeyboardA11y: Just a11y.keyboardA11yOff
   }
 
+-- | These tests write the state and then render on the server, where React
+-- | reads the store's server snapshot, its initial state. They render the
+-- | state they wrote, so the store handed over serves that one instead.
 storeToOpaque :: Store Unit Unit -> OpaqueStore
-storeToOpaque = unsafeCoerce
+storeToOpaque store = unsafeCoerce (store { getInitialState = store.getState })
 
 -- | The wrapper's markup, rendered inside a store holding `a` above `b` and
 -- | the edge between them.

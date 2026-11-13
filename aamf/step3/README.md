@@ -1,13 +1,11 @@
 # Step 3 execution evidence
 
-**Latest checkpoint (November 12 UTC): Order G complete; 105/107 scenarios
-pass, 2 fail. Zero self-inconsistent scenarios or driving divergences.**
-`useStore` and `useStoreApi` hand JavaScript consumers upstream's store, and all
-23 `defaultEdgeOptions` members and the edge and node members they depend on are
-implemented. The two remaining failures are the flow/node probes, whose store
-differences are gone; H's node-prop, deprecation-warning and selection-callback
-differences remain. See [Order G](order-g/README.md) for the current evidence
-and [Order E](order-e/README.md) for the checkpoint before it.
+**Latest checkpoint (November 12 UTC): Order H complete; 115/115 scenarios pass. Zero self-inconsistent scenarios or driving divergences.**
+Every coverage hole upstream can fire has a witness on both sides, leaving one
+declared hole of 156, and the flow-node probes, consumer reference reads and
+named numeric call sites match upstream. See [Order H](order-h/README.md) for
+the current evidence, and [Order G](order-g/README.md) and
+[Order E](order-e/README.md) for the checkpoints before it.
 
 This directory preserves the November 9, 2026 W00 baseline, all seven W02
 crossings and stage-5 checkpoint, plus November 10 W03/W04 and W08a/W08b work. See [the results](../../AAMF_STEP3_RESULTS.md)
@@ -380,3 +378,16 @@ G–I and overall Step 3 completion remain open.
 [Execution and reproducibility evidence](order-e/README.md) includes the
 version-matched Linux runner, 180 focused traces, the fresh 428-trace wave,
 and the exact preceding checkpoint. Earlier sections are historical.
+
+
+## Order H complete
+
+Order H is complete: witnesses for every hole upstream can fire, the flow-node
+probes, the objects a consumer reads back, and the numeric call sites W13
+named. The fresh Linux checkpoint captures all 115 scenarios: **115 pass and 0 fail**, with **zero self-inconsistent scenarios and zero driving divergences**.
+Coverage is **155/156 driven, 1 declared hole**, with 50 separate
+behavior-debt rows. Step 3 I and overall port completion remain open.
+
+[Execution evidence](order-h/README.md) includes the red runs, the focused
+captures, the gates, the first full wave before the drag-payload fix, and the
+Order G checkpoint the final wave replaces.

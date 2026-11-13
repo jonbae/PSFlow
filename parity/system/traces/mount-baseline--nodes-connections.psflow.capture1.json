@@ -974,14 +974,14 @@
         "getNodes": [
           {
             "id": "hub",
+            "type": "connections",
+            "data": {
+              "label": "hub"
+            },
             "position": {
               "x": 160,
               "y": 160
             },
-            "data": {
-              "label": "hub"
-            },
-            "type": "connections",
             "measured": {
               "width": 24,
               "height": 18
@@ -989,14 +989,14 @@
           },
           {
             "id": "up-1",
+            "type": "connections",
+            "data": {
+              "label": "up-1"
+            },
             "position": {
               "x": 0,
               "y": 0
             },
-            "data": {
-              "label": "up-1"
-            },
-            "type": "connections",
             "measured": {
               "width": 29,
               "height": 18
@@ -1004,14 +1004,14 @@
           },
           {
             "id": "up-2",
+            "type": "connections",
+            "data": {
+              "label": "up-2"
+            },
             "position": {
               "x": 320,
               "y": 0
             },
-            "data": {
-              "label": "up-2"
-            },
-            "type": "connections",
             "measured": {
               "width": 29,
               "height": 18
@@ -1019,14 +1019,14 @@
           },
           {
             "id": "down-1",
+            "type": "connections",
+            "data": {
+              "label": "down-1"
+            },
             "position": {
               "x": 0,
               "y": 320
             },
-            "data": {
-              "label": "down-1"
-            },
-            "type": "connections",
             "measured": {
               "width": 49,
               "height": 18
@@ -1034,14 +1034,14 @@
           },
           {
             "id": "down-2",
+            "type": "connections",
+            "data": {
+              "label": "down-2"
+            },
             "position": {
               "x": 320,
               "y": 320
             },
-            "data": {
-              "label": "down-2"
-            },
-            "type": "connections",
             "measured": {
               "width": 49,
               "height": 18
@@ -1049,14 +1049,14 @@
           },
           {
             "id": "down-3",
+            "type": "connections",
+            "data": {
+              "label": "down-3"
+            },
             "position": {
               "x": 640,
               "y": 320
             },
-            "data": {
-              "label": "down-3"
-            },
-            "type": "connections",
             "measured": {
               "width": 49,
               "height": 18
@@ -1065,14 +1065,14 @@
         ],
         "getNode": {
           "id": "hub",
+          "type": "connections",
+          "data": {
+            "label": "hub"
+          },
           "position": {
             "x": 160,
             "y": 160
           },
-          "data": {
-            "label": "hub"
-          },
-          "type": "connections",
           "measured": {
             "width": 24,
             "height": 18
@@ -1145,57 +1145,57 @@
           {
             "id": "up-1-hub",
             "source": "up-1",
-            "target": "hub",
             "sourceHandle": "out",
+            "target": "hub",
             "targetHandle": "in"
           },
           {
             "id": "up-2-hub",
             "source": "up-2",
-            "target": "hub",
             "sourceHandle": "out",
+            "target": "hub",
             "targetHandle": "in"
           },
           {
             "id": "hub-down-1",
             "source": "hub",
-            "target": "down-1",
             "sourceHandle": "out",
+            "target": "down-1",
             "targetHandle": "in"
           },
           {
             "id": "hub-down-2",
             "source": "hub",
-            "target": "down-2",
             "sourceHandle": "out",
+            "target": "down-2",
             "targetHandle": "in"
           },
           {
             "id": "hub-down-3",
             "source": "hub",
-            "target": "down-3",
             "sourceHandle": "out",
+            "target": "down-3",
             "targetHandle": "in"
           }
         ],
         "getEdge": {
           "id": "up-1-hub",
           "source": "up-1",
-          "target": "hub",
           "sourceHandle": "out",
+          "target": "hub",
           "targetHandle": "in"
         },
         "getIntersectingNodes": [
           {
             "id": "hub",
+            "type": "connections",
+            "data": {
+              "label": "hub"
+            },
             "position": {
               "x": 160,
               "y": 160
             },
-            "data": {
-              "label": "hub"
-            },
-            "type": "connections",
             "measured": {
               "width": 24,
               "height": 18
@@ -1203,14 +1203,14 @@
           },
           {
             "id": "up-1",
+            "type": "connections",
+            "data": {
+              "label": "up-1"
+            },
             "position": {
               "x": 0,
               "y": 0
             },
-            "data": {
-              "label": "up-1"
-            },
-            "type": "connections",
             "measured": {
               "width": 29,
               "height": 18
@@ -1218,14 +1218,14 @@
           },
           {
             "id": "up-2",
+            "type": "connections",
+            "data": {
+              "label": "up-2"
+            },
             "position": {
               "x": 320,
               "y": 0
             },
-            "data": {
-              "label": "up-2"
-            },
-            "type": "connections",
             "measured": {
               "width": 29,
               "height": 18
@@ -1233,14 +1233,14 @@
           },
           {
             "id": "down-1",
+            "type": "connections",
+            "data": {
+              "label": "down-1"
+            },
             "position": {
               "x": 0,
               "y": 320
             },
-            "data": {
-              "label": "down-1"
-            },
-            "type": "connections",
             "measured": {
               "width": 49,
               "height": 18
@@ -1248,14 +1248,14 @@
           },
           {
             "id": "down-2",
+            "type": "connections",
+            "data": {
+              "label": "down-2"
+            },
             "position": {
               "x": 320,
               "y": 320
             },
-            "data": {
-              "label": "down-2"
-            },
-            "type": "connections",
             "measured": {
               "width": 49,
               "height": 18
@@ -1263,14 +1263,14 @@
           },
           {
             "id": "down-3",
+            "type": "connections",
+            "data": {
+              "label": "down-3"
+            },
             "position": {
               "x": 640,
               "y": 320
             },
-            "data": {
-              "label": "down-3"
-            },
-            "type": "connections",
             "measured": {
               "width": 49,
               "height": 18
@@ -1348,14 +1348,14 @@
           "nodes": [
             {
               "id": "hub",
+              "type": "connections",
+              "data": {
+                "label": "hub"
+              },
               "position": {
                 "x": 160,
                 "y": 160
               },
-              "data": {
-                "label": "hub"
-              },
-              "type": "connections",
               "measured": {
                 "width": 24,
                 "height": 18
@@ -1363,14 +1363,14 @@
             },
             {
               "id": "up-1",
+              "type": "connections",
+              "data": {
+                "label": "up-1"
+              },
               "position": {
                 "x": 0,
                 "y": 0
               },
-              "data": {
-                "label": "up-1"
-              },
-              "type": "connections",
               "measured": {
                 "width": 29,
                 "height": 18
@@ -1378,14 +1378,14 @@
             },
             {
               "id": "up-2",
+              "type": "connections",
+              "data": {
+                "label": "up-2"
+              },
               "position": {
                 "x": 320,
                 "y": 0
               },
-              "data": {
-                "label": "up-2"
-              },
-              "type": "connections",
               "measured": {
                 "width": 29,
                 "height": 18
@@ -1393,14 +1393,14 @@
             },
             {
               "id": "down-1",
+              "type": "connections",
+              "data": {
+                "label": "down-1"
+              },
               "position": {
                 "x": 0,
                 "y": 320
               },
-              "data": {
-                "label": "down-1"
-              },
-              "type": "connections",
               "measured": {
                 "width": 49,
                 "height": 18
@@ -1408,14 +1408,14 @@
             },
             {
               "id": "down-2",
+              "type": "connections",
+              "data": {
+                "label": "down-2"
+              },
               "position": {
                 "x": 320,
                 "y": 320
               },
-              "data": {
-                "label": "down-2"
-              },
-              "type": "connections",
               "measured": {
                 "width": 49,
                 "height": 18
@@ -1423,14 +1423,14 @@
             },
             {
               "id": "down-3",
+              "type": "connections",
+              "data": {
+                "label": "down-3"
+              },
               "position": {
                 "x": 640,
                 "y": 320
               },
-              "data": {
-                "label": "down-3"
-              },
-              "type": "connections",
               "measured": {
                 "width": 49,
                 "height": 18
@@ -1441,36 +1441,36 @@
             {
               "id": "up-1-hub",
               "source": "up-1",
-              "target": "hub",
               "sourceHandle": "out",
+              "target": "hub",
               "targetHandle": "in"
             },
             {
               "id": "up-2-hub",
               "source": "up-2",
-              "target": "hub",
               "sourceHandle": "out",
+              "target": "hub",
               "targetHandle": "in"
             },
             {
               "id": "hub-down-1",
               "source": "hub",
-              "target": "down-1",
               "sourceHandle": "out",
+              "target": "down-1",
               "targetHandle": "in"
             },
             {
               "id": "hub-down-2",
               "source": "hub",
-              "target": "down-2",
               "sourceHandle": "out",
+              "target": "down-2",
               "targetHandle": "in"
             },
             {
               "id": "hub-down-3",
               "source": "hub",
-              "target": "down-3",
               "sourceHandle": "out",
+              "target": "down-3",
               "targetHandle": "in"
             }
           ],

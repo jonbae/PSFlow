@@ -43,8 +43,8 @@ type NodeMouseHandler n = MouseEvent -> Node n -> Effect Unit
 type NodeProps n =
   { id :: String
   , data :: n
-  , width :: Maybe Number
-  , height :: Maybe Number
+  , width :: Number
+  , height :: Number
   , sourcePosition :: Maybe Position
   , targetPosition :: Maybe Position
   , dragHandle :: Maybe String

@@ -30,6 +30,7 @@ module System.Utils.Store
   ) where
 
 import Prelude
+import System.Utils.Number as JsNumber
 
 import Data.Array (any, findIndex, foldl, fromFoldable, length, mapMaybe, reverse, snoc, updateAt) as Array
 import Data.List (List(..), (:))
@@ -298,6 +299,9 @@ updateChildNodePure node nodeLookup parentLookup options rootParentIndex =
 
 -- Public reconciliation functions (pure) -----------------------------------
 
+foreign import writePositionAbsolute
+  :: forall n. XYPosition -> InternalNodeBase n -> InternalNodeBase n
+
 updateAbsolutePositions
   :: forall n
    . NodeLookup n
@@ -329,10 +333,9 @@ updateAbsolutePositions initial parents options =
                 (getNodeDimensions node)
               clamped = clampPosition positionWithOrigin ext
                 { width: Just dims.width, height: Just dims.height }
-              updated = node
-                { internals = node.internals
-                    { positionAbsolute = clamped }
-                }
+              -- Upstream assigns into the internal node it holds, so the
+              -- node keeps its identity whether or not the position moved.
+              updated = writePositionAbsolute clamped node
             in
               st { nodeLookup = Map.insert node.id updated st.nodeLookup }
       )
@@ -579,8 +582,8 @@ stepExpansion children parentLookup defaultOrigin changes (Tuple parentId rec) =
         Number.round (Number.abs (positionAbsolute.y - rec.expandedRect.y))
       else 0.0
 
-    newWidth = max dimensions.width (Number.round rec.expandedRect.width)
-    newHeight = max dimensions.height (Number.round rec.expandedRect.height)
+    newWidth = JsNumber.max dimensions.width (Number.round rec.expandedRect.width)
+    newHeight = JsNumber.max dimensions.height (Number.round rec.expandedRect.height)
 
     widthChange = (newWidth - dimensions.width) * origin.ox
     heightChange = (newHeight - dimensions.height) * origin.oy

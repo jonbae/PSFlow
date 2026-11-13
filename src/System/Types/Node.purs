@@ -5,6 +5,7 @@ module System.Types.Node
   , NodeInternals
   , rememberUserNode
   , originalUserNode
+  , rememberDraggedNode
   , userNodeIdentity
   , NodeHandleBounds
   , NodeBounds
@@ -125,6 +126,12 @@ type NodeInternals nodeData =
 
 foreign import rememberUserNode :: forall n. Fn2 Foreign (NodeBase n) (NodeBase n)
 foreign import originalUserNode :: forall n. NodeBase n -> Nullable Foreign
+
+-- | `rememberDraggedNode source updated` keeps upstream's
+-- | `{ ...userNode, position, dragging }` beside `updated`, a copy of the
+-- | consumer's object behind `source` with `updated`'s two members, when there
+-- | is one.
+foreign import rememberDraggedNode :: forall n. Fn2 (NodeBase n) (NodeBase n) (NodeBase n)
 
 userNodeIdentity :: forall n. NodeBase n -> Foreign
 userNodeIdentity node = fromMaybe (unsafeCoerce node) (toMaybe (originalUserNode node))

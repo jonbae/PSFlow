@@ -20,6 +20,7 @@ module System.Types.Geometry
   ) where
 
 import Prelude
+import System.Utils.Number as JsNumber
 
 import Data.Enum (class BoundedEnum, class Enum, Cardinality(..))
 import Data.Enum.Generic (genericFromEnum, genericPred, genericSucc, genericToEnum)
@@ -51,11 +52,13 @@ derive newtype instance ordBoundingBox :: Ord BoundingBox
 derive newtype instance showBoundingBox :: Show BoundingBox
 
 instance semigroupBoundingBox :: Semigroup BoundingBox where
+  -- Upstream's `getBoundsOfBoxes`: `Math.min` and `Math.max`, which keep a
+  -- `NaN` and put `-0` below `+0` in either order.
   append (BoundingBox a) (BoundingBox b) = BoundingBox
-    { x: min a.x b.x
-    , y: min a.y b.y
-    , x2: max a.x2 b.x2
-    , y2: max a.y2 b.y2
+    { x: JsNumber.min a.x b.x
+    , y: JsNumber.min a.y b.y
+    , x2: JsNumber.max a.x2 b.x2
+    , y2: JsNumber.max a.y2 b.y2
     }
 
 instance monoidBoundingBox :: Monoid BoundingBox where

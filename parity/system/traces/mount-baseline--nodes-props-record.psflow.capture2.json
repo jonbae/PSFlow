@@ -355,14 +355,14 @@
         "getNodes": [
           {
             "id": "props-parent",
+            "type": "propsRecord",
+            "data": {
+              "label": "props-parent"
+            },
             "position": {
               "x": 100,
               "y": 200
             },
-            "data": {
-              "label": "props-parent"
-            },
-            "type": "propsRecord",
             "width": 300,
             "height": 200,
             "measured": {
@@ -372,20 +372,20 @@
           },
           {
             "id": "props-child",
+            "type": "propsRecord",
+            "data": {
+              "label": "props-child"
+            },
             "position": {
               "x": 50,
               "y": 25
             },
-            "data": {
-              "label": "props-child"
-            },
-            "type": "propsRecord",
-            "draggable": false,
+            "parentId": "props-parent",
             "selectable": false,
+            "draggable": false,
             "deletable": false,
             "width": 120,
             "height": 40,
-            "parentId": "props-parent",
             "measured": {
               "width": 120,
               "height": 40
@@ -394,14 +394,14 @@
         ],
         "getNode": {
           "id": "props-parent",
+          "type": "propsRecord",
+          "data": {
+            "label": "props-parent"
+          },
           "position": {
             "x": 100,
             "y": 200
           },
-          "data": {
-            "label": "props-parent"
-          },
-          "type": "propsRecord",
           "width": 300,
           "height": 200,
           "measured": {
@@ -461,14 +461,14 @@
         "getIntersectingNodes": [
           {
             "id": "props-parent",
+            "type": "propsRecord",
+            "data": {
+              "label": "props-parent"
+            },
             "position": {
               "x": 100,
               "y": 200
             },
-            "data": {
-              "label": "props-parent"
-            },
-            "type": "propsRecord",
             "width": 300,
             "height": 200,
             "measured": {
@@ -478,20 +478,20 @@
           },
           {
             "id": "props-child",
+            "type": "propsRecord",
+            "data": {
+              "label": "props-child"
+            },
             "position": {
               "x": 50,
               "y": 25
             },
-            "data": {
-              "label": "props-child"
-            },
-            "type": "propsRecord",
-            "draggable": false,
+            "parentId": "props-parent",
             "selectable": false,
+            "draggable": false,
             "deletable": false,
             "width": 120,
             "height": 40,
-            "parentId": "props-parent",
             "measured": {
               "width": 120,
               "height": 40
@@ -511,14 +511,14 @@
           "nodes": [
             {
               "id": "props-parent",
+              "type": "propsRecord",
+              "data": {
+                "label": "props-parent"
+              },
               "position": {
                 "x": 100,
                 "y": 200
               },
-              "data": {
-                "label": "props-parent"
-              },
-              "type": "propsRecord",
               "width": 300,
               "height": 200,
               "measured": {
@@ -528,20 +528,20 @@
             },
             {
               "id": "props-child",
+              "type": "propsRecord",
+              "data": {
+                "label": "props-child"
+              },
               "position": {
                 "x": 50,
                 "y": 25
               },
-              "data": {
-                "label": "props-child"
-              },
-              "type": "propsRecord",
-              "draggable": false,
+              "parentId": "props-parent",
               "selectable": false,
+              "draggable": false,
               "deletable": false,
               "width": 120,
               "height": 40,
-              "parentId": "props-parent",
               "measured": {
                 "width": 120,
                 "height": 40

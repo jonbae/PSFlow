@@ -1,0 +1,366 @@
+TAP version 13
+# Subtest: getNodesBounds unions boxes as Math.min and Math.max do
+ok 1 - getNodesBounds unions boxes as Math.min and Math.max do
+  ---
+  duration_ms: 18.296302
+  type: 'test'
+  ...
+# Subtest: getSmoothStepPath bends and centers as upstream does for any coordinate
+not ok 2 - getSmoothStepPath bends and centers as upstream does for any coordinate
+  ---
+  duration_ms: 6.170907
+  type: 'test'
+  location: '/private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/parity/boundary/numeric.test.mjs:34:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    case 1: {"sourceX":null,"sourceY":0,"targetX":100,"targetY":80,"sourcePosition":"top","targetPosition":"top"}
+    + actual - expected
+    
+      [
+    +   'M-Infinity 0L -Infinity,-15Q -Infinity,-20 -Infinity,-20L 95,-20Q 100,-20 100,-15L100 60L100 80',
+    -   'M-Infinity 0L -Infinity,NaNQ -Infinity,-20 NaN,-20L 95,-20Q 100,-20 100,-15L100 60L100 80',
+        -Infinity,
+        -20,
+        Infinity,
+        40
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'M-Infinity 0L -Infinity,NaNQ -Infinity,-20 NaN,-20L 95,-20Q 100,-20 100,-15L100 60L100 80'
+    1: -Infinity
+    2: -20
+    3: Infinity
+    4: 40
+  actual:
+    0: 'M-Infinity 0L -Infinity,-15Q -Infinity,-20 -Infinity,-20L 95,-20Q 100,-20 100,-15L100 60L100 80'
+    1: -Infinity
+    2: -20
+    3: Infinity
+    4: 40
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/parity/boundary/numeric.test.mjs:43:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.Basic.Hooks/index.js:219:71
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.Basic.Hooks/index.js:219:71
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.Basic.Hooks/index.js:219:55
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.Basic.Hooks/index.js:219:71
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.Basic.Hooks/index.js:219:71
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.Basic.Hooks/index.js:219:55
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.Basic.Hooks/index.js:219:71
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.Basic.Hooks/index.js:219:71
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.Basic.Hooks/index.js:219:55
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.Basic.Hooks/index.js:219:71
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.Basic.Hooks/index.js:219:71
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.Basic.Hooks/index.js:219:55
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.Basic.Hooks/index.js:219:71
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.Basic.Hooks/index.js:219:71
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.Basic.Hooks/index.js:219:55
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.FFI.ForwardRef/foreign.js:4:63
+# Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.Basic.Hooks/index.js:219:71
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.Basic.Hooks/index.js:219:71
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.Basic.Hooks/index.js:219:71
+#     at div
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.Basic.Hooks/index.js:219:55
+#     at file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/output/React.FFI.ForwardRef/foreign.js:4:63
+# Subtest: upstream: getNode and getEdge return the consumer's own objects
+ok 3 - upstream: getNode and getEdge return the consumer's own objects
+  ---
+  duration_ms: 31.271946
+  type: 'test'
+  ...
+# Subtest: upstream: getNodes, getEdges and toObject copy each object with every key
+ok 4 - upstream: getNodes, getEdges and toObject copy each object with every key
+  ---
+  duration_ms: 6.673663
+  type: 'test'
+  ...
+# Subtest: upstream: a node component reads 0 for the size of a node with none
+ok 5 - upstream: a node component reads 0 for the size of a node with none
+  ---
+  duration_ms: 3.09803
+  type: 'test'
+  ...
+# Subtest: upstream: useHandleConnections warns on every call
+ok 6 - upstream: useHandleConnections warns on every call
+  ---
+  duration_ms: 3.855411
+  type: 'test'
+  ...
+# Subtest: upstream: a flow with no colorMode renders light
+ok 7 - upstream: a flow with no colorMode renders light
+  ---
+  duration_ms: 3.906125
+  type: 'test'
+  ...
+# Subtest: psflow: getNode and getEdge return the consumer's own objects
+not ok 8 - psflow: getNode and getEdge return the consumer's own objects
+  ---
+  duration_ms: 49.701421
+  type: 'test'
+  location: '/private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/parity/boundary/references.test.mjs:49:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected "actual" to be reference-equal to "expected":
+    + actual - expected
+    
+      {
+    -   custom: 'node',
+        data: {
+          label: 'a'
+        },
+        id: 'a',
+        position: {
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    id: 'a'
+    position:
+      x: 0
+      y: 0
+    data:
+      label: 'a'
+    type: 'input'
+    custom: 'node'
+  actual:
+    id: 'a'
+    position:
+      x: 0
+      y: 0
+    data:
+      label: 'a'
+    type: 'input'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/parity/boundary/references.test.mjs:54:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: psflow: getNodes, getEdges and toObject copy each object with every key
+not ok 9 - psflow: getNodes, getEdges and toObject copy each object with every key
+  ---
+  duration_ms: 8.094091
+  type: 'test'
+  location: '/private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/parity/boundary/references.test.mjs:58:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+        {
+    -     custom: 'node',
+          data: {
+            label: 'a'
+          },
+          id: 'a',
+          position: {
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0:
+      id: 'a'
+      position:
+        x: 0
+        y: 0
+      data:
+        label: 'a'
+      type: 'input'
+      custom: 'node'
+    1:
+      id: 'b'
+      position:
+        x: 100
+        y: 100
+      data:
+        label: 'b'
+  actual:
+    0:
+      id: 'a'
+      position:
+        x: 0
+        y: 0
+      data:
+        label: 'a'
+      type: 'input'
+    1:
+      id: 'b'
+      position:
+        x: 100
+        y: 100
+      data:
+        label: 'b'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/parity/boundary/references.test.mjs:66:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: psflow: a node component reads 0 for the size of a node with none
+not ok 10 - psflow: a node component reads 0 for the size of a node with none
+  ---
+  duration_ms: 5.513568
+  type: 'test'
+  location: '/private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/parity/boundary/references.test.mjs:74:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+    +   height: undefined,
+    +   width: undefined
+    -   height: 0,
+    -   width: 0
+      }
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    width: 0
+    height: 0
+  actual:
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/parity/boundary/references.test.mjs:85:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: psflow: useHandleConnections warns on every call
+not ok 11 - psflow: useHandleConnections warns on every call
+  ---
+  duration_ms: 7.695471
+  type: 'test'
+  location: '/private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/parity/boundary/references.test.mjs:88:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+    + []
+    - [
+    -   '[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections',
+    -   '[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections'
+    - ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: '[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections'
+    1: '[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNodeConnections'
+  actual:
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/parity/boundary/references.test.mjs:104:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: psflow: a flow with no colorMode renders light
+not ok 12 - psflow: a flow with no colorMode renders light
+  ---
+  duration_ms: 9.499298
+  type: 'test'
+  location: '/private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/parity/boundary/references.test.mjs:112:3'
+  failureType: 'testCodeFailure'
+  error: 'react-flow'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/parity/boundary/references.test.mjs:115:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: upstream: a server render reads the store's initial state
+ok 13 - upstream: a server render reads the store's initial state
+  ---
+  duration_ms: 2.830513
+  type: 'test'
+  ...
+# Subtest: psflow: a server render reads the store's initial state
+not ok 14 - psflow: a server render reads the store's initial state
+  ---
+  duration_ms: 8.156656
+  type: 'test'
+  location: '/private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/parity/boundary/references.test.mjs:123:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    0.25 !== 0.5
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0.5
+  actual: 0.25
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/claude-501/-Users-jonathanbae-repos-PSFlow/a236840f-9423-4d47-93a3-16e1689995ef/scratchpad/head-wt/parity/boundary/references.test.mjs:140:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 7
+# fail 7
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1628.253771

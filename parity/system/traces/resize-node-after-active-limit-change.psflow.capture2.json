@@ -461,12 +461,12 @@
           },
           {
             "id": "resize",
+            "type": "resizeReceipt",
+            "data": {},
             "position": {
               "x": 240,
               "y": 180
             },
-            "data": {},
-            "type": "resizeReceipt",
             "width": 120,
             "height": 80,
             "measured": {
@@ -600,12 +600,12 @@
           },
           {
             "id": "resize",
+            "type": "resizeReceipt",
+            "data": {},
             "position": {
               "x": 240,
               "y": 180
             },
-            "data": {},
-            "type": "resizeReceipt",
             "width": 120,
             "height": 80,
             "measured": {
@@ -616,6 +616,38 @@
               "width": 120,
               "height": 80
             }
+          }
+        ]
+      },
+      {
+        "name": "onResizeStart",
+        "args": [
+          {
+            "@class": "DragEvent",
+            "type": "start",
+            "sourceEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "subject": {
+              "x": 119,
+              "y": 79
+            },
+            "target": {
+              "@ref": "function"
+            },
+            "identifier": "mouse",
+            "active": 0,
+            "x": 119,
+            "y": 79,
+            "dx": 0,
+            "dy": 0
+          },
+          {
+            "width": 120,
+            "height": 80,
+            "x": 240,
+            "y": 180
           }
         ]
       },
@@ -678,12 +710,12 @@
           },
           {
             "id": "resize",
+            "type": "resizeReceipt",
+            "data": {},
             "position": {
               "x": 240,
               "y": 180
             },
-            "data": {},
-            "type": "resizeReceipt",
             "width": 120,
             "height": 80,
             "measured": {
@@ -763,6 +795,78 @@
         ]
       },
       {
+        "name": "shouldResize",
+        "args": [
+          {
+            "@class": "DragEvent",
+            "type": "drag",
+            "sourceEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "subject": {
+              "x": 119,
+              "y": 79
+            },
+            "target": {
+              "@ref": "function"
+            },
+            "identifier": "mouse",
+            "active": 1,
+            "x": 134,
+            "y": 89,
+            "dx": 15,
+            "dy": 10
+          },
+          {
+            "width": 135,
+            "height": 90,
+            "x": 240,
+            "y": 180,
+            "direction": [
+              1,
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "name": "onResize",
+        "args": [
+          {
+            "@class": "DragEvent",
+            "type": "drag",
+            "sourceEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "subject": {
+              "x": 119,
+              "y": 79
+            },
+            "target": {
+              "@ref": "function"
+            },
+            "identifier": "mouse",
+            "active": 1,
+            "x": 134,
+            "y": 89,
+            "dx": 15,
+            "dy": 10
+          },
+          {
+            "width": 135,
+            "height": 90,
+            "x": 240,
+            "y": 180,
+            "direction": [
+              1,
+              1
+            ]
+          }
+        ]
+      },
+      {
         "name": "onNodesChange",
         "args": [
           [
@@ -838,13 +942,12 @@
           },
           {
             "id": "resize",
+            "type": "resizeReceipt",
+            "data": {},
             "position": {
               "x": 240,
               "y": 180
             },
-            "data": {},
-            "type": "resizeReceipt",
-            "resizing": true,
             "width": 135,
             "height": 90,
             "measured": {
@@ -854,7 +957,8 @@
             "style": {
               "width": 120,
               "height": 80
-            }
+            },
+            "resizing": true
           }
         ]
       },
@@ -917,13 +1021,12 @@
           },
           {
             "id": "resize",
+            "type": "resizeReceipt",
+            "data": {},
             "position": {
               "x": 240,
               "y": 180
             },
-            "data": {},
-            "type": "resizeReceipt",
-            "resizing": true,
             "width": 135,
             "height": 90,
             "measured": {
@@ -933,7 +1036,8 @@
             "style": {
               "width": 120,
               "height": 80
-            }
+            },
+            "resizing": true
           }
         ]
       },
@@ -1003,6 +1107,78 @@
         ]
       },
       {
+        "name": "shouldResize",
+        "args": [
+          {
+            "@class": "DragEvent",
+            "type": "drag",
+            "sourceEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "subject": {
+              "x": 119,
+              "y": 79
+            },
+            "target": {
+              "@ref": "function"
+            },
+            "identifier": "mouse",
+            "active": 1,
+            "x": 179,
+            "y": 109,
+            "dx": 45,
+            "dy": 20
+          },
+          {
+            "width": 145,
+            "height": 110,
+            "x": 240,
+            "y": 180,
+            "direction": [
+              1,
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "name": "onResize",
+        "args": [
+          {
+            "@class": "DragEvent",
+            "type": "drag",
+            "sourceEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "subject": {
+              "x": 119,
+              "y": 79
+            },
+            "target": {
+              "@ref": "function"
+            },
+            "identifier": "mouse",
+            "active": 1,
+            "x": 179,
+            "y": 109,
+            "dx": 45,
+            "dy": 20
+          },
+          {
+            "width": 145,
+            "height": 110,
+            "x": 240,
+            "y": 180,
+            "direction": [
+              1,
+              1
+            ]
+          }
+        ]
+      },
+      {
         "name": "onNodesChange",
         "args": [
           [
@@ -1017,6 +1193,38 @@
               "setAttributes": true
             }
           ]
+        ]
+      },
+      {
+        "name": "onResizeEnd",
+        "args": [
+          {
+            "@class": "DragEvent",
+            "type": "end",
+            "sourceEvent": {
+              "@class": "MouseEvent",
+              "isTrusted": true
+            },
+            "subject": {
+              "x": 119,
+              "y": 79
+            },
+            "target": {
+              "@ref": "function"
+            },
+            "identifier": "mouse",
+            "active": 0,
+            "x": 179,
+            "y": 109,
+            "dx": 0,
+            "dy": 0
+          },
+          {
+            "width": 145,
+            "height": 110,
+            "x": 240,
+            "y": 180
+          }
         ]
       },
       {
@@ -1042,13 +1250,12 @@
         "getNodes": [
           {
             "id": "resize",
+            "type": "resizeReceipt",
+            "data": {},
             "position": {
               "x": 240,
               "y": 180
             },
-            "data": {},
-            "type": "resizeReceipt",
-            "resizing": false,
             "width": 145,
             "height": 110,
             "measured": {
@@ -1058,18 +1265,18 @@
             "style": {
               "width": 120,
               "height": 80
-            }
+            },
+            "resizing": false
           }
         ],
         "getNode": {
           "id": "resize",
+          "type": "resizeReceipt",
+          "data": {},
           "position": {
             "x": 240,
             "y": 180
           },
-          "data": {},
-          "type": "resizeReceipt",
-          "resizing": false,
           "width": 145,
           "height": 110,
           "measured": {
@@ -1079,7 +1286,8 @@
           "style": {
             "width": 120,
             "height": 80
-          }
+          },
+          "resizing": false
         },
         "getInternalNode": {
           "id": "resize",
@@ -1139,13 +1347,12 @@
         "getIntersectingNodes": [
           {
             "id": "resize",
+            "type": "resizeReceipt",
+            "data": {},
             "position": {
               "x": 240,
               "y": 180
             },
-            "data": {},
-            "type": "resizeReceipt",
-            "resizing": false,
             "width": 145,
             "height": 110,
             "measured": {
@@ -1155,7 +1362,8 @@
             "style": {
               "width": 120,
               "height": 80
-            }
+            },
+            "resizing": false
           }
         ],
         "isNodeIntersecting": true,
@@ -1171,13 +1379,12 @@
           "nodes": [
             {
               "id": "resize",
+              "type": "resizeReceipt",
+              "data": {},
               "position": {
                 "x": 240,
                 "y": 180
               },
-              "data": {},
-              "type": "resizeReceipt",
-              "resizing": false,
               "width": 145,
               "height": 110,
               "measured": {
@@ -1187,7 +1394,8 @@
               "style": {
                 "width": 120,
                 "height": 80
-              }
+              },
+              "resizing": false
             }
           ],
           "edges": [],

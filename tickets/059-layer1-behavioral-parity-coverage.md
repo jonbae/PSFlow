@@ -21,7 +21,7 @@ A green differential result on its own is equally what a comparator that
 inspects nothing would produce; the probe is what makes the green mean
 something. `Test.Parity.Util`'s `falsify` runs one.
 
-## Covered (31 functions)
+## Covered (34 functions)
 
 - **Edges** (`Test.Parity.Edges`): `getEdgeCenter`, `getBezierEdgeCenter`,
   `getStraightPath`, `getBezierPath`, `getSimpleBezierPath`, `getSmoothStepPath`,
@@ -39,7 +39,11 @@ something. `Test.Parity.Util`'s `falsify` runs one.
 - **Connections** (`Test.Parity.Connections`): `getConnectionStatus`.
 - **Graph** (`Test.Parity.Graph`): `getOutgoers`, `getIncomers`,
   `getConnectedEdges` (id-set comparison over a random graph); `getNodesBounds`
-  (ticket 039 — the arithmetic only, no `nodeLookup` on either side); `isNode`,
+  (ticket 039 — the arithmetic only, no `nodeLookup` on either side);
+  `getNodePositionWithOrigin`, `nodeToRect`, `nodeToBox` (Step 3 H — a user
+  node over the same generators, so every dimension-fallback rung and the
+  node's own origin are reached; the internal-node branch reads a
+  `positionAbsolute` only a store fills); `isNode`,
   `isEdge` (ticket 039 — all 16 key combinations, the guards' whole domain,
   exhausted rather than sampled).
 - **Changes** (`Test.Parity.Changes`): `applyNodeChanges`, `applyEdgeChanges`
@@ -54,8 +58,6 @@ exercise end to end:
 
 | Function | Why deferred |
 |----------|--------------|
-| `getNodePositionWithOrigin` | needs `getNodeDimensions` + origin shape |
-| `nodeToRect` / `nodeToBox` | needs measured dims + origin |
 | `getInternalNodesBounds` | needs full `InternalNodeBase` set |
 | `getNodesInside` | needs internal nodes + viewport rect |
 

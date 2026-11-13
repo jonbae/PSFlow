@@ -700,7 +700,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 53,
+            "timeStamp": 57,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -769,7 +769,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 53,
+            "timeStamp": 57,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -805,12 +805,12 @@
           },
           {
             "id": "n2",
+            "data": {
+              "label": "n2"
+            },
             "position": {
               "x": 250,
               "y": 100
-            },
-            "data": {
-              "label": "n2"
             },
             "sourcePosition": "right",
             "targetPosition": "left",
@@ -844,7 +844,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 53,
+            "timeStamp": 57,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -909,7 +909,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 53,
+            "timeStamp": 57,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -943,12 +943,12 @@
           },
           {
             "id": "n2",
+            "data": {
+              "label": "n2"
+            },
             "position": {
               "x": 250,
               "y": 100
-            },
-            "data": {
-              "label": "n2"
             },
             "sourcePosition": "right",
             "targetPosition": "left",
@@ -1042,12 +1042,12 @@
           },
           {
             "id": "n2",
+            "data": {
+              "label": "n2"
+            },
             "position": {
               "x": 250,
               "y": 100
-            },
-            "data": {
-              "label": "n2"
             },
             "sourcePosition": "right",
             "targetPosition": "left",
@@ -1067,22 +1067,22 @@
             "nodes": [
               {
                 "id": "n2",
+                "data": {
+                  "label": "n2"
+                },
                 "position": {
                   "x": 250,
                   "y": 100
                 },
-                "data": {
-                  "label": "n2"
-                },
                 "sourcePosition": "right",
                 "targetPosition": "left",
-                "selected": true,
                 "width": 100,
                 "height": 40,
                 "measured": {
                   "width": 100,
                   "height": 40
-                }
+                },
+                "selected": true
               }
             ],
             "edges": []
@@ -1148,22 +1148,22 @@
           },
           {
             "id": "n2",
+            "data": {
+              "label": "n2"
+            },
             "position": {
               "x": 250,
               "y": 100
             },
-            "data": {
-              "label": "n2"
-            },
             "sourcePosition": "right",
             "targetPosition": "left",
-            "selected": true,
             "width": 100,
             "height": 40,
             "measured": {
               "width": 100,
               "height": 40
-            }
+            },
+            "selected": true
           }
         ]
       },
@@ -1226,12 +1226,12 @@
           },
           {
             "id": "n1",
+            "data": {
+              "label": "n1"
+            },
             "position": {
               "x": 0,
               "y": 0
-            },
-            "data": {
-              "label": "n1"
             },
             "sourcePosition": "right",
             "targetPosition": "left",
@@ -1364,12 +1364,12 @@
           },
           {
             "id": "n1",
+            "data": {
+              "label": "n1"
+            },
             "position": {
               "x": 0,
               "y": 0
-            },
-            "data": {
-              "label": "n1"
             },
             "sourcePosition": "right",
             "targetPosition": "left",
@@ -1543,12 +1543,12 @@
           },
           {
             "id": "n1",
+            "data": {
+              "label": "n1"
+            },
             "position": {
               "x": 0,
               "y": 0
-            },
-            "data": {
-              "label": "n1"
             },
             "sourcePosition": "right",
             "targetPosition": "left",
@@ -1568,22 +1568,22 @@
             "nodes": [
               {
                 "id": "n1",
+                "data": {
+                  "label": "n1"
+                },
                 "position": {
                   "x": 0,
                   "y": 0
                 },
-                "data": {
-                  "label": "n1"
-                },
                 "sourcePosition": "right",
                 "targetPosition": "left",
-                "selected": true,
                 "width": 100,
                 "height": 40,
                 "measured": {
                   "width": 100,
                   "height": 40
-                }
+                },
+                "selected": true
               }
             ],
             "edges": []
@@ -1597,61 +1597,61 @@
         "getNodes": [
           {
             "id": "n1",
+            "data": {
+              "label": "n1"
+            },
             "position": {
               "x": 0,
               "y": 0
             },
-            "data": {
-              "label": "n1"
-            },
             "sourcePosition": "right",
             "targetPosition": "left",
-            "selected": true,
             "width": 100,
             "height": 40,
             "measured": {
               "width": 100,
               "height": 40
-            }
+            },
+            "selected": true
           },
           {
             "id": "n2",
+            "data": {
+              "label": "n2"
+            },
             "position": {
               "x": 250,
               "y": 100
             },
-            "data": {
-              "label": "n2"
-            },
             "sourcePosition": "right",
             "targetPosition": "left",
-            "selected": false,
             "width": 100,
             "height": 40,
             "measured": {
               "width": 100,
               "height": 40
-            }
+            },
+            "selected": false
           }
         ],
         "getNode": {
           "id": "n1",
+          "data": {
+            "label": "n1"
+          },
           "position": {
             "x": 0,
             "y": 0
           },
-          "data": {
-            "label": "n1"
-          },
           "sourcePosition": "right",
           "targetPosition": "left",
-          "selected": true,
           "width": 100,
           "height": 40,
           "measured": {
             "width": 100,
             "height": 40
-          }
+          },
+          "selected": true
         },
         "getInternalNode": {
           "id": "n1",
@@ -1731,9 +1731,9 @@
             "target": "n2"
           },
           {
-            "id": "xy-edge__n2-n1",
             "source": "n2",
-            "target": "n1"
+            "target": "n1",
+            "id": "xy-edge__n2-n1"
           }
         ],
         "getEdge": {
@@ -1744,41 +1744,41 @@
         "getIntersectingNodes": [
           {
             "id": "n1",
+            "data": {
+              "label": "n1"
+            },
             "position": {
               "x": 0,
               "y": 0
             },
-            "data": {
-              "label": "n1"
-            },
             "sourcePosition": "right",
             "targetPosition": "left",
-            "selected": true,
             "width": 100,
             "height": 40,
             "measured": {
               "width": 100,
               "height": 40
-            }
+            },
+            "selected": true
           },
           {
             "id": "n2",
+            "data": {
+              "label": "n2"
+            },
             "position": {
               "x": 250,
               "y": 100
             },
-            "data": {
-              "label": "n2"
-            },
             "sourcePosition": "right",
             "targetPosition": "left",
-            "selected": false,
             "width": 100,
             "height": 40,
             "measured": {
               "width": 100,
               "height": 40
-            }
+            },
+            "selected": false
           }
         ],
         "isNodeIntersecting": true,
@@ -1810,41 +1810,41 @@
           "nodes": [
             {
               "id": "n1",
+              "data": {
+                "label": "n1"
+              },
               "position": {
                 "x": 0,
                 "y": 0
               },
-              "data": {
-                "label": "n1"
-              },
               "sourcePosition": "right",
               "targetPosition": "left",
-              "selected": true,
               "width": 100,
               "height": 40,
               "measured": {
                 "width": 100,
                 "height": 40
-              }
+              },
+              "selected": true
             },
             {
               "id": "n2",
+              "data": {
+                "label": "n2"
+              },
               "position": {
                 "x": 250,
                 "y": 100
               },
-              "data": {
-                "label": "n2"
-              },
               "sourcePosition": "right",
               "targetPosition": "left",
-              "selected": false,
               "width": 100,
               "height": 40,
               "measured": {
                 "width": 100,
                 "height": 40
-              }
+              },
+              "selected": false
             }
           ],
           "edges": [
@@ -1854,9 +1854,9 @@
               "target": "n2"
             },
             {
-              "id": "xy-edge__n2-n1",
               "source": "n2",
-              "target": "n1"
+              "target": "n1",
+              "id": "xy-edge__n2-n1"
             }
           ],
           "viewport": {

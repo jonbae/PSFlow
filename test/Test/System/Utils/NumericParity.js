@@ -33,6 +33,16 @@ export const checkBounds = actual => {
   console.log(`numeric bounds: ${count} exact source comparisons`);
 };
 
+export const checkBoundingBoxMonoid = actual => {
+  let count = 0;
+  for (const key of ['x', 'y', 'x2', 'y2']) for (const first of numbers) for (const second of numbers) {
+    const a = { x: 1, y: 2, x2: 8, y2: 12, [key]: first };
+    const b = { x: 3, y: 4, x2: 5, y2: 10, [key]: second };
+    same(actual(a, b), getBoundsOfBoxes(a, b), `bounding-box monoid ${key} case ${++count}`);
+  }
+  console.log(`numeric bounding-box monoid: ${count} exact source comparisons`);
+};
+
 export const checkGeometry = actual => {
   let rectangles = 0;
   for (const aKey of ['x', 'y', 'width', 'height']) for (const bKey of ['x', 'y', 'width', 'height']) {

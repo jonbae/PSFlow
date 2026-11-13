@@ -47,6 +47,7 @@ import Prelude
 
 import Data.Array (elem) as Array
 import Data.Foldable (for_)
+import Data.Function.Uncurried (runFn3)
 import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isNothing)
 import Data.Nullable (Nullable, toMaybe, toNullable)
@@ -78,7 +79,7 @@ import React.Types.Edges
   )
 import React.Types.Store (ReactFlowState)
 import System.Constants (ErrorCode(..), elementSelectionKeys, errorMessage)
-import System.Types.Edge (EdgeAriaLabel(..), EdgeMarkerType, EdgeReconnectable(..), edgeOwnsKey)
+import System.Types.Edge (EdgeAriaLabel(..), EdgeMarkerType, EdgeReconnectable(..), edgeOwnsKey, rememberMergedEdge)
 import System.Types.Opaque (unOpaque)
 import System.Types.Geometry (Position)
 import Data.Newtype (unwrap)
@@ -157,14 +158,16 @@ placeholderEdge edgeId =
 -- | object has as a key holding `undefined` wins too, because the spread
 -- | copies that `undefined` over the default; `edgeOwnsKey` reads the key
 -- | off the consumer's object, since a decoded `Nothing` cannot tell the two
--- | absences apart. Only a member the edge does not have inherits.
+-- | absences apart. Only a member the edge does not have inherits. The merged
+-- | record keeps the spread of the consumer's two objects beside it, so a
+-- | handler handed this edge reads every key the consumer gave.
 applyDefaults
   :: forall e
    . Maybe (DefaultEdgeOptions e)
   -> Edge e
   -> Edge e
 applyDefaults Nothing edge = edge
-applyDefaults (Just defaults) edge =
+applyDefaults (Just defaults) edge = runFn3 rememberMergedEdge defaults edge $
   edge
     { edgeType = from "type" edge.edgeType defaults.edgeType
     , animated = from "animated" edge.animated defaults.animated

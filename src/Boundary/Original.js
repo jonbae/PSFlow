@@ -14,3 +14,24 @@ export const originalOf_ = (converted) =>
   (typeof converted === "object" && converted !== null) || typeof converted === "function"
     ? originals.get(converted)
     : undefined;
+
+// One conversion per consumer value and prop. Upstream's `<StoreUpdater />`
+// and `memo` boundaries compare a prop with `!==`, so a consumer who passes
+// the same callback, array or object again changes nothing. A conversion made
+// afresh on each render is a new value every time; this hands back the one
+// made the first time. Primitives are converted every time, as they compare
+// by value anyway.
+const stableCaches = new Map();
+
+export const stablyImpl = (key, convert, value) => {
+  if (!((typeof value === "object" && value !== null) || typeof value === "function")) {
+    return convert(value);
+  }
+  let cache = stableCaches.get(key);
+  if (cache === undefined) {
+    cache = new WeakMap();
+    stableCaches.set(key, cache);
+  }
+  if (!cache.has(value)) cache.set(value, convert(value));
+  return cache.get(value);
+};

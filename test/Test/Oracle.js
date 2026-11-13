@@ -40,6 +40,9 @@ import {
   getIncomers,
   getConnectedEdges,
   getNodesBounds,
+  getNodePositionWithOrigin,
+  nodeToRect,
+  nodeToBox,
   isNode,
   isEdge,
   addEdge,
@@ -156,6 +159,13 @@ export const getConnectedEdgesImpl = (nodes) => (edges) =>
 // converting. No `nodeLookup` is passed — the sub-flow resolution it enables is
 // a store concern, not arithmetic, and this property's claim is the bounds math.
 export const getNodesBoundsImpl = (nodes) => (nodeOrigin) => getNodesBounds(nodes, { nodeOrigin });
+
+// One user node and the flow's origin, in the same shape: a node with no
+// `internals` takes upstream's `getNodePositionWithOrigin` branch of
+// `nodeToRect` and `nodeToBox`, which is the branch these properties claim.
+export const getNodePositionWithOriginImpl = (node) => (nodeOrigin) => getNodePositionWithOrigin(node, nodeOrigin);
+export const nodeToRectImpl = (node) => (nodeOrigin) => nodeToRect(node, nodeOrigin);
+export const nodeToBoxImpl = (node) => (nodeOrigin) => nodeToBox(node, nodeOrigin);
 
 // ─── Shape guards ─────────────────────────────────────────────────────────
 // Both take the candidate straight through: the value the property builds is

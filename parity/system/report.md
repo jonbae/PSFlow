@@ -1,14 +1,10 @@
 # System parity
 
-The dual-run net over 107 scenario(s), against vendored `@xyflow/react` 12.11.0.
+The dual-run net over 115 scenario(s), against vendored `@xyflow/react` 12.11.0.
 
 Captured by this run: both sides mounted the same unmodified fixtures through the same driver, bundled twice.
 
-**2 of 107 scenario(s) failed.**
-
-A failing net is the expected state while the divergence backlog is being worked: the scenarios below
-are recording what the two implementations actually do, and a difference is fixed in the port or
-claimed by a region — never by loosening what the net looks at.
+**Passed.** Every scenario reproduced itself on both sides, and the two sides agree everywhere unclaimed.
 
 | scenario | verdict | failure classes | differences |
 |---|---|---|---|
@@ -23,6 +19,8 @@ claimed by a region — never by loosening what the net looks at.
 | `mount-baseline--chrome-minimap-hidden-nodes` | passed | — | 0 |
 | `mount-baseline--chrome-panels` | passed | — | 0 |
 | `mount-baseline--edges-base-edge-path` | passed | — | 0 |
+| `mount-baseline--edges-default-options` | passed | — | 0 |
+| `mount-baseline--edges-types` | passed | — | 0 |
 | `mount-baseline--fitview-uncontrolled` | passed | — | 0 |
 | `mount-baseline--flow-chrome-defaults` | passed | — | 0 |
 | `mount-baseline--flow-custom-testid` | passed | — | 0 |
@@ -115,8 +113,14 @@ claimed by a region — never by loosening what the net looks at.
 | `pan-after-controlled-viewport-change` | passed | — | 0 |
 | `ctrl-wheel-pinches-with-panonscroll` | passed | — | 0 |
 | `pane-click-keeps-selection-when-not-selectable` | passed | — | 0 |
-| `click-selects-node--probe-flow-node` | **failed** | unclaimed-difference | 8 |
-| `wheel-zooms-the-pane--probe-flow-node` | **failed** | unclaimed-difference | 5 |
+| `click-reveals-edge-toolbar` | passed | — | 0 |
+| `reconnect-edge-to-another-handle` | passed | — | 0 |
+| `drag-selection-moves-selected-nodes` | passed | — | 0 |
+| `handlers-keep-consumer-keys` | passed | — | 0 |
+| `drag-node-autopan-past-extent` | passed | — | 0 |
+| `controlled-add-and-update-edge` | passed | — | 0 |
+| `click-selects-node--probe-flow-node` | passed | — | 0 |
+| `wheel-zooms-the-pane--probe-flow-node` | passed | — | 0 |
 | `mount-baseline--edges-general--probe-edge` | passed | — | 0 |
 | `connect-source-handle-to-target-handle--probe-connection-line` | passed | — | 0 |
 
@@ -456,6 +460,68 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 ---
 
 # Comparison report — mount-baseline--edges-base-edge-path
+
+upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
+
+**No unclaimed differences.** The two traces agree everywhere.
+
+
+---
+
+# System parity run — mount-baseline--edges-default-options
+
+**Passed.** Both sides reproduced themselves, and the two sides agree everywhere unclaimed.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
+## Self-consistency
+
+Each side is captured twice and compared against itself **before** the sides are compared at all: a
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
+
+| side | captures | verdict | differences |
+|---|---|---|---|
+| upstream | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | reproduced | 0 |
+
+---
+
+# Comparison report — mount-baseline--edges-default-options
+
+upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
+
+**No unclaimed differences.** The two traces agree everywhere.
+
+
+---
+
+# System parity run — mount-baseline--edges-types
+
+**Passed.** Both sides reproduced themselves, and the two sides agree everywhere unclaimed.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
+## Self-consistency
+
+Each side is captured twice and compared against itself **before** the sides are compared at all: a
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
+
+| side | captures | verdict | differences |
+|---|---|---|---|
+| upstream | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | reproduced | 0 |
+
+---
+
+# Comparison report — mount-baseline--edges-types
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
 
@@ -3690,9 +3756,225 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 
 ---
 
+# System parity run — click-reveals-edge-toolbar
+
+**Passed.** Both sides reproduced themselves, and the two sides agree everywhere unclaimed.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
+## Self-consistency
+
+Each side is captured twice and compared against itself **before** the sides are compared at all: a
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
+
+| side | captures | verdict | differences |
+|---|---|---|---|
+| upstream | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | reproduced | 0 |
+
+---
+
+# Comparison report — click-reveals-edge-toolbar
+
+upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
+
+**No unclaimed differences.** The two traces agree everywhere.
+
+## Normalization
+
+10 field(s) deleted by name and therefore **unobserved** — not passing:
+
+- `callbacks/**/timeStamp` (5) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+
+
+---
+
+# System parity run — reconnect-edge-to-another-handle
+
+**Passed.** Both sides reproduced themselves, and the two sides agree everywhere unclaimed.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
+## Self-consistency
+
+Each side is captured twice and compared against itself **before** the sides are compared at all: a
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
+
+| side | captures | verdict | differences |
+|---|---|---|---|
+| upstream | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | reproduced | 0 |
+
+---
+
+# Comparison report — reconnect-edge-to-another-handle
+
+upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
+
+**No unclaimed differences.** The two traces agree everywhere.
+
+## Normalization
+
+26 field(s) deleted by name and therefore **unobserved** — not passing:
+
+- `callbacks/**/timeStamp` (13) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+
+
+---
+
+# System parity run — drag-selection-moves-selected-nodes
+
+**Passed.** Both sides reproduced themselves, and the two sides agree everywhere unclaimed.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
+## Self-consistency
+
+Each side is captured twice and compared against itself **before** the sides are compared at all: a
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
+
+| side | captures | verdict | differences |
+|---|---|---|---|
+| upstream | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | reproduced | 0 |
+
+---
+
+# Comparison report — drag-selection-moves-selected-nodes
+
+upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
+
+**No unclaimed differences.** The two traces agree everywhere.
+
+## Normalization
+
+12 field(s) deleted by name and therefore **unobserved** — not passing:
+
+- `callbacks/**/timeStamp` (6) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+
+
+---
+
+# System parity run — handlers-keep-consumer-keys
+
+**Passed.** Both sides reproduced themselves, and the two sides agree everywhere unclaimed.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
+## Self-consistency
+
+Each side is captured twice and compared against itself **before** the sides are compared at all: a
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
+
+| side | captures | verdict | differences |
+|---|---|---|---|
+| upstream | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | reproduced | 0 |
+
+---
+
+# Comparison report — handlers-keep-consumer-keys
+
+upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
+
+**No unclaimed differences.** The two traces agree everywhere.
+
+## Normalization
+
+24 field(s) deleted by name and therefore **unobserved** — not passing:
+
+- `callbacks/**/timeStamp` (12) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+
+
+---
+
+# System parity run — drag-node-autopan-past-extent
+
+**Passed.** Both sides reproduced themselves, and the two sides agree everywhere unclaimed.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
+## Self-consistency
+
+Each side is captured twice and compared against itself **before** the sides are compared at all: a
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
+
+| side | captures | verdict | differences |
+|---|---|---|---|
+| upstream | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | reproduced | 0 |
+
+---
+
+# Comparison report — drag-node-autopan-past-extent
+
+upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
+
+**No unclaimed differences.** The two traces agree everywhere.
+
+## Normalization
+
+32 field(s) deleted by name and therefore **unobserved** — not passing:
+
+- `callbacks/**/timeStamp` (16) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+
+
+---
+
+# System parity run — controlled-add-and-update-edge
+
+**Passed.** Both sides reproduced themselves, and the two sides agree everywhere unclaimed.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
+## Self-consistency
+
+Each side is captured twice and compared against itself **before** the sides are compared at all: a
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
+
+| side | captures | verdict | differences |
+|---|---|---|---|
+| upstream | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | reproduced | 0 |
+
+---
+
+# Comparison report — controlled-add-and-update-edge
+
+upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
+
+**No unclaimed differences.** The two traces agree everywhere.
+
+
+---
+
 # System parity run — click-selects-node--probe-flow-node
 
-**Failed:** unclaimed-difference.
+**Passed.** Both sides reproduced themselves, and the two sides agree everywhere unclaimed.
 
 Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -3716,39 +3998,14 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 8 unclaimed difference(s).
-
-## Unclaimed differences
-
-### callbacks (2)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `callbacks/1` | right only | — | {"name":"useOnSelectionChange","args":[{"nodes":[{"id":"Node-1","position":{"x":0,"y":0},"data":{"label":"Node-1"},"type":"input","measured":{"width":150,"heig… |
-| `callbacks/0/args/0/nodes/0` | left only | {"id":"Node-1","data":{"label":"Node-1"},"position":{"x":0,"y":0},"type":"input","className":"playwright-test-class-123","style":{"backgroundColor":"red"},"mea… | — |
-
-### props (2)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `props/node-props/width` | differs | 0 | {"@undefined":true} |
-| `props/node-props/height` | differs | 0 | {"@undefined":true} |
-
-### console (4)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `console/1` | left only | {"level":"warning","text":"[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNod… | — |
-| `console/2` | left only | {"level":"warning","text":"[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNod… | — |
-| `console/3` | left only | {"level":"warning","text":"[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNod… | — |
-| `console/4` | left only | {"level":"warning","text":"[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNod… | — |
+**No unclaimed differences.** The two traces agree everywhere.
 
 
 ---
 
 # System parity run — wheel-zooms-the-pane--probe-flow-node
 
-**Failed:** unclaimed-difference.
+**Passed.** Both sides reproduced themselves, and the two sides agree everywhere unclaimed.
 
 Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
 
@@ -3772,24 +4029,7 @@ upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11
 
 Compared sections: `callbacks`, `hooks`, `api`, `props`, `console`.
 
-**Failed:** 5 unclaimed difference(s).
-
-## Unclaimed differences
-
-### props (2)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `props/node-props/width` | differs | 0 | {"@undefined":true} |
-| `props/node-props/height` | differs | 0 | {"@undefined":true} |
-
-### console (3)
-
-| path | kind | upstream | psflow |
-|---|---|---|---|
-| `console/1` | left only | {"level":"warning","text":"[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNod… | — |
-| `console/2` | left only | {"level":"warning","text":"[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNod… | — |
-| `console/3` | left only | {"level":"warning","text":"[DEPRECATED] `useHandleConnections` is deprecated. Instead use `useNodeConnections` https://reactflow.dev/api-reference/hooks/useNod… | — |
+**No unclaimed differences.** The two traces agree everywhere.
 
 
 ---

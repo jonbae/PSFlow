@@ -57,12 +57,13 @@ and gesture reproducibility are validated. **Order G is complete,
 upstream's store with zustand's read and write semantics, and all 23
 `defaultEdgeOptions` members and the edge and node members they depend on are
 implemented; see [Order G results](AAMF_STEP3_RESULTS.md#order-g-completion-november-12-utc).
-The fresh Linux checkpoint captures all 107 scenarios: **105 pass and 2 fail**,
-with **zero self-inconsistent scenarios and zero driving divergences**. The two
-remaining failures are the flow/node probes, whose store differences are gone;
-what remains in them is H's node-prop, deprecation-warning and selection-callback
-work. Coverage remains **128/156 driven, 28 declared holes**, with 50 separate
-behavior-debt rows. H, I and overall Step 3 completion remain open.
+**Order H is complete, 2026-11-12 UTC:** every coverage hole upstream can fire
+has a witness on both sides, the flow-node probes pass, and consumers read back
+their own objects as upstream hands them; see
+[Order H results](AAMF_STEP3_RESULTS.md#order-h-completion-november-12-utc).
+The fresh Linux checkpoint captures all 115 scenarios: **115 pass and 0 fail**, with **zero self-inconsistent scenarios and zero driving divergences**. Coverage is
+**155/156 driven, 1 declared hole**, with 50 separate behavior-debt rows. I and
+overall Step 3 completion remain open.
 
 
 **H / bounded W13 numeric work is implemented, November 11:** shared geometry
@@ -70,8 +71,8 @@ and resize helpers now preserve JavaScript's `NaN` and signed-zero min/max
 behavior. Exact source comparisons and a real controller regression pass.
 The [numeric task evidence](aamf/step3/numeric-semantics/) records its focused
 browser checks and the then-current 95-failure checkpoint. The newer shared-fix
-checkpoint is preserved; the Order E task provides the newer result above. Other numeric call sites remain
-to be audited.
+checkpoint is preserved; the Order E task provides the newer result above. Order H
+moved the five other call sites W13 named to the same semantics.
 
 ## Recommendation
 
@@ -106,8 +107,8 @@ when a later baseline update is intentional.
 | Public API | [Census](parity/census/report.md): 68 value exports and 142 type exports | Track source behavior, boundary conversion, and evidence separately. |
 | Boundary | [Manifest](src/Boundary.js): stage 5, all 68 values crossed, zero passthroughs | W02 and W03 are complete; the three consumer-object exceptions have retired. Order G replaced the store-hook and `defaultEdgeOptions` refusals with conversions; four precise exclusions remain, such as replacing the whole store state. |
 | Surface report | [Current snapshot](parity/surface/report.md) refreshed at stage 5 | Passed; all stage-5 call-convention exceptions retired. [Step 3 results](AAMF_STEP3_RESULTS.md) distinguish baseline and checkpoint evidence. |
-| System report | [Order G Linux checkpoint](parity/system/report.md): 2 of 107 failed, zero self-inconsistent | The Order E checkpoint it replaces is [preserved](aamf/step3/order-g/before-checkpoint.tar.gz), as is the preceding 99-pass/8-failure Mac checkpoint ([archive](aamf/step3/order-e/before-canonical-checkpoint.tar.gz)); earlier checkpoints remain in their task archives. Capture platform, exact runtime, unchanged comparison policy and reproducibility evidence are recorded in [Order E](aamf/step3/order-e/). |
-| Coverage | [Current coverage](parity/system/coverage.md): 128 of 156 export-bearing entries driven, 28 declared holes; 50 behaviors still awaiting gates | A declared hole is accounted for, not implemented or verified by that declaration. Export coverage and behavior coverage are different measures. |
+| System report | [Order H Linux checkpoint](parity/system/report.md): 115 of 115 passed, zero self-inconsistent | The Order G checkpoint it replaces is [preserved](aamf/step3/order-h/before-checkpoint.tar.gz), as are the Order E checkpoint ([archive](aamf/step3/order-g/before-checkpoint.tar.gz)) and the preceding 99-pass/8-failure Mac checkpoint ([archive](aamf/step3/order-e/before-canonical-checkpoint.tar.gz)); earlier checkpoints remain in their task archives. Capture platform, exact runtime, unchanged comparison policy and reproducibility evidence are recorded in [Order E](aamf/step3/order-e/). |
+| Coverage | [Current coverage](parity/system/coverage.md): 155 of 156 export-bearing entries driven, 1 declared hole; 50 behaviors still awaiting gates | A declared hole is accounted for, not implemented or verified by that declaration. Export coverage and behavior coverage are different measures. |
 | Porting contract | [PORTING.md](PORTING.md), [CONTEXT.md](CONTEXT.md), and the [five gates](README.md#the-five-gates) | Use these as the migration and verification rules. |
 
 The live issue index is [Close the divergence backlog](https://github.com/jonbae/PSFlow/issues/93).
@@ -332,7 +333,7 @@ describe that fallback as a completed autonomous AAMF migration.
 **Status: started, 2026-11-09.** A / W00's baseline capture and triage are
 complete; its original unstable experiments remain archived. E now supplies
 reproducible replacement captures under the isolated protocol. **B / W02 is complete: stage 5, 68 crossed, zero passthroughs.** See the
-[execution results](AAMF_STEP3_RESULTS.md). C, D, E, F and G are also complete; H and I have the partial completions recorded above.
+[execution results](AAMF_STEP3_RESULTS.md). C through H are also complete; I remains.
 
 The following is a proposed queue, to refine against fresh captures. Independent
 branches may proceed once their prerequisites and target-file ownership are
@@ -347,7 +348,7 @@ clear. Each behavior fix needs its own observable acceptance criterion.
 | E | **Complete.** Keyboard aria-live announcements, native focus-visible gating and the real focus-centering store effect match upstream. The shared viewport-end timer correction is retained. Browser driving now isolates native layout, timer completion, per-frame hover delivery and capture input state; a version-matched Linux runner isolates Mac physical modifiers. PR194 and PR195 were reviewed/adapted without merging or cherry-picking. | All nine targeted scenarios pass five independent rounds (180 raw traces), including full callback logs and across-round checks. The fresh 107-scenario wave has zero self-inconsistency or driving divergence. Four deliberate restored-defect probes are rejected by the unchanged official comparator. See [Order E results](AAMF_STEP3_RESULTS.md#order-e-completion-november-12-utc). |
 | F | **Complete.** XYResizer maintains gesture state and uses the existing solver. The mounted JS controls resize and receive changed limits during a drag. | Basic lifecycle plus 65 vendored-source differential cases, actual control/store proxies, and mounted receipts. The full net remains red on separate differences; see [results](AAMF_STEP3_RESULTS.md). |
 | G | **Complete.** `Boundary.Store` gives the store upstream's JavaScript shape: 85 members and 20 actions, the consumer's own objects, zustand's `setState`/`subscribe`/direct-write semantics, and `useStore`'s selector and `equalityFn`. `Edge`, `Node` and `DefaultEdgeOptions` carry every upstream member, and the edge merge, `onConnect` parameters, rendering and markers follow upstream's. | Store members, identity and write semantics match upstream in JS-entry tests; edge and node rendering match upstream's server render; the merge matches upstream's spread and `addEdge`. Four precise exclusions throw with messages. The flow probes lost every store difference. See [Order G results](AAMF_STEP3_RESULTS.md#order-g-completion-november-12-utc). |
-| H | Add missing behavioral witnesses and deepen function parity. The bounded W13 geometry/resize numeric slice is implemented; other numeric call sites and reference/selector behavior remain open. Start with the coverage register and the scenarios below. | A new witness must fire upstream as well as PSFlow. Retire the matching hole only after capture proves it. Keep declared behavior debt separate from export counts. |
+| H | **Complete.** Every hole upstream can fire has a witness on both sides; one store-action hole stays declared. The flow-node probes pass after node-size, deprecation-warning, selection-listener and render-count fixes. Consumer reads, handler payloads and the server snapshot follow upstream's objects, and the remaining W13 numeric call sites and three node-geometry functions are under exact or oracle comparison. | A new witness must fire upstream as well as PSFlow. Retire the matching hole only after capture proves it. Keep declared behavior debt separate from export counts. |
 | I | Finish distribution compatibility after runtime behavior is settled: `.d.ts` for JS/TS consumers, package entry points, and distributable styles/assets. | Declarations describe the actual crossed JS API and accepted gaps. They must not expose PureScript ADT representations or blindly promise all upstream behavior. PureScript remains the implementation language. |
 
 D and E are high-impact investigation candidates: the committed report repeats
@@ -358,22 +359,24 @@ handle-bound PR already addresses part of that list.
 
 ### Prioritize scenarios that prove an unobserved condition
 
-- [Drag a selection](https://github.com/jonbae/PSFlow/issues/111): select at least
-  two nodes, drag the selection, and witness all three selection-drag callbacks
-  on both sides. A grid variant can also exercise multi-node snapping.
-- [Hold auto-pan past the translate extent](https://github.com/jonbae/PSFlow/issues/108):
-  witness at least one refused pan frame. Decide how callback frame counts are
-  made reproducible; longer wall-clock sleeps alone do not prove that.
-- Add a resize fixture for F; custom edge types and connection-line components;
-  portal content; alternate built-in edge types; an edge toolbar; reconnect
-  gestures; and supported default edge options. These are starting points in
-  [the hole register](parity/system/coverage/holes.json), not claims that all
-  need separate new fixtures.
+- **Complete:** [Drag a selection](https://github.com/jonbae/PSFlow/issues/111).
+  `drag-selection-moves-selected-nodes` drags a two-node selection by its
+  rectangle, and all three selection-drag callbacks fire on both sides. A grid
+  variant could still exercise multi-node snapping.
+- **Complete:** [Hold auto-pan past the translate extent](https://github.com/jonbae/PSFlow/issues/108).
+  Under Order E's frame protocol, `drag-node-autopan-past-extent` drives frames
+  after the viewport reaches the extent, and each refused frame is observed on
+  both sides.
+- **Complete:** resize handlers, custom and alternate built-in edge types,
+  portal content, an edge toolbar, reconnect gestures and default edge options
+  now have witnesses. Connection-line components were already driven by the
+  connection-line probe.
 - **Complete:** the `onInit` driver callback is now observed on both sides and
   its single coverage hole has retired. Initialization ordering remains E work.
-- Extend [function parity](tickets/059-layer1-behavioral-parity-coverage.md)
-  for node-bounds/origin/internal-node functions using richer oracle inputs
-  when that gives evidence the browser corpus cannot provide.
+- **Complete for user nodes:** [function parity](tickets/059-layer1-behavioral-parity-coverage.md)
+  covers `getNodePositionWithOrigin`, `nodeToRect` and `nodeToBox`.
+  `getInternalNodesBounds` and `getNodesInside` stay deferred; they need
+  internal nodes the oracle does not build.
 
 Respect [reserved scenario IDs](parity/system/corpus/reserved.mjs), the fork
 register, and per-test retirement evidence. A scenario that merely has a
@@ -443,6 +446,6 @@ G's `node.resizing` field are complete. E's bounded keyboard protocol and H's
 `onInit` witness are also complete. Bounded initialization/native-frame driving is
 also complete. E / W11 is now complete, including keyboard behavior and isolated
 viewport/gesture reproducibility. G is complete: the JS store view and the
-default-edge, edge and node members. Continue H's other witnesses/reference
-checks and I. Step 3 H–I and overall port completion remain open. A–G are
-complete.
+default-edge, edge and node members. H is complete: the witnesses, reference
+reads and numeric call sites. Step 3 I and overall port completion remain open.
+A–H are complete.

@@ -129,18 +129,19 @@ import Boundary.Elements
   , connectionOut
   , connectionParamsOut
   , edgeChangeOut
+  , edgeIdentityOut
   , edgeIn
   , edgeOut
   , graphSelectionOut
   , handleOut
   , internalNodeOut
   , nodeChangeOut
+  , nodeIdentityOut
   , nodeIn
-  , nodeOut
   , viewportOut
   )
 import Boundary.Enums (handleTypeOut, positionOut)
-import Boundary.Instance (JsReactFlowInstance, instanceOut)
+import Boundary.Instance (JsReactFlowInstance, copyOf, instanceOut)
 import Boundary.Undefined (Undefinable, toUndefinable)
 import Boundary.Untagged (asBoolean, typeName)
 import Data.Either (Either, either)
@@ -363,23 +364,23 @@ foreign import cacheByReference :: forall a b. (a -> b) -> a -> b
 type JsNodeMouseHandler = EffectFn2 Foreign JsNode Unit
 
 nodeMouseHandlerIn :: JsNodeMouseHandler -> NodeMouseHandler Foreign
-nodeMouseHandlerIn f = \event node -> runEffectFn2 f (eventOut event) (nodeOut node)
+nodeMouseHandlerIn f = \event node -> runEffectFn2 f (eventOut event) (copyOf (nodeIdentityOut node))
 
 type JsOnNodeDrag = EffectFn3 Foreign JsNode (Array JsNode) Unit
 
 onNodeDragIn :: JsOnNodeDrag -> OnNodeDrag Foreign
 onNodeDragIn f = \event node nodes ->
-  runEffectFn3 f (eventOut event) (nodeOut node) (map nodeOut nodes)
+  runEffectFn3 f (eventOut event) (nodeIdentityOut node) (map nodeIdentityOut nodes)
 
 type JsEdgeMouseHandler = EffectFn2 Foreign JsEdge Unit
 
 edgeMouseHandlerIn :: JsEdgeMouseHandler -> EdgeMouseHandler Foreign
-edgeMouseHandlerIn f = \event edge -> runEffectFn2 f (eventOut event) (edgeOut edge)
+edgeMouseHandlerIn f = \event edge -> runEffectFn2 f (eventOut event) (edgeIdentityOut edge)
 
 type JsSelectionDragHandler = EffectFn2 Foreign (Array JsNode) Unit
 
 selectionDragHandlerIn :: JsSelectionDragHandler -> SelectionDragHandler Foreign
-selectionDragHandlerIn f = \event nodes -> runEffectFn2 f (eventOut event) (map nodeOut nodes)
+selectionDragHandlerIn f = \event nodes -> runEffectFn2 f (eventOut event) (map nodeIdentityOut nodes)
 
 type JsMouseEventHandler = EffectFn1 Foreign Unit
 
@@ -434,12 +435,12 @@ onEdgesChangeIn f = \changes -> runEffectFn1 f (map edgeChangeOut changes)
 type JsOnNodesDelete = EffectFn1 (Array JsNode) Unit
 
 onNodesDeleteIn :: JsOnNodesDelete -> OnNodesDelete Foreign
-onNodesDeleteIn f = \nodes -> runEffectFn1 f (map nodeOut nodes)
+onNodesDeleteIn f = \nodes -> runEffectFn1 f (map nodeIdentityOut nodes)
 
 type JsOnEdgesDelete = EffectFn1 (Array JsEdge) Unit
 
 onEdgesDeleteIn :: JsOnEdgesDelete -> OnEdgesDelete Foreign
-onEdgesDeleteIn f = \edges -> runEffectFn1 f (map edgeOut edges)
+onEdgesDeleteIn f = \edges -> runEffectFn1 f (map edgeIdentityOut edges)
 
 type JsOnDelete = EffectFn1 JsGraphSelection Unit
 
@@ -489,7 +490,7 @@ type JsOnReconnect = EffectFn2 JsEdge JsConnection Unit
 
 onReconnectIn :: JsOnReconnect -> OnReconnect Foreign
 onReconnectIn f = \oldEdge newConnection ->
-  runEffectFn2 f (edgeOut oldEdge) (connectionOut newConnection)
+  runEffectFn2 f (edgeIdentityOut oldEdge) (connectionOut newConnection)
 
 type JsOnReconnectStart = EffectFn3 Foreign JsEdge String Unit
 
@@ -497,7 +498,7 @@ onReconnectStartIn
   :: JsOnReconnectStart
   -> (MouseEvent -> EdgeBase Foreign -> HandleType -> Effect Unit)
 onReconnectStartIn f = \event edge handleType ->
-  runEffectFn3 f (eventOut event) (edgeOut edge) (handleTypeOut handleType)
+  runEffectFn3 f (eventOut event) (edgeIdentityOut edge) (handleTypeOut handleType)
 
 type JsOnReconnectEnd = EffectFn4 Foreign JsEdge String JsConnectionState Unit
 
@@ -510,7 +511,7 @@ onReconnectEndIn
        -> Effect Unit
      )
 onReconnectEndIn f = \event edge handleType state ->
-  runEffectFn4 f (eventOut event) (edgeOut edge) (handleTypeOut handleType)
+  runEffectFn4 f (eventOut event) (edgeIdentityOut edge) (handleTypeOut handleType)
     (connectionStateOut state)
 
 -- | `(event: MouseEvent | TouchEvent | null, viewport: Viewport) => void`. The

@@ -11,12 +11,14 @@ Order E is complete: keyboard announcements, focus panning, callback ordering
 and gesture reproducibility are validated.
 **Order G is complete:** `useStore` and `useStoreApi` hand JavaScript consumers
 upstream's store, and all 23 `defaultEdgeOptions` members and the edge and node
-members they depend on are implemented. The fresh Linux checkpoint captures all
-107 scenarios: **105 pass and 2 fail**, with **zero self-inconsistent scenarios
-and zero driving divergences**. The two remaining failures are the flow/node
-probes, now down to H's node-prop, deprecation-warning and selection-callback
-differences. Coverage remains **128/156 driven, 28 declared holes**, with 50
-separate behavior-debt rows. H, I and overall Step 3 completion remain open.
+members they depend on are implemented.
+**Order H is complete, 2026-11-12 UTC:** every coverage hole upstream can fire
+has a witness on both sides, and the flow-node probes, consumer reference reads
+and named numeric call sites match upstream. The fresh Linux checkpoint captures
+all 115 scenarios: **115 pass and 0 fail**, with **zero self-inconsistent scenarios and zero driving divergences**. Coverage is **155/156 driven, 1 declared hole**,
+with 50 separate behavior-debt rows. See
+[Order H results](#order-h-completion-november-12-utc). Step 3 I and overall
+port completion remain open.
 
 ## Fresh baseline (Step 3 A / W00)
 
@@ -934,3 +936,151 @@ after `npm run build:driver`.
   handed to an edge handler lacks the consumer's custom keys.
 - A server render reads the store's current state, where zustand reads its
   initial state. The two differ only when the state changes during that render.
+
+## Order H completion (November 12 UTC)
+
+**Order H is complete.** Every coverage hole that upstream can fire now has a
+witness on both sides, and the flow-node probes, the reference reads and the
+named numeric call sites match upstream. The full net passes: **115 of 115
+scenarios**, every side reproducing itself. [Task evidence](aamf/step3/order-h/) keeps the red runs, the focused captures,
+the gates and the wave. No AAMF migration agent was invoked, and no PR was
+merged or cherry-picked.
+
+### The flow-node probes
+
+The two probes Order G left failing pass. Their differences came from four
+places:
+
+- **Node component size.** Upstream spreads `getNodeDimensions(node)` onto the
+  node component, so a node with no size reads `0`. ps-flow passed the
+  declared `width` and `height`, `undefined` when absent.
+- **`useHandleConnections`' deprecation warning.** Upstream writes it with
+  `console.warn` on every call; ps-flow wrote nothing.
+- **The selection listener.** Upstream renders `<SelectionListener />` before
+  the flow's children and always mounts its inner subscriber, because
+  `!!s.onSelectionChangeHandlers` is always true. ps-flow rendered it after the
+  children and only once a handler existed, so a handler that
+  `useOnSelectionChange` registered at mount was called at once with an empty
+  selection. The listener now reads each selected node's `internals.userNode`,
+  and `onSelectionChange`, `onDelete` and `onBeforeDelete` receive the
+  consumer's own objects.
+- **Render counts.** The warning count exposed that ps-flow rendered a consumer's
+  node component more often than upstream. Six causes, each fixed:
+  - `updateAbsolutePositions` writes a root node's position into the internal
+    node it holds, as upstream does, so an unmoved node keeps its identity.
+  - `Boundary.Flow` converts each prop once per consumer value (`stably`). A
+    conversion made on every render was a new value that `<StoreUpdater />`
+    dispatched and every `memo` boundary re-rendered on.
+  - The two middleware hooks keep one adapter per consumer function. A new one
+    per render removed and re-added the middleware, and the removal notified
+    the store before the consumer's selected node landed.
+  - `useConnection` compares with zustand's `shallow`, as upstream's does.
+    Reference equality on a state built for every read never held.
+  - `<ReactFlow />` defaults `colorMode` to `'light'`, as upstream does. ps-flow
+    treated an absent mode as `'system'` and re-rendered the flow when the media
+    query resolved; under a dark system preference it also drew a default flow
+    dark. The hook follows upstream's, keeps its held class when the class is
+    unchanged, and reads light without a `window`.
+  - `<NodeRenderer />` hands each node wrapper one `Just` around its resize
+    observer instead of a new one per render.
+
+### The coverage register
+
+Two new fixtures, their derived mount baselines, four new scenarios and the
+existing resize scenarios drive every hole upstream can fire:
+
+| Holes retired | Witness |
+|---|---|
+| The four built-in edge types and their props; `EdgeTypes` | `edges/types.ts`, whose edges declare `simplebezier`, `smoothstep`, `step`, `straight` and a consumer type registered as `custom` |
+| `EdgeLabelRenderer`, `EdgeLabelRendererProps`, `ViewportPortal` | The `custom` edge's label and viewport content, on mount |
+| `EdgeToolbar`, `EdgeToolbarProps` | `click-reveals-edge-toolbar`: the toolbar follows the edge's selection |
+| `DefaultEdgeOptions` | `edges/default-options.ts`; the witness now requires the class only the options give |
+| `OnReconnect` | `reconnect-edge-to-another-handle` |
+| The seven resize handler exports | The resize fixture records its handlers into the call log, and passes `shouldResize` |
+| `OnSelectionDrag`, `SelectionDragHandler` | `drag-selection-moves-selected-nodes` ([issue #111](https://github.com/jonbae/PSFlow/issues/111)) |
+| `EdgeAddChange`, `EdgeReplaceChange` | `controlled-add-and-update-edge`: on a controlled flow upstream reports both |
+
+Coverage is **155 of 156 export-bearing entries driven, one declared hole**.
+`UnselectNodesAndEdgesParams` stays declared: since Order G a consumer can call
+the action through `useStoreApi()`, but the trace's `api` section records only
+instance methods and queries. Behavior debt stays at 50 rows, counted apart.
+
+Two more new scenarios observe a condition rather than an export, so the
+corpus holds 115 scenarios, eight more than Order G's 107.
+`drag-node-autopan-past-extent` holds auto-pan at the translate extent: after
+the viewport reaches it, each further frame reports `onMove` at the same
+viewport and neither moves nor drags the node, on both sides
+([issue #108](https://github.com/jonbae/PSFlow/issues/108)).
+`handlers-keep-consumer-keys` checks the handler payloads described next.
+
+Two of the captures found further differences, both fixed. The reconnect
+anchors handed `XYHandle` React's event, so `onConnectStart` received it;
+upstream hands `event.nativeEvent`. And a merged edge, a clicked node and a
+dragged node reached their handlers without the consumer's own keys.
+
+### What a consumer reads back
+
+Upstream hands a consumer its own objects or shallow copies of them, and every
+key the consumer wrote survives either way. ps-flow rebuilt each one from its
+PureScript record, which keeps only the members it models. Now:
+
+- `getNode`, `getEdge`, `deleteElements` and `getIntersectingNodes` return the
+  consumer's objects; `getNodes`, `getEdges` and `toObject` return `{ ...n }`
+  copies of them. `setNodes` and `setEdges` updaters receive the consumer's
+  objects, and the four `update…` methods merge into them.
+- Node mouse handlers receive `{ ...internals.userNode }`. Edge handlers,
+  `onReconnect…`, `onNodesDelete` and `onEdgesDelete` receive the consumer's
+  objects. An edge `defaultEdgeOptions` completed crosses as upstream's
+  `{ ...defaultEdgeOptions, ...edge }`, and the drag handlers receive
+  `{ ...userNode, position, dragging }`.
+- A server render reads the store's initial state, as zustand's `useStore`
+  does through `getInitialState`. Eight test helpers that write state before a
+  server render now serve that state as their server snapshot.
+
+### Numeric call sites and function parity
+
+The five call sites W13 named use `Math.min` and `Math.max` semantics, which
+keep a `NaN` and order `-0` below `+0`: the `BoundingBox` monoid that
+`getNodesBounds` folds, the smoothstep gap offset, distances and bend size,
+parent expansion, the expand-parent drag clamp, and closest-handle selection,
+which now passes over a `NaN` distance as upstream's loop does.
+
+Function parity covers `getNodePositionWithOrigin`, `nodeToRect` and
+`nodeToBox` against the oracle, with a falsification probe. Ticket 059 lists 34
+covered functions; `getInternalNodesBounds` and `getNodesInside` stay deferred.
+
+### Precise exclusions
+
+- A `defaultEdgeOptions` key outside upstream's typed `DefaultEdgeOptions`,
+  such as `pathOptions`, is not merged. Upstream's spread copies any key at run
+  time; its type leaves `pathOptions` out, and ps-flow merges the 23 typed
+  members.
+- A node that ps-flow's own `applyNodeChanges` rebuilds, in an uncontrolled
+  flow, has no consumer object behind it, so a later handler receives the
+  members ps-flow models.
+
+### Evidence
+
+| Check | Result |
+|---|---|
+| JS-entry regressions at the starting commit `f8cefb3d` | 7 of 7 ps-flow checks red, every upstream control green; `getNodesBounds` already matched |
+| `parity/boundary/references.test.mjs`, `numeric.test.mjs` | 14/14 against upstream |
+| Red before each fix | Smoothstep JS entry, closest handle, `BoundingBox` monoid (case 90 of 784), drag payloads |
+| `spago build`, `spago test` | Passed; 784 exact monoid comparisons, three new oracle properties |
+| `npm run parity:surface` | Passed; 68 shapes, 65 same, 3 allowlisted |
+| `npm run parity:boundary` | Passed; 208 mount checks |
+| `npm run test:boundary` | 152/152; 138 before this task |
+| `test:surface`, `test:harness`, `test:compare`, `test:coverage`, `test:census` | 30, 279, 109, 39 and 5 passed |
+| `npm run parity:fork`, `npm run parity:changelog` | Passed; 54 units affirmed; 50 gate-pending rows |
+| Linux conformance and smoke | 41/41 and 2/2 |
+| Linux full net, final code | **115/115 pass**; 230/230 sides reproduce themselves; coverage 155/156 driven, 1 declared hole |
+
+Reproduce the wave with `node parity/system/linux.mjs npm run parity:system`
+after `npm run build:driver`.
+
+### What remains
+
+H's witnesses and reference reads are done. Step 3 I, distribution
+compatibility, remains, as does overall port completion: 50 behavior-debt rows
+await their gates, and `getInternalNodesBounds` and `getNodesInside` have no
+function parity.

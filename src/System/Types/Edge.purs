@@ -19,6 +19,8 @@ module System.Types.Edge
   , EdgeReconnectable(..)
   , rememberUserEdge
   , originalUserEdge
+  , rememberDefaultEdgeOptions
+  , rememberMergedEdge
   , edgeOwnsKey
   ) where
 
@@ -27,7 +29,7 @@ import Prelude
 import Data.Enum (class BoundedEnum, class Enum, Cardinality(..))
 import Data.Enum.Generic (genericFromEnum, genericPred, genericSucc, genericToEnum)
 import Data.Generic.Rep (class Generic)
-import Data.Function.Uncurried (Fn2)
+import Data.Function.Uncurried (Fn2, Fn3)
 import Data.Map (Map)
 import Data.Maybe (Maybe)
 import Data.Nullable (Nullable)
@@ -124,6 +126,15 @@ type EdgePathOptions =
 -- | holds the consumer's objects, so a store read hands those back.
 foreign import rememberUserEdge :: forall e. Fn2 Foreign (EdgeBase e) (EdgeBase e)
 foreign import originalUserEdge :: forall e. EdgeBase e -> Nullable Foreign
+
+-- | The consumer's `defaultEdgeOptions` object, kept beside its decoded record.
+foreign import rememberDefaultEdgeOptions :: forall options. Fn2 Foreign options options
+
+-- | `rememberMergedEdge defaults edge merged` keeps `{ ...defaults, ...edge }`
+-- | over the consumer's two objects beside `merged`, when both came from the
+-- | consumer, so the merged edge crosses back as upstream's spread does.
+foreign import rememberMergedEdge
+  :: forall options e. Fn3 options (EdgeBase e) (EdgeBase e) (EdgeBase e)
 
 -- | Whether the consumer's edge object, if there was one, has `key` as an own
 -- | property. Upstream merges `{ ...defaultEdgeOptions, ...edge }`, and an

@@ -66,7 +66,8 @@
 -- | `ReactFlowInstance` against `JsReactFlowInstance` label for label and the
 -- | four record shapes below against their PureScript counterparts.
 module Boundary.Instance
-  ( JsDeleteElementsOptions
+  ( copyOf
+  , JsDeleteElementsOptions
   , JsDeletedElements
   , JsFitBoundsOptions
   , JsHandleConnection
@@ -94,11 +95,11 @@ import Boundary.Elements
   , JsNode
   , JsViewport
   , JsXYPosition
+  , edgeIdentityOut
   , edgeIn
-  , edgeOut
   , internalNodeOut
+  , nodeIdentityOut
   , nodeIn
-  , nodeOut
   , snapGridIn
   , viewportIn
   , viewportOut
@@ -293,31 +294,35 @@ type JsReactFlowInstance =
 -- | more than one caller.
 instanceOut :: ReactFlowInstance Foreign Foreign -> JsReactFlowInstance
 instanceOut i =
-  { getNodes: map nodeOut <$> i.getNodes
+  -- Upstream's `nodes.map((n) => ({ ...n }))`: a copy of each node the
+  -- consumer gave, custom keys and all.
+  { getNodes: map (copyOf <<< nodeIdentityOut) <$> i.getNodes
 
-  , setNodes: setStateOut "setNodes" nodeIn nodeOut i.setNodes
+  , setNodes: setStateOut "setNodes" nodeIn nodeIdentityOut i.setNodes
 
   -- `Node | Node[]`. ps-flow takes the array, which is the wider form.
   , addNodes: mkEffectFn1 \payload -> i.addNodes (map jsNode (oneOrMany payload))
 
-  , getNode: mkEffectFn1 \id -> toUndefinable <<< map nodeOut <$> i.getNode id
+  -- Upstream's `internals.userNode`: the consumer's own node, not a copy.
+  , getNode: mkEffectFn1 \id -> toUndefinable <<< map nodeIdentityOut <$> i.getNode id
 
   , getInternalNode: mkEffectFn1 \id ->
       toUndefinable <<< map internalNodeOut <$> i.getInternalNode id
 
-  , getEdges: map edgeOut <$> i.getEdges
+  , getEdges: map (copyOf <<< edgeIdentityOut) <$> i.getEdges
 
-  , setEdges: setStateOut "setEdges" edgeIn edgeOut i.setEdges
+  , setEdges: setStateOut "setEdges" edgeIn edgeIdentityOut i.setEdges
 
   , addEdges: mkEffectFn1 \payload -> i.addEdges (map jsEdge (oneOrMany payload))
 
-  , getEdge: mkEffectFn1 \id -> toUndefinable <<< map edgeOut <$> i.getEdge id
+  -- Upstream's `edgeLookup.get(id)`: the consumer's own edge.
+  , getEdge: mkEffectFn1 \id -> toUndefinable <<< map edgeIdentityOut <$> i.getEdge id
 
   , toObject: do
       o <- i.toObject
       pure
-        { nodes: map nodeOut o.nodes
-        , edges: map edgeOut o.edges
+        { nodes: map (copyOf <<< nodeIdentityOut) o.nodes
+        , edges: map (copyOf <<< edgeIdentityOut) o.edges
         , viewport: viewportOut o.viewport
         }
 
@@ -328,12 +333,12 @@ instanceOut i =
           , edges: map (map (elementRef "deleteElements.edges")) (fromUndefinable options.edges)
           }
         pure
-          { deletedNodes: map nodeOut deleted.deletedNodes
-          , deletedEdges: map edgeOut deleted.deletedEdges
+          { deletedNodes: map nodeIdentityOut deleted.deletedNodes
+          , deletedEdges: map edgeIdentityOut deleted.deletedEdges
           }
 
   , getIntersectingNodes: mkEffectFn3 \target partially nodes ->
-      map nodeOut <$>
+      map nodeIdentityOut <$>
         i.getIntersectingNodes
           (nodeOrIdOrRect "getIntersectingNodes" target)
           (fromUndefinable partially)
@@ -350,22 +355,22 @@ instanceOut i =
   -- both live here rather than in the internals.
   , updateNode: mkEffectFn3 \id update options ->
       i.updateNode id
-        (elementUpdater nodeOut nodeIn update (replaceWanted options))
+        (elementUpdater nodeIdentityOut nodeIn update (replaceWanted options))
         (updateOptionsIn options)
 
   , updateNodeData: mkEffectFn3 \id update options ->
       i.updateNodeData id
-        (dataUpdater nodeOut nodeIn update (replaceWanted options))
+        (dataUpdater nodeIdentityOut nodeIn update (replaceWanted options))
         (updateOptionsIn options)
 
   , updateEdge: mkEffectFn3 \id update options ->
       i.updateEdge id
-        (elementUpdater edgeOut edgeIn update (replaceWanted options))
+        (elementUpdater edgeIdentityOut edgeIn update (replaceWanted options))
         (updateOptionsIn options)
 
   , updateEdgeData: mkEffectFn3 \id update options ->
       i.updateEdgeData id
-        (dataUpdater edgeOut edgeIn update (replaceWanted options))
+        (dataUpdater edgeIdentityOut edgeIn update (replaceWanted options))
         (updateOptionsIn options)
 
   , getNodesBounds: mkEffectFn1 \refs ->
@@ -646,3 +651,9 @@ foreign import asDataField :: Foreign -> Foreign
 -- | mutating: a consumer holding the element they were handed must not see it
 -- | change under them.
 foreign import mergeInto :: Foreign -> Foreign -> Foreign
+
+foreign import shallowCopy :: Foreign -> Foreign
+
+-- | Upstream's `{ ...value }`, for a node or edge the consumer gave.
+copyOf :: forall a. a -> a
+copyOf = unsafeCoerce <<< shallowCopy <<< unsafeCoerce

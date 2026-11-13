@@ -136,7 +136,7 @@ import Boundary.Elements
   , snapGridIn
   , viewportIn
   )
-import Boundary.Original (remembering)
+import Boundary.Original (remembering, stably)
 import Boundary.Edges
   ( JsConnectionLineComponentProps
   , JsEdgeProps
@@ -371,94 +371,99 @@ type JsFlowProps =
 -- lost its `miniMapPropsIn` in the same commit and for the same reason.
 -- ────────────────────────────────────────────────────────────────────────
 
+-- | Every member that converts an object, an array or a function goes through
+-- | `stably`, so a consumer who passes the same value again gets the same
+-- | conversion back. `<StoreUpdater />` and every `memo` boundary below then
+-- | see an unchanged prop, as upstream's `!==` checks do, rather than a new
+-- | one on each render of `<ReactFlow />`.
 convertProps :: JsFlowProps -> Nullable Foreign -> ReactFlowProps Foreign Foreign
 convertProps p forwarded =
   { children: p.children
-  , nodes: map (remembering (map nodeIn)) (fromUndefinable p.nodes)
-  , edges: map (remembering (map edgeIn)) (fromUndefinable p.edges)
-  , defaultNodes: map (remembering (map nodeIn)) (fromUndefinable p.defaultNodes)
-  , defaultEdges: map (remembering (map edgeIn)) (fromUndefinable p.defaultEdges)
-  , defaultEdgeOptions: map defaultEdgeOptionsIn (fromUndefinable p.defaultEdgeOptions)
-  , onNodeClick: map nodeMouseHandlerIn (fromUndefinable p.onNodeClick)
-  , onNodeDoubleClick: map nodeMouseHandlerIn (fromUndefinable p.onNodeDoubleClick)
-  , onNodeMouseEnter: map nodeMouseHandlerIn (fromUndefinable p.onNodeMouseEnter)
-  , onNodeMouseMove: map nodeMouseHandlerIn (fromUndefinable p.onNodeMouseMove)
-  , onNodeMouseLeave: map nodeMouseHandlerIn (fromUndefinable p.onNodeMouseLeave)
-  , onNodeContextMenu: map nodeMouseHandlerIn (fromUndefinable p.onNodeContextMenu)
-  , onNodeDragStart: map (remembering onNodeDragIn) (fromUndefinable p.onNodeDragStart)
-  , onNodeDrag: map (remembering onNodeDragIn) (fromUndefinable p.onNodeDrag)
-  , onNodeDragStop: map (remembering onNodeDragIn) (fromUndefinable p.onNodeDragStop)
-  , onEdgeClick: map edgeMouseHandlerIn (fromUndefinable p.onEdgeClick)
-  , onEdgeContextMenu: map edgeMouseHandlerIn (fromUndefinable p.onEdgeContextMenu)
-  , onEdgeMouseEnter: map edgeMouseHandlerIn (fromUndefinable p.onEdgeMouseEnter)
-  , onEdgeMouseMove: map edgeMouseHandlerIn (fromUndefinable p.onEdgeMouseMove)
-  , onEdgeMouseLeave: map edgeMouseHandlerIn (fromUndefinable p.onEdgeMouseLeave)
-  , onEdgeDoubleClick: map edgeMouseHandlerIn (fromUndefinable p.onEdgeDoubleClick)
-  , onReconnect: map onReconnectIn (fromUndefinable p.onReconnect)
-  , onReconnectStart: map onReconnectStartIn (fromUndefinable p.onReconnectStart)
-  , onReconnectEnd: map onReconnectEndIn (fromUndefinable p.onReconnectEnd)
-  , onNodesChange: map (remembering onNodesChangeIn) (fromUndefinable p.onNodesChange)
-  , onEdgesChange: map (remembering onEdgesChangeIn) (fromUndefinable p.onEdgesChange)
-  , onNodesDelete: map (remembering onNodesDeleteIn) (fromUndefinable p.onNodesDelete)
-  , onEdgesDelete: map (remembering onEdgesDeleteIn) (fromUndefinable p.onEdgesDelete)
-  , onDelete: map (remembering onDeleteIn) (fromUndefinable p.onDelete)
-  , onSelectionDragStart: map (remembering selectionDragHandlerIn) (fromUndefinable p.onSelectionDragStart)
-  , onSelectionDrag: map (remembering selectionDragHandlerIn) (fromUndefinable p.onSelectionDrag)
-  , onSelectionDragStop: map (remembering selectionDragHandlerIn) (fromUndefinable p.onSelectionDragStop)
-  , onSelectionStart: map mouseEventHandlerIn (fromUndefinable p.onSelectionStart)
-  , onSelectionEnd: map mouseEventHandlerIn (fromUndefinable p.onSelectionEnd)
-  , onSelectionContextMenu: map selectionDragHandlerIn (fromUndefinable p.onSelectionContextMenu)
-  , onSelectionChange: map onSelectionChangeIn (fromUndefinable p.onSelectionChange)
-  , onConnect: map (remembering onConnectIn) (fromUndefinable p.onConnect)
-  , onConnectStart: map (remembering onConnectStartIn) (fromUndefinable p.onConnectStart)
-  , onConnectEnd: map (remembering onConnectEndIn) (fromUndefinable p.onConnectEnd)
-  , onClickConnectStart: map (remembering onConnectStartIn) (fromUndefinable p.onClickConnectStart)
-  , onClickConnectEnd: map (remembering onConnectEndIn) (fromUndefinable p.onClickConnectEnd)
-  , onInit: map onInitIn (fromUndefinable p.onInit)
-  , onMove: map (remembering onMoveIn) (fromUndefinable p.onMove)
-  , onMoveStart: map (remembering onMoveIn) (fromUndefinable p.onMoveStart)
-  , onMoveEnd: map (remembering onMoveIn) (fromUndefinable p.onMoveEnd)
+  , nodes: map (stably "nodes" (remembering (map nodeIn))) (fromUndefinable p.nodes)
+  , edges: map (stably "edges" (remembering (map edgeIn))) (fromUndefinable p.edges)
+  , defaultNodes: map (stably "defaultNodes" (remembering (map nodeIn))) (fromUndefinable p.defaultNodes)
+  , defaultEdges: map (stably "defaultEdges" (remembering (map edgeIn))) (fromUndefinable p.defaultEdges)
+  , defaultEdgeOptions: map (stably "defaultEdgeOptions" defaultEdgeOptionsIn) (fromUndefinable p.defaultEdgeOptions)
+  , onNodeClick: map (stably "onNodeClick" nodeMouseHandlerIn) (fromUndefinable p.onNodeClick)
+  , onNodeDoubleClick: map (stably "onNodeDoubleClick" nodeMouseHandlerIn) (fromUndefinable p.onNodeDoubleClick)
+  , onNodeMouseEnter: map (stably "onNodeMouseEnter" nodeMouseHandlerIn) (fromUndefinable p.onNodeMouseEnter)
+  , onNodeMouseMove: map (stably "onNodeMouseMove" nodeMouseHandlerIn) (fromUndefinable p.onNodeMouseMove)
+  , onNodeMouseLeave: map (stably "onNodeMouseLeave" nodeMouseHandlerIn) (fromUndefinable p.onNodeMouseLeave)
+  , onNodeContextMenu: map (stably "onNodeContextMenu" nodeMouseHandlerIn) (fromUndefinable p.onNodeContextMenu)
+  , onNodeDragStart: map (stably "onNodeDragStart" (remembering onNodeDragIn)) (fromUndefinable p.onNodeDragStart)
+  , onNodeDrag: map (stably "onNodeDrag" (remembering onNodeDragIn)) (fromUndefinable p.onNodeDrag)
+  , onNodeDragStop: map (stably "onNodeDragStop" (remembering onNodeDragIn)) (fromUndefinable p.onNodeDragStop)
+  , onEdgeClick: map (stably "onEdgeClick" edgeMouseHandlerIn) (fromUndefinable p.onEdgeClick)
+  , onEdgeContextMenu: map (stably "onEdgeContextMenu" edgeMouseHandlerIn) (fromUndefinable p.onEdgeContextMenu)
+  , onEdgeMouseEnter: map (stably "onEdgeMouseEnter" edgeMouseHandlerIn) (fromUndefinable p.onEdgeMouseEnter)
+  , onEdgeMouseMove: map (stably "onEdgeMouseMove" edgeMouseHandlerIn) (fromUndefinable p.onEdgeMouseMove)
+  , onEdgeMouseLeave: map (stably "onEdgeMouseLeave" edgeMouseHandlerIn) (fromUndefinable p.onEdgeMouseLeave)
+  , onEdgeDoubleClick: map (stably "onEdgeDoubleClick" edgeMouseHandlerIn) (fromUndefinable p.onEdgeDoubleClick)
+  , onReconnect: map (stably "onReconnect" onReconnectIn) (fromUndefinable p.onReconnect)
+  , onReconnectStart: map (stably "onReconnectStart" onReconnectStartIn) (fromUndefinable p.onReconnectStart)
+  , onReconnectEnd: map (stably "onReconnectEnd" onReconnectEndIn) (fromUndefinable p.onReconnectEnd)
+  , onNodesChange: map (stably "onNodesChange" (remembering onNodesChangeIn)) (fromUndefinable p.onNodesChange)
+  , onEdgesChange: map (stably "onEdgesChange" (remembering onEdgesChangeIn)) (fromUndefinable p.onEdgesChange)
+  , onNodesDelete: map (stably "onNodesDelete" (remembering onNodesDeleteIn)) (fromUndefinable p.onNodesDelete)
+  , onEdgesDelete: map (stably "onEdgesDelete" (remembering onEdgesDeleteIn)) (fromUndefinable p.onEdgesDelete)
+  , onDelete: map (stably "onDelete" (remembering onDeleteIn)) (fromUndefinable p.onDelete)
+  , onSelectionDragStart: map (stably "onSelectionDragStart" (remembering selectionDragHandlerIn)) (fromUndefinable p.onSelectionDragStart)
+  , onSelectionDrag: map (stably "onSelectionDrag" (remembering selectionDragHandlerIn)) (fromUndefinable p.onSelectionDrag)
+  , onSelectionDragStop: map (stably "onSelectionDragStop" (remembering selectionDragHandlerIn)) (fromUndefinable p.onSelectionDragStop)
+  , onSelectionStart: map (stably "onSelectionStart" mouseEventHandlerIn) (fromUndefinable p.onSelectionStart)
+  , onSelectionEnd: map (stably "onSelectionEnd" mouseEventHandlerIn) (fromUndefinable p.onSelectionEnd)
+  , onSelectionContextMenu: map (stably "onSelectionContextMenu" selectionDragHandlerIn) (fromUndefinable p.onSelectionContextMenu)
+  , onSelectionChange: map (stably "onSelectionChange" onSelectionChangeIn) (fromUndefinable p.onSelectionChange)
+  , onConnect: map (stably "onConnect" (remembering onConnectIn)) (fromUndefinable p.onConnect)
+  , onConnectStart: map (stably "onConnectStart" (remembering onConnectStartIn)) (fromUndefinable p.onConnectStart)
+  , onConnectEnd: map (stably "onConnectEnd" (remembering onConnectEndIn)) (fromUndefinable p.onConnectEnd)
+  , onClickConnectStart: map (stably "onClickConnectStart" (remembering onConnectStartIn)) (fromUndefinable p.onClickConnectStart)
+  , onClickConnectEnd: map (stably "onClickConnectEnd" (remembering onConnectEndIn)) (fromUndefinable p.onClickConnectEnd)
+  , onInit: map (stably "onInit" onInitIn) (fromUndefinable p.onInit)
+  , onMove: map (stably "onMove" (remembering onMoveIn)) (fromUndefinable p.onMove)
+  , onMoveStart: map (stably "onMoveStart" (remembering onMoveIn)) (fromUndefinable p.onMoveStart)
+  , onMoveEnd: map (stably "onMoveEnd" (remembering onMoveIn)) (fromUndefinable p.onMoveEnd)
   , className: fromUndefinable p.className
-  , style: map asCssStyle (fromUndefinable p.style)
-  , onScroll: map onScrollIn (fromUndefinable p.onScroll)
-  , onPaneScroll: map onPaneScrollIn (fromUndefinable p.onPaneScroll)
-  , onPaneClick: map mouseEventHandlerIn (fromUndefinable p.onPaneClick)
-  , onPaneContextMenu: map mouseEventHandlerIn (fromUndefinable p.onPaneContextMenu)
-  , onPaneMouseEnter: map mouseEventHandlerIn (fromUndefinable p.onPaneMouseEnter)
-  , onPaneMouseMove: map mouseEventHandlerIn (fromUndefinable p.onPaneMouseMove)
-  , onPaneMouseLeave: map mouseEventHandlerIn (fromUndefinable p.onPaneMouseLeave)
+  , style: map (stably "style" asCssStyle) (fromUndefinable p.style)
+  , onScroll: map (stably "onScroll" onScrollIn) (fromUndefinable p.onScroll)
+  , onPaneScroll: map (stably "onPaneScroll" onPaneScrollIn) (fromUndefinable p.onPaneScroll)
+  , onPaneClick: map (stably "onPaneClick" mouseEventHandlerIn) (fromUndefinable p.onPaneClick)
+  , onPaneContextMenu: map (stably "onPaneContextMenu" mouseEventHandlerIn) (fromUndefinable p.onPaneContextMenu)
+  , onPaneMouseEnter: map (stably "onPaneMouseEnter" mouseEventHandlerIn) (fromUndefinable p.onPaneMouseEnter)
+  , onPaneMouseMove: map (stably "onPaneMouseMove" mouseEventHandlerIn) (fromUndefinable p.onPaneMouseMove)
+  , onPaneMouseLeave: map (stably "onPaneMouseLeave" mouseEventHandlerIn) (fromUndefinable p.onPaneMouseLeave)
   , paneClickDistance: fromUndefinable p.paneClickDistance
   , nodeClickDistance: fromUndefinable p.nodeClickDistance
-  , onBeforeDelete: map (remembering onBeforeDeleteIn) (fromUndefinable p.onBeforeDelete)
-  , isValidConnection: map (remembering isValidConnectionIn) (fromUndefinable p.isValidConnection)
-  , onError: map (remembering onErrorIn) (fromUndefinable p.onError)
-  , nodeTypes: map nodeTypesIn (fromUndefinable p.nodeTypes)
-  , edgeTypes: map edgeTypesIn (fromUndefinable p.edgeTypes)
+  , onBeforeDelete: map (stably "onBeforeDelete" (remembering onBeforeDeleteIn)) (fromUndefinable p.onBeforeDelete)
+  , isValidConnection: map (stably "isValidConnection" (remembering isValidConnectionIn)) (fromUndefinable p.isValidConnection)
+  , onError: map (stably "onError" (remembering onErrorIn)) (fromUndefinable p.onError)
+  , nodeTypes: map (stably "nodeTypes" nodeTypesIn) (fromUndefinable p.nodeTypes)
+  , edgeTypes: map (stably "edgeTypes" edgeTypesIn) (fromUndefinable p.edgeTypes)
   , connectionLineType:
-      map (connectionLineTypeIn "connectionLineType")
+      map (stably "connectionLineType" (connectionLineTypeIn "connectionLineType"))
         (fromUndefinable p.connectionLineType)
-  , connectionLineStyle: map asCssStyle (fromUndefinable p.connectionLineStyle)
+  , connectionLineStyle: map (stably "connectionLineStyle" asCssStyle) (fromUndefinable p.connectionLineStyle)
   , connectionLineComponent:
-      map connectionLineComponentIn (fromUndefinable p.connectionLineComponent)
+      map (stably "connectionLineComponent" connectionLineComponentIn) (fromUndefinable p.connectionLineComponent)
   , connectionLineContainerStyle:
-      map asCssStyle (fromUndefinable p.connectionLineContainerStyle)
-  , connectionMode: map (connectionModeIn "connectionMode") (fromUndefinable p.connectionMode)
+      map (stably "connectionLineContainerStyle" asCssStyle) (fromUndefinable p.connectionLineContainerStyle)
+  , connectionMode: map (stably "connectionMode" (connectionModeIn "connectionMode")) (fromUndefinable p.connectionMode)
   , deleteKeyCode: keyCodeIn "deleteKeyCode" p.deleteKeyCode
   , selectionKeyCode: keyCodeIn "selectionKeyCode" p.selectionKeyCode
   , selectionOnDrag: fromUndefinable p.selectionOnDrag
-  , selectionMode: map (selectionModeIn "selectionMode") (fromUndefinable p.selectionMode)
+  , selectionMode: map (stably "selectionMode" (selectionModeIn "selectionMode")) (fromUndefinable p.selectionMode)
   , panActivationKeyCode: keyCodeIn "panActivationKeyCode" p.panActivationKeyCode
   , multiSelectionKeyCode: keyCodeIn "multiSelectionKeyCode" p.multiSelectionKeyCode
   , zoomActivationKeyCode: keyCodeIn "zoomActivationKeyCode" p.zoomActivationKeyCode
   , snapToGrid: fromUndefinable p.snapToGrid
-  , snapGrid: map (snapGridIn "snapGrid") (fromUndefinable p.snapGrid)
+  , snapGrid: map (stably "snapGrid" (snapGridIn "snapGrid")) (fromUndefinable p.snapGrid)
   , onlyRenderVisibleElements: fromUndefinable p.onlyRenderVisibleElements
   , nodesDraggable: fromUndefinable p.nodesDraggable
   , nodesConnectable: fromUndefinable p.nodesConnectable
   , nodesFocusable: fromUndefinable p.nodesFocusable
   , nodeDragThreshold: fromUndefinable p.nodeDragThreshold
-  , nodeOrigin: map (nodeOriginIn "nodeOrigin") (fromUndefinable p.nodeOrigin)
-  , nodeExtent: map (coordinateExtentIn "nodeExtent") (fromUndefinable p.nodeExtent)
+  , nodeOrigin: map (stably "nodeOrigin" (nodeOriginIn "nodeOrigin")) (fromUndefinable p.nodeOrigin)
+  , nodeExtent: map (stably "nodeExtent" (coordinateExtentIn "nodeExtent")) (fromUndefinable p.nodeExtent)
   , autoPanOnNodeFocus: fromUndefinable p.autoPanOnNodeFocus
   , autoPanOnNodeDrag: fromUndefinable p.autoPanOnNodeDrag
   , noDragClassName: fromUndefinable p.noDragClassName
@@ -470,42 +475,42 @@ convertProps p forwarded =
   , selectNodesOnDrag: fromUndefinable p.selectNodesOnDrag
   , elevateNodesOnSelect: fromUndefinable p.elevateNodesOnSelect
   , elevateEdgesOnSelect: fromUndefinable p.elevateEdgesOnSelect
-  , panOnDrag: map panOnDragIn (fromUndefinable p.panOnDrag)
+  , panOnDrag: map (stably "panOnDrag" panOnDragIn) (fromUndefinable p.panOnDrag)
   , minZoom: fromUndefinable p.minZoom
   , maxZoom: fromUndefinable p.maxZoom
   , translateExtent:
-      map (coordinateExtentIn "translateExtent") (fromUndefinable p.translateExtent)
+      map (stably "translateExtent" (coordinateExtentIn "translateExtent")) (fromUndefinable p.translateExtent)
   , zoomOnScroll: fromUndefinable p.zoomOnScroll
   , zoomOnPinch: fromUndefinable p.zoomOnPinch
   , zoomOnDoubleClick: fromUndefinable p.zoomOnDoubleClick
   , panOnScroll: fromUndefinable p.panOnScroll
   , panOnScrollSpeed: fromUndefinable p.panOnScrollSpeed
   , panOnScrollMode:
-      map (panOnScrollModeIn "panOnScrollMode") (fromUndefinable p.panOnScrollMode)
+      map (stably "panOnScrollMode" (panOnScrollModeIn "panOnScrollMode")) (fromUndefinable p.panOnScrollMode)
   , preventScrolling: fromUndefinable p.preventScrolling
-  , viewport: map viewportIn (fromUndefinable p.viewport)
-  , defaultViewport: map viewportIn (fromUndefinable p.defaultViewport)
-  , onViewportChange: map (remembering onViewportChangeIn) (fromUndefinable p.onViewportChange)
+  , viewport: map (stably "viewport" viewportIn) (fromUndefinable p.viewport)
+  , defaultViewport: map (stably "defaultViewport" viewportIn) (fromUndefinable p.defaultViewport)
+  , onViewportChange: map (stably "onViewportChange" (remembering onViewportChangeIn)) (fromUndefinable p.onViewportChange)
   , fitView: fromUndefinable p.fitView
-  , fitViewOptions: map (remembering fitViewOptionsIn) (fromUndefinable p.fitViewOptions)
+  , fitViewOptions: map (stably "fitViewOptions" (remembering fitViewOptionsIn)) (fromUndefinable p.fitViewOptions)
   , defaultMarkerColor: fromUndefinable p.defaultMarkerColor
   , width: fromUndefinable p.width
   , height: fromUndefinable p.height
-  , colorMode: map (colorModeIn "colorMode") (fromUndefinable p.colorMode)
+  , colorMode: map (stably "colorMode" (colorModeIn "colorMode")) (fromUndefinable p.colorMode)
   , attributionPosition:
-      map (panelPositionIn "attributionPosition") (fromUndefinable p.attributionPosition)
-  , proOptions: map proOptionsIn (fromUndefinable p.proOptions)
+      map (stably "attributionPosition" (panelPositionIn "attributionPosition")) (fromUndefinable p.attributionPosition)
+  , proOptions: map (stably "proOptions" proOptionsIn) (fromUndefinable p.proOptions)
   , noWheelClassName: fromUndefinable p.noWheelClassName
   , noPanClassName: fromUndefinable p.noPanClassName
   , disableKeyboardA11y: fromUndefinable p.disableKeyboardA11y
-  , ariaLabelConfig: map ariaLabelConfigIn (fromUndefinable p.ariaLabelConfig)
+  , ariaLabelConfig: map (stably "ariaLabelConfig" ariaLabelConfigIn) (fromUndefinable p.ariaLabelConfig)
   , autoPanOnConnect: fromUndefinable p.autoPanOnConnect
   , autoPanSpeed: fromUndefinable p.autoPanSpeed
   , autoPanOnSelection: fromUndefinable p.autoPanOnSelection
   , connectOnClick: fromUndefinable p.connectOnClick
   , connectionRadius: fromUndefinable p.connectionRadius
   , debug: fromUndefinable p.debug
-  , zIndexMode: map (zIndexModeIn "zIndexMode") (fromUndefinable p.zIndexMode)
+  , zIndexMode: map (stably "zIndexMode" (zIndexModeIn "zIndexMode")) (fromUndefinable p.zIndexMode)
   , innerRef: orNullable p.ref forwarded
   -- Upstream's `...rest`, which its wrapper `<div>` spreads. `JsFlowProps`
   -- names every member upstream destructures bar `id`, which upstream sets on
