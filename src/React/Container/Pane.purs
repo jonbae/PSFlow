@@ -40,10 +40,8 @@ import Prelude
 
 import Data.Array.NonEmpty (elem) as NEA
 import Data.Either (Either(..))
-import Data.Foldable (foldl, for_)
-import Data.Map (lookup, values) as Map
-import Data.Maybe (Maybe(..), fromMaybe)
-import Data.Newtype (unwrap)
+import Data.Foldable (for_)
+import Data.Maybe (Maybe(..))
 import Data.Number (sqrt)
 import Data.Nullable (Nullable, toMaybe, toNullable)
 import Data.Set (Set)
@@ -56,7 +54,7 @@ import React.Basic.Events (EventHandler, handler, handler_, syntheticEvent)
 import React.Basic.Hooks (Ref, memo, reactChildrenToArray, reactComponentWithChildren, readRef, useEffectOnce, useRef, writeRef)
 import React.Basic.Hooks as React
 import React.Component.UserSelection (userSelection)
-import React.Container.Pane.Internal (autoPanLoop, buildPaneClass, paneIsDraggable)
+import React.Container.Pane.Internal (autoPanLoop, buildPaneClass, paneIsDraggable, selectionStep)
 import React.FFI.DOM (div_)
 import React.Hook.Store (UseStoreApi, useStore, useStoreApi)
 import React.Store.Shell (Store)
@@ -71,7 +69,7 @@ import System.Types.Ids (NodeId)
 import System.Types.Node (NodeLookup)
 import System.Types.PanZoom (PanOnDrag(..))
 import System.Utils.Dom (DOMRect, elementBoundingRect, getEventPosition)
-import System.Utils.General (areSetsEqual, pointToRendererPoint, rendererPointToPoint)
+import System.Utils.General (pointToRendererPoint, rendererPointToPoint)
 import System.Utils.Graph (getNodesInside, orderedInternalNodes)
 import Unsafe.Coerce (unsafeCoerce)
 import Web.HTML.HTMLDivElement (HTMLDivElement)
@@ -117,40 +115,6 @@ selectSlice s =
   , dragging: s.paneDragging
   , autoPanSpeed: s.autoPanSpeed
   }
-
--- ----------------------------------------------------------------------------
--- Edge selection: walk `connectionLookup` for selected nodes, gather
--- the incident edge ids whose selectable flag is true. Mirrors TS
--- lines 226–236 — there is no `getEdgesInside` system util.
--- ----------------------------------------------------------------------------
-
-collectIncidentEdgeIds
-  :: forall n e
-   . ReactFlowState n e
-  -> Set NodeId
-  -> Set String
-collectIncidentEdgeIds state selectedNodeIds =
-  let
-    edgesSelectableDefault =
-      fromMaybe true (state.defaultEdgeOptions >>= _.selectable)
-    -- connectionLookup is keyed by stringified node id (composite-key
-    -- index); convert at the lookup boundary.
-    addEdgesForNode acc nodeId = case Map.lookup (unwrap nodeId) state.connectionLookup of
-      Nothing -> acc
-      Just handleMap -> foldl (addEdgeIfSelectable edgesSelectableDefault) acc (Map.values handleMap.byKey)
-  in
-    foldl addEdgesForNode Set.empty (Set.toUnfoldable selectedNodeIds :: Array NodeId)
-  where
-  addEdgeIfSelectable
-    :: Boolean
-    -> Set String
-    -> { edgeId :: String, source :: NodeId, target :: NodeId, sourceHandle :: Maybe String, targetHandle :: Maybe String }
-    -> Set String
-  addEdgeIfSelectable dflt acc conn = case Map.lookup conn.edgeId state.edgeLookup of
-    Nothing -> acc
-    Just edge ->
-      if fromMaybe dflt edge.selectable then Set.insert conn.edgeId acc
-      else acc
 
 -- ----------------------------------------------------------------------------
 -- Auto-pan loop helpers
@@ -260,22 +224,22 @@ pane =
                   { partially: props.selectionMode == Partial
                   , excludeNonSelectable: true
                   }
-                nextNodeIds :: Set NodeId
-                nextNodeIds = Set.fromFoldable (map _.id nextNodes)
-                nextEdgeIds = collectIncidentEdgeIds st nextNodeIds
 
               prevNodeIds <- readRef selectedNodeIdsRef
               prevEdgeIds <- readRef selectedEdgeIdsRef
+              let
+                step = selectionStep st { nodeIds: prevNodeIds, edgeIds: prevEdgeIds }
+                  (Set.fromFoldable (map _.id nextNodes))
 
-              when (not (areSetsEqual prevNodeIds nextNodeIds)) do
-                selectNodesInBox store st.nodeLookup nextNodeIds
+              when step.nodesChanged do
+                selectNodesInBox store st.nodeLookup step.nodeIds
 
-              when (not (areSetsEqual prevEdgeIds nextEdgeIds)) do
-                let r = getEdgeSelectionChanges st.edgeLookup nextEdgeIds
+              when step.edgesChanged do
+                let r = getEdgeSelectionChanges st.edgeLookup step.edgeIds
                 store.dispatch (TriggerEdgeChanges r.changes)
 
-              writeRef selectedNodeIdsRef nextNodeIds
-              writeRef selectedEdgeIdsRef nextEdgeIds
+              writeRef selectedNodeIdsRef step.nodeIds
+              writeRef selectedEdgeIdsRef step.edgeIds
 
               store.setState \s -> s
                 { userSelectionRect = Just nextRect
