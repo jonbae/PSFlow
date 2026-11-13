@@ -39,8 +39,8 @@
 -- | Edge paths live in `Boundary.EdgePaths`; viewport, traversal, bounds,
 -- | reconnection and native shape guards live in `Boundary.Utils`.
 -- | Direct JS-entry regressions observe their source branches and original
--- | consumer references. Crossing is independent of full parity: the earlier
--- | change/add helpers still have consumer-object exceptions owned by #150.
+-- | consumer references. Crossing is independent of full parity: a crossed
+-- | export matches upstream only where a gate proves it.
 -- |
 -- | The converters are the rest, and they live in twenty modules beneath
 -- | this one, none of them on the PureScript surface:

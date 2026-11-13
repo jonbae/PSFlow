@@ -161,6 +161,6 @@ export const manifest = Object.freeze({
   ]),
 
   // Stage 5 has no raw value exports. Crossed remains independent of gated:
-  // the earlier change/add helpers still have consumer-object debt (#150).
+  // a crossed export matches upstream only where a gate proves it.
   passthrough: Object.freeze([]),
 });

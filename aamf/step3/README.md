@@ -153,7 +153,7 @@ shasum -a 256 -c aamf/step3/SHA256SUMS
 ```
 
 The checksum file covers this directory, the results/status documents, the
-crossings and their tests, the generated reports and bundles, and all 412 traces.
+crossings and their tests, the generated reports and bundles, and all 460 traces.
 Gitignored intermediate files are copied here where needed for the baseline;
 reproducible intermediate files are not required by the checksum manifest.
 

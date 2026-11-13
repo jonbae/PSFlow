@@ -337,32 +337,36 @@ describe that fallback as a completed autonomous AAMF migration.
 
 ## Step 3: complete the remaining work in dependency order
 
-**Status: started, 2026-11-09.** A / W00's baseline capture and triage are
-complete; its original unstable experiments remain archived. E now supplies
-reproducible replacement captures under the isolated protocol. **B / W02 is complete: stage 5, 68 crossed, zero passthroughs.** See the
-[execution results](AAMF_STEP3_RESULTS.md). C through I are also complete.
+**Status: complete, 2026-11-13 UTC.** Work started on 2026-11-09, and orders A
+through I are all complete. A / W00's original unstable experiments remain
+archived; E supplies reproducible replacement captures under the isolated
+protocol. See the [execution results](AAMF_STEP3_RESULTS.md). Overall port
+completion remains open; see [Completion criteria](#completion-criteria).
 
-The following is a proposed queue, to refine against fresh captures. Independent
-branches may proceed once their prerequisites and target-file ownership are
-clear. Each behavior fix needs its own observable acceptance criterion.
+The following queue was refined against fresh captures. Independent branches
+proceeded once their prerequisites and target-file ownership were clear. Each
+behavior fix has its own observable acceptance criterion.
 
 | Order | Work and existing starting point | Acceptance / dependency |
 |---|---|---|
-| A | Establish a fresh baseline after checking the two open PRs. Rebuild PSFlow, oracle, and driver; run the gates below. Cluster remaining differences by mechanism. | Save results with the exact source/target revisions. Resolve self-inconsistency before interpreting affected scenarios. |
+| A | **Complete.** W00 checked the two open PRs, rebuilt PSFlow, oracle, and driver at `98a3f77a`, ran the gates below, and clustered the remaining differences by mechanism. E resolved the self-inconsistent scenarios. | Save results with the exact source/target revisions. Resolve self-inconsistency before interpreting affected scenarios. See [the baseline](AAMF_STEP3_RESULTS.md#fresh-baseline-step-3-a--w00). |
 | B | **Complete.** All seven remaining graph/bounds/reconnection/guard crossings landed in serialized W02 tasks, after the six edge-path helpers and Step 2 viewport pilot. | Empty `passthrough`, stage 5 recorded, matching transitional exceptions retired, surface parity green, and source-based JS-entry regressions pass. See [the results](AAMF_STEP3_RESULTS.md). |
-| C | Preserve consumer objects, keys, and identity in `applyNodeChanges`, `applyEdgeChanges`, and `addEdge`; inspect `reconnectEdge` as part of B. Start with [Hand back the consumer's own nodes and edges](https://github.com/jonbae/PSFlow/issues/150) and `src/Boundary/Utils.purs`. | Untouched elements retain reference identity; changed copies retain custom keys and explicitly present `undefined`; added edges retain consumer fields. Remove the three issue-owned return-value allowlist entries. B and C share boundary concerns and should be serialized where files overlap. |
-| D | Restore original-node provenance through adoption and internal-node conversion. `NodeInternals` and `JsNodeInternals` currently omit `userNode`. | `getInternalNode().internals.userNode` and any reference-sensitive consumers match upstream. Coordinate the representation with C; a fabricated equivalent record does not preserve identity. |
+| C | **Complete.** `applyNodeChanges`, `applyEdgeChanges`, and `addEdge` preserve consumer objects, keys, and identity, as [Hand back the consumer's own nodes and edges](https://github.com/jonbae/PSFlow/issues/150) asks; `reconnectEdge` crossed under the same policy in B. | Untouched elements retain reference identity; changed copies retain custom keys and explicitly present `undefined`; added edges retain consumer fields. The three issue-owned return-value allowlist entries are removed. See [the results](AAMF_STEP3_RESULTS.md#consumer-objects-step-3-c--w03-november-10). |
+| D | **Complete.** Original-node provenance survives adoption and internal-node conversion: `NodeInternals` carries the actual typed `userNode`, and the outbound `internals.userNode` resolves the consumer's own JS object. | `getInternalNode().internals.userNode` and any reference-sensitive consumers match upstream. A fabricated equivalent record does not preserve identity. See [the results](AAMF_STEP3_RESULTS.md#original-node-provenance-step-3-d--w04-november-10). |
 | E | **Complete.** Keyboard aria-live announcements, native focus-visible gating and the real focus-centering store effect match upstream. The shared viewport-end timer correction is retained. Browser driving now isolates native layout, timer completion, per-frame hover delivery and capture input state; a version-matched Linux runner isolates Mac physical modifiers. PR194 and PR195 were reviewed/adapted without merging or cherry-picking. | All nine targeted scenarios pass five independent rounds (180 raw traces), including full callback logs and across-round checks. The fresh 107-scenario wave has zero self-inconsistency or driving divergence. Four deliberate restored-defect probes are rejected by the unchanged official comparator. See [Order E results](AAMF_STEP3_RESULTS.md#order-e-completion-november-12-utc). |
-| F | **Complete.** XYResizer maintains gesture state and uses the existing solver. The mounted JS controls resize and receive changed limits during a drag. | Basic lifecycle plus 65 vendored-source differential cases, actual control/store proxies, and mounted receipts. The full net remains red on separate differences; see [results](AAMF_STEP3_RESULTS.md). |
+| F | **Complete.** XYResizer maintains gesture state and uses the existing solver. The mounted JS controls resize and receive changed limits during a drag. | Basic lifecycle plus 65 vendored-source differential cases, actual control/store proxies, and mounted receipts. The resize scenarios pass in the full net; see [results](AAMF_STEP3_RESULTS.md#resize-lifecycle-f--w05-and-its-mounted-witnesses-h--w12). |
 | G | **Complete.** `Boundary.Store` gives the store upstream's JavaScript shape: 85 members and 20 actions, the consumer's own objects, zustand's `setState`/`subscribe`/direct-write semantics, and `useStore`'s selector and `equalityFn`. `Edge`, `Node` and `DefaultEdgeOptions` carry every upstream member, and the edge merge, `onConnect` parameters, rendering and markers follow upstream's. | Store members, identity and write semantics match upstream in JS-entry tests; edge and node rendering match upstream's server render; the merge matches upstream's spread and `addEdge`. Four precise exclusions throw with messages. The flow probes lost every store difference. See [Order G results](AAMF_STEP3_RESULTS.md#order-g-completion-november-12-utc). |
 | H | **Complete.** Every hole upstream can fire has a witness on both sides; one store-action hole stays declared. The flow-node probes pass after node-size, deprecation-warning, selection-listener and render-count fixes. Consumer reads, handler payloads and the server snapshot follow upstream's objects, and the remaining W13 numeric call sites and three node-geometry functions are under exact or oracle comparison. | A new witness must fire upstream as well as PSFlow. Retire the matching hole only after capture proves it. Keep declared behavior debt separate from export counts. |
 | I | **Complete.** `npm run build:package` writes `dist/`: `index.js` and the compiled PureScript as one ES module, upstream's declarations generated from the vendored source with ps-flow's gaps written in, and upstream's stylesheets byte for byte. `package.json` exports them at upstream's paths, with React as a peer. Giving every export only what its declaration requires found `<Panel />` refusing an omitted `position` and server renders logging a layout-effect warning; both are fixed. | `parity:package` installs the packed package into a scratch consumer: the same names, shapes and server render as `index.js`, the stylesheets the driver loads, and a consumer that type-checks under bundler and Node 16 resolution. The declarations expose no PureScript type, and their header and two overlays state every known difference. PureScript remains the implementation language. See [Order I results](AAMF_STEP3_RESULTS.md#order-i-completion-november-13-utc). |
 
-D and E are high-impact investigation candidates: the committed report repeats
-missing `internals.userNode`, callback ordering differences, and null-vs-empty
-handle bounds across many scenarios. Those repeated rows are evidence to trace
-back to shared causes, not permission to assume each has one cause. The
-handle-bound PR already addresses part of that list.
+At W00, the committed report repeated missing `internals.userNode`,
+callback-ordering differences, and null-versus-empty handle bounds across many
+scenarios. Each repeated row was traced to its own cause rather than assumed to
+share one. D retired the missing `userNode`. The shared handle-bound and
+viewport-end fixes retired the handle-bound rows and the initial
+measurement/end inversions; they adapt PR195's source without merging it. E
+retired the last callback-order row. The Order I report has none of these
+differences.
 
 ### Prioritize scenarios that prove an unobserved condition
 
