@@ -11,22 +11,94 @@ module React.Container.Pane.Internal
   , buildPaneClass
   , AutoPanEnv
   , autoPanLoop
+  , SelectionStep
+  , selectionStep
+  , collectIncidentEdgeIds
   ) where
 
 import Prelude
 
 import Data.Array (filter) as Array
 import Data.Array.NonEmpty (elem) as NEA
-import Data.Maybe (Maybe(..))
+import Data.Foldable (foldl)
+import Data.Map (lookup, values) as Map
+import Data.Maybe (Maybe(..), fromMaybe)
+import Data.Newtype (unwrap)
+import Data.Set (Set)
+import Data.Set (empty, insert, toUnfoldable) as Set
 import Data.String (joinWith) as String
 import Effect (Effect)
 import Effect.Aff (Aff, launchAff_)
 import Effect.Class (liftEffect)
 import System.FFI.Microtask (awaitMicrotask)
+import System.Types.Connection (ConnectionLookup, HandleConnection)
+import System.Types.Edge (EdgeLookup)
 import System.Types.Geometry (XYPosition)
+import System.Types.Ids (NodeId)
 import System.Types.PanZoom (PanOnDrag(..))
 import System.Utils.Dom (DOMRect)
-import System.Utils.General (calcAutoPan)
+import System.Utils.General (areSetsEqual, calcAutoPan)
+
+-- | What one move of a selection rectangle selects: the nodes it holds, the
+-- | edges they select, and whether each set differs from the last move's.
+-- | Upstream compares the sets themselves since #4929, so a move that trades
+-- | one node for another changes the selection, where comparing counts
+-- | didn't.
+type SelectionStep =
+  { nodeIds :: Set NodeId
+  , edgeIds :: Set String
+  , nodesChanged :: Boolean
+  , edgesChanged :: Boolean
+  }
+
+selectionStep
+  :: forall e d r
+   . { edgeLookup :: EdgeLookup e
+     , connectionLookup :: ConnectionLookup
+     , defaultEdgeOptions :: Maybe { selectable :: Maybe Boolean | d }
+     | r
+     }
+  -> { nodeIds :: Set NodeId, edgeIds :: Set String }
+  -> Set NodeId
+  -> SelectionStep
+selectionStep state previous nodeIds =
+  let
+    edgeIds = collectIncidentEdgeIds state nodeIds
+  in
+    { nodeIds
+    , edgeIds
+    , nodesChanged: not (areSetsEqual previous.nodeIds nodeIds)
+    , edgesChanged: not (areSetsEqual previous.edgeIds edgeIds)
+    }
+
+-- | The edges a selection rectangle selects with its nodes: every edge
+-- | connected to a selected node, unless the edge isn't selectable. An edge
+-- | without its own `selectable` takes `defaultEdgeOptions.selectable`, and
+-- | then `true`, as upstream's `onPointerMove` does since #4929. There is no
+-- | `getEdgesInside`: upstream walks `connectionLookup` too.
+collectIncidentEdgeIds
+  :: forall e d r
+   . { edgeLookup :: EdgeLookup e
+     , connectionLookup :: ConnectionLookup
+     , defaultEdgeOptions :: Maybe { selectable :: Maybe Boolean | d }
+     | r
+     }
+  -> Set NodeId
+  -> Set String
+collectIncidentEdgeIds state selectedNodeIds =
+  foldl addEdgesForNode Set.empty (Set.toUnfoldable selectedNodeIds :: Array NodeId)
+  where
+  edgesSelectable = fromMaybe true (state.defaultEdgeOptions >>= _.selectable)
+
+  -- `connectionLookup` is keyed by the bare node id.
+  addEdgesForNode acc nodeId = case Map.lookup (unwrap nodeId) state.connectionLookup of
+    Nothing -> acc
+    Just connections -> foldl addEdgeIfSelectable acc (Map.values connections.byKey)
+
+  addEdgeIfSelectable :: Set String -> HandleConnection -> Set String
+  addEdgeIfSelectable acc connection = case Map.lookup connection.edgeId state.edgeLookup of
+    Just edge | fromMaybe edgesSelectable edge.selectable -> Set.insert connection.edgeId acc
+    _ -> acc
 
 buildPaneClass :: { draggable :: Boolean, dragging :: Boolean, isSelecting :: Boolean } -> String
 buildPaneClass p =

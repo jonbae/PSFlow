@@ -73,6 +73,17 @@ export { applyNodeChanges, applyEdgeChanges } from "./xyflow/packages/react/src/
 // they add is an \`onError\` default the parity property overrides.
 export { addEdge, reconnectEdge } from "./xyflow/packages/react/src/utils/edges";
 export { isNode, isEdge } from "./xyflow/packages/react/src/utils/general";
+export { areSetsEqual } from "./xyflow/packages/system/src/utils/general";
+// \`isInputDOMNode\` and \`hasSelector\` read only the event and element objects
+// they are handed, so a property can hand them stand-ins for DOM nodes.
+export { isInputDOMNode } from "./xyflow/packages/system/src/utils/dom";
+export { hasSelector } from "./xyflow/packages/system/src/xydrag/utils";
+// \`adoptUserNodes\` fills the \`Map\`s it is handed, which is how upstream turns
+// user nodes into the internal nodes everything after adoption reads.
+export { adoptUserNodes } from "./xyflow/packages/system/src/utils/store";
+// \`XYHandle.isValid\` reads the document only through \`querySelector\` and
+// \`elementFromPoint\`, so a property can hand it a stand-in document.
+export { XYHandle } from "./xyflow/packages/system/src/xyhandle/XYHandle";
 `;
 
 await build({

@@ -39,7 +39,7 @@ passes.
 ## Top-level exports
 
 - upstream: 210 names (68 value + 142 type)
-- PSFlow: 223 names (68 value + 163 type)
+- PSFlow: 224 names (68 value + 164 type)
 
 ### ❌ Missing in PSFlow (parity gaps — gates CI)
 
@@ -55,6 +55,7 @@ _none — full parity (modulo the allowlist below)._
 - `EdgesStateBundle`
 - `FlowExportObject`
 - `KeyMatcher`
+- `KeyPressTarget`
 - `MiddlewareKey`
 - `MiniMapNodesProps`
 - `NodeOrIdOrRect`

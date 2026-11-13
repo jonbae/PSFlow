@@ -42,6 +42,9 @@ import Data.Number (abs, nan) as Number
 import Data.Tuple (Tuple(..))
 import React.Container.Pane.Internal (buildPaneClass, paneIsDraggable)
 import Test.React.Node.ArrowKeyMessage (runArrowKeyMessageTests)
+import Test.Parity.Adoption (runAdoptionParity)
+import Test.Parity.Handle (runHandleParity)
+import Test.Parity.Dom (runDomParity)
 import Test.Parity.Changes (runChangesParity)
 import Test.Parity.Connections (runConnectionsParity)
 import Test.Parity.Edges (runEdgeParity)
@@ -108,6 +111,8 @@ import Test.React.Component.HandleDataId (runHandleDataIdTests)
 import Test.React.Container.AttributionPanel (runAttributionPanelTests)
 import Test.React.Container.NodeA11yDescription (runNodeA11yDescriptionTests)
 import Test.React.Container.Pane (runPaneAutoPanTests)
+import Test.React.Container.PaneSelection (runPaneSelectionTests)
+import Test.React.Hook.KeyPress (runKeyPressTests)
 import Test.React.Container.SeededProps (runSeededPropsTests)
 import Test.React.Hook.Drag (runDragHookTests)
 import Test.React.Hook.Store (runUseStoreTests)
@@ -1207,6 +1212,8 @@ main = do
   runEventHandlerTests
   runSourceEventTests
   runPaneAutoPanTests
+  runPaneSelectionTests
+  runKeyPressTests
   runStorePanByTests
   runTrackedPropTests
   runInitPrevValuesTests
@@ -1282,3 +1289,6 @@ main = do
   runConnectionsParity
   runGraphParity
   runChangesParity
+  runAdoptionParity
+  runHandleParity
+  runDomParity

@@ -27,7 +27,7 @@ import Effect (Effect)
 import Effect.Aff (Aff, launchAff_)
 import React.Basic.Hooks (Hook, UseEffect, coerceHook, useEffect)
 import React.Basic.Hooks as React
-import React.Hook.KeyPress (UseKeyPressHook, useKeyPress)
+import React.Hook.KeyPress (KeyPressTarget(..), UseKeyPressHook, defaultUseKeyPressOptions, useKeyPress)
 import React.Hook.ReactFlow (UseReactFlow, useReactFlow)
 import React.Hook.Store (UseStoreApi, useStoreApi)
 import React.Store.Action (Action(..))
@@ -60,8 +60,10 @@ useGlobalKeyHandler
 useGlobalKeyHandler opts = coerceHook React.do
   store <- (useStoreApi :: Hook UseStoreApi (Store n e))
   flow <- useReactFlow
-  deletePressed <- useKeyPress opts.deleteKeyCode Nothing
-  multiPressed <- useKeyPress opts.multiSelectionKeyCode Nothing
+  deletePressed <- useKeyPress opts.deleteKeyCode
+    defaultUseKeyPressOptions { actInsideInputWithModifier = false }
+  multiPressed <- useKeyPress opts.multiSelectionKeyCode
+    defaultUseKeyPressOptions { target = OnWindow }
   useEffect deletePressed do
     when deletePressed (deleteSelectedElements store flow.deleteElements)
     pure (pure unit)

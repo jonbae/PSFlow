@@ -33,7 +33,7 @@ import React.Component.NodesSelection (nodesSelection)
 import React.Container.Pane (pane)
 import React.Container.ZoomPane (zoomPane)
 import React.Hook.GlobalKeyHandler (useGlobalKeyHandler)
-import React.Hook.KeyPress (useKeyPress)
+import React.Hook.KeyPress (KeyPressTarget(..), UseKeyPressOptions, defaultUseKeyPressOptions, useKeyPress)
 import React.Hook.Store (useStore)
 import React.Types.Component (FlowRendererProps)
 import React.Types.Store (ReactFlowState)
@@ -67,13 +67,18 @@ isUnrestrictedPan = case _ of
   PanAlways -> true
   _ -> false
 
+-- | The selection and pan-activation keys listen on the window, as
+-- | upstream's `FlowRenderer` has them.
+onWindow :: UseKeyPressOptions
+onWindow = defaultUseKeyPressOptions { target = OnWindow }
+
 flowRenderer :: forall n. ReactComponent (FlowRendererProps n)
 flowRenderer =
   unsafePerformEffect $ memo $ reactComponentWithChildren "FlowRenderer"
     \(props :: FlowRendererProps n) -> React.do
       slice <- useStore selectSlice
-      selectionKeyPressed <- useKeyPress props.selectionKeyCode Nothing
-      panActivationKeyPressed <- useKeyPress props.panActivationKeyCode Nothing
+      selectionKeyPressed <- useKeyPress props.selectionKeyCode onWindow
+      panActivationKeyPressed <- useKeyPress props.panActivationKeyCode onWindow
       let
         panOnDrag = escalatePan panActivationKeyPressed props.panOnDrag
         panOnScroll = panActivationKeyPressed || props.panOnScroll

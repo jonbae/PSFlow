@@ -45,7 +45,7 @@ import React.Basic (ReactComponent)
 import React.Basic.Hooks (Hook, UnsafeReference(..), memo, reactChildrenToArray, reactComponentWithChildren, readRef, useEffect, useEffectOnce, useRef, writeRef)
 import React.Basic.Hooks as React
 import React.FFI.DOM (div_)
-import React.Hook.KeyPress (useKeyPress)
+import React.Hook.KeyPress (defaultUseKeyPressOptions, useKeyPress)
 import React.Hook.ResizeHandler (useResizeHandler)
 import React.Hook.Store (UseStoreApi, useStore, useStoreApi)
 import React.Types.Component (ZoomPaneProps)
@@ -130,7 +130,7 @@ zoomPane =
     \(props :: ZoomPaneProps) -> React.do
       store <- (useStoreApi :: Hook UseStoreApi _)
       slice <- useStore selectSlice
-      zoomActivationKeyPressed <- useKeyPress props.zoomActivationKeyCode Nothing
+      zoomActivationKeyPressed <- useKeyPress props.zoomActivationKeyCode defaultUseKeyPressOptions
 
       paneRef <- useRef (toNullable Nothing :: Nullable HTMLDivElement)
       panZoomRef <- useRef (Nothing :: Maybe PanZoomInstance)

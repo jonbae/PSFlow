@@ -431,9 +431,9 @@ adoptUserNodes nodes prev _prevParent options =
                   { positionAbsolute: clamped
                   , userNode
                   , z: calculateZ userNodeWithDefaults selZ options.zIndexMode
-                  , rootParentIndex: case oldInternal of
-                      Just o -> o.internals.rootParentIndex
-                      Nothing -> Nothing
+                  -- A rebuilt root parent starts without its index, as
+                  -- upstream's does, so its first child raises it again.
+                  , rootParentIndex: Nothing
                   , handleBounds: parseHandles userNodeWithDefaults oldInternal
                   , bounds: case oldInternal of
                       Just o -> o.internals.bounds

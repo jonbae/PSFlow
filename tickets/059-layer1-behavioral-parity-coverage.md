@@ -21,7 +21,7 @@ A green differential result on its own is equally what a comparator that
 inspects nothing would produce; the probe is what makes the green mean
 something. `Test.Parity.Util`'s `falsify` runs one.
 
-## Covered (34 functions)
+## Covered (39 functions)
 
 - **Edges** (`Test.Parity.Edges`): `getEdgeCenter`, `getBezierEdgeCenter`,
   `getStraightPath`, `getBezierPath`, `getSimpleBezierPath`, `getSmoothStepPath`,
@@ -49,12 +49,26 @@ something. `Test.Parity.Util`'s `falsify` runs one.
 - **Changes** (`Test.Parity.Changes`): `applyNodeChanges`, `applyEdgeChanges`
   (ticket 039 — exact comparison, since neither does arithmetic, and order is
   the subject).
+- **Adoption** (`Test.Parity.Adoption`): `adoptUserNodes` (Step 4 row 7 — two
+  rounds into the same lookups, the second reusing some nodes and rebuilding
+  the rest, under all three `zIndexMode`s; every internal node's position,
+  `z`, `rootParentIndex` and handle bounds).
+- **Handle** (`Test.Parity.Handle`): `XYHandle.isValid` (Step 4 row 7 — over a
+  stand-in document and the internal nodes each side adopts, a handle larger
+  than the connection radius and 400 generated drags).
+- **DOM predicates** (`Test.Parity.Dom`): `isInputDOMNode`, `hasSelector`
+  (Step 4 row 7 — stand-ins for every kind of event target, exhausted, a throw
+  counted as an answer).
+- **Selection** (`Test.React.Container.PaneSelection`): `areSetsEqual` (Step 4
+  row 7 — all 256 pairs of subsets of four ids).
 
 ## Deferred (Layer-1 gaps — exercised behaviorally by Layer 2)
 
 Need richer oracle translation (node `internals` / `NodeLookup`) for modest
 incremental value, since these are filter/bounds math that Layer 2's real flows
-exercise end to end:
+exercise end to end. The oracle bundles `adoptUserNodes`, and
+`Test.Parity.Adoption` builds both sides' internal nodes from one description,
+which is where these start:
 
 | Function | Why deferred |
 |----------|--------------|
@@ -64,8 +78,8 @@ exercise end to end:
 ## Out of scope for Layer 1 (not pure / DOM / d3)
 
 `getEventPosition`, `getPointerPosition`, `getDimensions`, `getHandleBounds`,
-`getHostForElement`, `isInputDOMNode`, `adoptUserNodes`, `updateNodeInternals`,
-`updateAbsolutePositions`, `updateConnectionLookup`, `calcAutoPan`.
+`getHostForElement`, `updateNodeInternals`, `updateAbsolutePositions`,
+`updateConnectionLookup`, `calcAutoPan`.
 
 ## Acceptance
 

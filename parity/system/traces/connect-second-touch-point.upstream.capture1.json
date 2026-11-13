@@ -892,7 +892,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 74,
+            "timeStamp": 73,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {

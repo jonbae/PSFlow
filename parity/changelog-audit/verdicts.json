@@ -112,23 +112,21 @@
     "pkg": "react",
     "version": "12.4.0",
     "title": "Add type check for all event targets",
-    "bucket": "gate-pending",
-    "gate": "unit",
-    "test": "one predicate test over `isInputDOMNode` (src/System/Utils/Dom.purs), covering the node kinds #4880, #5090, #5118 and #5263 all touched",
+    "bucket": "function",
+    "evidence": "`isInputDOMNode` in src/System/Utils/Dom.js answers `false` for a target that isn't an element, and `hasSelector` in src/System/XYDrag/Utils.js skips a target without `matches` and climbs to its parent, as upstream's do. Gated by `Test.Parity.Dom` (run by `spago test`), which hands PSFlow's predicates and upstream's, from the @psflow/oracle bundle, the same stand-ins for every kind of target: an element, a text node, the document, the window and `null`, inside and outside `.nokey` and `.nodrag` regions, through `event.target` and through `composedPath()`. It compares the answers, a throw included. With either guard removed, a text node makes PSFlow's predicate throw where upstream's answers.",
     "debt": "077",
-    "ticket": "077",
-    "note": "event-target type checks in src/System/Utils/Dom.purs; untested."
+    "ticket": null,
+    "note": "Was `gate-pending` toward `unit` under ticket 077, with one `isInputDOMNode` predicate test planned for this row and #5090, #5118 and #5263. Only this row changed `isInputDOMNode`. The other three changed `useKeyPress`."
   },
   "4929": {
     "pkg": "react",
     "version": "12.4.0",
     "title": "Optimize selections and take into account if edges connected to selected nodes are actually selectable.",
-    "bucket": "gate-pending",
-    "gate": "function",
-    "test": "a function-parity entry over the selection helpers in `src/System/Utils/Store.purs`, differential against the @psflow/oracle bundle",
+    "bucket": "unit",
+    "evidence": "In src/React/Container/Pane/Internal.purs, `collectIncidentEdgeIds` selects an edge connected to a selected node only if `edge.selectable ?? defaultEdgeOptions?.selectable ?? true`, and `selectionStep` compares each move's sets with `areSetsEqual` rather than by size, as upstream's `<Pane />` does. Guarded by `Test.React.Container.PaneSelection` (run by `spago test`), which also compares `areSetsEqual` with upstream's, from the @psflow/oracle bundle, over every pair of subsets of four ids. Selecting every connected edge fails its edge cases, and comparing sizes fails its step cases.",
     "debt": "076",
-    "ticket": "076",
-    "note": "selection/edge-selectability interaction in src/System/Utils/Store.purs; untested."
+    "ticket": null,
+    "note": "Was `gate-pending` toward `function` under ticket 076. Upstream makes both decisions inside its pointer handler, which no oracle can call, so the checks are unit tests of the two functions PSFlow's pane makes them through."
   },
   "4947": {
     "pkg": "react",
@@ -332,12 +330,11 @@
     "pkg": "react",
     "version": "12.5.0",
     "title": "Release key even when an inout field is focused",
-    "bucket": "gate-pending",
-    "gate": "unit",
-    "test": "one predicate test over `isInputDOMNode` (src/System/Utils/Dom.purs), covering the node kinds #4880, #5090, #5118 and #5263 all touched",
+    "bucket": "unit",
+    "evidence": "`keyUp` in src/React/Hook/KeyPress.purs releases a key without asking `isInputDOMNode`, as upstream's `upHandler` does. Guarded by `Test.React.Hook.KeyPress` (run by `spago test`), and by `parity/boundary/key-press.test.mjs`, which mounts both libraries' `useKeyPress` through `index.js` and compares what each answers after every key event, and which events each prevented. Ignoring a keyup inside an input fails both.",
     "debt": "077",
-    "ticket": "077",
-    "note": "src/React/Hook/KeyPress.purs release-on-blur handling; untested."
+    "ticket": null,
+    "note": "Was `gate-pending` toward one `isInputDOMNode` predicate test under ticket 077, which couldn't reach it: the change is in `useKeyPress`. The hook was ported as upstream has it in the same change, for #5118 and #5263."
   },
   "5091": {
     "pkg": "system",
@@ -433,12 +430,12 @@
     "pkg": "system",
     "version": "0.0.53",
     "title": "Do not swallow key events when a button is focused",
-    "bucket": "gate-pending",
-    "gate": "unit",
-    "test": "one predicate test over `isInputDOMNode` (src/System/Utils/Dom.purs), covering the node kinds #4880, #5090, #5118 and #5263 all touched",
+    "bucket": "unit",
+    "evidence": "`keyDown` in src/React/Hook/KeyPress.purs counts Alt as a modifier. It prevents a matched key's default unless the target is a `<button>` or an `<a>` and no modifier is held, or the consumer passed `preventDefault: false`, as upstream's `downHandler` does. Guarded by `Test.React.Hook.KeyPress` (run by `spago test`), and by `parity/boundary/key-press.test.mjs`, which compares both libraries' `useKeyPress` through `index.js`. Leaving Alt out fails both, and so does preventing every matched key.",
     "debt": "077",
-    "ticket": "077",
-    "note": "src/React/Hook/KeyPress.purs + src/System/Utils/Dom.purs isInputDOMNode; button-focus case untested."
+    "misfiled": true,
+    "ticket": null,
+    "note": "Filed as ported under ticket 077, and found not to be. ps-flow's `useKeyPress` counted only Control and Meta as modifiers and never prevented a default, so the button case held only because nothing was ever prevented. Ported with the rest of upstream's `useKeyPress`."
   },
   "5120": {
     "pkg": "react",
@@ -939,23 +936,22 @@
     "pkg": "react",
     "version": "12.6.4",
     "title": "Multi select key works when input is focused",
-    "bucket": "gate-pending",
-    "gate": "unit",
-    "test": "one predicate test over `isInputDOMNode` (src/System/Utils/Dom.purs), covering the node kinds #4880, #5090, #5118 and #5263 all touched",
+    "bucket": "unit",
+    "evidence": "`defaultUseKeyPressOptions` in src/React/Hook/KeyPress.purs, and the JavaScript `useKeyPress`, take `actInsideInputWithModifier` as `true` unless it's set, so the multi-selection key is pressed while an input is focused. The delete key passes `false`, as upstream's `useGlobalKeyHandler` does. Guarded by `Test.React.Hook.KeyPress` (run by `spago test`), and by `parity/boundary/key-press.test.mjs`, which compares both libraries' `useKeyPress` through `index.js` with no options, with `{}`, and with a `null` member. A `false` default fails both.",
     "debt": "077",
-    "ticket": "077",
-    "note": "multi-select key handling in src/React/Hook/KeyPress.purs; focused-input case untested."
+    "misfiled": true,
+    "ticket": null,
+    "note": "Filed as ported under ticket 077, and found not to be. ps-flow's `useKeyPress` defaulted `actInsideInputWithModifier` to `false`, which is upstream's behavior before this change. Ported with the rest of upstream's `useKeyPress`."
   },
   "5266": {
     "pkg": "react",
     "version": "12.6.4",
     "title": "Fix connection snapping for handles larger than connectionRadius",
-    "bucket": "gate-pending",
-    "gate": "function",
-    "test": "a function-parity entry over the connection-snapping path in `src/System/XYHandle/Utils.purs`, differential against the @psflow/oracle bundle",
+    "bucket": "function",
+    "evidence": "`isValidHandle` in src/System/XYHandle.purs returns the handle it settles on at its absolute center, through `getHandle(…, true)`, and `connectionEnd` snaps the connection to that handle rather than to the closest one, as upstream's `XYHandle` does. Gated by `Test.Parity.Handle` (run by `spago test`), which runs `isValidHandle` and upstream's `XYHandle.isValid`, from the @psflow/oracle bundle, over the same stand-in document and adopted nodes: a handle larger than the connection radius, and 400 generated drags. It checks `connectionEnd` against upstream's expression. Passing `false` to `getHandle` fails the first check, and snapping to the closest handle fails the second.",
     "debt": "077",
-    "ticket": "077",
-    "note": "connectionRadius handling in src/System/XYHandle/Utils.purs; large-handle case untested."
+    "ticket": null,
+    "note": "Was `gate-pending` toward `function` under ticket 077, which named src/System/XYHandle/Utils.purs. The change is in upstream's `XYHandle.ts`, and PSFlow's move handler snaps through `connectionEnd`."
   },
   "5276": {
     "pkg": "react",
@@ -1363,12 +1359,11 @@
     "pkg": "react",
     "version": "12.8.6",
     "title": "Fix id of static handles not being parsed",
-    "bucket": "gate-pending",
-    "gate": "unit",
-    "test": "a parsing test for static handle ids against `src/React/Handle.purs`",
+    "bucket": "function",
+    "evidence": "`parseHandles` in src/System/Utils/Store.purs copies each static handle's `id` into its handle bounds, as upstream's does. Gated by `Test.Parity.Adoption` (run by `spago test`), which adopts generated node forests through PSFlow's `adoptUserNodes` and upstream's, from the @psflow/oracle bundle, with absent, `null`, empty and named handle ids, and compares the handle bounds. `Test.Boundary.HandleIdNull` reads them back through the boundary. Dropping the id fails both.",
     "debt": "077",
-    "ticket": "077",
-    "note": "static handle id parsing in src/React/Handle.purs; untested."
+    "ticket": null,
+    "note": "Was `gate-pending` toward `unit` under ticket 077, which named src/React/Handle.purs. The change is in upstream's `parseHandles`. `Test.Boundary.HandleIdNull` already held it, from the change that keeps a handle's id `null` when it has none."
   },
   "5528": {
     "pkg": "react",
@@ -1434,12 +1429,11 @@
     "pkg": "react",
     "version": "12.9.0",
     "title": "Prevent child nodes of different parents from overlapping",
-    "bucket": "gate-pending",
-    "gate": "function",
-    "test": "a function-parity entry over the parent-chain walk in `src/System/XYDrag/Utils.purs`, differential against the @psflow/oracle bundle",
+    "bucket": "function",
+    "evidence": "`adoptUserNodes` in src/System/Utils/Store.purs raises each root parent by `rootParentIndex × 10` under `zIndexMode: 'auto'`, in the order its children are adopted, and a rebuilt root parent starts without its index, as upstream's does. Gated by `Test.Parity.Adoption` (run by `spago test`), which adopts generated forests twice into the same lookups, through PSFlow's `adoptUserNodes` and upstream's from the @psflow/oracle bundle, under all three `zIndexMode`s, and compares every internal node's `z` and `rootParentIndex`. Removing the raise fails it.",
     "debt": "076",
-    "ticket": "076",
-    "note": "parent-chain walk at src/System/XYDrag/Utils.purs:36-55,86; cross-parent overlap untested."
+    "ticket": null,
+    "note": "Was `gate-pending` toward `function` under ticket 076, which named the parent-chain walk in src/System/XYDrag/Utils.purs. The change is in upstream's adoption. The differential found that a rebuilt root parent kept its old `rootParentIndex`, so after any change that rebuilt the nodes it wasn't raised again, and its children interleaved with another parent's. Upstream builds the internal node without one, and PSFlow does too."
   },
   "5551": {
     "pkg": "react",

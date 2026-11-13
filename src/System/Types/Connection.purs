@@ -32,7 +32,6 @@ module System.Types.Connection
 
 import Prelude
 
-import Data.Array.NonEmpty (NonEmptyArray)
 import Data.Function.Uncurried (Fn2)
 import Data.Enum (class BoundedEnum, class Enum, Cardinality(..))
 import Data.Enum.Generic (genericFromEnum, genericPred, genericSucc, genericToEnum)
@@ -273,9 +272,11 @@ instance boundedEnumInterpolateMode :: BoundedEnum InterpolateMode where
   toEnum = genericToEnum
   fromEnum = genericFromEnum
 
+-- | A key code is one key or an array of them, any one of which counts. An
+-- | empty array listens for no key, as upstream's does.
 data KeyCode
   = SingleKey String
-  | MultiKey (NonEmptyArray String)
+  | MultiKey (Array String)
 
 derive instance eqKeyCode :: Eq KeyCode
 derive instance ordKeyCode :: Ord KeyCode
