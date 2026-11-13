@@ -58,7 +58,11 @@ permissions:
 jobs:
   cheap-gates:
     name: the four cheap gates
-    runs-on: ubuntu-latest
+    # Pinned, as the toolchain is: the locked Playwright 1.60.0 installs its
+    # Chromium on Ubuntu 24.04 and not on the release `ubuntu-latest` moved
+    # to. 24.04 is also the OS of the Playwright image
+    # `parity/system/linux.mjs` captures the net in.
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
 
     steps:
