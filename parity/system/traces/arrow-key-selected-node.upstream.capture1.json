@@ -628,7 +628,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 53,
+            "timeStamp": 82,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -697,7 +697,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 53,
+            "timeStamp": 82,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -769,7 +769,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 53,
+            "timeStamp": 82,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -834,7 +834,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 53,
+            "timeStamp": 82,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1030,7 +1030,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 112,
+            "timeStamp": 144,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1097,6 +1097,15 @@
         ]
       },
       {
+        "name": "consumerKey",
+        "args": [
+          {
+            "key": "ArrowDown",
+            "defaultPrevented": true
+          }
+        ]
+      },
+      {
         "name": "onNodesChange",
         "args": [
           [
@@ -1110,6 +1119,15 @@
               "dragging": false
             }
           ]
+        ]
+      },
+      {
+        "name": "consumerKey",
+        "args": [
+          {
+            "key": "ArrowDown",
+            "defaultPrevented": true
+          }
         ]
       },
       {
@@ -1129,6 +1147,15 @@
         ]
       },
       {
+        "name": "consumerKey",
+        "args": [
+          {
+            "key": "ArrowDown",
+            "defaultPrevented": true
+          }
+        ]
+      },
+      {
         "name": "onNodesChange",
         "args": [
           [
@@ -1142,6 +1169,15 @@
               "dragging": false
             }
           ]
+        ]
+      },
+      {
+        "name": "consumerKey",
+        "args": [
+          {
+            "key": "ArrowDown",
+            "defaultPrevented": true
+          }
         ]
       },
       {
@@ -1167,7 +1203,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 240,
+            "timeStamp": 272,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1237,6 +1273,15 @@
         ]
       },
       {
+        "name": "consumerKey",
+        "args": [
+          {
+            "key": "ArrowRight",
+            "defaultPrevented": true
+          }
+        ]
+      },
+      {
         "name": "onNodesChange",
         "args": [
           [
@@ -1250,6 +1295,15 @@
               "dragging": false
             }
           ]
+        ]
+      },
+      {
+        "name": "consumerKey",
+        "args": [
+          {
+            "key": "ArrowRight",
+            "defaultPrevented": true
+          }
         ]
       }
     ],

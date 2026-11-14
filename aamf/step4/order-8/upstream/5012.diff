@@ -1,0 +1,53 @@
+diff --git a/.changeset/quick-cobras-report.md b/.changeset/quick-cobras-report.md
+new file mode 100644
+index 0000000000..68ed725035
+--- /dev/null
++++ b/.changeset/quick-cobras-report.md
+@@ -0,0 +1,5 @@
++---
++'@xyflow/react': patch
++---
++
++Add snapGrid option to screenToFlowPosition and set snapToGrid to false
+diff --git a/packages/react/src/hooks/useViewportHelper.ts b/packages/react/src/hooks/useViewportHelper.ts
+index 5e7e6cfa15..9a773d1404 100644
+--- a/packages/react/src/hooks/useViewportHelper.ts
++++ b/packages/react/src/hooks/useViewportHelper.ts
+@@ -7,6 +7,7 @@ import {
+   type XYPosition,
+   rendererPointToPoint,
+   getDimensions,
++  SnapGrid,
+ } from '@xyflow/system';
+ 
+ import { useStoreApi } from '../hooks/useStore';
+@@ -119,21 +120,25 @@ const useViewportHelper = (): ViewportHelperFunctions => {
+ 
+         return Promise.resolve(true);
+       },
+-      screenToFlowPosition: (clientPosition: XYPosition, options: { snapToGrid: boolean } = { snapToGrid: true }) => {
+-        const { transform, snapGrid, domNode } = store.getState();
++      screenToFlowPosition: (
++        clientPosition: XYPosition,
++        options: { snapToGrid?: boolean; snapGrid?: SnapGrid } = {}
++      ) => {
++        const { transform, snapGrid, snapToGrid, domNode } = store.getState();
+ 
+         if (!domNode) {
+           return clientPosition;
+         }
+ 
+         const { x: domX, y: domY } = domNode.getBoundingClientRect();
+-
+         const correctedPosition = {
+           x: clientPosition.x - domX,
+           y: clientPosition.y - domY,
+         };
++        const _snapGrid = options.snapGrid ?? snapGrid;
++        const _snapToGrid = options.snapToGrid ?? snapToGrid;
+ 
+-        return pointToRendererPoint(correctedPosition, transform, options.snapToGrid, snapGrid);
++        return pointToRendererPoint(correctedPosition, transform, _snapToGrid, _snapGrid);
+       },
+       flowToScreenPosition: (flowPosition: XYPosition) => {
+         const { transform, domNode } = store.getState();

@@ -1,0 +1,31 @@
+diff --git a/.changeset/fifty-cheetahs-repair.md b/.changeset/fifty-cheetahs-repair.md
+new file mode 100644
+index 0000000000..2d144b6bc2
+--- /dev/null
++++ b/.changeset/fifty-cheetahs-repair.md
+@@ -0,0 +1,5 @@
++---
++'@xyflow/react': patch
++---
++
++Cleanup store updater
+diff --git a/packages/react/src/components/StoreUpdater/index.tsx b/packages/react/src/components/StoreUpdater/index.tsx
+index 1506bd48db..73b6000a5b 100644
+--- a/packages/react/src/components/StoreUpdater/index.tsx
++++ b/packages/react/src/components/StoreUpdater/index.tsx
+@@ -156,13 +156,11 @@ export function StoreUpdater<NodeType extends Node = Node, EdgeType extends Edge
+         else if (fieldName === 'translateExtent') setTranslateExtent(fieldValue as CoordinateExtent);
+         else if (fieldName === 'nodeExtent') setNodeExtent(fieldValue as CoordinateExtent);
+         else if (fieldName === 'paneClickDistance') setPaneClickDistance(fieldValue as number);
++        else if (fieldName === 'ariaLabelConfig')
++          store.setState({ ariaLabelConfig: mergeAriaLabelConfig(fieldValue as AriaLabelConfig) });
+         // Renamed fields
+         else if (fieldName === 'fitView') store.setState({ fitViewQueued: fieldValue as boolean });
+         else if (fieldName === 'fitViewOptions') store.setState({ fitViewOptions: fieldValue as FitViewOptions });
+-
+-        if (fieldName === 'ariaLabelConfig') {
+-          store.setState({ ariaLabelConfig: mergeAriaLabelConfig(fieldValue as AriaLabelConfig) });
+-        }
+         // General case
+         else store.setState({ [fieldName]: fieldValue });
+       }

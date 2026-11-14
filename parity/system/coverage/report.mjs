@@ -230,9 +230,10 @@ export const renderCoverage = (
   );
   if (behavior.counts.declared === 0) {
     lines.push(
-      "**No rows declare one yet.** Nothing in `parity/changelog-audit/verdicts.json` carries the" +
-        " `gate-pending` bucket, so this count is zero because nothing has been declared — which is a" +
-        " different statement from zero behaviors being covered.",
+      "**No gate-pending behavior rows remain.** This section counts outstanding plans. Covered rows" +
+        " and their evidence live in [the changelog audit](../changelog-audit/report.md); Step 4 order 8's" +
+        " retired system rows also retain [checked branch receipts](../changelog-audit/system-evidence.mjs)." +
+        " This count is separate from export coverage.",
       ""
     );
   } else {

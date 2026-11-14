@@ -1,0 +1,63 @@
+diff --git a/.changeset/lovely-rabbits-yawn.md b/.changeset/lovely-rabbits-yawn.md
+new file mode 100644
+index 0000000000..06432dfb14
+--- /dev/null
++++ b/.changeset/lovely-rabbits-yawn.md
+@@ -0,0 +1,5 @@
++---
++'@xyflow/react': patch
++---
++
++Handle fitView for uncontrolled flows
+diff --git a/packages/react/src/store/index.ts b/packages/react/src/store/index.ts
+index 8e64b51cf2..924e83cf75 100644
+--- a/packages/react/src/store/index.ts
++++ b/packages/react/src/store/index.ts
+@@ -45,7 +45,7 @@ const createStore = ({
+     async function resolveFitView() {
+       const { nodeLookup, panZoom, fitViewOptions, fitViewResolver, width, height, minZoom, maxZoom } = get();
+ 
+-      if (!panZoom || !fitViewResolver) {
++      if (!panZoom) {
+         return;
+       }
+ 
+@@ -61,7 +61,7 @@ const createStore = ({
+         fitViewOptions
+       );
+ 
+-      fitViewResolver.resolve(true);
++      fitViewResolver?.resolve(true);
+       /**
+        * wait for the fitViewport to resolve before deleting the resolver,
+        * we want to reuse the old resolver if the user calls fitView again in the mean time
+diff --git a/tests/playwright/e2e/pane.spec.ts b/tests/playwright/e2e/pane.spec.ts
+index 802e0139a6..4c27e33c7f 100644
+--- a/tests/playwright/e2e/pane.spec.ts
++++ b/tests/playwright/e2e/pane.spec.ts
+@@ -20,18 +20,21 @@ test.describe('Pane default', () => {
+       await expect(pane).toBeAttached();
+ 
+       const paneBox = await pane.boundingBox();
+-
+       const transformsBefore = await getTransform(viewport);
++      const movementPx = 100;
+ 
+       await pane.hover();
+       await page.mouse.down();
+       // Move pane by 100, 100
+-      await page.mouse.move(paneBox!.x + paneBox!.width * 0.5 + 100, paneBox!.y + paneBox!.height * 0.5 + 100);
++      await page.mouse.move(
++        paneBox!.x + paneBox!.width * 0.5 + movementPx,
++        paneBox!.y + paneBox!.height * 0.5 + movementPx
++      );
+ 
+       const transformsAfter = await getTransform(viewport);
+ 
+-      expect(Math.floor(transformsAfter.translateX - transformsBefore.translateX)).toBe(100);
+-      expect(Math.floor(transformsAfter.translateY - transformsBefore.translateY)).toBe(100);
++      expect(movementPx - Math.floor(transformsAfter.translateX - transformsBefore.translateX)).toBeLessThan(1);
++      expect(movementPx - Math.floor(transformsAfter.translateY - transformsBefore.translateY)).toBeLessThan(1);
+     });
+ 
+     test('scrolling the default pane zooms it', async ({ page }) => {

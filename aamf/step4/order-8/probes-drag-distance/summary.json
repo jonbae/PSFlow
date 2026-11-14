@@ -1,0 +1,14 @@
+{
+  "probes": 1,
+  "rejected": 1,
+  "survivors": [],
+  "results": [
+    {
+      "scenario": "debt-programmatic-selection-drag",
+      "ok": false,
+      "failures": [
+        "unclaimed-difference"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+diff --git a/.changeset/fuzzy-crews-vanish.md b/.changeset/fuzzy-crews-vanish.md
+new file mode 100644
+index 0000000000..81d952d4e5
+--- /dev/null
++++ b/.changeset/fuzzy-crews-vanish.md
+@@ -0,0 +1,5 @@
++---
++"@xyflow/system": patch
++---
++
++Fix selection box issue on mobile devices by adding `touch-action:none`
+diff --git a/packages/system/src/styles/init.css b/packages/system/src/styles/init.css
+index cb364e6e5a..540f446113 100644
+--- a/packages/system/src/styles/init.css
++++ b/packages/system/src/styles/init.css
+@@ -68,6 +68,7 @@
+ 
+ .xy-flow__pane {
+   z-index: 1;
++  touch-action: none;
+ 
+   &.draggable {
+     cursor: grab;

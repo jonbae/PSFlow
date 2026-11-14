@@ -52,6 +52,7 @@ import { RESERVED } from "./reserved.mjs";
 import { retirementDebtScenarios } from "./retirement-debt.mjs";
 import { seedScenarios } from "./seed.mjs";
 import { testDebtScenarios } from "./test-debt.mjs";
+import { orderEightScenarios } from "./order-eight.mjs";
 
 export { CorpusError, ROUTE_PREFIX, idOf, routeOf } from "./routes.mjs";
 export { RESERVED } from "./reserved.mjs";
@@ -79,6 +80,7 @@ export const buildCorpus = (fixtures, components = []) => {
     ...testDebtScenarios,
     ...retirementDebtScenarios,
     ...holeClosingScenarios,
+    ...orderEightScenarios,
   ];
   return assertDistinctIds([...plain, ...probeVariants(plain, readProbePlan())]);
 };

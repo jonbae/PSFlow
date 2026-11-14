@@ -1,0 +1,196 @@
+diff --git a/.changeset/stupid-lizards-wash.md b/.changeset/stupid-lizards-wash.md
+new file mode 100644
+index 0000000000..27d79b2a97
+--- /dev/null
++++ b/.changeset/stupid-lizards-wash.md
+@@ -0,0 +1,5 @@
++---
++'@xyflow/react': patch
++---
++
++Fix warning when display is set to none on the wrapper div
+diff --git a/.changeset/wet-beds-greet.md b/.changeset/wet-beds-greet.md
+new file mode 100644
+index 0000000000..5c1b140be4
+--- /dev/null
++++ b/.changeset/wet-beds-greet.md
+@@ -0,0 +1,5 @@
++---
++'@xyflow/svelte': patch
++---
++
++Fix style attribute not being propagated to wrapper
+diff --git a/examples/react/src/examples/Basic/index.tsx b/examples/react/src/examples/Basic/index.tsx
+index 168bcff6ac..a24c908c89 100644
+--- a/examples/react/src/examples/Basic/index.tsx
++++ b/examples/react/src/examples/Basic/index.tsx
+@@ -1,4 +1,4 @@
+-import { MouseEvent, useCallback } from 'react';
++import { MouseEvent, useCallback, useState } from 'react';
+ import {
+   ReactFlow,
+   MiniMap,
+@@ -134,47 +134,57 @@ const BasicFlow = () => {
+     });
+     fitView();
+   };
++  const [isHidden, setIsHidden] = useState(false);
+ 
++  const toggleVisibility = () => {
++    setIsHidden(!isHidden);
++  };
+   return (
+-    <ReactFlow
+-      defaultNodes={initialNodes}
+-      defaultEdges={initialEdges}
+-      onNodesChange={console.log}
+-      onNodeClick={onNodeClick}
+-      onNodeDragStop={onNodeDragStop}
+-      onNodeDragStart={onNodeDragStart}
+-      onNodeDrag={onNodeDrag}
+-      onSelectionDragStart={printSelectionEvent('selection drag start')}
+-      onSelectionDrag={printSelectionEvent('selection drag')}
+-      onSelectionDragStop={printSelectionEvent('selection drag stop')}
+-      className="react-flow-basic-example"
+-      minZoom={0.2}
+-      maxZoom={4}
+-      fitView
+-      fitViewOptions={fitViewOptions}
+-      defaultEdgeOptions={defaultEdgeOptions}
+-      selectNodesOnDrag={false}
+-      elevateEdgesOnSelect
+-      elevateNodesOnSelect={false}
+-      nodeDragThreshold={0}
+-    >
+-      <Background variant={BackgroundVariant.Dots} />
+-      <MiniMap />
+-      <Controls />
+-
+-      <Panel position="top-right">
+-        <button onClick={resetTransform}>reset transform</button>
+-        <button onClick={updatePos}>change pos</button>
+-        <button onClick={toggleClassnames}>toggle classnames</button>
+-        <button onClick={logToObject}>toObject</button>
+-
+-        <button onClick={deleteSelectedElements}>deleteSelectedElements</button>
+-        <button onClick={deleteSomeElements}>deleteSomeElements</button>
+-        <button onClick={onSetNodes}>setNodes</button>
+-        <button onClick={onUpdateNode}>updateNode</button>
+-        <button onClick={addNode}>addNode</button>
+-      </Panel>
+-    </ReactFlow>
++    <>
++      <ReactFlow
++        defaultNodes={initialNodes}
++        defaultEdges={initialEdges}
++        onNodesChange={console.log}
++        onNodeClick={onNodeClick}
++        onNodeDragStop={onNodeDragStop}
++        onNodeDragStart={onNodeDragStart}
++        onNodeDrag={onNodeDrag}
++        onSelectionDragStart={printSelectionEvent('selection drag start')}
++        onSelectionDrag={printSelectionEvent('selection drag')}
++        onSelectionDragStop={printSelectionEvent('selection drag stop')}
++        className="react-flow-basic-example"
++        style={{ display: isHidden ? 'none' : 'block' }}
++        minZoom={0.2}
++        maxZoom={4}
++        fitView
++        fitViewOptions={fitViewOptions}
++        defaultEdgeOptions={defaultEdgeOptions}
++        selectNodesOnDrag={false}
++        elevateEdgesOnSelect
++        elevateNodesOnSelect={false}
++        nodeDragThreshold={0}
++      >
++        <Background variant={BackgroundVariant.Dots} />
++        <MiniMap />
++        <Controls />
++
++        <Panel position="top-right">
++          <button onClick={resetTransform}>reset transform</button>
++          <button onClick={updatePos}>change pos</button>
++          <button onClick={toggleClassnames}>toggle classnames</button>
++          <button onClick={logToObject}>toObject</button>
++
++          <button onClick={deleteSelectedElements}>deleteSelectedElements</button>
++          <button onClick={deleteSomeElements}>deleteSomeElements</button>
++          <button onClick={onSetNodes}>setNodes</button>
++          <button onClick={onUpdateNode}>updateNode</button>
++          <button onClick={addNode}>addNode</button>
++        </Panel>
++      </ReactFlow>
++      <button onClick={toggleVisibility} style={{ position: 'absolute', zIndex: 10, right: 10, top: 100 }}>
++        {isHidden ? 'Show' : 'Hide'} Flow
++      </button>
++    </>
+   );
+ };
+ 
+diff --git a/examples/svelte/src/routes/examples/overview/Flow.svelte b/examples/svelte/src/routes/examples/overview/Flow.svelte
+index 3075a0e8ae..e83548fdd3 100644
+--- a/examples/svelte/src/routes/examples/overview/Flow.svelte
++++ b/examples/svelte/src/routes/examples/overview/Flow.svelte
+@@ -155,6 +155,8 @@
+ 		// console.log(edges.map((edge) => ({ id: edge.id, selected: edge.selected })));
+ 		edges.forEach((edge) => console.log({ id: edge.id, selected: edge.selected }));
+ 	});
++
++	let hidden = $state(false);
+ </script>
+ 
+ <!-- oninit={() => console.log('on init')}
+@@ -197,6 +199,7 @@
+ 	}} -->
+ 
+ <SvelteFlow
++	style="display:{hidden ? 'none' : 'block'}"
+ 	bind:nodes
+ 	bind:edges
+ 	{nodeTypes}
+@@ -247,7 +250,20 @@
+ 	<InitTracker />
+ </SvelteFlow>
+ 
++<button
++	class="hide"
++	onclick={() => {
++		hidden = !hidden;
++	}}>Hide/Unhide</button
++>
++
+ <style>
++	.hide {
++		position: absolute;
++		top: 80px;
++		right: 15px;
++	}
++
+ 	:root {
+ 		/* --background-color: #ffffdd; */
+ 		--background-pattern-color: #5050ff;
+diff --git a/packages/react/src/hooks/useResizeHandler.ts b/packages/react/src/hooks/useResizeHandler.ts
+index 4348208a19..4577e23ddb 100644
+--- a/packages/react/src/hooks/useResizeHandler.ts
++++ b/packages/react/src/hooks/useResizeHandler.ts
+@@ -13,7 +13,7 @@ export function useResizeHandler(domNode: MutableRefObject<HTMLDivElement | null
+ 
+   useEffect(() => {
+     const updateDimensions = () => {
+-      if (!domNode.current) {
++      if (!domNode.current || !(domNode.current.checkVisibility?.() ?? true)) {
+         return false;
+       }
+       const size = getDimensions(domNode.current);
+diff --git a/packages/svelte/src/lib/container/SvelteFlow/Wrapper.svelte b/packages/svelte/src/lib/container/SvelteFlow/Wrapper.svelte
+index 847dc4e458..57608967bd 100644
+--- a/packages/svelte/src/lib/container/SvelteFlow/Wrapper.svelte
++++ b/packages/svelte/src/lib/container/SvelteFlow/Wrapper.svelte
+@@ -80,7 +80,6 @@
+     autoPanOnConnect,
+     autoPanOnNodeDrag,
+     colorModeSSR,
+-    style,
+     defaultEdgeOptions,
+     elevateNodesOnSelect,
+     elevateEdgesOnSelect,

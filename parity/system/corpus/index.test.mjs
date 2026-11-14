@@ -7,6 +7,7 @@ import { holeClosingScenarios } from "./hole-closing.mjs";
 import { retirementDebtScenarios } from "./retirement-debt.mjs";
 import { seedScenarios } from "./seed.mjs";
 import { testDebtScenarios } from "./test-debt.mjs";
+import { orderEightScenarios } from "./order-eight.mjs";
 
 const fixtures = (...routes) => routes.map((route) => ({ route, file: `/vendored${route.slice(1)}` }));
 
@@ -36,6 +37,7 @@ test("the corpus is the baselines, the seed, the test-debt, retirement-debt and 
     ...ids(testDebtScenarios),
     ...ids(retirementDebtScenarios),
     ...ids(holeClosingScenarios),
+    ...ids(orderEightScenarios),
     ...probeIds("mount-baseline--nodes-general"),
   ]);
 });
@@ -59,6 +61,7 @@ test("a corpus with no components at all is still the fixtures' baselines and th
     ...ids(testDebtScenarios),
     ...ids(retirementDebtScenarios),
     ...ids(holeClosingScenarios),
+    ...ids(orderEightScenarios),
     ...probeIds("mount-baseline--pane-general"),
   ]);
 });

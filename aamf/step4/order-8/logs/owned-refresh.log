@@ -1,0 +1,50 @@
+
+  parity/driver/dist/psflow.js  3.0mb ⚠️
+
+⚡ Done in 3218ms
+driver [psflow]: 43 fixtures + 1 direct component(s), 49 observed callback props, library from `// output/Boundary/` → dist/psflow.js
+▲ [WARNING] Cannot find base config file "@xyflow/tsconfig/react.json" [tsconfig.json]
+
+    xyflow/packages/react/tsconfig.json:2:13:
+      2 │   "extends": "@xyflow/tsconfig/react.json",
+        ╵              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+▲ [WARNING] Cannot find base config file "@xyflow/tsconfig/base.json" [tsconfig.json]
+
+    xyflow/packages/system/tsconfig.json:3:13:
+      3 │   "extends": "@xyflow/tsconfig/base.json",
+        ╵              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+2 warnings
+
+  parity/driver/dist/upstream.js  1.5mb ⚠️
+
+⚡ Done in 1000ms
+driver [upstream]: 43 fixtures + 1 direct component(s), 49 observed callback props, library from `// xyflow/packages/react/src/` → dist/upstream.js
+debt-css-defaults: PASS 
+debt-css-selection: PASS 
+debt-store-effect-timing: PASS 
+debt-store-remount: PASS 
+debt-fitview-ignored-changes: PASS 
+debt-fitview-absent-handler: PASS 
+debt-focus-wrapper-scroll: PASS 
+debt-viewport-option-interpolation: PASS 
+debt-live-expand-parent: PASS 
+debt-click-connect-end-only: PASS 
+debt-detached-handle: PASS 
+debt-live-connection-handlers: PASS 
+debt-connection-pointer: PASS 
+debt-keyboard-connection-origin: PASS 
+debt-connection-partial-touch-end: PASS 
+debt-ctrl-wheel-nowheel: PASS 
+debt-ctrl-wheel-nowheel-pan-on-scroll: PASS 
+debt-pan-without-movement: PASS 
+debt-minimap-missing-node: PASS 
+debt-selection-cleared-by-nodes: PASS 
+debt-selection-keyboard: PASS 
+debt-selection-click-node: PASS 
+debt-programmatic-selection-drag: PASS 
+debt-abort-touch-drag: PASS 
+mount-baseline--flow-remount: PASS 
+mount-baseline--nodes-selection-state: PASS 
+mount-baseline--nodes-selection-on-drag: PASS 

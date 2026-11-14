@@ -651,6 +651,20 @@
     "hooks": {},
     "api": {
       "queries": {
+        "screenToFlowPositionOptions": {
+          "inherited": {
+            "x": -350,
+            "y": 50
+          },
+          "unsnapped": {
+            "x": -352.08993902439016,
+            "y": 51.79420731707317
+          },
+          "custom": {
+            "x": -357,
+            "y": 46
+          }
+        },
         "getNodes": [
           {
             "id": "1",

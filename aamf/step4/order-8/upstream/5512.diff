@@ -1,0 +1,27 @@
+diff --git a/.changeset/lovely-lemons-approve.md b/.changeset/lovely-lemons-approve.md
+new file mode 100644
+index 0000000000..c6b7254304
+--- /dev/null
++++ b/.changeset/lovely-lemons-approve.md
+@@ -0,0 +1,7 @@
++---
++'@xyflow/system': patch
++'@xyflow/react': patch
++'@xyflow/svelte': patch
++---
++
++Prevent native page zoom when pinch zooming on node with nowheel class
+diff --git a/packages/system/src/xypanzoom/eventhandler.ts b/packages/system/src/xypanzoom/eventhandler.ts
+index e6dda42524..583563a389 100644
+--- a/packages/system/src/xypanzoom/eventhandler.ts
++++ b/packages/system/src/xypanzoom/eventhandler.ts
+@@ -72,6 +72,9 @@ export function createPanOnScrollHandler({
+ }: PanOnScrollParams) {
+   return (event: any) => {
+     if (isWrappedWithClass(event, noWheelClassName)) {
++      if (event.ctrlKey) {
++        event.preventDefault(); // stop native page zoom for pinch zooming
++      }
+       return false;
+     }
+     event.preventDefault();

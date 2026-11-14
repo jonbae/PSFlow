@@ -90,6 +90,8 @@ function Flow() {
     // @ts-expect-error ps-flow refuses a whole-state replacement (gaps.mjs: store-replace).
     store.setState({ minZoom: 0.25 }, true);
     void fitView({ padding: 0.1 });
+    // #5722 exposes snapGrid independently of the optional snapToGrid flag.
+    instance?.screenToFlowPosition({ x: 137, y: 93 }, { snapGrid: [17, 23] });
     instance?.setNodes((current) => current.map((node) => ({ ...node, data: { count: 0 } })));
   };
 

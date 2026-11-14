@@ -1,0 +1,52 @@
+diff --git a/.changeset/dull-cows-sneeze.md b/.changeset/dull-cows-sneeze.md
+new file mode 100644
+index 0000000000..4ad1e4b186
+--- /dev/null
++++ b/.changeset/dull-cows-sneeze.md
+@@ -0,0 +1,6 @@
++---
++'@xyflow/react': patch
++'@xyflow/svelte': patch
++---
++
++Pass options to useReactFlow/useSvelteFlow viewport helper functions correctly
+diff --git a/packages/react/src/hooks/useViewportHelper.ts b/packages/react/src/hooks/useViewportHelper.ts
+index eee9748482..d419b649fa 100644
+--- a/packages/react/src/hooks/useViewportHelper.ts
++++ b/packages/react/src/hooks/useViewportHelper.ts
+@@ -24,17 +24,17 @@ const useViewportHelper = (): ViewportHelperFunctions => {
+       zoomIn: (options) => {
+         const { panZoom } = store.getState();
+ 
+-        return panZoom ? panZoom.scaleBy(1.2, { duration: options?.duration }) : Promise.resolve(false);
++        return panZoom ? panZoom.scaleBy(1.2, options) : Promise.resolve(false);
+       },
+       zoomOut: (options) => {
+         const { panZoom } = store.getState();
+ 
+-        return panZoom ? panZoom.scaleBy(1 / 1.2, { duration: options?.duration }) : Promise.resolve(false);
++        return panZoom ? panZoom.scaleBy(1 / 1.2, options) : Promise.resolve(false);
+       },
+       zoomTo: (zoomLevel, options) => {
+         const { panZoom } = store.getState();
+ 
+-        return panZoom ? panZoom.scaleTo(zoomLevel, { duration: options?.duration }) : Promise.resolve(false);
++        return panZoom ? panZoom.scaleTo(zoomLevel, options) : Promise.resolve(false);
+       },
+       getZoom: () => store.getState().transform[2],
+       setViewport: async (viewport, options) => {
+diff --git a/packages/svelte/src/lib/hooks/useSvelteFlow.svelte.ts b/packages/svelte/src/lib/hooks/useSvelteFlow.svelte.ts
+index 19307f1fb6..ddf13e4a5b 100644
+--- a/packages/svelte/src/lib/hooks/useSvelteFlow.svelte.ts
++++ b/packages/svelte/src/lib/hooks/useSvelteFlow.svelte.ts
+@@ -342,9 +342,7 @@ export function useSvelteFlow<NodeType extends Node = Node, EdgeType extends Edg
+     getEdges: (ids) => (ids === undefined ? store.edges : getElements(store.edgeLookup, ids)),
+     setZoom: (zoomLevel, options) => {
+       const panZoom = store.panZoom;
+-      return panZoom
+-        ? panZoom.scaleTo(zoomLevel, { duration: options?.duration })
+-        : Promise.resolve(false);
++      return panZoom ? panZoom.scaleTo(zoomLevel, options) : Promise.resolve(false);
+     },
+     getZoom: () => store.viewport.zoom,
+     setViewport: async (nextViewport, options) => {

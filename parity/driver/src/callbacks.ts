@@ -61,7 +61,7 @@ const observationAsked = () =>
  * store, so a driver that reshuffled twenty-five of them per render would be
  * measuring a page nobody writes.
  */
-export const useObservedHandlers = (props: Props): Props => {
+export const useObservedHandlers = (props: Props, omitted: string[] = []): Props => {
   const log = publishCallLog();
 
   return useMemo(
@@ -69,6 +69,8 @@ export const useObservedHandlers = (props: Props): Props => {
       const observed: Props = {};
       if (observationAsked()) {
         for (const name of manifest.props) {
+          // A fixture testing literal absence must be able to leave it absent.
+          if (omitted.includes(name)) continue;
           observed[name] = log.wrap(name, props[name] as Handler | undefined, manifest.unhandled[name]);
         }
       }
@@ -77,6 +79,6 @@ export const useObservedHandlers = (props: Props): Props => {
     },
     // A dependency per installed prop. The list is fixed at build time, so the
     // array's length is the same on every render, which is what React requires.
-    manifest.props.map((name: string) => props[name])
+    [...manifest.props.map((name: string) => props[name]), omitted.join(',')]
   );
 };

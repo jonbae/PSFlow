@@ -1,0 +1,207 @@
+diff --git a/.changeset/calm-pumpkins-relate.md b/.changeset/calm-pumpkins-relate.md
+new file mode 100644
+index 0000000000..f3c59706cc
+--- /dev/null
++++ b/.changeset/calm-pumpkins-relate.md
+@@ -0,0 +1,6 @@
++---
++'@xyflow/react': patch
++'@xyflow/system': patch
++---
++
++Show an error if user drags uninitialized node
+diff --git a/examples/react/src/App/routes.ts b/examples/react/src/App/routes.ts
+index cb184b4acf..2256ce5298 100644
+--- a/examples/react/src/App/routes.ts
++++ b/examples/react/src/App/routes.ts
+@@ -1,5 +1,6 @@
+ import Basic from '../examples/Basic';
+ import Backgrounds from '../examples/Backgrounds';
++import BrokenNodes from '../examples/BrokenNodes';
+ import ColorMode from '../examples/ColorMode';
+ import ClickDistance from '../examples/ClickDistance';
+ import ControlledUncontrolled from '../examples/ControlledUncontrolled';
+@@ -77,6 +78,11 @@ const routes: IRoute[] = [
+     path: 'backgrounds',
+     component: Backgrounds,
+   },
++  {
++    name: 'Broken Nodes',
++    path: 'broken-nodes',
++    component: BrokenNodes,
++  },
+   {
+     name: 'Color Mode',
+     path: 'color-mode',
+diff --git a/examples/react/src/examples/BrokenNodes/index.tsx b/examples/react/src/examples/BrokenNodes/index.tsx
+new file mode 100644
+index 0000000000..990612f97d
+--- /dev/null
++++ b/examples/react/src/examples/BrokenNodes/index.tsx
+@@ -0,0 +1,80 @@
++import { useCallback, useState } from 'react';
++import { ReactFlow, addEdge, Node, Connection, Edge, OnNodeDrag } from '@xyflow/react';
++
++const nodesInit: Node[] = [
++  {
++    id: '1a',
++    type: 'input',
++    data: { label: 'Node 1' },
++    position: { x: 250, y: 5 },
++    className: 'light',
++    ariaLabel: 'Input Node 1',
++  },
++  {
++    id: '2a',
++    data: { label: 'Node 2' },
++    position: { x: 100, y: 100 },
++    className: 'light',
++    ariaLabel: 'Default Node 2',
++  },
++  {
++    id: '3a',
++    data: { label: 'Node 3' },
++    position: { x: 400, y: 100 },
++    className: 'light',
++  },
++  {
++    id: '4a',
++    data: { label: 'Node 4' },
++    position: { x: 400, y: 200 },
++    className: 'light',
++  },
++];
++
++const edgesInit: Edge[] = [
++  { id: 'e1-2', source: '1a', target: '2a', ariaLabel: undefined },
++  { id: 'e1-3', source: '1a', target: '3a' },
++];
++
++const onNodesChange = () => {};
++const onEdgesChange = () => {};
++const BasicFlow = () => {
++  const [nodes, setNodes] = useState(nodesInit);
++  const [edges, setEdges] = useState(edgesInit);
++
++  const onConnect = useCallback((params: Connection | Edge) => setEdges((eds) => addEdge(params, eds)), [setEdges]);
++
++  const onNodeDrag: OnNodeDrag = useCallback((e, node) => {
++    if (isNaN(node.position.x) || isNaN(node.position.y)) {
++      console.log('received NaN', node.position);
++    }
++
++    setNodes((nds) => {
++      return nds.map((item) => {
++        if (item.id === node.id) {
++          return {
++            ...item,
++            position: {
++              x: node.position.x,
++              y: node.position.y,
++            },
++          };
++        }
++        return item;
++      });
++    });
++  }, []);
++
++  return (
++    <ReactFlow
++      nodes={nodes}
++      edges={edges}
++      onNodesChange={onNodesChange}
++      onEdgesChange={onEdgesChange}
++      onConnect={onConnect}
++      onNodeDrag={onNodeDrag}
++    ></ReactFlow>
++  );
++};
++
++export default BasicFlow;
+diff --git a/packages/react/src/additional-components/NodeResizer/NodeResizeControl.tsx b/packages/react/src/additional-components/NodeResizer/NodeResizeControl.tsx
+index 8a2faea731..5be4eafd7c 100644
+--- a/packages/react/src/additional-components/NodeResizer/NodeResizeControl.tsx
++++ b/packages/react/src/additional-components/NodeResizer/NodeResizeControl.tsx
+@@ -74,8 +74,8 @@ function ResizeControl({
+ 
+           if (node && node.expandParent && node.parentId) {
+             const origin = node.origin ?? nodeOrigin;
+-            const width = change.width ?? node.measured.width!;
+-            const height = change.height ?? node.measured.height!;
++            const width = change.width ?? node.measured.width ?? 0;
++            const height = change.height ?? node.measured.height ?? 0;
+ 
+             const child: ParentExpandChild = {
+               id: node.id,
+diff --git a/packages/react/src/store/index.ts b/packages/react/src/store/index.ts
+index 2d0552c06d..5711102b45 100644
+--- a/packages/react/src/store/index.ts
++++ b/packages/react/src/store/index.ts
+@@ -51,7 +51,7 @@ const createStore = ({
+          * setNodes() is called exclusively in response to user actions:
+          * - either when the `<ReactFlow nodes>` prop is updated in the controlled ReactFlow setup,
+          * - or when the user calls something like `reactFlowInstance.setNodes()` in an uncontrolled ReactFlow setup.
+-         * 
++         *
+          * When this happens, we take the note objects passed by the user and extend them with fields
+          * relevant for internal React Flow operations.
+          */
+@@ -161,9 +161,9 @@ const createStore = ({
+             type: 'position',
+             position: expandParent
+               ? {
+-                x: Math.max(0, dragItem.position.x),
+-                y: Math.max(0, dragItem.position.y),
+-              }
++                  x: Math.max(0, dragItem.position.x),
++                  y: Math.max(0, dragItem.position.y),
++                }
+               : dragItem.position,
+             dragging,
+           };
+@@ -174,8 +174,8 @@ const createStore = ({
+               parentId: dragItem.parentId!,
+               rect: {
+                 ...dragItem.internals.positionAbsolute,
+-                width: dragItem.measured.width!,
+-                height: dragItem.measured.height!,
++                width: dragItem.measured.width ?? 0,
++                height: dragItem.measured.height ?? 0,
+               },
+             });
+           }
+diff --git a/packages/system/src/constants.ts b/packages/system/src/constants.ts
+index 921189facb..9bb6565678 100644
+--- a/packages/system/src/constants.ts
++++ b/packages/system/src/constants.ts
+@@ -26,6 +26,8 @@ export const errorMessages = {
+     `It seems that you haven't loaded the styles. Please import '@xyflow/${lib}/dist/style.css' or base.css to make sure everything is working properly.`,
+   error014: () =>
+     'useNodeConnections: No node ID found. Call useNodeConnections inside a custom Node or provide a node ID.',
++  error015: () =>
++    'It seems that you are trying to drag a node that is not initialized. Please use onNodesChange as explained in the docs.',
+ };
+ 
+ export const infiniteExtent: CoordinateExtent = [
+diff --git a/packages/system/src/utils/graph.ts b/packages/system/src/utils/graph.ts
+index b2b1e6e5fa..9720e8c512 100644
+--- a/packages/system/src/utils/graph.ts
++++ b/packages/system/src/utils/graph.ts
+@@ -428,10 +428,14 @@ export function calculateNodePosition<NodeType extends NodeBase>({
+     ? clampPosition(nextPosition, extent, node.measured)
+     : nextPosition;
+ 
++  if (node.measured.width === undefined || node.measured.height === undefined) {
++    onError?.('015', errorMessages['error015']());
++  }
++
+   return {
+     position: {
+-      x: positionAbsolute.x - parentX + node.measured.width! * origin[0],
+-      y: positionAbsolute.y - parentY + node.measured.height! * origin[1],
++      x: positionAbsolute.x - parentX + (node.measured.width ?? 0) * origin[0],
++      y: positionAbsolute.y - parentY + (node.measured.height ?? 0) * origin[1],
+     },
+     positionAbsolute,
+   };

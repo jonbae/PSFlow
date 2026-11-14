@@ -1,0 +1,24 @@
+diff --git a/.changeset/fresh-fans-pump.md b/.changeset/fresh-fans-pump.md
+new file mode 100644
+index 0000000000..ed705924fd
+--- /dev/null
++++ b/.changeset/fresh-fans-pump.md
+@@ -0,0 +1,5 @@
++---
++'@xyflow/system': patch
++---
++
++Reset node drag state when drag is aborted
+diff --git a/packages/system/src/xydrag/XYDrag.ts b/packages/system/src/xydrag/XYDrag.ts
+index fca7a72a04..ed286b18d0 100644
+--- a/packages/system/src/xydrag/XYDrag.ts
++++ b/packages/system/src/xydrag/XYDrag.ts
+@@ -363,6 +363,9 @@ export function XYDrag<NodeType extends NodeBase = NodeBase, EdgeType extends Ed
+       })
+       .on('end', (event: UseDragEvent) => {
+         if (!dragStarted || abortDrag) {
++          if (abortDrag && dragItems.size > 0) {
++            getStoreItems().updateNodePositions(dragItems, false);
++          }
+           return;
+         }

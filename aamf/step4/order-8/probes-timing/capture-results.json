@@ -1,0 +1,64 @@
+[
+  {
+    "scenario": "debt-store-effect-timing",
+    "ok": false,
+    "failures": [
+      {
+        "class": "unclaimed-difference",
+        "differences": [
+          {
+            "kind": "changed",
+            "path": [
+              "callbacks",
+              0,
+              "args",
+              0,
+              "ariaLabelConfig",
+              "controls.zoomIn.ariaLabel"
+            ],
+            "left": "Zoom In",
+            "right": "initial zoom"
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "callbacks",
+              5,
+              "args",
+              0,
+              "minZoom"
+            ],
+            "left": 0.5,
+            "right": 0.2
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "callbacks",
+              5,
+              "args",
+              0,
+              "ariaLabelConfig",
+              "controls.zoomIn.ariaLabel"
+            ],
+            "left": "initial zoom",
+            "right": "Zoom In"
+          },
+          {
+            "kind": "changed",
+            "path": [
+              "callbacks",
+              5,
+              "args",
+              0,
+              "ariaLabelConfig",
+              "controls.zoomOut.ariaLabel"
+            ],
+            "left": "Zoom Out",
+            "right": "changed zoom"
+          }
+        ]
+      }
+    ]
+  }
+]

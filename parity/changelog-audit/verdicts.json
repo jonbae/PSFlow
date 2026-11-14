@@ -31,13 +31,9 @@
     "pkg": "react",
     "version": "12.3.6",
     "title": "Allow custom data-testid for ReactFlow component",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "flow-custom-testid",
-    "stage": 1,
+    "bucket": "system",
     "debt": "079",
-    "ticket": "079",
-    "note": "data-testid passthrough in src/React/Container/ReactFlow.purs; untested."
+    "evidence": "Step 4 order 8: `flow-custom-testid`. Resolved custom-id action and DOM data-testid. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "4846": {
     "pkg": "react",
@@ -52,25 +48,17 @@
     "pkg": "react",
     "version": "12.3.6",
     "title": "Support passing `path` element attributes to `BaseEdge` component.",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "custom-edge-baseedge-path",
-    "stage": 1,
+    "bucket": "system",
     "debt": "079",
-    "ticket": "079",
-    "note": "src/React/Edge/Base.purs path attributes; untested. Stage 1 rather than the 4 that 079 assumed: BaseEdge is not one of the components stage 4 crosses, and parity/system/coverage.md already records it driven by thirty scenarios, so nothing beyond stage 1 blocks the scenario."
+    "evidence": "Step 4 order 8: `custom-edge-baseedge-path`. Resolved custom path attribute and SVG DOM. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "4862": {
     "pkg": "react",
     "version": "12.3.6",
     "title": "Prevent default scrolling behavior when nodes or a selection is moved with an arrow key press.",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "arrow-key-selected-node",
-    "stage": 1,
+    "bucket": "system",
     "debt": "076",
-    "ticket": "076",
-    "note": "arrow-key nudges in src/React/Hook/MoveSelectedNodes.purs; scroll-prevention untested."
+    "evidence": "Step 4 order 8: `arrow-key-selected-node, debt-selection-keyboard`. consumerKey.defaultPrevented with node position changes. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "4865": {
     "pkg": "react",
@@ -141,13 +129,9 @@
     "pkg": "react",
     "version": "12.4.1",
     "title": "Fix useNodeConnection hook not returning all connected edges.",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "probe-node-connections",
-    "stage": 3,
+    "bucket": "system",
     "debt": "077",
-    "ticket": "077",
-    "note": "src/React/Hook/NodeConnections.purs; the all-connected-edges case is untested."
+    "evidence": "Step 4 order 8: `probe-node-connections`. Hub DOM renders all five incident edges, including both directions. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "4957": {
     "pkg": "react",
@@ -180,13 +164,9 @@
     "pkg": "react",
     "version": "12.4.3",
     "title": "Fix viewport shifting on node focus",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "keyboard-focus-node",
-    "stage": 1,
+    "bucket": "system",
     "debt": "078",
-    "ticket": "078",
-    "note": "node-focus viewport handling in src/React/Component/NodeWrapper.purs; untested."
+    "evidence": "Step 4 order 8: `debt-focus-wrapper-scroll`. wrapperScroll callback and settled scroll offsets are both zero. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5003": {
     "pkg": "react",
@@ -219,13 +199,9 @@
     "pkg": "react",
     "version": "12.4.3",
     "title": "Add snapGrid option to screenToFlowPosition and set snapToGrid to false",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "viewport-helpers-with-options",
-    "stage": 3,
+    "bucket": "system",
     "debt": "078",
-    "ticket": "078",
-    "note": "same screenToFlowPosition snapGrid path as #5722; untested."
+    "evidence": "Step 4 order 8: `viewport-helpers-with-options`. Settled inherited, disabled and custom-grid screenToFlowPosition answers. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5013": {
     "pkg": "react",
@@ -258,25 +234,17 @@
     "pkg": "react",
     "version": "12.4.4",
     "title": "Allow click connections when target sets `isConnectableStart`",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "connect-handle-to-handle",
-    "stage": 2,
+    "bucket": "system",
     "debt": "077",
-    "ticket": "077",
-    "note": "isConnectableStart handling in src/React/Handle.purs; click-connection case untested."
+    "evidence": "Step 4 order 8: `debt-click-connect-end-only`. onConnect after clicking target without connectablestart. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5043": {
     "pkg": "react",
     "version": "12.4.4",
     "title": "Use current expandParent value on drag to be able to update it while dragging",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "drag-child-expand-parent",
-    "stage": 1,
+    "bucket": "system",
     "debt": "076",
-    "ticket": "076",
-    "note": "expandParent at src/System/Types/Node.purs:77,139 is read during drag; live updates untested."
+    "evidence": "Step 4 order 8: `debt-live-expand-parent`. Mid-gesture expandParent replacement followed by further position changes. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5047": {
     "pkg": "react",
@@ -291,13 +259,9 @@
     "pkg": "react",
     "version": "12.4.4",
     "title": "Show an error if user drags uninitialized node",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "drag-unmeasured-node",
-    "stage": 1,
+    "bucket": "system",
     "debt": "076",
-    "ticket": "076",
-    "note": "uninitialized-node drag — src/System/XYDrag.purs; the error path is untested."
+    "evidence": "Step 4 order 8: `drag-unmeasured-node`. onError callback with code 015 and original error message. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5053": {
     "pkg": "react",
@@ -441,13 +405,9 @@
     "pkg": "react",
     "version": "12.5.1",
     "title": "Handle fitView for uncontrolled flows",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "fitview-onnodeschange-variants",
-    "stage": 2,
+    "bucket": "system",
     "debt": "078",
-    "ticket": "078",
-    "note": "uncontrolled-flow fitView in src/React/Hook/NodesEdgesState.purs; untested."
+    "evidence": "Step 4 order 8: `fitview-onnodeschange-variants`. Initial onMove fit precedes the first imperative call on an uncontrolled flow. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5124": {
     "pkg": "react",
@@ -462,25 +422,17 @@
     "pkg": "react",
     "version": "12.5.2",
     "title": "Fix `fitView` not working when returning early in `onNodesChange`.",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "fitview-onnodeschange-variants",
-    "stage": 2,
+    "bucket": "system",
     "debt": "078",
-    "ticket": "078",
-    "note": "same fitView path as #5132; early-return case untested."
+    "evidence": "Step 4 order 8: `debt-fitview-ignored-changes`. fitView settles true and moves viewport with a consumer that returns early. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5132": {
     "pkg": "react",
     "version": "12.5.3",
     "title": "Fix fitView not working when onNodesChange is not defined.",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "fitview-onnodeschange-variants",
-    "stage": 2,
+    "bucket": "system",
     "debt": "078",
-    "ticket": "078",
-    "note": "fitView paths in src/React/Hook/ViewportHelper.purs / src/System/Utils/Graph.purs; the onNodesChange-undefined case is untested."
+    "evidence": "Step 4 order 8: `debt-fitview-absent-handler`. fitView settles true; fixture literally omits the observed callback. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5134": {
     "pkg": "react",
@@ -531,13 +483,9 @@
     "pkg": "system",
     "version": "0.0.54",
     "title": "Use `rgba` for colors with opacity instead of `rgb` for `MiniMap` mask color",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "minimap-custom-mask-colors",
-    "stage": 1,
+    "bucket": "system",
     "debt": "079",
-    "ticket": "079",
-    "note": "Mask colors flow through CSS custom properties at src/React/Additional/MiniMap.purs:133-141 rather than an rgba string; untested. 079 wondered whether this was stylesheet behavior and therefore n/a — it is not: the custom properties are emitted into the style attribute by PSFlow itself, which puts the row squarely in the net's `dom` section."
+    "evidence": "Step 4 order 8: `debt-css-defaults`. getComputedStyle preserves the raw rgba default and rendered fill. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5140": {
     "pkg": "react",
@@ -597,25 +545,17 @@
     "pkg": "system",
     "version": "0.0.54",
     "title": "Prevent browser zoom for pinch zoom gestures on nowheel elements",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "pinch-over-nowheel-node",
-    "stage": 1,
+    "bucket": "system",
     "debt": "079",
-    "ticket": "079",
-    "note": "Same nowheel guard as #5512 on the system side, and the same native-pinch stimulus risk; untested."
+    "evidence": "Step 4 order 8: `debt-ctrl-wheel-nowheel`. consumerWheel records ctrlKey and defaultPrevented. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5153": {
     "pkg": "system",
     "version": "0.0.56",
     "title": "Add separators to horizontal control buttons",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "controls-horizontal",
-    "stage": 1,
+    "bucket": "system",
     "debt": "079",
-    "ticket": "079",
-    "note": "src/React/Additional/Controls.purs horizontal orientation; separators untested."
+    "evidence": "Step 4 order 8: `debt-css-defaults`. Computed right/bottom border widths for every horizontal button. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5154": {
     "pkg": "react",
@@ -882,25 +822,17 @@
     "pkg": "react",
     "version": "12.6.1",
     "title": "Call `onNodesChange` for uncontrolled flows that use `updateNode`",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "uncontrolled-update-node",
-    "stage": 3,
+    "bucket": "system",
     "debt": "078",
-    "ticket": "078",
-    "note": "updateNode → onNodesChange in src/React/Hook/ReactFlow.purs; the uncontrolled case is untested."
+    "evidence": "Step 4 order 8: `uncontrolled-update-node`. replace/add receipts alongside updated uncontrolled nodes. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5252": {
     "pkg": "system",
     "version": "0.0.58",
     "title": "Center panel correctly when bottom-center or top-center position is used",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "panel-center-positions",
-    "stage": 1,
+    "bucket": "system",
     "debt": "079",
-    "ticket": "079",
-    "note": "panel position strings at src/React/Portal/Panel.purs:28-34; centering untested."
+    "evidence": "Step 4 order 8: `debt-css-defaults`. Computed matrix transforms for top/bottom/left/right center panels. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5255": {
     "pkg": "system",
@@ -924,13 +856,9 @@
     "pkg": "react",
     "version": "12.6.3",
     "title": "Fix background-color css variable fallback.",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "background-custom-bgcolor",
-    "stage": 1,
+    "bucket": "system",
     "debt": "079",
-    "ticket": "079",
-    "note": "Background CSS custom properties at src/React/Additional/Background.purs:86-89; the fallback chain is untested. Same correction as #5139: PSFlow authors these into the style attribute, so this is `dom` and not stylesheet behavior."
+    "evidence": "Step 4 order 8: `debt-css-defaults`. Computed background color with both candidates set. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5263": {
     "pkg": "react",
@@ -1085,25 +1013,17 @@
     "pkg": "react",
     "version": "12.8.0",
     "title": "Remove pointer events from Panel via CSS while a selection gets dragged",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "selection-box-mid-gesture",
-    "stage": 1,
+    "bucket": "system",
     "debt": "079",
-    "ticket": "079",
-    "note": "Panel pointer-events during selection drag — src/React/Portal/Panel.purs; untested."
+    "evidence": "Step 4 order 8: `debt-css-selection`. Panel has no inline pointer-events and the nested panel computes none. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5368": {
     "pkg": "react",
     "version": "12.8.0",
     "title": "Cleanup store updater",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "flow-props-change-after-mount",
-    "stage": 2,
+    "bucket": "system",
     "debt": "076",
-    "ticket": "076",
-    "note": "src/React/Provider/StoreUpdater.purs structure matches the cleaned-up upstream; untested. Reachable only because callbacks compare as an exact sequence — order, count and interleaving; a weaker callback projection would make it invisible, PSFlow running one useEffect per tracked prop where upstream runs a single effect."
+    "evidence": "Step 4 order 8: `debt-store-effect-timing`. Partial config changes retain all default labels in the public store. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5370": {
     "pkg": "system",
@@ -1172,13 +1092,9 @@
     "pkg": "react",
     "version": "12.8.3",
     "title": "Fix clicking on detached handle elements not initiating drawing of connections",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "connect-handle-to-handle",
-    "stage": 2,
+    "bucket": "system",
     "debt": "077",
-    "ticket": "077",
-    "note": "handle lookup in src/System/XYHandle/Utils.purs; detached-handle case untested."
+    "evidence": "Step 4 order 8: `debt-detached-handle`. Connection starts through a detached nested handle child. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5436": {
     "pkg": "react",
@@ -1220,13 +1136,9 @@
     "pkg": "system",
     "version": "0.0.67",
     "title": "Call onNodeDrag while autopan is ongoing",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "drag-node-autopan",
-    "stage": 2,
+    "bucket": "system",
     "debt": "076",
-    "ticket": "076",
-    "note": "onNodeDrag during autopan — src/System/XYDrag.purs autoPanStep at :350-352; untested."
+    "evidence": "Step 4 order 8: `drag-node-autopan`. More onNodeDrag callbacks than manual pointer moves. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5453": {
     "pkg": "react",
@@ -1241,13 +1153,11 @@
     "pkg": "react",
     "version": "12.8.5",
     "title": "Fix warning when display is set to none on the wrapper div",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "mount-in-display-none",
-    "stage": 1,
+    "bucket": "system",
     "debt": "079",
-    "ticket": "079",
-    "note": "display:none wrapper warning — src/React/Hook/StylesLoadedWarning.purs; untested."
+    "evidence": "Step 4 order 8: `mount-in-display-none`. Hidden wrapper retains the visible store dimensions and emits no error004. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json.",
+    "note": "The visibility guard was missing; the review added it, error004 handling and the window resize listener.",
+    "misfiled": true
   },
   "5459": {
     "pkg": "react",
@@ -1281,13 +1191,9 @@
     "pkg": "react",
     "version": "12.8.5",
     "title": "Prevent multi-touch events while making a new connection",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "connect-second-touch-point",
-    "stage": 2,
+    "bucket": "system",
     "debt": "077",
-    "ticket": "077",
-    "note": "Multi-touch guard in src/System/XYHandle.purs; untested. Same class of stimulus risk as #5512 — a second touch point is outside the pointer vocabulary and needs synthesizing."
+    "evidence": "Step 4 order 8: `debt-connection-partial-touch-end`. Driving includes a partial touchend; final connection is still in progress. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5482": {
     "pkg": "react",
@@ -1347,13 +1253,9 @@
     "pkg": "react",
     "version": "12.8.6",
     "title": "Prevent native page zoom when pinch zooming on node with nowheel class",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "pinch-over-nowheel-node",
-    "stage": 1,
+    "bucket": "system",
     "debt": "079",
-    "ticket": "079",
-    "note": "nowheel pinch-zoom guard in src/System/XYPanZoom/Filter.purs; untested. Stimulus risk: a native pinch is outside the pointer-and-imperative-call vocabulary. Chrome DevTools Protocol can synthesize one; if that proves too expensive this row falls back to accepted-ungated."
+    "evidence": "Step 4 order 8: `debt-ctrl-wheel-nowheel-pan-on-scroll`. consumerWheel records ctrlKey and defaultPrevented with panOnScroll enabled. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5515": {
     "pkg": "react",
@@ -1405,25 +1307,17 @@
     "pkg": "system",
     "version": "0.0.71",
     "title": "Do not crash mini map if all nodes are hidden",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "minimap-all-nodes-hidden",
-    "stage": 1,
+    "bucket": "system",
     "debt": "079",
-    "ticket": "079",
-    "note": "src/React/Additional/MiniMap.purs:91 filters hidden nodes before bounds; the all-hidden case is untested."
+    "evidence": "Step 4 order 8: `minimap-all-nodes-hidden`. A finite MiniMap viewBox over existing nodes that are all hidden. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5547": {
     "pkg": "react",
     "version": "12.9.0",
     "title": "Always call `onMoveEnd` when `onMoveStart` was called",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "pan-gesture-complete",
-    "stage": 2,
+    "bucket": "system",
     "debt": "078",
-    "ticket": "078",
-    "note": "onMoveStart/onMoveEnd pairing in src/System/XYPanZoom/EventHandler.purs; untested."
+    "evidence": "Step 4 order 8: `debt-pan-without-movement`. Start/end callbacks for the final press/release with no intervening move. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5550": {
     "pkg": "react",
@@ -1439,13 +1333,9 @@
     "pkg": "react",
     "version": "12.9.0",
     "title": "Allow to start a selection above a node",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "selection-box-from-node",
-    "stage": 1,
+    "bucket": "system",
     "debt": "076",
-    "ticket": "076",
-    "note": "src/React/Container/Pane.purs selection start; starting a selection over a node is untested."
+    "evidence": "Step 4 order 8: `selection-box-from-node`. Node-targeted pointerdown produces onSelectionStart and onSelectionEnd. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5572": {
     "pkg": "react",
@@ -1460,13 +1350,9 @@
     "pkg": "react",
     "version": "12.9.3",
     "title": "Pass current pointer position to connection",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "connect-handle-to-handle",
-    "stage": 2,
+    "bucket": "system",
     "debt": "077",
-    "ticket": "077",
-    "note": "pointer position threading in src/System/XYHandle.purs; untested."
+    "evidence": "Step 4 order 8: `debt-connection-pointer`. Consumer connection has a raw pointer distinct from its snapped endpoint. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5592": {
     "pkg": "react",
@@ -1481,13 +1367,9 @@
     "pkg": "react",
     "version": "12.9.2",
     "title": "Reset selection box when user selects a node",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "selection-box-then-click-node",
-    "stage": 1,
+    "bucket": "system",
     "debt": "076",
-    "ticket": "076",
-    "note": "src/React/Component/UserSelection.purs + Pane selection reset; untested."
+    "evidence": "Step 4 order 8: `debt-selection-click-node`. A real box selection followed by node click leaves no group rectangle. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5617": {
     "pkg": "system",
@@ -1520,13 +1402,10 @@
     "pkg": "react",
     "version": "12.10.0",
     "title": "Update an ongoing connection when user moves node with keyboard.",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "connect-then-keyboard-move",
-    "stage": 2,
+    "bucket": "system",
     "debt": "077",
-    "ticket": "077",
-    "note": "connection update on keyboard node move — src/React/Hook/MoveSelectedNodes.purs + src/System/XYHandle.purs; untested."
+    "evidence": "Step 4 order 8: `debt-keyboard-connection-origin`. Connection origin matches the moved source handle, including a later pointer move. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json.",
+    "note": "The connection refresh read a persistent Map captured at pointerdown; the review supplies a live lookup accessor."
   },
   "5637": {
     "pkg": "react",
@@ -1541,13 +1420,9 @@
     "pkg": "system",
     "version": "0.0.77",
     "title": "Fix selection box issue on mobile devices by adding `touch-action:none`",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "selection-box-touch",
-    "stage": 1,
+    "bucket": "system",
     "debt": "079",
-    "ticket": "079",
-    "note": "touch-action is a stylesheet concern and this is the one row of the four 079 questioned that really is stylesheet-only. Reachable indirectly: both sides load the same upstream stylesheet, so equality of the class attribute implies equality of the computed touch-action — the snapshot records attributes, not computed styles."
+    "evidence": "Step 4 order 8: `selection-box-touch, debt-css-defaults`. Touch selection input and the computed pane touch-action. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5677": {
     "pkg": "react",
@@ -1562,25 +1437,17 @@
     "pkg": "react",
     "version": "12.10.1",
     "title": "Prevent unnecessary updates when selectNodesOnDrag = false",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "drag-node-no-select-on-drag",
-    "stage": 2,
+    "bucket": "system",
     "debt": "076",
-    "ticket": "076",
-    "note": "selectNodesOnDrag handling in src/System/XYDrag.purs / src/React/Hook/Drag.purs; no gate for the no-op case."
+    "evidence": "Step 4 order 8: `drag-node-no-select-on-drag`. Position changes occur without any select changes in the exact callback log. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5684": {
     "pkg": "react",
     "version": "12.10.1",
     "title": "Consolidate drag handler effects in useDrag to fix programmatic selection issues",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "drag-node-release",
-    "stage": 2,
+    "bucket": "system",
     "debt": "076",
-    "ticket": "076",
-    "note": "src/React/Hook/Drag.purs; programmatic selection during drag is untested."
+    "evidence": "Step 4 order 8: debt-programmatic-selection-drag. Selected nodes added programmatically move as a group; a short node drag after the click-distance prop change retains its native onNodeClick. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5687": {
     "pkg": "react",
@@ -1595,13 +1462,9 @@
     "pkg": "react",
     "version": "12.10.1",
     "title": "Handle undefined node in mini map",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "minimap-all-nodes-hidden",
-    "stage": 1,
+    "bucket": "system",
     "debt": "079",
-    "ticket": "079",
-    "note": "src/React/Additional/MiniMap/Nodes.purs:54 works off nodeLookup entries; the missing-node case is untested."
+    "evidence": "Step 4 order 8: `debt-minimap-missing-node`. A synchronous missing-entry render and restoration complete without a page error. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5703": {
     "pkg": "react",
@@ -1616,49 +1479,37 @@
     "pkg": "react",
     "version": "12.10.1",
     "title": "Keep `onConnectEnd` and `isValidConnection` up to date in an ongoing connection",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "connect-handle-to-handle",
-    "stage": 2,
+    "bucket": "system",
     "debt": "077",
-    "ticket": "077",
-    "note": "src/React/Handle.purs keeps onConnectEnd/isValidConnection in refs; staleness untested."
+    "evidence": "Step 4 order 8: `debt-live-connection-handlers`. Replacement validator rejects and replacement end handler receives the final state. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json.",
+    "note": "The port captured both store handlers at pointerdown; the review reads each current handler when called, for handles and reconnect anchors.",
+    "misfiled": true
   },
   "5722": {
     "pkg": "react",
     "version": "12.10.2",
     "title": "Add `snapGrid` to `screenToFlowPosition` options",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "viewport-helpers-with-options",
-    "stage": 3,
+    "bucket": "system",
     "debt": "078",
-    "ticket": "078",
-    "note": "snapGrid threaded into screenToFlowPosition (src/React/Hook/ViewportHelper.purs); untested."
+    "evidence": "Step 4 order 8: `viewport-helpers-with-options`. Custom-grid answer differs from store-grid and unsnapped answers; declaration is packaged too. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5723": {
     "pkg": "react",
     "version": "12.10.2",
     "title": "Pass options to useReactFlow/useSvelteFlow viewport helper functions correctly",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "viewport-helpers-with-options",
-    "stage": 3,
+    "bucket": "system",
     "debt": "078",
-    "ticket": "078",
-    "note": "src/React/Hook/ViewportHelper.purs passes the full options record; untested."
+    "evidence": "Step 4 order 8: `debt-viewport-option-interpolation`. Frame-by-frame onMove sequence for zoomIn, zoomOut and zoomTo with linear interpolation. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5727": {
     "pkg": "react",
     "version": "12.10.2",
     "title": "Ensure visual nodes selection state is cleared when zero selected nodes remain in the flow",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "selection-box-then-click-node",
-    "stage": 1,
+    "bucket": "system",
     "debt": "076",
-    "ticket": "076",
-    "note": "ResetSelectedElements + nodesSelectionActive=false at src/React/Container/Pane.purs:293-295 matches upstream; the zero-remaining-selection case is untested."
+    "evidence": "Step 4 order 8: `debt-selection-cleared-by-nodes`. No group rectangle and store nodesSelectionActive false after imperative deselection. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json.",
+    "note": "SetNodes did not clear nodesSelectionActive; the review ports the adoption result into that state update.",
+    "misfiled": true
   },
   "5730": {
     "pkg": "system",
@@ -1673,13 +1524,9 @@
     "pkg": "react",
     "version": "12.10.2",
     "title": "Fix empty store during ReactFlow remount by reordering StoreUpdater before GraphView and using layout effects",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "flow-props-change-after-mount",
-    "stage": 2,
+    "bucket": "system",
     "debt": "076",
-    "ticket": "076",
-    "note": "storeUpdater is composed before graphView in src/React/Container/ReactFlow.purs:203,272; remount ordering untested. Reachable only because callbacks compare as an exact sequence — order, count and interleaving; a weaker callback projection would make it invisible, PSFlow running one useEffect per tracked prop where upstream runs a single effect."
+    "evidence": "Step 4 order 8: debt-store-remount. GraphView custom-node passive effects read four nodes and four lookup entries on both mounts of a persistent-provider flow. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5735": {
     "pkg": "react",
@@ -1703,13 +1550,9 @@
     "pkg": "react",
     "version": "12.11.0",
     "title": "Use `useEffect` for StoreUpdater to restore previous behaviour",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "flow-props-change-after-mount",
-    "stage": 2,
+    "bucket": "system",
     "debt": "076",
-    "ticket": "076",
-    "note": "src/React/Provider/StoreUpdater.purs:5-8,45 documents the one-useEffect-per-prop model; effect ordering is untested. Reachable only because callbacks compare as an exact sequence — order, count and interleaving; a weaker callback projection would make it invisible, PSFlow running one useEffect per tracked prop where upstream runs a single effect."
+    "evidence": "Step 4 order 8: `debt-store-effect-timing`. Changed layout effect reads old minZoom; changed passive effect reads the new value. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json."
   },
   "5776": {
     "pkg": "react",
@@ -1751,13 +1594,11 @@
     "pkg": "system",
     "version": "0.0.77",
     "title": "Reset node drag state when drag is aborted",
-    "bucket": "gate-pending",
-    "gate": "system",
-    "scenario": "drag-node-escape-mid-gesture",
-    "stage": 2,
+    "bucket": "system",
     "debt": "076",
-    "ticket": "076",
-    "note": "abortDrag state at src/System/XYDrag.purs:194,209,305,346,349,378 mirrors upstream, but no gate drives an aborted drag."
+    "evidence": "Step 4 order 8: `debt-abort-touch-drag`. Multitouch abort has final position-change callbacks with dragging false. Branch receipts are checked on both sides and captures by parity/changelog-audit/system-evidence.mjs; source comparison and reproducible probes: aamf/step4/order-8/README.md and rows.json.",
+    "note": "The aborted onEnd path omitted updateNodePositions(..., false); the review adds it.",
+    "misfiled": true
   },
-  "_comment": "Hand-authored verdicts for the 12.3.5→12.11.0 changelog audit (ticket 071), keyed by upstream PR number. `pkg`/`version`/`title` are embedded so this file is self-contained: xyflow/ is gitignored and does not survive a clean clone. This is a gate, not documentation: `npm run parity:changelog` fails if any in-range PR is missing here, or if a row breaks its bucket's rule. The rules and the bucket table live in `buckets.mjs`. Covered buckets (evidence required): docs, ts-only, surface, function, conformance, unit, system. Gap buckets (ticket or in-branch note required): gate-pending, ported-ungated, not-ported. Accepted (written reason required): accepted-ungated. Plus n/a, for changes with no PSFlow analogue. A gate-pending row also names `gate` — the covered bucket it will graduate into — and, where that gate is `system`, the corpus `scenario` that will drive it and the boundary `stage` it waits on; every other gate names a `test` instead. The scenario has to resolve against the corpus's name space, so a plan cannot be a name nobody wrote. `debt` marks the 57 rows tickets 076-079 filed as ported-and-ungated after the version sweep, and is what makes the corrected count of 56 derived rather than typed. `misfiled` marks the one row the audit found was never ported, #5276. It stays after the port lands, because the filing was wrong either way."
+  "_comment": "Hand-authored verdicts for the 12.3.5→12.11.0 changelog audit (ticket 071), keyed by upstream PR number. `pkg`/`version`/`title` are embedded so this file is self-contained: xyflow/ is gitignored and does not survive a clean clone. This is a gate, not documentation: `npm run parity:changelog` fails if any in-range PR is missing here, or if a row breaks its bucket's rule. The rules and the bucket table live in `buckets.mjs`. Covered buckets (evidence required): docs, ts-only, surface, function, conformance, unit, system. Gap buckets (ticket or in-branch note required): gate-pending, ported-ungated, not-ported. Accepted (written reason required): accepted-ungated. Plus n/a, for changes with no PSFlow analogue. A gate-pending row also names `gate` — the covered bucket it will graduate into — and, where that gate is `system`, the corpus `scenario` that will drive it and the boundary `stage` it waits on; every other gate names a `test` instead. The scenario has to resolve against the corpus's name space, so a plan cannot be a name nobody wrote. `debt` marks the 57 rows tickets 076-079 filed as ported-and-ungated after the version sweep, and is what makes the corrected filing count derived rather than typed. `misfiled` marks a row whose claimed port was absent, wholly or in the changed branch. The flag stays after the port lands, because the filing was wrong either way."
 }

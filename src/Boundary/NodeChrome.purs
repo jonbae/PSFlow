@@ -60,14 +60,14 @@ import Boundary.Enums (alignIn, handleTypeIn, positionIn)
 import Boundary.Undefined (Undefinable, fromUndefinable, orNullable)
 import Boundary.Untagged (asArray, asString, typeName)
 import Data.Either (Either(..))
-import Data.Maybe (Maybe(..), maybe)
+import Data.Maybe (Maybe(..), fromMaybe, maybe)
 import Data.Nullable (Nullable)
 import Effect.Exception.Unsafe (unsafeThrow)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)
 import React.Additional.NodeToolbar (nodeToolbar) as PS
 import React.Basic (JSX, ReactComponent, element)
-import React.Basic.Hooks (ReactChildren, memo, reactComponentWithChildren)
+import React.Basic.Hooks (ReactChildren, memo, reactChildrenFromArray, reactComponentWithChildren)
 import React.FFI.ForwardRef (forwardNullableRef)
 import React.Handle (handle) as PS
 import React.Types.Component (HandleProps, NodeToolbarProps)
@@ -82,6 +82,7 @@ import System.Types.Handle (HandleType(..))
 -- | free for the element's own tag the way `JsNode` and `JsEdge` do.
 type JsHandleProps =
   { type :: Undefinable String
+  , children :: Undefinable (ReactChildren JSX)
   , position :: Undefinable String
   , id :: Undefinable String
   , isConnectable :: Undefinable Boolean
@@ -104,6 +105,7 @@ type JsHandleProps =
 convertHandle :: JsHandleProps -> Nullable Foreign -> HandleProps
 convertHandle p forwarded =
   { handleType: maybe Source (handleTypeIn "Handle.type") (fromUndefinable p.type)
+  , children: fromMaybe (reactChildrenFromArray []) (fromUndefinable p.children)
   , position: maybe PosTop (positionIn "Handle.position") (fromUndefinable p.position)
   , id: fromUndefinable p.id
   , isConnectable: fromUndefinable p.isConnectable

@@ -167,22 +167,27 @@ edgeUpdateAnchors =
                 , onConnect: case props.onReconnect of
                     Just cb -> Just (\conn -> cb props.edge conn)
                     Nothing -> Nothing
-                , onConnectEnd: state.onConnectEnd
-                , isValidConnection: case state.isValidConnection of
-                    Just iv -> \conn -> iv
-                      { source: conn.source
-                      , target: conn.target
-                      , sourceHandle: conn.sourceHandle
-                      , targetHandle: conn.targetHandle
-                      , edge: Nothing
-                      }
-                    Nothing -> \_ -> true
+                , onConnectEnd: Just \endEvent final -> do
+                    current <- store.getState
+                    for_ current.onConnectEnd \cb -> cb endEvent final
+                , isValidConnection: \conn -> unsafePerformEffect do
+                    current <- store.getState
+                    pure case current.isValidConnection of
+                      Just iv -> iv
+                        { source: conn.source
+                        , target: conn.target
+                        , sourceHandle: conn.sourceHandle
+                        , targetHandle: conn.targetHandle
+                        , edge: Nothing
+                        }
+                      Nothing -> true
                 , onReconnectEnd: Just \evtUnion finalState -> do
                     props.setReconnecting false
                     for_ props.onReconnectEnd \cb -> case evtUnion of
                       Left me' -> cb me' props.edge oppositeHandle.handleType finalState
                       Right _ -> pure unit
                 , getTransform: _.transform <$> store.getState
+                , getNodeLookup: _.nodeLookup <$> store.getState
                 , getFromHandle: do
                     s <- store.getState
                     pure (extractFromHandle s.connection)

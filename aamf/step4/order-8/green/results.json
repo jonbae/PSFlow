@@ -1,0 +1,12 @@
+[
+  {
+    "scenario": "debt-store-remount",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "debt-programmatic-selection-drag",
+    "ok": true,
+    "failures": []
+  }
+]

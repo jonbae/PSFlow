@@ -1,0 +1,70 @@
+{
+  "probes": 9,
+  "rejected": 9,
+  "survivors": [],
+  "results": [
+    {
+      "scenario": "debt-focus-wrapper-scroll",
+      "ok": false,
+      "failures": [
+        "unclaimed-difference"
+      ]
+    },
+    {
+      "scenario": "debt-live-expand-parent",
+      "ok": false,
+      "failures": [
+        "unclaimed-difference"
+      ]
+    },
+    {
+      "scenario": "debt-detached-handle",
+      "ok": false,
+      "failures": [
+        "unclaimed-difference"
+      ]
+    },
+    {
+      "scenario": "mount-in-display-none",
+      "ok": false,
+      "failures": [
+        "unclaimed-difference"
+      ]
+    },
+    {
+      "scenario": "debt-keyboard-connection-origin",
+      "ok": false,
+      "failures": [
+        "unclaimed-difference"
+      ]
+    },
+    {
+      "scenario": "debt-minimap-missing-node",
+      "ok": false,
+      "failures": [
+        "unclaimed-difference"
+      ]
+    },
+    {
+      "scenario": "debt-live-connection-handlers",
+      "ok": false,
+      "failures": [
+        "unclaimed-difference"
+      ]
+    },
+    {
+      "scenario": "debt-selection-cleared-by-nodes",
+      "ok": false,
+      "failures": [
+        "unclaimed-difference"
+      ]
+    },
+    {
+      "scenario": "debt-abort-touch-drag",
+      "ok": false,
+      "failures": [
+        "unclaimed-difference"
+      ]
+    }
+  ]
+}

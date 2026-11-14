@@ -1,0 +1,137 @@
+[
+  {
+    "scenario": "debt-css-defaults",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "debt-css-selection",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "debt-store-effect-timing",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "debt-store-remount",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "debt-fitview-ignored-changes",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "debt-fitview-absent-handler",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "debt-focus-wrapper-scroll",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "debt-viewport-option-interpolation",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "debt-live-expand-parent",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "debt-click-connect-end-only",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "debt-detached-handle",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "debt-live-connection-handlers",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "debt-connection-pointer",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "debt-keyboard-connection-origin",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "debt-connection-partial-touch-end",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "debt-ctrl-wheel-nowheel",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "debt-ctrl-wheel-nowheel-pan-on-scroll",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "debt-pan-without-movement",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "debt-minimap-missing-node",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "debt-selection-cleared-by-nodes",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "debt-selection-keyboard",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "debt-selection-click-node",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "debt-programmatic-selection-drag",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "debt-abort-touch-drag",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "mount-baseline--flow-remount",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "mount-baseline--nodes-selection-state",
+    "ok": true,
+    "failures": []
+  },
+  {
+    "scenario": "mount-baseline--nodes-selection-on-drag",
+    "ok": true,
+    "failures": []
+  }
+]

@@ -9,6 +9,12 @@
 // all forty-two read as *reserved* — waiting on somebody to write the scenario
 // at all — and after this they read as driven.
 //
+// Step 4 order 8 reviewed each original assignment against its upstream diff.
+// Several scenarios below did not reach the named branch. Their replacements
+// live in `order-eight.mjs`; `aamf/step4/order-8/rows.json` names the precise
+// scenario and observable now holding each row. The original interactions stay
+// as regressions. The assessment below describes the initial corpus.
+//
 // ## The currency these are counted in
 //
 // Not exports. The census counts exports and this counts **conditional
@@ -159,11 +165,9 @@ const testDebt = [
     },
   },
 
-  // #5803 — the drag state is reset when the drag is aborted. **Ends with the
-  // pointer down**, and has to: once the button is released the state has been
-  // reset either way, and the two implementations would be agreeing about the
-  // aftermath of something neither is still doing. What is compared is a flow
-  // *while* it holds a drag it has been told to abandon.
+  // Legacy Escape interaction, retained as a regression. Escape does not set
+  // XYDrag's abort flag at this baseline. #5803 is now driven by
+  // `debt-abort-touch-drag`, which adds a second finger and then releases.
   {
     id: "drag-node-escape-mid-gesture",
     route: NODES,
@@ -222,11 +226,9 @@ const testDebt = [
     },
   },
 
-  // #5043 — the *current* `expandParent` is read on every drag step rather than
-  // once at the start. The child is walked out past its parent's corner in eight
-  // steps, so the parent has to grow repeatedly during the gesture: a value read
-  // once and a value read every step reach the same end position, and only the
-  // steps between them tell the two apart.
+  // Constant expandParent growth. It does not distinguish a cached flag from
+  // the current one: #5043 now uses `debt-live-expand-parent`, which turns the
+  // flag off while the pointer is still down and then moves again.
   {
     id: "drag-child-expand-parent",
     route: EXPAND_PARENT,

@@ -1,0 +1,75 @@
+diff --git a/.changeset/ten-waves-remain.md b/.changeset/ten-waves-remain.md
+new file mode 100644
+index 0000000000..9210e7723c
+--- /dev/null
++++ b/.changeset/ten-waves-remain.md
+@@ -0,0 +1,5 @@
++---
++'@xyflow/react': patch
++---
++
++Use current expandParent value on drag to be able to update it while dragging
+diff --git a/packages/react/src/store/index.ts b/packages/react/src/store/index.ts
+index 2d0552c06d..19a885a295 100644
+--- a/packages/react/src/store/index.ts
++++ b/packages/react/src/store/index.ts
+@@ -51,7 +51,7 @@ const createStore = ({
+          * setNodes() is called exclusively in response to user actions:
+          * - either when the `<ReactFlow nodes>` prop is updated in the controlled ReactFlow setup,
+          * - or when the user calls something like `reactFlowInstance.setNodes()` in an uncontrolled ReactFlow setup.
+-         * 
++         *
+          * When this happens, we take the note objects passed by the user and extend them with fields
+          * relevant for internal React Flow operations.
+          */
+@@ -152,26 +152,29 @@ const createStore = ({
+       updateNodePositions: (nodeDragItems, dragging = false) => {
+         const parentExpandChildren: ParentExpandChild[] = [];
+         const changes = [];
++        const { nodeLookup, triggerNodeChanges } = get();
+ 
+         for (const [id, dragItem] of nodeDragItems) {
+-          const expandParent = !!(dragItem?.expandParent && dragItem?.parentId && dragItem?.position);
++          // we are using the nodelookup to be sure to use the current expandParent and parentId value
++          const node = nodeLookup.get(id);
++          const expandParent = !!(node?.expandParent && node?.parentId && dragItem?.position);
+ 
+           const change: NodeChange = {
+             id,
+             type: 'position',
+             position: expandParent
+               ? {
+-                x: Math.max(0, dragItem.position.x),
+-                y: Math.max(0, dragItem.position.y),
+-              }
++                  x: Math.max(0, dragItem.position.x),
++                  y: Math.max(0, dragItem.position.y),
++                }
+               : dragItem.position,
+             dragging,
+           };
+ 
+-          if (expandParent) {
++          if (expandParent && node.parentId) {
+             parentExpandChildren.push({
+               id,
+-              parentId: dragItem.parentId!,
++              parentId: node.parentId,
+               rect: {
+                 ...dragItem.internals.positionAbsolute,
+                 width: dragItem.measured.width!,
+@@ -184,12 +187,12 @@ const createStore = ({
+         }
+ 
+         if (parentExpandChildren.length > 0) {
+-          const { nodeLookup, parentLookup, nodeOrigin } = get();
++          const { parentLookup, nodeOrigin } = get();
+           const parentExpandChanges = handleExpandParent(parentExpandChildren, nodeLookup, parentLookup, nodeOrigin);
+           changes.push(...parentExpandChanges);
+         }
+ 
+-        get().triggerNodeChanges(changes);
++        triggerNodeChanges(changes);
+       },
+       triggerNodeChanges: (changes) => {
+         const { onNodesChange, setNodes, nodes, hasDefaultNodes, debug } = get();

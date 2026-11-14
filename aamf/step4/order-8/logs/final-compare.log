@@ -1,0 +1,5 @@
+re-diffing 151 scenario(s) from stored traces — no browser
+
+all 151 scenario(s) passed.
+coverage: 155 of 156 export-bearing entries driven, 1 declared hole(s), across 151 scenario(s) that ran — and 0 hand-declared behavior(s), counted apart.
+The report is parity/system/report.md and the coverage artifact is parity/system/coverage.md.

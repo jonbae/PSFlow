@@ -137,6 +137,7 @@ type OnPointerDownParams nodeData =
   , onReconnectEnd :: Maybe (OnReconnectEnd nodeData)
   , getTransform :: Effect Transform
   , getFromHandle :: Effect (Maybe Handle)
+  , getNodeLookup :: Effect (NodeLookup nodeData)
   , autoPanSpeed :: Maybe Number
   , dragThreshold :: Number
   , handleDomNode :: Element
@@ -426,6 +427,9 @@ onPointerDown event params = do
                 stepMove :: Either MouseEvent TouchEvent -> Effect Unit
                 stepMove ev = do
                   transform <- params.getTransform
+                  -- Upstream's Map is mutated in place. The PureScript store
+                  -- replaces its Map, so read the current one for every move.
+                  nodeLookup <- params.getNodeLookup
                   curPos <- getEventPosition ev (Just bounds)
                   let
                     rendererPos = pointToRendererPoint curPos transform Nothing
@@ -437,7 +441,7 @@ onPointerDown event params = do
                       }
                     closest = getClosestHandle rendererPos
                       params.connectionRadius
-                      params.nodeLookup
+                      nodeLookup
                       fromHandleRef
 
                   runOnRef stateRef (trackPointer autoPanEnv stateRef curPos closest)
@@ -458,7 +462,7 @@ onPointerDown event params = do
                     , doc
                     , lib: params.lib
                     , flowId: params.flowId
-                    , nodeLookup: params.nodeLookup
+                    , nodeLookup
                     }
 
                   let
@@ -479,14 +483,13 @@ onPointerDown event params = do
 
                   prev <- Ref.read previousConnection
                   let
-                    fromInternalNode' = Map.lookup params.nodeId
-                      params.nodeLookup
+                    fromInternalNode' = Map.lookup params.nodeId nodeLookup
                     fresh = case fromInternalNode' of
                       Just fn -> getHandlePosition fn (Just fromHandle)
                         PosLeft true
                       Nothing -> prev.from
                     nextToNode = case result.toHandle of
-                      Just toH -> Map.lookup toH.nodeId params.nodeLookup
+                      Just toH -> Map.lookup toH.nodeId nodeLookup
                       Nothing -> Nothing
                     next :: ConnectionInProgressData (InternalNodeBase nodeData)
                     next = prev

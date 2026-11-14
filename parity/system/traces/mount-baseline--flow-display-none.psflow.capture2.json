@@ -640,6 +640,19 @@
     "hooks": {},
     "api": {
       "queries": {
+        "storeState": {
+          "width": 1280,
+          "height": 720,
+          "nodesSelectionActive": false,
+          "userSelectionActive": false,
+          "fitViewQueued": false,
+          "nodeIds": [
+            "Node-1",
+            "Node-2",
+            "Node-3",
+            "Node-4"
+          ]
+        },
         "getNodes": [
           {
             "id": "Node-1",

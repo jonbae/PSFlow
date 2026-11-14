@@ -15,8 +15,10 @@
 // the row is about.
 
 import { edges, nodes } from '../shared/graph';
+import { StoreStateWitness } from '../shared/DebtWitnesses';
 
 export default {
+  witness: StoreStateWitness,
   flowProps: { fitView: true, nodes: nodes(), edges: edges() },
   afterMount: { style: { display: 'none' } },
 };

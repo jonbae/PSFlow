@@ -1,0 +1,382 @@
+{
+  "4844": {
+    "scenarios": [
+      "flow-custom-testid"
+    ],
+    "port": "src/React/Container/ReactFlow.purs",
+    "branch": "Consumer data-testid overrides the wrapper default",
+    "observable": "Resolved custom-id action and DOM data-testid",
+    "originalScenario": "flow-custom-testid"
+  },
+  "4855": {
+    "scenarios": [
+      "custom-edge-baseedge-path"
+    ],
+    "port": "src/React/Edge/Base.purs",
+    "branch": "Forward SVG path attributes outside BaseEdge’s named props",
+    "observable": "Resolved custom path attribute and SVG DOM",
+    "originalScenario": "custom-edge-baseedge-path"
+  },
+  "4862": {
+    "scenarios": [
+      "arrow-key-selected-node",
+      "debt-selection-keyboard"
+    ],
+    "port": "src/React/Component/NodeWrapper.purs",
+    "branch": "Prevent the arrow-key browser default in both node and selection handlers",
+    "observable": "consumerKey.defaultPrevented with node position changes",
+    "originalScenario": "arrow-key-selected-node"
+  },
+  "4949": {
+    "scenarios": [
+      "probe-node-connections"
+    ],
+    "port": "src/System/Utils/Store.purs",
+    "branch": "Connection keys include both endpoints, avoiding per-handle collisions",
+    "observable": "Hub DOM renders all five incident edges, including both directions",
+    "originalScenario": "probe-node-connections"
+  },
+  "4991": {
+    "scenarios": [
+      "debt-focus-wrapper-scroll"
+    ],
+    "port": "src/React/Container/ReactFlow.purs",
+    "branch": "Reset wrapper scrolling on focus before forwarding onScroll",
+    "observable": "wrapperScroll callback and settled scroll offsets are both zero",
+    "originalScenario": "keyboard-focus-node"
+  },
+  "5012": {
+    "scenarios": [
+      "viewport-helpers-with-options"
+    ],
+    "port": "src/React/Hook/ViewportHelper.purs",
+    "branch": "Read the snapToGrid default from the store and honor an explicit snapGrid",
+    "observable": "Settled inherited, disabled and custom-grid screenToFlowPosition answers",
+    "originalScenario": "viewport-helpers-with-options"
+  },
+  "5042": {
+    "scenarios": [
+      "debt-click-connect-end-only"
+    ],
+    "port": "src/React/Handle.purs",
+    "branch": "An existing click connection may end on a handle that cannot start one",
+    "observable": "onConnect after clicking target without connectablestart",
+    "originalScenario": "connect-handle-to-handle"
+  },
+  "5043": {
+    "scenarios": [
+      "debt-live-expand-parent"
+    ],
+    "port": "src/React/Store/Reduce.purs",
+    "branch": "Read expandParent and parentId from the current node, not the drag snapshot",
+    "observable": "Mid-gesture expandParent replacement followed by further position changes",
+    "originalScenario": "drag-child-expand-parent"
+  },
+  "5052": {
+    "scenarios": [
+      "drag-unmeasured-node"
+    ],
+    "port": "src/System/Utils/Graph.purs",
+    "branch": "Report error015 when calculating an uninitialized node’s drag position",
+    "observable": "onError callback with code 015 and original error message",
+    "originalScenario": "drag-unmeasured-node"
+  },
+  "5120": {
+    "scenarios": [
+      "fitview-onnodeschange-variants"
+    ],
+    "port": "src/React/Store/Shell.purs",
+    "branch": "Perform initial fit even without an imperative fitView resolver",
+    "observable": "Initial onMove fit precedes the first imperative call on an uncontrolled flow",
+    "originalScenario": "fitview-onnodeschange-variants"
+  },
+  "5127": {
+    "scenarios": [
+      "debt-fitview-ignored-changes"
+    ],
+    "port": "src/React/Provider/Batch.purs",
+    "branch": "Queue a frame refit when the diff is empty and the consumer ignores changes",
+    "observable": "fitView settles true and moves viewport with a consumer that returns early",
+    "originalScenario": "fitview-onnodeschange-variants"
+  },
+  "5132": {
+    "scenarios": [
+      "debt-fitview-absent-handler"
+    ],
+    "port": "src/React/Provider/Batch.purs",
+    "branch": "Queue the no-change frame refit even with no onNodesChange callback",
+    "observable": "fitView settles true; fixture literally omits the observed callback",
+    "originalScenario": "fitview-onnodeschange-variants"
+  },
+  "5139": {
+    "scenarios": [
+      "debt-css-defaults"
+    ],
+    "port": "distribution/build.mjs",
+    "branch": "Use rgba for the default minimap mask custom property",
+    "observable": "getComputedStyle preserves the raw rgba default and rendered fill",
+    "originalScenario": "minimap-custom-mask-colors"
+  },
+  "5148": {
+    "scenarios": [
+      "debt-ctrl-wheel-nowheel"
+    ],
+    "port": "src/System/XYPanZoom/EventHandler.purs",
+    "branch": "Prevent a ctrl-wheel default above nowheel in the zoom-on-scroll handler",
+    "observable": "consumerWheel records ctrlKey and defaultPrevented",
+    "originalScenario": "pinch-over-nowheel-node"
+  },
+  "5153": {
+    "scenarios": [
+      "debt-css-defaults"
+    ],
+    "port": "distribution/build.mjs",
+    "branch": "Horizontal controls use right borders, except the last button",
+    "observable": "Computed right/bottom border widths for every horizontal button",
+    "originalScenario": "controls-horizontal"
+  },
+  "5249": {
+    "scenarios": [
+      "uncontrolled-update-node"
+    ],
+    "port": "src/React/Provider/Batch.purs",
+    "branch": "Fire onNodesChange after an uncontrolled imperative node mutation",
+    "observable": "replace/add receipts alongside updated uncontrolled nodes",
+    "originalScenario": "uncontrolled-update-node"
+  },
+  "5252": {
+    "scenarios": [
+      "debt-css-defaults"
+    ],
+    "port": "distribution/build.mjs",
+    "branch": "Center panels with the additional margin compensation on both axes",
+    "observable": "Computed matrix transforms for top/bottom/left/right center panels",
+    "originalScenario": "panel-center-positions"
+  },
+  "5259": {
+    "scenarios": [
+      "debt-css-defaults"
+    ],
+    "port": "distribution/build.mjs",
+    "branch": "Give the explicit background prop priority over the general CSS variable",
+    "observable": "Computed background color with both candidates set",
+    "originalScenario": "background-custom-bgcolor"
+  },
+  "5362": {
+    "scenarios": [
+      "debt-css-selection"
+    ],
+    "port": "src/React/Portal/Panel.purs",
+    "branch": "Remove inline pointerEvents; the selection ancestor’s CSS owns it",
+    "observable": "Panel has no inline pointer-events and the nested panel computes none",
+    "originalScenario": "selection-box-mid-gesture"
+  },
+  "5368": {
+    "scenarios": [
+      "debt-store-effect-timing"
+    ],
+    "port": "src/React/Provider/StoreUpdater.purs",
+    "branch": "Merge ariaLabelConfig without overwriting the merge through the generic branch",
+    "observable": "Partial config changes retain all default labels in the public store",
+    "originalScenario": "flow-props-change-after-mount"
+  },
+  "5428": {
+    "scenarios": [
+      "debt-detached-handle"
+    ],
+    "port": "src/System/XYHandle.purs",
+    "branch": "Resolve the starting handle type from currentTarget, not elementFromPoint",
+    "observable": "Connection starts through a detached nested handle child",
+    "originalScenario": "connect-handle-to-handle"
+  },
+  "5450": {
+    "scenarios": [
+      "drag-node-autopan"
+    ],
+    "port": "src/System/XYDrag.purs",
+    "branch": "Retain the last drag event for autopan’s node-drag callback",
+    "observable": "More onNodeDrag callbacks than manual pointer moves",
+    "originalScenario": "drag-node-autopan"
+  },
+  "5455": {
+    "scenarios": [
+      "mount-in-display-none"
+    ],
+    "port": "src/React/Hook/ResizeHandler.purs",
+    "branch": "Skip measuring an invisible wrapper before size/error handling",
+    "observable": "Hidden wrapper retains the visible store dimensions and emits no error004",
+    "originalScenario": "mount-in-display-none"
+  },
+  "5480": {
+    "scenarios": [
+      "debt-connection-partial-touch-end"
+    ],
+    "port": "src/System/XYHandle.purs",
+    "branch": "Ignore partial touchend while a finger remains; suppress connection-time touch pan",
+    "observable": "Driving includes a partial touchend; final connection is still in progress",
+    "originalScenario": "connect-second-touch-point"
+  },
+  "5512": {
+    "scenarios": [
+      "debt-ctrl-wheel-nowheel-pan-on-scroll"
+    ],
+    "port": "src/System/XYPanZoom/EventHandler.purs",
+    "branch": "Prevent a ctrl-wheel default above nowheel in the pan-on-scroll handler",
+    "observable": "consumerWheel records ctrlKey and defaultPrevented with panOnScroll enabled",
+    "originalScenario": "pinch-over-nowheel-node"
+  },
+  "5546": {
+    "scenarios": [
+      "minimap-all-nodes-hidden"
+    ],
+    "port": "src/System/Utils/Graph.purs",
+    "branch": "Return finite zero bounds when the filter rejects every node",
+    "observable": "A finite MiniMap viewBox over existing nodes that are all hidden",
+    "originalScenario": "minimap-all-nodes-hidden"
+  },
+  "5547": {
+    "scenarios": [
+      "debt-pan-without-movement"
+    ],
+    "port": "src/System/XYPanZoom/EventHandler.purs",
+    "branch": "End a started pan even if its viewport never changed",
+    "observable": "Start/end callbacks for the final press/release with no intervening move",
+    "originalScenario": "pan-gesture-complete"
+  },
+  "5551": {
+    "scenarios": [
+      "selection-box-from-node"
+    ],
+    "port": "src/React/Container/Pane.purs",
+    "branch": "Capture pointerdown over a node to begin box selection",
+    "observable": "Node-targeted pointerdown produces onSelectionStart and onSelectionEnd",
+    "originalScenario": "selection-box-from-node"
+  },
+  "5578": {
+    "scenarios": [
+      "debt-connection-pointer"
+    ],
+    "port": "src/System/XYHandle.purs",
+    "branch": "Update the raw pointer even while snapped to the same handle",
+    "observable": "Consumer connection has a raw pointer distinct from its snapped endpoint",
+    "originalScenario": "connect-handle-to-handle"
+  },
+  "5593": {
+    "scenarios": [
+      "debt-selection-click-node"
+    ],
+    "port": "src/React/Container/Pane.purs",
+    "branch": "Delay selection reset until movement; keep box state clear on a node click",
+    "observable": "A real box selection followed by node click leaves no group rectangle",
+    "originalScenario": "selection-box-then-click-node"
+  },
+  "5635": {
+    "scenarios": [
+      "debt-keyboard-connection-origin"
+    ],
+    "port": "src/System/XYHandle.purs",
+    "branch": "Refresh the connection origin after moving its source node by keyboard",
+    "observable": "Connection origin matches the moved source handle, including a later pointer move",
+    "originalScenario": "connect-then-keyboard-move"
+  },
+  "5638": {
+    "scenarios": [
+      "selection-box-touch",
+      "debt-css-defaults"
+    ],
+    "port": "distribution/build.mjs",
+    "branch": "Apply touch-action:none to the pane",
+    "observable": "Touch selection input and the computed pane touch-action",
+    "originalScenario": "selection-box-touch"
+  },
+  "5682": {
+    "scenarios": [
+      "drag-node-no-select-on-drag"
+    ],
+    "port": "src/React/Store/Reduce.purs",
+    "branch": "Skip deselection changes for already-unselected nodes and edges",
+    "observable": "Position changes occur without any select changes in the exact callback log",
+    "originalScenario": "drag-node-no-select-on-drag"
+  },
+  "5684": {
+    "scenarios": [
+      "debt-programmatic-selection-drag"
+    ],
+    "port": "src/React/Hook/Drag.purs",
+    "branch": "Rebind drag when nodeClickDistance changes, while retaining programmatic selection dragging",
+    "observable": "Selected nodes added programmatically move as a group; a short node drag after the click-distance prop change retains its native onNodeClick",
+    "originalScenario": "drag-node-release"
+  },
+  "5692": {
+    "scenarios": [
+      "debt-minimap-missing-node"
+    ],
+    "port": "src/React/Additional/MiniMap/Nodes.purs",
+    "branch": "Skip a node whose lookup entry vanishes during a minimap render",
+    "observable": "A synchronous missing-entry render and restoration complete without a page error",
+    "originalScenario": "minimap-all-nodes-hidden"
+  },
+  "5704": {
+    "scenarios": [
+      "debt-live-connection-handlers"
+    ],
+    "port": "src/React/Handle.purs",
+    "branch": "Read validation and onConnectEnd from the live store during a connection",
+    "observable": "Replacement validator rejects and replacement end handler receives the final state",
+    "originalScenario": "connect-handle-to-handle"
+  },
+  "5722": {
+    "scenarios": [
+      "viewport-helpers-with-options"
+    ],
+    "port": "src/Boundary/Instance.purs",
+    "branch": "Expose snapGrid in the screenToFlowPosition options contract",
+    "observable": "Custom-grid answer differs from store-grid and unsnapped answers; declaration is packaged too",
+    "originalScenario": "viewport-helpers-with-options"
+  },
+  "5723": {
+    "scenarios": [
+      "debt-viewport-option-interpolation"
+    ],
+    "port": "src/React/Hook/ViewportHelper.purs",
+    "branch": "Pass the whole options record to scaleBy and scaleTo",
+    "observable": "Frame-by-frame onMove sequence for zoomIn, zoomOut and zoomTo with linear interpolation",
+    "originalScenario": "viewport-helpers-with-options"
+  },
+  "5727": {
+    "scenarios": [
+      "debt-selection-cleared-by-nodes"
+    ],
+    "port": "src/React/Store/Reduce.purs",
+    "branch": "Clear nodesSelectionActive when SetNodes removes the last selected node",
+    "observable": "No group rectangle and store nodesSelectionActive false after imperative deselection",
+    "originalScenario": "selection-box-then-click-node"
+  },
+  "5733": {
+    "scenarios": [
+      "debt-store-remount"
+    ],
+    "port": "src/React/Container/ReactFlow.purs",
+    "branch": "Mount StoreUpdater before GraphView when a persistent provider’s flow remounts",
+    "observable": "GraphView custom-node passive effects read four nodes and four lookup entries on both mounts of a persistent-provider flow",
+    "originalScenario": "flow-props-change-after-mount"
+  },
+  "5769": {
+    "scenarios": [
+      "debt-store-effect-timing"
+    ],
+    "port": "src/React/Provider/StoreUpdater.purs",
+    "branch": "Use passive effects, preserving a consumer layout effect’s pre-update store read",
+    "observable": "Changed layout effect reads old minZoom; changed passive effect reads the new value",
+    "originalScenario": "flow-props-change-after-mount"
+  },
+  "5803": {
+    "scenarios": [
+      "debt-abort-touch-drag"
+    ],
+    "port": "src/System/XYDrag.purs",
+    "branch": "Emit dragging:false on an aborted drag’s end",
+    "observable": "Multitouch abort has final position-change callbacks with dragging false",
+    "originalScenario": "drag-node-escape-mid-gesture"
+  }
+}

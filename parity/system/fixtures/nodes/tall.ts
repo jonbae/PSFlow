@@ -15,7 +15,9 @@
 // tall would set a zoom neither row is about, and the nodes need to be spread
 // down the page for a focus to have somewhere to scroll to.
 
+import { KeyboardWitness } from '../shared/DebtWitnesses';
 export default {
+  witness: KeyboardWitness,
   flowProps: {
     style: { height: '1600px' },
     defaultViewport: { x: 0, y: 0, zoom: 1 },
