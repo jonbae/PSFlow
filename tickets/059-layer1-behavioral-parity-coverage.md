@@ -21,7 +21,7 @@ A green differential result on its own is equally what a comparator that
 inspects nothing would produce; the probe is what makes the green mean
 something. `Test.Parity.Util`'s `falsify` runs one.
 
-## Covered (39 functions)
+## Covered (41 functions)
 
 - **Edges** (`Test.Parity.Edges`): `getEdgeCenter`, `getBezierEdgeCenter`,
   `getStraightPath`, `getBezierPath`, `getSimpleBezierPath`, `getSmoothStepPath`,
@@ -61,19 +61,20 @@ something. `Test.Parity.Util`'s `falsify` runs one.
   counted as an answer).
 - **Selection** (`Test.React.Container.PaneSelection`): `areSetsEqual` (Step 4
   row 7 — all 256 pairs of subsets of four ids).
+- **Internal nodes** (`Test.Parity.InternalNodes`): `getInternalNodesBounds`,
+  `getNodesInside` (Step 4 row 9 — over the internal nodes each side adopts
+  from one description, with every dimension rung, `selectable`, `dragging`,
+  handle bounds or none, and positions that include `-0` and `NaN`; each
+  rect member compared as `Object.is` compares it. The bounds take no filter,
+  `<NodesSelection />`'s, `<MiniMap />`'s or a subset of ids. The PSFlow side
+  hands `getNodesInside` the array `orderedInternalNodes` builds, under
+  shuffled ids, and the ids come back compared in order. Transforms,
+  `partially` and `excludeNonSelectable` are each sometimes left to
+  upstream's default).
 
-## Deferred (Layer-1 gaps — exercised behaviorally by Layer 2)
+## Deferred
 
-Need richer oracle translation (node `internals` / `NodeLookup`) for modest
-incremental value, since these are filter/bounds math that Layer 2's real flows
-exercise end to end. The oracle bundles `adoptUserNodes`, and
-`Test.Parity.Adoption` builds both sides' internal nodes from one description,
-which is where these start:
-
-| Function | Why deferred |
-|----------|--------------|
-| `getInternalNodesBounds` | needs full `InternalNodeBase` set |
-| `getNodesInside` | needs internal nodes + viewport rect |
+None. Every pure function this ticket tracked is under differential parity.
 
 ## Out of scope for Layer 1 (not pure / DOM / d3)
 

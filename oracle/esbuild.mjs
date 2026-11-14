@@ -65,7 +65,9 @@ export {
   getIncomers,
   getConnectedEdges,
   getNodesBounds,
-  getNodePositionWithOrigin
+  getNodePositionWithOrigin,
+  getInternalNodesBounds,
+  getNodesInside
 } from "./xyflow/packages/system/src/utils/graph";
 export { applyNodeChanges, applyEdgeChanges } from "./xyflow/packages/react/src/utils/changes";
 // The React-layer \`addEdge\`/\`reconnectEdge\` (not the system ones they
