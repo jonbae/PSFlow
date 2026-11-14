@@ -72,7 +72,10 @@ see [Order I results](AAMF_STEP3_RESULTS.md#order-i-completion-november-13-utc).
 **Step 4 order 8 is complete, 2026-11-13 UTC.** Its 42 system-bound rows
 now carry checked branch receipts, and the final checkpoint passes 151 of 151
 scenarios. See the [completion evidence](aamf/step4/order-8/README.md).
-Orders 9–12 remain open.
+**Order 9 is complete, 2026-11-13 UTC:** `getInternalNodesBounds` and
+`getNodesInside` are under differential function parity, and no function
+[ticket 059](tickets/059-layer1-behavioral-parity-coverage.md) tracks stays
+deferred. Orders 10–12 remain open.
 
 Overall port completion remains open; [Step 4](#step-4-close-the-completion-criteria)
 lists what is left.
@@ -390,10 +393,10 @@ differences.
   connection-line probe.
 - **Complete:** the `onInit` driver callback is now observed on both sides and
   its single coverage hole has retired. Initialization ordering remains E work.
-- **Complete for user nodes:** [function parity](tickets/059-layer1-behavioral-parity-coverage.md)
-  covers `getNodePositionWithOrigin`, `nodeToRect` and `nodeToBox`.
-  `getInternalNodesBounds` and `getNodesInside` stay deferred; they need
-  internal nodes the oracle does not build.
+- **Complete:** [function parity](tickets/059-layer1-behavioral-parity-coverage.md)
+  covers `getNodePositionWithOrigin`, `nodeToRect` and `nodeToBox` for user
+  nodes. Step 4 row 9 added `getInternalNodesBounds` and `getNodesInside`,
+  over the internal nodes each side adopts.
 
 Respect [reserved scenario IDs](parity/system/corpus/reserved.mjs), the fork
 register, and per-test retirement evidence. A scenario that merely has a
@@ -401,12 +404,14 @@ relevant name is not proof it reaches the intended branch.
 
 ## Step 4: close the completion criteria
 
-**Status: open, 2026-11-13 UTC.** Step 3 finished its queue, but three of the
+**Status: open, 2026-11-13 UTC.** Step 3 finished its queue, but two of the
 six [completion criteria](#completion-criteria) still have open work. The
-other three hold. The gates and the full net pass from fresh output, with no
-transitional claim in any register. Stage 5 has no passthrough exports. And
+other four hold. The gates and the full net pass from fresh output, with no
+transitional claim in any register. Stage 5 has no passthrough exports.
 `index.js`, `React`, and the package give consumers the compatibility they
-claim.
+claim. And rows 3 through 9 are complete, so behavior debt is implemented or
+gated. Row 9 found two caller differences outside the changelog audit's
+range, which rows 10 and 11 must give an owner.
 
 | Completion criterion | Rows that close it |
 |---|---|
@@ -434,7 +439,7 @@ million tokens, and row 8 is about half of that.
 | 6 | **Complete in [#202](https://github.com/jonbae/PSFlow/pull/202).** Each selector hook a JavaScript consumer calls is upstream's `useStore(selector, equality)`, comparing what the consumer reads. `useNodes`, `useEdges`, `useInternalNode`, `useViewport`, and `useConnection` compare with zustand's `shallow`. `useNodesData` compares with `shallowNodeData`, which reads `id`, `type`, and `data` and compares `data` by `Object.is`, and it answers a repeated id twice. `<NodeToolbar />` and `<EdgeToolbar />` make upstream's two `useStore` calls each. `useNodes` and `useEdges` read the store's own arrays, and the provider's initial arrays and the store's `setNodes` and `setEdges` keep the array they're handed. | The [W09 contract](AAMF_STEP2_RESULTS.md#w09--compare-selector-results-by-upstreams-equality): `parity/boundary/selector-equality.test.mjs` mounts both libraries with `react-dom/client` and compares render counts and the objects read back. 10 of its 11 checks failed before the fix, and all 11 pass. Twelve falsification probes each turn one check red. The Linux wave passes 116 of 116. | Done |
 | 7 | **Complete in [#203](https://github.com/jonbae/PSFlow/pull/203).** #4880, #5266, #5515 and #5550 are in `function`, and #4929, #5090, #5118 and #5263 are in `unit`. Only #4880 changed `isInputDOMNode`. #5090, #5118 and #5263 changed `useKeyPress`, a reduced port that is now ported as upstream has it. #5118 and #5263 had never been ported and are marked `misfiled`. The oracle bundles `adoptUserNodes`, `XYHandle`, `isInputDOMNode`, `hasSelector` and `areSetsEqual`. Its adoption differential found that a rebuilt root parent kept its `rootParentIndex`, which undid #5550 after any change that rebuilt the nodes. That is fixed. | `Test.Parity.Adoption`, `Test.Parity.Handle`, `Test.Parity.Dom`, `Test.React.Container.PaneSelection` and `Test.React.Hook.KeyPress` run in `spago test`. `parity/boundary/key-press.test.mjs` compares both libraries' `useKeyPress` through `index.js`, and 12 of its 15 checks failed before the port. Reverting each change's port turns a new check red. No `gate-pending` row names `unit` or `function`, and the Linux wave passes 116 of 116. | Done |
 | 8 | **Complete, 2026-11-13 UTC.** All 42 rows are in system. [The row-by-row review](aamf/step4/order-8/README.md) compares each upstream patch with its port and names the branch observable. Twenty-four focused scenarios replace insufficient assignments; the review also fixes missing live connection reads, selection/abort cleanup, handle children, scroll-event forwarding and hidden-container resize handling. | All 42 branch receipts pass on both sides and captures; 19 broken-port experiments are rejected, and the surviving exploratory drag probe led to a stronger click-distance witness. The audit tests pass 96 checks; the changelog audit has zero gaps and zero gate-pending rows. The final Linux checkpoint passes 151 of 151. | Done |
-| 9 | Add function parity for `getInternalNodesBounds` and `getNodesInside`. Both take internal nodes. Row 7 bundled upstream's `adoptUserNodes` in the oracle, and `Test.Parity.Adoption` builds both sides' internal nodes from one description, which is where these start. | Both functions are under differential function parity with a falsification probe, and [ticket 059](tickets/059-layer1-behavioral-parity-coverage.md) lists them as covered. | 80k–200k |
+| 9 | **Complete, 2026-11-13 UTC.** `Test.Parity.InternalNodes` runs both functions against the oracle, which bundles them. Each side adopts its own user nodes from one description, which adds every dimension rung, `selectable`, `dragging`, and handle bounds or none to adoption's. Positions include `-0` and `NaN`, and each rect member is compared as `Object.is` compares it. The PSFlow side hands `getNodesInside` the array `orderedInternalNodes` builds, under shuffled ids, and the ids come back compared in order. Neither port changed. Reading their callers found two differences no row owns: the initial `fitView` bounds skip upstream's dimension filter, and a multi-node drag clamps each node to `nodeExtent` on its own, where upstream's `XYDrag` stops the group as a whole. | 20 fixed witnesses, 500 generated cases for each function, and four falsification probes pass in `spago test`. Each of 15 broken ports turns the module red. The generated cases alone catch 14; the 15th keeps a repeated id's last place, and only a fixed witness repeats an id. [Ticket 059](tickets/059-layer1-behavioral-parity-coverage.md) lists both functions as covered, and none as deferred. | Done |
 | 10 | Audit the type contracts field by field (Step 2's W10). Scope it first, because Orders G and H already compared many of the 14 E02 units' fields with upstream. Write `AAMF_TYPE_CONTRACT_REVIEW.md` one field and its callers at a time. | The [W10 contract](AAMF_STEP2_RESULTS.md#w10--audit-remaining-type-and-boundary-contracts-by-field): each guard, default, and absence branch is compared with an oracle call or a falsifying test, and each demonstrated gap is fixed in its own task. | 200k–500k |
 | 11 | Refresh the reconciliation map. `aamf/step2/reconciliation.json` and [the mapping](AAMF_STEP2_MAPPING.md) still hold Step 2's dispositions: 42 Reuse, 99 Add evidence, 25 Fix behavior, 4 Finish conversion, and 1 Accepted difference. Update them from Steps 3 and 4 by profile. Use a script, because the JSON file is 16,673 lines. | Every unit's disposition and evidence describe the current code. No unit says Fix behavior or Finish conversion unless a row here owns it. | 60k–150k |
 | 12 | Record the procedure for the next baseline. Steps 1 and 2 recorded their AAMF runs. Steps 3 and 4 ran through PSFlow's own workflow, with the AAMF inventory as context rather than as an autonomous AAMF migration. Record that, and record what a baseline bump reruns. | Someone holding only the repository can redo the inventory, the reconciliation, and the gates against a new baseline. | 40k–100k |
