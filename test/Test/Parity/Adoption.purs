@@ -20,12 +20,18 @@
 -- |   under all three `zIndexMode`s.
 module Test.Parity.Adoption
   ( runAdoptionParity
-  -- The descriptions and builders `Test.Parity.Handle` adopts with.
+  -- The descriptions, builders and generators `Test.Parity.Handle` and
+  -- `Test.Parity.InternalNodes` adopt with.
   , HandleSpec
   , NodeSpec
+  , Options
   , node
   , toPSNode
   , toOracleNode
+  , psOptions
+  , oracleOptions
+  , genNode
+  , genOptions
   , adoptedHandle
   , handleIdField
   , canonicalJson
