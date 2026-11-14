@@ -101,6 +101,42 @@ var getNodesBounds = (nodes, params = { nodeOrigin: [0, 0] }) => {
   );
   return boxToRect(box);
 };
+var getInternalNodesBounds = (nodeLookup, params = {}) => {
+  let box = { x: Infinity, y: Infinity, x2: -Infinity, y2: -Infinity };
+  let hasVisibleNodes = false;
+  nodeLookup.forEach((node) => {
+    if (params.filter === void 0 || params.filter(node)) {
+      box = getBoundsOfBoxes(box, nodeToBox(node));
+      hasVisibleNodes = true;
+    }
+  });
+  return hasVisibleNodes ? boxToRect(box) : { x: 0, y: 0, width: 0, height: 0 };
+};
+var getNodesInside = (nodes, rect, [tx, ty, tScale] = [0, 0, 1], partially = false, excludeNonSelectableNodes = false) => {
+  const paneRect = {
+    ...pointToRendererPoint(rect, [tx, ty, tScale]),
+    width: rect.width / tScale,
+    height: rect.height / tScale
+  };
+  const visibleNodes = [];
+  for (const node of nodes.values()) {
+    const { measured, selectable = true, hidden = false } = node;
+    if (excludeNonSelectableNodes && !selectable || hidden) {
+      continue;
+    }
+    const width = measured.width ?? node.width ?? node.initialWidth ?? null;
+    const height = measured.height ?? node.height ?? node.initialHeight ?? null;
+    const overlappingArea = getOverlappingArea(paneRect, nodeToRect(node));
+    const area = (width ?? 0) * (height ?? 0);
+    const partiallyVisible = partially && overlappingArea > 0;
+    const forceInitialRender = !node.internals.handleBounds;
+    const isVisible = forceInitialRender || partiallyVisible || overlappingArea >= area;
+    if (isVisible || node.dragging) {
+      visibleNodes.push(node);
+    }
+  }
+  return visibleNodes;
+};
 var getConnectedEdges = (nodes, edges) => {
   const nodeIds = /* @__PURE__ */ new Set();
   nodes.forEach((node) => {
@@ -1602,10 +1638,12 @@ export {
   getEdgeCenter,
   getEdgeToolbarTransform,
   getIncomers,
+  getInternalNodesBounds,
   getMarkerId,
   getNodePositionWithOrigin,
   getNodeToolbarTransform,
   getNodesBounds,
+  getNodesInside,
   getOutgoers,
   getOverlappingArea,
   getSimpleBezierPath,

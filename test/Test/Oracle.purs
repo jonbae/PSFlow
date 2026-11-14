@@ -73,6 +73,11 @@ module Test.Oracle
   , AdoptedNode
   , Adoption
   , adoptUserNodes
+  , OracleSizedNode
+  , OracleBoundsFilter
+  , getInternalNodesBounds
+  , OracleNodesInsideArgs
+  , getNodesInside
   , FakeElement
   , FakeDocument
   , OracleHandleElement
@@ -742,6 +747,52 @@ foreign import adoptUserNodesImpl
 -- | every `setNodes`, and report what each round left.
 adoptUserNodes :: OracleAdoptOptions -> Array (Array OracleAdoptNode) -> Array Adoption
 adoptUserNodes = adoptUserNodesImpl
+
+-- ─── Internal nodes ───────────────────────────────────────────────────────
+
+-- | A user node in the members `getInternalNodesBounds` and `getNodesInside`
+-- | read beyond adoption's. `node.measured` is ignored: `measured` replaces
+-- | it, member by member. The JS side omits each null member.
+type OracleSizedNode =
+  { node :: OracleAdoptNode
+  , measured :: { width :: Nullable Number, height :: Nullable Number }
+  , width :: Nullable Number
+  , height :: Nullable Number
+  , initialWidth :: Nullable Number
+  , initialHeight :: Nullable Number
+  , selectable :: Nullable Boolean
+  , dragging :: Nullable Boolean
+  }
+
+-- | `kind` is `"omitted"` (no `params`), `"selected"` (`<NodesSelection />`'s
+-- | filter), `"visible"` (`<MiniMap />`'s) or `"ids"` (keep a node whose id is
+-- | one of `ids`).
+type OracleBoundsFilter = { kind :: String, ids :: Array String }
+
+foreign import internalNodesBoundsImpl
+  :: OracleAdoptOptions -> Array OracleSizedNode -> OracleBoundsFilter -> Rect
+
+-- | `getInternalNodesBounds` over the `nodeLookup` one adoption of the nodes
+-- | leaves.
+getInternalNodesBounds :: OracleAdoptOptions -> Array OracleSizedNode -> OracleBoundsFilter -> Rect
+getInternalNodesBounds = internalNodesBoundsImpl
+
+-- | A null `transform`, `partially` or `excludeNonSelectable` is passed as
+-- | `undefined`, so upstream's default applies. `transform` is `[tx, ty, scale]`.
+type OracleNodesInsideArgs =
+  { rect :: Rect
+  , transform :: Nullable (Array Number)
+  , partially :: Nullable Boolean
+  , excludeNonSelectable :: Nullable Boolean
+  }
+
+foreign import nodesInsideImpl
+  :: OracleAdoptOptions -> Array OracleSizedNode -> OracleNodesInsideArgs -> Array String
+
+-- | The ids, in order, of the internal nodes `getNodesInside` returns from
+-- | the `nodeLookup` one adoption of the nodes leaves.
+getNodesInside :: OracleAdoptOptions -> Array OracleSizedNode -> OracleNodesInsideArgs -> Array String
+getNodesInside = nodesInsideImpl
 
 -- ─── Handle validation ────────────────────────────────────────────────────
 

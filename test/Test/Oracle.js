@@ -53,6 +53,8 @@ import {
   isInputDOMNode,
   hasSelector,
   adoptUserNodes,
+  getInternalNodesBounds,
+  getNodesInside,
   XYHandle,
 } from "@psflow/oracle";
 
@@ -401,6 +403,60 @@ const adoptRounds = (options, rounds) => {
 };
 
 export const adoptUserNodesImpl = (options) => (rounds) => adoptRounds(options, rounds).adoptions;
+
+// ─── Internal nodes ───────────────────────────────────────────────────────
+// A user node as adoption's builder makes it, plus the members
+// `getInternalNodesBounds` and `getNodesInside` read beyond adoption's: every
+// rung of the dimension fallback, `selectable` and `dragging`. Each null
+// member is omitted, and `measured` is omitted when both its members are.
+const sizedKeys = ["width", "height", "initialWidth", "initialHeight", "selectable", "dragging"];
+const sizedNode = (spec) => {
+  const node = { ...userNode(spec.node) };
+  delete node.measured;
+  const measured = {};
+  if (spec.measured.width !== null) measured.width = spec.measured.width;
+  if (spec.measured.height !== null) measured.height = spec.measured.height;
+  if (Object.keys(measured).length > 0) node.measured = measured;
+  for (const key of sizedKeys) if (spec[key] !== null) node[key] = spec[key];
+  return node;
+};
+
+// The `nodeLookup` one adoption of `specs` leaves.
+const adoptedLookup = (options, specs) => {
+  const nodeLookup = new Map();
+  adoptUserNodes(specs.map(sizedNode), nodeLookup, new Map(), options);
+  return nodeLookup;
+};
+
+// The filters upstream's callers hand `getInternalNodesBounds`, and one that
+// keeps any subset of ids.
+const boundsFilters = {
+  // `<NodesSelection />`'s.
+  selected: () => (node) => !!node.selected,
+  // `<MiniMap />`'s `filterHidden`.
+  visible: () => (node) => !node.hidden,
+  ids: (ids) => (node) => ids.includes(node.id),
+};
+
+// `"omitted"` calls it without `params`, as `<NodeToolbar />` does.
+export const internalNodesBoundsImpl = (options) => (specs) => (filter) => {
+  const nodeLookup = adoptedLookup(options, specs);
+  return filter.kind === "omitted"
+    ? getInternalNodesBounds(nodeLookup)
+    : getInternalNodesBounds(nodeLookup, { filter: boundsFilters[filter.kind](filter.ids) });
+};
+
+// A null argument is passed as `undefined`, so upstream's default applies.
+const orUndefined = (value) => (value === null ? undefined : value);
+
+export const nodesInsideImpl = (options) => (specs) => (args) =>
+  getNodesInside(
+    adoptedLookup(options, specs),
+    args.rect,
+    orUndefined(args.transform),
+    orUndefined(args.partially),
+    orUndefined(args.excludeNonSelectable)
+  ).map((node) => node.id);
 
 // ─── Handle validation ────────────────────────────────────────────────────
 // `XYHandle.isValid` over the internal nodes one adoption of `nodes` leaves.
