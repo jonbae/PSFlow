@@ -17,6 +17,7 @@ import Prelude
 import Control.Alt ((<|>))
 import Data.Map as Map
 import Data.Maybe (Maybe(..), fromMaybe)
+import Data.Number (isNaN)
 import React.Container.InitValues
   ( defaultElementsSelectable
   , defaultMaxZoom
@@ -83,6 +84,12 @@ defaultInitialStateOptions =
   , zIndexMode: Nothing
   }
 
+-- | A size JavaScript reads as true: present, not zero and not `NaN`.
+truthy :: Maybe Number -> Boolean
+truthy = case _ of
+  Just n -> n /= 0.0 && not (isNaN n)
+  Nothing -> false
+
 -- | Build the initial `ReactFlowState`. Pure — every helper called here
 -- | (`adoptUserNodes`, `updateConnectionLookup`, `getInternalNodesBounds`,
 -- | `getViewportForBounds`) is pure after ticket 022a.
@@ -111,7 +118,9 @@ initialState opts =
       }
     adopted = adoptUserNodes nodes Map.empty Map.empty adoptOpts
 
-    fitViewRequested = fromMaybe false opts.fitView && width > 0.0 && height > 0.0
+    -- Upstream's `fitView && width && height`, which reads a negative
+    -- size as true and a `NaN` one as false.
+    fitViewRequested = fromMaybe false opts.fitView && truthy opts.width && truthy opts.height
 
     defaultFitViewPaddingLocal = UniformPadding (RatioPadding 0.1)
 
@@ -119,7 +128,13 @@ initialState opts =
     transform =
       if fitViewRequested then
         let
-          bounds = getInternalNodesBounds adopted.nodeLookup Nothing
+          -- Upstream fits only the nodes whose own sizes are truthy. A
+          -- `measured` size doesn't count.
+          bounds = getInternalNodesBounds adopted.nodeLookup
+            ( Just \n ->
+                (truthy n.width || truthy n.initialWidth)
+                  && (truthy n.height || truthy n.initialHeight)
+            )
           padding = case opts.fitViewOptions of
             Just fvo -> fromMaybe defaultFitViewPaddingLocal fvo.padding
             Nothing -> defaultFitViewPaddingLocal
