@@ -372,12 +372,17 @@ for (const noDragClassName of [undefined, 'drag-blocker']) {
   );
 }
 
-// Keys.
+// Keys. The flow is uncontrolled, so a selection and a deletion apply and
+// the key's effect shows in the nodes themselves.
+const uncontrolled = ({ graph }) => {
+  const { nodes, edges } = graph();
+  return { nodes: undefined, edges: undefined, defaultNodes: nodes, defaultEdges: edges };
+};
 for (const deleteKeyCode of [undefined, 'Backspace', 'Delete', ['Delete', 'x'], [], null]) {
   for (const key of ['Backspace', 'Delete']) {
     driven(
       `deleteKeyCode: ${JSON.stringify(deleteKeyCode)} — ${key} with a selected`,
-      ({ record }) => ({ deleteKeyCode, onNodesDelete: record('onNodesDelete'), onDelete: record('onDelete') }),
+      (context) => ({ ...uncontrolled(context), deleteKeyCode, onNodesDelete: context.record('onNodesDelete'), onDelete: context.record('onDelete') }),
       async (c) => {
         await select(c, ['a']);
         await pressKey(c, key);
@@ -388,7 +393,7 @@ for (const deleteKeyCode of [undefined, 'Backspace', 'Delete', ['Delete', 'x'], 
 for (const multiSelectionKeyCode of [undefined, 'Shift', ['Shift', 'Alt'], null]) {
   driven(
     `multiSelectionKeyCode: ${JSON.stringify(multiSelectionKeyCode)} — click a, then Shift-click b`,
-    () => ({ multiSelectionKeyCode }),
+    (context) => ({ ...uncontrolled(context), multiSelectionKeyCode }),
     async (c) => {
       const a = node(c.container, 'a');
       const b = node(c.container, 'b');

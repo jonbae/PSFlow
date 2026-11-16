@@ -484,10 +484,22 @@ refuses(
   "smoothstep"
 );
 
-// `null` on a key-code prop means "disable this key" upstream, and ps-flow's
-// `Maybe KeyCode` has no disabled state — so folding it in with absence would
-// turn "no delete key" into "delete on Backspace", the opposite of the ask.
-refuses("a null key code is refused rather than defaulted", { deleteKeyCode: null }, "deleteKeyCode", "null");
+// `null` on a key-code prop turns the key off upstream. It used to be refused
+// here, because ps-flow's `Maybe KeyCode` has no state for it; it now crosses
+// as the key code that names no key, which `useKeyPress` never presses.
+// `flow-contracts.test.mjs` holds each of the five against upstream's.
+check("a null key code is accepted on each of the five key-code props", () => {
+  renderToStaticMarkup(
+    createElement(ReactFlow, {
+      ...convertedProps,
+      deleteKeyCode: null,
+      selectionKeyCode: null,
+      panActivationKeyCode: null,
+      multiSelectionKeyCode: null,
+      zoomActivationKeyCode: null,
+    })
+  );
+});
 
 refuses("a key code of the wrong type is refused", { selectionKeyCode: 42 }, "selectionKeyCode");
 
