@@ -722,4 +722,27 @@ for (const [label, arg] of [['a node id', 'b'], ['an array of ids', ['a', 'b']],
   });
 }
 
+// ── ControlButton's attributes ──────────────────────────────────────────
+//
+// `ButtonHTMLAttributes<HTMLButtonElement>`: React's `onClick` receives the
+// click, and every attribute the component does not destructure is spread
+// onto the `<button>` last.
+for (const [label, extra] of [
+  ['onClick', ({ record }) => ({ onClick: record('ControlButton.onClick') })],
+  ['type and onMouseDown', ({ record }) => ({ type: 'submit', onMouseDown: record('ControlButton.onMouseDown') })],
+]) {
+  cases.push({
+    name: `ControlButton: ${label} — a click`,
+    children: (context) =>
+      context.h(context.library.Controls, { showZoom: false, showFitView: false, showInteractive: false },
+        context.h(context.library.ControlButton, { className: 'mine', ...extra(context) }, 'C')),
+    drive: async (c) => {
+      const button = c.container.querySelector('.react-flow__controls-button.mine');
+      mouse(button, 'mousedown', center(button));
+      mouse(button, 'mouseup', center(button));
+      mouse(button, 'click', center(button));
+    },
+  });
+}
+
 export default cases;

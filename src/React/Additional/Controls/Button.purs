@@ -8,13 +8,12 @@ module React.Additional.Controls.Button
 
 import Prelude
 
-import Data.Foldable (for_)
 import Data.Maybe (fromMaybe)
 import Effect.Unsafe (unsafePerformEffect)
 import React.Basic (ReactComponent)
-import React.Basic.Events (handler_)
 import React.Basic.Hooks (memo, reactChildrenToArray, reactComponentWithChildren)
-import React.FFI.DOM (button_, opt)
+import Foreign (unsafeToForeign)
+import React.FFI.DOM (button_, opt, spreadOver)
 import React.Types.Component (ControlButtonProps)
 
 controlButton :: ReactComponent ControlButtonProps
@@ -25,15 +24,18 @@ controlButton =
         userClass = fromMaybe "" props.className
         className = "react-flow__controls-button"
           <> (if userClass == "" then "" else " " <> userClass)
-        onClickHandler = handler_ (for_ props.onClick identity)
       in
+        -- TS `<button type="button" className={…} {...rest}>`: the rest
+        -- comes last, so a consumer's own `type` replaces `"button"`.
         pure $ button_
-          { type: "button"
-          , className
-          , onClick: onClickHandler
-          , disabled: opt props.disabled
-          , title: opt props.title
-          , "aria-label": opt props."aria-label"
-          , style: opt props.style
-          }
+          ( spreadOver (map unsafeToForeign props.restAttributes)
+              { type: "button"
+              , className
+              , onClick: opt props.onClick
+              , disabled: opt props.disabled
+              , title: opt props.title
+              , "aria-label": opt props."aria-label"
+              , style: opt props.style
+              }
+          )
           (reactChildrenToArray props.children)

@@ -14,6 +14,7 @@ import Data.Newtype (class Newtype)
 import Effect (Effect)
 import Effect.Aff (launchAff_)
 import Effect.Unsafe (unsafePerformEffect)
+import React.Basic.Events (handler_)
 import React.Basic (ReactComponent, element)
 import React.Basic.Hooks (UnsafeReference(..), memo, reactChildrenFromArray, reactChildrenToArray, reactComponentWithChildren)
 import React.Basic.Hooks as React
@@ -108,21 +109,23 @@ controls =
         zoomButtons =
           if showZoom then
             [ element controlButton
-                { onClick: Just onZoomInHandler
+                { onClick: Just (handler_ onZoomInHandler)
                 , className: Just "react-flow__controls-zoomin"
                 , title: Just aria.controlsZoomInAriaLabel
                 , "aria-label": Just aria.controlsZoomInAriaLabel
                 , disabled: Just slice.maxZoomReached
                 , style: Nothing
+                , restAttributes: Nothing
                 , children: reactChildrenFromArray [ iconPlus ]
                 }
             , element controlButton
-                { onClick: Just onZoomOutHandler
+                { onClick: Just (handler_ onZoomOutHandler)
                 , className: Just "react-flow__controls-zoomout"
                 , title: Just aria.controlsZoomOutAriaLabel
                 , "aria-label": Just aria.controlsZoomOutAriaLabel
                 , disabled: Just slice.minZoomReached
                 , style: Nothing
+                , restAttributes: Nothing
                 , children: reactChildrenFromArray [ iconMinus ]
                 }
             ]
@@ -131,12 +134,13 @@ controls =
         fitViewButton =
           if showFitView then
             [ element controlButton
-                { onClick: Just onFitViewHandler
+                { onClick: Just (handler_ onFitViewHandler)
                 , className: Just "react-flow__controls-fitview"
                 , title: Just aria.controlsFitViewAriaLabel
                 , "aria-label": Just aria.controlsFitViewAriaLabel
                 , disabled: Nothing
                 , style: Nothing
+                , restAttributes: Nothing
                 , children: reactChildrenFromArray [ iconFitView ]
                 }
             ]
@@ -145,12 +149,13 @@ controls =
         interactiveButton =
           if showInteractive then
             [ element controlButton
-                { onClick: Just onToggleInteractivity
+                { onClick: Just (handler_ onToggleInteractivity)
                 , className: Just "react-flow__controls-interactive"
                 , title: Just aria.controlsInteractiveAriaLabel
                 , "aria-label": Just aria.controlsInteractiveAriaLabel
                 , disabled: Nothing
                 , style: Nothing
+                , restAttributes: Nothing
                 , children: reactChildrenFromArray
                     [ if slice.isInteractive then iconUnlock else iconLock ]
                 }

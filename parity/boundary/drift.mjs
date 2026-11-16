@@ -407,6 +407,10 @@ const pairs = [
     ps: { file: "src/React/Types/Component.purs", type: "ControlButtonProps" },
     js: { file: "src/Boundary/Chrome.purs", type: "JsControlButtonProps" },
     renames: {},
+    // Upstream's `<button … {...rest}>`, the rest of
+    // `ButtonHTMLAttributes`, which `Boundary.Chrome` collects with
+    // `Boundary.Rest.restOf`.
+    rest: "restAttributes",
   },
   {
     what: "MiniMapNodeProps",

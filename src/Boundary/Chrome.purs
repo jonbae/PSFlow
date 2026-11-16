@@ -80,6 +80,7 @@ import Boundary.Undefined
   , toUndefinable
   )
 import Boundary.Untagged (asArray, asFunction, asNumber, asString, typeName)
+import Boundary.Rest (restOf)
 import Boundary.Wrapper (mkComponentWrapper)
 import Data.Either (Either(..))
 import Data.Maybe (Maybe(..), fromMaybe)
@@ -95,6 +96,7 @@ import React.Additional.Controls.Button (controlButton) as PS
 import React.Additional.MiniMap (miniMap) as PS
 import React.Additional.MiniMap.Node (miniMapNode) as PS
 import React.Basic (JSX, ReactComponent, element)
+import React.Basic.Events (EventHandler)
 import React.Basic.Hooks (ReactChildren, memo, reactComponent, reactComponentWithChildren)
 import React.FFI.ForwardRef (forwardNullableRef)
 import React.Portal.Panel (panel) as PS
@@ -383,7 +385,7 @@ miniMap =
 -- ────────────────────────────────────────────────────────────────────────
 
 type JsControlButtonProps =
-  { onClick :: Undefinable JsCommandHandler
+  { onClick :: Undefinable EventHandler
   , disabled :: Undefinable Boolean
   , className :: Undefinable String
   , title :: Undefinable String
@@ -394,13 +396,14 @@ type JsControlButtonProps =
 
 convertControlButton :: JsControlButtonProps -> ControlButtonProps
 convertControlButton p =
-  { onClick: map commandHandlerIn (fromUndefinable p.onClick)
+  { onClick: fromUndefinable p.onClick
   , disabled: fromUndefinable p.disabled
   , className: fromUndefinable p.className
   , title: fromUndefinable p.title
   , "aria-label": fromUndefinable p."aria-label"
   , style: map asCssObject (fromUndefinable p.style)
   , children: p.children
+  , restAttributes: restOf p
   }
 
 -- | Not memoized, because upstream's is not — the opposite direction to

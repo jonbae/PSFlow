@@ -57,7 +57,7 @@ import Effect (Effect)
 import Foreign (Foreign)
 import Foreign.Object (Object)
 import React.Basic (JSX, ReactComponent)
-import React.Basic.Events (SyntheticEvent)
+import React.Basic.Events (EventHandler, SyntheticEvent)
 import React.Basic.Hooks (ReactChildren)
 import React.Types.Edges
   ( ConnectionLineComponent
@@ -514,14 +514,19 @@ type ControlsProps =
   , orientation :: Maybe Orientation
   }
 
+-- | Upstream's `ButtonHTMLAttributes<HTMLButtonElement>`: the attributes
+-- | ps-flow's own controls set, and `restAttributes`, every other attribute
+-- | a consumer passes, spread onto the `<button>` last as upstream's
+-- | `{...rest}` is. `onClick` is React's handler and receives the event.
 type ControlButtonProps =
-  { onClick :: Maybe (Effect Unit)
+  { onClick :: Maybe EventHandler
   , disabled :: Maybe Boolean
   , className :: Maybe String
   , title :: Maybe String
   , "aria-label" :: Maybe String
   , style :: Maybe (Object String)
   , children :: ReactChildren JSX
+  , restAttributes :: Maybe (Object Foreign)
   }
 
 -- | TS `GetMiniMapNodeAttribute<NodeType>` — how the minimap asks a node for
