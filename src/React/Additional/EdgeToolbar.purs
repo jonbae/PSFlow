@@ -11,13 +11,13 @@ import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Nullable (toMaybe)
 import Effect.Unsafe (unsafePerformEffect)
-import Foreign (Foreign)
+import Foreign (Foreign, unsafeToForeign)
 import Foreign.Object (Object)
 import Foreign.Object as Object
 import React.Basic (ReactComponent, element)
 import React.Basic.Hooks (UnsafeReference(..), reactChildrenFromArray, reactChildrenToArray, reactComponentWithChildren)
 import React.Basic.Hooks as React
-import React.FFI.DOM (div_)
+import React.FFI.DOM (div_, spreadOver)
 import React.Hook.Store (sameValue, shallow, useStoreWith)
 import React.Portal.EdgeLabelRenderer (edgeLabelRenderer)
 import React.Types.Component (EdgeToolbarProps)
@@ -79,21 +79,28 @@ edgeToolbar =
           userClass = fromMaybe "" props.className
           className = "react-flow__edge-toolbar"
             <> (if userClass == "" then "" else " " <> userClass)
-          baseStyle = fromMaybe Object.empty props.style
-          wrapperStyle = baseStyle
-            # Object.insert "position" "absolute"
-            # Object.insert "transform" transformStr
-            # Object.insert "zIndex" (show zIndex)
-            # Object.insert "pointerEvents" "all"
-            # Object.insert "transformOrigin" "0 0"
+          -- TS `{ position, transform, zIndex, pointerEvents,
+          -- transformOrigin, ...style }`: the consumer's style comes last, so
+          -- its own `zIndex` or `transform` wins.
+          wrapperStyle = Object.union (fromMaybe Object.empty props.style)
+            ( Object.empty
+                # Object.insert "position" "absolute"
+                # Object.insert "transform" transformStr
+                # Object.insert "zIndex" (show zIndex)
+                # Object.insert "pointerEvents" "all"
+                # Object.insert "transformOrigin" "0 0"
+            )
           dataId = case mEdge of
             Just e -> e.id
             Nothing -> ""
+          -- TS `<div style className data-id {...rest}>`: the rest last.
           toolbarDiv = div_
-            { style: toForeignStyle wrapperStyle
-            , className
-            , "data-id": dataId
-            }
+            ( spreadOver (map unsafeToForeign props.restAttributes)
+                { style: toForeignStyle wrapperStyle
+                , className
+                , "data-id": dataId
+                }
+            )
             (reactChildrenToArray props.children)
         in
           pure $ element edgeLabelRenderer

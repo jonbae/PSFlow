@@ -248,6 +248,9 @@ const pairs = [
     ps: { file: "src/React/Types/Component.purs", type: "NodeToolbarProps" },
     js: { file: "src/Boundary/NodeChrome.purs", type: "JsNodeToolbarProps" },
     renames: {},
+    // The rest of upstream's `HTMLAttributes<HTMLDivElement>`, collected
+    // with `Boundary.Rest.restOf`.
+    rest: "restAttributes",
   },
   // The other pair a custom node mounts, crossed with the callbacks because
   // their lifecycle handlers are callback props.
@@ -390,6 +393,9 @@ const pairs = [
     ps: { file: "src/React/Types/Component.purs", type: "EdgeToolbarProps" },
     js: { file: "src/Boundary/Edges.purs", type: "JsEdgeToolbarProps" },
     renames: {},
+    // The rest of upstream's `HTMLAttributes<HTMLDivElement>`, collected
+    // with `Boundary.Rest.restOf`.
+    rest: "restAttributes",
   },
   // The props a consumer's own edge component receives — `edgeTypes`' whole
   // conversion, and the edge-side twin of the `NodeProps` pair above.

@@ -620,6 +620,9 @@ type NodeToolbarProps =
   , style :: Maybe (Object String)
   , className :: Maybe String
   , children :: ReactChildren JSX
+  -- | The rest of upstream's `HTMLAttributes<HTMLDivElement>`, spread onto
+  -- | the toolbar's `<div>` before its `data-id`, as upstream's is.
+  , restAttributes :: Maybe (Object Foreign)
   }
 
 -- Ticket 048 — `<NodeResizer />`.
@@ -682,6 +685,9 @@ type EdgeToolbarProps =
   , style :: Maybe (Object String)
   , className :: Maybe String
   , children :: ReactChildren JSX
+  -- | The rest of upstream's `HTMLAttributes<HTMLDivElement>`, spread onto
+  -- | the toolbar's `<div>` last, as upstream's is.
+  , restAttributes :: Maybe (Object Foreign)
   }
 
 -- | Ticket 040 — `<NodeRenderer />`. Mirrors

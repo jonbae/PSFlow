@@ -490,6 +490,8 @@ convertEdgeToolbar p =
   , style: map asCssObject (fromUndefinable p.style)
   , className: fromUndefinable p.className
   , children: p.children
+  -- Upstream's `...rest`, which its `<div>` spreads last.
+  , restAttributes: restOf p
   }
 
 edgeToolbar :: ReactComponent JsEdgeToolbarProps

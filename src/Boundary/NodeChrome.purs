@@ -166,6 +166,8 @@ convertNodeToolbar p =
   , style: map asCssObject (fromUndefinable p.style)
   , className: fromUndefinable p.className
   , children: p.children
+  -- Upstream's `...rest`, which its `<div>` spreads before `data-id`.
+  , restAttributes: restOf p
   }
 
 -- | `string | string[]` — one node, or the group of them one toolbar floats

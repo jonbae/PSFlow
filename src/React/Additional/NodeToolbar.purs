@@ -28,7 +28,7 @@ import React.Basic.Hooks (reactChildrenFromArray, reactChildrenToArray, reactCom
 import React.Basic.Hooks as React
 import React.Additional.NodeToolbar.Portal (nodeToolbarPortal)
 import React.Context.NodeId (useNodeId)
-import React.FFI.DOM (div_)
+import React.FFI.DOM (div_, spreadUnder)
 import React.Hook.Store (shallow, useStoreWith)
 import React.Types.Component (NodeToolbarProps)
 import React.Types.Nodes (InternalNode)
@@ -167,11 +167,15 @@ nodeToolbar =
           -- selector resolves (upstream NodeToolbar.tsx:136).
           dataIdStr = String.trim
             (Array.foldl (\acc n -> acc <> unwrap n.id <> " ") "" nodesArr)
+          -- TS `<div style className {...rest} data-id>`: the rest can set
+          -- neither of the first two, and the `data-id` after it wins.
           toolbarDiv = div_
-            { style: toForeignStyle wrapperStyle
-            , className
-            , "data-id": dataIdStr
-            }
+            ( spreadUnder props.restAttributes
+                { style: toForeignStyle wrapperStyle
+                , className
+                , "data-id": dataIdStr
+                }
+            )
             (reactChildrenToArray props.children)
         in
           pure $ element nodeToolbarPortal
