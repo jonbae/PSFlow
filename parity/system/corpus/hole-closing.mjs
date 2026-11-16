@@ -50,6 +50,7 @@ const DEFAULT_EDGE_OPTIONS = routeOf("./edges/default-options.ts");
 const NODES = routeOf("./nodes/general.ts");
 const AUTOPAN = routeOf("./nodes/autopan.ts");
 const VIEWPORT_HELPERS = routeOf("./viewport/helpers.ts");
+const NODE_EXTENT = routeOf("./nodes/node-extent.ts");
 
 const control = (name) => `[data-testid="${name}"]`;
 
@@ -347,6 +348,21 @@ holeClosing.push(
       await a.call("setCenter", [120, 80, { zoom: 2, duration: 180 }]);
       await a.call("fitBounds", [{ x: -100, y: -100, width: 400, height: 300 }, { padding: 0.2, duration: 160, interpolate: "linear" }]);
       await a.call("fitView", [{ padding: 0.3, duration: 220 }]);
+    },
+  },
+
+  // Step 4 row 9: a drag of two selected nodes against a finite `nodeExtent`,
+  // right and down past two edges, then left and up past the other two.
+  // Upstream's `XYDrag` narrows each node's extent by how far the group
+  // reaches past it, so the pair stops as a whole and keeps its gap. ps-flow
+  // clamped each node to the extent on its own, so the pair closed up against
+  // each edge. No fixture set `nodeExtent` before this one.
+  {
+    id: "drag-selection-against-node-extent",
+    route: NODE_EXTENT,
+    async run(a) {
+      await a.dragNode('.react-flow__node[data-id="Node-1"]', { dx: 200, dy: 300, steps: 4 });
+      await a.dragNode('.react-flow__node[data-id="Node-1"]', { dx: -400, dy: -300, steps: 4 });
     },
   }
 );

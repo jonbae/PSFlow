@@ -40,7 +40,7 @@ import Control.Lazy (defer)
 import Control.Monad.Except (runExcept)
 import Control.Monad.State (StateT, get, modify_, runStateT)
 import Data.Either (Either(..))
-import Data.Foldable (for_, traverse_)
+import Data.Foldable (foldMap, for_, traverse_)
 import Data.Array (any, length) as Array
 import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isNothing)
@@ -79,7 +79,7 @@ import System.FFI.Microtask (awaitMicrotask)
 import System.Constants (ErrorCode, errorId, errorMessage)
 import System.Types.Edge (EdgeBase)
 import System.Types.Geometry
-  ( CoordinateExtent
+  ( CoordinateExtent(..)
   , NodeOrigin
   , SnapGrid
   , Transform(..)
@@ -98,7 +98,8 @@ import System.Utils.Dom
   , getEventPosition
   , getPointerPosition
   )
-import System.Utils.General (calcAutoPan, roundHalfUp, snapPosition)
+import System.Types.Geometry (fromBox, toBox) as Box
+import System.Utils.General (boxToRect, calcAutoPan, rectToBox, roundHalfUp, snapPosition)
 import System.Utils.Graph (calculateNodePosition)
 import System.XYDrag.Utils
   ( calculateSnapOffset
@@ -626,6 +627,40 @@ updateNodes params mNodeId pos = do
         calculateSnapOffset items store.snapGrid pos.x pos.y
       else Nothing
 
+    -- Upstream's `nodesBox`, `rectToBox(getInternalNodesBounds(dragItems))`:
+    -- the dragged nodes' bounds before this move, from each item's absolute
+    -- position and measured size. Upstream also asks for `nodeExtent`, which
+    -- the store always has.
+    nodesBox =
+      if isMultiDrag then
+        Just $ rectToBox $ boxToRect $ Box.toBox $ foldMap
+          ( \i ->
+              let
+                p = i.internals.positionAbsolute
+              in
+                Box.fromBox { x: p.x, y: p.y, x2: p.x + i.measured.width, y2: p.y + i.measured.height }
+          )
+          items
+      else Nothing
+
+    -- A node without its own `extent` is clamped to `nodeExtent` narrowed by
+    -- how far the group reaches past it on each side, so the group stops as a
+    -- whole when its bounds reach an edge.
+    extentFor :: NodeDragItem -> CoordinateExtent
+    extentFor dragItem = case nodesBox of
+      Just box | isNothing dragItem.extent ->
+        let
+          CoordinateExtent e = store.nodeExtent
+          p = dragItem.internals.positionAbsolute
+        in
+          CoordinateExtent
+            { minX: p.x - box.x + e.minX
+            , minY: p.y - box.y + e.minY
+            , maxX: p.x + dragItem.measured.width - box.x2 + e.maxX
+            , maxY: p.y + dragItem.measured.height - box.y2 + e.maxY
+            }
+      _ -> store.nodeExtent
+
     -- One iteration: compute the next position with `calculateNodePosition`,
     -- and record whether the node moved.
     step :: NodeDragItem -> { item :: NodeDragItem, moved :: Boolean, errors :: Array ErrorCode }
@@ -656,7 +691,7 @@ updateNodes params mNodeId pos = do
               , nextPosition: stepNext
               , nodeLookup: store.nodeLookup
               , nodeOrigin: store.nodeOrigin
-              , nodeExtent: Just store.nodeExtent
+              , nodeExtent: Just (extentFor dragItem)
               }
             of
             Nothing -> { item: dragItem, moved: false, errors: [] }

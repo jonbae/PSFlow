@@ -104,6 +104,7 @@ import Test.React.HandleNativeEvent (runHandleNativeEventTests)
 import Test.React.Hook.DragRebind (runDragRebindTests)
 import Test.System.FinalConnectionState (runFinalConnectionStateTests)
 import Test.System.XYDrag.DragErrors (runDragErrorsTests)
+import Test.System.XYDrag.DragGroupExtent (runDragGroupExtentTests)
 import Test.System.XYDrag.DragSelection (runDragSelectionTests)
 import Test.System.XYDrag.DragUserNodes (runDragUserNodesTests)
 import Test.React.Additional.NodeToolbarPortal (runNodeToolbarPortalTests)
@@ -1249,6 +1250,7 @@ main = do
   runDragRebindTests
   runDragSelectionTests
   runDragErrorsTests
+  runDragGroupExtentTests
   runEdgeComponentPropsTests
   runFinalConnectionStateTests
   runDragUserNodesTests

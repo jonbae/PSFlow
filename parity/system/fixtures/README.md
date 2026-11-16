@@ -48,15 +48,15 @@ a hand-written act in `parity/system/corpus/`, which has its own README.
 
 ## What is here
 
-Thirty-eight flows, one per condition no vendored fixture sets. Eighteen were
+Thirty-nine flows, one per condition no vendored fixture sets. Eighteen were
 written for the thirty test-debt scenarios ([#60]), two for the retirement debt
 ([#61]) — the two ps-flow **contract** pages, turned into data when the
 hand-authored assertions they carried retired into the net — and seven for the
 hole-closing scenarios ([#93]), two of them for Step 3 H's witnesses. Step 4
-order 8 adds eleven branch fixtures, listed below. Grouped by what the
-condition is *about* rather than by which scenario drives it — several are driven
-by more than one, and a fixture named after its first scenario would read wrongly
-the moment a second arrived.
+order 8 adds eleven branch fixtures, listed below, and row 9's caller fixes add
+one more. Grouped by what the condition is *about* rather than by which
+scenario drives it — several are driven by more than one, and a fixture named
+after its first scenario would read wrongly the moment a second arrived.
 
 | | The condition it sets |
 |---|---|
@@ -76,6 +76,7 @@ the moment a second arrived.
 | `flow/not-selectable.ts` | `elementsSelectable: false`, with a node and an edge passed in selected |
 | `flow/props-change.ts` | a dozen tracked props that change after the mount |
 | `nodes/autopan.ts` | a drag that reaches the edge, with a bounded pan |
+| `nodes/node-extent.ts` | a finite `nodeExtent`, with two nodes selected so a drag takes both |
 | `nodes/connections.ts` | a node whose handles carry several edges each |
 | `nodes/expand-parent.ts` | a child that pushes its parent open as it is dragged |
 | `nodes/no-select-on-drag.ts` | `selectNodesOnDrag: false` |
