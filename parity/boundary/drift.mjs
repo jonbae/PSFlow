@@ -239,12 +239,18 @@ const pairs = [
     ps: { file: "src/React/Types/Component.purs", type: "HandleProps" },
     js: { file: "src/Boundary/NodeChrome.purs", type: "JsHandleProps" },
     renames: { handleType: "type", innerRef: "ref" },
+    // Upstream's `<div … {...rest}>`, the rest of `HTMLAttributes`, which
+    // `Boundary.NodeChrome` collects with `Boundary.Rest.restOf`.
+    rest: "restAttributes",
   },
   {
     what: "NodeToolbarProps",
     ps: { file: "src/React/Types/Component.purs", type: "NodeToolbarProps" },
     js: { file: "src/Boundary/NodeChrome.purs", type: "JsNodeToolbarProps" },
     renames: {},
+    // The rest of upstream's `HTMLAttributes<HTMLDivElement>`, collected
+    // with `Boundary.Rest.restOf`.
+    rest: "restAttributes",
   },
   // The other pair a custom node mounts, crossed with the callbacks because
   // their lifecycle handlers are callback props.
@@ -275,7 +281,7 @@ const pairs = [
   {
     what: "AriaLabelConfig",
     ps: { file: "src/System/Constants.purs", type: "AriaLabelConfigOverride" },
-    js: { file: "src/Boundary/Flow.purs", type: "JsAriaLabelConfig" },
+    js: { file: "src/Boundary/FlowMembers.purs", type: "JsAriaLabelConfig" },
     renames: {
       nodeA11yDescriptionDefault: "node.a11yDescription.default",
       nodeA11yDescriptionKeyboardDisabled: "node.a11yDescription.keyboardDisabled",
@@ -387,6 +393,9 @@ const pairs = [
     ps: { file: "src/React/Types/Component.purs", type: "EdgeToolbarProps" },
     js: { file: "src/Boundary/Edges.purs", type: "JsEdgeToolbarProps" },
     renames: {},
+    // The rest of upstream's `HTMLAttributes<HTMLDivElement>`, collected
+    // with `Boundary.Rest.restOf`.
+    rest: "restAttributes",
   },
   // The props a consumer's own edge component receives — `edgeTypes`' whole
   // conversion, and the edge-side twin of the `NodeProps` pair above.
@@ -407,6 +416,10 @@ const pairs = [
     ps: { file: "src/React/Types/Component.purs", type: "ControlButtonProps" },
     js: { file: "src/Boundary/Chrome.purs", type: "JsControlButtonProps" },
     renames: {},
+    // Upstream's `<button … {...rest}>`, the rest of
+    // `ButtonHTMLAttributes`, which `Boundary.Chrome` collects with
+    // `Boundary.Rest.restOf`.
+    rest: "restAttributes",
   },
   {
     what: "MiniMapNodeProps",

@@ -20,18 +20,20 @@ import Data.Number.Format (toString) as NumberFormat
 import Data.Nullable (Nullable, null, toMaybe, toNullable)
 import Effect (Effect)
 import Effect.Unsafe (unsafePerformEffect)
+import Foreign (Foreign, unsafeToForeign)
 import Foreign.Object (Object)
 import Foreign.Object as Object
 import React.Basic (ReactComponent, element)
 import React.Basic.Events (handler, handler_, syntheticEvent)
-import React.Basic.Hooks (UnsafeReference(..), memo, reactChildrenFromArray, reactChildrenToArray, reactComponentWithChildren, readRef, useEffect, useEffectAlways, useRef, writeRef)
+import React.Basic.Hooks (UnsafeReference(..), memo, reactChildrenFromArray, reactComponentWithChildren, readRef, useEffect, useEffectAlways, useRef, writeRef)
 import React.Basic.Hooks as React
 import React.Additional.MiniMap.Nodes (miniMapNodes)
 import React.FFI.DOM (path_, svg_, title_)
 import React.Hook.Store (UseStoreApi, useStore, useStoreApi)
 import React.Portal.Panel (panel)
 import React.Types.Component
-  ( MiniMapNodeProps
+  ( MiniMapNodeAttribute(..)
+  , MiniMapNodeProps
   , MiniMapNodesProps
   , MiniMapProps
   )
@@ -173,12 +175,6 @@ maybeInsert k mv obj = case mv of
   Nothing -> obj
   Just v -> Object.insert k v obj
 
--- | The "is `nodeColor` callable as a string?" handling on the TS side
--- | maps to PS pattern matching: if the user supplies a function we
--- | leave it alone; the per-node mapping (`MiniMapNodes`) calls it.
--- | When the user instead wants a constant colour they wrap a constant
--- | function — same idea, slightly more verbose on the PS side.
-
 miniMap :: forall n. ReactComponent (MiniMapProps n)
 miniMap =
   unsafePerformEffect $ memo $ reactComponentWithChildren "MiniMap"
@@ -191,8 +187,18 @@ miniMap =
       instanceRef <- useRef (toNullable Nothing :: Nullable XYMinimapInstance)
 
       let
-        elementWidth = defaultWidth
-        elementHeight = defaultHeight
+        -- TS `(style?.width as number) ?? defaultWidth`: the consumer's own
+        -- value, whatever it is, sizes the svg, and the arithmetic reads it
+        -- as JavaScript's `/` does.
+        styleValue key =
+          let fallback = unsafeToForeign (if key == "width" then defaultWidth else defaultHeight)
+          in case Object.lookup key =<< props.style of
+            Just value -> nullishOr fallback (unsafeToForeign value)
+            Nothing -> fallback
+        elementWidthAttr = styleValue "width"
+        elementHeightAttr = styleValue "height"
+        elementWidth = asArithmetic elementWidthAttr
+        elementHeight = asArithmetic elementHeightAttr
         scaledWidth = slice.boundingRect.width / elementWidth
         scaledHeight = slice.boundingRect.height / elementHeight
         viewScale = max scaledWidth scaledHeight
@@ -205,7 +211,9 @@ miniMap =
         height = viewHeight + offset * 2.0
         labelledBy = "react-flow__minimap-desc-" <> slice.rfId
         UnsafeReference aria = slice.ariaLabelConfig
-        ariaText = fromMaybe aria.minimapAriaLabel props."aria-label"
+        -- TS `ariaLabel ?? ariaLabelConfig['minimap.ariaLabel']`, and the
+        -- title only when that is truthy.
+        ariaText = fromMaybe aria.minimapAriaLabel props.ariaLabel
         pos = fromMaybe BottomRight props.position
         pannable = fromMaybe false props.pannable
         zoomable = fromMaybe false props.zoomable
@@ -308,10 +316,11 @@ miniMap =
           if ariaText == "" then mempty
           else title_ { id: labelledBy } [ unsafeCoerce ariaText ]
 
-        userExtras = reactChildrenToArray props.children
-
+        -- Upstream's `MiniMapProps` admits `children` from `HTMLAttributes`,
+        -- and its component neither destructures nor spreads them, so a
+        -- minimap draws none.
         svgChildren =
-          [ titleEl, nodesElement, maskRect ] <> userExtras
+          [ titleEl, nodesElement, maskRect ]
 
         viewBoxStr = showN x <> " " <> showN y <> " " <> showN width <> " " <> showN height
 
@@ -327,8 +336,8 @@ miniMap =
           <> (if userPanelClass == "" then "" else " " <> userPanelClass)
 
         svgEl = svg_
-          { width: elementWidth
-          , height: elementHeight
+          { width: elementWidthAttr
+          , height: elementHeightAttr
           , viewBox: viewBoxStr
           , className: "react-flow__minimap-svg"
           , role: "img"
@@ -349,10 +358,12 @@ miniMap =
         , innerRef: null
         }
 
--- | The TS source accepts either a callback or a string for `nodeColor`
--- | etc. so it can stuff a constant straight into the CSS variable
--- | (`--xy-minimap-node-background-color-props`). The PS port always
--- | takes a callback, so the constant-string path becomes "user didn't
--- | supply, leave the variable unset" — `Nothing` here.
-maybeNodeColorString :: forall a. Maybe a -> Maybe String
-maybeNodeColorString _ = Nothing
+-- | TS `typeof nodeColor === 'string' ? nodeColor : undefined`: a string
+-- | `nodeColor` or `nodeStrokeColor` also sets its CSS variable.
+maybeNodeColorString :: forall n. Maybe (MiniMapNodeAttribute n) -> Maybe String
+maybeNodeColorString = case _ of
+  Just (AttributeValue value) -> Just value
+  _ -> Nothing
+
+foreign import nullishOr :: Foreign -> Foreign -> Foreign
+foreign import asArithmetic :: Foreign -> Number

@@ -12,7 +12,7 @@ import Data.Either (Either(..))
 import Data.Foldable (foldl)
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Newtype (class Newtype)
-import Data.Number ((%))
+import Data.Number (isNaN, (%))
 import Data.Number.Format (toString) as NumberFormat
 import Data.Tuple (Tuple(..))
 import Effect.Unsafe (unsafePerformEffect)
@@ -86,6 +86,12 @@ buildStyle userStyle bgColor patternColor =
     Nothing -> withBg
     Just c -> Object.insert "--xy-background-pattern-color-props" c withBg
 
+-- | JavaScript's `a || b` over numbers: `b` when `a` is falsy, which for a
+-- | number is `0`, `-0` or `NaN`. Upstream writes its size, gap and offset
+-- | fallbacks this way.
+orNumber :: Number -> Number -> Number
+orNumber a b = if a == 0.0 || isNaN a then b else a
+
 background :: ReactComponent BackgroundProps
 background =
   unsafePerformEffect $ memo $ reactComponent "Background"
@@ -94,14 +100,16 @@ background =
       let
         Transform t = slice.transform
         variant = fromMaybe Dots props.variant
-        patternSize = fromMaybe (defaultSize variant) props.size
+        -- TS: `size || defaultSize[variant]`, so a size of 0 or NaN takes
+        -- the variant's default as an absent one does.
+        patternSize = orNumber (fromMaybe 0.0 props.size) (defaultSize variant)
         isDots = variant == Dots
         isCross = variant == Cross
         Tuple gapX gapY = normalisePair (fromMaybe (Left 20.0) props.gap)
         scaledGapXRaw = gapX * t.scale
         scaledGapYRaw = gapY * t.scale
-        scaledGapX = if scaledGapXRaw == 0.0 then 1.0 else scaledGapXRaw
-        scaledGapY = if scaledGapYRaw == 0.0 then 1.0 else scaledGapYRaw
+        scaledGapX = orNumber scaledGapXRaw 1.0
+        scaledGapY = orNumber scaledGapYRaw 1.0
         scaledSize = patternSize * t.scale
         Tuple offX offY = normalisePair (fromMaybe (Left 0.0) props.offset)
         Tuple patDimX patDimY =
@@ -109,8 +117,8 @@ background =
           else Tuple scaledGapX scaledGapY
         offXScaled = offX * t.scale
         offYScaled = offY * t.scale
-        scaledOffX = if offXScaled == 0.0 then 1.0 + patDimX / 2.0 else offXScaled
-        scaledOffY = if offYScaled == 0.0 then 1.0 + patDimY / 2.0 else offYScaled
+        scaledOffX = orNumber offXScaled (1.0 + patDimX / 2.0)
+        scaledOffY = orNumber offYScaled (1.0 + patDimY / 2.0)
         patternIdResolved = slice.patternId <> fromMaybe "" props.id
         userClass = fromMaybe "" props.className
         className = "react-flow__background"

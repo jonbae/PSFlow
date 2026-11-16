@@ -484,10 +484,22 @@ refuses(
   "smoothstep"
 );
 
-// `null` on a key-code prop means "disable this key" upstream, and ps-flow's
-// `Maybe KeyCode` has no disabled state — so folding it in with absence would
-// turn "no delete key" into "delete on Backspace", the opposite of the ask.
-refuses("a null key code is refused rather than defaulted", { deleteKeyCode: null }, "deleteKeyCode", "null");
+// `null` on a key-code prop turns the key off upstream. It used to be refused
+// here, because ps-flow's `Maybe KeyCode` has no state for it; it now crosses
+// as the key code that names no key, which `useKeyPress` never presses.
+// `flow-contracts.test.mjs` holds each of the five against upstream's.
+check("a null key code is accepted on each of the five key-code props", () => {
+  renderToStaticMarkup(
+    createElement(ReactFlow, {
+      ...convertedProps,
+      deleteKeyCode: null,
+      selectionKeyCode: null,
+      panActivationKeyCode: null,
+      multiSelectionKeyCode: null,
+      zoomActivationKeyCode: null,
+    })
+  );
+});
 
 refuses("a key code of the wrong type is refused", { selectionKeyCode: 42 }, "selectionKeyCode");
 
@@ -1018,7 +1030,9 @@ for (const { source, components, propRecords, baseProps = {}, mount } of convert
 // `nodeColor` and its two siblings are `string | ((node) => string)` upstream.
 // The function half is the one place a chrome component hands the consumer a
 // value ps-flow built, so it goes out through the same `nodeOut` that
-// `applyNodeChanges` returns nodes through. The string half has nowhere to go.
+// `applyNodeChanges` returns nodes through. The string half, refused until
+// Step 4 order 10, colours every node; `chrome-contracts.test.mjs` holds both
+// halves against upstream's markup.
 check("`MiniMap.nodeColor` is called with a JS-shaped node", () => {
   const seen = [];
   inFlow(createElement(MiniMap, { nodeColor: (node) => (seen.push(node), "#f00") }));
@@ -1029,12 +1043,9 @@ check("`MiniMap.nodeColor` is called with a JS-shaped node", () => {
   assert(!("nodeType" in a), "the node still carries `nodeType`");
 });
 
-chromeThrows(
-  "`MiniMap.nodeColor`'s string form is refused rather than guessed at",
-  createElement(MiniMap, { nodeColor: "#f00" }),
-  "MiniMap.nodeColor",
-  "string form"
-);
+check("`MiniMap.nodeColor`'s string form is accepted", () => {
+  inFlow(createElement(MiniMap, { nodeColor: "#f00", nodeStrokeColor: "#00f", nodeClassName: "mm" }));
+});
 
 // ── 5b. Boundary stage 4: the components no fixture mounts ──────────────
 //

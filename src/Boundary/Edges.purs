@@ -106,7 +106,7 @@ import Boundary.Enums
   , positionIn
   , positionOut
   )
-import Boundary.Undefined (Undefinable, fromUndefinable, requiredProp, toUndefinable)
+import Boundary.Undefined (Undefinable, defined, fromUndefinable, nullUndefinable, requiredProp, toUndefinable)
 import Boundary.Rest (restOf)
 import Data.Maybe (Maybe, maybe)
 import Boundary.Wrapper (mkComponentWrapper)
@@ -490,6 +490,8 @@ convertEdgeToolbar p =
   , style: map asCssObject (fromUndefinable p.style)
   , className: fromUndefinable p.className
   , children: p.children
+  -- Upstream's `...rest`, which its `<div>` spreads last.
+  , restAttributes: restOf p
   }
 
 edgeToolbar :: ReactComponent JsEdgeToolbarProps
@@ -630,11 +632,16 @@ connectionLinePropsOut p =
   , toY: p.toY
   , fromPosition: positionOut p.fromPosition
   , toPosition: positionOut p.toPosition
-  , connectionStatus: toUndefinable (map connectionStatusOut p.connectionStatus)
-  , toNode: toUndefinable (map internalNodeOut p.toNode)
-  , toHandle: toUndefinable (map handleOut p.toHandle)
+  -- Upstream declares the three `… | null` and hands its component the
+  -- connection's `null`s, never `undefined`.
+  , connectionStatus: orNull (map connectionStatusOut p.connectionStatus)
+  , toNode: orNull (map internalNodeOut p.toNode)
+  , toHandle: orNull (map handleOut p.toHandle)
   , pointer: p.pointer
   }
+  where
+  orNull :: forall a. Maybe a -> Undefinable a
+  orNull = maybe nullUndefinable defined
 
 -- | Upstream's `'valid' | 'invalid' | null`. ps-flow's `Show` instance already
 -- | spells the two members; this is the crossing, where it can be read beside

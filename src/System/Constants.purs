@@ -89,9 +89,14 @@ errorMessage = case _ of
       handleStr = case handleType of
         Source -> "source"
         Target -> "target"
+      -- TS interpolates `edge.sourceHandle || null`, so an absent or empty
+      -- handle id prints as `null`.
+      orNull = case _ of
+        Just h | h /= "" -> h
+        _ -> "null"
       handleId = case handleType of
-        Source -> fromMaybe "" edge.sourceHandle
-        Target -> fromMaybe "" edge.targetHandle
+        Source -> orNull edge.sourceHandle
+        Target -> orNull edge.targetHandle
     in
       "Couldn't create edge for " <> handleStr <> " handle id: \""
         <> handleId

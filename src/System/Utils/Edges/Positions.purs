@@ -8,7 +8,9 @@
 -- | `System.Constants` and surface it through their own `OnError` channel
 -- | when they observe `Nothing`.
 module System.Utils.Edges.Positions
-  ( GetEdgePositionParams
+  ( EdgePositionResult(..)
+  , GetEdgePositionParams
+  , edgePosition
   , getEdgePosition
   , getHandlePosition
   ) where
@@ -22,6 +24,7 @@ import System.Types.Edge (EdgePosition)
 import System.Types.Geometry (Position(..), XYPosition)
 import System.Types.Handle
   ( Handle
+  , HandleType(..)
   , handleIdString
   , mkSourceHandle
   , mkTargetHandle
@@ -83,14 +86,30 @@ getHandle bounds handleId = case handleId of
   Nothing -> bounds Array.!! 0
   Just hid -> Array.find (\h -> handleIdString h.id == Just hid) bounds
 
+-- | What resolving an edge's endpoints found: a node not yet measured,
+-- | which upstream returns `null` for in silence, the handle it could not
+-- | find, which upstream reports as error 008, or the position.
+data EdgePositionResult
+  = NodesNotInitialized
+  | MissingHandle HandleType
+  | Positioned EdgePosition
+
 getEdgePosition
   :: forall n
    . GetEdgePositionParams n
   -> Maybe EdgePosition
-getEdgePosition params =
+getEdgePosition params = case edgePosition params of
+  Positioned p -> Just p
+  _ -> Nothing
+
+edgePosition
+  :: forall n
+   . GetEdgePositionParams n
+  -> EdgePositionResult
+edgePosition params =
   if not (isNodeInitialized params.sourceNode)
-    || not (isNodeInitialized params.targetNode) then Nothing
-  else do
+    || not (isNodeInitialized params.targetNode) then NodesNotInitialized
+  else
     let
       sourceBounds = case params.sourceNode.internals.handleBounds of
         Just b -> Just b
@@ -107,19 +126,24 @@ getEdgePosition params =
           -- handle, so both arrays are unwrapped and merged.
           map unTargetHandle (fromMaybe [] (targetBounds >>= _.target))
             <> map unSourceHandle (fromMaybe [] (targetBounds >>= _.source))
-    sh <- getHandle sourceHandles params.sourceHandle
-    th <- getHandle targetHandlePool params.targetHandle
-    let
-      srcXY = getHandlePosition params.sourceNode (Just sh) sh.position false
-      tgtXY = getHandlePosition params.targetNode (Just th) th.position false
-    pure
-      { sourceX: srcXY.x
-      , sourceY: srcXY.y
-      , targetX: tgtXY.x
-      , targetY: tgtXY.y
-      , sourcePosition: sh.position
-      , targetPosition: th.position
-      }
+    in
+      -- TS: `!sourceHandle ? 'source' : 'target'`.
+      case getHandle sourceHandles params.sourceHandle, getHandle targetHandlePool params.targetHandle of
+        Nothing, _ -> MissingHandle Source
+        _, Nothing -> MissingHandle Target
+        Just sh, Just th ->
+          let
+            srcXY = getHandlePosition params.sourceNode (Just sh) sh.position false
+            tgtXY = getHandlePosition params.targetNode (Just th) th.position false
+          in
+            Positioned
+              { sourceX: srcXY.x
+              , sourceY: srcXY.y
+              , targetX: tgtXY.x
+              , targetY: tgtXY.y
+              , sourcePosition: sh.position
+              , targetPosition: th.position
+              }
 
 -- | Compute the on-canvas position of a handle. `Nothing` for `handle` falls
 -- | back to using the node's outer dimensions and `fallbackPosition`.

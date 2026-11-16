@@ -40,6 +40,7 @@ import System.Types.Connection
   ( HandleConnection
   , InterpolateMode
   , NodeConnection
+  , Padding
   , SetCenterOptions
   , Viewport
   )
@@ -86,9 +87,9 @@ type ZoomOptions =
   , interpolate :: Maybe InterpolateMode
   }
 
--- | Options for `fitBounds`. TS `FitBoundsOptions = ViewportHelperFunctionOptions & { padding? }`.
+-- | Options for `fitBounds`. TS `FitBoundsOptions = ViewportHelperFunctionOptions & { padding?: Padding }`.
 type FitBoundsOptions =
-  { padding :: Maybe Number
+  { padding :: Maybe Padding
   , duration :: Maybe Number
   , ease :: Maybe (Number -> Number)
   , interpolate :: Maybe InterpolateMode

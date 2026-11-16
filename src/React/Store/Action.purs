@@ -17,7 +17,8 @@ module React.Store.Action
 import Data.Maybe (Maybe)
 import React.Types.Edges (Edge)
 import React.Types.General
-  ( OnSelectionChangeFunc
+  ( FitViewOptions
+  , OnSelectionChangeFunc
   , OnSelectionChangeParams
   , OnViewportChange
   , UnselectNodesAndEdgesParams
@@ -127,7 +128,9 @@ data Effect_ n e
   -- which passes the changed bound beside the one already in state.
   | RunSetScaleExtent Number Number
   | RunSetTranslateExtent CoordinateExtent
-  -- Resolution of the queued fitView promise.
-  | ResolveFitView Boolean
+  -- Resolution of the queued fit: the options it fits with, read from the
+  -- state before the reducer cleared them, as upstream's `resolveFitView`
+  -- reads them before its `set` clears them.
+  | ResolveFitView (Maybe FitViewOptions)
   -- Error logging — swallowed if `state.onError` is `Nothing`.
   | LogError ErrorCode

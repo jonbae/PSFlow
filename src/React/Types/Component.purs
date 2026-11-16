@@ -26,6 +26,7 @@ module React.Types.Component
   , MiniMapNodesProps
   , MiniMapNodes
   , GetMiniMapNodeAttribute
+  , MiniMapNodeAttribute(..)
   , NodeToolbarProps
   , NodeResizerProps
   , NodeResizeControlProps
@@ -56,7 +57,7 @@ import Effect (Effect)
 import Foreign (Foreign)
 import Foreign.Object (Object)
 import React.Basic (JSX, ReactComponent)
-import React.Basic.Events (SyntheticEvent)
+import React.Basic.Events (EventHandler, SyntheticEvent)
 import React.Basic.Hooks (ReactChildren)
 import React.Types.Edges
   ( ConnectionLineComponent
@@ -316,6 +317,14 @@ type HandleProps =
   -- | reason `PanelProps.innerRef` is, and upstream's `<Handle />` is a
   -- | `memo(forwardRef(…))` for the same one.
   , innerRef :: Nullable Foreign
+  -- | The two handlers upstream destructures and calls from its own pointer
+  -- | down, after it has started any connection: the mouse one for a mouse,
+  -- | and the touch one otherwise.
+  , onMouseDown :: Maybe EventHandler
+  , onTouchStart :: Maybe EventHandler
+  -- | Every other attribute of upstream's `HTMLAttributes<HTMLDivElement>`,
+  -- | spread onto the handle's `<div>` last, as upstream's `{...rest}` is.
+  , restAttributes :: Maybe (Object Foreign)
   }
 
 -- | Ticket 038 — `<Pane />`. The pan/select interaction surface that
@@ -513,25 +522,38 @@ type ControlsProps =
   , orientation :: Maybe Orientation
   }
 
+-- | Upstream's `ButtonHTMLAttributes<HTMLButtonElement>`: the attributes
+-- | ps-flow's own controls set, and `restAttributes`, every other attribute
+-- | a consumer passes, spread onto the `<button>` last as upstream's
+-- | `{...rest}` is. `onClick` is React's handler and receives the event.
 type ControlButtonProps =
-  { onClick :: Maybe (Effect Unit)
+  { onClick :: Maybe EventHandler
   , disabled :: Maybe Boolean
   , className :: Maybe String
   , title :: Maybe String
   , "aria-label" :: Maybe String
   , style :: Maybe (Object String)
   , children :: ReactChildren JSX
+  , restAttributes :: Maybe (Object Foreign)
   }
 
 -- | TS `GetMiniMapNodeAttribute<NodeType>` — how the minimap asks a node for
 -- | one of its own presentation attributes (fill, stroke, class name).
 type GetMiniMapNodeAttribute n = Node n -> String
 
+-- | TS `string | GetMiniMapNodeAttribute<NodeType>`, the type of `nodeColor`,
+-- | `nodeStrokeColor` and `nodeClassName`: one value for every node, or a
+-- | function of the node. Upstream also writes a string `nodeColor` and
+-- | `nodeStrokeColor` into the minimap's CSS variables.
+data MiniMapNodeAttribute n
+  = AttributeValue String
+  | AttributeOf (GetMiniMapNodeAttribute n)
+
 -- Ticket 047 — `<MiniMap />`.
 type MiniMapProps n =
-  { nodeColor :: Maybe (GetMiniMapNodeAttribute n)
-  , nodeStrokeColor :: Maybe (GetMiniMapNodeAttribute n)
-  , nodeClassName :: Maybe (GetMiniMapNodeAttribute n)
+  { nodeColor :: Maybe (MiniMapNodeAttribute n)
+  , nodeStrokeColor :: Maybe (MiniMapNodeAttribute n)
+  , nodeClassName :: Maybe (MiniMapNodeAttribute n)
   , nodeBorderRadius :: Maybe Number
   , nodeStrokeWidth :: Maybe Number
   , nodeComponent :: Maybe (ReactComponent MiniMapNodeProps)
@@ -544,7 +566,7 @@ type MiniMapProps n =
   , onNodeClick :: Maybe (NodeMouseHandler n)
   , pannable :: Maybe Boolean
   , zoomable :: Maybe Boolean
-  , "aria-label" :: Maybe String
+  , ariaLabel :: Maybe String
   , inversePan :: Maybe Boolean
   , zoomStep :: Maybe Number
   , offsetScale :: Maybe Number
@@ -573,9 +595,9 @@ type MiniMapNodeProps =
 
 -- Ticket 047 — props for the inner mapping component.
 type MiniMapNodesProps n =
-  { nodeColor :: Maybe (GetMiniMapNodeAttribute n)
-  , nodeStrokeColor :: Maybe (GetMiniMapNodeAttribute n)
-  , nodeClassName :: Maybe (GetMiniMapNodeAttribute n)
+  { nodeColor :: Maybe (MiniMapNodeAttribute n)
+  , nodeStrokeColor :: Maybe (MiniMapNodeAttribute n)
+  , nodeClassName :: Maybe (MiniMapNodeAttribute n)
   , nodeBorderRadius :: Number
   , nodeStrokeWidth :: Maybe Number
   , nodeComponent :: Maybe (ReactComponent MiniMapNodeProps)
@@ -598,6 +620,9 @@ type NodeToolbarProps =
   , style :: Maybe (Object String)
   , className :: Maybe String
   , children :: ReactChildren JSX
+  -- | The rest of upstream's `HTMLAttributes<HTMLDivElement>`, spread onto
+  -- | the toolbar's `<div>` before its `data-id`, as upstream's is.
+  , restAttributes :: Maybe (Object Foreign)
   }
 
 -- Ticket 048 — `<NodeResizer />`.
@@ -660,6 +685,9 @@ type EdgeToolbarProps =
   , style :: Maybe (Object String)
   , className :: Maybe String
   , children :: ReactChildren JSX
+  -- | The rest of upstream's `HTMLAttributes<HTMLDivElement>`, spread onto
+  -- | the toolbar's `<div>` last, as upstream's is.
+  , restAttributes :: Maybe (Object Foreign)
   }
 
 -- | Ticket 040 — `<NodeRenderer />`. Mirrors

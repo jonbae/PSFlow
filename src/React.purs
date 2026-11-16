@@ -232,6 +232,7 @@ import React.Types
   , EdgeToolbarProps
   , HandleProps
   , GetMiniMapNodeAttribute
+  , MiniMapNodeAttribute(..)
   , MiniMapNodeProps
   , MiniMapNodes
   , MiniMapNodesProps

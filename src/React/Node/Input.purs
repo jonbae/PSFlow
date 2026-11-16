@@ -51,4 +51,7 @@ inputNode = unsafePerformEffect $ reactComponent "InputNode" \(props :: NodeProp
           , className: Nothing
           , style: Nothing
           , innerRef: null
+          , onMouseDown: Nothing
+          , onTouchStart: Nothing
+          , restAttributes: Nothing
           }

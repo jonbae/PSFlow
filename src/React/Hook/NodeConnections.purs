@@ -54,7 +54,7 @@ type UseNodeConnectionsParams =
 newtype UseNodeConnectionsHook hooks =
   UseNodeConnectionsHook
     ( UseEffect (UnsafeReference (Array NodeConnection))
-        ( UseRef (Array NodeConnection)
+        ( UseRef (Maybe (Array NodeConnection))
             ( UseStore (Array NodeConnection)
                 ( UseContext (Maybe String) hooks )
             )
@@ -92,22 +92,33 @@ useNodeConnections params = coerceHook React.do
       Nothing -> [] :: Array NodeConnection
       Just inner -> handleConnectionsInOrder inner
 
-  prevRef <- useRef ([] :: Array NodeConnection)
+  -- TS holds the previous connections in a ref that starts `null`, and the
+  -- first effect only fills it: neither handler runs at mount.
+  prevRef <- useRef (Nothing :: Maybe (Array NodeConnection))
 
   useEffect (UnsafeReference connections) do
-    prev <- readRef prevRef
-    let
-      droppedConns = Array.filter (notIn connections) prev
-      addedConns = Array.filter (notIn prev) connections
-    when (not (Array.null droppedConns)) do
-      for_ params.onDisconnect \cb -> cb droppedConns
-    when (not (Array.null addedConns)) do
-      for_ params.onConnect \cb -> cb addedConns
-    writeRef prevRef connections
+    readRef prevRef >>= case _ of
+      Nothing -> pure unit
+      Just prev -> do
+        let
+          droppedConns = Array.filter (notIn connections) prev
+          addedConns = Array.filter (notIn prev) connections
+        when (not (Array.null droppedConns)) do
+          for_ params.onDisconnect \cb -> cb droppedConns
+        when (not (Array.null addedConns)) do
+          for_ params.onConnect \cb -> cb addedConns
+    writeRef prevRef (Just connections)
     pure (pure unit)
 
   pure connections
 
+-- | Whether `x` is missing from `xs`, compared as upstream's lookup keys its
+-- | connections: by their two ends and handles, not by edge.
 notIn :: Array NodeConnection -> NodeConnection -> Boolean
-notIn xs x = not (Array.any (eq x) xs)
+notIn xs x = not (Array.any (sameEnds x) xs)
+  where
+  sameEnds a b =
+    a.source == b.source && a.sourceHandle == b.sourceHandle
+      && a.target == b.target
+      && a.targetHandle == b.targetHandle
 

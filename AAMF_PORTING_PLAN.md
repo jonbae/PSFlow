@@ -77,7 +77,13 @@ scenarios. See the [completion evidence](aamf/step4/order-8/README.md).
 [ticket 059](tickets/059-layer1-behavioral-parity-coverage.md) tracks stays
 deferred. The two caller differences it found are fixed in
 [#206](https://github.com/jonbae/PSFlow/pull/206), and the Linux checkpoint
-passes 153 of 153 scenarios. Orders 10–12 remain open.
+passes 153 of 153 scenarios.
+**Order 10 is complete, 2026-11-16 UTC:** every field of the 14 E02 units has
+a reviewed disposition in [the type contract review](AAMF_TYPE_CONTRACT_REVIEW.md),
+and each branch a JavaScript consumer reaches is compared with upstream by a
+server-render suite and a new browser differential. The 20 gaps they found
+are fixed, and two older differences outside the type contracts are filed as
+issues. Orders 11 and 12 remain open.
 
 Overall port completion remains open; [Step 4](#step-4-close-the-completion-criteria)
 lists what is left.
@@ -406,14 +412,16 @@ relevant name is not proof it reaches the intended branch.
 
 ## Step 4: close the completion criteria
 
-**Status: open, 2026-11-13 UTC.** Step 3 finished its queue, but two of the
+**Status: open, 2026-11-16 UTC.** Step 3 finished its queue, but two of the
 six [completion criteria](#completion-criteria) still have open work. The
 other four hold. The gates and the full net pass from fresh output, with no
 transitional claim in any register. Stage 5 has no passthrough exports.
 `index.js`, `React`, and the package give consumers the compatibility they
 claim. And rows 3 through 9 are complete, so behavior debt is implemented or
 gated. Row 9 found two caller differences outside the changelog audit's
-range, and both are fixed.
+range, and both are fixed. Row 10 is complete too, and with it the field
+review the first criterion needs; row 11 brings the reconciliation map up to
+date with it.
 
 | Completion criterion | Rows that close it |
 |---|---|
@@ -442,7 +450,7 @@ million tokens, and row 8 is about half of that.
 | 7 | **Complete in [#203](https://github.com/jonbae/PSFlow/pull/203).** #4880, #5266, #5515 and #5550 are in `function`, and #4929, #5090, #5118 and #5263 are in `unit`. Only #4880 changed `isInputDOMNode`. #5090, #5118 and #5263 changed `useKeyPress`, a reduced port that is now ported as upstream has it. #5118 and #5263 had never been ported and are marked `misfiled`. The oracle bundles `adoptUserNodes`, `XYHandle`, `isInputDOMNode`, `hasSelector` and `areSetsEqual`. Its adoption differential found that a rebuilt root parent kept its `rootParentIndex`, which undid #5550 after any change that rebuilt the nodes. That is fixed. | `Test.Parity.Adoption`, `Test.Parity.Handle`, `Test.Parity.Dom`, `Test.React.Container.PaneSelection` and `Test.React.Hook.KeyPress` run in `spago test`. `parity/boundary/key-press.test.mjs` compares both libraries' `useKeyPress` through `index.js`, and 12 of its 15 checks failed before the port. Reverting each change's port turns a new check red. No `gate-pending` row names `unit` or `function`, and the Linux wave passes 116 of 116. | Done |
 | 8 | **Complete, 2026-11-13 UTC.** All 42 rows are in system. [The row-by-row review](aamf/step4/order-8/README.md) compares each upstream patch with its port and names the branch observable. Twenty-four focused scenarios replace insufficient assignments; the review also fixes missing live connection reads, selection/abort cleanup, handle children, scroll-event forwarding and hidden-container resize handling. | All 42 branch receipts pass on both sides and captures; 19 broken-port experiments are rejected, and the surviving exploratory drag probe led to a stronger click-distance witness. The audit tests pass 96 checks; the changelog audit has zero gaps and zero gate-pending rows. The final Linux checkpoint passes 151 of 151. | Done |
 | 9 | **Complete in [#205](https://github.com/jonbae/PSFlow/pull/205).** `Test.Parity.InternalNodes` runs both functions against the oracle, which bundles them. Each side adopts its own user nodes from one description, which adds every dimension rung, `selectable`, `dragging`, and handle bounds or none to adoption's. Positions include `-0` and `NaN`, and each rect member is compared as `Object.is` compares it. The PSFlow side hands `getNodesInside` the array `orderedInternalNodes` builds, under shuffled ids, and the ids come back compared in order. Neither port changed. Reading their callers found two differences, both fixed in [#206](https://github.com/jonbae/PSFlow/pull/206): the initial `fitView` bounds skipped upstream's dimension filter, and a multi-node drag clamped each node to `nodeExtent` on its own, where upstream's `XYDrag` stops the group as a whole. `parity/boundary/initial-fit-view.test.mjs` failed 5 of its 8 checks before the first fix. `Test.System.XYDrag.DragGroupExtent` and the net's `drag-selection-against-node-extent` failed before the second. | 20 fixed witnesses, 500 generated cases for each function, and four falsification probes pass in `spago test`. Each of 15 broken ports turns the module red. The generated cases alone catch 14; the 15th keeps a repeated id's last place, and only a fixed witness repeats an id. [Ticket 059](tickets/059-layer1-behavioral-parity-coverage.md) lists both functions as covered, and none as deferred. | Done |
-| 10 | Audit the type contracts field by field (Step 2's W10). Scope it first, because Orders G and H already compared many of the 14 E02 units' fields with upstream. Write `AAMF_TYPE_CONTRACT_REVIEW.md` one field and its callers at a time. | The [W10 contract](AAMF_STEP2_RESULTS.md#w10--audit-remaining-type-and-boundary-contracts-by-field): each guard, default, and absence branch is compared with an oracle call or a falsifying test, and each demonstrated gap is fixed in its own task. | 200k–500k |
+| 10 | **Complete, 2026-11-16 UTC.** [The type contract review](AAMF_TYPE_CONTRACT_REVIEW.md) takes the 14 E02 units' 354 members one field at a time, cites what Orders G, H and I and rows 3, 6 and 7 already compared, and compares the rest. `parity/boundary/chrome-contracts.test.mjs` server-renders each value of each chrome component's and `<Handle />`'s props on both sides. `parity/boundary/flow-contracts.test.mjs` mounts `<ReactFlow />` in Chromium on both sides through a new browser harness and compares the store, the lookups, the DOM, the callbacks and the console, after mount and after driving. The 20 gaps they found are fixed, among them `null` key codes, the flow's `id` as `rfId`, the store's `onError` default, `fitView`'s option lifecycle, `fitBounds`' padding union, `MiniMap`'s string attributes, `ariaLabel` and sizing, and the rest attributes of `ControlButton`, `Handle` and both toolbars. Two older differences are filed: [A custom node renders once more than upstream at mount](https://github.com/jonbae/PSFlow/issues/207) and [A node selected in place re-renders on the next store notification](https://github.com/jonbae/PSFlow/issues/208). | The [W10 contract](AAMF_STEP2_RESULTS.md#w10--audit-remaining-type-and-boundary-contracts-by-field): at the starting commit 119 of 307 server-render cases and 52 of 442 browser cases differed. All 317 and 456 pass, four of them as the first issue's stated difference, which fails as stale once fixed; a falsification case must differ. Each gap's fix is its own commit, with its cases red before it. The gates pass; [the evidence](aamf/step4/order-10/README.md) records them and the Linux wave. | Done |
 | 11 | Refresh the reconciliation map. `aamf/step2/reconciliation.json` and [the mapping](AAMF_STEP2_MAPPING.md) still hold Step 2's dispositions: 42 Reuse, 99 Add evidence, 25 Fix behavior, 4 Finish conversion, and 1 Accepted difference. Update them from Steps 3 and 4 by profile. Use a script, because the JSON file is 16,673 lines. | Every unit's disposition and evidence describe the current code. No unit says Fix behavior or Finish conversion unless a row here owns it. | 60k–150k |
 | 12 | Record the procedure for the next baseline. Steps 1 and 2 recorded their AAMF runs. Steps 3 and 4 ran through PSFlow's own workflow, with the AAMF inventory as context rather than as an autonomous AAMF migration. Record that, and record what a baseline bump reruns. | Someone holding only the repository can redo the inventory, the reconciliation, and the gates against a new baseline. | 40k–100k |
 

@@ -471,41 +471,26 @@ pairError field shape got =
     <> "."
 
 -- | Upstream `KeyCode` is `string | string[]`, and the prop is typed
--- | `KeyCode | null` — three states, because `null` **disables the key** while
--- | absence means *use the default*, and the defaults are not nothing
--- | (`"Backspace"` for delete, `"Shift"` for selection). `Maybe KeyCode` holds
--- | two of the three.
+-- | `KeyCode | null` — three states, because `null` **turns the key off**
+-- | while absence means *use the default*, and the defaults are not nothing
+-- | (`"Backspace"` for delete, `"Shift"` for selection).
 -- |
--- | So `null` is refused rather than folded in with absence. Folding it in is
--- | worse than ignoring the prop: a consumer writing `deleteKeyCode={null}` to
--- | switch deletion off would get deletion **on**, bound to Backspace — the
--- | opposite of what they asked for, silently. Refusing it is the same
--- | decision as the deferred props, one level down: a prop you set either
--- | works or throws.
--- |
--- | An empty array *is* folded into `Nothing`, because it names no key and so
--- | can never match one, which is what absence already does.
+-- | `Maybe KeyCode` holds the other two, and `null` crosses as the key code
+-- | that names no key. Every reader of the five props is `useKeyPress`, where
+-- | upstream's `null` attaches no listener and an empty array attaches
+-- | listeners that never match: neither is ever pressed, neither prevents a
+-- | default, and both read `false`. So `MultiKey []` is upstream's `null` as
+-- | a consumer sees it, without a fourth state in the internals.
 keyCodeIn :: String -> Undefinable Foreign -> Maybe KeyCode
-keyCodeIn field u
-  | isNull u =
-      unsafeThrow $
-        "ps-flow: `" <> field
-          <> "` was set to null, which upstream reads as \"disable this key\". "
-          <> "ps-flow cannot express that yet — its key-code type has no "
-          <> "disabled state, so a null would silently fall back to the "
-          <> "default key instead. Omit the prop to get the default, or pass "
-          <> "the key you want."
+keyCodeIn _ u
+  | isNull u = Just (MultiKey [])
 keyCodeIn field u = map (keyCodeValueIn field) (fromUndefinable u)
 
--- | The same conversion with the null guard removed, for the one caller that
--- | must not have it.
--- |
--- | `useKeyPress`'s first parameter *defaults* to `null` upstream, so there
--- | `null` and absent mean the same thing — listen for no key — and both are
--- | ps-flow's `Nothing`. The guard above exists because on the five key-code
--- | *props* the two differ, `null` meaning "disable this key" against absence
--- | meaning "use the default"; where there is no default to fall back to,
--- | there is nothing to warn about.
+-- | The conversion of a key code that is present, and the whole conversion
+-- | for `useKeyPress`'s first parameter. That parameter *defaults* to `null`
+-- | upstream, so there `null` and absent mean the same thing — listen for no
+-- | key — and both are ps-flow's `Nothing`. On the five key-code props the
+-- | two differ, which is why `keyCodeIn` reads `null` first.
 keyCodeValueIn :: String -> Foreign -> KeyCode
 keyCodeValueIn field raw =
   case asString raw of

@@ -57,6 +57,7 @@ import Prelude
 import Boundary.Callbacks (JsIsValidConnection, JsOnConnect, isValidConnectionIn, onConnectIn)
 import Boundary.Elements (asCssObject, asCssStyle)
 import Boundary.Enums (alignIn, handleTypeIn, positionIn)
+import Boundary.Rest (restOf)
 import Boundary.Undefined (Undefinable, fromUndefinable, orNullable)
 import Boundary.Untagged (asArray, asString, typeName)
 import Data.Either (Either(..))
@@ -66,6 +67,7 @@ import Effect.Exception.Unsafe (unsafeThrow)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)
 import React.Additional.NodeToolbar (nodeToolbar) as PS
+import React.Basic.Events (EventHandler)
 import React.Basic (JSX, ReactComponent, element)
 import React.Basic.Hooks (ReactChildren, memo, reactChildrenFromArray, reactComponentWithChildren)
 import React.FFI.ForwardRef (forwardNullableRef)
@@ -92,6 +94,8 @@ type JsHandleProps =
   , isValidConnection :: Undefinable JsIsValidConnection
   , className :: Undefinable String
   , style :: Undefinable Foreign
+  , onMouseDown :: Undefinable EventHandler
+  , onTouchStart :: Undefinable EventHandler
   -- | Upstream's name for what ps-flow spells `innerRef`, and the reason this
   -- | component is a `forwardRef`. React 18 strips `ref` from the props object
   -- | before the component sees it and hands it to the render function
@@ -116,6 +120,10 @@ convertHandle p forwarded =
   , className: fromUndefinable p.className
   , style: map asCssStyle (fromUndefinable p.style)
   , innerRef: orNullable p.ref forwarded
+  , onMouseDown: fromUndefinable p.onMouseDown
+  , onTouchStart: fromUndefinable p.onTouchStart
+  -- Upstream's `...rest`, which its `<div>` spreads last.
+  , restAttributes: restOf p
   }
 
 -- | `memo(forwardRef(…))`, which is upstream's shape exactly.
@@ -158,6 +166,8 @@ convertNodeToolbar p =
   , style: map asCssObject (fromUndefinable p.style)
   , className: fromUndefinable p.className
   , children: p.children
+  -- Upstream's `...rest`, which its `<div>` spreads before `data-id`.
+  , restAttributes: restOf p
   }
 
 -- | `string | string[]` — one node, or the group of them one toolbar floats

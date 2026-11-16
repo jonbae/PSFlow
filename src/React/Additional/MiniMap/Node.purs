@@ -6,6 +6,7 @@ module React.Additional.MiniMap.Node
 
 import Prelude
 
+import Data.Array (foldr) as Array
 import Data.Maybe (Maybe(..))
 import Data.Number.Format (toString) as NumberFormat
 import Effect.Unsafe (unsafePerformEffect)
@@ -23,14 +24,22 @@ import Web.UIEvent.MouseEvent (MouseEvent)
 toForeignStyle :: Object String -> Foreign
 toForeignStyle = unsafeCoerce
 
+-- | TS `color || background || backgroundColor`: the first truthy one, so
+-- | an empty colour falls through to the node's own style.
 pickFill :: Maybe String -> Maybe (Object String) -> Maybe String
-pickFill color style = case color of
-  Just c -> Just c
-  Nothing -> case style of
-    Nothing -> Nothing
-    Just s -> case Object.lookup "background" s of
-      Just b -> Just b
-      Nothing -> Object.lookup "backgroundColor" s
+pickFill color style =
+  firstTruthy
+    [ color
+    , Object.lookup "background" =<< style
+    , Object.lookup "backgroundColor" =<< style
+    ]
+  where
+  firstTruthy = Array.foldr (\candidate rest -> if truthy candidate then candidate else rest) Nothing
+  truthy = case _ of
+    Just value -> jsTruthy value
+    Nothing -> false
+
+foreign import jsTruthy :: String -> Boolean
 
 miniMapNode :: ReactComponent MiniMapNodeProps
 miniMapNode =

@@ -9,6 +9,7 @@
 module React.Store.InitialState
   ( InitialStateOptions
   , defaultInitialStateOptions
+  , defaultOnError
   , initialState
   ) where
 
@@ -28,6 +29,7 @@ import React.Container.InitValues
   )
 import React.Types.Edges (Edge)
 import React.Types.Nodes (Node)
+import React.FFI.Env (isDevelopment)
 import React.Types.Store (ReactFlowState)
 import React.Types.General (FitViewOptions)
 import System.Constants (defaultAriaLabelConfig, infiniteExtent)
@@ -45,8 +47,9 @@ import System.Types.Geometry
   , mkSnapGrid
   , mkTransform
   )
+import System.Types.Node (OnError)
 import System.Utils.Graph (getInternalNodesBounds)
-import System.Utils.General (getViewportForBounds, identityTransform)
+import System.Utils.General (devWarn, getViewportForBounds, identityTransform)
 import System.Utils.Store (adoptUserNodes, defaultUpdateNodesOptions, updateConnectionLookup)
 
 -- | Caller-controllable knobs. Everything else takes a hard-coded
@@ -222,7 +225,7 @@ initialState opts =
     , onNodesDelete: Nothing
     , onEdgesDelete: Nothing
     , onDelete: Nothing
-    , onError: Nothing
+    , onError: Just defaultOnError
     , onViewportChangeStart: Nothing
     , onViewportChange: Nothing
     , onViewportChangeEnd: Nothing
@@ -241,3 +244,11 @@ initialState opts =
     , onNodesChangeMiddlewareMap: Map.empty
     , onEdgesChangeMiddlewareMap: Map.empty
     }
+
+-- | Upstream's initial `onError`, `devWarn`: in development it writes
+-- | `[React Flow]: <message> Help: https://reactflow.dev/error#<id>` with
+-- | `console.warn`, so an error a consumer handles nowhere still shows. One
+-- | value, so that the store's JavaScript view can recognise it and hand out
+-- | upstream's function in its place.
+defaultOnError :: OnError
+defaultOnError = devWarn isDevelopment
