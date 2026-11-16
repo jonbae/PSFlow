@@ -482,7 +482,7 @@ pairError field shape got =
 -- | default, and both read `false`. So `MultiKey []` is upstream's `null` as
 -- | a consumer sees it, without a fourth state in the internals.
 keyCodeIn :: String -> Undefinable Foreign -> Maybe KeyCode
-keyCodeIn field u
+keyCodeIn _ u
   | isNull u = Just (MultiKey [])
 keyCodeIn field u = map (keyCodeValueIn field) (fromUndefinable u)
 

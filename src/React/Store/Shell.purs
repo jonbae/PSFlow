@@ -22,6 +22,7 @@ import Effect (Effect)
 import Effect.Aff (launchAff_)
 import Effect.Aff.AVar as AffAVar
 import Effect.Ref as Ref
+import Effect.Class (liftEffect)
 import React.Store.Action (Action(..), Effect_(..))
 import React.Store.InitialState (InitialStateOptions, initialState)
 import React.Store.Reduce (reduce)
@@ -160,16 +161,17 @@ createStore opts = do
         case s.panZoom of
           Just pz -> pz.setTranslateExtent ext
           Nothing -> pure unit
-      ResolveFitView b -> do
+      ResolveFitView options -> do
         -- Mirror the React store's `resolveFitView`: apply the fitted
         -- viewport via `panZoom.setViewport` (which fires d3's zoom event,
         -- so `ZoomPane.onTransformChange` writes the new `state.transform`),
-        -- then resolve the awaiting `fitView()` AVar. No panZoom yet → just
-        -- resolve, matching upstream's early return.
+        -- then resolve the awaiting `fitView()` AVar and clear it, as
+        -- upstream's `set({ fitViewResolver: null })` does once the fit has
+        -- settled. No panZoom yet → just resolve.
         s <- Ref.read stateRef
         let
           resolveAVar = case s.fitViewResolver of
-            Just avar -> AffAVar.put b avar
+            Just avar -> AffAVar.put true avar
             Nothing -> pure unit
         case s.panZoom of
           Nothing -> launchAff_ resolveAVar
@@ -182,8 +184,9 @@ createStore opts = do
               , minZoom: s.minZoom
               , maxZoom: s.maxZoom
               }
-              s.fitViewOptions
+              options
             resolveAVar
+            liftEffect $ dispatch_ (PatchState _ { fitViewResolver = Nothing })
       LogError code -> do
         s <- Ref.read stateRef
         case s.onError of

@@ -165,9 +165,10 @@ reduceSetNodes state nodes =
     s1 = adoptNodesInto state nodes
     fitViewNow = state.fitViewQueued && s1.nodesInitialized
   in
-    { state: s1
-        { fitViewQueued = if fitViewNow then false else state.fitViewQueued }
-    , effects: if fitViewNow then [ ResolveFitView true ] else []
+    { state:
+        if fitViewNow then s1 { fitViewQueued = false, fitViewOptions = Nothing }
+        else s1
+    , effects: if fitViewNow then [ ResolveFitView state.fitViewOptions ] else []
     }
 
 -- | Re-adopt `nodes` into the lookups and write
@@ -282,8 +283,8 @@ reduceMergeNodeInternals state r
         -- `onNodesChange` fires. `r.triggerFitView` is ps-flow's: nothing
         -- sets it, and upstream's action takes no such parameter.
         fitNow = state.fitViewQueued || r.triggerFitView
-        s2 = if fitNow then s1 { fitViewQueued = false } else s1
-        fit = if fitNow then [ ResolveFitView true ] else []
+        s2 = if fitNow then s1 { fitViewQueued = false, fitViewOptions = Nothing } else s1
+        fit = if fitNow then [ ResolveFitView state.fitViewOptions ] else []
         afterChanges =
           if Array.null r.changes then { state: s2, effects: [] }
           else reduceTriggerNodeChanges s2 r.changes
