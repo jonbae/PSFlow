@@ -143,10 +143,14 @@ const resolve = (props, library) =>
     Object.entries(props).map(([key, value]) => [key, value?.perSide ? value(library) : value])
   );
 
+// A label that keeps what `JSON.stringify` loses: `NaN`, the infinities and
+// `-0` would otherwise print as `null` and `0`.
 const describe = (value) => {
   if (value === undefined) return 'undefined';
   if (typeof value === 'function') return value.label ?? 'a function';
   if (typeof value === 'symbol') return value.toString();
+  if (typeof value === 'number') return Object.is(value, -0) ? '-0' : String(value);
+  if (Array.isArray(value)) return `[${value.map(describe).join(',')}]`;
   return JSON.stringify(value);
 };
 const labelled = (label, fn) => Object.assign(fn, { label });
@@ -367,4 +371,12 @@ handleCases({
   'aria-label': ['label'],
   tabIndex: [0],
   onMouseEnter: [() => {}],
+});
+
+// `size || defaultSize[variant]`, `gap * zoom || 1` and `offset * zoom || …`
+// fall back on any falsy number, `NaN` included.
+cases('Background', 'data-testid="rf__background"', {
+  size: [NaN, -0],
+  gap: [NaN, [NaN, 4]],
+  offset: [NaN, [5, NaN]],
 });
