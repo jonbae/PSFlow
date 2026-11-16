@@ -776,4 +776,26 @@ handleCase('a rest onClick — a click', ({ record }) => ({ onClick: record('Han
   mouse(el, 'click', center(el));
 });
 
+// The hooks' `onConnect` and `onDisconnect`: upstream calls neither at
+// mount, then each with the connections that appeared or went, keyed by
+// edge id.
+for (const [label, hook] of [
+  ['useNodeConnections', (library, record) => library.useNodeConnections({ handleType: 'target', onConnect: record('onConnect'), onDisconnect: record('onDisconnect') })],
+  ['useHandleConnections', (library, record) => library.useHandleConnections({ type: 'target', onConnect: record('onConnect'), onDisconnect: record('onDisconnect') })],
+]) {
+  cases.push({
+    name: `${label}: onConnect and onDisconnect — mount, then an edge added and one removed`,
+    props: (context) => {
+      const { nodes, edges, ...rest } = hookFlow((library) => hook(library, context.record))(context);
+      return { ...rest, nodes: undefined, edges: undefined, defaultNodes: nodes, defaultEdges: edges };
+    },
+    drive: async (c) => {
+      c.seen.instance.addEdges([{ id: 'c-b', source: 'c', target: 'b' }]);
+      await c.settle();
+      c.seen.instance.deleteElements({ edges: [{ id: 'a-b' }] });
+      await c.settle();
+    },
+  });
+}
+
 export default cases;

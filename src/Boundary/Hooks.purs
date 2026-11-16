@@ -103,8 +103,7 @@ import Boundary.Callbacks
   , withInProgress
   )
 import Boundary.Elements
-  ( JsConnection
-  , JsEdge
+  ( JsEdge
   , JsEdgeChange
   , JsInternalNode
   , JsNode
@@ -184,8 +183,7 @@ import React.Types.Edges (Edge)
 import React.Types.Nodes (Node)
 import React.Types.Store (ReactFlowState)
 import System.Types.Connection
-  ( Connection
-  , ConnectionState(..)
+  ( ConnectionState(..)
   , NodeConnection
   )
 import System.Types.Edge (EdgeChange)
@@ -247,15 +245,14 @@ type JsUseOnSelectionChangeOptions = { onChange :: Undefinable JsOnSelectionChan
 
 -- | `useHandleConnections`' parameter. The rename is the one every nested type
 -- | tag on this surface carries — PureScript keeps `type` for the element's own
--- | tag — and the handlers take plain `Connection`s here where
--- | `useNodeConnections`' take `NodeConnection`s, which is upstream's
--- | inconsistency and not ps-flow's.
+-- | tag. Upstream declares the handlers' argument `Connection[]` and passes
+-- | the lookup's connections, `edgeId` and all, as `useNodeConnections` does.
 type JsUseHandleConnectionsParams =
   { "type" :: String
   , id :: Undefinable String
   , nodeId :: Undefinable String
-  , onConnect :: Undefinable (EffectFn1 (Array JsConnection) Unit)
-  , onDisconnect :: Undefinable (EffectFn1 (Array JsConnection) Unit)
+  , onConnect :: Undefinable (EffectFn1 (Array JsHandleConnection) Unit)
+  , onDisconnect :: Undefinable (EffectFn1 (Array JsHandleConnection) Unit)
   }
 
 -- | `useNodeConnections`' parameter. Upstream calls the node id `id` on this
@@ -522,8 +519,8 @@ useHandleConnections = mkEffectFn1 \params ->
           { handleType: handleTypeIn "useHandleConnections.type" params."type"
           , id: fromUndefinable params.id
           , nodeId: fromUndefinable params.nodeId
-          , onConnect: map connectionsHandler (fromUndefinable params.onConnect)
-          , onDisconnect: map connectionsHandler (fromUndefinable params.onDisconnect)
+          , onConnect: map nodeConnectionsHandler (fromUndefinable params.onConnect)
+          , onDisconnect: map nodeConnectionsHandler (fromUndefinable params.onDisconnect)
           }
       )
 
@@ -550,12 +547,6 @@ useNodeConnections = mkEffectFn1 \params ->
 -- | `useNodeConnections`' take `NodeConnection`s. That is upstream's own
 -- | inconsistency between two hooks that answer the same question, and it is
 -- | reproduced rather than tidied.
-connectionsHandler
-  :: EffectFn1 (Array JsConnection) Unit
-  -> Array Connection
-  -> Effect Unit
-connectionsHandler f = \connections -> runEffectFn1 f (map connectionOut connections)
-
 nodeConnectionsHandler
   :: EffectFn1 (Array JsHandleConnection) Unit
   -> Array NodeConnection

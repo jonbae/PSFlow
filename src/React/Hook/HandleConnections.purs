@@ -39,7 +39,7 @@ import React.Basic.Hooks (Hook, UnsafeReference(..), UseContext, UseEffect, UseR
 import React.Basic.Hooks as React
 import React.Context.NodeId (useNodeId)
 import React.Hook.Store (UseStore, useStore)
-import System.Types.Connection (Connection, HandleConnection)
+import System.Types.Connection (HandleConnection)
 import System.Types.Handle (HandleType(..))
 import System.Utils.Store (handleConnectionsInOrder)
 
@@ -50,14 +50,16 @@ type UseHandleConnectionsParams =
   { handleType :: HandleType
   , id :: Maybe String
   , nodeId :: Maybe String
-  , onConnect :: Maybe (Array Connection -> Effect Unit)
-  , onDisconnect :: Maybe (Array Connection -> Effect Unit)
+  -- | Upstream declares `Connection[]` and hands over the lookup's own
+  -- | connections, which carry their `edgeId` too.
+  , onConnect :: Maybe (Array HandleConnection -> Effect Unit)
+  , onDisconnect :: Maybe (Array HandleConnection -> Effect Unit)
   }
 
 newtype UseHandleConnectionsHook hooks =
   UseHandleConnectionsHook
     ( UseEffect (UnsafeReference (Array HandleConnection))
-        ( UseRef (Array HandleConnection)
+        ( UseRef (Maybe (Array HandleConnection))
             ( UseStore (Array HandleConnection)
                 ( UseContext (Maybe String) hooks )
             )
@@ -105,36 +107,32 @@ useHandleConnections params = coerceHook React.do
       Nothing -> [] :: Array HandleConnection
       Just inner -> handleConnectionsInOrder inner
 
-  -- Track the previous connection set so we can compute diffs for the
-  -- onConnect / onDisconnect callbacks.
-  prevRef <- useRef ([] :: Array HandleConnection)
+  -- TS holds the previous connections in a ref that starts `null`, and the
+  -- first effect only fills it: neither handler runs at mount.
+  prevRef <- useRef (Nothing :: Maybe (Array HandleConnection))
 
   useEffect (UnsafeReference connections) do
-    prev <- readRef prevRef
-    let
-      droppedConns = Array.filter (notIn connections) prev
-      addedConns = Array.filter (notIn prev) connections
-    when (not (Array.null droppedConns)) do
-      for_ params.onDisconnect \cb -> cb (map toConnection droppedConns)
-    when (not (Array.null addedConns)) do
-      for_ params.onConnect \cb -> cb (map toConnection addedConns)
-    writeRef prevRef connections
+    readRef prevRef >>= case _ of
+      Nothing -> pure unit
+      Just prev -> do
+        let
+          droppedConns = Array.filter (notIn connections) prev
+          addedConns = Array.filter (notIn prev) connections
+        when (not (Array.null droppedConns)) do
+          for_ params.onDisconnect \cb -> cb droppedConns
+        when (not (Array.null addedConns)) do
+          for_ params.onConnect \cb -> cb addedConns
+    writeRef prevRef (Just connections)
     pure (pure unit)
 
   pure connections
 
--- | Strip the `edgeId` field to project a `HandleConnection` to a plain
--- | `Connection`. Used when invoking the user's callback.
-toConnection :: HandleConnection -> Connection
-toConnection c =
-  { source: c.source
-  , target: c.target
-  , sourceHandle: c.sourceHandle
-  , targetHandle: c.targetHandle
-  }
-
--- | Predicate: `x` is *not* present in `xs` (by structural equality on
--- | the `HandleConnection` record).
+-- | Whether `x` is missing from `xs`, compared as upstream's lookup keys its
+-- | connections: by their two ends and handles, not by edge.
 notIn :: Array HandleConnection -> HandleConnection -> Boolean
-notIn xs x = not (Array.any (eq x) xs)
-
+notIn xs x = not (Array.any (sameEnds x) xs)
+  where
+  sameEnds a b =
+    a.source == b.source && a.sourceHandle == b.sourceHandle
+      && a.target == b.target
+      && a.targetHandle == b.targetHandle
