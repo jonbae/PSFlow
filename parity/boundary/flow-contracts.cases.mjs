@@ -485,8 +485,17 @@ held(
   'connectionLineComponent — a held connection',
   ({ record, h }) => ({
     ...connectionProps({})({ record }),
-    connectionLineComponent: ({ fromX, fromY, toX, toY, connectionLineType, fromPosition, toPosition, connectionStatus }) =>
-      h('path', { className: 'mine', d: `M${fromX},${fromY} L${toX},${toY}`, 'data-type': connectionLineType, 'data-from': fromPosition, 'data-to': toPosition, 'data-status': String(connectionStatus) }),
+    connectionLineComponent: ({ fromX, fromY, toX, toY, connectionLineType, fromPosition, toPosition, connectionStatus, toNode, toHandle }) =>
+      h('path', {
+        className: 'mine',
+        d: `M${fromX},${fromY} L${toX},${toY}`,
+        'data-type': connectionLineType,
+        'data-from': fromPosition,
+        'data-to': toPosition,
+        'data-status': String(connectionStatus),
+        'data-to-node': toNode === null ? 'null' : typeof toNode,
+        'data-to-handle': toHandle === null ? 'null' : typeof toHandle,
+      }),
   }),
   (c) => connect(c, { release: false, offset: { x: 60, y: 60 } })
 );
