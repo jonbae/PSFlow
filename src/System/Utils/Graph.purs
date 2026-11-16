@@ -336,7 +336,9 @@ fitViewport params mOptions = do
   let
     options = fromMaybe defaultFitViewOptions mOptions
     nodesToFit = filterFitViewNodes params.nodes options
-  if Map.size nodesToFit == 0 then pure true
+  -- TS returns early on an empty flow, and only then: options that pick no
+  -- node fit the empty bounds, the zero rect at the origin.
+  if Map.size params.nodes == 0 then pure true
   else do
     let
       bounds = getInternalNodesBounds nodesToFit Nothing
