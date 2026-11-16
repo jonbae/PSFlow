@@ -172,6 +172,17 @@ handler reaches the store through an effect, and a server render runs none, so
 this gate holds that a handler was accepted and the net's `callbacks` section
 holds that it was called.
 
+Two of the boundary tests compare the published types' fields with upstream,
+one value of one field at a time, as
+[the type contract review](AAMF_TYPE_CONTRACT_REVIEW.md) lists them.
+`chrome-contracts.test.mjs` server-renders the chrome components and
+`<Handle />`. `flow-contracts.test.mjs` needs what a server render can't give
+it: the props that take effect after mount, on input or after a measurement.
+It mounts `<ReactFlow />` in Playwright's Chromium, once per side, through
+`parity/boundary/browser/harness.mjs`, and compares the store, the DOM, the
+callbacks and the console. It needs `spago build` first, and Chromium
+installed with `npx playwright install chromium`.
+
 `parity:changelog` measures what a baseline bump costs, not what detects a
 divergence.
 

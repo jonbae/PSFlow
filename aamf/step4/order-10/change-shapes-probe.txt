@@ -1,0 +1,53 @@
+ok   node add index 0 
+ok   node add index 1 
+ok   node add index 1.5 
+ok   node add index 2.5 
+ok   node add index 0.5 
+ok   node add index -1 
+ok   node add index -1.5 
+ok   node add index NaN 
+ok   node add index 10 
+ok   node add index Infinity 
+ok   node add index -Infinity 
+ok   node add index undefined 
+ok   node add index 10000000000 
+ok   node add index 0 
+ok   node add no index key 
+ok   node two adds 
+ok   node select undefined 
+ok   node remove then select 
+ok   node select then remove 
+ok   node replace then select 
+ok   node change missing id 
+ok   edge add index 0 
+ok   edge add index 1 
+ok   edge add index 1.5 
+ok   edge add index 2.5 
+ok   edge add index 0.5 
+ok   edge add index -1 
+ok   edge add index -1.5 
+ok   edge add index NaN 
+ok   edge add index 10 
+ok   edge add index Infinity 
+ok   edge add index -Infinity 
+ok   edge add index undefined 
+ok   edge add index 10000000000 
+ok   edge add index 0 
+ok   edge add no index key 
+ok   edge two adds 
+ok   edge select undefined 
+ok   edge remove then select 
+ok   edge select then remove 
+ok   edge replace then select 
+ok   edge change missing id 
+ok   dimensions setAttributes true 
+ok   dimensions setAttributes false 
+ok   dimensions setAttributes width 
+ok   dimensions setAttributes height 
+ok   dimensions setAttributes undefined 
+ok   dimensions no dimensions, resizing 
+ok   dimensions resizing non-boolean 
+ok   dimensions setAttributes w/o dimensions 
+ok   position only dragging 
+ok   position positionAbsolute only 
+ok   position undefined position 
