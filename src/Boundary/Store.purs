@@ -110,7 +110,7 @@ import Boundary.Elements
   )
 import Boundary.Enums (connectionModeIn, handleTypeIn, interpolateModeIn, panOnScrollModeIn, positionIn, zIndexModeIn)
 import Boundary.FitView (JsFitViewOptions, fitViewOptionsIn)
-import Boundary.Flow (JsAriaLabelConfig, ariaLabelConfigIn, panOnDragIn)
+import Boundary.FlowMembers (JsAriaLabelConfig, ariaLabelConfigIn, panOnDragIn)
 import Boundary.Instance (JsHandleConnection, handleConnectionOut, setCenterOptionsIn)
 import Boundary.Original (originalOf, remembering)
 import Boundary.Promise (toPromise)

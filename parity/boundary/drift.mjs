@@ -275,7 +275,7 @@ const pairs = [
   {
     what: "AriaLabelConfig",
     ps: { file: "src/System/Constants.purs", type: "AriaLabelConfigOverride" },
-    js: { file: "src/Boundary/Flow.purs", type: "JsAriaLabelConfig" },
+    js: { file: "src/Boundary/FlowMembers.purs", type: "JsAriaLabelConfig" },
     renames: {
       nodeA11yDescriptionDefault: "node.a11yDescription.default",
       nodeA11yDescriptionKeyboardDisabled: "node.a11yDescription.keyboardDisabled",
