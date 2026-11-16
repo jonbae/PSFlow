@@ -45,6 +45,8 @@ import Data.Number (abs, round) as Number
 import Data.Tuple (Tuple(..))
 import Effect (Effect)
 import Effect.Aff (Aff)
+import Effect.Console as Console
+import Effect.Unsafe (unsafePerformEffect)
 import Web.HTML.HTMLElement (HTMLElement)
 import System.Constants (infiniteExtent)
 import System.FFI.D3Zoom (zoomTransformK, zoomTransformX, zoomTransformY)
@@ -228,7 +230,14 @@ updateChildNodePure node nodeLookup parentLookup options rootParentIndex =
     Nothing -> { node, nodeLookup, parentLookup, rootParentIndex }
     Just parentId ->
       case Map.lookup (parentToNode parentId) nodeLookup of
-        Nothing -> { node, nodeLookup, parentLookup, rootParentIndex }
+        -- TS writes this warning with `console.warn` from inside the same
+        -- update, in every environment, and moves on.
+        Nothing -> unsafePerformEffect do
+          Console.warn
+            ( "Parent node " <> unwrap parentId
+                <> " not found. Please make sure that parent nodes are in front of their child nodes in the nodes array."
+            )
+          pure { node, nodeLookup, parentLookup, rootParentIndex }
         Just parentNode ->
           let
             parentLookup1 = updateParentLookup node parentLookup
