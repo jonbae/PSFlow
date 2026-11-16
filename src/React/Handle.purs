@@ -33,13 +33,14 @@ import Effect (Effect)
 import Effect.Exception.Unsafe (unsafeThrow)
 import Effect.Unsafe (unsafePerformEffect)
 import Data.Function.Uncurried (runFn2)
+import Effect.Uncurried (runEffectFn1)
 import Foreign (Foreign, unsafeToForeign)
 import React.Basic (ReactComponent)
 import React.Basic.Events (EventHandler, SyntheticEvent, handler, syntheticEvent)
 import React.Basic.Hooks (memo, reactComponentWithChildren, reactChildrenToArray)
 import React.Basic.Hooks as React
 import React.Context.NodeId (useNodeId)
-import React.FFI.DOM (div_, opt)
+import React.FFI.DOM (div_, opt, spreadOver)
 import React.Hook.Store (UseStoreApi, useStore, useStoreApi)
 import React.Store.Action (Action(..))
 import React.Store.PanBy as StorePanBy
@@ -446,6 +447,10 @@ handle = unsafePerformEffect $ memo $ reactComponentWithChildren "Handle" \(prop
             , dragThreshold: state.connectionDragThreshold
             , handleDomNode: el
             }
+      -- TS: the consumer's own handler, after the connection has started.
+      for_ (case event of
+              Left _ -> props.onMouseDown
+              Right _ -> props.onTouchStart) \h -> runEffectFn1 h se
 
     onClick :: EventHandler
     onClick = handler syntheticEvent \se -> do
@@ -504,7 +509,9 @@ handle = unsafePerformEffect $ memo $ reactComponentWithChildren "Handle" \(prop
             store.dispatch
               ( PatchState (_ { connectionClickStartHandle = Nothing }) )
 
+  -- TS `<div … ref={ref} {...rest}>`: the rest comes last.
   pure $ div_
+    ( spreadOver (map unsafeToForeign props.restAttributes)
     { className
     , ref: props.innerRef
     , style: opt props.style
@@ -516,4 +523,5 @@ handle = unsafePerformEffect $ memo $ reactComponentWithChildren "Handle" \(prop
     , onTouchStart: onPointerDown
     , onClick: if slice.connectOnClick then onClick else handler syntheticEvent \_ -> pure unit
     }
+    )
     (reactChildrenToArray props.children)

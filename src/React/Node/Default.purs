@@ -54,6 +54,9 @@ defaultNode = unsafePerformEffect $ reactComponent "DefaultNode" \(props :: Node
         , className: Nothing
         , style: Nothing
         , innerRef: null
+        , onMouseDown: Nothing
+        , onTouchStart: Nothing
+        , restAttributes: Nothing
         }
         <> label
         <> element handle
@@ -69,4 +72,7 @@ defaultNode = unsafePerformEffect $ reactComponent "DefaultNode" \(props :: Node
           , className: Nothing
           , style: Nothing
           , innerRef: null
+          , onMouseDown: Nothing
+          , onTouchStart: Nothing
+          , restAttributes: Nothing
           }

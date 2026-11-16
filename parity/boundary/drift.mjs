@@ -239,6 +239,9 @@ const pairs = [
     ps: { file: "src/React/Types/Component.purs", type: "HandleProps" },
     js: { file: "src/Boundary/NodeChrome.purs", type: "JsHandleProps" },
     renames: { handleType: "type", innerRef: "ref" },
+    // Upstream's `<div … {...rest}>`, the rest of `HTMLAttributes`, which
+    // `Boundary.NodeChrome` collects with `Boundary.Rest.restOf`.
+    rest: "restAttributes",
   },
   {
     what: "NodeToolbarProps",

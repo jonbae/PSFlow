@@ -745,4 +745,35 @@ for (const [label, extra] of [
   });
 }
 
+// ── Handle's handlers and attributes ────────────────────────────────────
+//
+// Upstream's `<Handle />` calls the consumer's `onMouseDown` after it has
+// started a connection, and spreads every attribute it does not destructure
+// onto its `<div>` last, an `onClick` included.
+const handleCase = (label, handleProps, drive) =>
+  cases.push({
+    name: `Handle: ${label}`,
+    props: (context) => ({
+      autoPanOnConnect: false,
+      onConnectStart: context.record('onConnectStart'),
+      nodeTypes: {
+        h: () =>
+          context.h('div', null, 'H', context.h(context.library.Handle, { type: 'source', position: 'bottom', className: 'probe', ...handleProps(context) })),
+      },
+      nodes: context.graph().nodes.map((n) => (n.id === 'a' ? { ...n, type: 'h' } : n)),
+    }),
+    drive,
+    after: release,
+  });
+const pressHandle = async (c) => {
+  const el = c.container.querySelector('.react-flow__handle.probe');
+  mouse(el, 'mousedown', center(el));
+  await c.frame();
+};
+handleCase('onMouseDown — a press', ({ record }) => ({ onMouseDown: record('Handle.onMouseDown') }), pressHandle);
+handleCase('a rest onClick — a click', ({ record }) => ({ onClick: record('Handle.onClick'), title: 'T', 'data-kind': 'k' }), async (c) => {
+  const el = c.container.querySelector('.react-flow__handle.probe');
+  mouse(el, 'click', center(el));
+});
+
 export default cases;

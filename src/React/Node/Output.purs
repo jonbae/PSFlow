@@ -50,5 +50,8 @@ outputNode = unsafePerformEffect $ reactComponent "OutputNode" \(props :: NodePr
         , className: Nothing
         , style: Nothing
         , innerRef: null
+        , onMouseDown: Nothing
+        , onTouchStart: Nothing
+        , restAttributes: Nothing
         }
         <> label

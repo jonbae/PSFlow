@@ -317,6 +317,14 @@ type HandleProps =
   -- | reason `PanelProps.innerRef` is, and upstream's `<Handle />` is a
   -- | `memo(forwardRef(…))` for the same one.
   , innerRef :: Nullable Foreign
+  -- | The two handlers upstream destructures and calls from its own pointer
+  -- | down, after it has started any connection: the mouse one for a mouse,
+  -- | and the touch one otherwise.
+  , onMouseDown :: Maybe EventHandler
+  , onTouchStart :: Maybe EventHandler
+  -- | Every other attribute of upstream's `HTMLAttributes<HTMLDivElement>`,
+  -- | spread onto the handle's `<div>` last, as upstream's `{...rest}` is.
+  , restAttributes :: Maybe (Object Foreign)
   }
 
 -- | Ticket 038 — `<Pane />`. The pan/select interaction surface that
