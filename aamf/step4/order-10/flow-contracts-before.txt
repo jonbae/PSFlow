@@ -1,0 +1,442 @@
+ok 1 - the page runs every case in the table
+ok 2 - a case whose sides mount different props differs
+ok 3 - defaults
+ok 4 - nodesDraggable: undefined
+ok 5 - nodesDraggable: true
+ok 6 - nodesDraggable: false
+ok 7 - nodesConnectable: undefined
+ok 8 - nodesConnectable: true
+ok 9 - nodesConnectable: false
+ok 10 - nodesFocusable: undefined
+ok 11 - nodesFocusable: true
+ok 12 - nodesFocusable: false
+ok 13 - edgesFocusable: undefined
+ok 14 - edgesFocusable: true
+ok 15 - edgesFocusable: false
+ok 16 - edgesReconnectable: undefined
+ok 17 - edgesReconnectable: true
+ok 18 - edgesReconnectable: false
+ok 19 - elementsSelectable: undefined
+ok 20 - elementsSelectable: true
+ok 21 - elementsSelectable: false
+ok 22 - elevateNodesOnSelect: undefined
+ok 23 - elevateNodesOnSelect: true
+ok 24 - elevateNodesOnSelect: false
+ok 25 - elevateEdgesOnSelect: undefined
+ok 26 - elevateEdgesOnSelect: true
+ok 27 - elevateEdgesOnSelect: false
+ok 28 - snapToGrid: undefined
+ok 29 - snapToGrid: true
+ok 30 - snapToGrid: false
+ok 31 - connectOnClick: undefined
+ok 32 - connectOnClick: true
+ok 33 - connectOnClick: false
+ok 34 - autoPanOnConnect: undefined
+ok 35 - autoPanOnConnect: true
+ok 36 - autoPanOnConnect: false
+ok 37 - autoPanOnNodeDrag: undefined
+ok 38 - autoPanOnNodeDrag: true
+ok 39 - autoPanOnNodeDrag: false
+ok 40 - autoPanOnNodeFocus: undefined
+ok 41 - autoPanOnNodeFocus: true
+ok 42 - autoPanOnNodeFocus: false
+ok 43 - selectNodesOnDrag: undefined
+ok 44 - selectNodesOnDrag: true
+ok 45 - selectNodesOnDrag: false
+ok 46 - debug: undefined
+ok 47 - debug: true
+ok 48 - debug: false
+ok 49 - fitView: undefined
+ok 50 - fitView: true
+ok 51 - fitView: false
+ok 52 - disableKeyboardA11y: undefined
+ok 53 - disableKeyboardA11y: true
+ok 54 - disableKeyboardA11y: false
+ok 55 - onlyRenderVisibleElements: undefined
+ok 56 - onlyRenderVisibleElements: true
+ok 57 - onlyRenderVisibleElements: false
+ok 58 - minZoom: undefined
+ok 59 - minZoom: 0.1
+ok 60 - minZoom: 1
+ok 61 - minZoom: 1.75
+ok 62 - minZoom: 0
+ok 63 - minZoom: 3
+ok 64 - maxZoom: undefined
+ok 65 - maxZoom: 0.25
+ok 66 - maxZoom: 0.75
+ok 67 - maxZoom: 4
+ok 68 - maxZoom: 1
+ok 69 - nodeDragThreshold: undefined
+ok 70 - nodeDragThreshold: 0
+ok 71 - nodeDragThreshold: 4.5
+ok 72 - connectionDragThreshold: undefined
+ok 73 - connectionDragThreshold: 0
+ok 74 - connectionDragThreshold: 2.5
+ok 75 - autoPanSpeed: undefined
+ok 76 - autoPanSpeed: 0
+ok 77 - autoPanSpeed: 7.5
+ok 78 - autoPanSpeed: 30
+ok 79 - connectionRadius: undefined
+ok 80 - connectionRadius: 0
+ok 81 - connectionRadius: 12.5
+ok 82 - connectionRadius: 200
+ok 83 - paneClickDistance: undefined
+ok 84 - paneClickDistance: 0
+ok 85 - paneClickDistance: 5
+ok 86 - nodeClickDistance: undefined
+ok 87 - nodeClickDistance: 0
+ok 88 - nodeClickDistance: 3
+ok 89 - reconnectRadius: undefined
+ok 90 - reconnectRadius: 0
+ok 91 - reconnectRadius: 2.5
+ok 92 - reconnectRadius: 25
+ok 93 - width: undefined
+ok 94 - width: 400
+ok 95 - width: 0
+ok 96 - width: 333.5
+ok 97 - height: undefined
+ok 98 - height: 300
+ok 99 - height: 0
+ok 100 - height: 222.5
+ok 101 - snapGrid: undefined
+ok 102 - snapGrid: [25,25]
+ok 103 - snapGrid: [10,20]
+ok 104 - snapGrid: [0.5,2.5]
+ok 105 - nodeOrigin: undefined
+ok 106 - nodeOrigin: [0,0]
+ok 107 - nodeOrigin: [0.5,0.5]
+ok 108 - nodeOrigin: [1,1]
+ok 109 - nodeOrigin: [0.25,0.75]
+ok 110 - nodeExtent: undefined
+ok 111 - nodeExtent: [[-50,-50],[150,150]]
+ok 112 - nodeExtent: [[null,null],[null,null]]
+ok 113 - nodeExtent: [[0,0],[0,0]]
+ok 114 - translateExtent: undefined
+ok 115 - translateExtent: [[-50,-50],[150,150]]
+ok 116 - translateExtent: [[null,null],[null,null]]
+ok 117 - translateExtent: [[0,0],[800,600]]
+ok 118 - defaultViewport: undefined
+ok 119 - defaultViewport: {"x":10,"y":20,"zoom":1.5}
+ok 120 - defaultViewport: {"x":-5.5,"y":0,"zoom":0.25}
+ok 121 - defaultViewport: {"x":0,"y":0,"zoom":10}
+ok 122 - viewport: undefined
+ok 123 - viewport: {"x":10,"y":20,"zoom":1.5}
+ok 124 - viewport: {"x":0,"y":0,"zoom":10}
+ok 125 - connectionMode: undefined
+ok 126 - connectionMode: "strict"
+ok 127 - connectionMode: "loose"
+ok 128 - colorMode: undefined
+ok 129 - colorMode: "light"
+ok 130 - colorMode: "dark"
+ok 131 - colorMode: "system"
+ok 132 - zIndexMode: undefined
+ok 133 - zIndexMode: "basic"
+ok 134 - zIndexMode: "auto"
+ok 135 - zIndexMode: "manual"
+ok 136 - attributionPosition: undefined
+ok 137 - attributionPosition: "top-left"
+ok 138 - attributionPosition: "top-center"
+ok 139 - attributionPosition: "top-right"
+ok 140 - attributionPosition: "bottom-left"
+ok 141 - attributionPosition: "bottom-center"
+ok 142 - attributionPosition: "bottom-right"
+ok 143 - attributionPosition: "center-left"
+ok 144 - attributionPosition: "center-right"
+ok 145 - proOptions: undefined
+ok 146 - proOptions: {"hideAttribution":true}
+ok 147 - proOptions: {"hideAttribution":false}
+ok 148 - proOptions: {"hideAttribution":false,"account":"paid-pro"}
+ok 149 - defaultMarkerColor: undefined
+ok 150 - defaultMarkerColor: "\#ff0000"
+not ok 151 - defaultMarkerColor: null
+ok 152 - defaultMarkerColor: ""
+ok 153 - noPanClassName: undefined
+ok 154 - noPanClassName: "pan-blocker"
+ok 155 - noDragClassName: undefined
+ok 156 - noDragClassName: "drag-blocker"
+ok 157 - noWheelClassName: undefined
+ok 158 - noWheelClassName: "wheel-blocker"
+ok 159 - className: undefined
+ok 160 - className: "mine"
+ok 161 - className: ""
+ok 162 - style: undefined
+ok 163 - style: {"background":"red","width":10}
+ok 164 - id: undefined
+not ok 165 - id: "flow-x"
+ok 166 - id: ""
+ok 167 - data-testid: "custom"
+ok 168 - aria-label: "A flow"
+not ok 169 - ariaLabelConfig: undefined
+not ok 170 - ariaLabelConfig: {"node.a11yDescription.default":"Node help","edge.a11yDescription.default":"Edge help"}
+not ok 171 - ariaLabelConfig: {"controls.ariaLabel":"Ctl","minimap.ariaLabel":"Map","handle.ariaLabel":"H"}
+not ok 172 - ariaLabelConfig: {"node.a11yDescription.keyboardDisabled":"No keys"}
+not ok 173 - ariaLabelConfig: {}
+ok 174 - ariaLabelConfig: {"node.a11yDescription.keyboardDisabled":"No keys, disabled"}
+ok 175 - fitViewOptions: undefined
+not ok 176 - fitViewOptions: {"padding":0.5}
+not ok 177 - fitViewOptions: {"padding":0}
+not ok 178 - fitViewOptions: {"padding":"20px"}
+not ok 179 - fitViewOptions: {"padding":"10%"}
+not ok 180 - fitViewOptions: {"padding":{"top":10,"x":"5%"}}
+not ok 181 - fitViewOptions: {"padding":{"top":"30px","right":0.1,"bottom":"5%","left":40}}
+not ok 182 - fitViewOptions: {"minZoom":1,"maxZoom":1}
+not ok 183 - fitViewOptions: {"maxZoom":0.6}
+not ok 184 - fitViewOptions: {"nodes":[{"id":"a"}]}
+not ok 185 - fitViewOptions: {"nodes":[{"id":"missing"}]}
+not ok 186 - fitViewOptions: {"nodes":[]}
+not ok 187 - fitViewOptions: {"includeHiddenNodes":true}
+not ok 188 - fitViewOptions: {"includeHiddenNodes":false}
+not ok 189 - fitViewOptions: {"duration":0}
+ok 190 - onNodesChange: called at mount
+ok 191 - onEdgesChange: called at mount
+ok 192 - onInit: called at mount
+ok 193 - onMove: called at mount
+ok 194 - onMoveStart: called at mount
+ok 195 - onMoveEnd: called at mount
+ok 196 - onViewportChange: called at mount
+ok 197 - onError: called at mount
+ok 198 - onSelectionChange: called at mount
+ok 199 - onMove and onViewportChange with fitView
+not ok 200 - onError: an unknown node type
+not ok 201 - onError: an unknown edge type
+ok 202 - onError: an edge to a missing node
+not ok 203 - onError: an edge to a missing handle
+not ok 204 - onError: a missing parent
+ok 205 - onError: a parent extent without a parent
+ok 206 - onError: an unknown marker type
+ok 207 - onError: nodeTypes naming a type no node uses
+ok 208 - zoomOnScroll: undefined — a wheel over the pane
+ok 209 - zoomOnScroll: true — a wheel over the pane
+ok 210 - zoomOnScroll: false — a wheel over the pane
+ok 211 - zoomOnDoubleClick: undefined — a double click on the pane
+ok 212 - zoomOnDoubleClick: true — a double click on the pane
+ok 213 - zoomOnDoubleClick: false — a double click on the pane
+ok 214 - zoomOnPinch: undefined — a ctrl-wheel pinch
+ok 215 - zoomOnPinch: true — a ctrl-wheel pinch
+ok 216 - zoomOnPinch: false — a ctrl-wheel pinch
+ok 217 - panOnScroll: true, panOnScrollMode: undefined — a diagonal wheel
+ok 218 - panOnScroll: true, panOnScrollMode: free — a diagonal wheel
+ok 219 - panOnScroll: true, panOnScrollMode: vertical — a diagonal wheel
+ok 220 - panOnScroll: true, panOnScrollMode: horizontal — a diagonal wheel
+ok 221 - panOnScroll: false, panOnScrollMode: vertical — a diagonal wheel
+ok 222 - panOnScroll: undefined, panOnScrollMode: undefined — a diagonal wheel
+ok 223 - panOnScrollSpeed: undefined — a wheel
+ok 224 - panOnScrollSpeed: 0.25 — a wheel
+ok 225 - panOnScrollSpeed: 2 — a wheel
+ok 226 - panOnDrag: undefined — a drag with button 0
+ok 227 - panOnDrag: undefined — a drag with button 1
+ok 228 - panOnDrag: true — a drag with button 0
+ok 229 - panOnDrag: true — a drag with button 1
+ok 230 - panOnDrag: false — a drag with button 0
+ok 231 - panOnDrag: false — a drag with button 1
+ok 232 - panOnDrag: [0] — a drag with button 0
+ok 233 - panOnDrag: [0] — a drag with button 1
+ok 234 - panOnDrag: [1] — a drag with button 0
+ok 235 - panOnDrag: [1] — a drag with button 1
+ok 236 - panOnDrag: [2] — a drag with button 0
+ok 237 - panOnDrag: [2] — a drag with button 1
+ok 238 - panOnDrag: [0,1,2] — a drag with button 0
+ok 239 - panOnDrag: [0,1,2] — a drag with button 1
+ok 240 - panOnDrag: [] — a drag with button 0
+ok 241 - panOnDrag: [] — a drag with button 1
+ok 242 - selectionOnDrag: undefined, selectionMode: undefined — a drag over a and part of b
+ok 243 - selectionOnDrag: undefined, selectionMode: full — a drag over a and part of b
+ok 244 - selectionOnDrag: undefined, selectionMode: partial — a drag over a and part of b
+ok 245 - selectionOnDrag: true, selectionMode: undefined — a drag over a and part of b
+ok 246 - selectionOnDrag: true, selectionMode: full — a drag over a and part of b
+ok 247 - selectionOnDrag: true, selectionMode: partial — a drag over a and part of b
+ok 248 - selectionOnDrag: false, selectionMode: undefined — a drag over a and part of b
+ok 249 - selectionOnDrag: false, selectionMode: full — a drag over a and part of b
+ok 250 - selectionOnDrag: false, selectionMode: partial — a drag over a and part of b
+ok 251 - paneClickDistance: undefined — a 3px drag on the pane
+ok 252 - paneClickDistance: 0 — a 3px drag on the pane
+ok 253 - paneClickDistance: 5 — a 3px drag on the pane
+ok 254 - nodeDragThreshold: undefined — a 5px node drag
+ok 255 - nodeDragThreshold: 0 — a 5px node drag
+ok 256 - nodeDragThreshold: 10 — a 5px node drag
+ok 257 - nodeClickDistance: undefined — a 3px node drag
+ok 258 - nodeClickDistance: 0 — a 3px node drag
+ok 259 - nodeClickDistance: 6 — a 3px node drag
+ok 260 - snapGrid: undefined — a node drag with snapToGrid
+ok 261 - snapGrid: [25,25] — a node drag with snapToGrid
+ok 262 - snapGrid: [7.5,40] — a node drag with snapToGrid
+ok 263 - nodeExtent: undefined — a node drag past it
+ok 264 - nodeExtent: [[0,0],[260,200]] — a node drag past it
+ok 265 - selectNodesOnDrag: undefined — a node drag
+ok 266 - selectNodesOnDrag: true — a node drag
+ok 267 - selectNodesOnDrag: false — a node drag
+ok 268 - noDragClassName: undefined — a drag on a node marked nodrag
+ok 269 - noDragClassName: drag-blocker — a drag on a node marked nodrag
+not ok 270 - deleteKeyCode: undefined — Backspace with a selected
+ok 271 - deleteKeyCode: undefined — Delete with a selected
+not ok 272 - deleteKeyCode: "Backspace" — Backspace with a selected
+ok 273 - deleteKeyCode: "Backspace" — Delete with a selected
+ok 274 - deleteKeyCode: "Delete" — Backspace with a selected
+not ok 275 - deleteKeyCode: "Delete" — Delete with a selected
+ok 276 - deleteKeyCode: ["Delete","x"] — Backspace with a selected
+not ok 277 - deleteKeyCode: ["Delete","x"] — Delete with a selected
+ok 278 - deleteKeyCode: [] — Backspace with a selected
+ok 279 - deleteKeyCode: [] — Delete with a selected
+not ok 280 - deleteKeyCode: null — Backspace with a selected
+not ok 281 - deleteKeyCode: null — Delete with a selected
+ok 282 - multiSelectionKeyCode: undefined — click a, then Shift-click b
+not ok 283 - multiSelectionKeyCode: "Shift" — click a, then Shift-click b
+not ok 284 - multiSelectionKeyCode: ["Shift","Alt"] — click a, then Shift-click b
+not ok 285 - multiSelectionKeyCode: null — click a, then Shift-click b
+ok 286 - selectionKeyCode: undefined — hold Shift and drag over a
+ok 287 - selectionKeyCode: "Shift" — hold Shift and drag over a
+ok 288 - selectionKeyCode: "a" — hold Shift and drag over a
+not ok 289 - selectionKeyCode: null — hold Shift and drag over a
+ok 290 - panActivationKeyCode: undefined — hold Space and drag with panOnDrag off
+ok 291 - panActivationKeyCode: "Space" — hold Space and drag with panOnDrag off
+ok 292 - panActivationKeyCode: "a" — hold Space and drag with panOnDrag off
+not ok 293 - panActivationKeyCode: null — hold Space and drag with panOnDrag off
+ok 294 - zoomActivationKeyCode: undefined — hold Meta and wheel with zoomOnScroll off
+ok 295 - zoomActivationKeyCode: "Meta" — hold Meta and wheel with zoomOnScroll off
+ok 296 - zoomActivationKeyCode: "Control" — hold Meta and wheel with zoomOnScroll off
+ok 297 - zoomActivationKeyCode: "a" — hold Meta and wheel with zoomOnScroll off
+not ok 298 - zoomActivationKeyCode: null — hold Meta and wheel with zoomOnScroll off
+ok 299 - connectionLineType: undefined — a held connection
+ok 300 - connectionLineType: default — a held connection
+ok 301 - connectionLineType: straight — a held connection
+ok 302 - connectionLineType: step — a held connection
+ok 303 - connectionLineType: smoothstep — a held connection
+ok 304 - connectionLineType: simplebezier — a held connection
+ok 305 - connectionLineStyle and connectionLineContainerStyle — a held connection
+not ok 306 - connectionLineComponent — a held connection
+ok 307 - connectionRadius: undefined — a release 40px from b's handle
+ok 308 - connectionRadius: 0 — a release 40px from b's handle
+ok 309 - connectionRadius: 100 — a release 40px from b's handle
+ok 310 - connectionMode: undefined — a source handle dropped on a source handle
+ok 311 - connectionMode: strict — a source handle dropped on a source handle
+ok 312 - connectionMode: loose — a source handle dropped on a source handle
+ok 313 - isValidConnection: undefined — a connection
+ok 314 - isValidConnection: true — a connection
+ok 315 - isValidConnection: false — a connection
+ok 316 - connectionDragThreshold: undefined — a 20px handle drag
+ok 317 - connectionDragThreshold: 0 — a 20px handle drag
+ok 318 - connectionDragThreshold: 50 — a 20px handle drag
+ok 319 - connectOnClick: undefined — click a's source, then b's target
+ok 320 - connectOnClick: true — click a's source, then b's target
+ok 321 - connectOnClick: false — click a's source, then b's target
+ok 322 - onlyRenderVisibleElements: undefined — a node outside the viewport
+ok 323 - onlyRenderVisibleElements: true — a node outside the viewport
+ok 324 - onlyRenderVisibleElements: false — a node outside the viewport
+ok 325 - NodeToolbar.isVisible: undefined, node selected: false
+ok 326 - NodeToolbar.isVisible: true, node selected: false
+ok 327 - NodeToolbar.isVisible: false, node selected: false
+ok 328 - NodeToolbar.isVisible: undefined, node selected: true
+ok 329 - NodeToolbar.isVisible: true, node selected: true
+ok 330 - NodeToolbar.isVisible: false, node selected: true
+ok 331 - NodeToolbar.nodeId: undefined
+ok 332 - NodeToolbar.nodeId: "a"
+ok 333 - NodeToolbar.nodeId: "b"
+ok 334 - NodeToolbar.nodeId: ["a","b"]
+ok 335 - NodeToolbar.nodeId: ["b","missing"]
+ok 336 - NodeToolbar.nodeId: "missing"
+ok 337 - NodeToolbar.nodeId: []
+ok 338 - NodeToolbar.nodeId: ["a","b"], both selected
+ok 339 - NodeToolbar.position: undefined, align: undefined
+ok 340 - NodeToolbar.position: undefined, align: start
+ok 341 - NodeToolbar.position: undefined, align: center
+ok 342 - NodeToolbar.position: undefined, align: end
+ok 343 - NodeToolbar.position: top, align: undefined
+ok 344 - NodeToolbar.position: top, align: start
+ok 345 - NodeToolbar.position: top, align: center
+ok 346 - NodeToolbar.position: top, align: end
+ok 347 - NodeToolbar.position: right, align: undefined
+ok 348 - NodeToolbar.position: right, align: start
+ok 349 - NodeToolbar.position: right, align: center
+ok 350 - NodeToolbar.position: right, align: end
+ok 351 - NodeToolbar.position: bottom, align: undefined
+ok 352 - NodeToolbar.position: bottom, align: start
+ok 353 - NodeToolbar.position: bottom, align: center
+ok 354 - NodeToolbar.position: bottom, align: end
+ok 355 - NodeToolbar.position: left, align: undefined
+ok 356 - NodeToolbar.position: left, align: start
+ok 357 - NodeToolbar.position: left, align: center
+ok 358 - NodeToolbar.position: left, align: end
+ok 359 - NodeToolbar.offset: undefined
+ok 360 - NodeToolbar.offset: 0
+ok 361 - NodeToolbar.offset: 25.5
+ok 362 - NodeToolbar.offset: -10
+not ok 363 - NodeToolbar: className, style and DOM attributes
+ok 364 - EdgeToolbar.isVisible: undefined, edge selected: false
+ok 365 - EdgeToolbar.isVisible: true, edge selected: false
+ok 366 - EdgeToolbar.isVisible: false, edge selected: false
+ok 367 - EdgeToolbar.isVisible: undefined, edge selected: true
+ok 368 - EdgeToolbar.isVisible: true, edge selected: true
+ok 369 - EdgeToolbar.isVisible: false, edge selected: true
+ok 370 - EdgeToolbar.alignX: undefined, alignY: undefined
+ok 371 - EdgeToolbar.alignX: undefined, alignY: top
+ok 372 - EdgeToolbar.alignX: undefined, alignY: center
+ok 373 - EdgeToolbar.alignX: undefined, alignY: bottom
+ok 374 - EdgeToolbar.alignX: left, alignY: undefined
+ok 375 - EdgeToolbar.alignX: left, alignY: top
+ok 376 - EdgeToolbar.alignX: left, alignY: center
+ok 377 - EdgeToolbar.alignX: left, alignY: bottom
+ok 378 - EdgeToolbar.alignX: center, alignY: undefined
+ok 379 - EdgeToolbar.alignX: center, alignY: top
+ok 380 - EdgeToolbar.alignX: center, alignY: center
+ok 381 - EdgeToolbar.alignX: center, alignY: bottom
+ok 382 - EdgeToolbar.alignX: right, alignY: undefined
+ok 383 - EdgeToolbar.alignX: right, alignY: top
+ok 384 - EdgeToolbar.alignX: right, alignY: center
+ok 385 - EdgeToolbar.alignX: right, alignY: bottom
+ok 386 - EdgeToolbar.edgeId: a missing edge
+ok 387 - EdgeToolbar: x and y fractional and negative
+not ok 388 - EdgeToolbar: className, style and DOM attributes
+ok 389 - EdgeToolbar: an edge zIndex
+ok 390 - instance.zoomIn()
+ok 391 - instance.zoomIn({ duration: 0 })
+ok 392 - instance.zoomOut({ duration: 0 })
+ok 393 - instance.zoomTo(1.5)
+ok 394 - instance.zoomTo(10) past maxZoom
+ok 395 - instance.zoomTo(0) below minZoom
+ok 396 - instance.getZoom()
+ok 397 - instance.setViewport({ x, y, zoom })
+ok 398 - instance.setViewport with zoom past the limits
+ok 399 - instance.getViewport()
+ok 400 - instance.setCenter(x, y)
+ok 401 - instance.setCenter(x, y, { zoom })
+ok 402 - instance.setCenter(x, y, { zoom: 0 })
+ok 403 - instance.fitBounds(rect)
+ok 404 - instance.fitBounds(rect, { padding: 0.3 })
+not ok 405 - instance.fitBounds(rect, { padding: '15px' })
+not ok 406 - instance.fitView()
+not ok 407 - instance.fitView({ padding: { x: '10%', top: 4 } })
+not ok 408 - instance.fitView({ nodes: ['a', { id: 'b' }] })
+not ok 409 - instance.fitView({ nodes: [] })
+not ok 410 - instance.fitView({ minZoom: 3 })
+ok 411 - instance.screenToFlowPosition
+ok 412 - instance.screenToFlowPosition({ snapToGrid: true })
+ok 413 - instance.screenToFlowPosition({ snapToGrid: false }) with snapToGrid on
+ok 414 - instance.screenToFlowPosition() with snapToGrid on
+ok 415 - instance.flowToScreenPosition
+ok 416 - useNodeConnections()
+ok 417 - useNodeConnections({ handleType: 'target' })
+ok 418 - useNodeConnections({ handleType: 'source' })
+ok 419 - useNodeConnections({ id: 'a' })
+ok 420 - useNodeConnections({ handleType: 'target', handleId: 'x' })
+ok 421 - useNodeConnections({ handleId: null })
+not ok 422 - useHandleConnections({ type: 'target' })
+not ok 423 - useHandleConnections({ type: 'source', id: null, nodeId: 'a' })
+not ok 424 - useHandleConnections({ type: 'target', id: 'x' })
+ok 425 - onBeforeDelete: absent
+ok 426 - onBeforeDelete: resolves true
+ok 427 - onBeforeDelete: resolves false
+ok 428 - onBeforeDelete: resolves a subset
+ok 429 - onBeforeDelete: resolves empty arrays
+ok 430 - store action: unselectNodesAndEdges()
+ok 431 - store action: unselectNodesAndEdges({})
+ok 432 - store action: unselectNodesAndEdges({ nodes: [a] })
+ok 433 - store action: unselectNodesAndEdges({ edges: [a-b] })
+ok 434 - store action: panBy({ x, y })
+ok 435 - store action: panBy({ x: 0, y: 0 })
+ok 436 - store action: addSelectedNodes([a, missing])
+ok 437 - store action: addSelectedEdges([a-b])
+ok 438 - instance.setViewport with a duration, ease and linear interpolate
+ok 439 - instance.setViewport with a duration and smooth interpolate
+not ok 440 - useUpdateNodeInternals: a node id
+not ok 441 - useUpdateNodeInternals: an array of ids
+not ok 442 - useUpdateNodeInternals: a missing id

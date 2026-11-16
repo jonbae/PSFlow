@@ -1,0 +1,307 @@
+ok 1 - Background.id: absent
+ok 2 - Background.id: undefined
+ok 3 - Background.id: ""
+ok 4 - Background.id: "second"
+ok 5 - Background.color: absent
+ok 6 - Background.color: undefined
+ok 7 - Background.color: "\#123456"
+ok 8 - Background.color: ""
+ok 9 - Background.bgColor: absent
+ok 10 - Background.bgColor: undefined
+ok 11 - Background.bgColor: "\#654321"
+ok 12 - Background.bgColor: ""
+ok 13 - Background.className: absent
+ok 14 - Background.className: undefined
+ok 15 - Background.className: "mine"
+ok 16 - Background.className: ""
+ok 17 - Background.patternClassName: absent
+ok 18 - Background.patternClassName: undefined
+ok 19 - Background.patternClassName: "dots"
+ok 20 - Background.gap: absent
+ok 21 - Background.gap: undefined
+ok 22 - Background.gap: 0
+ok 23 - Background.gap: 15
+ok 24 - Background.gap: 12.5
+ok 25 - Background.gap: -10
+ok 26 - Background.gap: [10,30]
+ok 27 - Background.gap: [0,5]
+ok 28 - Background.gap: [7.5,0]
+ok 29 - Background.size: absent
+ok 30 - Background.size: undefined
+not ok 31 - Background.size: 0
+ok 32 - Background.size: 3
+ok 33 - Background.size: 2.5
+ok 34 - Background.offset: absent
+ok 35 - Background.offset: undefined
+ok 36 - Background.offset: 0
+ok 37 - Background.offset: 4
+ok 38 - Background.offset: 1.5
+ok 39 - Background.offset: -3
+ok 40 - Background.offset: [2,6]
+ok 41 - Background.offset: [0,0]
+ok 42 - Background.lineWidth: absent
+ok 43 - Background.lineWidth: undefined
+ok 44 - Background.lineWidth: 0
+ok 45 - Background.lineWidth: 2.5
+ok 46 - Background.variant: absent
+ok 47 - Background.variant: undefined
+ok 48 - Background.variant: "dots"
+ok 49 - Background.variant: "lines"
+ok 50 - Background.variant: "cross"
+ok 51 - Background.style: absent
+ok 52 - Background.style: undefined
+ok 53 - Background.style: {"opacity":0.5,"width":10,"color":"red"}
+ok 54 - Background.size: absent
+ok 55 - Background.size: 0
+ok 56 - Background.size: 4
+ok 57 - Background.lineWidth: absent
+ok 58 - Background.lineWidth: 3
+ok 59 - Background.gap: [8,16]
+ok 60 - Background.offset: [3,0]
+ok 61 - Background.size: absent
+not ok 62 - Background.size: 0
+ok 63 - Background.size: 4
+ok 64 - Background.lineWidth: absent
+ok 65 - Background.lineWidth: 3
+ok 66 - Background.gap: [8,16]
+ok 67 - Background.offset: [3,0]
+ok 68 - Controls.showZoom: absent
+ok 69 - Controls.showZoom: undefined
+ok 70 - Controls.showZoom: true
+ok 71 - Controls.showZoom: false
+ok 72 - Controls.showFitView: absent
+ok 73 - Controls.showFitView: undefined
+ok 74 - Controls.showFitView: true
+ok 75 - Controls.showFitView: false
+ok 76 - Controls.showInteractive: absent
+ok 77 - Controls.showInteractive: undefined
+ok 78 - Controls.showInteractive: true
+ok 79 - Controls.showInteractive: false
+ok 80 - Controls.fitViewOptions: absent
+ok 81 - Controls.fitViewOptions: undefined
+ok 82 - Controls.fitViewOptions: {"padding":0.5,"duration":100}
+ok 83 - Controls.onZoomIn: absent
+ok 84 - Controls.onZoomIn: undefined
+ok 85 - Controls.onZoomIn: a function
+ok 86 - Controls.onZoomOut: absent
+ok 87 - Controls.onZoomOut: undefined
+ok 88 - Controls.onZoomOut: a function
+ok 89 - Controls.onFitView: absent
+ok 90 - Controls.onFitView: undefined
+ok 91 - Controls.onFitView: a function
+ok 92 - Controls.onInteractiveChange: absent
+ok 93 - Controls.onInteractiveChange: undefined
+ok 94 - Controls.onInteractiveChange: a function
+ok 95 - Controls.position: absent
+ok 96 - Controls.position: undefined
+ok 97 - Controls.position: "top-left"
+ok 98 - Controls.position: "top-center"
+ok 99 - Controls.position: "top-right"
+ok 100 - Controls.position: "bottom-left"
+ok 101 - Controls.position: "bottom-center"
+ok 102 - Controls.position: "bottom-right"
+ok 103 - Controls.position: "center-left"
+ok 104 - Controls.position: "center-right"
+ok 105 - Controls.children: absent
+ok 106 - Controls.children: undefined
+ok 107 - Controls.children: "text"
+ok 108 - Controls.children: a function
+ok 109 - Controls.style: absent
+ok 110 - Controls.style: undefined
+ok 111 - Controls.style: {"opacity":0.5}
+ok 112 - Controls.className: absent
+ok 113 - Controls.className: undefined
+ok 114 - Controls.className: "mine"
+ok 115 - Controls.className: ""
+ok 116 - Controls.aria-label: absent
+ok 117 - Controls.aria-label: undefined
+ok 118 - Controls.aria-label: "Zoom things"
+ok 119 - Controls.aria-label: ""
+ok 120 - Controls.orientation: absent
+ok 121 - Controls.orientation: undefined
+ok 122 - Controls.orientation: "horizontal"
+ok 123 - Controls.orientation: "vertical"
+ok 124 - Controls.showZoom: absent
+ok 125 - ControlButton.children: absent
+ok 126 - ControlButton.children: "label"
+ok 127 - ControlButton.className: absent
+ok 128 - ControlButton.className: undefined
+ok 129 - ControlButton.className: "mine"
+ok 130 - ControlButton.onClick: absent
+ok 131 - ControlButton.onClick: a function
+ok 132 - ControlButton.disabled: absent
+ok 133 - ControlButton.disabled: true
+ok 134 - ControlButton.disabled: false
+ok 135 - ControlButton.title: absent
+ok 136 - ControlButton.title: "Title"
+ok 137 - ControlButton.aria-label: absent
+ok 138 - ControlButton.aria-label: "Label"
+ok 139 - ControlButton.style: absent
+ok 140 - ControlButton.style: {"color":"red"}
+not ok 141 - ControlButton.type: "submit"
+not ok 142 - ControlButton.type: "reset"
+not ok 143 - ControlButton.id: "button-id"
+not ok 144 - ControlButton.name: "button-name"
+not ok 145 - ControlButton.value: "v"
+not ok 146 - ControlButton.tabIndex: -1
+not ok 147 - ControlButton.tabIndex: 3
+not ok 148 - ControlButton.data-testid: "custom"
+not ok 149 - ControlButton.aria-pressed: true
+not ok 150 - ControlButton.role: "switch"
+not ok 151 - ControlButton.hidden: true
+ok 152 - ControlButton.onMouseEnter: a function
+not ok 153 - MiniMap.nodeColor: absent
+not ok 154 - MiniMap.nodeColor: undefined
+not ok 155 - MiniMap.nodeColor: "red"
+not ok 156 - MiniMap.nodeColor: ""
+not ok 157 - MiniMap.nodeColor: (node) => color by id
+not ok 158 - MiniMap.nodeColor: () => undefined
+not ok 159 - MiniMap.nodeStrokeColor: absent
+not ok 160 - MiniMap.nodeStrokeColor: undefined
+not ok 161 - MiniMap.nodeStrokeColor: "blue"
+not ok 162 - MiniMap.nodeStrokeColor: (node) => stroke by selected
+not ok 163 - MiniMap.nodeClassName: absent
+not ok 164 - MiniMap.nodeClassName: undefined
+not ok 165 - MiniMap.nodeClassName: "mm"
+not ok 166 - MiniMap.nodeClassName: ""
+not ok 167 - MiniMap.nodeClassName: (node) => class by id
+not ok 168 - MiniMap.nodeBorderRadius: absent
+not ok 169 - MiniMap.nodeBorderRadius: undefined
+not ok 170 - MiniMap.nodeBorderRadius: 0
+not ok 171 - MiniMap.nodeBorderRadius: 3
+not ok 172 - MiniMap.nodeBorderRadius: 2.5
+not ok 173 - MiniMap.nodeStrokeWidth: absent
+not ok 174 - MiniMap.nodeStrokeWidth: undefined
+not ok 175 - MiniMap.nodeStrokeWidth: 0
+not ok 176 - MiniMap.nodeStrokeWidth: 2
+not ok 177 - MiniMap.nodeStrokeWidth: 1.5
+not ok 178 - MiniMap.nodeComponent: absent
+not ok 179 - MiniMap.nodeComponent: undefined
+ok 180 - MiniMap.nodeComponent: a component of its own
+not ok 181 - MiniMap.bgColor: absent
+not ok 182 - MiniMap.bgColor: undefined
+not ok 183 - MiniMap.bgColor: "\#eee"
+not ok 184 - MiniMap.bgColor: ""
+not ok 185 - MiniMap.maskColor: absent
+not ok 186 - MiniMap.maskColor: undefined
+not ok 187 - MiniMap.maskColor: "rgba(0,0,0,0.5)"
+not ok 188 - MiniMap.maskColor: ""
+not ok 189 - MiniMap.maskStrokeColor: absent
+not ok 190 - MiniMap.maskStrokeColor: undefined
+not ok 191 - MiniMap.maskStrokeColor: "red"
+not ok 192 - MiniMap.maskStrokeColor: ""
+not ok 193 - MiniMap.maskStrokeWidth: absent
+not ok 194 - MiniMap.maskStrokeWidth: undefined
+not ok 195 - MiniMap.maskStrokeWidth: 0
+not ok 196 - MiniMap.maskStrokeWidth: 2
+not ok 197 - MiniMap.maskStrokeWidth: 1.5
+not ok 198 - MiniMap.position: absent
+not ok 199 - MiniMap.position: undefined
+not ok 200 - MiniMap.position: "top-left"
+not ok 201 - MiniMap.position: "top-center"
+not ok 202 - MiniMap.position: "top-right"
+not ok 203 - MiniMap.position: "bottom-left"
+not ok 204 - MiniMap.position: "bottom-center"
+not ok 205 - MiniMap.position: "bottom-right"
+not ok 206 - MiniMap.position: "center-left"
+not ok 207 - MiniMap.position: "center-right"
+not ok 208 - MiniMap.onClick: absent
+not ok 209 - MiniMap.onClick: undefined
+not ok 210 - MiniMap.onClick: a function
+not ok 211 - MiniMap.onNodeClick: absent
+not ok 212 - MiniMap.onNodeClick: undefined
+not ok 213 - MiniMap.onNodeClick: a function
+not ok 214 - MiniMap.pannable: absent
+not ok 215 - MiniMap.pannable: undefined
+not ok 216 - MiniMap.pannable: true
+not ok 217 - MiniMap.pannable: false
+not ok 218 - MiniMap.zoomable: absent
+not ok 219 - MiniMap.zoomable: undefined
+not ok 220 - MiniMap.zoomable: true
+not ok 221 - MiniMap.zoomable: false
+not ok 222 - MiniMap.ariaLabel: absent
+not ok 223 - MiniMap.ariaLabel: undefined
+not ok 224 - MiniMap.ariaLabel: null
+not ok 225 - MiniMap.ariaLabel: "Overview"
+not ok 226 - MiniMap.ariaLabel: ""
+not ok 227 - MiniMap.aria-label: absent
+not ok 228 - MiniMap.aria-label: "Overview"
+not ok 229 - MiniMap.inversePan: absent
+not ok 230 - MiniMap.inversePan: undefined
+not ok 231 - MiniMap.inversePan: true
+not ok 232 - MiniMap.inversePan: false
+not ok 233 - MiniMap.zoomStep: absent
+not ok 234 - MiniMap.zoomStep: undefined
+not ok 235 - MiniMap.zoomStep: 2
+not ok 236 - MiniMap.zoomStep: 0.5
+not ok 237 - MiniMap.offsetScale: absent
+not ok 238 - MiniMap.offsetScale: undefined
+not ok 239 - MiniMap.offsetScale: 0
+not ok 240 - MiniMap.offsetScale: 10
+not ok 241 - MiniMap.offsetScale: 2.5
+not ok 242 - MiniMap.style: absent
+not ok 243 - MiniMap.style: undefined
+not ok 244 - MiniMap.style: {"width":100,"height":80}
+not ok 245 - MiniMap.style: {"background":"pink","opacity":0.5}
+not ok 246 - MiniMap.className: absent
+not ok 247 - MiniMap.className: undefined
+not ok 248 - MiniMap.className: "mine"
+not ok 249 - MiniMap.className: ""
+not ok 250 - MiniMap.children: absent
+not ok 251 - MiniMap.children: "text"
+not ok 252 - MiniMap.id: "minimap-id"
+not ok 253 - MiniMap.data-testid: "custom"
+ok 254 - MiniMap.nodeComponent: MiniMapNode with only its required props
+ok 255 - MiniMap.nodeComponent: MiniMapNode with color
+ok 256 - MiniMap.nodeComponent: MiniMapNode with style.background
+ok 257 - MiniMap.nodeComponent: MiniMapNode with style.backgroundColor
+not ok 258 - MiniMap.nodeComponent: MiniMapNode with an empty color
+ok 259 - MiniMap.nodeComponent: MiniMapNode with strokeColor and strokeWidth
+ok 260 - MiniMap.nodeComponent: MiniMapNode selected, with a class
+ok 261 - MiniMap.nodeComponent: MiniMapNode with an onClick
+not ok 262 - MiniMap.nodeComponent: MiniMapNode handed every prop
+ok 263 - Handle.type: absent
+ok 264 - Handle.type: undefined
+ok 265 - Handle.type: "source"
+ok 266 - Handle.type: "target"
+ok 267 - Handle.position: absent
+ok 268 - Handle.position: undefined
+ok 269 - Handle.position: "top"
+ok 270 - Handle.position: "right"
+ok 271 - Handle.position: "bottom"
+ok 272 - Handle.position: "left"
+ok 273 - Handle.id: absent
+ok 274 - Handle.id: undefined
+ok 275 - Handle.id: null
+ok 276 - Handle.id: ""
+ok 277 - Handle.id: "h1"
+ok 278 - Handle.isConnectable: absent
+ok 279 - Handle.isConnectable: undefined
+ok 280 - Handle.isConnectable: true
+ok 281 - Handle.isConnectable: false
+ok 282 - Handle.isConnectableStart: absent
+ok 283 - Handle.isConnectableStart: undefined
+ok 284 - Handle.isConnectableStart: true
+ok 285 - Handle.isConnectableStart: false
+ok 286 - Handle.isConnectableEnd: absent
+ok 287 - Handle.isConnectableEnd: undefined
+ok 288 - Handle.isConnectableEnd: true
+ok 289 - Handle.isConnectableEnd: false
+ok 290 - Handle.isValidConnection: absent
+ok 291 - Handle.isValidConnection: undefined
+ok 292 - Handle.isValidConnection: a function
+ok 293 - Handle.onConnect: absent
+ok 294 - Handle.onConnect: undefined
+ok 295 - Handle.onConnect: a function
+ok 296 - Handle.className: absent
+ok 297 - Handle.className: undefined
+ok 298 - Handle.className: "mine"
+ok 299 - Handle.style: absent
+ok 300 - Handle.style: {"background":"red"}
+ok 301 - Handle.children: absent
+ok 302 - Handle.children: "inside"
+not ok 303 - Handle.title: "A handle"
+not ok 304 - Handle.data-testid: "custom"
+not ok 305 - Handle.aria-label: "label"
+not ok 306 - Handle.tabIndex: 0
+ok 307 - Handle.onMouseEnter: a function
