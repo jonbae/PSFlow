@@ -153,7 +153,8 @@ import Boundary.Enums
 import Boundary.FlowMembers (JsAriaLabelConfig, ariaLabelConfigIn, panOnDragIn)
 import Boundary.Rest (restOf)
 import Boundary.Store (JsStoreView, storeViewOf)
-import Boundary.Undefined (Undefinable, fromUndefinable, orNullable)
+import Boundary.Undefined (Undefinable, fromUndefinable, isNull, orNullable)
+import Data.Maybe (Maybe(..))
 import Data.Nullable (Nullable)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)
@@ -469,7 +470,12 @@ convertProps p forwarded =
   , onViewportChange: map (stably "onViewportChange" (remembering onViewportChangeIn)) (fromUndefinable p.onViewportChange)
   , fitView: fromUndefinable p.fitView
   , fitViewOptions: map (stably "fitViewOptions" (remembering fitViewOptionsIn)) (fromUndefinable p.fitViewOptions)
-  , defaultMarkerColor: fromUndefinable p.defaultMarkerColor
+  -- `string | null`, and `null` is not absence: upstream's default
+  -- `'#b1b1b7'` applies only to `undefined`, and a null colour draws each
+  -- default marker with no stroke, as `''` does, since the symbols write
+  -- `color && { stroke: color }`. So `null` crosses as `''`.
+  , defaultMarkerColor:
+      if isNull p.defaultMarkerColor then Just "" else fromUndefinable p.defaultMarkerColor
   , width: fromUndefinable p.width
   , height: fromUndefinable p.height
   , colorMode: map (stably "colorMode" (colorModeIn "colorMode")) (fromUndefinable p.colorMode)
