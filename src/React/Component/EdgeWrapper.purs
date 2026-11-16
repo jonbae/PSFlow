@@ -87,7 +87,7 @@ import Data.Newtype (unwrap)
 import System.Types.Ids (NodeId(..))
 import System.Types.Node (OnError)
 import System.Utils.Edges.General (getElevatedEdgeZIndex)
-import System.Utils.Edges.Positions (getEdgePosition)
+import System.Utils.Edges.Positions (EdgePositionResult(..), edgePosition)
 import System.Utils.Marker (getMarkerId)
 import Unsafe.Coerce (unsafeCoerce)
 import Web.DOM.Element (Element)
@@ -202,12 +202,16 @@ applyDefaults (Just defaults) edge = runFn3 rememberMergedEdge defaults edge $
     | edgeOwnsKey key edge = Nothing
     | otherwise = inherited
 
+-- | Upstream's selector calls `getEdgePosition({ …, onError })`, which
+-- | reports a missing handle as error 008 each time the selector runs; this
+-- | one reports it through the same `onError` from the same place.
 selectEdgePosition
   :: forall n e
-   . String
+   . Maybe OnError
+  -> String
   -> ReactFlowState n e
   -> EdgePositionSlice
-selectEdgePosition edgeId state =
+selectEdgePosition onError edgeId state =
   case Map.lookup edgeId state.edgeLookup of
     Nothing -> nullPosition
     Just edge ->
@@ -223,7 +227,7 @@ selectEdgePosition edgeId state =
               , elevateOnSelect: state.elevateEdgesOnSelect
               , zIndexMode: state.zIndexMode
               }
-            mPos = getEdgePosition
+            resolved = edgePosition
               { id: edgeId
               , sourceNode: src
               , targetNode: tgt
@@ -232,8 +236,8 @@ selectEdgePosition edgeId state =
               , connectionMode: state.connectionMode
               }
           in
-            case mPos of
-              Just p ->
+            case resolved of
+              Positioned p ->
                 { zIndex: z
                 , sourceX: Just p.sourceX
                 , sourceY: Just p.sourceY
@@ -242,7 +246,14 @@ selectEdgePosition edgeId state =
                 , sourcePosition: Just p.sourcePosition
                 , targetPosition: Just p.targetPosition
                 }
-              Nothing -> nullPosition { zIndex = z }
+              MissingHandle handleType -> unsafePerformEffect do
+                for_ onError \cb ->
+                  cb "008"
+                    ( errorMessage $ E008 handleType
+                        { id: edgeId, sourceHandle: edge.sourceHandle, targetHandle: edge.targetHandle }
+                    )
+                pure (nullPosition { zIndex = z })
+              NodesNotInitialized -> nullPosition { zIndex = z }
         _, _ -> nullPosition { zIndex = fromMaybe 0 edge.zIndex }
 
 edgeTypesAsObject
@@ -391,7 +402,20 @@ edgeWrapper =
       updateHover /\ setUpdateHover <- useState false
       reconnecting /\ setReconnecting <- useState false
 
-      positionSlice <- useStore (selectEdgePosition props.id)
+      -- TS's selector is a `useCallback` over the edge's endpoints, handles,
+      -- selection and z-index, and not over `onError`, so it reports
+      -- through the `onError` of the render that built it: the store's
+      -- default until the endpoints change, even once a consumer's handler
+      -- is installed.
+      selectorOnError <-
+        React.useMemo
+          ( edge.source /\ edge.target /\ edge.sourceHandle /\ edge.targetHandle
+              /\ edge.selected
+              /\ edge.zIndex
+          )
+          \_ -> UnsafeReference props.onError
+      let UnsafeReference onErrorAtSelect = selectorOnError
+      positionSlice <- useStore (selectEdgePosition onErrorAtSelect props.id)
 
       let
         -- TS: `!!(edge.focusable || (edgesFocusable && typeof edge.focusable === 'undefined'))`.

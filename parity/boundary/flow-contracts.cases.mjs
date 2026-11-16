@@ -11,7 +11,12 @@
 // which upstream's destructuring defaults treat as absent. The `defaults` case
 // is absence.
 
+import { useEffect } from 'react';
+
 // ── Driving ─────────────────────────────────────────────────────────────
+
+// eslint-disable-next-line react-hooks/exhaustive-deps
+const useEffectOnce = (run) => useEffect(() => run(), []);
 
 const center = (element) => {
   const box = element.getBoundingClientRect();
@@ -689,16 +694,21 @@ helper('setViewport with a duration and smooth interpolate', (i) =>
   i.setViewport({ x: 40, y: 20, zoom: 1.5 }, { duration: 80, interpolate: 'smooth' })
 );
 
-for (const [label, arg] of [['a node id', 'a'], ['an array of ids', ['a', 'b']], ['a missing id', 'missing']]) {
+// `updateNodeInternals(id)` takes one id or an array of them. The probe calls
+// it once, from an effect, as a consumer does after changing a node's
+// handles; node b renders both handles so the edges resolve.
+for (const [label, arg] of [['a node id', 'b'], ['an array of ids', ['a', 'b']], ['a missing id', 'missing']]) {
   cases.push({
     name: `useUpdateNodeInternals: ${label}`,
     props: ({ library, h, graph }) => {
       const Updater = () => {
         const update = library.useUpdateNodeInternals();
-        update(arg);
+        useEffectOnce(() => update(arg));
         return null;
       };
-      return { nodeTypes: { u: () => h('div', null, 'U', h(Updater), h(library.Handle, { type: 'source', position: 'bottom' })) }, nodes: graph().nodes.map((n) => (n.id === 'b' ? { ...n, type: 'u' } : n)) };
+      const u = () =>
+        h('div', null, 'U', h(Updater), h(library.Handle, { type: 'target', position: 'top' }), h(library.Handle, { type: 'source', position: 'bottom' }));
+      return { nodeTypes: { u }, nodes: graph().nodes.map((n) => (n.id === 'b' ? { ...n, type: 'u' } : n)) };
     },
   });
 }
