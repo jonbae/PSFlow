@@ -22,7 +22,7 @@ import React.Basic.Hooks (UnsafeReference(..), memo, reactComponent)
 import React.Basic.Hooks as React
 import React.Additional.MiniMap.Node (miniMapNode)
 import React.Hook.Store (useStore)
-import React.Types.Component (MiniMapNodesProps)
+import React.Types.Component (MiniMapNodeAttribute(..), MiniMapNodesProps)
 import React.Types.Nodes (InternalNode, Node)
 import React.Types.Store (ReactFlowState)
 import System.Utils.General (getNodeDimensions, nodeHasDimensions)
@@ -57,11 +57,12 @@ renderOne props internal =
       Nothing -> Nothing
       Just dims ->
         let
-          cls = case props.nodeClassName of
-            Just f -> f base
-            Nothing -> ""
-          color = map (\f -> f base) props.nodeColor
-          stroke = map (\f -> f base) props.nodeStrokeColor
+          -- TS `getAttrFunction`: a function is called with the node, and
+          -- any other value is returned as it is. `nodeClassName`
+          -- defaults to `''`.
+          cls = fromMaybe "" (attributeOf base =<< props.nodeClassName)
+          color = attributeOf base =<< props.nodeColor
+          stroke = attributeOf base =<< props.nodeStrokeColor
           userComp = fromMaybe miniMapNode props.nodeComponent
         in
           Just $ element userComp
@@ -80,6 +81,11 @@ renderOne props internal =
             , selected: internal.selected == Just true
             , onClick: props.onClick
             }
+
+attributeOf :: forall n. Node n -> MiniMapNodeAttribute n -> Maybe String
+attributeOf node = case _ of
+  AttributeValue value -> Just value
+  AttributeOf f -> Just (f node)
 
 miniMapNodes :: forall n. ReactComponent (MiniMapNodesProps n)
 miniMapNodes =

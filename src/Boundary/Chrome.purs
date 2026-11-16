@@ -29,20 +29,15 @@
 -- | for that record. It is the third and last of the three props whose values
 -- | are consumer components (`Boundary.Wrapper`), and it crosses here now.
 -- |
--- | ## What is refused, and what that costs
+-- | ## Nothing is refused
 -- |
 -- | Nothing on these six records is deferred any more. `Controls`' four
 -- | handlers and `MiniMap`'s two were refused until boundary stage 2, which
 -- | crossed the callbacks wherever they appear; their converters are in
 -- | `Boundary.Callbacks` with the flow's. `MiniMap.nodeComponent` was the last
--- | one standing and stage 4 is what lands it.
--- |
--- | Three more are refused **by value rather than by name**:
--- | `nodeColor`, `nodeStrokeColor` and `nodeClassName` are
--- | `string | ((node) => string)` upstream, and ps-flow models only the
--- | function half. The string half is a real gap in the internals, not
--- | something this module can convert around, so a consumer who passes one
--- | gets told that rather than a minimap of undefined-coloured nodes.
+-- | one standing and stage 4 is what lands it. `nodeColor`, `nodeStrokeColor`
+-- | and `nodeClassName` refused their string form until Step 4 order 10,
+-- | which gave the internals upstream's `string | (node) => string`.
 module Boundary.Chrome
   ( JsBackgroundProps
   , JsControlButtonProps
@@ -107,11 +102,11 @@ import React.Types.Component
   ( BackgroundProps
   , ControlButtonProps
   , ControlsProps
+  , MiniMapNodeAttribute(..)
   , MiniMapNodeProps
   , MiniMapProps
   , PanelProps
   )
-import React.Types.Nodes (Node)
 import Unsafe.Coerce (unsafeCoerce)
 
 -- ────────────────────────────────────────────────────────────────────────
@@ -341,28 +336,23 @@ convertMiniMap p =
   , className: fromUndefinable p.className
   }
 
--- | `string | ((node) => string)`, of which ps-flow models the function half.
+-- | `string | ((node) => string)`: one value for every node, or a function
+-- | of the node.
 -- |
 -- | The function is the consumer's, so this is one of the few places on the
 -- | surface where a value ps-flow produced is handed *to* the caller — the
 -- | node goes out through `nodeOut`, the same converter `applyNodeChanges`
--- | returns nodes through, so what they see is upstream's shape.
--- |
--- | The string half is refused. Folding it into a constant function would be
--- | this module inventing behaviour the internals do not have, and would hide
--- | the census row that says so.
-nodeAttributeIn :: String -> Foreign -> (Node Foreign -> String)
+-- | returns nodes through, so what they see is upstream's shape. Upstream's
+-- | `getAttrFunction` returns any value that is not a function as it is, and
+-- | a function's result is used as it comes back.
+nodeAttributeIn :: String -> Foreign -> MiniMapNodeAttribute Foreign
 nodeAttributeIn field raw = case asFunction raw of
-  Just f -> \node -> readString (f (unsafeCoerce (nodeOut node)))
+  Just f -> AttributeOf \node -> readString (f (unsafeCoerce (nodeOut node)))
   Nothing -> case asString raw of
-    Just _ ->
-      unsafeThrow $
-        "ps-flow: `" <> field <> "` accepts upstream's function form but not its "
-          <> "string form — ps-flow models this prop as a per-node function only. "
-          <> "Pass `() => " <> "\"…\"" <> "` instead of the bare string."
+    Just value -> AttributeValue value
     Nothing ->
       unsafeThrow $
-        "ps-flow: `" <> field <> "` must be a function of a node, got "
+        "ps-flow: `" <> field <> "` must be a string or a function of a node, got "
           <> typeName raw
           <> "."
   where

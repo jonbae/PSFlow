@@ -1030,7 +1030,9 @@ for (const { source, components, propRecords, baseProps = {}, mount } of convert
 // `nodeColor` and its two siblings are `string | ((node) => string)` upstream.
 // The function half is the one place a chrome component hands the consumer a
 // value ps-flow built, so it goes out through the same `nodeOut` that
-// `applyNodeChanges` returns nodes through. The string half has nowhere to go.
+// `applyNodeChanges` returns nodes through. The string half, refused until
+// Step 4 order 10, colours every node; `chrome-contracts.test.mjs` holds both
+// halves against upstream's markup.
 check("`MiniMap.nodeColor` is called with a JS-shaped node", () => {
   const seen = [];
   inFlow(createElement(MiniMap, { nodeColor: (node) => (seen.push(node), "#f00") }));
@@ -1041,12 +1043,9 @@ check("`MiniMap.nodeColor` is called with a JS-shaped node", () => {
   assert(!("nodeType" in a), "the node still carries `nodeType`");
 });
 
-chromeThrows(
-  "`MiniMap.nodeColor`'s string form is refused rather than guessed at",
-  createElement(MiniMap, { nodeColor: "#f00" }),
-  "MiniMap.nodeColor",
-  "string form"
-);
+check("`MiniMap.nodeColor`'s string form is accepted", () => {
+  inFlow(createElement(MiniMap, { nodeColor: "#f00", nodeStrokeColor: "#00f", nodeClassName: "mm" }));
+});
 
 // ── 5b. Boundary stage 4: the components no fixture mounts ──────────────
 //

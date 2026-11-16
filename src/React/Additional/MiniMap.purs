@@ -31,7 +31,8 @@ import React.FFI.DOM (path_, svg_, title_)
 import React.Hook.Store (UseStoreApi, useStore, useStoreApi)
 import React.Portal.Panel (panel)
 import React.Types.Component
-  ( MiniMapNodeProps
+  ( MiniMapNodeAttribute(..)
+  , MiniMapNodeProps
   , MiniMapNodesProps
   , MiniMapProps
   )
@@ -172,12 +173,6 @@ maybeInsert :: String -> Maybe String -> Object String -> Object String
 maybeInsert k mv obj = case mv of
   Nothing -> obj
   Just v -> Object.insert k v obj
-
--- | The "is `nodeColor` callable as a string?" handling on the TS side
--- | maps to PS pattern matching: if the user supplies a function we
--- | leave it alone; the per-node mapping (`MiniMapNodes`) calls it.
--- | When the user instead wants a constant colour they wrap a constant
--- | function — same idea, slightly more verbose on the PS side.
 
 miniMap :: forall n. ReactComponent (MiniMapProps n)
 miniMap =
@@ -349,10 +344,9 @@ miniMap =
         , innerRef: null
         }
 
--- | The TS source accepts either a callback or a string for `nodeColor`
--- | etc. so it can stuff a constant straight into the CSS variable
--- | (`--xy-minimap-node-background-color-props`). The PS port always
--- | takes a callback, so the constant-string path becomes "user didn't
--- | supply, leave the variable unset" — `Nothing` here.
-maybeNodeColorString :: forall a. Maybe a -> Maybe String
-maybeNodeColorString _ = Nothing
+-- | TS `typeof nodeColor === 'string' ? nodeColor : undefined`: a string
+-- | `nodeColor` or `nodeStrokeColor` also sets its CSS variable.
+maybeNodeColorString :: forall n. Maybe (MiniMapNodeAttribute n) -> Maybe String
+maybeNodeColorString = case _ of
+  Just (AttributeValue value) -> Just value
+  _ -> Nothing

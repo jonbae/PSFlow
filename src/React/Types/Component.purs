@@ -26,6 +26,7 @@ module React.Types.Component
   , MiniMapNodesProps
   , MiniMapNodes
   , GetMiniMapNodeAttribute
+  , MiniMapNodeAttribute(..)
   , NodeToolbarProps
   , NodeResizerProps
   , NodeResizeControlProps
@@ -527,11 +528,19 @@ type ControlButtonProps =
 -- | one of its own presentation attributes (fill, stroke, class name).
 type GetMiniMapNodeAttribute n = Node n -> String
 
+-- | TS `string | GetMiniMapNodeAttribute<NodeType>`, the type of `nodeColor`,
+-- | `nodeStrokeColor` and `nodeClassName`: one value for every node, or a
+-- | function of the node. Upstream also writes a string `nodeColor` and
+-- | `nodeStrokeColor` into the minimap's CSS variables.
+data MiniMapNodeAttribute n
+  = AttributeValue String
+  | AttributeOf (GetMiniMapNodeAttribute n)
+
 -- Ticket 047 — `<MiniMap />`.
 type MiniMapProps n =
-  { nodeColor :: Maybe (GetMiniMapNodeAttribute n)
-  , nodeStrokeColor :: Maybe (GetMiniMapNodeAttribute n)
-  , nodeClassName :: Maybe (GetMiniMapNodeAttribute n)
+  { nodeColor :: Maybe (MiniMapNodeAttribute n)
+  , nodeStrokeColor :: Maybe (MiniMapNodeAttribute n)
+  , nodeClassName :: Maybe (MiniMapNodeAttribute n)
   , nodeBorderRadius :: Maybe Number
   , nodeStrokeWidth :: Maybe Number
   , nodeComponent :: Maybe (ReactComponent MiniMapNodeProps)
@@ -573,9 +582,9 @@ type MiniMapNodeProps =
 
 -- Ticket 047 — props for the inner mapping component.
 type MiniMapNodesProps n =
-  { nodeColor :: Maybe (GetMiniMapNodeAttribute n)
-  , nodeStrokeColor :: Maybe (GetMiniMapNodeAttribute n)
-  , nodeClassName :: Maybe (GetMiniMapNodeAttribute n)
+  { nodeColor :: Maybe (MiniMapNodeAttribute n)
+  , nodeStrokeColor :: Maybe (MiniMapNodeAttribute n)
+  , nodeClassName :: Maybe (MiniMapNodeAttribute n)
   , nodeBorderRadius :: Number
   , nodeStrokeWidth :: Maybe Number
   , nodeComponent :: Maybe (ReactComponent MiniMapNodeProps)
