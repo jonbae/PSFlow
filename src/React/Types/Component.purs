@@ -553,7 +553,7 @@ type MiniMapProps n =
   , onNodeClick :: Maybe (NodeMouseHandler n)
   , pannable :: Maybe Boolean
   , zoomable :: Maybe Boolean
-  , "aria-label" :: Maybe String
+  , ariaLabel :: Maybe String
   , inversePan :: Maybe Boolean
   , zoomStep :: Maybe Number
   , offsetScale :: Maybe Number

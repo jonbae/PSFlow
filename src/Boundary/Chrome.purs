@@ -299,7 +299,10 @@ type JsMiniMapProps =
   , onNodeClick :: Undefinable JsNodeMouseHandler
   , pannable :: Undefinable Boolean
   , zoomable :: Undefinable Boolean
-  , "aria-label" :: Undefinable String
+  -- | Upstream's own spelling, `string | null`, read with `??`. Its props
+  -- | type also admits `aria-label` from `HTMLAttributes`, which the
+  -- | component never reads, so neither does this.
+  , ariaLabel :: Undefinable String
   , inversePan :: Undefinable Boolean
   , zoomStep :: Undefinable Number
   , offsetScale :: Undefinable Number
@@ -327,7 +330,7 @@ convertMiniMap p =
   , onNodeClick: map nodeMouseHandlerIn (fromUndefinable p.onNodeClick)
   , pannable: fromUndefinable p.pannable
   , zoomable: fromUndefinable p.zoomable
-  , "aria-label": fromUndefinable p."aria-label"
+  , ariaLabel: fromUndefinable p.ariaLabel
   , inversePan: fromUndefinable p.inversePan
   , zoomStep: fromUndefinable p.zoomStep
   , offsetScale: fromUndefinable p.offsetScale

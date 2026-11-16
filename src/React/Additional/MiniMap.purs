@@ -200,7 +200,9 @@ miniMap =
         height = viewHeight + offset * 2.0
         labelledBy = "react-flow__minimap-desc-" <> slice.rfId
         UnsafeReference aria = slice.ariaLabelConfig
-        ariaText = fromMaybe aria.minimapAriaLabel props."aria-label"
+        -- TS `ariaLabel ?? ariaLabelConfig['minimap.ariaLabel']`, and the
+        -- title only when that is truthy.
+        ariaText = fromMaybe aria.minimapAriaLabel props.ariaLabel
         pos = fromMaybe BottomRight props.position
         pannable = fromMaybe false props.pannable
         zoomable = fromMaybe false props.zoomable
