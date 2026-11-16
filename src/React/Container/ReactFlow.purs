@@ -52,9 +52,12 @@
 -- | transform. The user can observe the scroll via the optional
 -- | `onScroll :: Maybe (SyntheticEvent -> Effect Unit)` prop.
 -- |
--- | **Skipped from TS.** The `id` prop: not present on `ReactFlowProps`
--- | in the PS port; `rfId` is always `InitValues.defaultRfId`, `"1"`. Add
--- | the field and `fromMaybe` when a use case appears.
+-- | **`id`.** Upstream destructures `id` and reads `rfId = id || '1'`, the
+-- | prefix of every description id, handle `data-id` and pattern id in the
+-- | flow. ps-flow's record has no `id` field, so the attribute reaches it
+-- | with the rest of the wrapper's attributes, and `rfId` is read from
+-- | there. The wrapper `<div>` gets it from the rest too, as upstream's
+-- | `id={id}` gives it the same value.
 module React.Container.ReactFlow
   ( reactFlow
   ) where
@@ -64,8 +67,9 @@ import Prelude
 import Control.Alt ((<|>))
 import Data.Maybe (Maybe(..), fromMaybe)
 import Effect.Unsafe (unsafePerformEffect)
-import Foreign (Foreign, unsafeToForeign)
-import Foreign.Object (empty, singleton, union) as Object
+import Foreign (Foreign, typeOf, unsafeFromForeign, unsafeToForeign)
+import Foreign.Object (Object)
+import Foreign.Object (empty, lookup, singleton, union) as Object
 import React.Basic (JSX, ReactComponent, element)
 import React.Basic.Hooks (reactChildrenFromArray, reactChildrenToArray, reactComponentWithChildren)
 import React.Basic.Hooks as React
@@ -169,7 +173,7 @@ reactFlow =
       -- TS destructures `colorMode = 'light'`.
       colorModeCls <- useColorModeClass (fromMaybe LightMode props.colorMode)
       let
-        rfId = Init.defaultRfId
+        rfId = rfIdOf props.wrapperAttributes
         -- The six `<ReactFlow />` resolves and then hands to two components,
         -- resolved once. `storeSeeded` is the same six shaped for
         -- `<StoreUpdater />`; `React.Container.InitValues.seededStoreProps`
@@ -401,3 +405,10 @@ reactFlow =
               }
           )
           [ wrapperEl ]
+
+-- | `id || '1'`. The attribute is a string upstream, and an empty one falls
+-- | back as an absent one does.
+rfIdOf :: Maybe (Object Foreign) -> String
+rfIdOf attributes = case Object.lookup "id" =<< attributes of
+  Just id | typeOf id == "string", unsafeFromForeign id /= "" -> unsafeFromForeign id
+  _ -> Init.defaultRfId
