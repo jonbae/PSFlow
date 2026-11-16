@@ -16,6 +16,7 @@ import Data.Array (mapMaybe)
 import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Newtype (unwrap)
+import Effect (Effect)
 import Effect.Unsafe (unsafePerformEffect)
 import React.Basic (JSX, ReactComponent, element, fragment)
 import React.Basic.Hooks (UnsafeReference(..), memo, reactComponent)
@@ -26,61 +27,57 @@ import React.Types.Component (MiniMapNodeAttribute(..), MiniMapNodesProps)
 import React.Types.Nodes (InternalNode, Node)
 import React.Types.Store (ReactFlowState)
 import System.Utils.General (getNodeDimensions, nodeHasDimensions)
-import Unsafe.Coerce (unsafeCoerce)
 
--- | Stable cross-browser shape-rendering hint. The TS source toggles
--- | between `crispEdges` and `geometricPrecision` based on browser; the
--- | PS port picks `geometricPrecision` unconditionally.
-shapeRendering :: String
-shapeRendering = "geometricPrecision"
+-- | TS `typeof window === 'undefined' || !!window.chrome ? 'crispEdges' :
+-- | 'geometricPrecision'`: crisp on a server and in Chrome, precise
+-- | elsewhere.
+foreign import shapeRenderingNow :: Effect String
 
 selectNodes :: forall n e. ReactFlowState n e -> UnsafeReference (Array (InternalNode n))
 selectNodes s =
   UnsafeReference (mapMaybe (\node -> Map.lookup node.id s.nodeLookup) s.nodes)
 
--- | Drop the `internals` field to obtain the public `Node` row. The
--- | underlying JS object is the same minus an extra field, which user
--- | functions ignore — this is the same trick `Node` aliases already
--- | use at the seam between `System.Types.Node` and `React.Types.Nodes`.
-internalToBase :: forall n. InternalNode n -> Node n
-internalToBase = unsafeCoerce
-
-renderOne :: forall n. MiniMapNodesProps n -> InternalNode n -> Maybe JSX
-renderOne props internal =
+-- | Upstream reads each minimap node from `internals.userNode`, the node the
+-- | consumer wrote, and only its position from the internal node. So a node
+-- | is drawn only when the consumer's own node has a size — `measured`,
+-- | `width` or `initialWidth`, which a flow that ignores its dimension
+-- | changes never gets — and its colour, class, selection and style are the
+-- | consumer's node's.
+renderOne :: forall n. MiniMapNodesProps n -> String -> InternalNode n -> Maybe JSX
+renderOne props shapeRendering internal =
   let
-    base :: Node n
-    base = internalToBase internal
+    node :: Node n
+    node = internal.internals.userNode
   in
-    if internal.hidden == Just true then Nothing
-    else if not (nodeHasDimensions base) then Nothing
-    else case getNodeDimensions internal of
-      Nothing -> Nothing
-      Just dims ->
-        let
-          -- TS `getAttrFunction`: a function is called with the node, and
-          -- any other value is returned as it is. `nodeClassName`
-          -- defaults to `''`.
-          cls = fromMaybe "" (attributeOf base =<< props.nodeClassName)
-          color = attributeOf base =<< props.nodeColor
-          stroke = attributeOf base =<< props.nodeStrokeColor
-          userComp = fromMaybe miniMapNode props.nodeComponent
-        in
-          Just $ element userComp
-            { id: unwrap internal.id
-            , x: internal.internals.positionAbsolute.x
-            , y: internal.internals.positionAbsolute.y
-            , width: dims.width
-            , height: dims.height
-            , borderRadius: props.nodeBorderRadius
-            , className: cls
-            , color
-            , shapeRendering
-            , strokeColor: stroke
-            , strokeWidth: props.nodeStrokeWidth
-            , style: Nothing
-            , selected: internal.selected == Just true
-            , onClick: props.onClick
-            }
+    if node.hidden == Just true then Nothing
+    else if not (nodeHasDimensions node) then Nothing
+    else
+      let
+        dims = fromMaybe { width: 0.0, height: 0.0 } (getNodeDimensions node)
+        -- TS `getAttrFunction`: a function is called with the node, and
+        -- any other value is returned as it is. `nodeClassName`
+        -- defaults to `''`.
+        cls = fromMaybe "" (attributeOf node =<< props.nodeClassName)
+        color = attributeOf node =<< props.nodeColor
+        stroke = attributeOf node =<< props.nodeStrokeColor
+        userComp = fromMaybe miniMapNode props.nodeComponent
+      in
+        Just $ element userComp
+          { id: unwrap node.id
+          , x: internal.internals.positionAbsolute.x
+          , y: internal.internals.positionAbsolute.y
+          , width: dims.width
+          , height: dims.height
+          , borderRadius: props.nodeBorderRadius
+          , className: cls
+          , color
+          , shapeRendering
+          , strokeColor: stroke
+          , strokeWidth: props.nodeStrokeWidth
+          , style: node.style
+          , selected: node.selected == Just true
+          , onClick: props.onClick
+          }
 
 attributeOf :: forall n. Node n -> MiniMapNodeAttribute n -> Maybe String
 attributeOf node = case _ of
@@ -92,4 +89,5 @@ miniMapNodes =
   unsafePerformEffect $ memo $ reactComponent "MiniMapNodes"
     \(props :: MiniMapNodesProps n) -> React.do
       UnsafeReference nodes <- useStore selectNodes
-      pure $ fragment (mapMaybe (renderOne props) nodes)
+      let shapeRendering = unsafePerformEffect shapeRenderingNow
+      pure $ fragment (mapMaybe (renderOne props shapeRendering) nodes)

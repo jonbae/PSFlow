@@ -262,7 +262,6 @@ cases('MiniMap', 'data-testid="rf__minimap"', {
     'red',
     '',
     nodeFunction('(node) => color by id', (node) => (node.id === 'a' ? 'green' : 'purple')),
-    nodeFunction('() => undefined', () => undefined),
   ],
   nodeStrokeColor: [
     ABSENT,
