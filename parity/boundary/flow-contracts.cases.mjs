@@ -617,6 +617,10 @@ helper('setCenter(x, y, { zoom: 0 })', (i) => i.setCenter(100, 50, { zoom: 0 }))
 helper('fitBounds(rect)', (i) => i.fitBounds({ x: 0, y: 0, width: 200, height: 100 }));
 helper('fitBounds(rect, { padding: 0.3 })', (i) => i.fitBounds({ x: 0, y: 0, width: 200, height: 100 }, { padding: 0.3 }));
 helper("fitBounds(rect, { padding: '15px' })", (i) => i.fitBounds({ x: 0, y: 0, width: 200, height: 100 }, { padding: '15px' }));
+helper("fitBounds(rect, { padding: '25%' })", (i) => i.fitBounds({ x: 0, y: 0, width: 200, height: 100 }, { padding: '25%' }));
+helper("fitBounds(rect, { padding: { top: '10px', x: 0.2 } })", (i) =>
+  i.fitBounds({ x: 0, y: 0, width: 200, height: 100 }, { padding: { top: '10px', x: 0.2 } })
+);
 helper('fitView()', (i) => i.fitView());
 helper("fitView({ padding: { x: '10%', top: 4 } })", (i) => i.fitView({ padding: { x: '10%', top: 4 } }));
 helper("fitView({ nodes: ['a', { id: 'b' }] })", (i) => i.fitView({ nodes: [{ id: 'a' }, { id: 'b' }] }));

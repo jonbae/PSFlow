@@ -105,7 +105,7 @@ import Boundary.Elements
   , viewportOut
   )
 import Boundary.Enums (handleTypeIn, interpolateModeIn)
-import Boundary.FitView (JsFitViewOptions, fitViewOptionsIn)
+import Boundary.FitView (JsFitViewOptions, fitViewOptionsIn, paddingIn)
 import Boundary.Promise (Promise, toPromise)
 import Boundary.SetState (setStateOut)
 import Boundary.Undefined (Undefinable, fromUndefinable, toUndefinable)
@@ -195,7 +195,9 @@ type JsFitBoundsOptions =
   { duration :: Undefinable Foreign
   , ease :: Undefinable (Number -> Number)
   , interpolate :: Undefinable String
-  , padding :: Undefinable Number
+  -- | Upstream's `Padding`: a number, a string with a unit, or an object of
+  -- | them per side, read as `fitView`'s padding is.
+  , padding :: Undefinable Foreign
   }
 
 -- | `screenToFlowPosition`'s second argument.
@@ -551,7 +553,7 @@ fitBoundsOptionsIn options =
   { duration: durationIn options _.duration
   , ease: member options _.ease
   , interpolate: interpolateIn "fitBounds" options _.interpolate
-  , padding: member options _.padding
+  , padding: map paddingIn (member options _.padding)
   }
 
 screenToFlowOptionsIn :: Undefinable JsScreenToFlowOptions -> ScreenToFlowOptions

@@ -328,11 +328,13 @@ type SetCenterOptions =
   , zoom :: Maybe Number
   }
 
+-- | `padding` is upstream's whole `Padding` union, as `fitView`'s is: a
+-- | ratio, a string with a unit, or one per side.
 type FitBoundsOptions =
   { duration :: Maybe Number
   , ease :: Maybe (Number -> Number)
   , interpolate :: Maybe InterpolateMode
-  , padding :: Maybe Number
+  , padding :: Maybe Padding
   }
 
 type ConnectionLookup = Map String HandleConnections

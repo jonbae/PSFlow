@@ -142,7 +142,7 @@ fitBounds store bounds opts = do
     Nothing -> pure false
     Just pz -> do
       let
-        padding = UniformPadding (RatioPadding (fromMaybe 0.1 opts.padding))
+        padding = fromMaybe (UniformPadding (RatioPadding 0.1)) opts.padding
         viewport = getViewportForBounds
           bounds
           s.width
