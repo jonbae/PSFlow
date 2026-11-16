@@ -798,4 +798,35 @@ for (const [label, hook] of [
   });
 }
 
+// ── MiniMap's pan and zoom ──────────────────────────────────────────────
+//
+// `pannable`, `zoomable`, `inversePan` and `zoomStep` reach `XYMinimap`,
+// which pans or zooms the flow from a drag or a wheel over the minimap.
+const minimapSvg = (c) => c.container.querySelector('.react-flow__minimap-svg');
+for (const [label, props] of [
+  ['defaults', {}],
+  ['pannable', { pannable: true }],
+  ['pannable, inversePan', { pannable: true, inversePan: true }],
+]) {
+  cases.push({
+    name: `MiniMap ${label} — a drag over the minimap`,
+    children: ({ h, library }) => h(library.MiniMap, props),
+    drive: (c) => drag(c, minimapSvg(c), { dx: 20, dy: 10 }),
+  });
+}
+for (const [label, props] of [
+  ['defaults', {}],
+  ['zoomable', { zoomable: true }],
+  ['zoomable, zoomStep 3', { zoomable: true, zoomStep: 3 }],
+]) {
+  cases.push({
+    name: `MiniMap ${label} — a wheel over the minimap`,
+    children: ({ h, library }) => h(library.MiniMap, props),
+    drive: (c) => {
+      const box = minimapSvg(c).getBoundingClientRect();
+      wheel(minimapSvg(c), { x: box.left + box.width / 2, y: box.top + box.height / 2, deltaY: -100 });
+    },
+  });
+}
+
 export default cases;
