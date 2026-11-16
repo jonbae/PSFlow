@@ -20,11 +20,12 @@ import Data.Number.Format (toString) as NumberFormat
 import Data.Nullable (Nullable, null, toMaybe, toNullable)
 import Effect (Effect)
 import Effect.Unsafe (unsafePerformEffect)
+import Foreign (Foreign, unsafeToForeign)
 import Foreign.Object (Object)
 import Foreign.Object as Object
 import React.Basic (ReactComponent, element)
 import React.Basic.Events (handler, handler_, syntheticEvent)
-import React.Basic.Hooks (UnsafeReference(..), memo, reactChildrenFromArray, reactChildrenToArray, reactComponentWithChildren, readRef, useEffect, useEffectAlways, useRef, writeRef)
+import React.Basic.Hooks (UnsafeReference(..), memo, reactChildrenFromArray, reactComponentWithChildren, readRef, useEffect, useEffectAlways, useRef, writeRef)
 import React.Basic.Hooks as React
 import React.Additional.MiniMap.Nodes (miniMapNodes)
 import React.FFI.DOM (path_, svg_, title_)
@@ -186,8 +187,18 @@ miniMap =
       instanceRef <- useRef (toNullable Nothing :: Nullable XYMinimapInstance)
 
       let
-        elementWidth = defaultWidth
-        elementHeight = defaultHeight
+        -- TS `(style?.width as number) ?? defaultWidth`: the consumer's own
+        -- value, whatever it is, sizes the svg, and the arithmetic reads it
+        -- as JavaScript's `/` does.
+        styleValue key =
+          let fallback = unsafeToForeign (if key == "width" then defaultWidth else defaultHeight)
+          in case Object.lookup key =<< props.style of
+            Just value -> nullishOr fallback (unsafeToForeign value)
+            Nothing -> fallback
+        elementWidthAttr = styleValue "width"
+        elementHeightAttr = styleValue "height"
+        elementWidth = asArithmetic elementWidthAttr
+        elementHeight = asArithmetic elementHeightAttr
         scaledWidth = slice.boundingRect.width / elementWidth
         scaledHeight = slice.boundingRect.height / elementHeight
         viewScale = max scaledWidth scaledHeight
@@ -305,10 +316,11 @@ miniMap =
           if ariaText == "" then mempty
           else title_ { id: labelledBy } [ unsafeCoerce ariaText ]
 
-        userExtras = reactChildrenToArray props.children
-
+        -- Upstream's `MiniMapProps` admits `children` from `HTMLAttributes`,
+        -- and its component neither destructures nor spreads them, so a
+        -- minimap draws none.
         svgChildren =
-          [ titleEl, nodesElement, maskRect ] <> userExtras
+          [ titleEl, nodesElement, maskRect ]
 
         viewBoxStr = showN x <> " " <> showN y <> " " <> showN width <> " " <> showN height
 
@@ -324,8 +336,8 @@ miniMap =
           <> (if userPanelClass == "" then "" else " " <> userPanelClass)
 
         svgEl = svg_
-          { width: elementWidth
-          , height: elementHeight
+          { width: elementWidthAttr
+          , height: elementHeightAttr
           , viewBox: viewBoxStr
           , className: "react-flow__minimap-svg"
           , role: "img"
@@ -352,3 +364,6 @@ maybeNodeColorString :: forall n. Maybe (MiniMapNodeAttribute n) -> Maybe String
 maybeNodeColorString = case _ of
   Just (AttributeValue value) -> Just value
   _ -> Nothing
+
+foreign import nullishOr :: Foreign -> Foreign -> Foreign
+foreign import asArithmetic :: Foreign -> Number

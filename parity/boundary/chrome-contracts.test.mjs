@@ -380,3 +380,9 @@ cases('Background', 'data-testid="rf__background"', {
   gap: [NaN, [NaN, 4]],
   offset: [NaN, [5, NaN]],
 });
+
+// `(style?.width as number) ?? 200` and the same for the height: the
+// consumer's own value sizes the svg, a string included, and `/` reads it.
+cases('MiniMap', 'data-testid="rf__minimap"', {
+  style: [{ width: 0 }, { width: '120', height: '90' }, { width: '50%' }, { height: 60.5 }, { width: null }],
+});
