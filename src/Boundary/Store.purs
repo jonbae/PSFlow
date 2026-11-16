@@ -141,6 +141,7 @@ import Foreign.Object (Object)
 import React.FFI.Env (isDevelopment)
 import React.Store.Action (Action(..))
 import React.Store.PanBy (panBy) as StorePanBy
+import React.Store.InitialState (defaultOnError)
 import React.Store.Shell (Store)
 import React.Types.Edges (DefaultEdgeOptions, Edge)
 import React.Types.General
@@ -171,6 +172,7 @@ import System.Types.PanZoom (PanZoomInstance, PanZoomTransformOptions, PanZoomUp
 import System.Utils.General (devWarn)
 import System.Utils.Graph (FitViewOptions)
 import Unsafe.Coerce (unsafeCoerce)
+import Unsafe.Reference (unsafeRefEq)
 import Web.HTML.HTMLDivElement (HTMLDivElement)
 
 -- ────────────────────────────────────────────────────────────────────────
@@ -456,7 +458,8 @@ stateFields =
   , onNodesDelete: optionalCallback "onNodesDelete" onNodesDeleteIn
   , onEdgesDelete: optionalCallback "onEdgesDelete" onEdgesDeleteIn
   , onDelete: optionalCallback "onDelete" onDeleteIn
-  , onError: callback devWarnOut "onError" onErrorIn
+  , onError:
+      plain (maybe devWarnOut onErrorOut) (absentOr (Just <<< functionIn "onError" onErrorIn))
   , onViewportChangeStart: optionalCallback "onViewportChangeStart" onViewportChangeIn
   , onViewportChange: optionalCallback "onViewportChange" onViewportChangeIn
   , onViewportChangeEnd: optionalCallback "onViewportChangeEnd" onViewportChangeIn
@@ -592,6 +595,13 @@ optionalCallback key convert = (callback absent key convert) { optional = true }
 -- | Upstream's default `onError`, `createDevWarn('React Flow', …)`.
 devWarnOut :: Foreign
 devWarnOut = unsafeToForeign (mkEffectFn2 (devWarn isDevelopment))
+
+-- | The store's `onError`: upstream's `devWarn` while it holds the default
+-- | the store starts with, and otherwise the consumer's own function.
+onErrorOut :: OnError -> Foreign
+onErrorOut f
+  | unsafeRefEq f defaultOnError = devWarnOut
+  | otherwise = callbackOut "onError" f
 
 -- ────────────────────────────────────────────────────────────────────────
 -- Nodes, edges and their lookups

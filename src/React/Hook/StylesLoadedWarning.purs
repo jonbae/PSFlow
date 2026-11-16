@@ -7,10 +7,9 @@
 -- | the user forgot to import `@xyflow/react/dist/style.css`, the rule
 -- | doesn't apply and the check fires E013.
 -- |
--- | **The gating flag** is `React.FFI.Env.isDevelopment` — a build-time
--- | `Boolean` exposed via FFI that bundlers can constant-fold via
--- | `define`. Defaults to `true` so the check fires unless explicitly
--- | silenced. Same mechanism as
+-- | **The gating flag** is `React.FFI.Env.isDevelopment`, upstream's
+-- | `process.env.NODE_ENV === 'development'` unless a bundler defines
+-- | `IS_DEV`. Same mechanism as
 -- | [React.Hook.NodeOrEdgeTypesWarning](src/React/Hook/NodeOrEdgeTypesWarning.purs).
 module React.Hook.StylesLoadedWarning
   ( UseStylesLoadedWarning(..)

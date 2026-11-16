@@ -4,10 +4,8 @@
 -- | `xyflow/packages/react/src/container/GraphView/useNodeOrEdgeTypesWarning.ts`.
 -- |
 -- | **The gating flag.** TS uses `process.env.NODE_ENV === 'development'`.
--- | PS gates on `React.FFI.Env.isDevelopment` — a build-time `Boolean`
--- | exposed via FFI that bundlers can constant-fold via `define`
--- | (esbuild: `--define:IS_DEV=false`). Defaults to `true` so warnings
--- | fire unless explicitly silenced, matching the TS upstream default.
+-- | PS gates on `React.FFI.Env.isDevelopment`, which makes the same check
+-- | unless a bundler defines `IS_DEV` (esbuild: `--define:IS_DEV=false`).
 -- |
 -- | **One-shot per identity change.** TS holds the previous types record
 -- | in a `useRef`. We do the same. When the user passes the *same*
