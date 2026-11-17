@@ -2,6 +2,30 @@
 
 This directory also maintains the opt-in [Step 2 integration](#step-2-existing-project-adapter).
 
+## Fresh inventory and baseline procedure
+
+[Repeating the port review](../../AAMF_BASELINE_PROCEDURE.md) is the complete
+procedure for a fresh checkout or new baseline, including reconciliation,
+gate/register reviews, preservation and resume. It distinguishes the actual
+Step 1/2 AAMF runs from Steps 3/4's PSFlow workflow.
+
+```sh
+node tools/aamf/inventory.mjs <new-external-workspace> <new-artifact-directory> <unique-project-name>
+node --test tools/aamf/inventory.test.mjs
+```
+
+With Node >=22.18 and a vendored baseline matching committed pins, the runner
+copies the source and committed target, generates the absolute-alias analysis
+configuration and snapshots, builds pinned AAMF, applies/tests Lore fixes,
+installs frozen source dependencies, runs internal phases 0–1, inspects the
+certified index/imports/graph, and preserves logs, raw state and checksums. It
+refuses existing output/state paths and invalid AAMF project names. Guard
+tests also exercise path aliases and nested state/evidence. Git, tar and
+network access are needed;
+no agent-backend login is needed for these phases. Follow the procedure for
+new source layouts and explicit reconciliation review. This command never
+enables the Step 2 adapter or queues migration work.
+
 ## Current reconciliation review
 
 Step 4 order 11 refreshes the source-to-target map with completed Step 3/4

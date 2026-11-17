@@ -1,0 +1,26 @@
+{
+  "startedAt": "2026-11-17T03:45:13.226Z",
+  "elapsedSeconds": 28.143,
+  "command": [
+    "/Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node",
+    "<workspace>/AAMF/dist/index.js",
+    "migrate",
+    "-c",
+    "<workspace>/analysis.json",
+    "--phase",
+    "1"
+  ],
+  "exitCode": 0,
+  "statusExitCode": 0,
+  "psflowCommit": "82b17bec88ab42db430310edef4918064d066d10",
+  "aamfCommit": "7dc475d81ef9796b5b90f57a29475eaafa375753",
+  "nodeVersion": "v22.18.0",
+  "packages": {
+    "react": "12.11.0",
+    "system": "0.0.77"
+  },
+  "sourcePackageManager": "pnpm@10.33.4",
+  "analysisConfigSha256": "c2cda4a591a0a81eefb97b273b028ef4c187dedf26cdb57c2a82b247f25aa0f9",
+  "analysisTsconfigSha256": "e3dc4340d6f82c9b0a5353c6c0a4c516425ec4de6630f13a9182c6e6206c7c34",
+  "inventoryToolSha256": "97166edc11c6a6abcc5cdb5db056f65cec84d701fa352f35d731afa0c024bbcb"
+}

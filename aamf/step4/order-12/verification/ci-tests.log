@@ -1,0 +1,242 @@
+
+> ps-flow@0.0.0 test:ci
+> node --test .github/scripts/*.test.mjs
+
+TAP version 13
+# Subtest: the parser found the workflow's steps
+ok 1 - the parser found the workflow's steps
+  ---
+  duration_ms: 10.313423
+  type: 'test'
+  ...
+# Subtest: the workflow runs on every pull request
+ok 2 - the workflow runs on every pull request
+  ---
+  duration_ms: 1.363307
+  type: 'test'
+  ...
+# Subtest: README's five-gate table still lists five gates
+ok 3 - README's five-gate table still lists five gates
+  ---
+  duration_ms: 1.640334
+  type: 'test'
+  ...
+# Subtest: each cheap gate is run by exactly one step, by its documented command
+ok 4 - each cheap gate is run by exactly one step, by its documented command
+  ---
+  duration_ms: 1.018993
+  type: 'test'
+  ...
+# Subtest: system parity runs once, through the Linux runner, after the four cheap gates
+ok 5 - system parity runs once, through the Linux runner, after the four cheap gates
+  ---
+  duration_ms: 1.175271
+  type: 'test'
+  ...
+# Subtest: surface parity runs first, and no gate after it is exempt from its failure
+ok 6 - surface parity runs first, and no gate after it is exempt from its failure
+  ---
+  duration_ms: 2.029254
+  type: 'test'
+  ...
+# Subtest: a red surface parity is reported as blocking the interpretation of the rest
+ok 7 - a red surface parity is reported as blocking the interpretation of the rest
+  ---
+  duration_ms: 0.82729
+  type: 'test'
+  ...
+# Subtest: no step can swallow a non-zero exit
+ok 8 - no step can swallow a non-zero exit
+  ---
+  duration_ms: 0.818369
+  type: 'test'
+  ...
+# Subtest: the checks outside the gate scheme each run once, in order, after the five gates
+ok 9 - the checks outside the gate scheme each run once, in order, after the five gates
+  ---
+  duration_ms: 1.525054
+  type: 'test'
+  ...
+# Subtest: every npm script the workflow runs exists
+ok 10 - every npm script the workflow runs exists
+  ---
+  duration_ms: 1.69404
+  type: 'test'
+  ...
+# Subtest: falsified: the parser found the workflow's steps — the job declaring no steps the parser can read
+ok 11 - falsified: the parser found the workflow's steps — the job declaring no steps the parser can read
+  ---
+  duration_ms: 2.01976
+  type: 'test'
+  ...
+# Subtest: falsified: the workflow runs on every pull request — the pull request trigger going away
+ok 12 - falsified: the workflow runs on every pull request — the pull request trigger going away
+  ---
+  duration_ms: 1.076918
+  type: 'test'
+  ...
+# Subtest: falsified: the workflow runs on every pull request — a paths filter skipping the pull requests that touch nothing in it
+ok 13 - falsified: the workflow runs on every pull request — a paths filter skipping the pull requests that touch nothing in it
+  ---
+  duration_ms: 0.995267
+  type: 'test'
+  ...
+# Subtest: falsified: the workflow runs on every pull request — a branches filter skipping stacked pull requests
+ok 14 - falsified: the workflow runs on every pull request — a branches filter skipping stacked pull requests
+  ---
+  duration_ms: 1.216836
+  type: 'test'
+  ...
+# Subtest: falsified: each cheap gate is run by exactly one step, by its documented command — a gate dropping out of the workflow
+ok 15 - falsified: each cheap gate is run by exactly one step, by its documented command — a gate dropping out of the workflow
+  ---
+  duration_ms: 2.959788
+  type: 'test'
+  ...
+# Subtest: falsified: each cheap gate is run by exactly one step, by its documented command — README documenting a command CI does not run
+ok 16 - falsified: each cheap gate is run by exactly one step, by its documented command — README documenting a command CI does not run
+  ---
+  duration_ms: 0.901411
+  type: 'test'
+  ...
+# Subtest: falsified: system parity runs once, through the Linux runner, after the four cheap gates — the net dropping out of the workflow
+ok 17 - falsified: system parity runs once, through the Linux runner, after the four cheap gates — the net dropping out of the workflow
+  ---
+  duration_ms: 1.046653
+  type: 'test'
+  ...
+# Subtest: falsified: system parity runs once, through the Linux runner, after the four cheap gates — the net capturing on the host instead of in the image
+ok 18 - falsified: system parity runs once, through the Linux runner, after the four cheap gates — the net capturing on the host instead of in the image
+  ---
+  duration_ms: 1.022301
+  type: 'test'
+  ...
+# Subtest: falsified: system parity runs once, through the Linux runner, after the four cheap gates — the net running before the smoke suite
+ok 19 - falsified: system parity runs once, through the Linux runner, after the four cheap gates — the net running before the smoke suite
+  ---
+  duration_ms: 1.371465
+  type: 'test'
+  ...
+# Subtest: falsified: system parity runs once, through the Linux runner, after the four cheap gates — README's CI section no longer naming how CI runs the net
+ok 20 - falsified: system parity runs once, through the Linux runner, after the four cheap gates — README's CI section no longer naming how CI runs the net
+  ---
+  duration_ms: 1.213176
+  type: 'test'
+  ...
+# Subtest: falsified: surface parity runs first, and no gate after it is exempt from its failure — the net exempting itself from the precondition
+ok 21 - falsified: surface parity runs first, and no gate after it is exempt from its failure — the net exempting itself from the precondition
+  ---
+  duration_ms: 1.458707
+  type: 'test'
+  ...
+# Subtest: falsified: surface parity runs first, and no gate after it is exempt from its failure — a later gate exempting itself from the precondition
+ok 22 - falsified: surface parity runs first, and no gate after it is exempt from its failure — a later gate exempting itself from the precondition
+  ---
+  duration_ms: 1.430634
+  type: 'test'
+  ...
+# Subtest: falsified: a red surface parity is reported as blocking the interpretation of the rest — the surface parity step losing the id its report is addressed to
+ok 23 - falsified: a red surface parity is reported as blocking the interpretation of the rest — the surface parity step losing the id its report is addressed to
+  ---
+  duration_ms: 1.541
+  type: 'test'
+  ...
+# Subtest: falsified: no step can swallow a non-zero exit — a gate being allowed to fail without failing the run
+ok 24 - falsified: no step can swallow a non-zero exit — a gate being allowed to fail without failing the run
+  ---
+  duration_ms: 1.045109
+  type: 'test'
+  ...
+# Subtest: falsified: the checks outside the gate scheme each run once, in order, after the five gates — the boundary checks dropping out of the workflow
+ok 25 - falsified: the checks outside the gate scheme each run once, in order, after the five gates — the boundary checks dropping out of the workflow
+  ---
+  duration_ms: 1.35561
+  type: 'test'
+  ...
+# Subtest: falsified: the checks outside the gate scheme each run once, in order, after the five gates — the boundary tests dropping out of the workflow
+ok 26 - falsified: the checks outside the gate scheme each run once, in order, after the five gates — the boundary tests dropping out of the workflow
+  ---
+  duration_ms: 1.105183
+  type: 'test'
+  ...
+# Subtest: falsified: the checks outside the gate scheme each run once, in order, after the five gates — a check running before the net, where a red one would withhold the net's result
+ok 27 - falsified: the checks outside the gate scheme each run once, in order, after the five gates — a check running before the net, where a red one would withhold the net's result
+  ---
+  duration_ms: 1.439738
+  type: 'test'
+  ...
+# Subtest: falsified: the checks outside the gate scheme each run once, in order, after the five gates — the package check running before the build it reads
+ok 28 - falsified: the checks outside the gate scheme each run once, in order, after the five gates — the package check running before the build it reads
+  ---
+  duration_ms: 1.956725
+  type: 'test'
+  ...
+# Subtest: falsified: the checks outside the gate scheme each run once, in order, after the five gates — README's CI section no longer naming the package check
+ok 29 - falsified: the checks outside the gate scheme each run once, in order, after the five gates — README's CI section no longer naming the package check
+  ---
+  duration_ms: 2.012333
+  type: 'test'
+  ...
+# Subtest: falsified: every npm script the workflow runs exists — the workflow calling a script package.json does not have
+ok 30 - falsified: every npm script the workflow runs exists — the workflow calling a script package.json does not have
+  ---
+  duration_ms: 2.386766
+  type: 'test'
+  ...
+# Subtest: the pins come from the exact-pinned devDependencies
+ok 31 - the pins come from the exact-pinned devDependencies
+  ---
+  duration_ms: 4.463227
+  type: 'test'
+  ...
+# Subtest: a range where an exact pin belongs fails rather than resolving
+ok 32 - a range where an exact pin belongs fails rather than resolving
+  ---
+  duration_ms: 0.996694
+  type: 'test'
+  ...
+# Subtest: a missing pin fails rather than vendoring some default
+ok 33 - a missing pin fails rather than vendoring some default
+  ---
+  duration_ms: 0.408565
+  type: 'test'
+  ...
+# Subtest: the tarball URL is the release tag for the pinned react version
+ok 34 - the tarball URL is the release tag for the pinned react version
+  ---
+  duration_ms: 0.286594
+  type: 'test'
+  ...
+# Subtest: a vendored tree matching both pins is accepted
+ok 35 - a vendored tree matching both pins is accepted
+  ---
+  duration_ms: 2.698184
+  type: 'test'
+  ...
+# Subtest: a vendored tree disagreeing with either pin fails, naming both versions
+ok 36 - a vendored tree disagreeing with either pin fails, naming both versions
+  ---
+  duration_ms: 4.95824
+  type: 'test'
+  ...
+# Subtest: a tree that is not there at all fails as loudly as a wrong one
+ok 37 - a tree that is not there at all fails as loudly as a wrong one
+  ---
+  duration_ms: 0.53226
+  type: 'test'
+  ...
+# Subtest: the repo's own pins parse
+ok 38 - the repo's own pins parse
+  ---
+  duration_ms: 0.887746
+  type: 'test'
+  ...
+1..38
+# tests 38
+# suites 0
+# pass 38
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 264.524826

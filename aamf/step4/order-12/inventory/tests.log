@@ -1,0 +1,88 @@
+TAP version 13
+# Subtest: SCIP initializer spans include the actual identifier, including multiline and Unicode source
+ok 1 - SCIP initializer spans include the actual identifier, including multiline and Unicode source
+  ---
+  duration_ms: 3481.914314
+  type: 'test'
+  ...
+# Subtest: migration-grade validation accepts covered re-exports and preserves honest raw coverage
+ok 2 - migration-grade validation accepts covered re-exports and preserves honest raw coverage
+  ---
+  duration_ms: 22.517691
+  type: 'test'
+  ...
+# Subtest: language-specific symbol-less-file thresholds also distinguish covered re-exports
+ok 3 - language-specific symbol-less-file thresholds also distinguish covered re-exports
+  ---
+  duration_ms: 24.336523
+  type: 'test'
+  ...
+# Subtest: a genuinely missing definition still fails the zero symbol-less-file threshold
+ok 4 - a genuinely missing definition still fails the zero symbol-less-file threshold
+  ---
+  duration_ms: 54.324231
+  type: 'test'
+  ...
+# Subtest: invalid spans are still rejected
+ok 5 - invalid spans are still rejected
+  ---
+  duration_ms: 41.592187
+  type: 'test'
+  ...
+# Subtest: empty source is not exempted as a re-export-only file
+ok 6 - empty source is not exempted as a re-export-only file
+  ---
+  duration_ms: 39.443316
+  type: 'test'
+  ...
+# Subtest: side-effect source is not exempted as a re-export-only file
+ok 7 - side-effect source is not exempted as a re-export-only file
+  ---
+  duration_ms: 35.7354
+  type: 'test'
+  ...
+# Subtest: declaration source is not exempted as a re-export-only file
+ok 8 - declaration source is not exempted as a re-export-only file
+  ---
+  duration_ms: 37.299224
+  type: 'test'
+  ...
+# Subtest: unresolved-export source is not exempted as a re-export-only file
+ok 9 - unresolved-export source is not exempted as a re-export-only file
+  ---
+  duration_ms: 40.753047
+  type: 'test'
+  ...
+# Subtest: parse-error source is not exempted as a re-export-only file
+ok 10 - parse-error source is not exempted as a re-export-only file
+  ---
+  duration_ms: 39.714344
+  type: 'test'
+  ...
+# Subtest: a cycle of re-exports with no indexed definitions is not exempted
+ok 11 - a cycle of re-exports with no indexed definitions is not exempted
+  ---
+  duration_ms: 32.712415
+  type: 'test'
+  ...
+# Subtest: a source snapshot with a stale hash cannot earn a re-export exemption
+ok 12 - a source snapshot with a stale hash cannot earn a re-export exemption
+  ---
+  duration_ms: 36.581032
+  type: 'test'
+  ...
+# Subtest: a re-export file without current SCIP document coverage is rejected
+ok 13 - a re-export file without current SCIP document coverage is rejected
+  ---
+  duration_ms: 37.032839
+  type: 'test'
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5392.185178

@@ -1,0 +1,122 @@
+clone.log: git clone --no-checkout https://github.com/jafreck/AAMF.git /private/tmp/psflow-order12-receipt-20261117/AAMF
+checkout.log: git checkout --detach 7dc475d81ef9796b5b90f57a29475eaafa375753
+aamf-install.log: npm ci
+aamf-build.log: npm run build
+compatibility-patches.json: /Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node /Users/jonathanbae/repos/PSFlow/tools/aamf/apply-phase0-fixes.mjs /private/tmp/psflow-order12-receipt-20261117/AAMF
+tests.log: /Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node --test /Users/jonathanbae/repos/PSFlow/tools/aamf/phase0.test.mjs
+source-install.log: npx --yes pnpm@10.33.4 --filter @xyflow/react... --filter @xyflow/system... install --frozen-lockfile --ignore-scripts --store-dir /private/tmp/psflow-order12-receipt-20261117/pnpm-store
+migrate.log: /Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node /private/tmp/psflow-order12-receipt-20261117/AAMF/dist/index.js migrate -c /private/tmp/psflow-order12-receipt-20261117/analysis.json --phase 1
+status.txt: /Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node /private/tmp/psflow-order12-receipt-20261117/AAMF/dist/index.js status -c /private/tmp/psflow-order12-receipt-20261117/analysis.json
+inspection.log: /Users/jonathanbae/.nvm/versions/node/v22.18.0/bin/node /Users/jonathanbae/repos/PSFlow/tools/aamf/inspect-step1.mjs /private/tmp/psflow-order12-receipt-20261117 /Users/jonathanbae/repos/PSFlow/aamf/step4/order-12/inventory
+archive.log: tar -czf /Users/jonathanbae/repos/PSFlow/aamf/step4/order-12/inventory/runtime.tar.gz -C /private/tmp/psflow-order12-receipt-20261117 .aamf source-before.json target-before.json run-result.json step1-index-health.json
+{
+  "workspace": "/private/tmp/psflow-order12-receipt-20261117",
+  "artifacts": "/Users/jonathanbae/repos/PSFlow/aamf/step4/order-12/inventory",
+  "projectName": "psflow-baseline-review-202611170350",
+  "packages": {
+    "react": "12.11.0",
+    "system": "0.0.77"
+  },
+  "review": {
+    "sourceFiles": 171,
+    "packages": {
+      "system": 44,
+      "react": 127
+    },
+    "javascriptFiles": [],
+    "sourceFilesOmitted": [],
+    "tasks": 120,
+    "dependencyEdges": 460,
+    "cycles": [
+      {
+        "tasks": [
+          "task-122-0",
+          "task-121-0",
+          "task-119-0"
+        ],
+        "sourceFiles": [
+          "packages/system/src/types/general.ts",
+          "packages/system/src/types/nodes.ts",
+          "packages/system/src/types/panzoom.ts"
+        ]
+      },
+      {
+        "tasks": [
+          "task-111-0",
+          "task-110-0",
+          "task-109-0",
+          "task-108-0"
+        ],
+        "sourceFiles": [
+          "packages/react/src/types/edges.ts",
+          "packages/react/src/types/general.ts",
+          "packages/react/src/types/instance.ts",
+          "packages/react/src/types/nodes.ts"
+        ]
+      },
+      {
+        "tasks": [
+          "task-146-0",
+          "task-145-0"
+        ],
+        "sourceFiles": [
+          "packages/system/src/xypanzoom/XYPanZoom.ts",
+          "packages/system/src/xypanzoom/eventhandler.ts"
+        ]
+      },
+      {
+        "tasks": [
+          "task-70-0",
+          "task-59-0"
+        ],
+        "sourceFiles": [
+          "packages/react/src/container/FlowRenderer/index.tsx",
+          "packages/react/src/container/ZoomPane/index.tsx"
+        ]
+      }
+    ],
+    "compilationUnits": 0,
+    "directTaskFiles": 121,
+    "additionalReferenceFiles": 32,
+    "reexportOnlyFiles": 18,
+    "fileOnlyFallbackTasks": 0,
+    "danglingDependencies": 0,
+    "complexity": {
+      "complex": 9,
+      "moderate": 37,
+      "simple": 74
+    },
+    "maxTaskLines": 653,
+    "dependencySummary": {
+      "files": 171,
+      "modules": 152,
+      "connectedComponents": 7,
+      "largestConnectedComponent": 146
+    },
+    "importAudit": {
+      "total": 689,
+      "counts": {
+        "external": 158,
+        "scoped": 531
+      },
+      "unresolved": 0,
+      "outsideScope": 0,
+      "reactToSystem": 80
+    },
+    "crossPackageCalls": 56,
+    "crossPackageTypes": 324,
+    "generatedTargets": 121,
+    "targetExtensions": [
+      ".purescript"
+    ],
+    "checkpoint": {
+      "completedPhases": [
+        0,
+        1
+      ],
+      "currentPhase": 2,
+      "structuredGraphMatchesArtifacts": true,
+      "tokens": 0
+    }
+  }
+}
