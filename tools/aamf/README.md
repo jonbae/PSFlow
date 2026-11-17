@@ -2,6 +2,32 @@
 
 This directory also maintains the opt-in [Step 2 integration](#step-2-existing-project-adapter).
 
+## Current reconciliation review
+
+Step 4 order 11 refreshes the source-to-target map with completed Step 3/4
+evidence. From the repository root:
+
+```sh
+node tools/aamf/refresh-reconciliation.mjs
+node tools/aamf/refresh-reconciliation.mjs --check
+node --test tools/aamf/reconciliation.test.mjs
+```
+
+The reviewed input is [profiles.json](../../aamf/step4/order-11/profiles.json).
+The script validates the 171-file certified scope, package pins, source hashes,
+import consumers, module paths and evidence links/anchors before writing
+`AAMF_STEP2_MAPPING.md` and `aamf/step2/reconciliation.json`. Check mode also
+detects runtime/evidence drift and mismatched generated outputs. The current
+review has version 2 and zero tasks; the Step 2 runtime adapter accepts only
+version 1. This is a record of completed work, not a migration execution.
+
+The exact original pilot input is now
+[pilot-reconciliation.json](../../aamf/step2/pilot-reconciliation.json), with
+its original checksum. `inspect-step2.mjs` preserves it under that name so
+auditing the old workspace does not overwrite the current review. The old
+preparation command remains guarded against queuing an already-crossed W01.
+See [the completion record](../../aamf/step4/order-11/README.md).
+
 These fixes let the pinned AAMF checkout index PSFlow's pinned xyflow source.
 They apply to Lore **0.4.2** as installed by AAMF commit
 `7dc475d81ef9796b5b90f57a29475eaafa375753`. They do not change PSFlow's runtime

@@ -8,7 +8,7 @@ import { pathToFileURL } from 'node:url';
 import { digest, json, save, snapshot, validateMapping } from './psflow-integration.mjs';
 
 const root = resolve(process.argv[2] ?? '.');
-const destination = resolve(process.argv[3] ?? 'aamf/step2/reconciliation.json');
+const destination = resolve(process.argv[3] ?? 'aamf/step2/pilot-reconciliation.json');
 const { manifest } = await import(pathToFileURL(join(root, 'src/Boundary.js')));
 assert.ok(manifest.passthrough.includes('getViewportForBounds'),
   'W01 is already crossed; retain it as context instead of creating another write task');

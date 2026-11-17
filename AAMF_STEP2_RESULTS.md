@@ -1,5 +1,11 @@
 # AAMF Step 2: reconcile the existing port
 
+The execution below is the November 9 record. Step 4 order 11 has since
+[refreshed the dispositions](AAMF_STEP2_MAPPING.md) from completed work. Its
+current review is separate from the byte-preserved
+[pilot input](aamf/step2/pilot-reconciliation.json); the historical W cards
+below are not a current migration queue.
+
 **Step 2 is complete, 2026-11-09. Step 3 was not started.** All 171 source files
 have reviewed existing-target mappings. The maintained adapter and the
 `getViewportForBounds` pilot are implemented and verified, including real AAMF

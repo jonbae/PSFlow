@@ -1,0 +1,142 @@
+{
+  "dateUTC": "2026-11-16",
+  "psflowCommit": "ad56dd3d27a06e54e26f235abda9c1466876c67c",
+  "profiles": {
+    "E01": {
+      "disposition": "Reuse",
+      "evidence": "Retain namespace ownership, type aliases and all 18 re-export-only files (19 units in this profile). Stage 5 crosses all 68 values with zero passthroughs; surface and package checks verify the published bindings and declarations, not every implementation branch.",
+      "work": "W00 complete; Step 3 B and I",
+      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#completion-of-w02--boundary-stage-5", "AAMF_STEP3_RESULTS.md#order-i-completion-november-13-utc", "src/Boundary.js", "parity/surface/report.md", "distribution/check.mjs"]
+    },
+    "E02": {
+      "disposition": "Reuse",
+      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. Four browser cases retain the precisely issue-owned extra-render difference; type presence alone is not the evidence.",
+      "work": "W10 complete; Step 4 order 10",
+      "evidenceRefs": ["AAMF_TYPE_CONTRACT_REVIEW.md", "aamf/step4/order-10/README.md", "parity/boundary/chrome-contracts.test.mjs", "parity/boundary/flow-contracts.test.mjs"]
+    },
+    "E03": {
+      "disposition": "Reuse",
+      "evidence": "W01 crossed getViewportForBounds and passed 28 direct-call witnesses; W13 completed the shared NaN/signed-zero semantics. Viewport options, animation/interpolation and fitView padding/lifecycle now have differential evidence from orders 5, 8 and 10. No raw viewport export remains.",
+      "work": "W01 and W13 complete; Step 4 orders 5, 8 and 10",
+      "evidenceRefs": ["AAMF_STEP2_RESULTS.md#completion-evidence", "parity/boundary/viewport.test.mjs", "parity/boundary/numeric.test.mjs", "test/Test/Parity/Geometry.purs", "test/Test/System/XYPanZoom/Transitions.purs", "aamf/step4/order-8/README.md", "AAMF_TYPE_CONTRACT_REVIEW.md"]
+    },
+    "E04": {
+      "disposition": "Reuse",
+      "evidence": "W02 crossed all seven remaining graph exports with red/green JS-entry comparisons. Order 9 added getInternalNodesBounds and getNodesInside differential properties and fixed initial fitView filtering and group-drag extent callers. Pure graph evidence and mounted caller evidence remain distinct.",
+      "work": "W02 complete; Step 4 order 9",
+      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#completion-of-w02--boundary-stage-5", "parity/boundary/connected-edges.test.mjs", "parity/boundary/incomers.test.mjs", "parity/boundary/outgoers.test.mjs", "parity/boundary/is-node.test.mjs", "parity/boundary/is-edge.test.mjs", "parity/boundary/node-bounds.test.mjs", "parity/boundary/reconnect-edge.test.mjs", "test/Test/Parity/Graph.purs", "test/Test/Parity/InternalNodes.purs", "parity/boundary/initial-fit-view.test.mjs", "test/Test/System/XYDrag/DragGroupExtent.purs", "tickets/059-layer1-behavioral-parity-coverage.md"]
+    },
+    "E05": {
+      "disposition": "Reuse",
+      "evidence": "Retain edge, marker and toolbar calculations under function parity. W13 covers the smoothstep numeric call sites; Order H supplies built-in edge and toolbar mounted witnesses. Function properties establish return values; the coverage register identifies the mounted observations.",
+      "work": "W00 and W13 complete; Step 3 H",
+      "evidenceRefs": ["test/Test/Parity/Edges.purs", "test/Test/Parity/Marker.purs", "test/Test/Parity/Toolbar.purs", "parity/boundary/numeric.test.mjs", "AAMF_STEP3_RESULTS.md#order-h-completion-november-12-utc", "parity/system/coverage.md"]
+    },
+    "E06": {
+      "disposition": "Reuse",
+      "evidence": "W03 preserves untouched references, touched/add/replace spread semantics, enumerable keys and present-undefined values in JS change/add helpers; the three issue-150 return exceptions retired. Order 10's 53-shape change probe also matches. Internally rebuilt uncontrolled nodes retain the separately documented handler-key exclusion.",
+      "work": "W03 complete; Step 3 H; Step 4 order 10",
+      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#consumer-objects-step-3-c--w03-november-10", "parity/boundary/consumer-objects.test.mjs", "test/Test/Parity/Changes.purs", "aamf/step4/order-10/change-shapes-probe.txt", "distribution/gaps.mjs"]
+    },
+    "E07": {
+      "disposition": "Reuse",
+      "evidence": "W04 retains original internals.userNode references; Orders G/H cover live store lookups, instance reads, handler payloads and consumer keys. Orders 7/9 compare adoption and internal-node geometry, including ordering. These completed contracts do not erase issues 207/208 or the explicit store/uncontrolled-node exclusions.",
+      "work": "W04 complete; Step 3 G/H; Step 4 orders 7 and 9; issues 207/208 remain separately owned",
+      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#original-node-provenance-step-3-d--w04-november-10", "parity/boundary/user-node.test.mjs", "parity/boundary/references.test.mjs", "parity/boundary/store.test.mjs", "test/Test/Parity/Adoption.purs", "test/Test/Parity/InternalNodes.purs", "AAMF_TYPE_CONTRACT_REVIEW.md#differences-routed-to-issues", "distribution/gaps.mjs"]
+    },
+    "E08": {
+      "disposition": "Reuse",
+      "evidence": "W05 reads and updates real resize state through start/move/end, shouldResize, auto-pan and child/parent expansion. Mounted resize witnesses and node.resizing are implemented, and shared numeric semantics are tested. Initial/zero callback placeholders and missing resize witnesses are retired.",
+      "work": "W05, W12 resize witnesses and W13 complete; Step 3 F/G/H",
+      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#resize-lifecycle-f--w05-and-its-mounted-witnesses-h--w12", "AAMF_STEP3_RESULTS.md#resize-state-through-the-store-g--noderesizing", "test/Test/System/XYResizer.purs", "test/Test/Boundary/NodeResizing.purs", "test/Test/System/Utils/NumericParity.purs", "parity/system/coverage.md"]
+    },
+    "E09": {
+      "disposition": "Reuse",
+      "evidence": "W06 provides the JS store view, reads/writes, actions, subscription and consumer equality; it no longer refuses useStore/useStoreApi. Order 6 completes W09 with upstream shallow/shallowNodeData, duplicate-id overload and array-reference comparisons, with falsification probes. The four precise store exclusions remain documented in declarations.",
+      "work": "W06 and W09 complete; Step 3 G/H; Step 4 order 6",
+      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-g-completion-november-12-utc", "parity/boundary/store.test.mjs", "parity/boundary/selector-equality.test.mjs", "test/Test/React/Hook/Store.purs", "distribution/gaps.mjs"]
+    },
+    "E10": {
+      "disposition": "Reuse",
+      "evidence": "W08a/b port onInit frame scheduling/dependencies and viewport listener replace/clear/unmount behavior with red/green local proxies. Orders G/H complete selection-handler registration and listener ordering/consumer payloads. The mounted onInit witness is present.",
+      "work": "W08a/b complete; Step 3 G/H and W12 onInit",
+      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#timing-and-viewport-listeners-step-3-e--w08ab-november-10", "test/Test/React/Hook/OnInitTiming.purs", "test/Test/React/Hook/ViewportListeners.purs", "AAMF_STEP3_RESULTS.md#order-h-completion-november-12-utc", "parity/system/coverage.md"]
+    },
+    "E11": {
+      "disposition": "Reuse",
+      "evidence": "Retain the existing React/render/store mechanisms. Step 3 E/H established reproducible keyboard, callback, identity and mount observations; orders 3/7/8/10 add fallback, adoption, per-changelog-branch and type-contract evidence. The recorded final net passes 153/153. Issues 207/208 still own two render differences; this profile is not a claim of exhaustive branch equivalence.",
+      "work": "W11 complete; Step 3 H/I; Step 4 orders 3, 7, 8 and 10; issues 207/208 remain separately owned",
+      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-e-completion-november-12-utc", "AAMF_STEP3_RESULTS.md#order-h-completion-november-12-utc", "parity/boundary/type-fallback.test.mjs", "aamf/step4/order-8/rows.json", "AAMF_TYPE_CONTRACT_REVIEW.md", "aamf/step4/order-10/README.md", "parity/system/report.md"]
+    },
+    "E12": {
+      "disposition": "Reuse",
+      "evidence": "W11 completes repeatable drag, selection and keyboard driving, announcements, focus and callback ordering. Order 7 completes useKeyPress and adoption/DOM parity; order 8 checks gesture branches with receipts and rejected port faults. Order 9 fixes group extent clamping. Issue 208 remains outside the completed keyboard contract.",
+      "work": "W11 complete; Step 4 orders 7, 8 and 9; issue 208 remains separately owned",
+      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-e-completion-november-12-utc", "parity/boundary/key-press.test.mjs", "test/Test/React/Hook/KeyPress.purs", "aamf/step4/order-8/rows.json", "test/Test/System/XYDrag/DragGroupExtent.purs", "AAMF_TYPE_CONTRACT_REVIEW.md#differences-routed-to-issues"]
+    },
+    "E13": {
+      "disposition": "Reuse",
+      "evidence": "W11 establishes reproducible pan/zoom and minimap driving. Order 5 completes animated viewport transitions, order 8 checks wheel/pan/interpolation/minimap branches, and order 10 compares minimap attributes, sizing and gesture options. Numeric and native scheduling evidence are explicit, rather than inferred from a passing mount.",
+      "work": "W11 and W13 complete; Step 4 orders 5, 8 and 10",
+      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-e-completion-november-12-utc", "test/Test/System/XYPanZoom/Transitions.purs", "test/Test/System/XYPanZoom/EndTiming.purs", "aamf/step4/order-8/rows.json", "AAMF_TYPE_CONTRACT_REVIEW.md", "parity/boundary/flow-contracts.test.mjs"]
+    },
+    "E14": {
+      "disposition": "Reuse",
+      "evidence": "Connection gestures, original objects, null handle bounds, native reconnect events and live handlers now have focused and mounted evidence. PR195's disposition was resolved in order 1; orders 7/8/10 cover adoption, connection branches and Handle props. Issue 207 remains an explicitly held render-count difference for useHandleConnections.",
+      "work": "W11 complete; Step 3 G/H; Step 4 orders 1, 7, 8 and 10; issue 207 remains separately owned",
+      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#shared-handle-bounds-and-viewport-end-scheduling-november-12-utc", "AAMF_STEP3_RESULTS.md#order-h-completion-november-12-utc", "test/Test/Parity/Handle.purs", "test/Test/Parity/Dom.purs", "test/Test/System/Utils/HandleBoundsNull.purs", "aamf/step4/order-8/rows.json", "AAMF_TYPE_CONTRACT_REVIEW.md#differences-routed-to-issues", "parity/boundary/flow-contracts.test.mjs"]
+    },
+    "E15": {
+      "disposition": "Reuse",
+      "evidence": "Retain chrome, icon, panel and color-mode ownership. Orders H/I fix default color mode and Panel's default position; orders 6/8/10 compare toolbar equality, CSS branches, chrome props/rest attributes and minimap options. Focused tests, server renders and mounted witnesses cover different observations.",
+      "work": "W00 complete; Step 3 H/I; Step 4 orders 6, 8 and 10",
+      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-h-completion-november-12-utc", "AAMF_STEP3_RESULTS.md#order-i-completion-november-13-utc", "parity/boundary/declared-minimum.test.mjs", "parity/boundary/selector-equality.test.mjs", "parity/boundary/chrome-contracts.test.mjs", "aamf/step4/order-8/rows.json", "AAMF_TYPE_CONTRACT_REVIEW.md"]
+    },
+    "E16": {
+      "disposition": "Reuse",
+      "evidence": "W12's seven formerly unobserved components now have mounted witnesses: built-in/custom edge types and portals on mount, and EdgeToolbar on selection. Orders 6/10 add toolbar subscription and prop-contract comparisons. Coverage records 155/156 driven with one precisely declared type-only observation hole, not an unmounted component.",
+      "work": "W12 complete; Step 3 H; Step 4 orders 6 and 10",
+      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-h-completion-november-12-utc", "parity/system/coverage.md", "parity/system/coverage/holes.json", "parity/boundary/selector-equality.test.mjs", "parity/boundary/chrome-contracts.test.mjs"]
+    },
+    "E17": {
+      "disposition": "Reuse",
+      "evidence": "W07 implements all 23 typed defaultEdgeOptions members plus the dependent edge/node members, merges present-undefined overrides and default markers, and removes the refusal table. Fields and onConnect/merge are compared with upstream. Keys outside DefaultEdgeOptions remain an explicit compatibility exclusion.",
+      "work": "W07 complete; Step 3 G/H; Step 4 orders 3, 4 and 10",
+      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-g-completion-november-12-utc", "parity/boundary/edge-fields.test.mjs", "test/Test/Boundary/DefaultEdgeOptions.purs", "parity/boundary/type-fallback.test.mjs", "distribution/gaps.mjs", "AAMF_TYPE_CONTRACT_REVIEW.md"]
+    },
+    "E18": {
+      "disposition": "Accepted difference",
+      "evidence": "D02 remains precise: custom.d.ts supplies TypeScript-only CSS/SVG ambient declarations, with no runtime PureScript body to translate. DOM.purs is platform context, not an implementation of ambient declarations. Order I copies both upstream stylesheets byte for byte and emits the reachable declarations with documented overlays.",
+      "work": "D02 retained; Step 3 I",
+      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-i-completion-november-13-utc", "distribution/README.md", "distribution/build.mjs", "distribution/declarations.mjs", "distribution/gaps.mjs"]
+    }
+  },
+  "unitUpdates": {
+    "packages/react/src/hooks/useStore.ts": { "converters": ["src/Boundary/Store.purs"] },
+    "packages/react/src/types/store.ts": { "converters": ["src/Boundary/Store.purs", "src/Boundary/FlowMembers.purs"] },
+    "packages/react/src/store/index.ts": { "converters": ["src/Boundary/Store.purs"] },
+    "packages/react/src/store/initialState.ts": { "converters": ["src/Boundary/Store.purs"] },
+    "packages/react/src/types/component-props.ts": { "converters": ["src/Boundary/FlowMembers.purs"] }
+  },
+  "remainingIssues": [
+    {
+      "issue": "https://github.com/jonbae/PSFlow/issues/207",
+      "reason": "A custom node renders once more than upstream at mount. Four useHandleConnections browser cases hold that exact difference and fail as stale when fixed.",
+      "evidenceRefs": ["AAMF_TYPE_CONTRACT_REVIEW.md#differences-routed-to-issues", "parity/boundary/flow-contracts.test.mjs"],
+      "sources": ["packages/react/src/components/NodeWrapper/index.tsx", "packages/react/src/container/NodeRenderer/index.tsx", "packages/react/src/hooks/useHandleConnections.ts", "packages/react/src/store/index.ts"]
+    },
+    {
+      "issue": "https://github.com/jonbae/PSFlow/issues/208",
+      "reason": "A node selected in place re-renders on the next store notification in a controlled flow that ignores changes. This is a known difference, not an accepted type-contract exclusion.",
+      "evidenceRefs": ["AAMF_TYPE_CONTRACT_REVIEW.md#differences-routed-to-issues"],
+      "sources": ["packages/react/src/components/NodeWrapper/index.tsx", "packages/react/src/hooks/useGlobalKeyHandler.ts", "packages/react/src/hooks/useKeyPress.ts", "packages/react/src/hooks/useMoveSelectedNodes.ts", "packages/react/src/store/index.ts", "packages/system/src/utils/store.ts"]
+    }
+  ],
+  "compatibilityLimits": [
+    { "id": "store-exclusions", "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-g-completion-november-12-utc", "distribution/gaps.mjs"] },
+    { "id": "untyped-default-edge-options-and-uncontrolled-rebuilt-nodes", "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-h-completion-november-12-utc", "distribution/gaps.mjs"] },
+    { "id": "module-formats-react-peer-range-and-styles-warning", "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-i-completion-november-13-utc", "distribution/gaps.mjs", "package.json"] },
+    { "id": "declared-UnselectNodesAndEdgesParams-coverage-hole", "evidenceRefs": ["parity/system/coverage/holes.json", "parity/system/coverage.md"] },
+    { "id": "permanent-surface-shape-exceptions", "evidenceRefs": ["parity/surface/allowlist.json", "parity/surface/report.md"] }
+  ]
+}

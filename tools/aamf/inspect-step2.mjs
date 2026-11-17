@@ -58,7 +58,8 @@ const reused = mapping.tasks[0].referenceFiles;
 for (const path of reused) assert.equal(current[path], mapping.targetSnapshot[path], `Reused target changed: ${path}`);
 await mkdir(output, { recursive: true });
 for (const file of ['reconciliation.json', 'prepare-run.log', 'pilot-run.log', 'pre-pilot-checkpoint.json']) {
-  await copyFile(join(workspace, file), join(output, file));
+  // Keep the pilot input separate from the current, review-only reconciliation.
+  await copyFile(join(workspace, file), join(output, file === 'reconciliation.json' ? 'pilot-reconciliation.json' : file));
 }
 for (const file of ['psflow-reconciliation.json', 'psflow-phase4-discovery.json', 'psflow-target-files.json', 'psflow-adopted-tests.json']) {
   await copyFile(join(planning, file), join(output, file));
