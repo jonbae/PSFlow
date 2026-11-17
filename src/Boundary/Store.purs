@@ -143,6 +143,7 @@ import React.Store.Action (Action(..))
 import React.Store.PanBy (panBy) as StorePanBy
 import React.Store.InitialState (defaultOnError)
 import React.Store.Shell (Store)
+import React.Store.InPlace (mirrorInPlace)
 import React.Types.Edges (DefaultEdgeOptions, Edge)
 import React.Types.General
   ( IsValidConnection
@@ -610,7 +611,11 @@ onErrorOut f
 -- | An internal node as `nodeLookup` hands it out: one object per PureScript
 -- | node, so an unchanged node reads back as the object read before.
 internalNodeOutCached :: InternalNodeBase Foreign -> Foreign
-internalNodeOutCached = reversibleImpl (unsafeToForeign <<< internalNodeOut)
+internalNodeOutCached = reversibleImpl \node -> unsafeToForeign $
+  mirrorInPlace
+    (\current view -> view { selected = toUndefinable current.selected })
+    node
+    (internalNodeOut node)
 
 -- | The consumer's own array when the store holds the one decoded from it,
 -- | as upstream's `nodes` is the array the consumer passed. An array the

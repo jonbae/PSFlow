@@ -21,10 +21,12 @@ import Data.Map as Map
 import Data.Maybe (Maybe(..))
 import Effect (Effect)
 import Effect.Class.Console (log)
+import Effect.Ref as Ref
 import Partial.Unsafe (unsafeCrashWith)
 import React.Store.Action (Action(..), Effect_(..))
 import React.Store.InitialState (InitialStateOptions, defaultInitialStateOptions, initialState)
 import React.Store.Reduce (reduce)
+import React.Store.Shell (createStore)
 import React.Types.Store (MiddlewareKey(..), ReactFlowState)
 import System.Types.Connection (ConnectionState(..))
 import System.Types.Geometry (Position(..), XYPosition)
@@ -200,3 +202,17 @@ runUpdateNodePositionsTests = do
         ConnectionInProgress p -> p.from == { x: 0.0, y: 0.0 }
         NoConnection -> false
     )
+
+  -- A controlled drag reports changes without setting nodes. Publishing an
+  -- unchanged connection here wakes subscribers upstream leaves idle (#208).
+  events <- Ref.new ([] :: Array String)
+  store <- createStore
+    ((defaultInitialStateOptions :: InitialStateOptions Unit Unit)
+      { nodes = Just [ nodeAt "loose" { x: 200.0, y: 0.0 } { width: 50.0, height: 40.0 } ] })
+  store.setState _
+    { onNodesChange = Just \_ -> Ref.modify_ (_ <> [ "onNodesChange" ]) events }
+  _ <- store.subscribeStates \_ _ -> Ref.modify_ (_ <> [ "notify" ]) events
+  store.dispatch (UpdateNodePositions [ dragItem "loose" { x: 210.0, y: 5.0 } { x: 210.0, y: 5.0 } ] true)
+  observed <- Ref.read events
+  assert "a controlled drag without a connection reports changes without notifying the store"
+    (observed == [ "onNodesChange" ])

@@ -51,7 +51,7 @@ test('all certified units agree in both outputs; repeated refresh is stable', as
   assert.equal(mapping.units.length, 171);
   assert.deepEqual(mapping.tasks, []);
   assert.deepEqual(mapping.counts, { Reuse: 170, 'Accepted difference': 1 });
-  assert.equal(mapping.units.filter(u => u.knownIssues.length).length, 8);
+  assert.equal(mapping.units.filter(u => u.knownIssues.length).length, 0);
   // A current review must never become an executable Step 2 pilot input.
   await assert.rejects(validateMapping(mapping, join(root, 'xyflow'), root));
 });
@@ -62,6 +62,20 @@ test('missing certified unit and changed vendored source are rejected', async ()
   });
   await withEdit('xyflow/packages/system/src/utils/general.ts', text => `${text}\n// fault\n`, async () => {
     await assert.rejects(renderReconciliation(root), /Stale source/);
+  });
+});
+
+test('a newly owned runtime difference appears in the map and affected unit', async () => {
+  const source = 'packages/react/src/store/index.ts';
+  const issue = 'https://github.com/jonbae/PSFlow/issues/208';
+  await withEdit('aamf/step4/order-11/profiles.json', editJson(j => {
+    j.remainingIssues.push({ issue, reason: 'An explicitly reintroduced selection difference',
+      sources: [source], evidenceRefs: ['parity/boundary/node-rendering.test.mjs'] });
+  }), async () => {
+    const rendered = await renderReconciliation(root);
+    const mapping = JSON.parse(rendered['aamf/step2/reconciliation.json']);
+    assert.deepEqual(mapping.units.find(u => u.source === source).knownIssues, [issue]);
+    assert.match(rendered['AAMF_STEP2_MAPPING.md'], /An explicitly reintroduced selection difference/);
   });
 });
 

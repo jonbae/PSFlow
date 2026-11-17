@@ -17,18 +17,22 @@ module Test.React.Store.MergeNodeInternals
 
 import Prelude
 
+import Data.Array (length) as Array
 import Data.Map as Map
 import Data.Maybe (Maybe(..))
 import Effect (Effect)
 import Effect.Class.Console (log)
+import Effect.Ref as Ref
 import Partial.Unsafe (unsafeCrashWith)
 import React.Store.Action (Action(..), Effect_(..))
 import React.Store.InitialState (InitialStateOptions, defaultInitialStateOptions, initialState)
 import React.Store.Reduce (reduce)
+import React.Store.Shell (createStore)
 import React.Types.Store (ReactFlowState)
 import System.Types.Geometry (XYPosition, mkNodeOrigin)
 import System.Types.Ids (NodeId(..))
 import System.Types.Node (NodeBase, NodeChange(..))
+import Unsafe.Reference (unsafeRefEq)
 
 assert :: String -> Boolean -> Effect Unit
 assert label cond =
@@ -94,7 +98,7 @@ measuredIn s updatedInternals =
 describe :: Effect_ Unit Unit -> String
 describe = case _ of
   ResolveFitView _ -> "fit"
-  FireOnNodesChange _ -> "onNodesChange"
+  RunTriggerNodeChanges _ -> "onNodesChange"
   _ -> "other"
 
 positionAbsoluteOf :: State -> Maybe XYPosition
@@ -131,3 +135,26 @@ runMergeNodeInternalsTests = do
     centred = mounted (defaultInitialStateOptions { nodeOrigin = Just (mkNodeOrigin 0.5 0.5) })
   assert "the absolute positions are recomputed with the measured dimensions"
     (positionAbsoluteOf (reduce centred (measuredIn centred true)).state == Just { x: 75.0, y: 80.0 })
+
+  -- Selectors can have observable effects, such as the missing-handle
+  -- warning beside useHandleConnections's render warning (#207). Upstream
+  -- first publishes the measured internals, then applies uncontrolled changes.
+  notifications <- Ref.new ([] :: Array Boolean)
+  callbackNotifications <- Ref.new 0
+  store <- createStore
+    ((defaultInitialStateOptions :: InitialStateOptions Unit Unit)
+      { defaultNodes = Just [ nodeAt "a" { x: 100.0, y: 100.0 } ] })
+  store.setState _
+    { onNodesChange = Just \_ -> do
+        observed <- Ref.read notifications
+        Ref.write (Array.length observed) callbackNotifications
+    }
+  _ <- store.subscribeStates \next previous ->
+    Ref.modify_ (_ <> [ unsafeRefEq next.nodes previous.nodes ]) notifications
+  before <- store.getState
+  store.dispatch (measuredIn before true)
+  observed <- Ref.read notifications
+  assert "measurement notifies once with the old user nodes, then once with their changes"
+    (observed == [ true, false ])
+  count <- Ref.read callbackNotifications
+  assert "onNodesChange runs after both store notifications" (count == 2)

@@ -3,8 +3,8 @@
 -- | `xyflow/packages/react/src/utils/changes.ts` 1:1, with TS
 -- | mutable-update style replaced by record-update returning new values.
 -- |
--- | All functions are pure — the React reducer calls them inline and
--- | tests them directly with QuickCheck.
+-- | Applying changes is pure. Selection discovery's `mutate` branch writes
+-- | into the existing internal nodes, as upstream's getSelectionChanges does.
 module React.Store.Changes
   ( applyNodeChanges
   , applyEdgeChanges
@@ -30,6 +30,7 @@ import Data.Set as Set
 import Data.Tuple (Tuple(..))
 import React.Types.Edges (Edge)
 import React.Types.Nodes (Node)
+import React.Store.InPlace (inPlaceThen)
 import System.Types.Edge (EdgeChange(..), EdgeLookup)
 import System.Types.Ids (NodeId)
 import Unsafe.Reference (unsafeRefEq)
@@ -249,12 +250,11 @@ getSelectionChangesGeneric isSelected toSelected items selectedIds mutate =
         if isSelected item.selected /= willBeSelected then
           let
             change = { id: item.id, selected: willBeSelected }
-            newItems =
-              if mutate then
-                Map.insert id (item { selected = toSelected willBeSelected }) acc.items
-              else acc.items
+            result = acc { changes = Array.snoc acc.changes change }
           in
-            acc { changes = Array.snoc acc.changes change, items = newItems }
+            if mutate then
+              inPlaceThen (_ { selected = toSelected willBeSelected }) item result
+            else result
         else acc
   in
     foldl step { changes: [], items } pairs

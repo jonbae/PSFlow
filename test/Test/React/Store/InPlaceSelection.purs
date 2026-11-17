@@ -29,9 +29,9 @@ module Test.React.Store.InPlaceSelection
 
 import Prelude
 
-import Data.Array (fromFoldable) as Array
+import Data.Array (all, fromFoldable) as Array
 import Data.Map as Map
-import Data.Maybe (Maybe(..))
+import Data.Maybe (Maybe(..), maybe)
 import Data.Newtype (unwrap)
 import Data.Set as Set
 import Effect (Effect)
@@ -46,7 +46,7 @@ import React.Store.Shell (Store, createStore)
 import React.Types.Edges (Edge)
 import React.Types.Nodes (Node)
 import System.Types.Ids (NodeId(..))
-import System.Types.Node (NodeChange(..))
+import System.Types.Node (NodeChange(..), NodeLookup)
 import Unsafe.Reference (unsafeRefEq)
 
 assert :: String -> Boolean -> Effect Unit
@@ -152,9 +152,7 @@ flow o nodes = do
 
 -- | Box `ids` in `store`, as a selection box's move does.
 box :: Store Unit Unit -> Array String -> Effect Unit
-box store ids = do
-  s <- store.getState
-  selectNodesInBox store s.nodeLookup (Set.fromFoldable (map NodeId ids))
+box store ids = selectNodesInBox store (Set.fromFoldable (map NodeId ids))
 
 -- | Run `act` on `f`'s store, and say whether it kept the state's identity
 -- | and notified nobody: whether `useStore` would miss it.
@@ -185,12 +183,31 @@ reported store = do
     , edges: map _.id sel.edges
     }
 
+-- | A selector retains the objects in the old lookup. A new node with the
+-- | same members would render it on the next unrelated notification (#208).
+sameNodeReferences :: NodeLookup Unit -> NodeLookup Unit -> Boolean
+sameNodeReferences before after =
+  unsafeRefEq before after && Array.all
+    (\n -> maybe false (unsafeRefEq n) (Map.lookup n.id after))
+    (Array.fromFoldable (Map.values before))
+
 runInPlaceSelectionTests :: Effect Unit
 runInPlaceSelectionTests = do
   log "\n=== Store: selections write into the lookup in place ==="
 
+  unchanged <- flow { controlled: true } [ node "a" true, node "b" false ]
+  changed <- Ref.read =<< Ref.new false
+  when changed (selectNodesInBox unchanged.store Set.empty)
+  unchangedNodes <- internal unchanged.store
+  assert "an unchanged selection box does not mutate nodes while building its skipped action"
+    (unchangedNodes == [ "a*", "b" ])
+
   controlled <- flow { controlled: true } [ node "a" false, node "b" false ]
+  beforeBox <- _.nodeLookup <$> controlled.store.getState
   quiet <- silently controlled (box controlled.store [ "a", "b" ])
+  afterBox <- _.nodeLookup <$> controlled.store.getState
+  assert "a selection box keeps the lookup and each internal node object"
+    (sameNodeReferences beforeBox afterBox)
   sent <- controlled.sent
   assert "a selection box sends a change for each node it holds"
     (sent == [ "a selected", "b selected" ])
@@ -231,7 +248,11 @@ runInPlaceSelectionTests = do
     (ordered.nodes == [ "b", "a" ])
 
   clicked <- flow { controlled: true } [ node "a" false, node "b" true ]
+  beforeClick <- _.nodeLookup <$> clicked.store.getState
   quietClick <- silently clicked (clicked.store.dispatch (AddSelectedNodes [ NodeId "a" ]))
+  afterClick <- _.nodeLookup <$> clicked.store.getState
+  assert "a click mutates selected on the retained internal nodes (#208)"
+    (sameNodeReferences beforeClick afterClick)
   clickedLookup <- internal clicked.store
   assert "a click in a controlled flow selects the lookup's node, and unselects the others"
     (clickedLookup == [ "a*", "b" ])
@@ -243,14 +264,22 @@ runInPlaceSelectionTests = do
     (clickedReport.nodes == [ "a*" ])
 
   edgeClicked <- flow { controlled: true } [ node "a" true, node "b" false ]
+  beforeEdge <- _.nodeLookup <$> edgeClicked.store.getState
   quietEdge <- silently edgeClicked (edgeClicked.store.dispatch (AddSelectedEdges [ "ab" ]))
+  afterEdge <- _.nodeLookup <$> edgeClicked.store.getState
+  assert "selecting an edge keeps the internal nodes it unselects"
+    (sameNodeReferences beforeEdge afterEdge)
   edgeLookup <- internal edgeClicked.store
   assert "an edge click in a controlled flow unselects the lookup's nodes, in place, notifying nobody"
     (edgeLookup == [ "a", "b" ] && quietEdge)
 
   unselected <- flow { controlled: true } [ node "a" true, node "b" false ]
+  beforeUnselect <- _.nodeLookup <$> unselected.store.getState
   quietUnselect <- silently unselected
     (unselected.store.dispatch (UnselectNodesAndEdges { nodes: Nothing, edges: Nothing }))
+  afterUnselect <- _.nodeLookup <$> unselected.store.getState
+  assert "unselectNodesAndEdges keeps the internal nodes it mutates"
+    (sameNodeReferences beforeUnselect afterUnselect)
   unselectedLookup <- internal unselected.store
   assert "unselecting in a controlled flow unselects the lookup's nodes, in place, notifying nobody"
     (unselectedLookup == [ "a", "b" ] && quietUnselect)

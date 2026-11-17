@@ -1,6 +1,6 @@
 {
-  "dateUTC": "2026-11-16",
-  "psflowCommit": "ad56dd3d27a06e54e26f235abda9c1466876c67c",
+  "dateUTC": "2026-11-17",
+  "psflowCommit": "43d08c7607aa0e6ee416574c7f8225c037972536",
   "profiles": {
     "E01": {
       "disposition": "Reuse",
@@ -10,9 +10,9 @@
     },
     "E02": {
       "disposition": "Reuse",
-      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. Four browser cases retain the precisely issue-owned extra-render difference; type presence alone is not the evidence.",
-      "work": "W10 complete; Step 4 order 10",
-      "evidenceRefs": ["AAMF_TYPE_CONTRACT_REVIEW.md", "aamf/step4/order-10/README.md", "parity/boundary/chrome-contracts.test.mjs", "parity/boundary/flow-contracts.test.mjs"]
+      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. Type presence alone is not the evidence.",
+      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208",
+      "evidenceRefs": ["AAMF_TYPE_CONTRACT_REVIEW.md", "aamf/step4/order-10/README.md", "parity/boundary/chrome-contracts.test.mjs", "parity/boundary/flow-contracts.test.mjs", "AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208", "parity/boundary/node-rendering.test.mjs", "parity/boundary/node-rendering.cases.mjs"]
     },
     "E03": {
       "disposition": "Reuse",
@@ -40,9 +40,9 @@
     },
     "E07": {
       "disposition": "Reuse",
-      "evidence": "W04 retains original internals.userNode references; Orders G/H cover live store lookups, instance reads, handler payloads and consumer keys. Orders 7/9 compare adoption and internal-node geometry, including ordering. These completed contracts do not erase issues 207/208 or the explicit store/uncontrolled-node exclusions.",
-      "work": "W04 complete; Step 3 G/H; Step 4 orders 7 and 9; issues 207/208 remain separately owned",
-      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#original-node-provenance-step-3-d--w04-november-10", "parity/boundary/user-node.test.mjs", "parity/boundary/references.test.mjs", "parity/boundary/store.test.mjs", "test/Test/Parity/Adoption.purs", "test/Test/Parity/InternalNodes.purs", "AAMF_TYPE_CONTRACT_REVIEW.md#differences-routed-to-issues", "distribution/gaps.mjs"]
+      "evidence": "W04 retains original internals.userNode references; Orders G/H cover live store lookups, instance reads, handler payloads and consumer keys. Orders 7/9 compare adoption and internal-node geometry, including ordering. The rendering follow-ups preserve internal-node identity during selection and keep the cached JavaScript views current. The explicit store/uncontrolled-node exclusions remain.",
+      "work": "W04 complete; Step 3 G/H; Step 4 orders 7 and 9; rendering follow-ups 207/208",
+      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#original-node-provenance-step-3-d--w04-november-10", "parity/boundary/user-node.test.mjs", "parity/boundary/references.test.mjs", "parity/boundary/store.test.mjs", "test/Test/Parity/Adoption.purs", "test/Test/Parity/InternalNodes.purs", "AAMF_TYPE_CONTRACT_REVIEW.md#differences-routed-to-issues", "distribution/gaps.mjs", "AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208", "parity/boundary/node-rendering.test.mjs", "parity/boundary/node-rendering.cases.mjs", "test/Test/React/Store/InPlaceSelection.purs"]
     },
     "E08": {
       "disposition": "Reuse",
@@ -64,15 +64,15 @@
     },
     "E11": {
       "disposition": "Reuse",
-      "evidence": "Retain the existing React/render/store mechanisms. Step 3 E/H established reproducible keyboard, callback, identity and mount observations; orders 3/7/8/10 add fallback, adoption, per-changelog-branch and type-contract evidence. The recorded final net passes 153/153. Issues 207/208 still own two render differences; this profile is not a claim of exhaustive branch equivalence.",
-      "work": "W11 complete; Step 3 H/I; Step 4 orders 3, 7, 8 and 10; issues 207/208 remain separately owned",
-      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-e-completion-november-12-utc", "AAMF_STEP3_RESULTS.md#order-h-completion-november-12-utc", "parity/boundary/type-fallback.test.mjs", "aamf/step4/order-8/rows.json", "AAMF_TYPE_CONTRACT_REVIEW.md", "aamf/step4/order-10/README.md", "parity/system/report.md"]
+      "evidence": "Retain the existing React/render/store mechanisms. Step 3 E/H established reproducible keyboard, callback, identity and mount observations; orders 3/7/8/10 add fallback, adoption, per-changelog-branch and type-contract evidence. The recorded final net passes 153/153. The rendering follow-ups fix the extra mount render and the render after in-place selection (207/208). This profile is not a claim of exhaustive branch equivalence.",
+      "work": "W11 complete; Step 3 H/I; Step 4 orders 3, 7, 8 and 10; rendering follow-ups 207/208",
+      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-e-completion-november-12-utc", "AAMF_STEP3_RESULTS.md#order-h-completion-november-12-utc", "parity/boundary/type-fallback.test.mjs", "aamf/step4/order-8/rows.json", "AAMF_TYPE_CONTRACT_REVIEW.md", "aamf/step4/order-10/README.md", "parity/system/report.md", "AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208", "parity/boundary/node-rendering.test.mjs", "parity/boundary/node-rendering.cases.mjs", "test/Test/React/Store/InPlaceSelection.purs", "test/Test/React/Store/MergeNodeInternals.purs", "test/Test/React/Store/UpdateNodePositions.purs"]
     },
     "E12": {
       "disposition": "Reuse",
-      "evidence": "W11 completes repeatable drag, selection and keyboard driving, announcements, focus and callback ordering. Order 7 completes useKeyPress and adoption/DOM parity; order 8 checks gesture branches with receipts and rejected port faults. Order 9 fixes group extent clamping. Issue 208 remains outside the completed keyboard contract.",
-      "work": "W11 complete; Step 4 orders 7, 8 and 9; issue 208 remains separately owned",
-      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-e-completion-november-12-utc", "parity/boundary/key-press.test.mjs", "test/Test/React/Hook/KeyPress.purs", "aamf/step4/order-8/rows.json", "test/Test/System/XYDrag/DragGroupExtent.purs", "AAMF_TYPE_CONTRACT_REVIEW.md#differences-routed-to-issues"]
+      "evidence": "W11 completes repeatable drag, selection and keyboard driving, announcements, focus and callback ordering. Order 7 completes useKeyPress and adoption/DOM parity; order 8 checks gesture branches with receipts and rejected port faults. Order 9 fixes group extent clamping. The rendering follow-up for 208 adds differential Backspace and Shift-click witnesses for ignored controlled changes and preserves skipped box-selection actions and avoids unnecessary controlled-drag notifications; the touch-selection net compares callback ordering.",
+      "work": "W11 complete; Step 4 orders 7, 8 and 9; rendering follow-ups 207/208",
+      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-e-completion-november-12-utc", "parity/boundary/key-press.test.mjs", "test/Test/React/Hook/KeyPress.purs", "aamf/step4/order-8/rows.json", "test/Test/System/XYDrag/DragGroupExtent.purs", "AAMF_TYPE_CONTRACT_REVIEW.md#differences-routed-to-issues", "AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208", "parity/boundary/node-rendering.test.mjs", "parity/boundary/node-rendering.cases.mjs", "test/Test/React/Store/UpdateNodePositions.purs"]
     },
     "E13": {
       "disposition": "Reuse",
@@ -82,9 +82,9 @@
     },
     "E14": {
       "disposition": "Reuse",
-      "evidence": "Connection gestures, original objects, null handle bounds, native reconnect events and live handlers now have focused and mounted evidence. PR195's disposition was resolved in order 1; orders 7/8/10 cover adoption, connection branches and Handle props. Issue 207 remains an explicitly held render-count difference for useHandleConnections.",
-      "work": "W11 complete; Step 3 G/H; Step 4 orders 1, 7, 8 and 10; issue 207 remains separately owned",
-      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#shared-handle-bounds-and-viewport-end-scheduling-november-12-utc", "AAMF_STEP3_RESULTS.md#order-h-completion-november-12-utc", "test/Test/Parity/Handle.purs", "test/Test/Parity/Dom.purs", "test/Test/System/Utils/HandleBoundsNull.purs", "aamf/step4/order-8/rows.json", "AAMF_TYPE_CONTRACT_REVIEW.md#differences-routed-to-issues", "parity/boundary/flow-contracts.test.mjs"]
+      "evidence": "Connection gestures, original objects, null handle bounds, native reconnect events and live handlers now have focused and mounted evidence. PR195's disposition was resolved in order 1; orders 7/8/10 cover adoption, connection branches and Handle props. The rendering follow-up for 207 removes the useHandleConnections allowance; its browser cases now require equality.",
+      "work": "W11 complete; Step 3 G/H; Step 4 orders 1, 7, 8 and 10; rendering follow-ups 207/208",
+      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#shared-handle-bounds-and-viewport-end-scheduling-november-12-utc", "AAMF_STEP3_RESULTS.md#order-h-completion-november-12-utc", "test/Test/Parity/Handle.purs", "test/Test/Parity/Dom.purs", "test/Test/System/Utils/HandleBoundsNull.purs", "aamf/step4/order-8/rows.json", "AAMF_TYPE_CONTRACT_REVIEW.md#differences-routed-to-issues", "parity/boundary/flow-contracts.test.mjs", "AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208", "parity/boundary/node-rendering.test.mjs", "parity/boundary/node-rendering.cases.mjs", "test/Test/React/Store/MergeNodeInternals.purs", "test/Test/React/Store/UpdateNodePositions.purs"]
     },
     "E15": {
       "disposition": "Reuse",
@@ -118,20 +118,7 @@
     "packages/react/src/store/initialState.ts": { "converters": ["src/Boundary/Store.purs"] },
     "packages/react/src/types/component-props.ts": { "converters": ["src/Boundary/FlowMembers.purs"] }
   },
-  "remainingIssues": [
-    {
-      "issue": "https://github.com/jonbae/PSFlow/issues/207",
-      "reason": "A custom node renders once more than upstream at mount. Four useHandleConnections browser cases hold that exact difference and fail as stale when fixed.",
-      "evidenceRefs": ["AAMF_TYPE_CONTRACT_REVIEW.md#differences-routed-to-issues", "parity/boundary/flow-contracts.test.mjs"],
-      "sources": ["packages/react/src/components/NodeWrapper/index.tsx", "packages/react/src/container/NodeRenderer/index.tsx", "packages/react/src/hooks/useHandleConnections.ts", "packages/react/src/store/index.ts"]
-    },
-    {
-      "issue": "https://github.com/jonbae/PSFlow/issues/208",
-      "reason": "A node selected in place re-renders on the next store notification in a controlled flow that ignores changes. This is a known difference, not an accepted type-contract exclusion.",
-      "evidenceRefs": ["AAMF_TYPE_CONTRACT_REVIEW.md#differences-routed-to-issues"],
-      "sources": ["packages/react/src/components/NodeWrapper/index.tsx", "packages/react/src/hooks/useGlobalKeyHandler.ts", "packages/react/src/hooks/useKeyPress.ts", "packages/react/src/hooks/useMoveSelectedNodes.ts", "packages/react/src/store/index.ts", "packages/system/src/utils/store.ts"]
-    }
-  ],
+  "remainingIssues": [],
   "compatibilityLimits": [
     { "id": "store-exclusions", "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-g-completion-november-12-utc", "distribution/gaps.mjs"] },
     { "id": "untyped-default-edge-options-and-uncontrolled-rebuilt-nodes", "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-h-completion-november-12-utc", "distribution/gaps.mjs"] },

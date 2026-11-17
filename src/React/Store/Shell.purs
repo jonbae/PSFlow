@@ -135,6 +135,7 @@ createStore opts = do
               , triggerFitView: dopts.triggerFitView
               }
           )
+      RunTriggerNodeChanges changes -> dispatch_ (TriggerNodeChanges changes)
       RunSetCenter x y opts -> do
         -- The store's setCenter is also used by NodeWrapper's focus path.
         -- Reading and invoking panZoom happens before its async continuation,

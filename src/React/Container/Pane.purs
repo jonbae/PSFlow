@@ -66,7 +66,6 @@ import React.Types.Store (ReactFlowState)
 import System.FFI.AnimationFrame (RafHandle, cancelAnimationFrame, requestAnimationFrame)
 import System.Types.Connection (ConnectionState(..), SelectionMode(..))
 import System.Types.Ids (NodeId)
-import System.Types.Node (NodeLookup)
 import System.Types.PanZoom (PanOnDrag(..))
 import System.Utils.Dom (DOMRect, elementBoundingRect, getEventPosition)
 import System.Utils.General (pointToRendererPoint, rendererPointToPoint)
@@ -162,9 +161,12 @@ wrapMouseHandler containerRef h se = do
 -- | The move's `setState` that follows is what `onSelectionChange`'s
 -- | selector hears, so in a controlled flow, it reports the nodes before the
 -- | consumer applies the changes.
-selectNodesInBox :: forall n e. Store n e -> NodeLookup n -> Set NodeId -> Effect Unit
-selectNodesInBox store nodeLookup ids = do
-  let r = getNodeSelectionChanges nodeLookup ids true
+selectNodesInBox :: forall n e. Store n e -> Set NodeId -> Effect Unit
+selectNodesInBox store ids = do
+  -- Read inside the effect: discovery mutates internal nodes, so constructing
+  -- an action for `when nodesChanged` must not run it before the guard.
+  st <- store.getState
+  let r = getNodeSelectionChanges st.nodeLookup ids true
   store.dispatch (MutateState _ { nodeLookup = r.items })
   store.dispatch (TriggerNodeChanges r.changes)
 
@@ -232,7 +234,7 @@ pane =
                   (Set.fromFoldable (map _.id nextNodes))
 
               when step.nodesChanged do
-                selectNodesInBox store st.nodeLookup step.nodeIds
+                selectNodesInBox store step.nodeIds
 
               when step.edgesChanged do
                 let r = getEdgeSelectionChanges st.edgeLookup step.edgeIds
