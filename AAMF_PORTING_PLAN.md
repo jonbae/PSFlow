@@ -83,7 +83,13 @@ a reviewed disposition in [the type contract review](AAMF_TYPE_CONTRACT_REVIEW.m
 and each branch a JavaScript consumer reaches is compared with upstream by a
 server-render suite and a new browser differential. The 20 gaps they found
 are fixed, and two older differences outside the type contracts are filed as
-issues. Orders 11 and 12 remain open.
+issues.
+**Order 11 is complete, 2026-11-16 UTC:** the scripted reconciliation refresh
+accounts for all 171 units: 170 Reuse and one precise ambient-declaration
+exclusion. Each of the 18 profiles cites current evidence; issues 207 and 208
+remain separately owned. The original pilot input is preserved byte for byte,
+and the current review queues no migration tasks. See
+[Order 11 evidence](aamf/step4/order-11/README.md). Order 12 remains open.
 
 Overall port completion remains open; [Step 4](#step-4-close-the-completion-criteria)
 lists what is left.
@@ -412,16 +418,19 @@ relevant name is not proof it reaches the intended branch.
 
 ## Step 4: close the completion criteria
 
-**Status: open, 2026-11-16 UTC.** Step 3 finished its queue, but two of the
-six [completion criteria](#completion-criteria) still have open work. The
-other four hold. The gates and the full net pass from fresh output, with no
+**Status: open, 2026-11-16 UTC.** Step 3 finished its queue, but one of the
+six [completion criteria](#completion-criteria) still has open work. The
+other five hold within the documented compatibility scope and issue-owned
+differences. The gates and the full net pass from fresh output, with no
 transitional claim in any register. Stage 5 has no passthrough exports.
 `index.js`, `React`, and the package give consumers the compatibility they
 claim. And rows 3 through 9 are complete, so behavior debt is implemented or
 gated. Row 9 found two caller differences outside the changelog audit's
 range, and both are fixed. Row 10 is complete too, and with it the field
 review the first criterion needs; row 11 brings the reconciliation map up to
-date with it.
+date with it. Row 12's repeatable baseline procedure remains open. The two
+render differences found in row 10 remain tracked by issues 207 and 208;
+closing the map does not close those issues.
 
 | Completion criterion | Rows that close it |
 |---|---|
@@ -451,7 +460,7 @@ million tokens, and row 8 is about half of that.
 | 8 | **Complete, 2026-11-13 UTC.** All 42 rows are in system. [The row-by-row review](aamf/step4/order-8/README.md) compares each upstream patch with its port and names the branch observable. Twenty-four focused scenarios replace insufficient assignments; the review also fixes missing live connection reads, selection/abort cleanup, handle children, scroll-event forwarding and hidden-container resize handling. | All 42 branch receipts pass on both sides and captures; 19 broken-port experiments are rejected, and the surviving exploratory drag probe led to a stronger click-distance witness. The audit tests pass 96 checks; the changelog audit has zero gaps and zero gate-pending rows. The final Linux checkpoint passes 151 of 151. | Done |
 | 9 | **Complete in [#205](https://github.com/jonbae/PSFlow/pull/205).** `Test.Parity.InternalNodes` runs both functions against the oracle, which bundles them. Each side adopts its own user nodes from one description, which adds every dimension rung, `selectable`, `dragging`, and handle bounds or none to adoption's. Positions include `-0` and `NaN`, and each rect member is compared as `Object.is` compares it. The PSFlow side hands `getNodesInside` the array `orderedInternalNodes` builds, under shuffled ids, and the ids come back compared in order. Neither port changed. Reading their callers found two differences, both fixed in [#206](https://github.com/jonbae/PSFlow/pull/206): the initial `fitView` bounds skipped upstream's dimension filter, and a multi-node drag clamped each node to `nodeExtent` on its own, where upstream's `XYDrag` stops the group as a whole. `parity/boundary/initial-fit-view.test.mjs` failed 5 of its 8 checks before the first fix. `Test.System.XYDrag.DragGroupExtent` and the net's `drag-selection-against-node-extent` failed before the second. | 20 fixed witnesses, 500 generated cases for each function, and four falsification probes pass in `spago test`. Each of 15 broken ports turns the module red. The generated cases alone catch 14; the 15th keeps a repeated id's last place, and only a fixed witness repeats an id. [Ticket 059](tickets/059-layer1-behavioral-parity-coverage.md) lists both functions as covered, and none as deferred. | Done |
 | 10 | **Complete, 2026-11-16 UTC.** [The type contract review](AAMF_TYPE_CONTRACT_REVIEW.md) takes the 14 E02 units' 354 members one field at a time, cites what Orders G, H and I and rows 3, 6 and 7 already compared, and compares the rest. `parity/boundary/chrome-contracts.test.mjs` server-renders each value of each chrome component's and `<Handle />`'s props on both sides. `parity/boundary/flow-contracts.test.mjs` mounts `<ReactFlow />` in Chromium on both sides through a new browser harness and compares the store, the lookups, the DOM, the callbacks and the console, after mount and after driving. The 20 gaps they found are fixed, among them `null` key codes, the flow's `id` as `rfId`, the store's `onError` default, `fitView`'s option lifecycle, `fitBounds`' padding union, `MiniMap`'s string attributes, `ariaLabel` and sizing, and the rest attributes of `ControlButton`, `Handle` and both toolbars. Two older differences are filed: [A custom node renders once more than upstream at mount](https://github.com/jonbae/PSFlow/issues/207) and [A node selected in place re-renders on the next store notification](https://github.com/jonbae/PSFlow/issues/208). | The [W10 contract](AAMF_STEP2_RESULTS.md#w10--audit-remaining-type-and-boundary-contracts-by-field): at the starting commit 119 of 307 server-render cases and 52 of 442 browser cases differed. All 317 and 456 pass, four of them as the first issue's stated difference, which fails as stale once fixed; a falsification case must differ. Each gap's fix is its own commit, with its cases red before it. The gates pass; [the evidence](aamf/step4/order-10/README.md) records them and the Linux wave. | Done |
-| 11 | Refresh the reconciliation map. `aamf/step2/reconciliation.json` and [the mapping](AAMF_STEP2_MAPPING.md) still hold Step 2's dispositions: 42 Reuse, 99 Add evidence, 25 Fix behavior, 4 Finish conversion, and 1 Accepted difference. Update them from Steps 3 and 4 by profile. Use a script, because the JSON file is 16,673 lines. | Every unit's disposition and evidence describe the current code. No unit says Fix behavior or Finish conversion unless a row here owns it. | 60k–150k |
+| 11 | **Complete, 2026-11-16 UTC.** [The mapping](AAMF_STEP2_MAPPING.md) and `aamf/step2/reconciliation.json` now account for all 171 units by the 18 reviewed profiles: 170 Reuse, one Accepted difference, no pending evidence/fix/conversion disposition. The [refresh script](tools/aamf/refresh-reconciliation.mjs) joins the certified inventory/import audit to current evidence and implementation/FFI paths. The original pilot input and checksum are retained separately; the version-2 current review has no executable tasks. Issues 207/208 and the existing compatibility limits remain explicit. | Every unit has current profile evidence and a checked source/target mapping. `node tools/aamf/refresh-reconciliation.mjs --check` verifies both outputs and their source, runtime and evidence hashes. Fault-injection tests reject stale inputs, unowned work and accidental queued tasks; see [evidence](aamf/step4/order-11/README.md). | Done |
 | 12 | Record the procedure for the next baseline. Steps 1 and 2 recorded their AAMF runs. Steps 3 and 4 ran through PSFlow's own workflow, with the AAMF inventory as context rather than as an autonomous AAMF migration. Record that, and record what a baseline bump reruns. | Someone holding only the repository can redo the inventory, the reconciliation, and the gates against a new baseline. | 40k–100k |
 
 None of the following is required by the completion criteria:

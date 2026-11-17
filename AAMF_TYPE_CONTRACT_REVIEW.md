@@ -400,6 +400,8 @@ results of both contract suites.
 
 ## What remains
 
-Nothing in W10. Step 4 rows 11 and 12 remain: the reconciliation map's
-refresh and the procedure for the next baseline. The two issues above own the
+Nothing in W10. At this review's completion, Step 4 rows 11 and 12 remained:
+the reconciliation map's refresh and the procedure for the next baseline.
+[Order 11](aamf/step4/order-11/README.md) subsequently refreshed the map;
+order 12 remains open. The two issues above own the
 two differences routed out of this review.

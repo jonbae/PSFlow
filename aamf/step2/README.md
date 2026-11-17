@@ -6,7 +6,8 @@ Step 3 was not started. The source baseline remains React 12.11.0 / system
 
 | Artifact | Evidence |
 |---|---|
-| [reconciliation.json](reconciliation.json) | All 171 reviewed source units, source hashes, declarations, import/caller context, existing target modules, dispositions, work routing and target snapshot; only W01 selected |
+| [pilot-reconciliation.json](pilot-reconciliation.json) | Original Step 2 input, byte-identical to the file formerly named `reconciliation.json`: all 171 units and the pilot's target snapshot; only W01 selected. `SHA256SUMS` retains its original digest under this new name |
+| [reconciliation.json](reconciliation.json) | Current Step 4 order 11 review, version 2, with refreshed dispositions/evidence and zero runtime tasks; not the historical checkpoint's input |
 | [review.json](review.json) | Source/target audit, exact permitted diff, 120 source-context tasks/four cycles, 23 file-context entries, stage 4/seven passthrough exports |
 | [execution.json](execution.json) | Input revisions, toolchain, backend, commands, outcomes, numeric prerequisite and stop boundary |
 | [integration-patches.json](integration-patches.json) | Original/patched hashes of the seven guarded AAMF build patches and adapter hash |
@@ -44,7 +45,11 @@ remained read-only during the successful AAMF task. The working checkout also
 refreshes the derived driver bundle at its integration point. No package,
 source baseline, comparator, fixture, region, or unrelated implementation changed.
 
-These JSON files are evidence of the original reviewed snapshot. They are not
+Except for the explicitly current `reconciliation.json`, these JSON files are
+evidence of the original reviewed snapshot. `SHA256SUMS` verifies the original
+artifacts, including `pilot-reconciliation.json`; the current map has its own
+[refresh/check procedure](../step4/order-11/README.md).
+The preserved runtime files are not
 stock AAMF configuration keys or a replacement for runtime checkpoint output.
 Configurations remain in `/private/tmp/psflow-aamf-step2-20261109/`; the
 successful project is `psflow-step2-pilot-20261109`. See the
