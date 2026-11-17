@@ -1,0 +1,27 @@
+npm warn Unknown project config "strict-peer-dependencies". This will stop working in the next major version of npm.
+Scope: 5 of 11 workspace projects
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+.                                        | +516 ++++++++++++++++++++++++++++++++
+Progress: resolved 516, reused 0, downloaded 0, added 0
+Progress: resolved 516, reused 0, downloaded 59, added 15
+Progress: resolved 516, reused 0, downloaded 118, added 35
+Progress: resolved 516, reused 0, downloaded 196, added 58
+Progress: resolved 516, reused 0, downloaded 256, added 81
+Progress: resolved 516, reused 0, downloaded 303, added 118
+Progress: resolved 516, reused 0, downloaded 364, added 139
+Progress: resolved 516, reused 0, downloaded 428, added 160
+Progress: resolved 516, reused 0, downloaded 507, added 203
+Progress: resolved 516, reused 0, downloaded 512, added 244
+Progress: resolved 516, reused 0, downloaded 513, added 279
+Progress: resolved 516, reused 0, downloaded 513, added 333
+Progress: resolved 516, reused 0, downloaded 513, added 411
+Progress: resolved 516, reused 0, downloaded 514, added 490
+Progress: resolved 516, reused 0, downloaded 514, added 512
+Progress: resolved 516, reused 0, downloaded 514, added 513
+Progress: resolved 516, reused 0, downloaded 515, added 514
+Progress: resolved 516, reused 0, downloaded 515, added 515
+Progress: resolved 516, reused 0, downloaded 516, added 515
+Progress: resolved 516, reused 0, downloaded 516, added 516
+Progress: resolved 516, reused 0, downloaded 516, added 516, done
+Done in 23.6s using pnpm v10.33.4

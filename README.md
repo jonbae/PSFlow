@@ -269,7 +269,13 @@ exist so the declared version can never silently disagree with what the gates
 actually measure. Do not add a caret: a floating range would let `npm install`
 drift the declared baseline away from the vendored one without any gate noticing.
 
-Bumping the baseline is one atomic change:
+Bumping the baseline is one atomic change. The
+[baseline procedure](AAMF_BASELINE_PROCEDURE.md) records the complete sequence,
+including a fresh AAMF inventory, source-to-target reconciliation, register
+reviews, gate order, evidence preservation and resume boundaries. The AAMF
+pilot executed one task; Steps 3 and 4 used PSFlow's own workflow.
+
+The gate/artifact portion of a bump is:
 
 1. re-pin both devDependencies to the new versions,
 2. `rm -rf xyflow && node .github/scripts/vendor-baseline.mjs` — the checkout is

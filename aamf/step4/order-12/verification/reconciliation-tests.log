@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: all certified units agree in both outputs; repeated refresh is stable
+ok 1 - all certified units agree in both outputs; repeated refresh is stable
+  ---
+  duration_ms: 1404.729276
+  type: 'test'
+  ...
+# Subtest: missing certified unit and changed vendored source are rejected
+ok 2 - missing certified unit and changed vendored source are rejected
+  ---
+  duration_ms: 324.756282
+  type: 'test'
+  ...
+# Subtest: unowned dispositions and broken evidence anchors cannot close a profile
+ok 3 - unowned dispositions and broken evidence anchors cannot close a profile
+  ---
+  duration_ms: 344.547945
+  type: 'test'
+  ...
+# Subtest: target/evidence drift, stale dispositions and queued tasks fail check mode
+ok 4 - target/evidence drift, stale dispositions and queued tasks fail check mode
+  ---
+  duration_ms: 1641.205059
+  type: 'test'
+  ...
+# Subtest: pilot input and source-to-target ownership remain guarded
+ok 5 - pilot input and source-to-target ownership remain guarded
+  ---
+  duration_ms: 494.347416
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4522.132363

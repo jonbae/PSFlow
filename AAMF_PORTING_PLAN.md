@@ -89,10 +89,17 @@ accounts for all 171 units: 170 Reuse and one precise ambient-declaration
 exclusion. Each of the 18 profiles cites current evidence; issues 207 and 208
 remain separately owned. The original pilot input is preserved byte for byte,
 and the current review queues no migration tasks. See
-[Order 11 evidence](aamf/step4/order-11/README.md). Order 12 remains open.
+[Order 11 evidence](aamf/step4/order-11/README.md).
+**Order 12 is complete, 2026-11-17 UTC:** the
+[baseline procedure](AAMF_BASELINE_PROCEDURE.md) records the actual AAMF/PSFlow
+execution boundary and the next baseline's inventory, reconciliation, gates,
+register reviews, preservation and resume. Its fresh-inventory runner was
+replayed against the pinned baseline without the original workspaces; see
+[Order 12 evidence](aamf/step4/order-12/README.md).
 
-Overall port completion remains open; [Step 4](#step-4-close-the-completion-criteria)
-lists what is left.
+The Steps 1–4 queue is complete against the pinned baseline within the
+documented compatibility scope and issue-owned differences. Issues 207 and
+208 remain separately owned; completing the queue does not close them.
 
 
 **H / bounded W13 numeric work is implemented, November 11:** shared geometry
@@ -363,8 +370,8 @@ describe that fallback as a completed autonomous AAMF migration.
 **Status: complete, 2026-11-13 UTC.** Work started on 2026-11-09, and orders A
 through I are all complete. A / W00's original unstable experiments remain
 archived; E supplies reproducible replacement captures under the isolated
-protocol. See the [execution results](AAMF_STEP3_RESULTS.md). Overall port
-completion remains open; see [Completion criteria](#completion-criteria).
+protocol. See the [execution results](AAMF_STEP3_RESULTS.md) and the later
+[Step 4 completion](#step-4-close-the-completion-criteria).
 
 The following queue was refined against fresh captures. Independent branches
 proceeded once their prerequisites and target-file ownership were clear. Each
@@ -418,19 +425,19 @@ relevant name is not proof it reaches the intended branch.
 
 ## Step 4: close the completion criteria
 
-**Status: open, 2026-11-16 UTC.** Step 3 finished its queue, but one of the
-six [completion criteria](#completion-criteria) still has open work. The
-other five hold within the documented compatibility scope and issue-owned
-differences. The gates and the full net pass from fresh output, with no
-transitional claim in any register. Stage 5 has no passthrough exports.
-`index.js`, `React`, and the package give consumers the compatibility they
-claim. And rows 3 through 9 are complete, so behavior debt is implemented or
-gated. Row 9 found two caller differences outside the changelog audit's
-range, and both are fixed. Row 10 is complete too, and with it the field
-review the first criterion needs; row 11 brings the reconciliation map up to
-date with it. Row 12's repeatable baseline procedure remains open. The two
-render differences found in row 10 remain tracked by issues 207 and 208;
-closing the map does not close those issues.
+**Status: queue complete, 2026-11-17 UTC.** All twelve rows are complete,
+and the six [completion criteria](#completion-criteria) have recorded evidence
+within the documented compatibility scope and issue-owned differences. The
+recorded fresh gates and full net pass, with no transitional claim in any
+register. Stage 5 has no passthrough exports. `index.js`, `React`, and the
+package give consumers the compatibility they claim. Rows 3 through 9
+implemented or gated behavior debt; row 9's two additional caller fixes are
+also complete. Rows 10 and 11 provide the field review and current
+reconciliation. Row 12 supplies the repeatable
+[baseline procedure](AAMF_BASELINE_PROCEDURE.md), verified by a fresh inventory
+replay. It does not claim a new browser checkpoint. The two render differences
+found in row 10 remain tracked by issues 207 and 208; completing this queue
+does not close those issues.
 
 | Completion criterion | Rows that close it |
 |---|---|
@@ -461,7 +468,7 @@ million tokens, and row 8 is about half of that.
 | 9 | **Complete in [#205](https://github.com/jonbae/PSFlow/pull/205).** `Test.Parity.InternalNodes` runs both functions against the oracle, which bundles them. Each side adopts its own user nodes from one description, which adds every dimension rung, `selectable`, `dragging`, and handle bounds or none to adoption's. Positions include `-0` and `NaN`, and each rect member is compared as `Object.is` compares it. The PSFlow side hands `getNodesInside` the array `orderedInternalNodes` builds, under shuffled ids, and the ids come back compared in order. Neither port changed. Reading their callers found two differences, both fixed in [#206](https://github.com/jonbae/PSFlow/pull/206): the initial `fitView` bounds skipped upstream's dimension filter, and a multi-node drag clamped each node to `nodeExtent` on its own, where upstream's `XYDrag` stops the group as a whole. `parity/boundary/initial-fit-view.test.mjs` failed 5 of its 8 checks before the first fix. `Test.System.XYDrag.DragGroupExtent` and the net's `drag-selection-against-node-extent` failed before the second. | 20 fixed witnesses, 500 generated cases for each function, and four falsification probes pass in `spago test`. Each of 15 broken ports turns the module red. The generated cases alone catch 14; the 15th keeps a repeated id's last place, and only a fixed witness repeats an id. [Ticket 059](tickets/059-layer1-behavioral-parity-coverage.md) lists both functions as covered, and none as deferred. | Done |
 | 10 | **Complete, 2026-11-16 UTC.** [The type contract review](AAMF_TYPE_CONTRACT_REVIEW.md) takes the 14 E02 units' 354 members one field at a time, cites what Orders G, H and I and rows 3, 6 and 7 already compared, and compares the rest. `parity/boundary/chrome-contracts.test.mjs` server-renders each value of each chrome component's and `<Handle />`'s props on both sides. `parity/boundary/flow-contracts.test.mjs` mounts `<ReactFlow />` in Chromium on both sides through a new browser harness and compares the store, the lookups, the DOM, the callbacks and the console, after mount and after driving. The 20 gaps they found are fixed, among them `null` key codes, the flow's `id` as `rfId`, the store's `onError` default, `fitView`'s option lifecycle, `fitBounds`' padding union, `MiniMap`'s string attributes, `ariaLabel` and sizing, and the rest attributes of `ControlButton`, `Handle` and both toolbars. Two older differences are filed: [A custom node renders once more than upstream at mount](https://github.com/jonbae/PSFlow/issues/207) and [A node selected in place re-renders on the next store notification](https://github.com/jonbae/PSFlow/issues/208). | The [W10 contract](AAMF_STEP2_RESULTS.md#w10--audit-remaining-type-and-boundary-contracts-by-field): at the starting commit 119 of 307 server-render cases and 52 of 442 browser cases differed. All 317 and 456 pass, four of them as the first issue's stated difference, which fails as stale once fixed; a falsification case must differ. Each gap's fix is its own commit, with its cases red before it. The gates pass; [the evidence](aamf/step4/order-10/README.md) records them and the Linux wave. | Done |
 | 11 | **Complete, 2026-11-16 UTC.** [The mapping](AAMF_STEP2_MAPPING.md) and `aamf/step2/reconciliation.json` now account for all 171 units by the 18 reviewed profiles: 170 Reuse, one Accepted difference, no pending evidence/fix/conversion disposition. The [refresh script](tools/aamf/refresh-reconciliation.mjs) joins the certified inventory/import audit to current evidence and implementation/FFI paths. The original pilot input and checksum are retained separately; the version-2 current review has no executable tasks. Issues 207/208 and the existing compatibility limits remain explicit. | Every unit has current profile evidence and a checked source/target mapping. `node tools/aamf/refresh-reconciliation.mjs --check` verifies both outputs and their source, runtime and evidence hashes. Fault-injection tests reject stale inputs, unowned work and accidental queued tasks; see [evidence](aamf/step4/order-11/README.md). | Done |
-| 12 | Record the procedure for the next baseline. Steps 1 and 2 recorded their AAMF runs. Steps 3 and 4 ran through PSFlow's own workflow, with the AAMF inventory as context rather than as an autonomous AAMF migration. Record that, and record what a baseline bump reruns. | Someone holding only the repository can redo the inventory, the reconciliation, and the gates against a new baseline. | 40k–100k |
+| 12 | **Complete, 2026-11-17 UTC.** [The baseline procedure](AAMF_BASELINE_PROCEDURE.md) records the actual Step 1/2 AAMF runs and Steps 3/4's PSFlow workflow, and gives the next baseline's pin/vendor, isolated inventory, reconciliation review, gate/register refresh, evidence and resume sequence. `tools/aamf/inventory.mjs` recreates configuration, dependencies, snapshots and durable evidence from the repository. | A fresh replay at `82b17bec` reproduces the certified 171-file inventory, 120 tasks, 460 edges, four cycles and 689 resolved import declarations, with no migration tokens. Guards reject invalid project names and reused/nested paths. The baseline-specific reconciliation checks pass; the procedure explicitly requires new scope/disposition review for new pins. See [evidence](aamf/step4/order-12/README.md). | Done |
 
 None of the following is required by the completion criteria:
 
@@ -538,6 +545,8 @@ also complete. E / W11 is now complete, including keyboard behavior and isolated
 viewport/gesture reproducibility. G is complete: the JS store view and the
 default-edge, edge and node members. H is complete: the witnesses, reference
 reads and numeric call sites. I is complete: the package, its declarations and
-stylesheets, and `parity:package`. A–I are complete. Overall port completion
-remains open; [Step 4](#step-4-close-the-completion-criteria) lists the
-remaining work in order.
+stylesheets, and `parity:package`. A–I and the
+[Step 4 queue](#step-4-close-the-completion-criteria) are complete against the
+pinned baseline within the documented compatibility scope and issue-owned
+differences. The [baseline procedure](AAMF_BASELINE_PROCEDURE.md) is the handoff
+for a later bump; issues 207 and 208 remain separately owned.
