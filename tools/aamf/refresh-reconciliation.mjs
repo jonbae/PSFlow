@@ -154,13 +154,17 @@ export async function renderReconciliation(root) {
     const refs = p.evidenceRefs.map(ref => `[${ref.split('#')[0]}](${ref})`).join(', ');
     return `| ${id} | ${units.filter(u => u.profile === id).length} | ${p.disposition} | ${p.evidence}<br>${refs} | ${p.work} |`;
   }).join('\n');
+  const remainingIssues = review.remainingIssues.length
+    ? `Separately owned runtime differences: ${review.remainingIssues.map(i => `[${i.issue.split('/').at(-1)}](${i.issue}) — ${i.reason}`).join('; ')}. Affected units are marked in the JSON.`
+    : 'No separately owned runtime differences remain in this review. Completed follow-up evidence is linked in the profiles.';
   const markdown = `# Source-to-target reconciliation map (Step 4 order 11)
 
-**Current review: ${review.dateUTC}, against PSFlow \`${review.psflowCommit}\`.**
+**Current review: ${review.dateUTC}, based on PSFlow \`${review.psflowCommit}\`.**
+The current runtime and evidence bytes are pinned by the JSON's file hashes.
 The baseline remains \`@xyflow/react\` 12.11.0 / \`@xyflow/system\` 0.0.77.
 All **171** certified Step 1 units retain existing PureScript destinations:
 **170 Reuse, 1 Accepted difference, 0 Add evidence, 0 Fix behavior, 0 Finish conversion**.
-The 18 profiles below incorporate Steps 3 and 4 through order 10.
+The 18 profiles below incorporate Steps 3 and 4 through order 10 and their reviewed follow-ups.
 
 The [JSON review](${outputPath}) and this table are refreshed by
 \`node tools/aamf/refresh-reconciliation.mjs\`; \`--check\` detects stale inputs
@@ -175,12 +179,8 @@ Historical W cards in [Step 2 results](AAMF_STEP2_RESULTS.md) describe the
 starting gaps; their completions and later checks are linked below.
 
 **Reuse** means retain the completed implementation and its cited evidence;
-it does not assert exhaustive equivalence of every branch. The extra custom-node
-mount render ([207](https://github.com/jonbae/PSFlow/issues/207)) and the later
-render after in-place selection ([208](https://github.com/jonbae/PSFlow/issues/208))
-remain separately owned, with affected units marked in the JSON. Four browser
-cases hold issue 207's exact difference. Neither issue is silently accepted or
-closed by this refresh. Store writes, untyped default-edge keys, rebuilt
+it does not assert exhaustive equivalence of every branch. ${remainingIssues}
+Store writes, untyped default-edge keys, rebuilt
 uncontrolled-node handler keys and package limits retain the explicit scope in
 [the declarations](distribution/gaps.mjs). The one declared coverage hole is
 \`UnselectNodesAndEdgesParams\`; it is not a missing component implementation.

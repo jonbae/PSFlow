@@ -12,8 +12,9 @@ with upstream by a differential test. The comparison found 20 gaps, numbered
 G1 to G20, and each is fixed: 21 commits in all, some gaps covering two or
 three related branches. Two differences that are not type contracts, both found
 by the same tests and both older than this order, are filed as issues. One of
-them is held as a known difference by four cases, which fail as stale once it
-is fixed.
+them was held as a known difference by four cases at the original checkpoint.
+The [rendering follow-ups](#rendering-follow-ups-207-and-208) implement both
+fixes and remove that allowance.
 
 ## Method
 
@@ -369,8 +370,8 @@ this order: they are in its starting results.
 - [A custom node renders once more than upstream at mount](https://github.com/jonbae/PSFlow/issues/207).
   Every custom node renders three times by the time a flow settles, where
   upstream's renders twice. `useHandleConnections`' deprecation warning,
-  written on every call, shows it. The four `useHandleConnections` cases hold
-  exactly that difference, naming the issue, and fail as stale once it goes.
+  written on every call, showed it. The original four `useHandleConnections`
+  cases held that difference; the rendering follow-up removes the allowance.
 - [A node selected in place re-renders on the next store notification](https://github.com/jonbae/PSFlow/issues/208).
   Upstream mutates an internal node's `selected` in place, and ps-flow
   replaces the node, so in a controlled flow that ignores its changes the
@@ -379,6 +380,9 @@ this order: they are in its starting results.
   sides.
 
 ## Evidence
+
+This table records the original Order 10 checkpoint. The rendering follow-up's
+validation is recorded separately below.
 
 | Check | Result |
 |---|---|
@@ -403,5 +407,72 @@ results of both contract suites.
 Nothing in W10. At this review's completion, Step 4 rows 11 and 12 remained:
 the reconciliation map's refresh and the procedure for the next baseline.
 [Order 11](aamf/step4/order-11/README.md) subsequently refreshed the map;
-order 12 remains open. The two issues above own the
-two differences routed out of this review.
+[order 12](aamf/step4/order-12/README.md) completed the baseline procedure.
+The two runtime differences above are addressed by the follow-ups below.
+
+## Rendering follow-ups (207 and 208)
+
+The follow-up implementation is based on PSFlow `43d08c76`, against the same
+React 12.11.0 / system 0.0.77 baseline, within the existing compatibility
+exclusions.
+
+- **207:** GraphView allocated a new `Just nodeClickDistance` on each render.
+  That changed NodeWrapper's prop identity and rendered an unchanged consumer
+  component. Its optional representation is now memoized with `Object.is`
+  equality, including `NaN`. The custom node mounts twice, as upstream's does.
+- **208:** Selection kept the state object but replaced its internal nodes.
+  A later notification then looked like a changed node to the wrapper.
+  Selection now mutates the retained nodes and keeps the lookup object;
+  their cached JavaScript views update `selected` without replacing either
+  the view or its `internals`.
+
+[`node-rendering.test.mjs`](parity/boundary/node-rendering.test.mjs) compares
+both libraries in Chromium: ignored controlled changes with and without a
+handler, Backspace, click then Shift-click, edge selection, unselection, and
+controlled/uncontrolled/sized custom nodes. It checks retained references,
+the DOM before and after a notification, and that a later user-node update
+still renders. All seven original cases failed before the fixes. The
+PureScript in-place selection proxy also checks lookup and node identity.
+
+The four existing `useHandleConnections` browser cases now require equality
+instead of holding the extra-render difference. Their full console, DOM,
+store and callback comparisons stay enabled.
+
+Removing the allowance exposed another mechanism mismatch in the existing
+edge-add/remove case: measurement must publish its internals before triggering
+uncontrolled node changes, and EdgeWrapper's position selector must retain
+upstream's `useCallback` lifetime. The store now emits the second update
+through `RunTriggerNodeChanges`, and the selector itself is memoized. This
+preserves missing-handle and deprecation warning counts and ordering. The
+measurement shell proxy failed before the update split: it observed one
+notification where upstream produces two.
+
+The full system net also caught a touch-selection callback ordering difference.
+Constructing the box-selection action ran the new in-place discovery before
+its `nodesChanged` guard, deselecting a node even when the action was skipped.
+The action now reads its lookup and discovers changes inside the executed
+effect. A store proxy reproduced this guarded-call failure before the fix;
+`selection-box-touch` checks the resulting event order against upstream.
+The drag reducer also retains its state when a controlled drag leaves the
+connection unchanged, avoiding a notification upstream does not make. Its
+real-store proxy failed before that fix.
+
+Follow-up validation on 2026-11-17:
+
+| Check | Result |
+|---|---|
+| `spago build`, `spago test` | Passed, including the guarded selection action, selection identity, measurement notification and controlled-drag proxies |
+| Focused rendering and `useHandleConnections` browser regressions | 15/15 pass, with no known-difference allowance |
+| `npm run parity:surface`, `npm run parity:boundary` | Passed |
+| `npm run test:boundary` | 1,040/1,040 pass |
+| Linux conformance and smoke suites | 41/41 and 2/2 pass |
+| Linux full net | 153/153 pass; both captures reproduce on each side; coverage 155/156 driven, one declared hole |
+| `npm run build:package`, `npm run parity:package` | Built; 10/10 checks pass |
+| Current reconciliation and its fault-injection tests | 171 units, zero queued tasks or remaining issue-owned differences; 6/6 tests pass |
+
+The full net used the canonical serial Linux runner and the existing fixtures
+and comparison policy. Its driver was byte-identical to the local
+`parity/driver/dist/psflow.js`, SHA-256
+`b76f2a1bd22650e3f79e120dd442e81a96e3b17bd7e3a69c86c65894a02f769f`.
+The fresh captures ran in a disposable checkout, preserving the committed
+trace corpus. The report and coverage artifacts match the committed versions.

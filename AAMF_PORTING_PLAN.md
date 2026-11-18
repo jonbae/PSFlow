@@ -86,8 +86,8 @@ are fixed, and two older differences outside the type contracts are filed as
 issues.
 **Order 11 is complete, 2026-11-16 UTC:** the scripted reconciliation refresh
 accounts for all 171 units: 170 Reuse and one precise ambient-declaration
-exclusion. Each of the 18 profiles cites current evidence; issues 207 and 208
-remain separately owned. The original pilot input is preserved byte for byte,
+exclusion. Each of the 18 profiles cites current evidence; at that checkpoint,
+issues 207 and 208 remained separately owned. The original pilot input is preserved byte for byte,
 and the current review queues no migration tasks. See
 [Order 11 evidence](aamf/step4/order-11/README.md).
 **Order 12 is complete, 2026-11-17 UTC:** the
@@ -98,8 +98,10 @@ replayed against the pinned baseline without the original workspaces; see
 [Order 12 evidence](aamf/step4/order-12/README.md).
 
 The Steps 1–4 queue is complete against the pinned baseline within the
-documented compatibility scope and issue-owned differences. Issues 207 and
-208 remain separately owned; completing the queue does not close them.
+documented compatibility scope. The subsequent [rendering follow-ups for
+207 and 208](AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208)
+implement both separately owned fixes within the existing compatibility
+exclusions.
 
 
 **H / bounded W13 numeric work is implemented, November 11:** shared geometry
@@ -436,8 +438,8 @@ also complete. Rows 10 and 11 provide the field review and current
 reconciliation. Row 12 supplies the repeatable
 [baseline procedure](AAMF_BASELINE_PROCEDURE.md), verified by a fresh inventory
 replay. It does not claim a new browser checkpoint. The two render differences
-found in row 10 remain tracked by issues 207 and 208; completing this queue
-does not close those issues.
+found in row 10 are fixed by the subsequent
+[rendering follow-ups](AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208).
 
 | Completion criterion | Rows that close it |
 |---|---|
@@ -547,6 +549,8 @@ default-edge, edge and node members. H is complete: the witnesses, reference
 reads and numeric call sites. I is complete: the package, its declarations and
 stylesheets, and `parity:package`. A–I and the
 [Step 4 queue](#step-4-close-the-completion-criteria) are complete against the
-pinned baseline within the documented compatibility scope and issue-owned
-differences. The [baseline procedure](AAMF_BASELINE_PROCEDURE.md) is the handoff
-for a later bump; issues 207 and 208 remain separately owned.
+pinned baseline within the documented compatibility scope.
+The [baseline procedure](AAMF_BASELINE_PROCEDURE.md) is the handoff
+for a later bump. The subsequent
+[rendering follow-ups](AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208)
+implement the fixes for issues 207 and 208.

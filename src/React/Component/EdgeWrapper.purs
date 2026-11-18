@@ -407,15 +407,14 @@ edgeWrapper =
       -- through the `onError` of the render that built it: the store's
       -- default until the endpoints change, even once a consumer's handler
       -- is installed.
-      selectorOnError <-
+      positionSelector <-
         React.useMemo
           ( edge.source /\ edge.target /\ edge.sourceHandle /\ edge.targetHandle
               /\ edge.selected
               /\ edge.zIndex
           )
-          \_ -> UnsafeReference props.onError
-      let UnsafeReference onErrorAtSelect = selectorOnError
-      positionSlice <- useStore (selectEdgePosition onErrorAtSelect props.id)
+          \_ -> selectEdgePosition props.onError props.id
+      positionSlice <- useStore positionSelector
 
       let
         -- TS: `!!(edge.focusable || (edgesFocusable && typeof edge.focusable === 'undefined'))`.

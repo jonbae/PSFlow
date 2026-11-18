@@ -25,7 +25,7 @@ import React.Store.Action
   , Effect_(..)
   , NodeInternalsResult
   )
-import React.Store.InPlace (inPlace)
+import React.Store.InPlace (inPlace, inPlaceThen)
 import Unsafe.Reference (unsafeRefEq)
 import React.Store.Changes
   ( applyEdgeChanges
@@ -285,11 +285,12 @@ reduceMergeNodeInternals state r
         fitNow = state.fitViewQueued || r.triggerFitView
         s2 = if fitNow then s1 { fitViewQueued = false, fitViewOptions = Nothing } else s1
         fit = if fitNow then [ ResolveFitView state.fitViewOptions ] else []
-        afterChanges =
-          if Array.null r.changes then { state: s2, effects: [] }
-          else reduceTriggerNodeChanges s2 r.changes
+        -- Upstream first calls set({}) to notify about the measured
+        -- internals, then triggerNodeChanges may call setNodes. Combining
+        -- those writes loses a selector evaluation and its observable errors.
+        changes = if Array.null r.changes then [] else [ RunTriggerNodeChanges r.changes ]
       in
-        afterChanges { effects = fit <> afterChanges.effects }
+        { state: s2, effects: fit <> changes }
 
 -- UpdateNodePositions ---------------------------------------------------
 
@@ -359,8 +360,13 @@ reduceUpdateNodePositions state items dragging =
     changes = Foldable.foldl (\cs middleware -> middleware cs)
       (stepped.changes <> expandChanges)
       (Map.values state.onNodesChangeMiddlewareMap)
+    -- Upstream only sets connection state when dragging its source node.
+    -- In a controlled flow, reporting position changes otherwise performs
+    -- no store write; a redundant write wakes subscribers upstream leaves idle.
+    nextState = if unsafeRefEq state.connection stepped.connection then state
+      else state { connection = stepped.connection }
   in
-    reduceTriggerNodeChanges (state { connection = stepped.connection }) changes
+    reduceTriggerNodeChanges nextState changes
 
 -- TriggerNodeChanges ----------------------------------------------------
 
@@ -514,7 +520,10 @@ reduceUnselectNodesAndEdges state params =
     s1 = inPlace
       ( _
           { nodeLookup = Array.foldl
-              (\lookup n -> Map.update (\internal -> Just internal { selected = Just false }) n.id lookup)
+              ( \lookup n -> case Map.lookup n.id lookup of
+                  Nothing -> lookup
+                  Just internal -> inPlaceThen (_ { selected = Just false }) internal lookup
+              )
               state.nodeLookup
               nodesToUnselect
           }

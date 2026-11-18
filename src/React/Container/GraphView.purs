@@ -33,7 +33,7 @@ import Data.Maybe (Maybe(..), isJust)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)
 import React.Basic (JSX, ReactComponent, element)
-import React.Basic.Hooks (memo, reactChildrenFromArray, reactComponent)
+import React.Basic.Hooks (memo, reactChildrenFromArray, reactComponent, useMemo)
 import React.Basic.Hooks as React
 import React.Component.ConnectionLine (connectionLine)
 import React.Container.EdgeRenderer (edgeRenderer)
@@ -44,6 +44,7 @@ import React.FFI.DOM (div_)
 import React.Hook.Listeners (useOnInitHandler)
 import React.Hook.NodeOrEdgeTypesWarning (useNodeOrEdgeTypesWarning)
 import React.Hook.StylesLoadedWarning (useStylesLoadedWarning)
+import React.Hook.Store (sameValue)
 import React.Hook.ViewportSync (useViewportSync)
 import React.Types.Component (GraphViewProps)
 import Effect (Effect)
@@ -56,6 +57,11 @@ import Web.UIEvent.WheelEvent (WheelEvent)
 toForeign :: forall a. a -> Foreign
 toForeign = unsafeCoerce
 
+newtype ClickDistance = ClickDistance Number
+
+instance eqClickDistance :: Eq ClickDistance where
+  eq (ClickDistance a) (ClickDistance b) = sameValue a b
+
 graphView :: forall n e. ReactComponent (GraphViewProps n e)
 graphView =
   unsafePerformEffect $ memo $ reactComponent "GraphView"
@@ -65,6 +71,9 @@ graphView =
       useStylesLoadedWarning
       useOnInitHandler props.onInit
       useViewportSync props.viewport
+      -- Upstream passes the number itself. Keep its optional representation
+      -- stable too, so a parent render does not invalidate NodeWrapper's memo.
+      nodeClickDistance <- useMemo [ ClickDistance props.nodeClickDistance ] \_ -> Just props.nodeClickDistance
       let
         viewportChildren :: Array JSX
         viewportChildren =
@@ -101,7 +110,7 @@ graphView =
               , disableKeyboardA11y: props.disableKeyboardA11y
               , nodeExtent: props.nodeExtent
               , nodeTypes: props.nodeTypes
-              , nodeClickDistance: Just props.nodeClickDistance
+              , nodeClickDistance
               , onNodeClick: props.onNodeClick
               , onNodeDoubleClick: props.onNodeDoubleClick
               , onNodeMouseEnter: props.onNodeMouseEnter

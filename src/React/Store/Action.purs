@@ -120,6 +120,9 @@ data Effect_ n e
   | RunDomUpdateNodeInternals
       (Array InternalNodeUpdate)
       { triggerFitView :: Boolean }
+  -- Measurement publishes its internals before triggering the user-node
+  -- changes. Keep that second store update observable to subscribers.
+  | RunTriggerNodeChanges (Array (NodeChange n))
   | RunSetCenter Number Number SetCenterOptions
   -- Zoom and pan limits, pushed onto the live pan-zoom instance. The
   -- reducer carries the values rather than leaving the shell to read
