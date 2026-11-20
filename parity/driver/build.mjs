@@ -234,7 +234,13 @@ for (const marker of rejects) {
 
 writeFileSync(outfile, bundle);
 
+// The React the bundle inlined. CI builds on more than one release, so the log
+// names it; the banner does not, so naming it leaves the committed bundles as
+// they are.
+const reactVersion = readJson(resolve(alias.react, "package.json")).version;
+
 console.log(
   `driver [${side}]: ${fixtures.length} fixtures + ${components.length} direct component(s), ` +
-    `${callbacks.props.length} observed callback props, library from \`${wants}\` → dist/${side}.js`
+    `${callbacks.props.length} observed callback props, library from \`${wants}\`, ` +
+    `React ${reactVersion} → dist/${side}.js`
 );

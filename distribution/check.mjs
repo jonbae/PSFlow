@@ -23,6 +23,9 @@
 //      under bundler and Node 16 resolution, with `skipLibCheck` off, so every
 //      published declaration is checked too. They declare exactly upstream's
 //      export names, value and type, and their values are the runtime's.
+//   6. **React.** The consumer's `react` and `react-dom` are releases the peer
+//      ranges admit, and the report names them: CI runs this check once per
+//      release the ranges admit, so each run says which one it ran on.
 //
 // Usage: npm run parity:package   (after npm run build:package)
 //        node distribution/check.mjs --keep   (leave the consumer directory)
@@ -44,6 +47,8 @@ import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { isDeepStrictEqual } from 'node:util';
+
+import { REACT_PACKAGES, satisfiesCaret } from '../.github/scripts/install-react.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(here, '..');
@@ -332,6 +337,17 @@ check("the declarations name upstream's exports, and their values are the runtim
   }
   return `${published.values.length} values and ${published.types.length} types`;
 });
+
+// ── 6. React ───────────────────────────────────────────────────────────
+
+check("the consumer's react and react-dom are releases the peer ranges admit", () =>
+  REACT_PACKAGES.map((name) => {
+    const { version } = readJson(join(modules, name, 'package.json'));
+    const range = pkg.peerDependencies[name];
+    if (!satisfiesCaret(version, range)) fail(`${name} ${version} is outside the peer range ${range}`);
+    return `${name} ${version}`;
+  }).join(', ')
+);
 
 // ── Report ─────────────────────────────────────────────────────────────
 

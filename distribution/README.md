@@ -26,9 +26,11 @@ npm run test:package    # node --test over the declaration pipeline
 | `style.css`, `base.css` | The pinned `@xyflow/react`'s published stylesheets, byte for byte | Upstream builds them with five PostCSS plugins this repo does not have, and these exact files are what the driver page loads on both sides of every net run. |
 | `xyflow-LICENSE` | `xyflow/LICENSE` | The declarations and stylesheets are copies of upstream's, under its MIT license. |
 
-React and React DOM are peer dependencies at `^18.3.0`, the version every gate
-runs. Upstream accepts React 17 and later; ps-flow does not claim a version it
-has not run. `@types/react` is an optional peer, as upstream's is.
+React and React DOM are peer dependencies at `^18.3.0`, which admits two
+published releases: 18.3.0 and 18.3.1. CI runs every gate and check on both,
+and the package check names the release it ran on. Upstream accepts React 17
+and later; ps-flow does not claim a version it has not run. `@types/react` is
+an optional peer, as upstream's is.
 
 ## The declarations
 

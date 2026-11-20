@@ -29,6 +29,16 @@
 # withholds a gate's result, and `npm run test:ci` holds this file to that
 # order.
 #
+# **The whole job runs once per React release the peer range admits.**
+# `package.json` declares `react` and `react-dom` peers at `^18.3.0` and pins
+# 18.3.1 as the devDependency. That range admits two published releases, so the
+# job runs on both: 18.3.0, the range's floor, and 18.3.1, the pin. A range that
+# only the pin had run would be a claim held by convention. Each leg installs its
+# release before anything is built and rewrites the lockfile. The net
+# reinstalls from the lockfile in the Playwright image, so it runs the leg's
+# release too. `npm run test:ci` holds the matrix to `package.json`, so a range
+# or pin that moves without it goes red.
+#
 # **Ordering is not arbitrary.** Surface parity is the only *hard*
 # precondition: interop breakage has a cheap static signature and an expensive
 # runtime shadow, so a red one makes every downstream result unreadable rather
@@ -60,7 +70,7 @@ permissions:
 
 jobs:
   gates:
-    name: the five gates
+    name: the five gates — React ${{ matrix.react }}
     # Pinned, as the toolchain is: the locked Playwright 1.60.0 installs its
     # Chromium on Ubuntu 24.04 and not on the release `ubuntu-latest` moved
     # to. 24.04 is also the OS of the Playwright image
@@ -68,6 +78,11 @@ jobs:
     runs-on: ubuntu-24.04
     # The net is most of the run: about nine of its eleven minutes.
     timeout-minutes: 30
+    # A red leg must not cancel the other: which releases fail is the result.
+    strategy:
+      fail-fast: false
+      matrix:
+        react: ["18.3.0", "18.3.1"]
 
     steps:
       - uses: actions/checkout@v7
@@ -108,6 +123,12 @@ jobs:
       # Not a gate: it proves this workflow runs what README says it runs.
       - name: CI's own self-tests
         run: npm run test:ci
+
+      # Not a gate either. It runs after the self-tests, which read the
+      # committed `package.json` that this step rewrites, and before anything is
+      # built, so every gate and check after it runs on this leg's release.
+      - name: Install React ${{ matrix.react }}
+        run: node .github/scripts/install-react.mjs ${{ matrix.react }}
 
       - name: Build the PureScript output
         run: spago build
@@ -190,7 +211,7 @@ jobs:
         if: failure()
         uses: actions/upload-artifact@v7
         with:
-          name: playwright-results
+          name: playwright-results-react-${{ matrix.react }}
           path: test-results/
           retention-days: 7
           if-no-files-found: ignore
@@ -201,7 +222,7 @@ jobs:
         if: failure() && steps.system_parity.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
-          name: system-parity
+          name: system-parity-react-${{ matrix.react }}
           path: |
             parity/system/report.md
             parity/system/coverage.md
