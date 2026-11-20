@@ -15,7 +15,7 @@ module Test.Boundary.DefaultEdgeOptions
 import Prelude
 
 import Boundary.Callbacks (onConnectIn)
-import Boundary.Elements (JsConnection, JsDefaultEdgeOptions, JsEdge, defaultEdgeOptionsIn, edgeIn, edgeOut)
+import Boundary.Elements (JsConnection, JsDefaultEdgeOptions, JsEdge, defaultEdgeOptionsIn, edgeIdentityOut, edgeIn, edgeOut)
 import Data.Maybe (Maybe(..))
 import Data.Nullable (Nullable, toMaybe)
 import Data.Newtype (wrap)
@@ -31,6 +31,8 @@ import React.Store.InitialState (InitialStateOptions, defaultInitialStateOptions
 import React.Store.Shell (createStore)
 
 foreign import checkMerge :: (JsDefaultEdgeOptions -> JsEdge -> JsEdge) -> Effect Unit
+foreign import checkArbitraryMerge
+  :: (JsDefaultEdgeOptions -> JsEdge -> { rendered :: JsEdge, original :: JsEdge }) -> Effect Unit
 foreign import checkConnect
   :: (Nullable JsDefaultEdgeOptions -> Effect { params :: Array JsConnection, edges :: Array JsEdge })
   -> Effect Unit
@@ -40,6 +42,10 @@ runDefaultEdgeOptionsTests = do
   checkMerge \defaults edge ->
     edgeOut (applyDefaults (Just (defaultEdgeOptionsIn defaults)) (edgeIn edge))
   log "ok  defaultEdgeOptions: all 23 members merge under an edge as upstream's spread does"
+  checkArbitraryMerge \defaults edge ->
+    let merged = applyDefaults (Just (defaultEdgeOptionsIn defaults)) (edgeIn edge)
+    in { rendered: edgeOut merged, original: edgeIdentityOut merged }
+  log "ok  defaultEdgeOptions: arbitrary keys survive and rendered fields inherit outside the modeled options"
   checkConnect \defaults -> do
     received <- Ref.new []
     store <- createStore ((defaultInitialStateOptions :: InitialStateOptions Foreign Foreign)
@@ -52,5 +58,5 @@ runDefaultEdgeOptionsTests = do
       { source: wrap "a", target: wrap "b", sourceHandle: Nothing, targetHandle: Nothing }
     params <- Ref.read received
     state <- store.getState
-    pure { params, edges: map edgeOut state.edges }
+    pure { params, edges: map edgeIdentityOut state.edges }
   log "ok  defaultEdgeOptions: onConnect and an uncontrolled flow get upstream's merged connection"

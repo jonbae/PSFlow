@@ -64,14 +64,48 @@ export const checkMerge = (merge) => () => {
 
 export const connection = { source: 'a', target: 'b', sourceHandle: null, targetHandle: null };
 
+const token = Symbol('custom default');
+const arbitraryDefaults = {
+  ...allDefaults,
+  source: 'default-source-node',
+  target: 'default-target-node',
+  pathOptions: { curvature: 0.9, custom: 'path' },
+  selected: true,
+  sourceHandle: 'default-source',
+  targetHandle: 'default-target',
+  custom: { retained: true },
+  ownUndefined: undefined,
+  [token]: { retained: 'symbol' },
+};
+
+export const checkArbitraryMerge = (merge) => () => {
+  for (const edge of [
+    base,
+    { ...base, selected: false, pathOptions: { offset: 42 }, custom: null, [token]: false },
+    { ...base, selected: undefined, pathOptions: undefined, sourceHandle: undefined, targetHandle: null, custom: undefined, [token]: undefined },
+  ]) {
+    const expected = { ...arbitraryDefaults, ...edge };
+    const { rendered, original } = merge(arbitraryDefaults)(edge);
+    assert.deepEqual(original, expected, 'all enumerable string and symbol keys survive the spread');
+    for (const key of ['selected', 'sourceHandle', 'targetHandle', 'pathOptions']) {
+      const value = expected[key];
+      assert.deepEqual(rendered[key], value ?? undefined, `rendered default: ${key}`);
+    }
+    assert.equal(rendered.pathOptions, expected.pathOptions);
+    assert.equal(original.custom, expected.custom);
+    assert.equal(original[token], expected[token]);
+  }
+};
+
 export const checkConnect = (connect) => () => {
-  for (const defaults of [undefined, allDefaults, { animated: true, type: 'step' }]) {
+  for (const defaults of [undefined, allDefaults, arbitraryDefaults, { ...arbitraryDefaults, id: 'custom-id' }, { animated: true, type: 'step' }]) {
     const { params, edges } = connect(defaults ?? null)();
     const expectedParams = { ...defaults, ...connection };
     assert.equal(params.length, 1);
     assert.deepEqual(params[0], expectedParams);
     const [expectedEdge] = addEdge(expectedParams, []);
     assert.equal(edges.length, 1);
+    assert.deepEqual(edges[0], expectedEdge, 'uncontrolled edges preserve every default key');
     for (const key of new Set([...Object.keys(expectedEdge), ...Object.keys(edges[0])])) {
       assert.deepEqual(edges[0][key], expectedEdge[key], `added edge: \`${key}\``);
     }

@@ -98,7 +98,7 @@
                               {
                                 "tag": "g",
                                 "attrs": {
-                                  "class": "react-flow__edge react-flow__edge-smoothstep nopan animated selectable from-default-edge-options",
+                                  "class": "react-flow__edge react-flow__edge-smoothstep nopan selected animated selectable from-default-edge-options",
                                   "tabindex": "0",
                                   "role": "group",
                                   "aria-roledescription": "edge",
@@ -111,7 +111,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75 40L75 60L 75,93.5Q 75,98.5 70,98.5L -60,98.5Q -65,98.5 -65,103.5L-65 137L-65 157",
+                                      "d": "M75 40L75 82L 75,98.5Q 75,98.5 75,98.5L -65,98.5Q -65,98.5 -65,98.5L-65 115L-65 157",
                                       "fill": "none",
                                       "class": "react-flow__edge-path",
                                       "marker-end": "url('#1__type=arrowclosed')",
@@ -122,7 +122,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75 40L75 60L 75,93.5Q 75,98.5 70,98.5L -60,98.5Q -65,98.5 -65,103.5L-65 137L-65 157",
+                                      "d": "M75 40L75 82L 75,98.5Q 75,98.5 75,98.5L -65,98.5Q -65,98.5 -65,98.5L-65 115L-65 157",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -200,7 +200,7 @@
                               {
                                 "tag": "g",
                                 "attrs": {
-                                  "class": "react-flow__edge react-flow__edge-smoothstep nopan animated selectable from-default-edge-options",
+                                  "class": "react-flow__edge react-flow__edge-smoothstep nopan selected animated selectable from-default-edge-options",
                                   "tabindex": "0",
                                   "role": "group",
                                   "aria-roledescription": "edge",
@@ -213,7 +213,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75 40L75 60L 75,93.5Q 75,98.5 80,98.5L 210,98.5Q 215,98.5 215,103.5L215 137L215 157",
+                                      "d": "M75 40L75 82L 75,98.5Q 75,98.5 75,98.5L 215,98.5Q 215,98.5 215,98.5L215 115L215 157",
                                       "fill": "none",
                                       "class": "react-flow__edge-path",
                                       "marker-end": "url('#1__type=arrowclosed')",
@@ -224,7 +224,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75 40L75 60L 75,93.5Q 75,98.5 80,98.5L 210,98.5Q 215,98.5 215,103.5L215 137L215 157",
+                                      "d": "M75 40L75 82L 75,98.5Q 75,98.5 75,98.5L 215,98.5Q 215,98.5 215,98.5L215 115L215 157",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -302,7 +302,7 @@
                               {
                                 "tag": "g",
                                 "attrs": {
-                                  "class": "react-flow__edge react-flow__edge-straight nopan animated selectable own-class",
+                                  "class": "react-flow__edge react-flow__edge-straight nopan selected animated selectable own-class",
                                   "tabindex": "0",
                                   "role": "group",
                                   "aria-roledescription": "edge",

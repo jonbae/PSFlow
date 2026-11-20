@@ -21,6 +21,7 @@ module System.Types.Edge
   , originalUserEdge
   , rememberDefaultEdgeOptions
   , rememberMergedEdge
+  , rememberConnectedEdge
   , edgeOwnsKey
   ) where
 
@@ -37,6 +38,7 @@ import Data.Show.Generic (genericShow)
 import Foreign (Foreign)
 import Foreign.Object (Object)
 import System.Types.Geometry (Position)
+import System.Types.Connection (Connection)
 import System.Types.Handle (HandleType)
 import System.Types.Ids (NodeId)
 import System.Types.Opaque (Opaque)
@@ -127,14 +129,26 @@ type EdgePathOptions =
 foreign import rememberUserEdge :: forall e. Fn2 Foreign (EdgeBase e) (EdgeBase e)
 foreign import originalUserEdge :: forall e. EdgeBase e -> Nullable Foreign
 
--- | The consumer's `defaultEdgeOptions` object, kept beside its decoded record.
-foreign import rememberDefaultEdgeOptions :: forall options. Fn2 Foreign options options
+-- | Boundary conversions kept beside decoded options. Spreading before decoding
+-- | lets every consumer key participate, including fields outside the options
+-- | record. PureScript options use the typed merge supplied by each caller.
+foreign import rememberDefaultEdgeOptions
+  :: forall options e
+   . Fn2 options
+       { merge :: EdgeBase e -> EdgeBase e
+       , connect :: Connection -> EdgeBase e -> EdgeBase e
+       }
+       options
 
--- | `rememberMergedEdge defaults edge merged` keeps `{ ...defaults, ...edge }`
--- | over the consumer's two objects beside `merged`, when both came from the
--- | consumer, so the merged edge crosses back as upstream's spread does.
+-- | Use the boundary's full-object merge when available, or the caller's typed
+-- | merge for options constructed in PureScript.
 foreign import rememberMergedEdge
   :: forall options e. Fn3 options (EdgeBase e) (EdgeBase e) (EdgeBase e)
+
+-- | The same conversion for an uncontrolled connection. Its four connection
+-- | members override the defaults, including null handles, before addEdge.
+foreign import rememberConnectedEdge
+  :: forall options e. Fn3 options Connection (EdgeBase e) (EdgeBase e)
 
 -- | Whether the consumer's edge object, if there was one, has `key` as an own
 -- | property. Upstream merges `{ ...defaultEdgeOptions, ...edge }`, and an

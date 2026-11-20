@@ -41,14 +41,6 @@ export const NOTES = [
       'with an unchanged value.',
   },
   {
-    id: 'default-edge-options-keys',
-    accepted: 'Step 3 H, precise exclusions',
-    text:
-      '`defaultEdgeOptions` merges the 23 members `DefaultEdgeOptions` declares. Upstream spreads ' +
-      'every key at run time, so a key outside the type, such as `pathOptions`, reaches upstream\'s ' +
-      'edges and not ps-flow\'s.',
-  },
-  {
     id: 'uncontrolled-rebuilt-nodes',
     accepted: 'Step 3 H, precise exclusions',
     text:

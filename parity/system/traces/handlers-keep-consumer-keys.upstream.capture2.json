@@ -112,7 +112,7 @@
                                     "tag": "path",
                                     "attrs": {
                                       "marker-end": "url('#1__type=arrowclosed')",
-                                      "d": "M75 40L75 60L 75,96.22103658536587Q 75,101.22103658536587 70,101.22103658536587L -49.115853658536594,101.22103658536587Q -54.115853658536594,101.22103658536587 -54.115853658536594,106.22103658536587L-54.115853658536594 142.44207317073173L-54.115853658536594 162.44207317073173",
+                                      "d": "M75 40L75 82L 75,101.22103658536587Q 75,101.22103658536587 75,101.22103658536587L -54.115853658536594,101.22103658536587Q -54.115853658536594,101.22103658536587 -54.115853658536594,101.22103658536587L-54.115853658536594 120.44207317073173L-54.115853658536594 162.44207317073173",
                                       "fill": "none",
                                       "class": "react-flow__edge-path",
                                       "style": "stroke-width: 2;"
@@ -122,7 +122,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75 40L75 60L 75,96.22103658536587Q 75,101.22103658536587 70,101.22103658536587L -49.115853658536594,101.22103658536587Q -54.115853658536594,101.22103658536587 -54.115853658536594,106.22103658536587L-54.115853658536594 142.44207317073173L-54.115853658536594 162.44207317073173",
+                                      "d": "M75 40L75 82L 75,101.22103658536587Q 75,101.22103658536587 75,101.22103658536587L -54.115853658536594,101.22103658536587Q -54.115853658536594,101.22103658536587 -54.115853658536594,101.22103658536587L-54.115853658536594 120.44207317073173L-54.115853658536594 162.44207317073173",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -200,7 +200,7 @@
                               {
                                 "tag": "g",
                                 "attrs": {
-                                  "class": "react-flow__edge react-flow__edge-smoothstep from-default-edge-options nopan animated selectable",
+                                  "class": "react-flow__edge react-flow__edge-smoothstep from-default-edge-options nopan selected animated selectable",
                                   "tabindex": "0",
                                   "role": "group",
                                   "aria-roledescription": "edge",
@@ -214,7 +214,7 @@
                                     "tag": "path",
                                     "attrs": {
                                       "marker-end": "url('#1__type=arrowclosed')",
-                                      "d": "M75 40L75 60L 75,93.5Q 75,98.5 80,98.5L 210,98.5Q 215,98.5 215,103.5L215 137L215 157",
+                                      "d": "M75 40L75 82L 75,98.5Q 75,98.5 75,98.5L 215,98.5Q 215,98.5 215,98.5L215 115L215 157",
                                       "fill": "none",
                                       "class": "react-flow__edge-path",
                                       "style": "stroke-width: 2;"
@@ -224,7 +224,7 @@
                                   {
                                     "tag": "path",
                                     "attrs": {
-                                      "d": "M75 40L75 60L 75,93.5Q 75,98.5 80,98.5L 210,98.5Q 215,98.5 215,103.5L215 137L215 157",
+                                      "d": "M75 40L75 82L 75,98.5Q 75,98.5 75,98.5L 215,98.5Q 215,98.5 215,98.5L215 115L215 157",
                                       "fill": "none",
                                       "stroke-opacity": "0",
                                       "stroke-width": "20",
@@ -302,7 +302,7 @@
                               {
                                 "tag": "g",
                                 "attrs": {
-                                  "class": "react-flow__edge react-flow__edge-straight own-class nopan animated selectable",
+                                  "class": "react-flow__edge react-flow__edge-straight own-class nopan selected animated selectable",
                                   "tabindex": "0",
                                   "role": "group",
                                   "aria-roledescription": "edge",
@@ -931,10 +931,16 @@
             "style": {
               "strokeWidth": 2
             },
+            "pathOptions": {
+              "offset": 42,
+              "borderRadius": 0
+            },
+            "selected": true,
+            "owner": "consumer",
+            "defaultOnly": "from-options",
             "id": "1-2",
             "source": "Node-1",
-            "target": "Node-2",
-            "owner": "consumer"
+            "target": "Node-2"
           }
         ]
       },
@@ -1067,10 +1073,16 @@
             "style": {
               "strokeWidth": 2
             },
+            "pathOptions": {
+              "offset": 42,
+              "borderRadius": 0
+            },
+            "selected": true,
+            "owner": "consumer",
+            "defaultOnly": "from-options",
             "id": "1-2",
             "source": "Node-1",
-            "target": "Node-2",
-            "owner": "consumer"
+            "target": "Node-2"
           }
         ]
       },
@@ -1150,10 +1162,16 @@
             "style": {
               "strokeWidth": 2
             },
+            "pathOptions": {
+              "offset": 42,
+              "borderRadius": 0
+            },
+            "selected": true,
+            "owner": "consumer",
+            "defaultOnly": "from-options",
             "id": "1-2",
             "source": "Node-1",
-            "target": "Node-2",
-            "owner": "consumer"
+            "target": "Node-2"
           }
         ]
       },
@@ -1242,11 +1260,16 @@
             "style": {
               "strokeWidth": 2
             },
+            "pathOptions": {
+              "offset": 42,
+              "borderRadius": 0
+            },
+            "selected": true,
+            "owner": "consumer",
+            "defaultOnly": "from-options",
             "id": "1-2",
             "source": "Node-1",
-            "target": "Node-2",
-            "owner": "consumer",
-            "selected": true
+            "target": "Node-2"
           }
         ]
       },

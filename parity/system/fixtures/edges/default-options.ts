@@ -6,10 +6,9 @@
 // its own type and class, and the merge must keep both, which is the half of the
 // spread a port that copied the options wholesale would get wrong.
 //
-// Only members of upstream's typed `DefaultEdgeOptions` are set. Upstream's
-// spread also copies any other key at run time, such as a `pathOptions` its
-// type leaves out; ps-flow merges the typed members, and that difference is
-// a documented exclusion rather than something this fixture measures.
+// Runtime defaults also include keys outside upstream's `DefaultEdgeOptions`
+// type: pathOptions changes the bends, selected changes the class and stacking,
+// and custom keys reach edge callbacks unless the edge supplies its own value.
 
 export default {
   flowProps: {
@@ -21,6 +20,10 @@ export default {
       label: 'default',
       markerEnd: { type: 'arrowclosed' },
       style: { strokeWidth: 2 },
+      pathOptions: { offset: 42, borderRadius: 0 },
+      selected: true,
+      owner: 'defaults',
+      defaultOnly: 'from-options',
     },
     // `owner` is a key no type declares. Upstream hands an edge handler the
     // merged edge and a node handler a copy of the node, and both keep it.

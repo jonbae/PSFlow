@@ -13,8 +13,6 @@ module React.Types.Store
   , ConnectionClickStartHandle
   ) where
 
-import Prelude
-
 import Data.Maybe (Maybe)
 import React.Types.Edges (DefaultEdgeOptions, Edge)
 import React.Types.Nodes (Node)
