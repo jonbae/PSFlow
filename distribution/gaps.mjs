@@ -16,43 +16,29 @@
 // Every entry names the work that accepted it. Removing a difference removes
 // its entry in the same change.
 
-export const OVERLAYS = [
-  {
-    id: 'store-replace',
-    accepted: 'Step 3 G, precise exclusions',
-    file: 'react/hooks/useStore.d.ts',
-    find: 'replace?: boolean | undefined) => void;',
-    replace: 'replace?: false | undefined) => void;',
-    reason:
-      "ps-flow's `setState` merges into the state and throws on `replace: true`: its internals read a " +
-      'complete state record, which a replacement could leave incomplete.',
-  },
-  {
-    id: 'store-exclusions',
-    accepted: 'Step 3 G, precise exclusions',
-    file: 'react/hooks/useStore.d.ts',
-    find: ' * such as {@link useReactFlow}, {@link useViewport}, etc.\n */\ndeclare function useStoreApi',
-    replace: [
-      ' * such as {@link useReactFlow}, {@link useViewport}, etc.',
-      ' *',
-      ' * ps-flow: `setState` merges as zustand does and throws on `replace: true`. It also throws',
-      ' * when a write gives a member a value outside its declared type, when a write supplies a',
-      ' * `panZoom`, `fitViewResolver` or middleware map that the store did not hand out, and when',
-      ' * a consumer calls a store callback that PureScript code installed.',
-      ' */',
-      'declare function useStoreApi',
-    ].join('\n'),
-    reason: "The exclusions a type cannot express, on the hook that hands out the store.",
-  },
-];
+export const OVERLAYS = [];
 
 export const NOTES = [
   {
-    id: 'store-writes',
-    accepted: 'Step 3 G, precise exclusions',
+    id: 'store-unreadable-members',
+    accepted: 'Full JavaScript store compatibility',
     text:
-      "`useStoreApi()`'s `setState` merges and refuses `replace: true`, which its type says. Its " +
-      'documentation lists the other writes ps-flow refuses.',
+      "`useStoreApi()`'s `getState()` reads back every value written into the store, as upstream's " +
+      'does. A boolean, number or string member also holds that value internally, but ps-flow compares ' +
+      "it through PureScript's `Ord`, which can answer differently from `Math.min`/`Math.max` for " +
+      '`undefined` or `NaN`. A structured member written with a value ps-flow cannot convert, such as ' +
+      "`setState({ nodes: 'x' })`, keeps its previous value internally and for readers such as " +
+      '`getNodes()`, and development builds warn; upstream stores the value everywhere and fails later. ' +
+      'A store callback written as a falsy value other than `null` or `undefined` counts as set.',
+  },
+  {
+    id: 'store-replacement',
+    accepted: 'Full JavaScript store compatibility',
+    text:
+      '`setState(next, true)` makes `getState()` return `next` itself, with its member properties ' +
+      'turned into accessors; a sealed `next` is copied instead. A member the replacement left out ' +
+      'comes back when its value changes or on `reset`, where upstream also brings back one it rewrites ' +
+      'with an unchanged value.',
   },
   {
     id: 'uncontrolled-rebuilt-nodes',

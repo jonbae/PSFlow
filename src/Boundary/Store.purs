@@ -39,18 +39,33 @@
 -- | assignment, `getState().x = v`, writes into the live state and notifies
 -- | nobody, which is what the same line does to upstream's plain object.
 -- |
--- | ## Precise exclusions
+-- | `setState(next, true)`, or a partial that is not an object, replaces the
+-- | state, and `getState()` then returns `next` itself: its member properties
+-- | become accessors over the new PureScript state, in place. Each later
+-- | state is `Object.assign({}, state, partial)` over it, so a member `next`
+-- | left out stays out until something writes it.
 -- |
--- | Each of these throws with a message naming the call:
+-- | ## What a write leaves the internals
 -- |
--- |   * `setState(_, true)` and a non-object `setState` partial, which replace
--- |     upstream's whole state. ps-flow's internals read a complete record.
--- |   * A value of the wrong type for a typed member, such as
--- |     `setState({ minZoom: "2" })`. Upstream stores it and fails later.
--- |   * A `panZoom`, `fitViewResolver` or middleware map the store did not
--- |     hand out. Those are created by ps-flow's own pane and hooks.
--- |   * Calling a callback member that PureScript code installed. Every
--- |     callback a JavaScript consumer installs reads back as itself.
+-- | Upstream's store is a plain object, so every value a consumer writes is
+-- | stored as it is, and `getState()` here always reads it back. What
+-- | ps-flow's internals receive depends on the member:
+-- |
+-- |   * A boolean, number or string member holds the written value itself,
+-- |     whatever it is, and JavaScript coerces it where the internals use it,
+-- |     as it coerces upstream's.
+-- |   * A callback, `panZoom` or `fitViewResolver` is `Nothing` for `null` or
+-- |     `undefined`, and otherwise the written value, called when it is used.
+-- |     A value that is not a function throws then, as upstream's does.
+-- |   * `connectionMode` and `zIndexMode` hold the mode upstream's
+-- |     comparisons choose for the written value.
+-- |   * Any other member holds the written value converted. When it cannot
+-- |     convert, the internals keep the previous value, and development
+-- |     builds say so.
+-- |
+-- | A callback that PureScript code installed has no JavaScript original, so
+-- | it reads back as an adapter from `Boundary.Callbacks`, which JavaScript
+-- | calls with upstream's arguments.
 module Boundary.Store
   ( JsStoreApi
   , JsStoreView
@@ -60,47 +75,67 @@ module Boundary.Store
   , equalityFor
   , internalNodeOutCached
   , panZoomOut
+  , registerChangeConvertersForJs
   ) where
 
 import Prelude
 
 import Boundary.Callbacks
-  ( connectionStateOut
+  ( adaptedFrom
+  , edgeChangeFromJs
+  , edgeChangeIdentityOut
+  , nodeChangeFromJs
+  , nodeChangeIdentityOut
+  , connectionStateOut
   , isValidConnectionIn
+  , isValidConnectionOut
   , onBeforeDeleteIn
+  , onBeforeDeleteOut
   , onConnectEndIn
+  , onConnectEndOut
   , onConnectIn
+  , onConnectOut
   , onConnectStartIn
+  , onConnectStartOut
   , onDeleteIn
+  , onDeleteOut
   , onEdgesChangeIn
+  , onEdgesChangeOut
   , onEdgesDeleteIn
+  , onEdgesDeleteOut
   , onErrorIn
+  , onErrorOut
   , onMoveIn
+  , onMoveOut
   , onNodeDragIn
+  , onNodeDragOut
   , onNodesChangeIn
+  , onNodesChangeOut
   , onNodesDeleteIn
-  , onSelectionChangeIn
+  , onNodesDeleteOut
+  , onSelectionChangeOut
   , onViewportChangeIn
+  , onViewportChangeOut
   , selectionDragHandlerIn
+  , selectionDragHandlerOut
+  , stableSelectionChangeIn
   , withInProgress
   )
 import Boundary.Elements
-  ( JsInternalNode
+  ( JsEdgeChange
+  , JsInternalNode
   , JsHandle
+  , JsNodeChange
   , JsXYPosition
   , coordinateExtentIn
   , coordinateExtentOut
   , defaultEdgeOptionsIn
   , defaultEdgeOptionsOut
-  , edgeChangeIn
-  , edgeChangeOut
   , edgeIdentityOut
   , edgeIn
   , handleIn
   , internalNodeIn
   , internalNodeOut
-  , nodeChangeIn
-  , nodeChangeOut
   , nodeExtentIn
   , nodeIdentityOut
   , nodeIn
@@ -108,19 +143,19 @@ import Boundary.Elements
   , nodeOriginOut
   , snapGridIn
   )
-import Boundary.Enums (connectionModeIn, handleTypeIn, interpolateModeIn, panOnScrollModeIn, positionIn, zIndexModeIn)
+import Boundary.Enums (handleTypeIn, interpolateModeIn, panOnScrollModeIn, positionIn)
 import Boundary.FitView (JsFitViewOptions, fitViewOptionsIn)
 import Boundary.FlowMembers (JsAriaLabelConfig, ariaLabelConfigIn, panOnDragIn)
 import Boundary.Instance (JsHandleConnection, handleConnectionOut, setCenterOptionsIn)
 import Boundary.Original (originalOf, remembering)
 import Boundary.Promise (toPromise)
 import Boundary.Undefined (Undefinable, fromUndefinable, isDefined, isNull, pruneUndefined, toUndefinable, undefined)
-import Boundary.Untagged (asArray, asBoolean, asFunction, asNumber, asString, typeName)
-import Data.Array (catMaybes, filter, nub, reverse) as Array
-import Data.Function.Uncurried (mkFn1)
+import Boundary.Untagged (asArray, asNumber, asString, typeName)
+import Data.Array (catMaybes, filter, index, nub, reverse) as Array
+import Data.Array.NonEmpty (toArray) as NEA
 import Data.List (fromFoldable, toUnfoldable) as List
 import Data.Map (Map)
-import Data.Map (fromFoldable, keys, lookup, toUnfoldable) as Map
+import Data.Map (fromFoldable, keys, lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe, maybe)
 import Data.Newtype (unwrap, wrap)
 import Data.Nullable (Nullable, toMaybe, toNullable)
@@ -128,13 +163,12 @@ import Data.Set (fromFoldable, member, toUnfoldable) as Set
 import Data.String (null) as String
 import Data.Tuple (Tuple(..))
 import Effect (Effect)
-import Effect.Aff (Aff, launchAff_)
-import Effect.AVar (AVar)
-import Effect.Aff.AVar (kill, put, read) as AVar
+import Effect.Aff (Aff)
+import Effect.Aff.Compat (EffectFnAff(..), EffectFnCanceler, EffectFnCb, fromEffectFnAff)
 import Effect.Class (liftEffect)
-import Effect.Exception (error)
+import Effect.Exception (Error)
 import Effect.Exception.Unsafe (unsafeThrow)
-import Effect.Uncurried (EffectFn1, mkEffectFn1, mkEffectFn2, mkEffectFn3, runEffectFn1)
+import Effect.Uncurried (EffectFn1, EffectFn2, mkEffectFn1, mkEffectFn2, mkEffectFn3, runEffectFn1)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign, unsafeToForeign)
 import Foreign.Object (Object)
@@ -160,16 +194,17 @@ import React.Types.General
   , OnViewportChange
   )
 import React.Types.Nodes (Node)
-import React.Types.Store (ConnectionClickStartHandle, MiddlewareKey(..), ReactFlowState)
+import React.Store.Middleware (registerChangeConverters)
+import React.Types.Store (ConnectionClickStartHandle, FitViewResolver, MiddlewareMap, ReactFlowState)
 import System.XYDrag (OnNodeDrag, OnSelectionDrag)
 import System.XYHandle (OnConnect, OnConnectEnd, OnConnectStart)
 import System.Constants (AriaLabelConfig, mergeAriaLabelConfig)
-import System.Types.Connection (ConnectionLookup, ConnectionMode(..), ConnectionState(..), HandleConnection, HandleConnections, InterpolateMode(..), SetCenterOptions, Padding(..), PaddingValue(..), SelectionRect, ZIndexMode(..))
+import System.Types.Connection (ConnectionLookup, ConnectionMode(..), ConnectionState(..), HandleConnection, HandleConnections, InterpolateMode(..), PanOnScrollMode(..), SetCenterOptions, Padding(..), PaddingValue(..), SelectionRect, ZIndexMode(..))
 import System.Types.Edge (EdgeBase, EdgeChange, EdgeLookup)
 import System.Types.Geometry (CoordinateExtent, NodeOrigin, SnapGrid, Transform(..))
 import System.Types.Node (InternalNodeBase, InternalNodeUpdate, NodeBase, NodeChange, NodeDragItem, NodeLookup, OnError, ParentLookup)
 import System.FFI.D3Zoom (ZoomTransform)
-import System.Types.PanZoom (PanZoomInstance, PanZoomTransformOptions, PanZoomUpdateOptions)
+import System.Types.PanZoom (PanOnDrag(..), PanZoomInstance, PanZoomTransformOptions, PanZoomUpdateOptions)
 import System.Utils.General (devWarn)
 import System.Utils.Graph (FitViewOptions)
 import Unsafe.Coerce (unsafeCoerce)
@@ -190,10 +225,16 @@ foreign import data JsStoreApi :: Type
 foreign import absent :: Foreign
 foreign import reversibleImpl :: forall a b. (a -> b) -> a -> b
 foreign import producedFromImpl :: forall a b. a -> Nullable b
-foreign import middlewareSymbol :: Int -> Foreign
 foreign import newMap :: Array (Array Foreign) -> Foreign
 foreign import mapEntriesImpl :: Foreign -> Nullable (Array (Array Foreign))
-foreign import refusingFunction :: String -> Foreign
+foreign import isMap :: Foreign -> Boolean
+foreign import callMethod :: Foreign -> String -> Array Foreign -> Effect Foreign
+foreign import awaitMethodImpl
+  :: forall a
+   . Foreign
+  -> String
+  -> Array Foreign
+  -> EffectFn2 (EffectFnCb Error) (EffectFnCb a) EffectFnCanceler
 foreign import storeViewImpl :: forall n e. Store n e -> (Unit -> ViewSpec) -> JsStoreView
 foreign import curriedEquality :: Undefinable Foreign -> Foreign
 foreign import useApiObject :: EffectFn1 JsStoreView JsStoreApi
@@ -207,10 +248,11 @@ type ViewSpec =
   , patch :: (State -> State) -> Effect Unit
   , mutate :: (State -> State) -> Effect Unit
   , subscribeStates :: (State -> State -> Effect Unit) -> Effect (Effect Unit)
+  , observeTransitions :: (State -> State -> Boolean -> Effect Unit) -> Effect Unit
   , keys :: Array String
   , fields :: Object Foreign
   , actions :: Foreign
-  , replaceRefusal :: String
+  , isDevelopment :: Boolean
   }
 
 -- | The view of a store, built on the first call and shared after it.
@@ -239,14 +281,11 @@ viewSpec store =
   , patch: \f -> store.dispatch (PatchState f)
   , mutate: \f -> store.dispatch (MutateState f)
   , subscribeStates: store.subscribeStates
+  , observeTransitions: store.observeTransitions
   , keys: stateKeys
   , fields: unsafeCoerce stateFields
   , actions: actionsOut store
-  , replaceRefusal:
-      "ps-flow: `setState` cannot replace the whole state — a `true` second "
-        <> "argument, or a partial that is not an object, replaces upstream's "
-        <> "state outright, and ps-flow's internals read every member of theirs. "
-        <> "Pass an object of the members to change."
+  , isDevelopment
   }
 
 -- ────────────────────────────────────────────────────────────────────────
@@ -360,7 +399,7 @@ type StateFields =
   , defaultEdgeOptions :: Field (Maybe (DefaultEdgeOptions Foreign))
   , fitViewQueued :: Field Boolean
   , fitViewOptions :: Field (Maybe FitViewOptions)
-  , fitViewResolver :: Field (Maybe (AVar Boolean))
+  , fitViewResolver :: Field (Maybe FitViewResolver)
   , onNodesDelete :: Field (Maybe (OnNodesDelete Foreign))
   , onEdgesDelete :: Field (Maybe (OnEdgesDelete Foreign))
   , onDelete :: Field (Maybe (OnDelete Foreign Foreign))
@@ -380,106 +419,106 @@ type StateFields =
   , debug :: Field Boolean
   , ariaLabelConfig :: Field AriaLabelConfig
   , zIndexMode :: Field ZIndexMode
-  , onNodesChangeMiddlewareMap :: Field (Map MiddlewareKey (Array (NodeChange Foreign) -> Array (NodeChange Foreign)))
-  , onEdgesChangeMiddlewareMap :: Field (Map MiddlewareKey (Array (EdgeChange Foreign) -> Array (EdgeChange Foreign)))
+  , onNodesChangeMiddlewareMap :: Field (MiddlewareMap (NodeChange Foreign))
+  , onEdgesChangeMiddlewareMap :: Field (MiddlewareMap (EdgeChange Foreign))
   }
 
 -- | Every member's `Field`.
 stateFields :: StateFields
 stateFields =
-  { rfId: string "rfId"
-  , width: number "width"
-  , height: number "height"
+  { rfId: written
+  , width: written
+  , height: written
   , transform: plain transformOut (transformIn "transform")
   , nodes: plain nodesOut (listOf "nodes" (reversible nodeIn))
-  , nodesInitialized: boolean "nodesInitialized"
+  , nodesInitialized: written
   , nodeLookup: field nodeLookupOut (nodeLookupIn "nodeLookup")
   , parentLookup: field parentLookupOut (parentLookupIn "parentLookup")
   , edges: plain edgesOut (listOf "edges" (reversible edgeIn))
   , edgeLookup: field edgeLookupOut (edgeLookupIn "edgeLookup")
   , connectionLookup: field connectionLookupOut (connectionLookupIn "connectionLookup")
-  , onNodesChange: callback nullValue "onNodesChange" onNodesChangeIn
-  , onEdgesChange: callback nullValue "onEdgesChange" onEdgesChangeIn
-  , hasDefaultNodes: boolean "hasDefaultNodes"
-  , hasDefaultEdges: boolean "hasDefaultEdges"
+  , onNodesChange: callback nullValue onNodesChangeIn onNodesChangeOut
+  , onEdgesChange: callback nullValue onEdgesChangeIn onEdgesChangeOut
+  , hasDefaultNodes: written
+  , hasDefaultEdges: written
   , domNode: plain (unsafeToForeign <<< toNullable) domNodeIn
-  , paneDragging: boolean "paneDragging"
-  , noPanClassName: string "noPanClassName"
-  , panZoom: plain (maybe nullValue panZoomOut) (createdHere "panZoom")
-  , minZoom: number "minZoom"
-  , maxZoom: number "maxZoom"
+  , paneDragging: written
+  , noPanClassName: written
+  , panZoom: plain (maybe nullValue panZoomOut) (absentOr (Just <<< panZoomFromJs))
+  , minZoom: written
+  , maxZoom: written
   , translateExtent: plain (unsafeToForeign <<< coordinateExtentOut) (coordinateExtentIn "translateExtent" <<< unsafeCoerce)
   , nodeExtent: plain (unsafeToForeign <<< coordinateExtentOut) (coordinateExtentIn "nodeExtent" <<< unsafeCoerce)
   , nodeOrigin: plain (unsafeToForeign <<< nodeOriginOut) (nodeOriginIn "nodeOrigin" <<< unsafeCoerce)
-  , nodeDragThreshold: number "nodeDragThreshold"
-  , connectionDragThreshold: number "connectionDragThreshold"
-  , nodesSelectionActive: boolean "nodesSelectionActive"
-  , userSelectionActive: boolean "userSelectionActive"
+  , nodeDragThreshold: written
+  , connectionDragThreshold: written
+  , nodesSelectionActive: written
+  , userSelectionActive: written
   , userSelectionRect: plain (unsafeToForeign <<< toNullable) selectionRectIn
   , connection: plain liveConnectionOut liveConnectionIn
-  , connectionMode: plain connectionModeOut (connectionModeIn "connectionMode" <<< stringIn "connectionMode")
+  , connectionMode: plain connectionModeOut connectionModeFromJs
   , connectionClickStartHandle: plain clickStartOut clickStartIn
-  , snapToGrid: boolean "snapToGrid"
+  , snapToGrid: written
   , snapGrid: plain (\g -> unsafeToForeign [ (unwrap g).gx, (unwrap g).gy ]) (snapGridIn "snapGrid" <<< unsafeCoerce)
-  , nodesDraggable: boolean "nodesDraggable"
-  , autoPanOnNodeFocus: boolean "autoPanOnNodeFocus"
-  , nodesConnectable: boolean "nodesConnectable"
-  , nodesFocusable: boolean "nodesFocusable"
-  , edgesFocusable: boolean "edgesFocusable"
-  , edgesReconnectable: boolean "edgesReconnectable"
-  , elementsSelectable: boolean "elementsSelectable"
-  , elevateNodesOnSelect: boolean "elevateNodesOnSelect"
-  , elevateEdgesOnSelect: boolean "elevateEdgesOnSelect"
-  , selectNodesOnDrag: boolean "selectNodesOnDrag"
-  , multiSelectionActive: boolean "multiSelectionActive"
-  , onNodeDragStart: optionalCallback "onNodeDragStart" onNodeDragIn
-  , onNodeDrag: optionalCallback "onNodeDrag" onNodeDragIn
-  , onNodeDragStop: optionalCallback "onNodeDragStop" onNodeDragIn
-  , onSelectionDragStart: optionalCallback "onSelectionDragStart" (unsafeCoerce selectionDragHandlerIn)
-  , onSelectionDrag: optionalCallback "onSelectionDrag" (unsafeCoerce selectionDragHandlerIn)
-  , onSelectionDragStop: optionalCallback "onSelectionDragStop" (unsafeCoerce selectionDragHandlerIn)
-  , onMoveStart: optionalCallback "onMoveStart" (unsafeCoerce onMoveIn)
-  , onMove: optionalCallback "onMove" onMoveIn
-  , onMoveEnd: optionalCallback "onMoveEnd" (unsafeCoerce onMoveIn)
-  , onConnect: optionalCallback "onConnect" onConnectIn
-  , onConnectStart: optionalCallback "onConnectStart" onConnectStartIn
-  , onConnectEnd: optionalCallback "onConnectEnd" onConnectEndIn
-  , onClickConnectStart: optionalCallback "onClickConnectStart" onConnectStartIn
-  , onClickConnectEnd: optionalCallback "onClickConnectEnd" onConnectEndIn
-  , connectOnClick: boolean "connectOnClick"
+  , nodesDraggable: written
+  , autoPanOnNodeFocus: written
+  , nodesConnectable: written
+  , nodesFocusable: written
+  , edgesFocusable: written
+  , edgesReconnectable: written
+  , elementsSelectable: written
+  , elevateNodesOnSelect: written
+  , elevateEdgesOnSelect: written
+  , selectNodesOnDrag: written
+  , multiSelectionActive: written
+  , onNodeDragStart: optionalCallback onNodeDragIn onNodeDragOut
+  , onNodeDrag: optionalCallback onNodeDragIn onNodeDragOut
+  , onNodeDragStop: optionalCallback onNodeDragIn onNodeDragOut
+  , onSelectionDragStart: optionalCallback (unsafeCoerce selectionDragHandlerIn) (unsafeCoerce selectionDragHandlerOut)
+  , onSelectionDrag: optionalCallback (unsafeCoerce selectionDragHandlerIn) (unsafeCoerce selectionDragHandlerOut)
+  , onSelectionDragStop: optionalCallback (unsafeCoerce selectionDragHandlerIn) (unsafeCoerce selectionDragHandlerOut)
+  , onMoveStart: optionalCallback (unsafeCoerce onMoveIn) (unsafeCoerce onMoveOut)
+  , onMove: optionalCallback onMoveIn onMoveOut
+  , onMoveEnd: optionalCallback (unsafeCoerce onMoveIn) (unsafeCoerce onMoveOut)
+  , onConnect: optionalCallback onConnectIn onConnectOut
+  , onConnectStart: optionalCallback onConnectStartIn onConnectStartOut
+  , onConnectEnd: optionalCallback onConnectEndIn onConnectEndOut
+  , onClickConnectStart: optionalCallback onConnectStartIn onConnectStartOut
+  , onClickConnectEnd: optionalCallback onConnectEndIn onConnectEndOut
+  , connectOnClick: written
   , defaultEdgeOptions:
       { toJs: \_ -> maybe absent (unsafeToForeign <<< defaultEdgeOptionsOut)
       , fromJs: absentOr (Just <<< defaultEdgeOptionsIn <<< unsafeCoerce)
       , optional: true
       }
-  , fitViewQueued: boolean "fitViewQueued"
+  , fitViewQueued: written
   , fitViewOptions: plain (maybe (unsafeToForeign undefined) fitViewOptionsOut)
       (absentOr (Just <<< remembering fitViewOptionsIn <<< (unsafeCoerce :: Foreign -> JsFitViewOptions)))
-  , fitViewResolver: plain (maybe nullValue resolverOut) (createdHere "fitViewResolver")
-  , onNodesDelete: optionalCallback "onNodesDelete" onNodesDeleteIn
-  , onEdgesDelete: optionalCallback "onEdgesDelete" onEdgesDeleteIn
-  , onDelete: optionalCallback "onDelete" onDeleteIn
+  , fitViewResolver: plain (maybe nullValue unsafeToForeign) (absentOr (Just <<< unsafeCoerce))
+  , onNodesDelete: optionalCallback onNodesDeleteIn onNodesDeleteOut
+  , onEdgesDelete: optionalCallback onEdgesDeleteIn onEdgesDeleteOut
+  , onDelete: optionalCallback onDeleteIn onDeleteOut
   , onError:
-      plain (maybe devWarnOut onErrorOut) (absentOr (Just <<< functionIn "onError" onErrorIn))
-  , onViewportChangeStart: optionalCallback "onViewportChangeStart" onViewportChangeIn
-  , onViewportChange: optionalCallback "onViewportChange" onViewportChangeIn
-  , onViewportChangeEnd: optionalCallback "onViewportChangeEnd" onViewportChangeIn
-  , onBeforeDelete: optionalCallback "onBeforeDelete" onBeforeDeleteIn
+      plain (maybe devWarnOut storeOnErrorOut) (absentOr (Just <<< functionIn onErrorIn))
+  , onViewportChangeStart: optionalCallback onViewportChangeIn onViewportChangeOut
+  , onViewportChange: optionalCallback onViewportChangeIn onViewportChangeOut
+  , onViewportChangeEnd: optionalCallback onViewportChangeIn onViewportChangeOut
+  , onBeforeDelete: optionalCallback onBeforeDeleteIn onBeforeDeleteOut
   , onSelectionChangeHandlers:
-      plain (unsafeToForeign <<< map (callbackOut "onSelectionChangeHandlers"))
-        (listOf "onSelectionChangeHandlers" (functionIn "onSelectionChangeHandlers" onSelectionChangeIn))
-  , ariaLiveMessage: string "ariaLiveMessage"
-  , autoPanOnConnect: boolean "autoPanOnConnect"
-  , autoPanOnNodeDrag: boolean "autoPanOnNodeDrag"
-  , autoPanSpeed: number "autoPanSpeed"
-  , connectionRadius: number "connectionRadius"
-  , isValidConnection: callback (unsafeToForeign undefined) "isValidConnection" isValidConnectionIn
-  , lib: string "lib"
-  , debug: boolean "debug"
+      plain (unsafeToForeign <<< map (callbackOut onSelectionChangeOut))
+        (listOf "onSelectionChangeHandlers" selectionHandlerIn)
+  , ariaLiveMessage: written
+  , autoPanOnConnect: written
+  , autoPanOnNodeDrag: written
+  , autoPanSpeed: written
+  , connectionRadius: written
+  , isValidConnection: callback (unsafeToForeign undefined) isValidConnectionIn isValidConnectionOut
+  , lib: written
+  , debug: written
   , ariaLabelConfig: plain ariaLabelConfigOut (mergeAriaLabelConfig <<< ariaLabelConfigIn <<< (unsafeCoerce :: Foreign -> JsAriaLabelConfig))
-  , zIndexMode: plain zIndexModeOut (zIndexModeIn "zIndexMode" <<< stringIn "zIndexMode")
-  , onNodesChangeMiddlewareMap: plain (middlewareMapOut nodeChangeIn nodeChangeOut) (onlyHandedOut "onNodesChangeMiddlewareMap")
-  , onEdgesChangeMiddlewareMap: plain (middlewareMapOut edgeChangeIn edgeChangeOut) (onlyHandedOut "onEdgesChangeMiddlewareMap")
+  , zIndexMode: plain zIndexModeOut zIndexModeFromJs
+  , onNodesChangeMiddlewareMap: plain middlewareMapOut (middlewareMapIn "onNodesChangeMiddlewareMap")
+  , onEdgesChangeMiddlewareMap: plain middlewareMapOut (middlewareMapIn "onEdgesChangeMiddlewareMap")
   }
 
 -- ────────────────────────────────────────────────────────────────────────
@@ -492,17 +531,11 @@ field toJs fromJs = { toJs, fromJs, optional: false }
 plain :: forall a. (a -> Foreign) -> (Foreign -> a) -> Field a
 plain toJs = field (const toJs)
 
-boolean :: String -> Field Boolean
-boolean key = plain unsafeToForeign \v -> fromMaybe' (wrongType key "a boolean" v) (asBoolean v)
-
-number :: String -> Field Number
-number key = plain unsafeToForeign \v -> fromMaybe' (wrongType key "a number" v) (asNumber v)
-
-string :: String -> Field String
-string key = plain unsafeToForeign (stringIn key)
-
-stringIn :: String -> Foreign -> String
-stringIn key v = fromMaybe' (wrongType key "a string" v) (asString v)
+-- | A boolean, number or string member: the written value itself, whatever
+-- | it is. Upstream stores it as it is, and these compile to the same
+-- | JavaScript operators upstream's internals use on it.
+written :: forall a. Field a
+written = plain unsafeToForeign unsafeCoerce
 
 -- | `fromMaybe` with a fallback that runs only when needed, because every
 -- | fallback here throws.
@@ -541,57 +574,44 @@ reversible convert v = case toMaybe (producedFromImpl v) of
   Just ps -> ps
   Nothing -> convert (unsafeCoerce v)
 
--- | Members only ps-flow's own components create. One the store handed out
--- | is converted back before this runs; anything else is refused.
-createdHere :: forall a. String -> Foreign -> Maybe a
-createdHere key = absentOr \v ->
-  unsafeThrow $
-    "ps-flow: the store member `" <> key <> "` accepts `null` or a value read "
-      <> "from this store, got "
-      <> typeName v
-      <> " — ps-flow's pane and hooks create it, and a JavaScript object has no "
-      <> "PureScript form to hand them."
-
--- | A member with no absent state that only ps-flow's hooks fill: the
--- | middleware maps. The map the store handed out is the only one accepted.
-onlyHandedOut :: forall a. String -> Foreign -> a
-onlyHandedOut key v =
-  unsafeThrow $
-    "ps-flow: the store member `" <> key <> "` accepts only the map read from "
-      <> "this store, got "
-      <> typeName v
-      <> " — `experimental_useOnNodesChangeMiddleware` and "
-      <> "`experimental_useOnEdgesChangeMiddleware` are what register middleware."
 
 -- ────────────────────────────────────────────────────────────────────────
 -- Callbacks
 -- ────────────────────────────────────────────────────────────────────────
 
--- | The consumer's own function when one was converted, and otherwise a
--- | function that says why it cannot be called from JavaScript.
-callbackOut :: forall f. String -> f -> Foreign
-callbackOut key f = case originalOf f of
+-- | The consumer's own function when one was converted, and otherwise the
+-- | adapter that lets JavaScript call the PureScript one.
+callbackOut :: forall js ps. (ps -> js) -> ps -> Foreign
+callbackOut out f = case originalOf f of
   Just original -> original
-  Nothing ->
-    refusingFunction $
-      "ps-flow: the store's `" <> key <> "` was installed from PureScript, and "
-        <> "ps-flow has no JavaScript form of it to call."
+  Nothing -> unsafeToForeign (out f)
 
-functionIn :: forall js ps. String -> (js -> ps) -> Foreign -> ps
-functionIn key convert v = case asFunction v of
-  Just _ -> remembering convert (unsafeCoerce v)
-  Nothing -> wrongType key "a function" v unit
+-- | An adapter the store handed out goes back as its PureScript function.
+-- | Anything else converts, and is called when it is used: upstream calls
+-- | whatever a member holds, and a value that is not a function throws then.
+functionIn :: forall js ps. (js -> ps) -> Foreign -> ps
+functionIn convert v = case adaptedFrom v of
+  Just ps -> ps
+  Nothing -> remembering convert (unsafeCoerce v)
 
 -- | A member upstream's initial state holds with a fixed value when nothing
 -- | was set: `null` for the change handlers, `undefined` for
 -- | `isValidConnection`, and `devWarn` for `onError`.
-callback :: forall js ps. Foreign -> String -> (js -> ps) -> Field (Maybe ps)
-callback whenAbsent key convert =
-  plain (maybe whenAbsent (callbackOut key)) (absentOr (Just <<< functionIn key convert))
+callback :: forall js ps. Foreign -> (js -> ps) -> (ps -> js) -> Field (Maybe ps)
+callback whenAbsent convert out =
+  plain (maybe whenAbsent (callbackOut out)) (absentOr (Just <<< functionIn convert))
 
 -- | A member upstream's state lacks until `StoreUpdater` sets it.
-optionalCallback :: forall js ps. String -> (js -> ps) -> Field (Maybe ps)
-optionalCallback key convert = (callback absent key convert) { optional = true }
+optionalCallback :: forall js ps. (js -> ps) -> (ps -> js) -> Field (Maybe ps)
+optionalCallback convert out = (callback absent convert out) { optional = true }
+
+-- | `useOnSelectionChange`'s handlers, which the hook removes by reference:
+-- | each converts through the hook's own cache, so the list written back
+-- | holds the functions the hook put in it.
+selectionHandlerIn :: Foreign -> OnSelectionChangeFunc Foreign Foreign
+selectionHandlerIn v = case adaptedFrom v of
+  Just ps -> ps
+  Nothing -> stableSelectionChangeIn (unsafeCoerce v)
 
 -- | Upstream's default `onError`, `createDevWarn('React Flow', …)`.
 devWarnOut :: Foreign
@@ -599,10 +619,10 @@ devWarnOut = unsafeToForeign (mkEffectFn2 (devWarn isDevelopment))
 
 -- | The store's `onError`: upstream's `devWarn` while it holds the default
 -- | the store starts with, and otherwise the consumer's own function.
-onErrorOut :: OnError -> Foreign
-onErrorOut f
+storeOnErrorOut :: OnError -> Foreign
+storeOnErrorOut f
   | unsafeRefEq f defaultOnError = devWarnOut
-  | otherwise = callbackOut "onError" f
+  | otherwise = callbackOut onErrorOut f
 
 -- ────────────────────────────────────────────────────────────────────────
 -- Nodes, edges and their lookups
@@ -752,10 +772,16 @@ handleConnectionIn c =
 transformOut :: Transform -> Foreign
 transformOut (Transform t) = unsafeToForeign [ t.tx, t.ty, t.scale ]
 
+-- | `[x, y, zoom]`, each the written value itself, as upstream reads
+-- | `transform[0]`, `transform[1]` and `transform[2]` and nothing else.
 transformIn :: String -> Foreign -> Transform
-transformIn key v = case map (map asNumber) (asArray v) of
-  Just [ Just tx, Just ty, Just scale ] -> Transform { tx, ty, scale }
-  _ -> wrongType key "[x, y, zoom]" v unit
+transformIn key v = case asArray v of
+  Just items ->
+    let
+      at i = unsafeCoerce (fromMaybe (unsafeToForeign undefined) (Array.index items i))
+    in
+      Transform { tx: at 0, ty: at 1, scale: at 2 }
+  Nothing -> wrongType key "[x, y, zoom]" v unit
 
 domNodeIn :: Foreign -> Maybe HTMLDivElement
 domNodeIn = absentOr (Just <<< unsafeCoerce)
@@ -777,6 +803,19 @@ zIndexModeOut = unsafeToForeign <<< case _ of
   ZAuto -> "auto"
   ZBasic -> "basic"
   ZManual -> "manual"
+
+-- | The mode upstream's internals act on: they compare
+-- | `connectionMode === 'strict'`, so anything else is loose.
+connectionModeFromJs :: Foreign -> ConnectionMode
+connectionModeFromJs v = if asString v == Just "strict" then Strict else Loose
+
+-- | Upstream compares `zIndexMode === 'manual'` and `=== 'auto'`, so
+-- | anything else is basic.
+zIndexModeFromJs :: Foreign -> ZIndexMode
+zIndexModeFromJs v = case asString v of
+  Just "manual" -> ZManual
+  Just "auto" -> ZAuto
+  _ -> ZBasic
 
 -- | Upstream's `ConnectionState`: `FinalConnectionState` plus `inProgress`,
 -- | all eleven members `null` beside `inProgress: false` when no connection
@@ -895,35 +934,125 @@ interpolateOut = case _ of
   Smooth -> "smooth"
   Linear -> "linear"
 
--- | Upstream's `withResolvers<boolean>()` result, `{ promise, resolve,
--- | reject }`, over the `AVar` the queued `fitView` waits on.
-resolverOut :: AVar Boolean -> Foreign
-resolverOut = reversibleImpl \avar -> unsafeToForeign
-  { promise: unsafePerformEffect (toPromise (AVar.read avar))
-  , resolve: mkEffectFn1 \value -> launchAff_ (AVar.put value avar)
-  , reject: mkEffectFn1 \reason -> launchAff_ (AVar.kill (error (rejectionText reason)) avar)
+-- | The store's live middleware map itself, which is what upstream hands
+-- | out: a consumer's `.set(key, fn)` on it registers `fn`.
+middlewareMapOut :: forall c. MiddlewareMap c -> Foreign
+middlewareMapOut middlewares = unsafePerformEffect do
+  registerChangeConvertersForJs
+  pure (unsafeToForeign middlewares)
+
+-- | Any `Map` is taken as it is, as upstream's store takes it, and the store
+-- | runs its values when it runs middleware.
+middlewareMapIn :: forall c. String -> Foreign -> MiddlewareMap c
+middlewareMapIn key v
+  | isMap v = unsafePerformEffect do
+      registerChangeConvertersForJs
+      pure (unsafeCoerce v)
+  | otherwise = wrongType key "a Map" v unit
+
+-- | What a consumer's middleware, and JavaScript calling a PureScript one,
+-- | converts changes through. Called before JavaScript can reach a map.
+registerChangeConvertersForJs :: Effect Unit
+registerChangeConvertersForJs =
+  registerChangeConverters
+    { toJs: unsafeToForeign <<< map nodeChangeIdentityOut
+    , fromJs: map nodeChangeFromJs <<< (unsafeCoerce :: Foreign -> Array JsNodeChange)
+    }
+    { toJs: unsafeToForeign <<< map edgeChangeIdentityOut
+    , fromJs: map edgeChangeFromJs <<< (unsafeCoerce :: Foreign -> Array JsEdgeChange)
+    }
+
+-- | The pan-zoom instance's eleven members, with upstream's argument shapes:
+-- | the consumer's own object when one was written, and otherwise a view of
+-- | the instance ps-flow's pane made.
+panZoomOut :: PanZoomInstance -> Foreign
+panZoomOut pz = case originalOf pz of
+  Just original -> original
+  Nothing -> panZoomView pz
+
+-- | A view the store handed out goes back as its instance; anything else is
+-- | the consumer's own, and `panZoomIn` calls it.
+panZoomFromJs :: Foreign -> PanZoomInstance
+panZoomFromJs = reversible panZoomIn
+
+-- | A pan-zoom instance written from JavaScript. Each member calls the
+-- | object's method of the same name when the store calls it, with
+-- | upstream's argument shapes, as upstream's store calls `panZoom.…`, so a
+-- | missing method throws then, as it does upstream.
+panZoomIn :: Foreign -> PanZoomInstance
+panZoomIn = remembering \pz ->
+  { update: \options -> void (callMethod pz "update" [ panZoomUpdateOut options ])
+  , destroy: void (callMethod pz "destroy" [])
+  , getViewport: map unsafeCoerce (callMethod pz "getViewport" [])
+  , setViewport: \viewport options ->
+      map transformResult (awaitMethod pz "setViewport" [ unsafeToForeign viewport, transformOptionsOut options ])
+  , setViewportConstrained: \viewport extent translateExtent ->
+      map transformResult
+        ( awaitMethod pz "setViewportConstrained"
+            [ unsafeToForeign viewport
+            , unsafeToForeign (coordinateExtentOut extent)
+            , unsafeToForeign (coordinateExtentOut translateExtent)
+            ]
+        )
+  , setScaleExtent: \minZoom maxZoom -> void (callMethod pz "setScaleExtent" [ unsafeToForeign [ minZoom, maxZoom ] ])
+  , setTranslateExtent: \extent -> void (callMethod pz "setTranslateExtent" [ unsafeToForeign (coordinateExtentOut extent) ])
+  , scaleTo: \zoom options -> map unsafeCoerce (awaitMethod pz "scaleTo" [ unsafeToForeign zoom, transformOptionsOut options ])
+  , scaleBy: \factor options -> map unsafeCoerce (awaitMethod pz "scaleBy" [ unsafeToForeign factor, transformOptionsOut options ])
+  , syncViewport: \viewport -> void (callMethod pz "syncViewport" [ unsafeToForeign viewport ])
+  , setClickDistance: \distance -> void (callMethod pz "setClickDistance" [ unsafeToForeign distance ])
   }
   where
-  rejectionText reason = fromMaybe (typeName reason) (asString reason)
+  transformResult result
+    | isNullish result = Nothing
+    | otherwise = Just (unsafeCoerce result)
 
--- | Each middleware under a `Symbol` of its own, taking and returning
--- | JavaScript changes.
-middlewareMapOut
-  :: forall c js
-   . (js -> c)
-  -> (c -> js)
-  -> Map MiddlewareKey (Array c -> Array c)
-  -> Foreign
-middlewareMapOut changeIn changeOut middlewares =
-  newMap $ map
-    (\(Tuple (MiddlewareKey key) f) -> [ middlewareSymbol key, adapter f ])
-    (Map.toUnfoldable middlewares :: Array _)
+awaitMethod :: forall a. Foreign -> String -> Array Foreign -> Aff a
+awaitMethod object name args = fromEffectFnAff (EffectFnAff (awaitMethodImpl object name args))
+
+-- | Upstream's `{ duration, ease, interpolate }`, each key present.
+transformOptionsOut :: Maybe PanZoomTransformOptions -> Foreign
+transformOptionsOut = case _ of
+  Nothing -> unsafeToForeign undefined
+  Just o -> unsafeToForeign
+    { duration: toUndefinable o.duration
+    , ease: toUndefinable o.ease
+    , interpolate: toUndefinable (map interpolateOut o.interpolate)
+    }
+
+-- | The reverse of `panZoomUpdateIn`: upstream's `update` options.
+panZoomUpdateOut :: PanZoomUpdateOptions -> Foreign
+panZoomUpdateOut o = unsafeToForeign
+  { noWheelClassName: o.noWheelClassName
+  , noPanClassName: o.noPanClassName
+  , onPaneContextMenu: toUndefinable (map (\effect -> mkEffectFn1 \(_ :: Foreign) -> effect) o.onPaneContextMenu)
+  , preventScrolling: o.preventScrolling
+  , panOnScroll: o.panOnScroll
+  , panOnDrag: panOnDragOut o.panOnDrag
+  , panOnScrollMode: panOnScrollModeOut o.panOnScrollMode
+  , panOnScrollSpeed: o.panOnScrollSpeed
+  , userSelectionActive: o.userSelectionActive
+  , zoomOnPinch: o.zoomOnPinch
+  , zoomOnScroll: o.zoomOnScroll
+  , zoomOnDoubleClick: o.zoomOnDoubleClick
+  , zoomActivationKeyPressed: o.zoomActivationKeyPressed
+  , lib: o.lib
+  , onTransformChange: mkEffectFn1 \t -> o.onTransformChange (transformIn "panZoom.update.onTransformChange" t)
+  , connectionInProgress: o.connectionInProgress
+  , paneClickDistance: o.paneClickDistance
+  , selectionOnDrag: o.selectionOnDrag
+  }
   where
-  adapter f = unsafeToForeign (mkFn1 \changes -> map changeOut (f (map changeIn changes)))
+  panOnDragOut = case _ of
+    NoPan -> unsafeToForeign false
+    PanAlways -> unsafeToForeign true
+    PanOnButtons buttons -> unsafeToForeign (NEA.toArray buttons)
+  panOnScrollModeOut = case _ of
+    Free -> "free"
+    Vertical -> "vertical"
+    Horizontal -> "horizontal"
 
--- | The pan-zoom instance's eleven members, with upstream's argument shapes.
-panZoomOut :: PanZoomInstance -> Foreign
-panZoomOut = reversibleImpl \pz -> unsafeToForeign
+panZoomView :: PanZoomInstance -> Foreign
+panZoomView = reversibleImpl \pz -> unsafeToForeign
   { update: mkEffectFn1 \options -> pz.update (panZoomUpdateIn options)
   , destroy: pz.destroy
   , setViewport: mkEffectFn2 \viewport options ->
@@ -1083,8 +1212,8 @@ actionsOut store = unsafeToForeign
         ( UpdateNodePositions (map dragItemIn (mapValuesIn "updateNodePositions" items))
             (fromMaybe false (fromUndefinable dragging))
         )
-  , triggerNodeChanges: mkEffectFn1 \changes -> store.dispatch (TriggerNodeChanges (map nodeChangeIn changes))
-  , triggerEdgeChanges: mkEffectFn1 \changes -> store.dispatch (TriggerEdgeChanges (map edgeChangeIn changes))
+  , triggerNodeChanges: mkEffectFn1 \changes -> store.dispatch (TriggerNodeChanges (map nodeChangeFromJs changes))
+  , triggerEdgeChanges: mkEffectFn1 \changes -> store.dispatch (TriggerEdgeChanges (map edgeChangeFromJs changes))
   , addSelectedNodes: mkEffectFn1 \ids -> store.dispatch (AddSelectedNodes (map wrap ids))
   , addSelectedEdges: mkEffectFn1 \ids -> store.dispatch (AddSelectedEdges ids)
   , unselectNodesAndEdges: mkEffectFn1 \(params :: Undefinable JsUnselectParams) ->

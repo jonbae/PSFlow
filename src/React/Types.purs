@@ -106,7 +106,7 @@ import React.Types.Nodes
   ) as ReexportNodes
 import React.Types.Store
   ( ConnectionClickStartHandle
-  , MiddlewareKey(..)
+  , MiddlewareKey
   , ReactFlowState
   , ReactFlowStore
   ) as ReexportStore

@@ -309,7 +309,7 @@ import React.Types
   , ResizeObserver
   , SelectionDragHandler
   , ConnectionClickStartHandle
-  , MiddlewareKey(..)
+  , MiddlewareKey
   , ReactFlowState
   , ReactFlowStore
   ) as ReExportReactTypes

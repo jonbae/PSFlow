@@ -75,8 +75,30 @@ module Boundary.Callbacks
   , JsResizeParamsWithDirection
   , JsSelectionDragHandler
   , JsShouldResize
+  , adaptedFrom
   , commandHandlerIn
+  , edgeChangeFromJs
+  , edgeChangeIdentityOut
+  , nodeChangeFromJs
+  , nodeChangeIdentityOut
   , connectionStateOut
+  , isValidConnectionOut
+  , onBeforeDeleteOut
+  , onConnectEndOut
+  , onConnectOut
+  , onConnectStartOut
+  , onDeleteOut
+  , onEdgesChangeOut
+  , onEdgesDeleteOut
+  , onErrorOut
+  , onMoveOut
+  , onNodeDragOut
+  , onNodesChangeOut
+  , onNodesDeleteOut
+  , onSelectionChangeOut
+  , onViewportChangeOut
+  , selectionDragHandlerOut
+  , stableSelectionChangeIn
   , withInProgress
   , edgeMouseHandlerIn
   , interactiveChangeHandlerIn
@@ -126,30 +148,39 @@ import Boundary.Elements
   , JsNodeChange
   , JsViewport
   , JsXYPosition
+  , connectionIn
   , connectionOut
   , connectionParamsOut
+  , defaultEdgeOptionsIn
+  , edgeChangeIn
   , edgeChangeOut
   , edgeIdentityOut
   , edgeIn
   , edgeOut
   , graphSelectionOut
+  , handleIn
   , handleOut
+  , internalNodeIn
   , internalNodeOut
+  , nodeChangeIn
   , nodeChangeOut
   , nodeIdentityOut
   , nodeIn
+  , viewportIn
   , viewportOut
   )
-import Boundary.Enums (handleTypeOut, positionOut)
+import Boundary.Enums (handleTypeIn, handleTypeOut, positionIn, positionOut)
+import Boundary.Original (originalOf, remembering)
+import Boundary.Promise (toPromise)
 import Boundary.Instance (JsReactFlowInstance, copyOf, instanceOut)
 import Boundary.Undefined (Undefinable, toUndefinable)
 import Boundary.Untagged (asBoolean, typeName)
-import Data.Either (Either, either)
+import Data.Either (Either(..), either)
 import Data.Function.Uncurried (Fn2, runFn2)
 import Data.Int (toNumber) as Int
-import Data.Maybe (Maybe(..))
-import Data.Newtype (unwrap)
-import Data.Nullable (Nullable, notNull, null, toNullable)
+import Data.Maybe (Maybe(..), fromMaybe, maybe)
+import Data.Newtype (unwrap, wrap)
+import Data.Nullable (Nullable, notNull, null, toMaybe, toNullable)
 import Effect (Effect)
 import Effect.Aff.Compat (EffectFnAff(..), EffectFnCanceler, EffectFnCb, fromEffectFnAff)
 import Effect.Class (liftEffect)
@@ -160,7 +191,9 @@ import Effect.Uncurried
   , EffectFn2
   , EffectFn3
   , EffectFn4
+  , mkEffectFn1
   , mkEffectFn2
+  , mkEffectFn3
   , runEffectFn1
   , runEffectFn2
   , runEffectFn3
@@ -185,11 +218,11 @@ import React.Types.General
   )
 import React.Types.Instance (ReactFlowInstance)
 import React.Types.Nodes (NodeMouseHandler, OnNodeDrag, SelectionDragHandler)
-import System.Types.Connection (FinalConnectionState)
-import System.Types.Edge (EdgeBase)
+import System.Types.Connection (Connection, FinalConnectionState, withEdgeDefaults)
+import System.Types.Edge (EdgeBase, EdgeChange)
 import System.Types.Geometry (XYPosition)
 import System.Types.Handle (HandleType)
-import System.Types.Node (InternalNodeBase, OnError)
+import System.Types.Node (InternalNodeBase, NodeBase, NodeChange, OnError)
 import System.XYHandle (OnConnect, OnConnectEnd, OnConnectStart, OnConnectStartParams)
 import System.XYResizer
   ( OnResize
@@ -408,12 +441,29 @@ onPaneScrollIn f = \event -> runEffectFn1 f (toUndefinable (map eventOut event))
 type JsOnNodesChange = EffectFn1 (Array JsNodeChange) Unit
 
 onNodesChangeIn :: JsOnNodesChange -> OnNodesChange Foreign
-onNodesChangeIn f = \changes -> runEffectFn1 f (map nodeChangeOut changes)
+onNodesChangeIn f = \changes -> runEffectFn1 f (map nodeChangeIdentityOut changes)
 
 type JsOnEdgesChange = EffectFn1 (Array JsEdgeChange) Unit
 
 onEdgesChangeIn :: JsOnEdgesChange -> OnEdgesChange Foreign
-onEdgesChangeIn f = \changes -> runEffectFn1 f (map edgeChangeOut changes)
+onEdgesChangeIn f = \changes -> runEffectFn1 f (map edgeChangeIdentityOut changes)
+
+-- | A change that came in from JavaScript goes back out as that object,
+-- | keys ps-flow does not model included, as upstream hands the same change
+-- | objects from `triggerNodeChanges` and each middleware on to
+-- | `onNodesChange`. A change ps-flow made converts.
+nodeChangeIdentityOut :: NodeChange Foreign -> JsNodeChange
+nodeChangeIdentityOut change = maybe (nodeChangeOut change) unsafeCoerce (originalOf change)
+
+edgeChangeIdentityOut :: EdgeChange Foreign -> JsEdgeChange
+edgeChangeIdentityOut change = maybe (edgeChangeOut change) unsafeCoerce (originalOf change)
+
+-- | The way in, remembering the object each change came from.
+nodeChangeFromJs :: JsNodeChange -> NodeChange Foreign
+nodeChangeFromJs = remembering nodeChangeIn
+
+edgeChangeFromJs :: JsEdgeChange -> EdgeChange Foreign
+edgeChangeFromJs = remembering edgeChangeIn
 
 type JsOnNodesDelete = EffectFn1 (Array JsNode) Unit
 
@@ -636,6 +686,179 @@ badBeforeDeleteResult raw =
       <> "."
 
 -- ────────────────────────────────────────────────────────────────────────
+-- The way back: a PureScript handler, called from JavaScript
+--
+-- The store hands JavaScript every callback it holds. A consumer's own reads
+-- back as itself; one that PureScript code installed has no JavaScript
+-- original, so it crosses through these. Each `…Out` is the inverse of the
+-- `…In` of the same handler: upstream's arguments convert in, the PureScript
+-- function runs, and its answer converts out. `adapterOf` converts each
+-- function once, so the store reads one PureScript function back as one
+-- JavaScript function, and `adaptedFrom` turns that function back into the
+-- PureScript one when it is written into the store again.
+-- ────────────────────────────────────────────────────────────────────────
+
+onNodesChangeOut :: OnNodesChange Foreign -> JsOnNodesChange
+onNodesChangeOut = adapterOf \f -> mkEffectFn1 \changes -> f (map nodeChangeFromJs changes)
+
+onEdgesChangeOut :: OnEdgesChange Foreign -> JsOnEdgesChange
+onEdgesChangeOut = adapterOf \f -> mkEffectFn1 \changes -> f (map edgeChangeFromJs changes)
+
+onNodesDeleteOut :: OnNodesDelete Foreign -> JsOnNodesDelete
+onNodesDeleteOut = adapterOf \f -> mkEffectFn1 \nodes -> f (map nodeIn nodes)
+
+onEdgesDeleteOut :: OnEdgesDelete Foreign -> JsOnEdgesDelete
+onEdgesDeleteOut = adapterOf \f -> mkEffectFn1 \edges -> f (map edgeIn edges)
+
+onDeleteOut :: OnDelete Foreign Foreign -> JsOnDelete
+onDeleteOut = adapterOf \f -> mkEffectFn1 \deleted -> f (graphSelectionIn deleted)
+
+onSelectionChangeOut :: OnSelectionChangeFunc Foreign Foreign -> JsOnSelectionChange
+onSelectionChangeOut = adapterOf \f -> mkEffectFn1 \params -> f (graphSelectionIn params)
+
+onNodeDragOut :: OnNodeDrag Foreign -> JsOnNodeDrag
+onNodeDragOut = adapterOf \f -> mkEffectFn3 \event node nodes ->
+  f (eventIn event) (nodeIn node) (map nodeIn nodes)
+
+selectionDragHandlerOut :: SelectionDragHandler Foreign -> JsSelectionDragHandler
+selectionDragHandlerOut = adapterOf \f -> mkEffectFn2 \event nodes -> f (eventIn event) (map nodeIn nodes)
+
+onMoveOut :: OnMove -> JsOnMove
+onMoveOut = adapterOf \f -> mkEffectFn2 \event viewport ->
+  f (map eventIn (toMaybe event)) (viewportIn viewport)
+
+onViewportChangeOut :: OnViewportChange -> JsOnViewportChange
+onViewportChangeOut = adapterOf \f -> mkEffectFn1 \viewport -> f (viewportIn viewport)
+
+onErrorOut :: OnError -> JsOnError
+onErrorOut = adapterOf mkEffectFn2
+
+-- | `onConnect` is handed `{ ...defaultEdgeOptions, ...connection }`, so the
+-- | keys beside the connection's four are the default options it was merged
+-- | over, and they go back on the connection the way `React.Handle` puts
+-- | them there.
+onConnectOut :: OnConnect -> JsOnConnect
+onConnectOut = adapterOf \f -> mkEffectFn1 \connection -> f (connectionParamsIn connection)
+
+connectionParamsIn :: JsConnection -> Connection
+connectionParamsIn c =
+  let
+    connection = connectionIn c
+    defaults = connectionDefaults c
+  in
+    if hasOwnKeys defaults then
+      runFn2 withEdgeDefaults (unsafeToForeign (defaultEdgeOptionsIn (unsafeCoerce defaults))) connection
+    else connection
+
+onConnectStartOut :: OnConnectStart -> JsOnConnectStart
+onConnectStartOut = adapterOf \f -> mkEffectFn2 \event params ->
+  f (connectEventIn event) (connectStartParamsIn params)
+
+onConnectEndOut :: OnConnectEnd Foreign -> JsOnConnectEnd
+onConnectEndOut = adapterOf \f -> mkEffectFn2 \event state ->
+  f (connectEventIn event) (finalConnectionStateIn state)
+
+-- | Upstream's argument is `Edge | Connection`, untagged; an edge is the one
+-- | with an `id`, and ps-flow's candidate carries it beside the four
+-- | connection members, as `isValidConnectionIn` reads it.
+isValidConnectionOut :: IsValidConnection Foreign -> JsIsValidConnection
+isValidConnectionOut = adapterOf \f candidate -> f (candidateIn candidate)
+  where
+  candidateIn candidate
+    | hasOwnId candidate =
+        let
+          edge = edgeIn (unsafeCoerce candidate)
+        in
+          { source: edge.source
+          , target: edge.target
+          , sourceHandle: edge.sourceHandle
+          , targetHandle: edge.targetHandle
+          , edge: Just edge
+          }
+    | otherwise =
+        let
+          c = connectionIn (unsafeCoerce candidate)
+        in
+          { source: c.source
+          , target: c.target
+          , sourceHandle: c.sourceHandle
+          , targetHandle: c.targetHandle
+          , edge: Nothing
+          }
+
+-- | The answer goes back as upstream's `boolean | { nodes, edges }`, in a
+-- | promise, which is what `React.Hook.ReactFlow`'s `adaptOnBeforeDelete`
+-- | reads ps-flow's result record as.
+onBeforeDeleteOut :: OnBeforeDelete Foreign Foreign -> JsOnBeforeDelete
+onBeforeDeleteOut = adapterOf \f -> mkEffectFn1 \selection -> do
+  let input = graphSelectionIn selection
+  map unsafeToForeign (toPromise (map (beforeDeleteResultOut input) (f input)))
+
+beforeDeleteResultOut
+  :: { nodes :: Array (NodeBase Foreign), edges :: Array (EdgeBase Foreign) }
+  -> OnBeforeDeleteResult Foreign Foreign
+  -> Foreign
+beforeDeleteResultOut input = case _ of
+  { allow: false } -> unsafeToForeign false
+  { allow: true, nodes: Nothing, edges: Nothing } -> unsafeToForeign true
+  { nodes, edges } -> unsafeToForeign
+    ( graphSelectionOut
+        { nodes: fromMaybe input.nodes nodes
+        , edges: fromMaybe input.edges edges
+        }
+    )
+
+-- | The `{ nodes, edges }` bag, in: each node and edge is linked to the
+-- | object it came from, so it crosses back out as that object.
+graphSelectionIn
+  :: JsGraphSelection
+  -> { nodes :: Array (NodeBase Foreign), edges :: Array (EdgeBase Foreign) }
+graphSelectionIn s = { nodes: map nodeIn s.nodes, edges: map edgeIn s.edges }
+
+-- | `MouseEvent | TouchEvent`, tagged the way `React.Handle` tags the event
+-- | it is handed: a touch event has no `clientX` of its own.
+connectEventIn :: Foreign -> Either MouseEvent TouchEvent
+connectEventIn event
+  | hasClientX event = Left (unsafeCoerce event)
+  | otherwise = Right (unsafeCoerce event)
+
+connectStartParamsIn :: JsConnectStartParams -> OnConnectStartParams
+connectStartParamsIn p =
+  { nodeId: map wrap (toMaybe p.nodeId)
+  , handleId: toMaybe p.handleId
+  , handleType: map (handleTypeIn "onConnectStart.handleType") (toMaybe p.handleType)
+  }
+
+-- | The all-`null` record is `Nothing`, as `connectionStateOut` writes it.
+finalConnectionStateIn :: JsConnectionState -> FinalConnectionState (InternalNodeBase Foreign)
+finalConnectionStateIn s = case toMaybe s.from, toMaybe s.fromHandle, toMaybe s.fromPosition, toMaybe s.fromNode, toMaybe s.to, toMaybe s.pointer of
+  Just from, Just fromHandle, Just fromPosition, Just fromNode, Just to, Just pointer -> Just
+    { isValid: toMaybe s.isValid
+    , from
+    , fromHandle: handleIn "connectionState.fromHandle" fromHandle
+    , fromPosition: positionIn "connectionState.fromPosition" fromPosition
+    , fromNode: internalNodeIn fromNode
+    , to
+    , toHandle: map (handleIn "connectionState.toHandle") (toMaybe s.toHandle)
+    , toPosition: map (positionIn "connectionState.toPosition") (toMaybe s.toPosition)
+    , toNode: map internalNodeIn (toMaybe s.toNode)
+    , pointer
+    }
+  _, _, _, _, _, _ -> Nothing
+
+-- | `useOnSelectionChange`'s conversion, shared with the store: the same
+-- | consumer handler converts to the same PureScript function, so the
+-- | listener's `[onChange]` dependency holds across renders, the store's
+-- | handler list reads back as the consumer's own function, and that list
+-- | written back still holds the functions the hook removes by reference.
+stableSelectionChangeIn :: JsOnSelectionChange -> OnSelectionChangeFunc Foreign Foreign
+stableSelectionChangeIn = cacheByReference (remembering onSelectionChangeIn)
+
+-- | The PureScript function an adapter wraps, when this is one.
+adaptedFrom :: forall a. Foreign -> Maybe a
+adaptedFrom = toMaybe <<< adaptedFromImpl
+
+-- ────────────────────────────────────────────────────────────────────────
 -- The resizer lifecycle
 --
 -- `<NodeResizer />` and `<NodeResizeControl />` hang their three lifecycle
@@ -689,6 +912,15 @@ resizeDragEventOut (ResizeDragEvent raw) = raw
 -- | Whether a value the consumer returned is really an array, checked per
 -- | field so that `{ nodes: 3 }` is refused rather than iterated.
 foreign import isArrayOf :: forall a. Array a -> Boolean
+
+-- | One adapter per function, remembered both ways. See "The way back".
+foreign import adapterOf :: forall a b. (a -> b) -> a -> b
+foreign import adaptedFromImpl :: forall a. Foreign -> Nullable a
+
+foreign import hasClientX :: Foreign -> Boolean
+foreign import hasOwnId :: Foreign -> Boolean
+foreign import connectionDefaults :: JsConnection -> Foreign
+foreign import hasOwnKeys :: Foreign -> Boolean
 
 -- | `Promise` to the callback pair `Effect.Aff.Compat` expects. `aff-promise`
 -- | is the package that does this, and it is not a dependency of this project;

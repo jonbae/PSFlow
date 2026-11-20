@@ -901,6 +901,22 @@ Each throws with a message naming the call:
 - Calling a store callback that PureScript code installed. Every callback a
   JavaScript consumer installs reads back as itself.
 
+That was the Order G checkpoint. The later JavaScript store compatibility work
+retires all four:
+
+- `setState(next, true)` and a non-object partial replace the state, and
+  `getState()` returns `next` itself, as zustand's does.
+- A value outside a member's type reads back as written. A boolean, number or
+  string member holds it internally too; a structured member that cannot
+  convert keeps its previous value internally, and development builds warn.
+- A `panZoom`, `fitViewResolver` or middleware map written from JavaScript is
+  the one the store calls. The middleware maps are upstream's live `Map`s.
+- A callback PureScript code installed reads back as a function JavaScript
+  can call with upstream's arguments.
+
+`parity/boundary/store.test.mjs` compares each against upstream. The
+declarations header lists what still differs.
+
 ### Evidence
 
 | Check | Result |

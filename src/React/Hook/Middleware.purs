@@ -1,46 +1,71 @@
--- | Experimental middleware hooks. Each installs an interceptor in
--- | the store's middleware map; the reducer consults the map before
--- | dispatching the corresponding `Trigger*Changes` action so a
--- | registered function can drop, mutate, or pass through changes.
+-- | Experimental middleware hooks. Each puts a function in one of the
+-- | store's middleware maps, which the store runs a batch of changes
+-- | through before it triggers them, so the function can drop, change, or
+-- | pass the changes on.
 -- |
 -- | Mirrors
 -- | `xyflow/packages/react/src/hooks/useOnNodesChangeMiddleware.ts`
--- | and `useOnEdgesChangeMiddleware.ts`.
+-- | and `useOnEdgesChangeMiddleware.ts`, effect for effect:
 -- |
--- | **Storage strategy.** Each registration mints a fresh
--- | `MiddlewareKey` via `store.freshMiddlewareKey` and dispatches
--- | `AddOnNodesChangeMiddleware key fn` (or the edge equivalent). On
--- | unmount the same key is removed via `RemoveOnNodesChangeMiddleware`.
--- | The `MiddlewareKey` is captured in a `useRef` so unmount can find
--- | it again.
+-- |   * One key per hook instance, upstream's `useState(() => Symbol())`.
+-- |   * On each change of `fn`, `map.set(key, fn)` into the map the store
+-- |     holds then. A key already in the map keeps its position.
+-- |   * On unmount, `map.delete(key)` from the map the store held at mount.
+-- |
+-- | Neither writes the store, so neither notifies a subscriber. See
+-- | `React.Store.Middleware` for the map.
 module React.Hook.Middleware
   ( UseMiddlewareHook(..)
   , useOnNodesChangeMiddleware
   , useOnEdgesChangeMiddleware
+  , useOnNodesChangeMiddlewareEntry
+  , useOnEdgesChangeMiddlewareEntry
   ) where
 
 import Prelude
 
-import Data.Maybe (Maybe(..))
 import Data.Newtype (class Newtype)
-import React.Basic.Hooks (Hook, UnsafeReference(..), UseEffect, UseRef, coerceHook, readRef, useEffect, useRef, writeRef)
+import Effect (Effect)
+import Foreign (Foreign)
+import React.Basic.Hooks (Hook, UnsafeReference(..), UseEffect, UseMemo, coerceHook, useEffect, useMemo)
 import React.Basic.Hooks as React
 import React.Hook.Store (UseStoreApi, useStoreApi)
-import React.Store.Action (Action(..))
-import React.Types.Store (MiddlewareKey)
+import React.Store.Middleware (deleteMiddleware, freshMiddlewareKey, setMiddleware, setNativeMiddleware)
+import React.Types.Store (MiddlewareKey, MiddlewareMap, ReactFlowState)
 import System.Types.Edge (EdgeChange)
 import System.Types.Node (NodeChange)
 
 newtype UseMiddlewareHook fn hooks =
   UseMiddlewareHook
-    ( UseEffect (UnsafeReference fn)
-        ( UseRef (Maybe MiddlewareKey)
-            (UseStoreApi hooks)
+    ( UseEffect Unit
+        ( UseEffect (UnsafeReference fn)
+            ( UseMemo Unit MiddlewareKey
+                (UseStoreApi hooks)
+            )
         )
     )
 
 derive instance newtypeUseMiddlewareHook ::
   Newtype (UseMiddlewareHook fn hooks) _
+
+-- | The two effects, for one map and one way of putting `fn` in it.
+useMiddleware
+  :: forall n e c fn
+   . (ReactFlowState n e -> MiddlewareMap c)
+  -> (MiddlewareKey -> fn -> MiddlewareMap c -> Effect Unit)
+  -> fn
+  -> Hook (UseMiddlewareHook fn) Unit
+useMiddleware mapOf set fn = coerceHook React.do
+  store <- useStoreApi
+  key <- useMemo unit \_ -> freshMiddlewareKey unit
+  useEffect (UnsafeReference fn) do
+    s <- store.getState
+    set key fn (mapOf s)
+    pure (pure unit)
+  useEffect unit do
+    s <- store.getState
+    let mounted = mapOf s
+    pure (deleteMiddleware key mounted)
 
 -- | Register an interceptor on node-change dispatches for the lifetime
 -- | of the calling component. The function receives every batch of
@@ -52,19 +77,8 @@ useOnNodesChangeMiddleware
   -> Hook
        (UseMiddlewareHook (Array (NodeChange n) -> Array (NodeChange n)))
        Unit
-useOnNodesChangeMiddleware fn = coerceHook React.do
-  store <- (useStoreApi :: Hook UseStoreApi _)
-  keyRef <- useRef (Nothing :: Maybe MiddlewareKey)
-  useEffect (UnsafeReference fn) do
-    key <- store.freshMiddlewareKey
-    writeRef keyRef (Just key)
-    store.dispatch (AddOnNodesChangeMiddleware key fn)
-    pure do
-      mKey <- readRef keyRef
-      case mKey of
-        Just k -> store.dispatch (RemoveOnNodesChangeMiddleware k)
-        Nothing -> pure unit
-      writeRef keyRef Nothing
+useOnNodesChangeMiddleware =
+  useMiddleware (_.onNodesChangeMiddlewareMap :: ReactFlowState n _ -> _) (setNativeMiddleware "nodes")
 
 -- | Edge-change counterpart. See `useOnNodesChangeMiddleware`.
 useOnEdgesChangeMiddleware
@@ -73,17 +87,17 @@ useOnEdgesChangeMiddleware
   -> Hook
        (UseMiddlewareHook (Array (EdgeChange e) -> Array (EdgeChange e)))
        Unit
-useOnEdgesChangeMiddleware fn = coerceHook React.do
-  store <- (useStoreApi :: Hook UseStoreApi _)
-  keyRef <- useRef (Nothing :: Maybe MiddlewareKey)
-  useEffect (UnsafeReference fn) do
-    key <- store.freshMiddlewareKey
-    writeRef keyRef (Just key)
-    store.dispatch (AddOnEdgesChangeMiddleware key fn)
-    pure do
-      mKey <- readRef keyRef
-      case mKey of
-        Just k -> store.dispatch (RemoveOnEdgesChangeMiddleware k)
-        Nothing -> pure unit
-      writeRef keyRef Nothing
+useOnEdgesChangeMiddleware =
+  useMiddleware (_.onEdgesChangeMiddlewareMap :: ReactFlowState _ e -> _) (setNativeMiddleware "edges")
 
+-- | `useOnNodesChangeMiddleware` for a function that is already
+-- | JavaScript-shaped: the consumer's own, which goes in the map as itself,
+-- | as upstream's hook puts it there.
+useOnNodesChangeMiddlewareEntry :: Foreign -> Hook (UseMiddlewareHook Foreign) Unit
+useOnNodesChangeMiddlewareEntry =
+  useMiddleware (_.onNodesChangeMiddlewareMap :: ReactFlowState Foreign Foreign -> _) setMiddleware
+
+-- | Edge-change counterpart of `useOnNodesChangeMiddlewareEntry`.
+useOnEdgesChangeMiddlewareEntry :: Foreign -> Hook (UseMiddlewareHook Foreign) Unit
+useOnEdgesChangeMiddlewareEntry =
+  useMiddleware (_.onEdgesChangeMiddlewareMap :: ReactFlowState Foreign Foreign -> _) setMiddleware

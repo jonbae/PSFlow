@@ -7,15 +7,13 @@
 module React.Types.Store
   ( ReactFlowState
   , ReactFlowStore
-  , MiddlewareKey(..)
+  , MiddlewareKey
+  , MiddlewareMap
+  , FitViewResolver
   , ConnectionClickStartHandle
   ) where
 
-import Prelude
-
-import Data.Map (Map)
 import Data.Maybe (Maybe)
-import Effect.Aff.AVar (AVar)
 import React.Types.Edges (DefaultEdgeOptions, Edge)
 import React.Types.Nodes (Node)
 import React.Types.General
@@ -61,14 +59,21 @@ import System.XYDrag (OnNodeDrag, OnSelectionDrag)
 import System.XYHandle (OnConnect, OnConnectEnd, OnConnectStart)
 import Web.HTML.HTMLDivElement (HTMLDivElement)
 
--- | TS uses unique `symbol` keys to identify each middleware registration.
--- | PS doesn't have a symbol primitive — we substitute a monotonically
--- | increasing `Int` minted by the shell.
-newtype MiddlewareKey = MiddlewareKey Int
+-- | The key of one middleware registration: a JavaScript `Symbol`, one per
+-- | hook instance, as upstream's `useState(() => Symbol())` makes it.
+foreign import data MiddlewareKey :: Type
 
-derive newtype instance eqMiddlewareKey :: Eq MiddlewareKey
-derive newtype instance ordMiddlewareKey :: Ord MiddlewareKey
-derive newtype instance showMiddlewareKey :: Show MiddlewareKey
+-- | Upstream's `Map<symbol, (changes) => changes>`: one live, mutable `Map`
+-- | per store, which the hooks write into in place and every state shares
+-- | until `reset` makes a new one. `React.Store.Middleware` reads and
+-- | writes it.
+foreign import data MiddlewareMap :: Type -> Type
+
+-- | Upstream's `withResolvers<boolean>()` result, `{ promise, resolve,
+-- | reject }`, which a queued `fitView` waits on. Foreign because a consumer
+-- | can write its own through `setState`, and the store then calls that
+-- | object's `resolve`. `React.Store.FitViewResolver` reads and writes it.
+foreign import data FitViewResolver :: Type
 
 -- | TS `Pick<Handle, 'nodeId' | 'id'> & Required<Pick<Handle, 'type'>>`.
 -- | Recorded when the user clicks (not drags) a source handle and we are
@@ -145,7 +150,7 @@ type ReactFlowState n e =
   , defaultEdgeOptions :: Maybe (DefaultEdgeOptions e)
   , fitViewQueued :: Boolean
   , fitViewOptions :: Maybe FitViewOptions
-  , fitViewResolver :: Maybe (AVar Boolean)
+  , fitViewResolver :: Maybe FitViewResolver
   , onNodesDelete :: Maybe (OnNodesDelete n)
   , onEdgesDelete :: Maybe (OnEdgesDelete e)
   , onDelete :: Maybe (OnDelete n e)
@@ -165,10 +170,8 @@ type ReactFlowState n e =
   , debug :: Boolean
   , ariaLabelConfig :: AriaLabelConfig
   , zIndexMode :: ZIndexMode
-  , onNodesChangeMiddlewareMap ::
-      Map MiddlewareKey (Array (NodeChange n) -> Array (NodeChange n))
-  , onEdgesChangeMiddlewareMap ::
-      Map MiddlewareKey (Array (EdgeChange e) -> Array (EdgeChange e))
+  , onNodesChangeMiddlewareMap :: MiddlewareMap (NodeChange n)
+  , onEdgesChangeMiddlewareMap :: MiddlewareMap (EdgeChange e)
   }
 
 -- | TS-name alias for `ReactFlowState`. Upstream splits the store in two —

@@ -91,14 +91,14 @@ module Boundary.Hooks
   ) where
 
 import Prelude
-import React.Types.General (OnSelectionChangeFunc, OnViewportChange)
+import React.Types.General (OnViewportChange)
 
 import Boundary.Callbacks
   ( JsConnectionState
   , JsOnSelectionChange
   , JsOnViewportChange
   , connectionStateOut
-  , onSelectionChangeIn
+  , stableSelectionChangeIn
   , onViewportChangeIn
   , withInProgress
   )
@@ -109,23 +109,21 @@ import Boundary.Elements
   , JsNode
   , JsNodeChange
   , JsViewport
-  , connectionOut
   , edgeChangeIn
-  , edgeChangeOut
   , edgeIn
   , edgeOut
   , keyCodeValueIn
   , nodeChangeIn
-  , nodeChangeOut
   , nodeIn
   , nodeOut
   , viewportOut
   )
 import Boundary.Enums (handleTypeIn)
-import Boundary.Original (remembering, stably)
+import Boundary.Original (remembering)
 import Boundary.Store
   ( JsStoreApi
   , equalityFor
+  , registerChangeConvertersForJs
   , internalNodeOutCached
   , selectorThrough
   , storeViewOf
@@ -162,8 +160,8 @@ import React.Context.NodeId (useNodeId) as PS
 import React.Hook.HandleConnections (useHandleConnections) as PS
 import React.Hook.KeyPress (KeyPressTarget(..), UseKeyPressOptions, defaultUseKeyPressOptions, useKeyPress) as PS
 import React.Hook.Middleware
-  ( useOnEdgesChangeMiddleware
-  , useOnNodesChangeMiddleware
+  ( useOnEdgesChangeMiddlewareEntry
+  , useOnNodesChangeMiddlewareEntry
   ) as PS
 import React.Hook.NodeConnections (useNodeConnections) as PS
 import React.Hook.NodesEdgesState (useEdgesState, useNodesState) as PS
@@ -501,12 +499,6 @@ useOnSelectionChange = mkEffectFn1 \options ->
         { onChange: map stableSelectionChangeIn (fromUndefinable options.onChange) }
     )
 
--- | The same consumer handler converts to the same PureScript function, so
--- | the listener's `[onChange]` dependency holds across renders, and the
--- | store's handler list reads back as the consumer's own function.
-stableSelectionChangeIn :: JsOnSelectionChange -> OnSelectionChangeFunc Foreign Foreign
-stableSelectionChangeIn = cacheCallback (remembering onSelectionChangeIn)
-
 -- ────────────────────────────────────────────────────────────────────────
 -- The connection-query hooks
 -- ────────────────────────────────────────────────────────────────────────
@@ -599,35 +591,21 @@ keyPressOptionsIn o =
 useNodeId :: Effect (Nullable String)
 useNodeId = toNullable <$> runHook PS.useNodeId
 
+-- | The consumer's function goes in the store's map as itself, as upstream's
+-- | hook puts it there, so `getState().onNodesChangeMiddlewareMap` reads it
+-- | back, and its effect depends on that function as upstream's `[fn]` does.
+-- | The store converts its changes when it runs it.
 experimental_useOnNodesChangeMiddleware
   :: EffectFn1 (EffectFn1 (Array JsNodeChange) (Array JsNodeChange)) Unit
-experimental_useOnNodesChangeMiddleware = mkEffectFn1 \middleware ->
-  runHook (PS.useOnNodesChangeMiddleware (stably "useOnNodesChangeMiddleware" nodesMiddlewareIn middleware))
-
--- | One adapter per consumer function. Upstream's effect depends on the
--- | consumer's `fn`, so a stable one registers once; an adapter made on each
--- | render would remove and re-add the middleware after every render, and
--- | each of those store writes notifies every subscriber.
-nodesMiddlewareIn
-  :: EffectFn1 (Array JsNodeChange) (Array JsNodeChange)
-  -> Array (NodeChange Foreign)
-  -> Array (NodeChange Foreign)
-nodesMiddlewareIn middleware changes =
-  map nodeChangeIn
-    (unsafePerformEffect (runEffectFn1 middleware (map nodeChangeOut changes)))
+experimental_useOnNodesChangeMiddleware = mkEffectFn1 \middleware -> do
+  registerChangeConvertersForJs
+  runHook (PS.useOnNodesChangeMiddlewareEntry (unsafeToForeign middleware))
 
 experimental_useOnEdgesChangeMiddleware
   :: EffectFn1 (EffectFn1 (Array JsEdgeChange) (Array JsEdgeChange)) Unit
-experimental_useOnEdgesChangeMiddleware = mkEffectFn1 \middleware ->
-  runHook (PS.useOnEdgesChangeMiddleware (stably "useOnEdgesChangeMiddleware" edgesMiddlewareIn middleware))
-
-edgesMiddlewareIn
-  :: EffectFn1 (Array JsEdgeChange) (Array JsEdgeChange)
-  -> Array (EdgeChange Foreign)
-  -> Array (EdgeChange Foreign)
-edgesMiddlewareIn middleware changes =
-  map edgeChangeIn
-    (unsafePerformEffect (runEffectFn1 middleware (map edgeChangeOut changes)))
+experimental_useOnEdgesChangeMiddleware = mkEffectFn1 \middleware -> do
+  registerChangeConvertersForJs
+  runHook (PS.useOnEdgesChangeMiddlewareEntry (unsafeToForeign middleware))
 
 -- ────────────────────────────────────────────────────────────────────────
 -- The store

@@ -1,7 +1,7 @@
 -- | `Effect`-typed shell around the pure reducer. Owns the single
--- | `Ref ReactFlowState`, the subscriber list, the middleware-key
--- | counter, and the `Effect_` interpreter that turns reducer-emitted
--- | descriptors into real side effects.
+-- | `Ref ReactFlowState`, the subscriber list, the transition observers,
+-- | and the `Effect_` interpreter that turns reducer-emitted descriptors
+-- | into real side effects.
 -- |
 -- | Mirrors the runtime half of Zustand's `createStore` while keeping
 -- | the public-facing contract (`getState`, `setState`, `subscribe`,
@@ -20,13 +20,14 @@ import Data.Foldable (for_, traverse_)
 import Data.Maybe (Maybe(..), fromMaybe)
 import Effect (Effect)
 import Effect.Aff (launchAff_)
-import Effect.Aff.AVar as AffAVar
 import Effect.Ref as Ref
 import Effect.Class (liftEffect)
 import React.Store.Action (Action(..), Effect_(..))
 import React.Store.InitialState (InitialStateOptions, initialState)
 import React.Store.Reduce (reduce)
-import React.Types.Store (MiddlewareKey(..), ReactFlowState)
+import React.Store.FitViewResolver (resolveFitView)
+import React.Store.Middleware (runNodesChangeMiddleware)
+import React.Types.Store (ReactFlowState)
 import System.Constants (errorMessage)
 import System.Utils.Graph (fitViewport)
 import System.Utils.Store (updateNodeInternals)
@@ -80,7 +81,11 @@ type Store n e =
   -- | the older previous one. This hands over the same two.
   , subscribeStates :: (ReactFlowState n e -> ReactFlowState n e -> Effect Unit) -> Effect (Effect Unit)
   , dispatch :: Action n e -> Effect Unit
-  , freshMiddlewareKey :: Effect MiddlewareKey
+  -- | Called with each state the store moves to and the one before it, as
+  -- | soon as the new state is written and before any subscriber hears of
+  -- | it. The `Boolean` says whether the update was `reset`.
+  -- | `Boundary.Store` keeps the JavaScript shape of each state with it.
+  , observeTransitions :: (ReactFlowState n e -> ReactFlowState n e -> Boolean -> Effect Unit) -> Effect Unit
   }
 
 type StoreApi n e = Store n e
@@ -91,7 +96,7 @@ createStore opts = do
   stateRef <- Ref.new firstState
   subsRef <- Ref.new ([] :: Array (Subscriber n e))
   nextSubKeyRef <- Ref.new 0
-  middlewareKeyRef <- Ref.new 0
+  observersRef <- Ref.new ([] :: Array (ReactFlowState n e -> ReactFlowState n e -> Boolean -> Effect Unit))
 
   let
     interpretEffect :: (Action n e -> Effect Unit) -> Effect_ n e -> Effect Unit
@@ -136,6 +141,10 @@ createStore opts = do
               }
           )
       RunTriggerNodeChanges changes -> dispatch_ (TriggerNodeChanges changes)
+      RunNodesChangeMiddleware changes -> do
+        s <- Ref.read stateRef
+        filtered <- runNodesChangeMiddleware s.onNodesChangeMiddlewareMap changes
+        dispatch_ (TriggerNodeChanges filtered)
       RunSetCenter x y opts -> do
         -- The store's setCenter is also used by NodeWrapper's focus path.
         -- Reading and invoking panZoom happens before its async continuation,
@@ -166,16 +175,16 @@ createStore opts = do
         -- Mirror the React store's `resolveFitView`: apply the fitted
         -- viewport via `panZoom.setViewport` (which fires d3's zoom event,
         -- so `ZoomPane.onTransformChange` writes the new `state.transform`),
-        -- then resolve the awaiting `fitView()` AVar and clear it, as
+        -- then call the resolver's `resolve(true)` and clear it, as
         -- upstream's `set({ fitViewResolver: null })` does once the fit has
         -- settled. No panZoom yet → just resolve.
         s <- Ref.read stateRef
         let
-          resolveAVar = case s.fitViewResolver of
-            Just avar -> AffAVar.put true avar
+          resolveFit = case s.fitViewResolver of
+            Just resolver -> liftEffect (resolveFitView resolver true)
             Nothing -> pure unit
         case s.panZoom of
-          Nothing -> launchAff_ resolveAVar
+          Nothing -> launchAff_ resolveFit
           Just pz -> launchAff_ do
             _ <- fitViewport
               { nodes: s.nodeLookup
@@ -186,7 +195,7 @@ createStore opts = do
               , maxZoom: s.maxZoom
               }
               options
-            resolveAVar
+            resolveFit
             liftEffect $ dispatch_ (PatchState _ { fitViewResolver = Nothing })
       LogError code -> do
         s <- Ref.read stateRef
@@ -204,6 +213,9 @@ createStore opts = do
       prev <- Ref.read stateRef
       let res = reduce prev action
       Ref.write res.state stateRef
+      unless (unsafeRefEq prev res.state) do
+        observers <- Ref.read observersRef
+        for_ observers \observe -> observe prev res.state (isReset action)
       notifySubscribers prev res.state
       traverse_ (interpretEffect dispatch) res.effects
 
@@ -256,9 +268,11 @@ createStore opts = do
       Ref.modify_ (\xs -> xs <> [ { onUpdate, key } ]) subsRef
       pure (Ref.modify_ (Array.filter (\sub -> sub.key /= key)) subsRef)
 
-    freshMiddlewareKey = do
-      n <- Ref.modify (_ + 1) middlewareKeyRef
-      pure (MiddlewareKey n)
+    observeTransitions observer = Ref.modify_ (_ <> [ observer ]) observersRef
+
+    isReset = case _ of
+      Reset -> true
+      _ -> false
 
   pure
     { getState
@@ -268,7 +282,7 @@ createStore opts = do
     , subscribeAll
     , subscribeStates
     , dispatch
-    , freshMiddlewareKey
+    , observeTransitions
     }
 
 -- | The first segment of `https://reactflow.dev/error#NNN` — the
