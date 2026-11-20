@@ -15,10 +15,10 @@
 -- | context's queues, which the provider (ticket 043) flushes per
 -- | render into a single `SetNodes` / `SetEdges` action.
 -- |
--- | **`fitView` returns an `Aff Boolean` backed by an AVar.** The
--- | reducer's `ResolveFitView` effect descriptor `put`s into the
--- | resolver once the viewport animation completes; we `read` it here
--- | so the result stays available for any other listeners.
+-- | **`fitView` returns an `Aff Boolean` that waits on the store's
+-- | resolver**, upstream's `withResolvers` object. The reducer's
+-- | `ResolveFitView` effect descriptor calls its `resolve(true)` once the
+-- | viewport animation completes.
 module React.Hook.ReactFlow
   ( UseReactFlow(..)
   , GeneralHelpers
@@ -35,9 +35,7 @@ import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isJust)
 import Data.Newtype (class Newtype)
 import Effect (Effect)
-import Effect.AVar as AVar
 import Effect.Aff (Aff)
-import Effect.Aff.AVar as AffAVar
 import Effect.Class (liftEffect)
 import React.Basic.Hooks (Hook, UseContext, UseMemo, coerceHook, useMemo)
 import React.Basic.Hooks as React
@@ -45,6 +43,7 @@ import React.Context.Batch (BatchContext, QueueItem(..), useBatchContext, Opaque
 import React.Hook.Store (UseStore, UseStoreApi, useStore, useStoreApi)
 import React.Hook.ViewportHelper (UseViewportHelper, useViewportHelper)
 import React.Store.Action (Action(..))
+import React.Store.FitViewResolver (awaitFitView, newFitViewResolver)
 import React.Store.Shell (Store)
 import React.Types.Edges (Edge)
 import React.Types.General (FitView, OnBeforeDelete)
@@ -393,15 +392,17 @@ connectionsForKey s key = case Map.lookup key s.connectionLookup of
 -- | `fitView` schedules a viewport-fit cycle: it sets the
 -- | `fitViewQueued` flag (read by the reducer when nodes are next
 -- | applied) and pushes a no-op into the node queue to force the
--- | `BatchProvider` to flush this render. The returned `Aff` blocks on
--- | the resolver AVar; the reducer's `ResolveFitView` effect descriptor
--- | `put`s into it when the d3 transition completes.
+-- | `BatchProvider` to flush this render. The returned `Aff` waits on the
+-- | resolver's `promise`, which the reducer's `ResolveFitView` effect
+-- | descriptor resolves when the d3 transition completes. The resolver is
+-- | the store's when it holds one, a consumer's own included, as upstream's
+-- | `fitViewResolver ?? withResolvers()` reuses it.
 fitView :: forall n e. Store n e -> BatchContext -> FitView
 fitView store batchContext mOpts = do
   s <- liftEffect store.getState
   resolver <- liftEffect case s.fitViewResolver of
     Just existing -> pure existing
-    Nothing -> AVar.empty
+    Nothing -> newFitViewResolver
   liftEffect $ store.dispatch
     ( PatchState \st -> st
         { fitViewQueued = true
@@ -410,10 +411,7 @@ fitView store batchContext mOpts = do
         }
     )
   liftEffect $ batchContext.nodeQueue.push (QueueUpdate \xs -> xs)
-  -- `read` rather than `take` so the resolver can be observed by other
-  -- listeners and so the AVar remains visible to subsequent
-  -- `getState().fitViewResolver` callers.
-  AffAVar.read resolver
+  awaitFitView resolver
 
 -- | Project a `Node n` or `{ id :: String }` payload to the
 -- | id-only shape `Array (NodeBase ?)` accepted by

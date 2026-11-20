@@ -30,6 +30,7 @@ import React.Container.InitValues
 import React.Types.Edges (Edge)
 import React.Types.Nodes (Node)
 import React.FFI.Env (isDevelopment)
+import React.Store.Middleware (freshMiddlewareMap)
 import React.Types.Store (ReactFlowState)
 import React.Types.General (FitViewOptions)
 import System.Constants (defaultAriaLabelConfig, infiniteExtent)
@@ -241,8 +242,8 @@ initialState opts =
     , debug: false
     , ariaLabelConfig: defaultAriaLabelConfig
     , zIndexMode
-    , onNodesChangeMiddlewareMap: Map.empty
-    , onEdgesChangeMiddlewareMap: Map.empty
+    , onNodesChangeMiddlewareMap: freshMiddlewareMap unit
+    , onEdgesChangeMiddlewareMap: freshMiddlewareMap unit
     }
 
 -- | Upstream's initial `onError`, `devWarn`: in development it writes

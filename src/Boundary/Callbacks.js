@@ -35,6 +35,41 @@ export const awaitPromise = (value) => (onError, onSuccess) => {
   return (_cancelError, _onCancelerError, onCancelerSuccess) => onCancelerSuccess();
 };
 
+// One JavaScript adapter per PureScript function, per converter, and the way
+// back from each adapter to its function.
+const adapted = new WeakMap();
+
+export const adapterOf = (adapt) => {
+  const made = new WeakMap();
+  return (fn) => {
+    if (typeof fn !== 'function') return adapt(fn);
+    if (!made.has(fn)) {
+      const adapter = adapt(fn);
+      made.set(fn, adapter);
+      adapted.set(adapter, fn);
+    }
+    return made.get(fn);
+  };
+};
+
+export const adaptedFromImpl = (value) => (typeof value === 'function' ? adapted.get(value) : undefined);
+
+// A touch event has no `clientX` of its own; a mouse event and React's
+// synthetic one do.
+export const hasClientX = (event) => event != null && typeof event === 'object' && 'clientX' in event;
+
+export const hasOwnId = (value) =>
+  value != null && typeof value === 'object' && Object.prototype.hasOwnProperty.call(value, 'id');
+
+// `{ ...defaultEdgeOptions, ...connection }` minus the connection's four
+// members: the default options the connection was merged over.
+export const connectionDefaults = (connection) => {
+  const { source, target, sourceHandle, targetHandle, ...rest } = connection;
+  return rest;
+};
+
+export const hasOwnKeys = (value) => Reflect.ownKeys(value).length > 0;
+
 // Upstream's live `ConnectionState`: `inProgress` first, then the final
 // state's members, as `initialConnection` is written.
 export const withInProgressImpl = (inProgress, state) => ({ inProgress, ...state });

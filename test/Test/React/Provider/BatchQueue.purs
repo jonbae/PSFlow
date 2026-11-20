@@ -19,7 +19,6 @@ import Prelude
 import Boundary.Elements (JsEdge, JsNode, edgeIn, nodeIn, nodeOut)
 import Boundary.SetState (setStateOut)
 import Data.Array ((!!))
-import Data.Map as Map
 import Data.Maybe (Maybe(..), isJust)
 import Effect (Effect)
 import Effect.Class.Console (log)
@@ -30,7 +29,8 @@ import Partial.Unsafe (unsafeCrashWith)
 import React.Provider.Batch (planEdgeQueue, planNodeQueue)
 import React.Store.InitialState (InitialStateOptions, defaultInitialStateOptions, initialState)
 import React.Types.Nodes (Node)
-import React.Types.Store (MiddlewareKey(..), ReactFlowState)
+import React.Store.Middleware (nodesChangeMiddlewareFrom)
+import React.Types.Store (ReactFlowState)
 import System.Types.Edge (EdgeChange(..))
 import System.Types.Ids (NodeId(..))
 import System.Types.Node (NodeChange(..))
@@ -106,7 +106,7 @@ runBatchQueueTests = do
     (not (isJust sameQueued.onNodesChange) && sameQueued.refitNextFrame)
 
   let
-    dropping = held { onNodesChangeMiddlewareMap = Map.singleton (MiddlewareKey 1) (\_ -> []) }
+    dropping = held { onNodesChangeMiddlewareMap = nodesChangeMiddlewareFrom [ \_ -> [] ] }
   assert "the nodes-change middleware runs over the diff"
     (not (isJust (planNodeQueue dropping (relabelled dropping)).onNodesChange))
 

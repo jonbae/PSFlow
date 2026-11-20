@@ -24,7 +24,7 @@ import React.Types.General
   , UnselectNodesAndEdgesParams
   )
 import React.Types.Nodes (InternalNode, Node)
-import React.Types.Store (MiddlewareKey, ReactFlowState)
+import React.Types.Store (ReactFlowState)
 import System.Constants (ErrorCode)
 import System.Types.Connection
   ( Connection
@@ -60,11 +60,11 @@ type NodeInternalsResult n =
 -- | method on the upstream Zustand store, with the addition of:
 -- |   * `MergeNodeInternalsResult` — the follow-up the shell dispatches
 -- |     after running the DOM-driven `updateNodeInternals` system helper.
--- |   * The listener/middleware-registration constructors
--- |     (`SetViewportChangeHandler`, `AddSelectionChangeHandler`,
--- |     `AddOnNodesChangeMiddleware`, …) used by `React.Hook.Listeners`
--- |     and `React.Hook.Middleware`. Their state updates
--- |     live in `React.Store.Reduce`.
+-- |   * The listener-registration constructors
+-- |     (`SetViewportChangeHandler`, `AddSelectionChangeHandler`, …) used
+-- |     by `React.Hook.Listeners`. Their state updates live in
+-- |     `React.Store.Reduce`. The middleware hooks write into the live
+-- |     middleware map in place, as upstream's do, so they need none.
 -- |   * `PatchState` — escape hatch for `useStoreApi().setState(fn)`.
 -- |   * `MutateState` — upstream's in-place writes into the state, which
 -- |     notify nobody. See `React.Store.InPlace`.
@@ -99,10 +99,6 @@ data Action n e
   | SetViewportChangeEndHandler (Maybe OnViewportChange)
   | AddSelectionChangeHandler (OnSelectionChangeFunc n e)
   | RemoveSelectionChangeHandler (OnSelectionChangeFunc n e)
-  | AddOnNodesChangeMiddleware MiddlewareKey (Array (NodeChange n) -> Array (NodeChange n))
-  | RemoveOnNodesChangeMiddleware MiddlewareKey
-  | AddOnEdgesChangeMiddleware MiddlewareKey (Array (EdgeChange e) -> Array (EdgeChange e))
-  | RemoveOnEdgesChangeMiddleware MiddlewareKey
   | PatchState (ReactFlowState n e -> ReactFlowState n e)
   | MutateState (ReactFlowState n e -> ReactFlowState n e)
 
@@ -123,6 +119,12 @@ data Effect_ n e
   -- Measurement publishes its internals before triggering the user-node
   -- changes. Keep that second store update observable to subscribers.
   | RunTriggerNodeChanges (Array (NodeChange n))
+  -- A drag's position changes, to run through the node-change middleware
+  -- and then trigger. Middleware is consumer code, so it runs in the shell,
+  -- after the reducer's state is written, and a store write it makes is
+  -- kept. Upstream runs it inside `updateNodePositions`, before
+  -- `triggerNodeChanges` reads the store.
+  | RunNodesChangeMiddleware (Array (NodeChange n))
   | RunSetCenter Number Number SetCenterOptions
   -- Zoom and pan limits, pushed onto the live pan-zoom instance. The
   -- reducer carries the values rather than leaving the shell to read

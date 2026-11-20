@@ -15,7 +15,6 @@ import Prelude
 import System.Utils.Number as JsNumber
 
 import Data.Array (filter, foldl, mapMaybe, null, snoc) as Array
-import Data.Foldable (foldl) as Foldable
 import Data.Map as Map
 import Data.Maybe (Maybe(..))
 import Data.Set as Set
@@ -26,6 +25,7 @@ import React.Store.Action
   , NodeInternalsResult
   )
 import React.Store.InPlace (inPlace, inPlaceThen)
+import React.Store.Middleware (hasMiddleware)
 import Unsafe.Reference (unsafeRefEq)
 import React.Store.Changes
   ( applyEdgeChanges
@@ -119,34 +119,6 @@ reduce state = case _ of
         { onSelectionChangeHandlers =
             Array.filter (\h -> not (unsafeRefEq h cb))
               state.onSelectionChangeHandlers
-        }
-    , effects: []
-    }
-  AddOnNodesChangeMiddleware key fn ->
-    { state: state
-        { onNodesChangeMiddlewareMap =
-            Map.insert key fn state.onNodesChangeMiddlewareMap
-        }
-    , effects: []
-    }
-  RemoveOnNodesChangeMiddleware key ->
-    { state: state
-        { onNodesChangeMiddlewareMap =
-            Map.delete key state.onNodesChangeMiddlewareMap
-        }
-    , effects: []
-    }
-  AddOnEdgesChangeMiddleware key fn ->
-    { state: state
-        { onEdgesChangeMiddlewareMap =
-            Map.insert key fn state.onEdgesChangeMiddlewareMap
-        }
-    , effects: []
-    }
-  RemoveOnEdgesChangeMiddleware key ->
-    { state: state
-        { onEdgesChangeMiddlewareMap =
-            Map.delete key state.onEdgesChangeMiddlewareMap
         }
     , effects: []
     }
@@ -357,16 +329,19 @@ reduceUpdateNodePositions state items dragging =
       if Array.null stepped.parentExpandChildren then []
       else handleExpandParent stepped.parentExpandChildren state.nodeLookup state.parentLookup state.nodeOrigin
 
-    changes = Foldable.foldl (\cs middleware -> middleware cs)
-      (stepped.changes <> expandChanges)
-      (Map.values state.onNodesChangeMiddlewareMap)
+    changes = stepped.changes <> expandChanges
     -- Upstream only sets connection state when dragging its source node.
     -- In a controlled flow, reporting position changes otherwise performs
     -- no store write; a redundant write wakes subscribers upstream leaves idle.
     nextState = if unsafeRefEq state.connection stepped.connection then state
       else state { connection = stepped.connection }
   in
-    reduceTriggerNodeChanges nextState changes
+    -- With middleware registered, the changes run through it in the shell,
+    -- where a store write the consumer's middleware makes survives. With
+    -- none, there is nothing to run and the trigger stays in this update.
+    if hasMiddleware state.onNodesChangeMiddlewareMap then
+      { state: nextState, effects: [ RunNodesChangeMiddleware changes ] }
+    else reduceTriggerNodeChanges nextState changes
 
 -- TriggerNodeChanges ----------------------------------------------------
 

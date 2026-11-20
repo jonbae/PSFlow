@@ -37,7 +37,6 @@ import Prelude
 
 import Data.Array (null) as Array
 import Data.Foldable (foldl, for_)
-import Data.Map (values) as Map
 import Data.Maybe (Maybe(..))
 import Data.Tuple.Nested ((/\))
 import Effect (Effect)
@@ -50,6 +49,7 @@ import React.Hook.IsomorphicLayoutEffect (useIsomorphicLayoutEffect)
 import React.Hook.Store (useStoreApi)
 import React.Store.Action (Action(..))
 import React.Store.Changes (getEdgeElementsDiffChanges, getNodeElementsDiffChanges)
+import React.Store.Middleware (runNodesChangeMiddleware)
 import React.Types.Component (BatchProviderProps)
 import React.Types.Edges (Edge)
 import React.Types.Nodes (Node)
@@ -88,13 +88,16 @@ type NodeQueuePlan n =
   , refitNextFrame :: Boolean
   }
 
+-- | The middleware is the store's live map, run where upstream's provider
+-- | runs it. A consumer's middleware is JavaScript, so running it is an
+-- | effect; the provider calls this inside its layout effect, which is when
+-- | it runs.
 planNodeQueue :: forall n e. ReactFlowState n e -> Array (Node n) -> NodeQueuePlan n
 planNodeQueue s nextNodes =
   let
     changes =
-      foldl (\cs middleware -> middleware cs)
+      unsafePerformEffect $ runNodesChangeMiddleware s.onNodesChangeMiddlewareMap
         (getNodeElementsDiffChanges (Just nextNodes) s.nodeLookup s.nodes)
-        (Map.values s.onNodesChangeMiddlewareMap)
   in
     { setNodes: if s.hasDefaultNodes then Just nextNodes else Nothing
     , onNodesChange: if Array.null changes then Nothing else Just changes

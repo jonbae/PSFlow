@@ -18,7 +18,7 @@ import Prelude
 
 import Data.Array (filter, length) as Array
 import Data.Map as Map
-import Data.Maybe (Maybe(..))
+import Data.Maybe (Maybe(..), fromMaybe)
 import Effect (Effect)
 import Effect.Class.Console (log)
 import Effect.Ref as Ref
@@ -27,7 +27,8 @@ import React.Store.Action (Action(..), Effect_(..))
 import React.Store.InitialState (InitialStateOptions, defaultInitialStateOptions, initialState)
 import React.Store.Reduce (reduce)
 import React.Store.Shell (createStore)
-import React.Types.Store (MiddlewareKey(..), ReactFlowState)
+import React.Store.Middleware (nodesChangeMiddlewareFrom, runNodesChangeMiddleware)
+import React.Types.Store (ReactFlowState)
 import System.Types.Connection (ConnectionState(..))
 import System.Types.Geometry (Position(..), XYPosition)
 import System.Types.Handle (HandleIdField(..), HandleType(..))
@@ -157,10 +158,16 @@ runUpdateNodePositionsTests = do
     )
 
   let
-    withMiddleware = (stateWith Nothing)
-      { onNodesChangeMiddlewareMap = Map.singleton (MiddlewareKey 1) (\_ -> []) }
-  assert "the nodes-change middleware runs on the changes"
-    (Array.length (reported withMiddleware [ dragItem "loose" { x: 210.0, y: 5.0 } { x: 210.0, y: 5.0 } ]) == 0)
+    dropAll = nodesChangeMiddlewareFrom [ \_ -> [] ]
+    withMiddleware = (stateWith Nothing) { onNodesChangeMiddlewareMap = dropAll }
+    deferred =
+      case (reduce withMiddleware (UpdateNodePositions [ dragItem "loose" { x: 210.0, y: 5.0 } { x: 210.0, y: 5.0 } ] true)).effects of
+        [ RunNodesChangeMiddleware changes ] -> Just changes
+        _ -> Nothing
+  assert "with middleware registered, the drag's changes go to the shell to run through it"
+    (map Array.length deferred == Just 1)
+  filtered <- runNodesChangeMiddleware dropAll (fromMaybe [] deferred)
+  assert "the nodes-change middleware runs on the changes" (Array.length filtered == 0)
 
   let
     base = stateWith Nothing
