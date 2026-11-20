@@ -2,7 +2,8 @@ module Test.Boundary.UserNode (runUserNodeTests) where
 
 import Prelude
 
-import Boundary.Elements (JsInternalNode, JsNode, nodeIn)
+import Boundary.Callbacks (JsNodeMouseHandler, nodeMouseHandlerIn, onNodesDeleteIn)
+import Boundary.Elements (JsInternalNode, JsNode, JsNodeChange, nodeChangeIn, nodeIdentityOut, nodeIn)
 import Boundary.Hooks as Hooks
 import Boundary.Undefined (Undefinable, toUndefinable)
 import Data.Map as Map
@@ -31,13 +32,23 @@ type Session =
   , readopt :: EffectFn1 Boolean Unit
   }
 
+type UncontrolledSession =
+  { change :: EffectFn1 (Array JsNodeChange) Unit
+  , read :: Effect (Array JsNode)
+  , internal :: Effect Readings
+  , click :: EffectFn1 JsNodeMouseHandler Unit
+  , deleted :: EffectFn1 (EffectFn1 (Array JsNode) Unit) Unit
+  }
+
 foreign import renderWithStore :: forall a. EffectFn2 Foreign (Effect a) a
 foreign import checkUserNode :: EffectFn1 (EffectFn1 JsNode Session) Unit
 foreign import consumerNode :: JsNode
+foreign import checkRebuiltUserNodes :: EffectFn1 (EffectFn1 (Array JsNode) UncontrolledSession) Unit
 
 runUserNodeTests :: Effect Unit
 runUserNodeTests = do
   checkJsUserNodes
+  checkUncontrolledUserNodes
   let
     typed = (nodeIn consumerNode) { position = { x: 1.0, y: 2.0 } }
     initial = adoptUserNodes [ typed ] Map.empty Map.empty defaultUpdateNodesOptions
@@ -45,6 +56,28 @@ runUserNodeTests = do
   case Map.lookup (NodeId "ps") initial.nodeLookup, Map.lookup (NodeId "ps") unchanged.nodeLookup of
     Just first, Just next | unsafeRefEq first.internals.userNode typed && unsafeRefEq first next -> pure unit
     _, _ -> throw "PureScript originals and unchanged internal nodes must retain their actual references"
+
+checkUncontrolledUserNodes :: Effect Unit
+checkUncontrolledUserNodes = runEffectFn1 checkRebuiltUserNodes $ mkEffectFn1 \originals -> do
+  store <- createStore ((defaultInitialStateOptions :: InitialStateOptions Foreign Foreign)
+    { defaultNodes = Just (map nodeIn originals) })
+  pure
+    { change: mkEffectFn1 \changes -> store.dispatch (TriggerNodeChanges (map nodeChangeIn changes))
+    , read: map (map nodeIdentityOut <<< _.nodes) store.getState
+    , internal: runEffectFn2 renderWithStore (unsafeCoerce (Just store)) do
+        flow <- Hooks.useReactFlow
+        hook <- runEffectFn1 Hooks.useInternalNode "a"
+        internal <- runEffectFn1 flow.getInternalNode "a"
+        pure { instance: internal, hook }
+    , click: mkEffectFn1 \callback -> do
+        state <- store.getState
+        case Map.lookup (NodeId "a") state.nodeLookup of
+          Just node -> nodeMouseHandlerIn callback (unsafeCoerce {}) node.internals.userNode
+          Nothing -> throw "missing uncontrolled node"
+    , deleted: mkEffectFn1 \callback -> do
+        state <- store.getState
+        onNodesDeleteIn callback state.nodes
+    }
 
 checkJsUserNodes :: Effect Unit
 checkJsUserNodes = runEffectFn1 checkUserNode $ mkEffectFn1 \original -> do

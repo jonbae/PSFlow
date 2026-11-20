@@ -7,6 +7,21 @@ export const rememberUserNode = (original, decoded) => {
 };
 export const originalUserNode = node => originals.get(node);
 
+export const copyNodeRecord = record => {
+  const copy = { ...record };
+  const original = originals.get(record);
+  if (original !== undefined) originals.set(copy, { ...original });
+  return copy;
+};
+
+// Patches are built by the typed change applier. This only keeps its new
+// record associated with the corresponding consumer object.
+export const rememberNodeUpdate = (source, updated, patch) => {
+  const original = originals.get(source);
+  if (original !== undefined) originals.set(updated, { ...original, ...patch });
+  return updated;
+};
+
 // Upstream hands the drag handlers `{ ...userNode, position, dragging }`, a copy
 // of the consumer's own node with two keys replaced. ps-flow updates the
 // decoded record; this keeps the same copy of the consumer's object beside the
