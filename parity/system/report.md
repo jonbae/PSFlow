@@ -1,8 +1,8 @@
 # System parity
 
-The dual-run net over 153 scenario(s), against vendored `@xyflow/react` 12.11.0.
+The dual-run net over 158 scenario(s), against vendored `@xyflow/react` 12.11.0.
 
-Captured by this run: both sides mounted the same unmodified fixtures through the same driver, bundled twice.
+**Re-diffed from stored traces.** No browser ran; this compares the traces already on disk, which is what a revised noise policy or a bumped baseline asks. It says nothing about code changed since they were captured.
 
 **Passed.** Every scenario reproduced itself on both sides, and the two sides agree everywhere unclaimed.
 
@@ -34,6 +34,7 @@ Captured by this run: both sides mounted the same unmodified fixtures through th
 | `mount-baseline--flow-props-change` | passed | — | 0 |
 | `mount-baseline--flow-remount` | passed | — | 0 |
 | `mount-baseline--flow-store-timing` | passed | — | 0 |
+| `mount-baseline--flow-unselect` | passed | — | 0 |
 | `mount-baseline--nodes-autopan` | passed | — | 0 |
 | `mount-baseline--nodes-connections` | passed | — | 0 |
 | `mount-baseline--nodes-expand-parent` | passed | — | 0 |
@@ -133,6 +134,10 @@ Captured by this run: both sides mounted the same unmodified fixtures through th
 | `controlled-add-and-update-edge` | passed | — | 0 |
 | `viewport-helpers-animated` | passed | — | 0 |
 | `drag-selection-against-node-extent` | passed | — | 0 |
+| `store-unselect-no-argument` | passed | — | 0 |
+| `store-unselect-empty-options` | passed | — | 0 |
+| `store-unselect-nodes` | passed | — | 0 |
+| `store-unselect-edges` | passed | — | 0 |
 | `debt-css-defaults` | passed | — | 0 |
 | `debt-css-selection` | passed | — | 0 |
 | `debt-store-effect-timing` | passed | — | 0 |
@@ -963,6 +968,37 @@ probe-induced rendering and pointer-resolution changes cannot contaminate that e
 ---
 
 # Comparison report — mount-baseline--flow-store-timing
+
+upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
+
+**No unclaimed differences.** The two traces agree everywhere.
+
+
+---
+
+# System parity run — mount-baseline--flow-unselect
+
+**Passed.** Both sides reproduced themselves, and the two sides agree everywhere unclaimed.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
+## Self-consistency
+
+Each side is captured twice and compared against itself **before** the sides are compared at all: a
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
+
+| side | captures | verdict | differences |
+|---|---|---|---|
+| upstream | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | reproduced | 0 |
+
+---
+
+# Comparison report — mount-baseline--flow-unselect
 
 upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
 
@@ -4446,6 +4482,130 @@ Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `cons
 68 field(s) deleted by name and therefore **unobserved** — not passing:
 
 - `callbacks/**/timeStamp` (34) — a DOM event's timeStamp is a clock reading — milliseconds since its document was created — so it differs between a side's own two captures of one scenario. Self-consistency is the one comparison no region and no weakening may claim, and there is nothing for either to say about a clock: neither implementation computes this number, the browser stamps it. Measured rather than assumed — with the pointer parked, upstream's whole drag reproduces itself exactly once this field is gone. Deleting is what the noise policy has for it, and a deleted field is unobserved rather than passing
+
+
+---
+
+# System parity run — store-unselect-no-argument
+
+**Passed.** Both sides reproduced themselves, and the two sides agree everywhere unclaimed.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
+## Self-consistency
+
+Each side is captured twice and compared against itself **before** the sides are compared at all: a
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
+
+| side | captures | verdict | differences |
+|---|---|---|---|
+| upstream | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | reproduced | 0 |
+
+---
+
+# Comparison report — store-unselect-no-argument
+
+upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
+
+**No unclaimed differences.** The two traces agree everywhere.
+
+
+---
+
+# System parity run — store-unselect-empty-options
+
+**Passed.** Both sides reproduced themselves, and the two sides agree everywhere unclaimed.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
+## Self-consistency
+
+Each side is captured twice and compared against itself **before** the sides are compared at all: a
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
+
+| side | captures | verdict | differences |
+|---|---|---|---|
+| upstream | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | reproduced | 0 |
+
+---
+
+# Comparison report — store-unselect-empty-options
+
+upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
+
+**No unclaimed differences.** The two traces agree everywhere.
+
+
+---
+
+# System parity run — store-unselect-nodes
+
+**Passed.** Both sides reproduced themselves, and the two sides agree everywhere unclaimed.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
+## Self-consistency
+
+Each side is captured twice and compared against itself **before** the sides are compared at all: a
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
+
+| side | captures | verdict | differences |
+|---|---|---|---|
+| upstream | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | reproduced | 0 |
+
+---
+
+# Comparison report — store-unselect-nodes
+
+upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
+
+**No unclaimed differences.** The two traces agree everywhere.
+
+
+---
+
+# System parity run — store-unselect-edges
+
+**Passed.** Both sides reproduced themselves, and the two sides agree everywhere unclaimed.
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`. All seven remain captured in the trace.
+
+## Self-consistency
+
+Each side is captured twice and compared against itself **before** the sides are compared at all: a
+recorded trace baseline is meaningless if traces are not reproducible. In a plain run the driving log
+takes part with no tolerance applied. Probe variants compare only their declared observation level, so
+probe-induced rendering and pointer-resolution changes cannot contaminate that experiment.
+
+| side | captures | verdict | differences |
+|---|---|---|---|
+| upstream | 1, 2 | reproduced | 0 |
+| psflow | 1, 2 | reproduced | 0 |
+
+---
+
+# Comparison report — store-unselect-edges
+
+upstream (capture 1, baseline 12.11.0) against psflow (capture 1, baseline 12.11.0).
+
+Compared sections: `driving`, `dom`, `callbacks`, `hooks`, `api`, `props`, `console`.
+
+**No unclaimed differences.** The two traces agree everywhere.
 
 
 ---

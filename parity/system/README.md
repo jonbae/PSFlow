@@ -135,7 +135,9 @@ for twice.
   // has — the library's own serialisation of the whole flow.
   "api": {
     "queries": { "toObject": { "nodes": [], "edges": [], "viewport": {} } },
-    "calls": [ { "method": "zoomIn", "args": [], "result": null } ]
+    "calls": [ { "method": "zoomIn", "args": [], "result": null } ],
+    // Present only when a fixture control invoked a public store action.
+    "storeCalls": [ { "method": "unselectNodesAndEdges", "args": [], "result": { "@undefined": true } } ]
   },
 
   // ── props ────────────────────────────────────────────────────────────────
@@ -596,6 +598,18 @@ or `onEdgesChange` — a **name** can be a change's own discriminant rather than
 handler's name: `onNodesChange:position`. Witnessing `NodeAddChange` by the
 handler alone would count it driven the moment a mount fired one dimension
 change.
+
+The `api` section offers query keys and called instance method names. It also
+offers `store:<method>` for each receipt in its optional `storeCalls` array.
+Fixture controls use the observation bridge's `callStore` with the public
+`useStoreApi()` result; the bridge reads the current `getState()`, snapshots
+arguments before invoking the action, and records its result. Exposing a
+function in a store snapshot does not witness a call. The four
+`store-unselect-*` scenarios drive no argument, `{}`, nodes only and edges
+only; their mount baseline records no invocation. Callbacks, DOM and settled
+queries compare the resulting selections on both sides.
+`coverage/store-action.test.mjs` checks those captured receipts and rejects
+their removal, normalization away, or a restored stale hole declaration.
 
 The selector language is a closed, tiny subset of CSS: compounds separated by
 whitespace, where a compound is `*` or a tag with any number of `.class`,

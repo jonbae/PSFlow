@@ -34,12 +34,5 @@
     "A hole does not stand in for a witness. Every export needs a rule in witnesses.json saying what driving it",
     "would look like, the ones nothing drives included — otherwise nothing could ever report the hole closed."
   ],
-  "holes": [
-    {
-      "exports": [
-        "UnselectNodesAndEdgesParams"
-      ],
-      "reason": "`unselectNodesAndEdges` is a store action and is **not on `ReactFlowInstance`** — it is absent from `JsReactFlowInstance` in src/Boundary/Instance.purs because it is absent from upstream's instance too. Since Step 3 G a JavaScript consumer can call it through `useStoreApi().getState()`, but the `api` section witnesses a name only as a query key or a called instance method, so no scenario can reach this one however it is written; the nine helper exports beside it were closed by `viewport-helpers-with-options` and this one was never in reach. Closing it needs the witness to name something the section can actually offer, which is a question about the register rather than about the corpus."
-    }
-  ]
+  "holes": []
 }

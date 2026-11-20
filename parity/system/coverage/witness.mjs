@@ -153,8 +153,8 @@ export const holdsInDom = (dom, matches) => {
 // ── The names each section offers ──────────────────────────────────────────
 // One reading per section, and each is a reading of the shape the trace format
 // already fixes rather than an invention: `callbacks` is a list of `{ name,
-// args }`, `api` is `{ queries, calls }`, and `hooks` and `props` are keyed by
-// probe id. Issue #59's probes now fill those sections selectively; an empty
+// args }`, `api` is `{ queries, calls, storeCalls? }`, and `hooks` and `props`
+// are keyed by probe id. Issue #59's probes fill those sections selectively; an empty
 // reading remains meaningful for plain scenarios and direct component routes.
 
 const changeNames = (name, args, into) => {
@@ -187,6 +187,9 @@ const NAMES_IN = {
   api: (section, into) => {
     for (const key of Object.keys(section?.queries ?? {})) into.add(key);
     for (const { method } of section?.calls ?? []) into.add(method);
+    // The store is a separate public surface: a receipt never implies that
+    // the action is a ReactFlowInstance method.
+    for (const { method } of section?.storeCalls ?? []) into.add(`store:${method}`);
   },
   hooks: probeNames,
   props: probeNames,

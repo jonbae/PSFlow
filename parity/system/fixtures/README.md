@@ -46,9 +46,15 @@ next time the gate runs, with no second list to remember — which is what makes
 What it does *not* get automatically is a scenario that drives anything. That is
 a hand-written act in `parity/system/corpus/`, which has its own README.
 
+The store-action witness adds `flow/unselect.ts` and four `store-unselect-*`
+scenarios. Its consumer controls invoke `unselectNodesAndEdges` through
+`useStoreApi().getState()`. A selected controlled graph exposes the changes
+and resulting selection for no argument, `{}`, nodes only and edges only.
+The mount baseline exposes the controls without recording a call.
+
 ## What is here
 
-Thirty-nine flows, one per condition no vendored fixture sets. Eighteen were
+Forty flows, one per condition no vendored fixture sets. Eighteen were
 written for the thirty test-debt scenarios ([#60]), two for the retirement debt
 ([#61]) — the two ps-flow **contract** pages, turned into data when the
 hand-authored assertions they carried retired into the net — and seven for the
@@ -72,6 +78,7 @@ after its first scenario would read wrongly the moment a second arrived.
 | `flow/chrome-defaults.ts` | `Background`, `Controls` and `MiniMap` all at their defaults, on a flow that does not fit its view |
 | `flow/custom-testid.ts` | a custom `data-testid` on `<ReactFlow>` |
 | `flow/display-none.ts` | a container that is hidden *after* it mounted |
+| `flow/unselect.ts` | selected nodes and edges plus consumer controls for all four `unselectNodesAndEdges` argument forms |
 | `flow/limits-change.ts` | a `translateExtent` that narrows after the mount |
 | `flow/not-selectable.ts` | `elementsSelectable: false`, with a node and an edge passed in selected |
 | `flow/props-change.ts` | a dozen tracked props that change after the mount |

@@ -1011,6 +1011,11 @@ Coverage is **155 of 156 export-bearing entries driven, one declared hole**.
 the action through `useStoreApi()`, but the trace's `api` section records only
 instance methods and queries. Behavior debt stays at 50 rows, counted apart.
 
+That was the Order H checkpoint. The later store-action witness records
+`api.storeCalls` through `useStoreApi().getState()` and drives all four argument
+forms in `store-unselect-*`. It retires this hole; the current
+[coverage report](parity/system/coverage.md) records 156 of 156 driven.
+
 Two more new scenarios observe a condition rather than an export, so the
 corpus holds 115 scenarios, eight more than Order G's 107.
 `drag-node-autopan-past-extent` holds auto-pan at the translate extent: after

@@ -412,11 +412,14 @@ test("the callbacks section is the in-page log, read as part of the end state", 
   assert.deepEqual(trace.sections.callbacks, entries);
 });
 
-test("hooks, api queries and props are read from the in-page observation bridge", async () => {
+test("hooks, api queries, store calls and props are read from the in-page observation bridge", async () => {
   const observed = {
     installed: true,
     hooks: { "flow-probe": { useViewport: { x: 0, y: 0, zoom: 1 } } },
-    api: { queries: { toObject: { nodes: [], edges: [], viewport: { x: 0, y: 0, zoom: 1 } } } },
+    api: {
+      queries: { toObject: { nodes: [], edges: [], viewport: { x: 0, y: 0, zoom: 1 } } },
+      storeCalls: [{ method: "unselectNodesAndEdges", args: [], result: { "@undefined": true } }],
+    },
     props: { "node-props": { id: "n1", selected: false } },
     failures: [],
   };
@@ -424,6 +427,7 @@ test("hooks, api queries and props are read from the in-page observation bridge"
 
   assert.deepEqual(trace.sections.hooks, observed.hooks);
   assert.deepEqual(trace.sections.api.queries, observed.api.queries);
+  assert.deepEqual(trace.sections.api.storeCalls, observed.api.storeCalls);
   assert.deepEqual(trace.sections.props, observed.props);
 });
 

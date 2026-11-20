@@ -476,10 +476,12 @@ None of the following is required by the completion criteria:
 
 - **Publishing the package.** `package.json` stays `private`, and publishing
   is a separate decision.
-- **The declared coverage hole.** `UnselectNodesAndEdgesParams` already has a
-  specific written reason, which satisfies the coverage criterion. Driving it
-  means changing what the `api` witness can name, which is a change to the
-  register, not to the corpus.
+- **The former coverage hole.** `UnselectNodesAndEdgesParams` had a specific
+  written reason, which satisfied the coverage criterion at completion.
+  The subsequent store-action witness retires it: `api.storeCalls` records
+  calls through `useStoreApi().getState()`, and four `store-unselect-*`
+  scenarios compare the no-argument, empty-options and partial-options forms.
+  See the current [coverage report](parity/system/coverage.md).
 
 ## Verification contract for AAMF tasks
 

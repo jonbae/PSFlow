@@ -5,7 +5,8 @@
 // serialized end-state snapshot after the page settles. The imperative
 // instance is attached separately so queries are evaluated at read time, after
 // the scenario has finished driving, while mutators go through `call` and land
-// in the driving log.
+// in the driving log. Fixture controls can also invoke synchronous public
+// store actions through `callStore`; those receipts live in api.storeCalls.
 
 import { serializeValue } from "../system/harness/serialize.mjs";
 
@@ -58,6 +59,7 @@ export const createObservationLog = ({ maxDepth } = {}) => {
   const hooks = {};
   const props = {};
   const queryReaders = new Map();
+  const storeCalls = [];
   const failures = [];
   let instance = null;
 
@@ -122,6 +124,25 @@ export const createObservationLog = ({ maxDepth } = {}) => {
       };
     },
 
+    // Fixture controls call store actions through the public useStoreApi()
+    // result. Keep their receipts separate from ReactFlowInstance calls: a
+    // store action need not be an instance member, and exposing it in getState
+    // alone is not evidence that a consumer called it.
+    callStore(store, method, args = []) {
+      const state = store.getState();
+      if (typeof state[method] !== "function") {
+        throw new ObservationError(`store has no action ${JSON.stringify(method)}`);
+      }
+      const path = ["api", "storeCalls", storeCalls.length];
+      const receipt = { method, args: serialize(args, [...path, "args"]) };
+      storeCalls.push(receipt);
+      try {
+        receipt.result = serialize(state[method](...args), [...path, "result"]);
+      } catch (error) {
+        receipt.result = errorValue(error);
+      }
+    },
+
     async call(method, args) {
       if (!instance) throw new ObservationError("no ReactFlow instance is attached");
       const member = instance[method];
@@ -138,7 +159,7 @@ export const createObservationLog = ({ maxDepth } = {}) => {
     read() {
       return {
         hooks: structuredClone(hooks),
-        api: { queries: snapshotQueries() },
+        api: { queries: snapshotQueries(), ...(storeCalls.length ? { storeCalls: structuredClone(storeCalls) } : {}) },
         props: structuredClone(props),
         failures: failures.slice(),
       };

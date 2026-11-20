@@ -87,6 +87,17 @@ test("the api section offers its query keys and the names of the calls that were
   assert.deepEqual([...names].sort(), ["fitView", "getNodes"]);
 });
 
+test("store actions offer qualified names only when a call was recorded", () => {
+  const witness = compileWitness({ export: "UnselectNodesAndEdgesParams", names: ["store:unselectNodesAndEdges"] }, "api");
+  const api = { queries: { getState: { unselectNodesAndEdges: { "@ref": "function" } } }, calls: [] };
+  assert.equal(witness.holdsIn({ api }), false, "exposing an action is not driving it");
+  assert.equal(witness.holdsIn({ api: { ...api, calls: [{ method: "unselectNodesAndEdges" }] } }), false,
+    "an instance call cannot stand in for a store call");
+  api.storeCalls = [{ method: "unselectNodesAndEdges", args: [], result: { "@undefined": true } }];
+  assert.equal(witness.holdsIn({ api }), true);
+  assert.equal(namesIn("api", api).has("unselectNodesAndEdges"), false);
+});
+
 test("hooks and props are offered by probe id and by what the probe reported", () => {
   const names = namesIn("hooks", { "node-probe": { useNodeId: "Node-1", useViewport: { x: 0, y: 0, zoom: 1 } } });
 
