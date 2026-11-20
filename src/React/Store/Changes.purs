@@ -22,6 +22,7 @@ import Prelude
 
 import Data.Array (insertAt, length, snoc, uncons) as Array
 import Data.Foldable (foldl)
+import Data.Function.Uncurried (runFn3)
 import Data.Map (Map)
 import Data.Map as Map
 import Data.Maybe (Maybe(..), fromMaybe)
@@ -38,6 +39,8 @@ import System.Types.Node
   ( InternalNodeBase
   , NodeChange(..)
   , NodeLookup
+  , copyNodeRecord
+  , rememberNodeUpdate
   )
 
 -- | Selection-change payload independent of node-vs-edge. The wrappers
@@ -93,16 +96,18 @@ partitionEdgeChanges = foldl step { byId: Map.empty, adds: [] }
 -- | handles `Remove` / `Replace` / `Add`.
 applySingleNodeChange :: forall n. NodeChange n -> Node n -> Node n
 applySingleNodeChange c node = case c of
-  NodeSelectionChange { selected } -> node { selected = Just selected }
+  NodeSelectionChange { selected } ->
+    runFn3 rememberNodeUpdate node (node { selected = Just selected }) { selected }
   NodePositionChange { position, dragging } ->
     let
       withPos = case position of
-        Just p -> node { position = p }
+        Just p -> runFn3 rememberNodeUpdate node (node { position = p }) { position: p }
         Nothing -> node
     in
       -- TS `if (typeof change.dragging !== 'undefined')`.
       case dragging of
-        Just _ -> withPos { dragging = dragging }
+        Just value ->
+          runFn3 rememberNodeUpdate withPos (withPos { dragging = dragging }) { dragging: value }
         Nothing -> withPos
   NodeDimensionChange { dimensions, setAttributes, resizing } ->
     let
@@ -110,20 +115,30 @@ applySingleNodeChange c node = case c of
         Nothing -> node
         Just d ->
           let
-            withMeasured =
-              node { measured = { width: Just d.width, height: Just d.height } }
+            withMeasured = runFn3 rememberNodeUpdate node
+              (node { measured = { width: Just d.width, height: Just d.height } })
+              { measured: copyNodeRecord d }
           in
             case setAttributes of
               Nothing -> withMeasured
               Just sa ->
                 let
-                  n1 = if sa.width then withMeasured { width = Just d.width } else withMeasured
-                  n2 = if sa.height then n1 { height = Just d.height } else n1
+                  n1 =
+                    if sa.width then
+                      runFn3 rememberNodeUpdate withMeasured
+                        (withMeasured { width = Just d.width }) { width: d.width }
+                    else withMeasured
+                  n2 =
+                    if sa.height then
+                      runFn3 rememberNodeUpdate n1
+                        (n1 { height = Just d.height }) { height: d.height }
+                    else n1
                 in
                   n2
     in case resizing of
       Nothing -> measured
-      Just _ -> measured { resizing = resizing }
+      Just value ->
+        runFn3 rememberNodeUpdate measured (measured { resizing = resizing }) { resizing: value }
   -- Remove / Replace / Add are routed in the outer driver.
   NodeRemoveChange _ -> node
   NodeReplaceChange _ -> node
@@ -143,14 +158,16 @@ applySingleEdgeChange c edge = case c of
 -- | computed against the old one has nothing left to say. Both can only ever
 -- | be the head: bucketing a remove or a replace overwrites the id's list
 -- | rather than appending to it.
+-- | Copy affected nodes before updating, keeping their consumer fields beside
+-- | each typed record so later adoption and callbacks see the updated object.
 applyChangesForNode
   :: forall n. Node n -> Array (NodeChange n) -> Maybe (Node n)
 applyChangesForNode node changes = case Array.uncons changes of
   Nothing -> Just node
   Just { head } -> case head of
     NodeRemoveChange _ -> Nothing
-    NodeReplaceChange { item } -> Just item
-    _ -> Just (foldl (\curr c -> applySingleNodeChange c curr) node changes)
+    NodeReplaceChange { item } -> Just (copyNodeRecord item)
+    _ -> Just (foldl (\curr c -> applySingleNodeChange c curr) (copyNodeRecord node) changes)
 
 applyChangesForEdge
   :: forall e. Edge e -> Array (EdgeChange e) -> Maybe (Edge e)
@@ -181,7 +198,7 @@ applyNodeChanges changes nodes =
     foldl applyNodeAdd afterUpdates buckets.adds
   where
   applyNodeAdd acc c = case c of
-    NodeAddChange { item, index } -> insertItemAt index item acc
+    NodeAddChange { item, index } -> insertItemAt index (copyNodeRecord item) acc
     _ -> acc
 
 applyEdgeChanges

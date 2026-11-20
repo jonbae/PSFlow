@@ -6,6 +6,8 @@ module System.Types.Node
   , rememberUserNode
   , originalUserNode
   , rememberDraggedNode
+  , copyNodeRecord
+  , rememberNodeUpdate
   , userNodeIdentity
   , NodeHandleBounds
   , NodeBounds
@@ -28,7 +30,7 @@ import Prelude
 import Data.Enum (class BoundedEnum, class Enum, Cardinality(..))
 import Data.Enum.Generic (genericFromEnum, genericPred, genericSucc, genericToEnum)
 import Data.Generic.Rep (class Generic)
-import Data.Function.Uncurried (Fn2)
+import Data.Function.Uncurried (Fn2, Fn3)
 import Data.Map (Map)
 import Data.Maybe (Maybe, fromMaybe)
 import Data.Nullable (Nullable, toMaybe)
@@ -126,6 +128,16 @@ type NodeInternals nodeData =
 
 foreign import rememberUserNode :: forall n. Fn2 Foreign (NodeBase n) (NodeBase n)
 foreign import originalUserNode :: forall n. NodeBase n -> Nullable Foreign
+
+-- | Shallow-copy a node (or its measurement), retaining a shallow copy of
+-- | its consumer object when the record came from the JS boundary.
+foreign import copyNodeRecord :: forall r. Record r -> Record r
+
+-- | Keep an internal record update beside the equivalent JS-shaped patch.
+-- | Only the changed fields are overlaid; all other consumer keys and values
+-- | survive without converting the whole node again.
+foreign import rememberNodeUpdate
+  :: forall n patch. Fn3 (NodeBase n) (NodeBase n) (Record patch) (NodeBase n)
 
 -- | `rememberDraggedNode source updated` keeps upstream's
 -- | `{ ...userNode, position, dragging }` beside `updated`, a copy of the
