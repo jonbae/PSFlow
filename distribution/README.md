@@ -63,9 +63,9 @@ file where a type or its documentation can say the difference: `setState`'s
 `replace` parameter is `false | undefined`, and `useStoreApi`'s documentation
 lists the writes ps-flow refuses. An overlay whose text no longer occurs once
 fails the build as stale. A **note** goes into the header of `dist/index.d.ts`,
-which lists every difference: the store's exclusions, `defaultEdgeOptions` keys
-outside its type, handlers on rebuilt nodes in an uncontrolled flow, the
-styles warning's wording, and the absence of a UMD build.
+which lists every difference: the store's exclusions, handlers on rebuilt nodes
+in an uncontrolled flow, the styles warning's wording, and the absence of a UMD
+build.
 
 The documentation comments are otherwise upstream's, and so is the behavior
 they describe. ps-flow matches it where its gates say so; behavior no gate
