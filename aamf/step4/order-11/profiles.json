@@ -1,6 +1,6 @@
 {
   "dateUTC": "2026-11-20",
-  "psflowCommit": "cc4aedb967751c8630204be8de9fb62a33254ffb",
+  "psflowCommit": "4cff920da206149a75acb411b6dfd93d7b162d58",
   "profiles": {
     "E01": {
       "disposition": "Reuse",
@@ -52,9 +52,9 @@
     },
     "E09": {
       "disposition": "Reuse",
-      "evidence": "W06 provides the JS store view, reads/writes, actions, subscription and consumer equality; it no longer refuses useStore/useStoreApi. Order 6 completes W09 with upstream shallow/shallowNodeData, duplicate-id overload and array-reference comparisons, with falsification probes. The four precise store exclusions remain documented in declarations.",
-      "work": "W06 and W09 complete; Step 3 G/H; Step 4 order 6",
-      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-g-completion-november-12-utc", "parity/boundary/store.test.mjs", "parity/boundary/selector-equality.test.mjs", "test/Test/React/Hook/Store.purs", "distribution/gaps.mjs"]
+      "evidence": "W06 provides the JS store view, reads/writes, actions, subscription and consumer equality; it no longer refuses useStore/useStoreApi. Order 6 completes W09 with upstream shallow/shallowNodeData, duplicate-id overload and array-reference comparisons, with falsification probes. The later JavaScript store compatibility work retires the four precise store exclusions, against upstream; the declarations list what still differs.",
+      "work": "W06 and W09 complete; Step 3 G/H; Step 4 order 6; JavaScript store compatibility",
+      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-g-completion-november-12-utc", "parity/boundary/store.test.mjs", "parity/boundary/store-callbacks.test.mjs", "parity/boundary/middleware.test.mjs", "parity/boundary/selector-equality.test.mjs", "test/Test/React/Hook/Store.purs", "distribution/gaps.mjs"]
     },
     "E10": {
       "disposition": "Reuse",
@@ -120,7 +120,7 @@
   },
   "remainingIssues": [],
   "compatibilityLimits": [
-    { "id": "store-exclusions", "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-g-completion-november-12-utc", "distribution/gaps.mjs"] },
+    { "id": "store-write-residuals", "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-g-completion-november-12-utc", "parity/boundary/store.test.mjs", "distribution/gaps.mjs"] },
     { "id": "untyped-default-edge-options-and-uncontrolled-rebuilt-nodes", "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-h-completion-november-12-utc", "distribution/gaps.mjs"] },
     { "id": "module-formats-react-peer-range-and-styles-warning", "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-i-completion-november-13-utc", "distribution/gaps.mjs", "package.json"] },
     { "id": "permanent-surface-shape-exceptions", "evidenceRefs": ["parity/surface/allowlist.json", "parity/surface/report.md"] }

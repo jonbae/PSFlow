@@ -1,9 +1,9 @@
 // A TypeScript consumer of the packed package, which `check.mjs` type-checks
 // and never runs. It is written the way upstream's documentation writes a
 // flow: a typed custom node and edge, the state hooks, `addEdge`, the chrome
-// components and the store. The `@ts-expect-error` lines hold the gaps that
-// `gaps.mjs` writes into a type: if an overlay stops applying, the expected
-// error disappears and the check fails.
+// components and the store. A gap that `gaps.mjs` writes into a type belongs
+// here as an `@ts-expect-error` line, so that the check fails if its overlay
+// stops applying. The register has no overlays, so there are none.
 import { useCallback, useState } from 'react';
 import {
   Background,
@@ -87,8 +87,7 @@ function Flow() {
   const reset = () => {
     store.setState({ minZoom: 0.25 });
     store.setState((state) => ({ maxZoom: state.maxZoom * 2 }));
-    // @ts-expect-error ps-flow refuses a whole-state replacement (gaps.mjs: store-replace).
-    store.setState({ minZoom: 0.25 }, true);
+    store.setState((state) => ({ ...state, minZoom: 0.25 }), true);
     void fitView({ padding: 0.1 });
     // #5722 exposes snapGrid independently of the optional snapToGrid flag.
     instance?.screenToFlowPosition({ x: 137, y: 93 }, { snapGrid: [17, 23] });

@@ -180,7 +180,7 @@ starting gaps; their completions and later checks are linked below.
 
 **Reuse** means retain the completed implementation and its cited evidence;
 it does not assert exhaustive equivalence of every branch. ${remainingIssues}
-Store writes, untyped default-edge keys, rebuilt
+The store's residual write differences, untyped default-edge keys, rebuilt
 uncontrolled-node handler keys and package limits retain the explicit scope in
 [the declarations](distribution/gaps.mjs). Current export observations and any
 declared holes are recorded separately in [coverage](parity/system/coverage.md).

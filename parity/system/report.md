@@ -2,7 +2,7 @@
 
 The dual-run net over 158 scenario(s), against vendored `@xyflow/react` 12.11.0.
 
-**Re-diffed from stored traces.** No browser ran; this compares the traces already on disk, which is what a revised noise policy or a bumped baseline asks. It says nothing about code changed since they were captured.
+Captured by this run: both sides mounted the same unmodified fixtures through the same driver, bundled twice.
 
 **Passed.** Every scenario reproduced itself on both sides, and the two sides agree everywhere unclaimed.
 

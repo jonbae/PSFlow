@@ -59,13 +59,13 @@ package for each, so `@types/d3-drag`, `@types/d3-selection` and
 
 `gaps.mjs` is the register of where ps-flow knowingly differs from upstream at
 the JS surface, as the declarations state it. An **overlay** edits a generated
-file where a type or its documentation can say the difference: `setState`'s
-`replace` parameter is `false | undefined`, and `useStoreApi`'s documentation
-lists the writes ps-flow refuses. An overlay whose text no longer occurs once
-fails the build as stale. A **note** goes into the header of `dist/index.d.ts`,
-which lists every difference: the store's exclusions, `defaultEdgeOptions` keys
-outside its type, handlers on rebuilt nodes in an uncontrolled flow, the
-styles warning's wording, and the absence of a UMD build.
+file where a type or its documentation can say the difference; an overlay
+whose text no longer occurs once fails the build as stale. The register has no
+overlays. A **note** goes into the header of `dist/index.d.ts`, which lists
+every difference: what the store's internals hold for values they cannot
+convert, whole-state replacement, `defaultEdgeOptions` keys outside its type,
+handlers on rebuilt nodes in an uncontrolled flow, the styles warning's
+wording, and the absence of a UMD build.
 
 The documentation comments are otherwise upstream's, and so is the behavior
 they describe. ps-flow matches it where its gates say so; behavior no gate
@@ -87,8 +87,9 @@ checks that:
   consumer that imports the package and `ps-flow/dist/style.css` does too.
 - The stylesheets are the bytes the driver page loads.
 - `consumer/consumer.tsx` type-checks under bundler and Node 16 resolution with
-  `skipLibCheck` off, so every published declaration is checked too. Its
-  `@ts-expect-error` lines fail if an overlay stops applying.
+  `skipLibCheck` off, so every published declaration is checked too. An
+  overlay would add an `@ts-expect-error` line there, which fails if the
+  overlay stops applying.
 - The declarations name upstream's exports, value and type, and their 68
   values are the runtime's.
 
