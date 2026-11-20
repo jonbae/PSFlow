@@ -16,6 +16,7 @@ import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import * as upstream from '@xyflow/react';
 import * as psflow from '../../index.js';
+import { useStoreApi as usePureScriptStoreApi } from '../../output/React.Hook.Store/index.js';
 
 globalThis.ResizeObserver = class { observe() {} unobserve() {} disconnect() {} };
 
@@ -33,14 +34,34 @@ const node = (id, y, type, extra = {}) => ({
   ...extra,
 });
 
-const render = (library, props) =>
-  renderToStaticMarkup(
-    createElement(library.ReactFlow, {
-      nodes: [node('a', 0, 'source'), node('b', 120, 'target')],
-      edges: [],
-      ...props,
-    })
-  );
+const render = (library, props) => {
+  const flowProps = {
+    nodes: [node('a', 0, 'source'), node('b', 120, 'target')],
+    edges: [],
+    ...props,
+  };
+  const flow = createElement(library.ReactFlow, flowProps);
+  if (!props.defaultEdgeOptions) return renderToStaticMarkup(flow);
+  // StoreUpdater's effects do not run on the server. Seed the provider's
+  // initial snapshot in place before rendering the flow on either side.
+  function SeedDefaults() {
+    library.useStoreApi().getState().defaultEdgeOptions = props.defaultEdgeOptions;
+    return flow;
+  }
+  function SeedPsflowDefaults() {
+    const store = usePureScriptStoreApi();
+    psflow.useStoreApi().setState({ defaultEdgeOptions: props.defaultEdgeOptions });
+    // The JS store view has no setter for an initially absent optional key.
+    // Render the seeded snapshot, as the native EdgeWrapper proxy tests do.
+    store.getInitialState = store.getState;
+    return flow;
+  }
+  return renderToStaticMarkup(createElement(library.ReactFlowProvider, {
+    initialNodes: flowProps.nodes,
+    initialEdges: flowProps.edges,
+    children: createElement(library === psflow ? SeedPsflowDefaults : SeedDefaults),
+  }));
+};
 
 const sortAttributes = (markup) =>
   markup.replace(/<([a-zA-Z]+)((?:\s+[\w:-]+="[^"]*")*)(\s*\/?)>/g, (_, tag, attrs, end) => {
@@ -111,6 +132,44 @@ test('edge pathOptions reach the built-in path they belong to', () => {
   same({ edges: [edge({ type: 'smoothstep', pathOptions: { borderRadius: 0, offset: 40 } })] });
   same({ edges: [edge({ type: 'step', pathOptions: { offset: 5 } })] });
   same({ edges: [edge({ type: 'default', pathOptions: { curvature: 0.9 } })] });
+});
+
+test('defaultEdgeOptions pathOptions and selected render beyond the modeled options', () => {
+  const nodes = [node('a', 0, 'source'), node('b', 120, 'target', { position: { x: 150, y: 120 } })];
+  for (const type of ['default', 'smoothstep', 'step']) {
+    const defaultEdgeOptions = { pathOptions: { curvature: 0.9, borderRadius: 0, offset: 40 }, selected: true, zIndex: 4 };
+    const markup = same({ nodes, edges: [edge({ type })], defaultEdgeOptions });
+    assert.match(markup, /selected/);
+    assert.match(markup, /z-index:1004/);
+    same({ nodes, edges: [edge({ type, selected: false, pathOptions: { curvature: 0.2, offset: 5 } })], defaultEdgeOptions });
+    same({ nodes, edges: [edge({ type, selected: undefined, pathOptions: undefined })], defaultEdgeOptions });
+  }
+});
+
+test('defaultEdgeOptions handle ids reach position lookup and custom edge props', () => {
+  const recording = (library) => {
+    const received = [];
+    const edgeTypes = { recording: (props) => { received.push(props); return null; } };
+    const pathOptions = { offset: 40, custom: { retained: true } };
+    const nodes = [
+      node('a', 0, 'source', { handles: [
+        { ...handle('source')[0], id: 'first', x: 5 },
+        { ...handle('source')[0], id: 'second', x: 35 },
+      ] }),
+      node('b', 120, 'target', { handles: [
+        { ...handle('target')[0], id: 'first', x: 5 },
+        { ...handle('target')[0], id: 'second', x: 35 },
+      ] }),
+    ];
+    render(library, { nodes, edges: [edge({ type: 'recording' })], edgeTypes,
+      defaultEdgeOptions: { sourceHandle: 'second', targetHandle: 'second', pathOptions, selected: true } });
+    assert.equal(received.length, 1);
+    assert.equal(received[0].sourceHandleId, 'second');
+    assert.equal(received[0].sourceX, 38);
+    assert.equal(received[0].pathOptions, pathOptions);
+    return received[0];
+  };
+  assert.deepEqual(recording(psflow), recording(upstream));
 });
 
 test('edge reconnectable decides which reconnect anchors render', () => {

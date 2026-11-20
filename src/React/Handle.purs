@@ -32,7 +32,7 @@ import Data.Maybe (Maybe(..), fromMaybe, isJust, maybe)
 import Effect (Effect)
 import Effect.Exception.Unsafe (unsafeThrow)
 import Effect.Unsafe (unsafePerformEffect)
-import Data.Function.Uncurried (runFn2)
+import Data.Function.Uncurried (runFn2, runFn3)
 import Effect.Uncurried (runEffectFn1)
 import Foreign (Foreign, unsafeToForeign)
 import React.Basic (ReactComponent)
@@ -57,7 +57,7 @@ import System.Types.Connection
   , FinalConnectionState
   , withEdgeDefaults
   )
-import System.Types.Edge (EdgeBase)
+import System.Types.Edge (EdgeBase, rememberConnectedEdge)
 import System.Types.Geometry (Position(..))
 import System.Types.Handle (Handle, HandleIdField(..), HandleType(..))
 import System.Types.Ids (NodeId(..))
@@ -330,7 +330,10 @@ onConnectExtended store mPropOnConnect conn = do
   state <- store.getState
   when state.hasDefaultEdges do
     let
-      edge = connectionToEdge state.defaultEdgeOptions conn
+      typedEdge = connectionToEdge state.defaultEdgeOptions conn
+      edge = case state.defaultEdgeOptions of
+        Nothing -> typedEdge
+        Just defaults -> runFn3 rememberConnectedEdge defaults conn typedEdge
     case addEdge edge state.edges getEdgeId of
       Right next -> store.dispatch (SetEdges next)
       Left _ -> pure unit

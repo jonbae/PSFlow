@@ -154,9 +154,10 @@ placeholderEdge edgeId =
   , pathOptions: Nothing
   }
 
--- | TS `edge = { ...defaultEdgeOptions, ...edge }`, over all 23 members the
--- | options can carry. A member the edge holds wins. A member the edge's own
--- | object has as a key holding `undefined` wins too, because the spread
+-- | TS `edge = { ...defaultEdgeOptions, ...edge }`. JavaScript options use
+-- | their full-object boundary conversion; the typed fallback merges the 23
+-- | modeled members for PureScript options. A member the edge holds wins. A
+-- | member the edge's own object has as a key holding `undefined` wins too, because the spread
 -- | copies that `undefined` over the default; `edgeOwnsKey` reads the key
 -- | off the consumer's object, since a decoded `Nothing` cannot tell the two
 -- | absences apart. Only a member the edge does not have inherits. The merged
@@ -204,57 +205,56 @@ applyDefaults (Just defaults) edge = runFn3 rememberMergedEdge defaults edge $
 
 -- | Upstream's selector calls `getEdgePosition({ …, onError })`, which
 -- | reports a missing handle as error 008 each time the selector runs; this
--- | one reports it through the same `onError` from the same place.
+-- | one reports it through the same `onError` from the same place. Endpoints,
+-- | handles, selection and z-index come from the edge after merging defaults.
 selectEdgePosition
   :: forall n e
    . Maybe OnError
   -> String
+  -> Edge e
   -> ReactFlowState n e
   -> EdgePositionSlice
-selectEdgePosition onError edgeId state =
-  case Map.lookup edgeId state.edgeLookup of
-    Nothing -> nullPosition
-    Just edge ->
-      case Map.lookup edge.source state.nodeLookup,
-        Map.lookup edge.target state.nodeLookup of
-        Just src, Just tgt ->
-          let
-            z = getElevatedEdgeZIndex
-              { selected: edge.selected == Just true
-              , zIndex: fromMaybe 0 edge.zIndex
-              , sourceNode: src
-              , targetNode: tgt
-              , elevateOnSelect: state.elevateEdgesOnSelect
-              , zIndexMode: state.zIndexMode
-              }
-            resolved = edgePosition
-              { id: edgeId
-              , sourceNode: src
-              , targetNode: tgt
-              , sourceHandle: edge.sourceHandle
-              , targetHandle: edge.targetHandle
-              , connectionMode: state.connectionMode
-              }
-          in
-            case resolved of
-              Positioned p ->
-                { zIndex: z
-                , sourceX: Just p.sourceX
-                , sourceY: Just p.sourceY
-                , targetX: Just p.targetX
-                , targetY: Just p.targetY
-                , sourcePosition: Just p.sourcePosition
-                , targetPosition: Just p.targetPosition
-                }
-              MissingHandle handleType -> unsafePerformEffect do
-                for_ onError \cb ->
-                  cb "008"
-                    ( errorMessage $ E008 handleType
-                        { id: edgeId, sourceHandle: edge.sourceHandle, targetHandle: edge.targetHandle }
-                    )
-                pure (nullPosition { zIndex = z })
-              NodesNotInitialized -> nullPosition { zIndex = z }
-        _, _ -> nullPosition { zIndex = fromMaybe 0 edge.zIndex }
+selectEdgePosition onError edgeId edge state =
+  case Map.lookup edge.source state.nodeLookup,
+    Map.lookup edge.target state.nodeLookup of
+    Just src, Just tgt ->
+      let
+        z = getElevatedEdgeZIndex
+          { selected: edge.selected == Just true
+          , zIndex: fromMaybe 0 edge.zIndex
+          , sourceNode: src
+          , targetNode: tgt
+          , elevateOnSelect: state.elevateEdgesOnSelect
+          , zIndexMode: state.zIndexMode
+          }
+        resolved = edgePosition
+          { id: edgeId
+          , sourceNode: src
+          , targetNode: tgt
+          , sourceHandle: edge.sourceHandle
+          , targetHandle: edge.targetHandle
+          , connectionMode: state.connectionMode
+          }
+      in
+        case resolved of
+          Positioned p ->
+            { zIndex: z
+            , sourceX: Just p.sourceX
+            , sourceY: Just p.sourceY
+            , targetX: Just p.targetX
+            , targetY: Just p.targetY
+            , sourcePosition: Just p.sourcePosition
+            , targetPosition: Just p.targetPosition
+            }
+          MissingHandle handleType -> unsafePerformEffect do
+            for_ onError \cb ->
+              cb "008"
+                ( errorMessage $ E008 handleType
+                    { id: edgeId, sourceHandle: edge.sourceHandle, targetHandle: edge.targetHandle }
+                )
+            pure (nullPosition { zIndex = z })
+          NodesNotInitialized -> nullPosition { zIndex = z }
+    _, _ -> nullPosition { zIndex = fromMaybe 0 edge.zIndex }
 
 edgeTypesAsObject
   :: Maybe EdgeTypesMap
@@ -413,7 +413,7 @@ edgeWrapper =
               /\ edge.selected
               /\ edge.zIndex
           )
-          \_ -> selectEdgePosition props.onError props.id
+          \_ -> selectEdgePosition props.onError props.id edge
       positionSlice <- useStore positionSelector
 
       let

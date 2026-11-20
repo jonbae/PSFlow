@@ -949,7 +949,7 @@ labelBgPaddingOut :: { x :: Number, y :: Number } -> Array Number
 labelBgPaddingOut p = [ p.x, p.y ]
 
 edgePathOptionsIn :: JsEdgePathOptions -> EdgePathOptions
-edgePathOptionsIn o =
+edgePathOptionsIn = remembering \o ->
   { curvature: fromUndefinable o.curvature
   , offset: fromUndefinable o.offset
   , borderRadius: fromUndefinable o.borderRadius
@@ -957,12 +957,14 @@ edgePathOptionsIn o =
   }
 
 edgePathOptionsOut :: EdgePathOptions -> JsEdgePathOptions
-edgePathOptionsOut o = pruneUndefined
-  { curvature: toUndefinable o.curvature
-  , offset: toUndefinable o.offset
-  , borderRadius: toUndefinable o.borderRadius
-  , stepPosition: toUndefinable o.stepPosition
-  }
+edgePathOptionsOut o = case originalOf o of
+  Just original -> unsafeCoerce original
+  Nothing -> pruneUndefined
+    { curvature: toUndefinable o.curvature
+    , offset: toUndefinable o.offset
+    , borderRadius: toUndefinable o.borderRadius
+    , stepPosition: toUndefinable o.stepPosition
+    }
 
 -- | An edge's `ariaLabel`, where `null` turns the label off and absence
 -- | gives the default one, so the two can't fold together as they do on
@@ -1020,9 +1022,11 @@ edgeMarkerOut m = pruneUndefined
 -- ────────────────────────────────────────────────────────────────────────
 
 -- | Upstream's `DefaultEdgeOptions`, which is `Edge` without its identity
--- | fields and `selected`: the 23 members below. Each converts as the
+-- | fields and `selected`: the 23 modeled members below. Each converts as the
 -- | matching `JsEdge` member does, because upstream spreads this object under
 -- | every edge it renders and under every connection `onConnect` receives.
+-- | Additional runtime keys stay on the original object and participate in
+-- | those spreads before the resulting edge is decoded.
 type JsDefaultEdgeOptions =
   { type :: Undefinable String
   , animated :: Undefinable Boolean
@@ -1053,7 +1057,23 @@ type JsDefaultEdgeOptions =
 -- | and what `defaultEdgeOptionsOut` hands back.
 defaultEdgeOptionsIn :: JsDefaultEdgeOptions -> DefaultEdgeOptions Foreign
 defaultEdgeOptionsIn js =
-  runFn2 rememberDefaultEdgeOptions (unsafeToForeign js) (decodeDefaultEdgeOptions js)
+  runFn2 rememberDefaultEdgeOptions (decodeDefaultEdgeOptions js)
+    { merge: \edge -> edgeIn (runFn2 spreadUnder js (edgeIdentityOut edge))
+    , connect: \connection edge ->
+        let
+          params :: JsEdge
+          params = runFn2 spreadUnder js (connectionOut connection)
+          withId = if runFn2 hasProperty "id" params then params
+            else runFn2 spreadUnder params { id: edge.id }
+          withoutSource = if isNull withId.sourceHandle then runFn2 omitKey "sourceHandle" withId
+            else withId
+          withoutTarget = if isNull withoutSource.targetHandle then runFn2 omitKey "targetHandle" withoutSource
+            else withoutSource
+        in edgeIn withoutTarget
+    }
+
+foreign import hasProperty :: forall a. Fn2 String a Boolean
+foreign import omitKey :: forall a. Fn2 String a a
 
 decodeDefaultEdgeOptions :: JsDefaultEdgeOptions -> DefaultEdgeOptions Foreign
 decodeDefaultEdgeOptions = remembering \o ->
