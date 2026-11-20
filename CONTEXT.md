@@ -26,11 +26,9 @@ consumers come through. Supported, but incidental to the destination.
 _Avoid_: incidental surface, the barrel, the internals
 
 **Boundary module**:
-`src/Boundary.purs`, the single PureScript module standing between the internals
-and the JS surface. It re-exports all 68 public symbols, crossing each into a
-JS-native shape as the staging reaches it, and `index.js` is a bare re-export of
-its compiled output. The conversion lives in PureScript so the compiler checks
-it; the internals and the PureScript surface are untouched by it.
+The PureScript module standing between the internals and the JS surface,
+exposing public values in JS-native shapes while preserving the PureScript
+surface. Its conversions are compiler-checked.
 _Avoid_: the adapter, the wrapper layer, the shim
 
 **Gated**:
@@ -45,8 +43,8 @@ JavaScript. Independent of gated — an export can be crossed with nothing provi
 the conversion is right.
 _Avoid_: converted, wrapped, adapted
 
-**Shape** (of an export):
-What a JavaScript caller sees before calling: `typeof`, arity
+**Shape**:
+Of an export, what a JavaScript caller sees before calling: `typeof`, arity
 (`Function.length`), and the React wrapper chain (`memo`, `forwardRef`). Not
 the value's contents — deep-equalling the enum objects and calling the pure
 functions are separate claims. Compared across the whole JS surface and
@@ -55,10 +53,9 @@ conversion plan is invisible-by-construction outside it.
 _Avoid_: signature, type (a shape is neither), interface
 
 **Manifest**:
-The boundary module's machine-readable record of which exports have **crossed**
-and which are still passing through raw, in `src/Boundary.js`. It exists so a
-gate can scope itself to the crossed set and grow with the staging instead of
-carrying a hand-maintained list of its own.
+The boundary module's machine-readable partition of public values into those
+that have **crossed** and those passing through raw. It records conversion
+status, independently of whether an export is **gated**.
 _Avoid_: the export list, the crossing table
 
 **Converter**:
@@ -67,18 +64,6 @@ One translation between a PureScript type and its JS-native shape, in
 collapse onto a handful of shared types, and the flow-props record is largely
 indivisible, so a stage is measured in converters and not in exports.
 _Avoid_: adapter, marshaller, codec (reserved for the enum string tables)
-
-**Deferred prop**:
-A prop that resolves on the JS surface but whose converter has not landed. It
-**throws at mount**, naming the stage that will land it, because a prop that was
-silently ignored would be indistinguishable from a prop the consumer never set.
-**There are none**: boundary stage 4 crossed the last two, and the entry kinds
-that constructed them went with their tables. The term stays because the failure
-it names does not, and `parity/boundary`'s mount check now asserts the residue
-instead — no prop of any converter is wired to `Nothing`. The last refusal
-table, `defaultEdgeOptions`' thirteen unmodelled members, went in Step 3 G when
-`Edge` and `DefaultEdgeOptions` gained them, and the refusal module went with it.
-_Avoid_: unsupported prop, unimplemented prop, TODO prop
 
 ### The gates
 
@@ -90,15 +75,12 @@ red without being one of the five: `parity:boundary`, `parity:changelog`,
 `test:harness`, `test:harness:live`, `test:census`, `test:coverage`,
 `test:audit`, `test:ci`, and the **unit tests**. Each entry below says where it
 sits.
-_Avoid_: layer, check, suite (when a gate is meant)
+_Avoid_: check, suite (when a gate is meant)
 
 **The four cheap gates**:
-The five minus **system parity** — what per-PR CI runs before the net
-(`.github/workflows/gates.yml`). *Cheap* is per-run cost and nothing else: the
-one left out is the gate that takes about nine minutes of a CI run, not the
-one with the coarsest grain. Not a sixth thing that goes red, and not a tier — the
-collective exists because CI's ordering and the completion criteria need one
-word for it.
+The four gates other than **system parity**, grouped by their lower per-run
+cost. All five run in per-PR CI; this collective names the four that precede
+the net, not the complete CI schedule.
 _Avoid_: the fast gates, the CI gates, the cheap ladder
 
 **Parity gate**:
@@ -123,7 +105,7 @@ test decides membership inside `spago test` — `Test.Parity.*` imports
 QuickCheck is *not* the criterion: `Test.System.Utils.Store` runs properties
 with no upstream at all.
 
-**Surface parity** (`npm run parity:surface`):
+**Surface parity**:
 The parity gate at the grain of one export: the **values** `index.js` publishes
 and their **shapes** — `typeof`, arity, React wrapper kind — plus prop members
 and two behavioral checks: deep-equality of the eight frozen enum objects and
@@ -136,27 +118,21 @@ only by a PSFlow value. The behavioral checks still run in Node, in seconds,
 without mounting or opening a browser.
 _Avoid_: Layer 0, the API diff, `parity:api`
 
-**Function parity** (the `Test.Parity.*` modules under `spago test`):
+**Function parity**:
 The parity gate at the grain of one call: a pure function's return value,
 against the `@psflow/oracle` bundle, over QuickCheck-generated inputs. It
 explores inputs no fixture will produce, which is why the net does not subsume
 it.
 _Avoid_: Layer 1, the oracle tests, the numeric gate
 
-**System parity** (`npm run parity:system`):
-The parity gate at the grain of a whole mounted app — the **net**. The audit
-bucket named `system` and this gate name coincide deliberately. It builds both
-bundles, drives the **corpus** against each side twice, writes every **trace**
-to `parity/system/traces/`, and diffs the runs it reads back off disk. Its
-corpus today is the **mount-only baselines**, one per **fixture**, plus three
-hand-written sources: the **conformance seed**, the thirty test-debt scenarios,
-and the **retirement debt**. Hole-closing scenarios are what is left.
-Red is its expected state while the divergence backlog
-is being worked — a failing run is recording what the two implementations do,
-and the answer is a fix or a **region**, never a looser comparison.
+**System parity**:
+The parity gate over a mounted app, using **the net** to compare the two sides'
+reproducible traces within each scenario's declared experiment. It passes
+against the current baseline; a red run is a regression or a claim requiring
+review.
 _Avoid_: Layer 2, the e2e gate
 
-**Conformance test suite** (`npm run test:conformance`):
+**Conformance test suite**:
 The five `generic-*.spec.ts` files: upstream's own framework-parameterized e2e
 specs, ported. Not a coarser rung of the parity ladder but a different
 instrument — it encodes upstream's **asserted intent**, a different source of
@@ -164,7 +140,7 @@ truth from upstream's behaviour, which is why a net covering the same fixtures
 does not retire it.
 _Avoid_: Layer 2, the generic specs, e2e
 
-**Smoke test suite** (`npm run test:smoke`):
+**Smoke test suite**:
 `smoke.spec.ts`: **liveness, and nothing else** — the `pageerror` trap and the
 no-console-errors session. It was ten tests; the other eight were the repo's
 densest hand-authored parity assertions and retired into the net
@@ -174,7 +150,7 @@ is `parity/system/fixtures/flow/chrome-defaults.ts`, so the page whose liveness
 is checked is the page the net drives.
 _Avoid_: Layer 2, the e2e suite
 
-**Retirement** (of a hand-authored assertion):
+**Retirement**:
 Recorded **per test, never per file**, in
 `parity/system/corpus/retirement-debt.mjs`: each entry names the spec, the exact
 test title, what it proved, the trace **section** the re-report lands in, and the
@@ -191,38 +167,17 @@ net *re-reports*.
 _Avoid_: deprecation, removal, cleanup
 
 **Outside the scheme**:
-One browser spec is not a gate in the five-gate sense and gets its own
-Playwright project rather than a home inside one: `screenshot.spec.ts` asserts
-nothing at all and only writes an artifact. `node-props.spec.ts` stood beside it
-until #61 — a PSFlow-specific guard on the `NodeProps` record, whose two tests
-are re-reported by `node-props-record-parented`. It did **not** retire on the
-condition written down for it ("when the net's `props` section is green"): both
-of its claims are about the graph, and a probed run compares only its own
-observation level and not the graph the probe replaced, so they are re-reported
-through `dom` instead. The `props` section was red then, on three things the
-spec never saw — `EdgeProps` and `ConnectionLineComponentProps` being `left
-only`, and `NodeProps.width`/`height` reading `undefined` against upstream's `0`
-on an unmeasured node (#22). The first two were blocked on `edgeTypes` and
-`connectionLineComponent` not having crossed; boundary stage 4 (#62) crossed
-both. All three are fixed, the section passes, and the `EdgeTypes` **hole** has
-retired. The census names the screenshot spec as a gate on
-individual rows because *something* would go red; it is not one of the five.
-
-`parity:boundary` is likewise not one of the five gates, but the census names
-its mount check as row-level JS-surface proof for the crossings it directly
-exercises. In that scoped use, `boundary` means “this census entry would make
-the boundary mount check go red,” not “boundary is a sixth gate.”
+Checks and artifacts outside the five named gates: unit tests, gate self-tests,
+boundary and package checks, the changelog audit, and the assertion-free
+screenshot artifact. A census entry may cite a boundary check as JS-surface
+evidence without making it a sixth gate.
 
 **Unit tests**:
-The PSFlow-only modules under `spago test` — `Test.Properties`,
-`Test.System.Utils.Store`, `Test.React.Store.Reduce`,
-`Test.React.Hook.VisibleIds`, and `Test.Main`'s inline assertions. Recorded
-explicitly as **outside the gate scheme**: they prove PSFlow's internals are
-self-consistent, which is a different claim from "PSFlow matches xyflow".
+The PSFlow-only assertions under `spago test`, outside the gate scheme because
+they establish internal consistency rather than agreement with upstream.
 _Avoid_: the test suite, the PureScript tests
 
-**Gate self-tests** (`npm run test:surface`, `test:boundary`, `test:census`,
-`test:compare`, `test:coverage`, `test:harness`, `test:audit`, `test:ci`):
+**Gate self-tests**:
 `node --test` over an instrument's *own* logic — surface parity's shape and
 allowlist modules, the PureScript record reader both boundary checks share, the
 census generator and its staleness logic, system parity's comparison core and
@@ -259,40 +214,26 @@ is the mapping.
 the package would churn FFI imports for no clarity gain.
 
 **Stage**:
-A step of the boundary staging (1–4), counted in **converters**. Orthogonal to
-gates, not a synonym: a stage says how much of the surface has **crossed**, a
-gate says what would go red. Stages 2–4 deliberately open a
-crossed-but-ungated window, and saying "stage" where "layer" used to appear
-does not fix anything. In practice each stage has closed its own window in the
-same commit, because `parity:boundary` mounts what the stage crossed and the
-census counts that as a JS-surface gate; the window is what would open if a
-stage landed converters without one. Stage 4's window was the widest, because
-its set was everything `passthrough` still held rather than what some fixture
-was about to import: every earlier stage crossed something a driver was already
-about to render, and most of stage 4's fourteen are named by the **hole**
-register as exports the corpus does not drive.
-
-All four have landed. Stage 4 left fourteen pure functions in `passthrough` and
-no component, and **stage 5**, owned by ticket 082 after the decision recorded
-on [#62](https://github.com/jonbae/PSFlow/issues/62), crosses them. Its first
-half has landed, the six edge-path helpers, and `passthrough` holds the eight
-it leaves. So "the staging is finished" and "the surface has finished crossing"
-are different statements, and the manifest's `stage: 4` is the first.
-_Avoid_: layer, phase, tier
+An increment of boundary conversion, counted in **converters** rather than
+exports: stages 1–4 cover the fixture-facing surface, callbacks, instance/hooks
+and remaining components, and stage 5 covers the remaining pure functions.
+A stage records what has **crossed**; a gate records what would go red.
+_Avoid_: phase, tier
 
 ### Baselines and upstream
 
-**Baseline** / **parity baseline**:
+**Baseline**:
 The vendored `xyflow/` checkout plus the exact-pinned `@xyflow/*`
-devDependencies. Unqualified "baseline" always means this one. Bumping it is
+devDependencies, also called the parity baseline. Unqualified "baseline"
+always means this one. Bumping it is
 the atomic procedure in README.
 _Avoid_: the vendored tree (when the pin is also meant), the pin
 
 **Trace baseline**:
-The persisted recorded values a system-parity run diffs against. Always
-written in full — never bare "baseline". Both baselines get bumped, both get
-re-recorded, and both **fail stale**; they are otherwise unrelated.
-_Avoid_: baseline, golden, snapshot
+Persisted recorded trace values used for later comparison or re-diffing.
+Always written in full, to distinguish them from the vendored-source and
+package-pin **baseline**.
+_Avoid_: golden, snapshot
 
 **Upstream**:
 Four senses, and a sentence must make clear which. Conflating them is how the
@@ -326,13 +267,6 @@ function parity")
 One upstream pull request, as recorded in the changelog audit. Each row states
 what PSFlow did about that upstream change.
 _Avoid_: entry, PR (when the audit record is meant rather than the pull request)
-
-**Census entry**:
-One line of the export census — one **export**. Never a "row": a row is one
-upstream pull request, and the two count different things. An export can be
-driven while every conditional behavior inside it goes unexercised, so the two
-counts are reported separately and never summed.
-_Avoid_: census row, coverage row
 
 **Bucket**:
 The label a row carries, naming what proves that behavior — or, for the ungated
@@ -376,10 +310,10 @@ word as the **system parity** gate, on purpose.
 ### The dual-run net
 
 **The net**:
-The harness that mounts upstream xyflow and PSFlow side by side, drives both
+The apparatus that mounts upstream xyflow and PSFlow side by side, drives both
 through identical scripted interactions, and diffs the results. Called *dual-run*
 because neither side is a hand-written expectation.
-_Avoid_: the harness (which is the capture half alone), the diff suite
+_Avoid_: the diff suite
 
 **Fixture**:
 One flow definition — nodes, edges, and the props handed to `ReactFlow` — as a
@@ -397,7 +331,7 @@ bundled twice; only the import target differs, so a driver difference can never
 be mistaken for a library difference. There are two, and one page routes to
 both: `parity/driver/src/Flow.tsx`, which takes a fixture as data, and one
 **example driver**.
-_Avoid_: harness, wrapper, app
+_Avoid_: wrapper, app
 
 **Example driver**:
 A driver imported **unmodified** from upstream's `examples/`, rather than
@@ -418,29 +352,35 @@ against it. Named semantically, never by sequence number — a gate cites scenar
 by name, and numbers shift when the corpus is trimmed.
 _Avoid_: test case, spec
 
-**Name space** (of the corpus):
-Every id a scenario may be cited by: the ids scenarios exist under, plus the
-**reserved** ones. Wider than the corpus on purpose — a **gate-pending** row
-cites a scenario by name, and the two answers a citation can get are "resolves"
-and "resolves to nothing", not "exists".
-_Avoid_: the corpus (when the reserved ids are also meant), the scenario list
+**Name space**:
+Every id a scenario may be cited by: written scenario ids together with
+**reserved ids**, including any not yet written. Citation resolution and
+evidence that a scenario ran are separate claims.
+_Avoid_: the scenario list
 
 **Reserved id**:
-A scenario id `parity/system/corpus/reserved.mjs` holds for a scenario a later
-ticket will write, which no other source may take. It **resolves** a citation
-and it drives nothing, and those are separate facts that are always reported
-apart: a row against a reserved id is waiting for someone to write the scenario,
-where a row against a written one is waiting for a run.
+A scenario id held for its designated corpus source, whether or not that source
+has written it yet. Reservation makes a citation resolve; only a captured
+scenario can establish that a behavior was driven.
 _Avoid_: placeholder, stub, planned scenario
 
 **Conformance seed**:
 The scenarios **lifted** from upstream's own end-to-end suite — its interaction
 sequences, transcribed with every assertion dropped. One of the corpus's sources,
 beside the derived **mount-only baselines**; the others are the test-debt
-scenarios, the **retirement debt**, and the hole-closing scenarios after them.
+scenarios, the **retirement debt**, and subsequent hole-closing scenarios.
 Say *the seed* only where the corpus is already in view.
-_Avoid_: the ported tests, the conformance suite (which is a **gate**, and drives
-PSFlow alone), the baseline
+_Avoid_: the ported tests, the conformance suite
+
+**Mount-only baseline**:
+A scenario that mounts one fixture and observes its settled state without
+further interactions. The corpus derives one for every fixture, including
+example drivers.
+
+**Retirement debt**:
+The corpus source and register accounting for each hand-authored assertion
+handed over to the net. A completed retirement still needs this record to
+identify the scenario and observation that replaced it.
 
 **Lifted**:
 Of a scenario: transcribed from an upstream spec as a **one-time fork**, never a
@@ -461,7 +401,7 @@ recorded). An entry that lifts nothing carries a written reason, the way a
 and "nobody got round to it" both look. Not a **region**: a region claims a
 difference a comparison reported, where this claims a correspondence to
 something outside the repo.
-_Avoid_: region, manifest, the fork (for the file)
+_Avoid_: the fork (for the file)
 
 **Re-affirm**:
 To read what changed and decide the entry still says something true, then stamp
@@ -492,7 +432,7 @@ scenario against one side and returns a trace. Narrower than **the net**, which
 is capture and compare together, and not a **driver**, which is a React
 component. Say which is meant — "the harness" for the whole net is what the
 entries above rule out, and this is the sense that survives.
-_Avoid_: the net (when only capture is meant), runner, driver
+_Avoid_: runner
 
 **Gesture**:
 A named composition of primitive actions — dragging a node, drawing a selection
@@ -501,11 +441,10 @@ how a drag works.
 _Avoid_: macro, helper
 
 **Trace**:
-Everything one run recorded, as JSON: returned by **capture**, written to disk,
-and read back by compare. One trace per side per scenario, divided into
-sections. The disk is not incidental — it is what lets a revised noise policy
-re-diff every trace ever captured in seconds, without a browser.
-_Avoid_: snapshot, capture (the step, not what it produced), result
+The complete recorded observation of one **capture**, divided into seven
+sections and persisted for comparison. A run contains four traces: two
+captures of each side of one scenario.
+_Avoid_: snapshot, result
 
 **Section**:
 One division of a trace, each observing a different mechanism.
@@ -537,9 +476,9 @@ As a *count*, it is one numbered drive of one scenario against one side, which
 is the trace envelope's `capture` field: each side is captured twice, and
 `capture: 2` names the second. A sentence must make clear which; "capture 1" and
 "the capture step" both do.
-_Avoid_: run (for the count — a run is all four), snapshot, execution
+_Avoid_: snapshot, execution
 
-**Run** (of system parity):
+**Run**:
 One scenario, two sides, two **captures** each — four traces, read in one order.
 The four go into `compare.mjs` in any order and are grouped by the side each
 records.
@@ -604,23 +543,19 @@ rule can be written as one. A deleted field is unobserved, not passing.
 _Avoid_: cleaning, canonicalization, tolerance
 
 **Region**:
-A claim over the differences normalization does not touch: a pattern carrying a
-written reason, plus a ticket where the difference is a known bug. Its three
-outcomes are *rides free* (it claimed what it recorded), *moved* (it claimed
-different values, and someone must re-affirm that they are still the same cause)
-and *stale*. Recording values under a region is cheap; recording cannot create
-one. The register is `parity/system/regions.json`; surface parity's allowlist is
-the same concept with a second implementation, and the stale rule applies to it
-too.
+A system-parity claim over differences left after normalization: a pattern
+carrying recorded values, a written reason and a ticket when it names a known
+bug. Its outcomes are *rides free* for unchanged values, *moved* for values
+requiring re-affirmation, and *stale* when it claims nothing; recording cannot
+create a claim.
 _Avoid_: waiver, exception, allowlist entry (when a region is meant)
 
 **Allowlist**:
-The second implementation of **Region**, in `parity/surface/allowlist.json`:
-one concept, two files, because both turn a known difference from a failure
-into a recorded, reviewed fact so that red stays reserved for what is new. Say
-which one is meant — an allowlist entry is not a region. The stale rule holds
-on both: an entry that no longer corresponds to a real difference fails.
-_Avoid_: region (when the surface-parity file is meant), waiver, exception
+The surface-parity register of reviewed export, shape, behavior and prop-member
+differences. It applies the same noise-policy principle as a **region** at the
+export surface: an accepted difference needs a reason, and an entry claiming
+nothing fails as **stale**.
+_Avoid_: waiver, exception
 
 **Claimed**:
 Of a difference: some region's pattern covers it, so it is someone's stated
@@ -636,13 +571,12 @@ claimed, while a weakening changes what the comparison asserts and records
 nothing. That is exactly why there is no `arguments` weakening — an argument
 that differs has a path, so it is a region's to claim. Reserved for the
 callbacks section; nothing else in the trace has an axis to relax.
-_Avoid_: region, waiver, tolerance, exception
+_Avoid_: waiver, tolerance, exception
 
-**Axis** (of a weakening):
-Which of the three things the callbacks comparison asserts — order, count,
-interleaving — a **weakening** lets go. Deliberately not `kind`, which is
-regions' word for what sort of claim a region is; the two registers are
-different mechanisms and a shared field name would read as a shared taxonomy.
+**Axis**:
+The aspect of callback comparison a **weakening** relaxes: `count` or `order`.
+A count weakening also excludes unpaired occurrences from interleaving;
+arguments remain compared.
 _Avoid_: kind, type, mode
 
 **Stale**:
@@ -672,6 +606,24 @@ Of a scripted interaction: it has finished, including releasing the pointer.
 Distinct from settled — a scenario whose last action leaves the pointer down
 settles mid-gesture, which is the only way transient state is observed.
 
+### Export coverage
+
+**Export census**:
+The classification of every public upstream export by its kind, observation
+mechanism and the gates that reach it on each surface. Its static attribution
+is separate from trace-derived coverage.
+
+**Census entry**:
+One export in the **export census**, independently of how many conditional
+behaviors it contains. Export and changelog-row counts measure different things
+and are never summed.
+_Avoid_: census row, coverage row
+
+**Spec attribution**:
+The explicit association of a census entry with a spec that exercises it on a
+named surface. A boundary manifest records that an export has crossed; spec
+attribution supplies the separate claim that a browser spec gates it.
+
 **Witness**:
 The rule joining a captured trace back to an export it proves was driven — a name
 mapping for most sections, a selector for `dom`. A witness is evaluated against a
@@ -684,22 +636,13 @@ would look like".
 _Avoid_: matcher, assertion, expectation
 
 **Hole**:
-An export the corpus does not drive, recorded with a written reason in
-`parity/system/coverage/holes.json` — one entry per reason, covering as many
-exports as that reason covers, the way a **region** claims many differences with
-one pattern. A hole is a legitimate resting state; an
-*undeclared* hole fails, and a hole over an export something did drive fails as
-**stale**. The register is machine-readable because other work is derived from it
-rather than deciding again: boundary stage 4 read it to decide which of the
-components it crossed were undriven and, just as usefully, which were already
-crossed and should be left alone; probed-variant selection takes the `hooks`
-and `props` exports nothing drives. Neither closes a hole — stage 4 crossed
-exports named by four of the entries below and all four are still open, because
-a component a JavaScript caller can mount is still a component no fixture
-mounts.
+An export-bearing census entry the corpus does not drive, recorded with a
+written reason; one reason may account for several entries. A declared hole
+passes, an undeclared one fails, and a declaration over an entry now driven or
+absent from the census fails as **stale**.
 _Avoid_: gap (reserved for audit buckets), uncovered, todo
 
-**Name** (of a witness):
+**Name**:
 What the runtime called something a section recorded — a handler's name, an api
 query key or call name, a probe id, a hook's name. Not always a handler: the
 `NodeChange` and `EdgeChange` members all ride on one handler, so a change's own
