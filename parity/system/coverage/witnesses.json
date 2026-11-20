@@ -312,7 +312,7 @@
     { "export": "SetCenter", "names": ["setCenter"] },
     { "export": "SetCenterOptions", "names": ["setCenter"] },
     { "export": "SetViewport", "names": ["setViewport"] },
-    { "export": "UnselectNodesAndEdgesParams", "names": ["unselectNodesAndEdges"] },
+    { "export": "UnselectNodesAndEdgesParams", "names": ["store:unselectNodesAndEdges"] },
     {
       "export": "ViewportHelperFunctionOptions",
       "names": ["zoomTo", "setCenter", "setViewport", "fitView", "fitBounds"],

@@ -71,3 +71,15 @@ test("every problem is reported at once rather than the first", () => {
   delete trace.sections.props;
   assert.throws(() => validateTrace(trace, "t.json"), (e) => /console/.test(e.message) && /props/.test(e.message));
 });
+
+test("optional store calls validate their method, arguments and result", () => {
+  const trace = valid();
+  trace.sections.api.storeCalls = [{ method: "unselectNodesAndEdges", args: [], result: null }];
+  assert.doesNotThrow(() => validateTrace(trace, "store.json"));
+  for (const malformed of [null, {}, { method: "", args: [], result: null }, { method: "x", args: {} }, { method: "x", args: [] }]) {
+    trace.sections.api.storeCalls = [malformed];
+    assert.throws(() => validateTrace(trace, "store.json"), /api\/storeCalls\/0/);
+  }
+  trace.sections.api.storeCalls = {};
+  assert.throws(() => validateTrace(trace, "store.json"), /api\/storeCalls must be an array/);
+});

@@ -92,6 +92,16 @@ const SECTION_CHECKS = {
     if (!isPlainObject(api)) return void problems.push(`${path} must be an object`);
     if (!isPlainObject(api.queries)) problems.push(`${path}/queries must be an object`);
     if (!Array.isArray(api.calls)) problems.push(`${path}/calls must be an array`);
+    if ("storeCalls" in api) {
+      if (!Array.isArray(api.storeCalls)) problems.push(`${path}/storeCalls must be an array`);
+      else api.storeCalls.forEach((entry, i) => {
+        const at = `${path}/storeCalls/${i}`;
+        if (!isPlainObject(entry)) return void problems.push(`${at} must be an object`);
+        if (typeof entry.method !== "string" || entry.method === "") problems.push(`${at}/method must be a non-empty string`);
+        if (!Array.isArray(entry.args)) problems.push(`${at}/args must be an array`);
+        if (!("result" in entry)) problems.push(`${at}/result is missing`);
+      });
+    }
   },
   props: (props, path, problems) => {
     if (!isPlainObject(props)) return void problems.push(`${path} must be an object keyed by probe id`);

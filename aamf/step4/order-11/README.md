@@ -50,9 +50,11 @@ default-edge keys outside the declared type, custom keys on internally rebuilt
 uncontrolled nodes, module formats, the React peer range, the styles warning,
 and the permanent surface-shape exceptions. The JSON points to their existing
 contracts, including [distribution/gaps.mjs](../../../distribution/gaps.mjs).
-The single declared coverage hole remains `UnselectNodesAndEdgesParams`,
-whose register explains what the trace can observe. No new exclusion, region
-or allowlist is introduced.
+The recorded review had one declared coverage hole,
+`UnselectNodesAndEdgesParams`. The subsequent store-action witness retires it
+through `api.storeCalls` and four `store-unselect-*` scenarios; the current
+[coverage report](../../../parity/system/coverage.md) records 156 of 156 driven.
+No new exclusion, region or allowlist is introduced.
 
 ## Historical pilot preservation
 

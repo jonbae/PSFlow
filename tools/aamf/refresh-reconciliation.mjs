@@ -182,8 +182,8 @@ starting gaps; their completions and later checks are linked below.
 it does not assert exhaustive equivalence of every branch. ${remainingIssues}
 Store writes, untyped default-edge keys, rebuilt
 uncontrolled-node handler keys and package limits retain the explicit scope in
-[the declarations](distribution/gaps.mjs). The one declared coverage hole is
-\`UnselectNodesAndEdgesParams\`; it is not a missing component implementation.
+[the declarations](distribution/gaps.mjs). Current export observations and any
+declared holes are recorded separately in [coverage](parity/system/coverage.md).
 
 Source paths below are relative to \`xyflow/packages/\`, target paths to \`src/\`.
 Primary ownership and certified source symbols/import consumers are retained.

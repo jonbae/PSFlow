@@ -1,6 +1,6 @@
 {
-  "dateUTC": "2026-11-17",
-  "psflowCommit": "43d08c7607aa0e6ee416574c7f8225c037972536",
+  "dateUTC": "2026-11-20",
+  "psflowCommit": "cc4aedb967751c8630204be8de9fb62a33254ffb",
   "profiles": {
     "E01": {
       "disposition": "Reuse",
@@ -10,9 +10,9 @@
     },
     "E02": {
       "disposition": "Reuse",
-      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. Type presence alone is not the evidence.",
-      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208",
-      "evidenceRefs": ["AAMF_TYPE_CONTRACT_REVIEW.md", "aamf/step4/order-10/README.md", "parity/boundary/chrome-contracts.test.mjs", "parity/boundary/flow-contracts.test.mjs", "AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208", "parity/boundary/node-rendering.test.mjs", "parity/boundary/node-rendering.cases.mjs"]
+      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. The later store-action witness drives UnselectNodesAndEdgesParams through useStoreApi().getState(), with captured calls and selection changes for all four argument forms. Type presence alone is not the evidence.",
+      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208; store-action coverage witness",
+      "evidenceRefs": ["AAMF_TYPE_CONTRACT_REVIEW.md", "aamf/step4/order-10/README.md", "parity/boundary/chrome-contracts.test.mjs", "parity/boundary/flow-contracts.test.mjs", "AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208", "parity/boundary/node-rendering.test.mjs", "parity/boundary/node-rendering.cases.mjs", "parity/system/coverage/store-action.test.mjs", "parity/system/coverage.md"]
     },
     "E03": {
       "disposition": "Reuse",
@@ -94,7 +94,7 @@
     },
     "E16": {
       "disposition": "Reuse",
-      "evidence": "W12's seven formerly unobserved components now have mounted witnesses: built-in/custom edge types and portals on mount, and EdgeToolbar on selection. Orders 6/10 add toolbar subscription and prop-contract comparisons. Coverage records 155/156 driven with one precisely declared type-only observation hole, not an unmounted component.",
+      "evidence": "W12's seven formerly unobserved components now have mounted witnesses: built-in/custom edge types and portals on mount, and EdgeToolbar on selection. Orders 6/10 add toolbar subscription and prop-contract comparisons. Coverage records 156/156 driven after the store-action witness retired the UnselectNodesAndEdgesParams observation hole.",
       "work": "W12 complete; Step 3 H; Step 4 orders 6 and 10",
       "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-h-completion-november-12-utc", "parity/system/coverage.md", "parity/system/coverage/holes.json", "parity/boundary/selector-equality.test.mjs", "parity/boundary/chrome-contracts.test.mjs"]
     },
@@ -123,7 +123,6 @@
     { "id": "store-exclusions", "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-g-completion-november-12-utc", "distribution/gaps.mjs"] },
     { "id": "untyped-default-edge-options-and-uncontrolled-rebuilt-nodes", "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-h-completion-november-12-utc", "distribution/gaps.mjs"] },
     { "id": "module-formats-react-peer-range-and-styles-warning", "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-i-completion-november-13-utc", "distribution/gaps.mjs", "package.json"] },
-    { "id": "declared-UnselectNodesAndEdgesParams-coverage-hole", "evidenceRefs": ["parity/system/coverage/holes.json", "parity/system/coverage.md"] },
     { "id": "permanent-surface-shape-exceptions", "evidenceRefs": ["parity/surface/allowlist.json", "parity/surface/report.md"] }
   ]
 }

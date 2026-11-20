@@ -4,16 +4,16 @@
   "existingProject": true,
   "targetContext": "files",
   "aamfCommit": "7dc475d81ef9796b5b90f57a29475eaafa375753",
-  "psflowCommit": "43d08c7607aa0e6ee416574c7f8225c037972536",
+  "psflowCommit": "cc4aedb967751c8630204be8de9fb62a33254ffb",
   "packages": {
     "react": "12.11.0",
     "system": "0.0.77"
   },
   "review": {
-    "dateUTC": "2026-11-17",
+    "dateUTC": "2026-11-20",
     "profiles": "aamf/step4/order-11/profiles.json",
-    "profilesSha256": "abd3af6c43480f655e6a1df3cd22f8317c2909b747838a203cba952cccc20f51",
-    "mappingSha256": "009752077de24cf92fd79e5e0944d9d67004496fc334700fe5877a21b56729dd",
+    "profilesSha256": "36bdf908ccb8da4a9835dfb0adc5fd9235fa3fbb49de275ff326153c79a4e964",
+    "mappingSha256": "d32c46ec294697a8cb3f56a5dded03d9a696c3c42129b98d9a0177557b0f1963",
     "inventorySha256": "5ec27d3f88d3f3a5a66516d95136a0c45260d2deebe77c368f6a1832e38a2940",
     "importsSha256": "7e4470c29fb402fefb63160a57af56428b81d6ba1035716dd15d7a1f08a08463"
   },
@@ -45,8 +45,8 @@
     },
     "E02": {
       "disposition": "Reuse",
-      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. Type presence alone is not the evidence.",
-      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208",
+      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. The later store-action witness drives UnselectNodesAndEdgesParams through useStoreApi().getState(), with captured calls and selection changes for all four argument forms. Type presence alone is not the evidence.",
+      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208; store-action coverage witness",
       "evidenceRefs": [
         "AAMF_TYPE_CONTRACT_REVIEW.md",
         "aamf/step4/order-10/README.md",
@@ -54,7 +54,9 @@
         "parity/boundary/flow-contracts.test.mjs",
         "AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208",
         "parity/boundary/node-rendering.test.mjs",
-        "parity/boundary/node-rendering.cases.mjs"
+        "parity/boundary/node-rendering.cases.mjs",
+        "parity/system/coverage/store-action.test.mjs",
+        "parity/system/coverage.md"
       ]
     },
     "E03": {
@@ -258,7 +260,7 @@
     },
     "E16": {
       "disposition": "Reuse",
-      "evidence": "W12's seven formerly unobserved components now have mounted witnesses: built-in/custom edge types and portals on mount, and EdgeToolbar on selection. Orders 6/10 add toolbar subscription and prop-contract comparisons. Coverage records 155/156 driven with one precisely declared type-only observation hole, not an unmounted component.",
+      "evidence": "W12's seven formerly unobserved components now have mounted witnesses: built-in/custom edge types and portals on mount, and EdgeToolbar on selection. Orders 6/10 add toolbar subscription and prop-contract comparisons. Coverage records 156/156 driven after the store-action witness retired the UnselectNodesAndEdgesParams observation hole.",
       "work": "W12 complete; Step 3 H; Step 4 orders 6 and 10",
       "evidenceRefs": [
         "AAMF_STEP3_RESULTS.md#order-h-completion-november-12-utc",
@@ -618,8 +620,8 @@
       ],
       "profile": "E02",
       "disposition": "Reuse",
-      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. Type presence alone is not the evidence.",
-      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208",
+      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. The later store-action witness drives UnselectNodesAndEdgesParams through useStoreApi().getState(), with captured calls and selection changes for all four argument forms. Type presence alone is not the evidence.",
+      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208; store-action coverage witness",
       "evidenceRefs": [
         "AAMF_TYPE_CONTRACT_REVIEW.md",
         "aamf/step4/order-10/README.md",
@@ -627,7 +629,9 @@
         "parity/boundary/flow-contracts.test.mjs",
         "AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208",
         "parity/boundary/node-rendering.test.mjs",
-        "parity/boundary/node-rendering.cases.mjs"
+        "parity/boundary/node-rendering.cases.mjs",
+        "parity/system/coverage/store-action.test.mjs",
+        "parity/system/coverage.md"
       ],
       "knownIssues": []
     },
@@ -1240,8 +1244,8 @@
       ],
       "profile": "E02",
       "disposition": "Reuse",
-      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. Type presence alone is not the evidence.",
-      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208",
+      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. The later store-action witness drives UnselectNodesAndEdgesParams through useStoreApi().getState(), with captured calls and selection changes for all four argument forms. Type presence alone is not the evidence.",
+      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208; store-action coverage witness",
       "evidenceRefs": [
         "AAMF_TYPE_CONTRACT_REVIEW.md",
         "aamf/step4/order-10/README.md",
@@ -1249,7 +1253,9 @@
         "parity/boundary/flow-contracts.test.mjs",
         "AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208",
         "parity/boundary/node-rendering.test.mjs",
-        "parity/boundary/node-rendering.cases.mjs"
+        "parity/boundary/node-rendering.cases.mjs",
+        "parity/system/coverage/store-action.test.mjs",
+        "parity/system/coverage.md"
       ],
       "knownIssues": []
     },
@@ -1356,7 +1362,7 @@
       ],
       "profile": "E16",
       "disposition": "Reuse",
-      "evidence": "W12's seven formerly unobserved components now have mounted witnesses: built-in/custom edge types and portals on mount, and EdgeToolbar on selection. Orders 6/10 add toolbar subscription and prop-contract comparisons. Coverage records 155/156 driven with one precisely declared type-only observation hole, not an unmounted component.",
+      "evidence": "W12's seven formerly unobserved components now have mounted witnesses: built-in/custom edge types and portals on mount, and EdgeToolbar on selection. Orders 6/10 add toolbar subscription and prop-contract comparisons. Coverage records 156/156 driven after the store-action witness retired the UnselectNodesAndEdgesParams observation hole.",
       "work": "W12 complete; Step 3 H; Step 4 orders 6 and 10",
       "evidenceRefs": [
         "AAMF_STEP3_RESULTS.md#order-h-completion-november-12-utc",
@@ -1495,8 +1501,8 @@
       ],
       "profile": "E02",
       "disposition": "Reuse",
-      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. Type presence alone is not the evidence.",
-      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208",
+      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. The later store-action witness drives UnselectNodesAndEdgesParams through useStoreApi().getState(), with captured calls and selection changes for all four argument forms. Type presence alone is not the evidence.",
+      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208; store-action coverage witness",
       "evidenceRefs": [
         "AAMF_TYPE_CONTRACT_REVIEW.md",
         "aamf/step4/order-10/README.md",
@@ -1504,7 +1510,9 @@
         "parity/boundary/flow-contracts.test.mjs",
         "AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208",
         "parity/boundary/node-rendering.test.mjs",
-        "parity/boundary/node-rendering.cases.mjs"
+        "parity/boundary/node-rendering.cases.mjs",
+        "parity/system/coverage/store-action.test.mjs",
+        "parity/system/coverage.md"
       ],
       "knownIssues": []
     },
@@ -2026,8 +2034,8 @@
       ],
       "profile": "E02",
       "disposition": "Reuse",
-      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. Type presence alone is not the evidence.",
-      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208",
+      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. The later store-action witness drives UnselectNodesAndEdgesParams through useStoreApi().getState(), with captured calls and selection changes for all four argument forms. Type presence alone is not the evidence.",
+      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208; store-action coverage witness",
       "evidenceRefs": [
         "AAMF_TYPE_CONTRACT_REVIEW.md",
         "aamf/step4/order-10/README.md",
@@ -2035,7 +2043,9 @@
         "parity/boundary/flow-contracts.test.mjs",
         "AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208",
         "parity/boundary/node-rendering.test.mjs",
-        "parity/boundary/node-rendering.cases.mjs"
+        "parity/boundary/node-rendering.cases.mjs",
+        "parity/system/coverage/store-action.test.mjs",
+        "parity/system/coverage.md"
       ],
       "knownIssues": []
     },
@@ -2747,8 +2757,8 @@
       ],
       "profile": "E02",
       "disposition": "Reuse",
-      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. Type presence alone is not the evidence.",
-      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208",
+      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. The later store-action witness drives UnselectNodesAndEdgesParams through useStoreApi().getState(), with captured calls and selection changes for all four argument forms. Type presence alone is not the evidence.",
+      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208; store-action coverage witness",
       "evidenceRefs": [
         "AAMF_TYPE_CONTRACT_REVIEW.md",
         "aamf/step4/order-10/README.md",
@@ -2756,7 +2766,9 @@
         "parity/boundary/flow-contracts.test.mjs",
         "AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208",
         "parity/boundary/node-rendering.test.mjs",
-        "parity/boundary/node-rendering.cases.mjs"
+        "parity/boundary/node-rendering.cases.mjs",
+        "parity/system/coverage/store-action.test.mjs",
+        "parity/system/coverage.md"
       ],
       "knownIssues": []
     },
@@ -3208,8 +3220,8 @@
       ],
       "profile": "E02",
       "disposition": "Reuse",
-      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. Type presence alone is not the evidence.",
-      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208",
+      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. The later store-action witness drives UnselectNodesAndEdgesParams through useStoreApi().getState(), with captured calls and selection changes for all four argument forms. Type presence alone is not the evidence.",
+      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208; store-action coverage witness",
       "evidenceRefs": [
         "AAMF_TYPE_CONTRACT_REVIEW.md",
         "aamf/step4/order-10/README.md",
@@ -3217,7 +3229,9 @@
         "parity/boundary/flow-contracts.test.mjs",
         "AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208",
         "parity/boundary/node-rendering.test.mjs",
-        "parity/boundary/node-rendering.cases.mjs"
+        "parity/boundary/node-rendering.cases.mjs",
+        "parity/system/coverage/store-action.test.mjs",
+        "parity/system/coverage.md"
       ],
       "knownIssues": []
     },
@@ -3509,7 +3523,7 @@
       ],
       "profile": "E16",
       "disposition": "Reuse",
-      "evidence": "W12's seven formerly unobserved components now have mounted witnesses: built-in/custom edge types and portals on mount, and EdgeToolbar on selection. Orders 6/10 add toolbar subscription and prop-contract comparisons. Coverage records 155/156 driven with one precisely declared type-only observation hole, not an unmounted component.",
+      "evidence": "W12's seven formerly unobserved components now have mounted witnesses: built-in/custom edge types and portals on mount, and EdgeToolbar on selection. Orders 6/10 add toolbar subscription and prop-contract comparisons. Coverage records 156/156 driven after the store-action witness retired the UnselectNodesAndEdgesParams observation hole.",
       "work": "W12 complete; Step 3 H; Step 4 orders 6 and 10",
       "evidenceRefs": [
         "AAMF_STEP3_RESULTS.md#order-h-completion-november-12-utc",
@@ -4276,7 +4290,7 @@
       ],
       "profile": "E16",
       "disposition": "Reuse",
-      "evidence": "W12's seven formerly unobserved components now have mounted witnesses: built-in/custom edge types and portals on mount, and EdgeToolbar on selection. Orders 6/10 add toolbar subscription and prop-contract comparisons. Coverage records 155/156 driven with one precisely declared type-only observation hole, not an unmounted component.",
+      "evidence": "W12's seven formerly unobserved components now have mounted witnesses: built-in/custom edge types and portals on mount, and EdgeToolbar on selection. Orders 6/10 add toolbar subscription and prop-contract comparisons. Coverage records 156/156 driven after the store-action witness retired the UnselectNodesAndEdgesParams observation hole.",
       "work": "W12 complete; Step 3 H; Step 4 orders 6 and 10",
       "evidenceRefs": [
         "AAMF_STEP3_RESULTS.md#order-h-completion-november-12-utc",
@@ -4371,7 +4385,7 @@
       ],
       "profile": "E16",
       "disposition": "Reuse",
-      "evidence": "W12's seven formerly unobserved components now have mounted witnesses: built-in/custom edge types and portals on mount, and EdgeToolbar on selection. Orders 6/10 add toolbar subscription and prop-contract comparisons. Coverage records 155/156 driven with one precisely declared type-only observation hole, not an unmounted component.",
+      "evidence": "W12's seven formerly unobserved components now have mounted witnesses: built-in/custom edge types and portals on mount, and EdgeToolbar on selection. Orders 6/10 add toolbar subscription and prop-contract comparisons. Coverage records 156/156 driven after the store-action witness retired the UnselectNodesAndEdgesParams observation hole.",
       "work": "W12 complete; Step 3 H; Step 4 orders 6 and 10",
       "evidenceRefs": [
         "AAMF_STEP3_RESULTS.md#order-h-completion-november-12-utc",
@@ -4450,7 +4464,7 @@
       ],
       "profile": "E16",
       "disposition": "Reuse",
-      "evidence": "W12's seven formerly unobserved components now have mounted witnesses: built-in/custom edge types and portals on mount, and EdgeToolbar on selection. Orders 6/10 add toolbar subscription and prop-contract comparisons. Coverage records 155/156 driven with one precisely declared type-only observation hole, not an unmounted component.",
+      "evidence": "W12's seven formerly unobserved components now have mounted witnesses: built-in/custom edge types and portals on mount, and EdgeToolbar on selection. Orders 6/10 add toolbar subscription and prop-contract comparisons. Coverage records 156/156 driven after the store-action witness retired the UnselectNodesAndEdgesParams observation hole.",
       "work": "W12 complete; Step 3 H; Step 4 orders 6 and 10",
       "evidenceRefs": [
         "AAMF_STEP3_RESULTS.md#order-h-completion-november-12-utc",
@@ -4537,7 +4551,7 @@
       ],
       "profile": "E16",
       "disposition": "Reuse",
-      "evidence": "W12's seven formerly unobserved components now have mounted witnesses: built-in/custom edge types and portals on mount, and EdgeToolbar on selection. Orders 6/10 add toolbar subscription and prop-contract comparisons. Coverage records 155/156 driven with one precisely declared type-only observation hole, not an unmounted component.",
+      "evidence": "W12's seven formerly unobserved components now have mounted witnesses: built-in/custom edge types and portals on mount, and EdgeToolbar on selection. Orders 6/10 add toolbar subscription and prop-contract comparisons. Coverage records 156/156 driven after the store-action witness retired the UnselectNodesAndEdgesParams observation hole.",
       "work": "W12 complete; Step 3 H; Step 4 orders 6 and 10",
       "evidenceRefs": [
         "AAMF_STEP3_RESULTS.md#order-h-completion-november-12-utc",
@@ -6217,7 +6231,7 @@
       ],
       "profile": "E16",
       "disposition": "Reuse",
-      "evidence": "W12's seven formerly unobserved components now have mounted witnesses: built-in/custom edge types and portals on mount, and EdgeToolbar on selection. Orders 6/10 add toolbar subscription and prop-contract comparisons. Coverage records 155/156 driven with one precisely declared type-only observation hole, not an unmounted component.",
+      "evidence": "W12's seven formerly unobserved components now have mounted witnesses: built-in/custom edge types and portals on mount, and EdgeToolbar on selection. Orders 6/10 add toolbar subscription and prop-contract comparisons. Coverage records 156/156 driven after the store-action witness retired the UnselectNodesAndEdgesParams observation hole.",
       "work": "W12 complete; Step 3 H; Step 4 orders 6 and 10",
       "evidenceRefs": [
         "AAMF_STEP3_RESULTS.md#order-h-completion-november-12-utc",
@@ -12004,8 +12018,8 @@
       ],
       "profile": "E02",
       "disposition": "Reuse",
-      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. Type presence alone is not the evidence.",
-      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208",
+      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. The later store-action witness drives UnselectNodesAndEdgesParams through useStoreApi().getState(), with captured calls and selection changes for all four argument forms. Type presence alone is not the evidence.",
+      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208; store-action coverage witness",
       "evidenceRefs": [
         "AAMF_TYPE_CONTRACT_REVIEW.md",
         "aamf/step4/order-10/README.md",
@@ -12013,7 +12027,9 @@
         "parity/boundary/flow-contracts.test.mjs",
         "AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208",
         "parity/boundary/node-rendering.test.mjs",
-        "parity/boundary/node-rendering.cases.mjs"
+        "parity/boundary/node-rendering.cases.mjs",
+        "parity/system/coverage/store-action.test.mjs",
+        "parity/system/coverage.md"
       ],
       "knownIssues": []
     },
@@ -12226,8 +12242,8 @@
       ],
       "profile": "E02",
       "disposition": "Reuse",
-      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. Type presence alone is not the evidence.",
-      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208",
+      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. The later store-action witness drives UnselectNodesAndEdgesParams through useStoreApi().getState(), with captured calls and selection changes for all four argument forms. Type presence alone is not the evidence.",
+      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208; store-action coverage witness",
       "evidenceRefs": [
         "AAMF_TYPE_CONTRACT_REVIEW.md",
         "aamf/step4/order-10/README.md",
@@ -12235,7 +12251,9 @@
         "parity/boundary/flow-contracts.test.mjs",
         "AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208",
         "parity/boundary/node-rendering.test.mjs",
-        "parity/boundary/node-rendering.cases.mjs"
+        "parity/boundary/node-rendering.cases.mjs",
+        "parity/system/coverage/store-action.test.mjs",
+        "parity/system/coverage.md"
       ],
       "knownIssues": []
     },
@@ -13644,8 +13662,8 @@
       ],
       "profile": "E02",
       "disposition": "Reuse",
-      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. Type presence alone is not the evidence.",
-      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208",
+      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. The later store-action witness drives UnselectNodesAndEdgesParams through useStoreApi().getState(), with captured calls and selection changes for all four argument forms. Type presence alone is not the evidence.",
+      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208; store-action coverage witness",
       "evidenceRefs": [
         "AAMF_TYPE_CONTRACT_REVIEW.md",
         "aamf/step4/order-10/README.md",
@@ -13653,7 +13671,9 @@
         "parity/boundary/flow-contracts.test.mjs",
         "AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208",
         "parity/boundary/node-rendering.test.mjs",
-        "parity/boundary/node-rendering.cases.mjs"
+        "parity/boundary/node-rendering.cases.mjs",
+        "parity/system/coverage/store-action.test.mjs",
+        "parity/system/coverage.md"
       ],
       "knownIssues": []
     },
@@ -14523,8 +14543,8 @@
       ],
       "profile": "E02",
       "disposition": "Reuse",
-      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. Type presence alone is not the evidence.",
-      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208",
+      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. The later store-action witness drives UnselectNodesAndEdgesParams through useStoreApi().getState(), with captured calls and selection changes for all four argument forms. Type presence alone is not the evidence.",
+      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208; store-action coverage witness",
       "evidenceRefs": [
         "AAMF_TYPE_CONTRACT_REVIEW.md",
         "aamf/step4/order-10/README.md",
@@ -14532,7 +14552,9 @@
         "parity/boundary/flow-contracts.test.mjs",
         "AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208",
         "parity/boundary/node-rendering.test.mjs",
-        "parity/boundary/node-rendering.cases.mjs"
+        "parity/boundary/node-rendering.cases.mjs",
+        "parity/system/coverage/store-action.test.mjs",
+        "parity/system/coverage.md"
       ],
       "knownIssues": []
     },
@@ -14826,8 +14848,8 @@
       ],
       "profile": "E02",
       "disposition": "Reuse",
-      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. Type presence alone is not the evidence.",
-      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208",
+      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. The later store-action witness drives UnselectNodesAndEdgesParams through useStoreApi().getState(), with captured calls and selection changes for all four argument forms. Type presence alone is not the evidence.",
+      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208; store-action coverage witness",
       "evidenceRefs": [
         "AAMF_TYPE_CONTRACT_REVIEW.md",
         "aamf/step4/order-10/README.md",
@@ -14835,7 +14857,9 @@
         "parity/boundary/flow-contracts.test.mjs",
         "AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208",
         "parity/boundary/node-rendering.test.mjs",
-        "parity/boundary/node-rendering.cases.mjs"
+        "parity/boundary/node-rendering.cases.mjs",
+        "parity/system/coverage/store-action.test.mjs",
+        "parity/system/coverage.md"
       ],
       "knownIssues": []
     },
@@ -14898,8 +14922,8 @@
       ],
       "profile": "E02",
       "disposition": "Reuse",
-      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. Type presence alone is not the evidence.",
-      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208",
+      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. The later store-action witness drives UnselectNodesAndEdgesParams through useStoreApi().getState(), with captured calls and selection changes for all four argument forms. Type presence alone is not the evidence.",
+      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208; store-action coverage witness",
       "evidenceRefs": [
         "AAMF_TYPE_CONTRACT_REVIEW.md",
         "aamf/step4/order-10/README.md",
@@ -14907,7 +14931,9 @@
         "parity/boundary/flow-contracts.test.mjs",
         "AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208",
         "parity/boundary/node-rendering.test.mjs",
-        "parity/boundary/node-rendering.cases.mjs"
+        "parity/boundary/node-rendering.cases.mjs",
+        "parity/system/coverage/store-action.test.mjs",
+        "parity/system/coverage.md"
       ],
       "knownIssues": []
     },
@@ -15486,8 +15512,8 @@
       ],
       "profile": "E02",
       "disposition": "Reuse",
-      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. Type presence alone is not the evidence.",
-      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208",
+      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. The later store-action witness drives UnselectNodesAndEdgesParams through useStoreApi().getState(), with captured calls and selection changes for all four argument forms. Type presence alone is not the evidence.",
+      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208; store-action coverage witness",
       "evidenceRefs": [
         "AAMF_TYPE_CONTRACT_REVIEW.md",
         "aamf/step4/order-10/README.md",
@@ -15495,7 +15521,9 @@
         "parity/boundary/flow-contracts.test.mjs",
         "AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208",
         "parity/boundary/node-rendering.test.mjs",
-        "parity/boundary/node-rendering.cases.mjs"
+        "parity/boundary/node-rendering.cases.mjs",
+        "parity/system/coverage/store-action.test.mjs",
+        "parity/system/coverage.md"
       ],
       "knownIssues": []
     },
@@ -16982,8 +17010,8 @@
       ],
       "profile": "E02",
       "disposition": "Reuse",
-      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. Type presence alone is not the evidence.",
-      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208",
+      "evidence": "Order 10 reviews all 354 members of these 14 units, with earlier store, reference and declaration checks plus 317 server-render and 456 browser contract cases. Twenty discovered gaps are fixed. The rendering follow-ups fix issues 207/208; the browser cases require equality without a known-difference allowance. The later store-action witness drives UnselectNodesAndEdgesParams through useStoreApi().getState(), with captured calls and selection changes for all four argument forms. Type presence alone is not the evidence.",
+      "work": "W10 complete; Step 4 order 10; rendering follow-ups 207/208; store-action coverage witness",
       "evidenceRefs": [
         "AAMF_TYPE_CONTRACT_REVIEW.md",
         "aamf/step4/order-10/README.md",
@@ -16991,7 +17019,9 @@
         "parity/boundary/flow-contracts.test.mjs",
         "AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208",
         "parity/boundary/node-rendering.test.mjs",
-        "parity/boundary/node-rendering.cases.mjs"
+        "parity/boundary/node-rendering.cases.mjs",
+        "parity/system/coverage/store-action.test.mjs",
+        "parity/system/coverage.md"
       ],
       "knownIssues": []
     },
@@ -18379,13 +18409,6 @@
       ]
     },
     {
-      "id": "declared-UnselectNodesAndEdgesParams-coverage-hole",
-      "evidenceRefs": [
-        "parity/system/coverage/holes.json",
-        "parity/system/coverage.md"
-      ]
-    },
-    {
       "id": "permanent-surface-shape-exceptions",
       "evidenceRefs": [
         "parity/surface/allowlist.json",
@@ -18637,7 +18660,7 @@
   },
   "evidenceHashes": {
     "AAMF_STEP2_RESULTS.md": "ee6dbae1d96c411e9a368682a0a133896f77d74a30174dca1b0f339b99ce4760",
-    "AAMF_STEP3_RESULTS.md": "bb4e0f91d5345198678195dad5b7af69dd3877db76c3b45d295e432b7599ce4b",
+    "AAMF_STEP3_RESULTS.md": "dd3f052bc5257f9fac87eed20b8ea424d24cdbed8c4a44ff56b29cbb3d6878fd",
     "AAMF_TYPE_CONTRACT_REVIEW.md": "28f67d3dbf93f2e838fc509847092f625d89c75f0418a7b57d2d12658be8bf72",
     "aamf/step4/order-10/change-shapes-probe.txt": "8c6d6bfab71afcd369751145ec4d49066507ed240d6e41fa975258cc01c60500",
     "aamf/step4/order-10/README.md": "5190d1e86387a62cb9addb593710dd8babce8b18408f71217837319ec34c788b",
@@ -18673,10 +18696,11 @@
     "parity/boundary/user-node.test.mjs": "472c231e0a15a73d431c7d1b8feecca0d8f7fdfb90148b8ce622ea81146fbcc7",
     "parity/boundary/viewport.test.mjs": "65e0d6ddbb4ccbf47158fb91fb4adf5f6f8311406783f0beb3aa1c18ca272078",
     "parity/surface/allowlist.json": "81f3a67b6ce5da47c7a494bc13a66164adecdb350abee1e7c66fd0afa428c6aa",
-    "parity/surface/report.md": "148799d2080fe396c8cbb5a6af2220afca548d47a87b737a0708ca39c10b63fc",
-    "parity/system/coverage.md": "24cb25d4d1a92df8c80c0dee5c6127ebb8b840caeae77013ee3ff236dbd30110",
-    "parity/system/coverage/holes.json": "ab0580aa252ec7004b8bbffde0281872fc2bef7583328ff18edb2879ccadf378",
-    "parity/system/report.md": "b7c4a4ad082f8ce9cff9f6f346f0e5a0576e61200d2150fdc29328f57d435110",
+    "parity/surface/report.md": "30894a7f82135fee375b8b8f11a1de4a25e677711c2ace76b92e93ea9dcf4ac0",
+    "parity/system/coverage.md": "bb7869d45c72c02bd573eb42b655ffff161d18794f9edf43037515898fe37278",
+    "parity/system/coverage/holes.json": "eb02044363b91f66c9b6c692947a1e5ea84dfdc3feed1fb93094c595d7ea28fe",
+    "parity/system/coverage/store-action.test.mjs": "a1c0cacabc4ce7b2069ac8f119e4d90d9be052be585b91976d717169a5a326ff",
+    "parity/system/report.md": "34fca7428fbdc1de36d8dc28c8f5c351a0b04d49c298498385f5a33f9ef7c7c7",
     "src/Boundary.js": "25ef2e7e8ec5d0983c7f37aa97b31e41a9342ebaae76935a77cec06678d432be",
     "test/Test/Boundary/DefaultEdgeOptions.purs": "1acbd95dd2119336e91f5705a175a7c762e191ccca21865bded10a39a300eb38",
     "test/Test/Boundary/NodeResizing.purs": "95d102c4d65d11df9ae8a8b296e1d3d90c01694fca5e0bbad39c34bc75a00ccf",

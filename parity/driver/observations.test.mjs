@@ -109,3 +109,33 @@ test("imperative calls await and serialize their return value", async () => {
     movedTo: { x: 1, y: 2, zoom: 3 },
   });
 });
+
+test("store calls use the current public state and snapshot arguments before mutation", () => {
+  const log = createObservationLog();
+  const node = { id: "n1", selected: true };
+  let state = { unselectNodesAndEdges() { throw new Error("stale state"); } };
+  const store = { getState: () => state };
+  assert.equal("storeCalls" in log.read().api, false, "mounting a store consumer witnesses no action");
+  state = { unselectNodesAndEdges({ nodes }) { nodes[0].selected = false; } };
+
+  log.callStore(store, "unselectNodesAndEdges", [{ nodes: [node] }]);
+  const expected = [{ method: "unselectNodesAndEdges", args: [{ nodes: [{ id: "n1", selected: true }] }], result: { "@undefined": true } }];
+  assert.equal(node.selected, false);
+  assert.deepEqual(log.read().api.storeCalls, expected);
+  const snapshot = log.read();
+  snapshot.api.storeCalls[0].args[0].nodes[0].selected = false;
+  assert.deepEqual(log.read().api.storeCalls, expected, "readers cannot rewrite an invocation receipt");
+});
+
+test("store receipts distinguish no arguments from empty options and retain thrown answers", () => {
+  const log = createObservationLog();
+  const store = { getState: () => ({ unselectNodesAndEdges() { throw new Error("action failed"); } }) };
+  log.callStore(store, "unselectNodesAndEdges");
+  log.callStore(store, "unselectNodesAndEdges", [{}]);
+  assert.deepEqual(log.read().api.storeCalls.map(({ args, result }) => ({ args, result })), [
+    { args: [], result: { error: "action failed" } },
+    { args: [{}], result: { error: "action failed" } },
+  ]);
+  assert.throws(() => log.callStore(store, "missing"), /store has no action/);
+  assert.equal(log.read().api.storeCalls.length, 2, "an absent action is not an invocation");
+});

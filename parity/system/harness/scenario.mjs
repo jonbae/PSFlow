@@ -36,7 +36,7 @@ const observationSections = ({ installed, hooks, api, props, failures }) => {
         failures.map(({ path, error }) => `  - ${path}: ${error}`).join("\n")
     );
   }
-  return { hooks, queries: api.queries, props };
+  return { hooks, api, props };
 };
 
 // The flow's root element. It is what the mount waits for, and its box is the
@@ -275,7 +275,7 @@ export const runScenario = async (
       dom,
       callbacks: callbacksSection(await port.callbacks()),
       hooks: observed.hooks,
-      api: { queries: observed.queries, calls: apiCalls },
+      api: { ...observed.api, calls: apiCalls },
       props: observed.props,
       console: consoleEntries,
       driving: log.entries(),

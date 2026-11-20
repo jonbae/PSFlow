@@ -51,6 +51,7 @@ const NODES = routeOf("./nodes/general.ts");
 const AUTOPAN = routeOf("./nodes/autopan.ts");
 const VIEWPORT_HELPERS = routeOf("./viewport/helpers.ts");
 const NODE_EXTENT = routeOf("./nodes/node-extent.ts");
+const UNSELECT = routeOf("./flow/unselect.ts");
 
 const control = (name) => `[data-testid="${name}"]`;
 
@@ -366,5 +367,16 @@ holeClosing.push(
     },
   }
 );
+
+// UnselectNodesAndEdgesParams belongs to a store action, not the flow instance.
+// Drive a consumer control through the existing click vocabulary; api.storeCalls
+// records the invocation while callbacks and settled queries observe its effect.
+for (const kind of ["no-argument", "empty-options", "nodes", "edges"]) {
+  holeClosing.push({
+    id: `store-unselect-${kind}`,
+    route: UNSELECT,
+    run: (a) => a.click(control(`unselect-${kind}`)),
+  });
+}
 
 export const holeClosingScenarios = holeClosing.map(defineScenario);
