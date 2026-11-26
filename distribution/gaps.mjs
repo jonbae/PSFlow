@@ -41,14 +41,6 @@ export const NOTES = [
       'with an unchanged value.',
   },
   {
-    id: 'uncontrolled-rebuilt-nodes',
-    accepted: 'Step 3 H, precise exclusions',
-    text:
-      'In an uncontrolled flow, a node that ps-flow\'s own `applyNodeChanges` rebuilt has no ' +
-      'consumer object behind it. A later handler receives the members ps-flow models, without ' +
-      'keys the consumer added outside them.',
-  },
-  {
     id: 'styles-warning',
     accepted: 'Step 3 I',
     text:

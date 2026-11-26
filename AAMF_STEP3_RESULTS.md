@@ -1086,6 +1086,21 @@ covered functions; `getInternalNodesBounds` and `getNodesInside` stay deferred.
   flow, has no consumer object behind it, so a later handler receives the
   members ps-flow models.
 
+That was the Order H checkpoint. Two later follow-ups retire both:
+
+- The default-edge follow-up spreads the whole `defaultEdgeOptions` object
+  under each edge before decoding it, so a key outside the type, such as
+  `pathOptions`, `selected` or a handle id, reaches rendering, position
+  lookup, handler payloads and uncontrolled edge creation.
+  `parity/boundary/edge-fields.test.mjs` compares the render with upstream's,
+  and `edges/default-options.ts` sets such keys in the browser fixture.
+- The uncontrolled-node follow-up keeps a copy of each consumer node beside
+  the record a change rebuilds, and overlays only the fields the change
+  writes. `parity/boundary/user-node.test.mjs` compares later reads and the
+  delete callback with upstream's.
+
+The declarations no longer list either difference.
+
 ### Evidence
 
 | Check | Result |
@@ -1231,6 +1246,13 @@ the layout effect on the server.
   later; ps-flow claims only the version its gates run.
 - The development warning for missing styles keeps upstream's wording, which
   names `@xyflow/react/dist/style.css`.
+
+That was the Order I checkpoint. The later UMD build work retires the first:
+`dist/umd/index.js`, at upstream's path, serves `require('ps-flow')`, AMD
+loaders and classic scripts through the `ReactFlow` global, as upstream's UMD
+build does. `parity:package` checks that all three expose `index.js`'s names
+and shapes and render the same markup. The peer range, since narrowed to
+`^18.3.1`, and the styles warning remain.
 
 ### Evidence
 

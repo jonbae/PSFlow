@@ -180,9 +180,8 @@ starting gaps; their completions and later checks are linked below.
 
 **Reuse** means retain the completed implementation and its cited evidence;
 it does not assert exhaustive equivalence of every branch. ${remainingIssues}
-The store's residual write differences, untyped default-edge keys, rebuilt
-uncontrolled-node handler keys and package limits retain the explicit scope in
-[the declarations](distribution/gaps.mjs). Current export observations and any
+The store's residual write differences and package limits retain the explicit
+scope in [the declarations](distribution/gaps.mjs). Current export observations and any
 declared holes are recorded separately in [coverage](parity/system/coverage.md).
 
 Source paths below are relative to \`xyflow/packages/\`, target paths to \`src/\`.

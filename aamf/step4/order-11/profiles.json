@@ -1,6 +1,6 @@
 {
-  "dateUTC": "2026-11-20",
-  "psflowCommit": "4cff920da206149a75acb411b6dfd93d7b162d58",
+  "dateUTC": "2026-11-26",
+  "psflowCommit": "71e36c0f4508d34538785c9300b93b0244526f27",
   "profiles": {
     "E01": {
       "disposition": "Reuse",
@@ -34,15 +34,15 @@
     },
     "E06": {
       "disposition": "Reuse",
-      "evidence": "W03 preserves untouched references, touched/add/replace spread semantics, enumerable keys and present-undefined values in JS change/add helpers; the three issue-150 return exceptions retired. Order 10's 53-shape change probe also matches. Internally rebuilt uncontrolled nodes retain the separately documented handler-key exclusion.",
-      "work": "W03 complete; Step 3 H; Step 4 order 10",
-      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#consumer-objects-step-3-c--w03-november-10", "parity/boundary/consumer-objects.test.mjs", "test/Test/Parity/Changes.purs", "aamf/step4/order-10/change-shapes-probe.txt", "distribution/gaps.mjs"]
+      "evidence": "W03 preserves untouched references, touched/add/replace spread semantics, enumerable keys and present-undefined values in JS change/add helpers; the three issue-150 return exceptions retired. Order 10's 53-shape change probe also matches. The uncontrolled-node follow-up retires the handler-key exclusion: a node the store's own changes rebuild in an uncontrolled flow keeps the consumer's fields through later reads and delete callbacks, against upstream.",
+      "work": "W03 complete; Step 3 H; Step 4 order 10; uncontrolled-node follow-up",
+      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#consumer-objects-step-3-c--w03-november-10", "parity/boundary/consumer-objects.test.mjs", "test/Test/Parity/Changes.purs", "aamf/step4/order-10/change-shapes-probe.txt", "parity/boundary/user-node.test.mjs", "test/Test/Boundary/UserNode.purs"]
     },
     "E07": {
       "disposition": "Reuse",
-      "evidence": "W04 retains original internals.userNode references; Orders G/H cover live store lookups, instance reads, handler payloads and consumer keys. Orders 7/9 compare adoption and internal-node geometry, including ordering. The rendering follow-ups preserve internal-node identity during selection and keep the cached JavaScript views current. The explicit store/uncontrolled-node exclusions remain.",
-      "work": "W04 complete; Step 3 G/H; Step 4 orders 7 and 9; rendering follow-ups 207/208",
-      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#original-node-provenance-step-3-d--w04-november-10", "parity/boundary/user-node.test.mjs", "parity/boundary/references.test.mjs", "parity/boundary/store.test.mjs", "test/Test/Parity/Adoption.purs", "test/Test/Parity/InternalNodes.purs", "AAMF_TYPE_CONTRACT_REVIEW.md#differences-routed-to-issues", "distribution/gaps.mjs", "AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208", "parity/boundary/node-rendering.test.mjs", "parity/boundary/node-rendering.cases.mjs", "test/Test/React/Store/InPlaceSelection.purs"]
+      "evidence": "W04 retains original internals.userNode references; Orders G/H cover live store lookups, instance reads, handler payloads and consumer keys. Orders 7/9 compare adoption and internal-node geometry, including ordering. The rendering follow-ups preserve internal-node identity during selection and keep the cached JavaScript views current. The uncontrolled-node follow-up keeps the consumer's fields on rebuilt uncontrolled nodes, against upstream. The declarations list the store's residual write differences.",
+      "work": "W04 complete; Step 3 G/H; Step 4 orders 7 and 9; rendering follow-ups 207/208; uncontrolled-node follow-up",
+      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#original-node-provenance-step-3-d--w04-november-10", "parity/boundary/user-node.test.mjs", "test/Test/Boundary/UserNode.purs", "parity/boundary/references.test.mjs", "parity/boundary/store.test.mjs", "test/Test/Parity/Adoption.purs", "test/Test/Parity/InternalNodes.purs", "AAMF_TYPE_CONTRACT_REVIEW.md#differences-routed-to-issues", "distribution/gaps.mjs", "AAMF_TYPE_CONTRACT_REVIEW.md#rendering-follow-ups-207-and-208", "parity/boundary/node-rendering.test.mjs", "parity/boundary/node-rendering.cases.mjs", "test/Test/React/Store/InPlaceSelection.purs"]
     },
     "E08": {
       "disposition": "Reuse",
@@ -100,9 +100,9 @@
     },
     "E17": {
       "disposition": "Reuse",
-      "evidence": "W07 implements all 23 typed defaultEdgeOptions members plus the dependent edge/node members, merges present-undefined overrides and default markers, and removes the refusal table. Fields and onConnect/merge are compared with upstream. Keys outside DefaultEdgeOptions remain an explicit compatibility exclusion.",
-      "work": "W07 complete; Step 3 G/H; Step 4 orders 3, 4 and 10",
-      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-g-completion-november-12-utc", "parity/boundary/edge-fields.test.mjs", "test/Test/Boundary/DefaultEdgeOptions.purs", "parity/boundary/type-fallback.test.mjs", "distribution/gaps.mjs", "AAMF_TYPE_CONTRACT_REVIEW.md"]
+      "evidence": "W07 implements all 23 typed defaultEdgeOptions members plus the dependent edge/node members, merges present-undefined overrides and default markers, and removes the refusal table. Fields and onConnect/merge are compared with upstream. The default-edge follow-up retires the untyped-key exclusion: the merge spreads every key, including keys outside DefaultEdgeOptions such as pathOptions, selected and handle ids, so they reach rendering, handler payloads and uncontrolled edge creation, against upstream and in the browser fixture.",
+      "work": "W07 complete; Step 3 G/H; Step 4 orders 3, 4 and 10; default-edge follow-up",
+      "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-g-completion-november-12-utc", "parity/boundary/edge-fields.test.mjs", "test/Test/Boundary/DefaultEdgeOptions.purs", "parity/boundary/type-fallback.test.mjs", "parity/system/fixtures/edges/default-options.ts", "AAMF_TYPE_CONTRACT_REVIEW.md"]
     },
     "E18": {
       "disposition": "Accepted difference",
@@ -121,8 +121,7 @@
   "remainingIssues": [],
   "compatibilityLimits": [
     { "id": "store-write-residuals", "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-g-completion-november-12-utc", "parity/boundary/store.test.mjs", "distribution/gaps.mjs"] },
-    { "id": "untyped-default-edge-options-and-uncontrolled-rebuilt-nodes", "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-h-completion-november-12-utc", "distribution/gaps.mjs"] },
-    { "id": "module-formats-react-peer-range-and-styles-warning", "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-i-completion-november-13-utc", "distribution/gaps.mjs", "package.json"] },
+    { "id": "react-peer-range-and-styles-warning", "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-i-completion-november-13-utc", "distribution/gaps.mjs", "package.json"] },
     { "id": "permanent-surface-shape-exceptions", "evidenceRefs": ["parity/surface/allowlist.json", "parity/surface/report.md"] }
   ]
 }
