@@ -56,12 +56,4 @@ export const NOTES = [
       '`@xyflow/react/dist/style.css`. ps-flow\'s stylesheets are `ps-flow/dist/style.css` and ' +
       '`ps-flow/dist/base.css`, byte-identical to upstream\'s.',
   },
-  {
-    id: 'module-formats',
-    accepted: 'Step 3 I',
-    text:
-      'ps-flow is published as one ES module. Upstream also publishes a UMD build for `require` ' +
-      'and a browser global; ps-flow has neither. Node versions that load ES modules through ' +
-      '`require` can still `require("ps-flow")`.',
-  },
 ];

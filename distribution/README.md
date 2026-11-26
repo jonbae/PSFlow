@@ -8,6 +8,19 @@ import { ReactFlow, Background } from 'ps-flow';
 import 'ps-flow/dist/style.css';
 ```
 
+CommonJS consumers can call `require('ps-flow')`. The same UMD artifact
+supports AMD with `react` and `react-dom` as loader dependencies. For a classic
+browser script, serve the files from the installed packages and load React 18
+and React DOM 18 before ps-flow. The library is available as
+`window.ReactFlow`, with the component at `window.ReactFlow.ReactFlow`.
+
+```html
+<link rel="stylesheet" href="ps-flow/dist/style.css">
+<script src="react/umd/react.production.min.js"></script>
+<script src="react-dom/umd/react-dom.production.min.js"></script>
+<script src="ps-flow/dist/umd/index.js"></script>
+```
+
 ```sh
 npm run build:package   # spago build, then distribution/build.mjs: writes dist/
 npm run parity:package  # pack, install into a scratch consumer, check it
@@ -22,6 +35,7 @@ npm run test:package    # node --test over the declaration pipeline
 | File | Built from | Why this way |
 |---|---|---|
 | `index.js` | `index.js` and the compiled PureScript it reaches, bundled by esbuild into one ES module | `output/` is 145 MB of compiler artifacts. The bundle inlines only `index.js` and `output/`; the build fails if it inlines anything else, or if the packages it imports are not exactly the manifest's runtime `dependencies` and `peerDependencies`. |
+| `umd/index.js` | The same entry bundled with D3 and the production JSX runtime | CommonJS, AMD and classic scripts share this artifact. React and React DOM are supplied by the host. The bundle uses production mode. |
 | `index.d.ts`, `types/` | Upstream's declarations, generated from the vendored source | See [the declarations](#the-declarations). |
 | `style.css`, `base.css` | The pinned `@xyflow/react`'s published stylesheets, byte for byte | Upstream builds them with five PostCSS plugins this repo does not have, and these exact files are what the driver page loads on both sides of every net run. |
 | `xyflow-LICENSE` | `xyflow/LICENSE` | The declarations and stylesheets are copies of upstream's, under its MIT license. |
@@ -68,7 +82,7 @@ whose text no longer occurs once fails the build as stale. The register has no
 overlays. A **note** goes into the header of `dist/index.d.ts`, which lists
 every difference: what the store's internals hold for values they cannot
 convert, whole-state replacement, handlers on rebuilt nodes in an uncontrolled
-flow, the styles warning's wording, and the absence of a UMD build.
+flow, and the styles warning's wording.
 
 The documentation comments are otherwise upstream's, and so is the behavior
 they describe. ps-flow matches it where its gates say so; behavior no gate
@@ -83,8 +97,8 @@ checks that:
 - The tarball holds `package.json`, `README.md` and `dist/`, including every
   path the manifest's `main`, `types` and `exports` name.
 - `import 'ps-flow'` publishes the names `index.js` publishes, each with the
-  same `typeof`, arity and React wrapper kind. `require('ps-flow')` reaches the
-  same names on a Node version that loads ES modules through `require`.
+  same `typeof`, arity and React wrapper kind. The UMD build exposes the same
+  API and renders the same markup through CommonJS, AMD and a classic script.
 - A flow with the chrome components renders the same markup through the
   package as through `index.js` and logs nothing. An esbuild bundle of a
   consumer that imports the package and `ps-flow/dist/style.css` does too.

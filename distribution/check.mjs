@@ -12,11 +12,11 @@
 //      `exports` name is in it.
 //   2. **The module.** `import 'ps-flow'` publishes the names `index.js`
 //      publishes, each with the same shape: `typeof`, arity and React wrapper
-//      kind, which is what surface parity compares against upstream. `require`
-//      reaches the same names.
+//      kind, which is what surface parity compares against upstream.
+//      The UMD paths expose the same shapes.
 //   3. **A render.** A flow with the chrome components renders to the same
 //      markup through the package as through `index.js`, and logs nothing.
-//      So does a consumer's bundle of the package and its stylesheet.
+//      This also covers each UMD path and an ESM consumer bundle with CSS.
 //   4. **The stylesheets** are the bytes the driver page loads on both sides of
 //      every net run: upstream's, from the pinned package.
 //   5. **The declarations** type-check a consumer (`consumer/consumer.tsx`)
@@ -119,10 +119,10 @@ check('the tarball holds package.json, README.md and dist/ only', () => {
 check('every entry point the manifest names is in the tarball', () => {
   const targets = (value) =>
     typeof value === 'string' ? [value] : Object.values(value).flatMap((inner) => targets(inner));
-  const named = new Set([pkg.main, pkg.types, ...targets(pkg.exports)].map((path) => path.replace(/^\.\//, '')));
+  const named = new Set([pkg.main, pkg.module, pkg.types, ...targets(pkg.exports)].map((path) => path.replace(/^\.\//, '')));
   const missing = [...named].filter((path) => !packedFiles.includes(path));
   if (missing.length) fail(`named but not packed: ${missing.join(', ')}`);
-  for (const path of ['dist/xyflow-LICENSE', 'dist/types/react/index.d.ts']) {
+  for (const path of ['dist/xyflow-LICENSE', 'dist/types/react/index.d.ts', 'dist/umd/package.json']) {
     if (!packedFiles.includes(path)) fail(`${path} is not packed`);
   }
 });
@@ -184,9 +184,37 @@ process.stdout.write(JSON.stringify(out));
 );
 
 writeFileSync(
-  join(consumer, 'require.cjs'),
-  `const library = require('ps-flow');
-process.stdout.write(JSON.stringify(Object.keys(library).filter((key) => key !== '__esModule').sort()));
+  join(consumer, 'umd.mjs'),
+  `import { readFileSync } from 'node:fs';
+import { createRequire } from 'node:module';
+import { runInNewContext } from 'node:vm';
+import { shapeOf } from ${JSON.stringify(shapeModule)};
+import { render } from './render.mjs';
+
+const require = createRequire(import.meta.url);
+const file = require.resolve('ps-flow/dist/umd/index.js');
+if (require.resolve('ps-flow') !== file) throw new Error('require did not resolve to the UMD build');
+
+const React = require('react');
+const ReactDOM = require('react-dom');
+const script = readFileSync(file, 'utf8');
+const { ResizeObserver } = globalThis;
+const globals = { React, ReactDOM, ResizeObserver };
+runInNewContext(script, globals, { filename: file });
+let amd;
+function define(dependencies, factory) {
+  amd = factory(...dependencies.map((name) => require(name)));
+}
+define.amd = {};
+runInNewContext(script, { define, ResizeObserver }, { filename: file });
+
+const results = Object.entries({ CommonJS: require('ps-flow'), AMD: amd, global: globals.ReactFlow })
+  .map(([mode, library]) => {
+    const names = Object.keys(library).sort();
+    const shapes = Object.fromEntries(names.map((name) => [name, shapeOf(library[name])]));
+    return { mode, surface: { names, shapes }, rendered: render(library) };
+  });
+process.stdout.write(JSON.stringify(results));
 `
 );
 
@@ -206,11 +234,6 @@ check("import 'ps-flow' publishes index.js's names, each in the same shape", () 
   if (differ.length) fail(`shapes differ: ${differ.join(', ')}`);
 });
 
-check("require('ps-flow') reaches the same names", () => {
-  const names = JSON.parse(run(process.execPath, ['require.cjs'], consumer).stdout);
-  if (!isDeepStrictEqual(names, indexSurface.names)) fail(`require reaches ${names.join(', ')}`);
-});
-
 // ── 3. A render ────────────────────────────────────────────────────────
 
 const packedRender = probe('render', 'ps-flow');
@@ -220,6 +243,14 @@ check('a flow renders the same markup through the package as through index.js, a
   if (packedRender.html !== indexRender.html) fail('the markup differs');
   if (!packedRender.html.includes('react-flow__panel top left')) fail('the panel did not render');
   if (packedRender.logged.length) fail(`the render logged ${JSON.stringify(packedRender.logged)}`);
+});
+
+check('UMD exposes the same API and renders the same flow in CommonJS, AMD and script contexts', () => {
+  const results = JSON.parse(run(process.execPath, ['umd.mjs'], consumer).stdout);
+  for (const { mode, surface, rendered } of results) {
+    if (!isDeepStrictEqual(surface, indexSurface)) fail(`${mode} export shapes differ`);
+    if (!isDeepStrictEqual(rendered, indexRender)) fail(`${mode} render differs`);
+  }
 });
 
 writeFileSync(
