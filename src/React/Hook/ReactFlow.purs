@@ -43,6 +43,7 @@ import React.Context.Batch (BatchContext, QueueItem(..), useBatchContext, Opaque
 import React.Hook.Store (UseStore, UseStoreApi, useStore, useStoreApi)
 import React.Hook.ViewportHelper (UseViewportHelper, useViewportHelper)
 import React.Store.Action (Action(..))
+import React.Store.Partial (partial)
 import React.Store.FitViewResolver (awaitFitView, newFitViewResolver)
 import React.Store.Shell (Store)
 import React.Types.Edges (Edge)
@@ -404,10 +405,10 @@ fitView store batchContext mOpts = do
     Just existing -> pure existing
     Nothing -> newFitViewResolver
   liftEffect $ store.dispatch
-    ( PatchState \st -> st
-        { fitViewQueued = true
-        , fitViewOptions = mOpts
-        , fitViewResolver = Just resolver
+    ( Assign $ partial
+        { fitViewQueued: true
+        , fitViewOptions: mOpts
+        , fitViewResolver: Just resolver
         }
     )
   liftEffect $ batchContext.nodeQueue.push (QueueUpdate \xs -> xs)

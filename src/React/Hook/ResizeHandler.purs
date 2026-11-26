@@ -23,6 +23,7 @@ import React.Basic.Hooks as React
 import React.FFI.ResizeObserver (createResizeObserver, disconnect, observe)
 import React.Hook.Store (UseStoreApi, useStoreApi)
 import React.Store.Action (Action(..))
+import React.Store.Partial (partial)
 import System.Utils.Dom (getDimensions)
 import System.Constants (ErrorCode(..), errorMessage)
 import Data.Foldable (for_)
@@ -71,7 +72,7 @@ useResizeHandler divRef onResize = coerceHook React.do
               let
                 w' = if w == 0.0 then 500.0 else w
                 h' = if h == 0.0 then 500.0 else h
-              store.dispatch (PatchState \s -> s { width = w', height = h' })
+              store.dispatch (Assign (partial { width: w', height: h' }))
               case onResize of
                 Just cb -> cb w' h'
                 Nothing -> pure unit

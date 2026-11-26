@@ -31,6 +31,7 @@ import React.Hook.KeyPress (KeyPressTarget(..), UseKeyPressHook, defaultUseKeyPr
 import React.Hook.ReactFlow (UseReactFlow, useReactFlow)
 import React.Hook.Store (UseStoreApi, useStoreApi)
 import React.Store.Action (Action(..))
+import React.Store.Partial (partial)
 import React.Store.Shell (Store)
 import React.Types.Instance (DeleteElementsOptions)
 import System.Types.Connection (KeyCode)
@@ -69,7 +70,7 @@ useGlobalKeyHandler opts = coerceHook React.do
     pure (pure unit)
   useEffect multiPressed do
     store.dispatch
-      (PatchState \s -> s { multiSelectionActive = multiPressed })
+      (Assign (partial { multiSelectionActive: multiPressed }))
     pure (pure unit)
 
 -- | The body of upstream's delete-key effect:
@@ -98,7 +99,7 @@ deleteSelectedElements store deleteElements = do
             }
         )
     )
-  store.setState \st -> st { nodesSelectionActive = false }
+  store.dispatch (Assign (partial { nodesSelectionActive: false }))
   where
   selected :: forall a. { selected :: Maybe Boolean | a } -> Boolean
   selected item = item.selected == Just true

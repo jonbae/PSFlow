@@ -36,6 +36,8 @@ import Prelude
 import Data.Either (Either(..))
 import Data.Foldable (for_)
 import Data.Maybe (Maybe(..))
+import React.Store.Action (Action(..))
+import React.Store.Partial (partial, partialWhen)
 import Data.Newtype (class Newtype)
 import Data.Nullable (Nullable, toMaybe, toNullable)
 import Effect (Effect)
@@ -151,9 +153,9 @@ zoomPane =
               , translateExtent: props.translateExtent
               , viewport: props.defaultViewport
               , onDraggingChange: \dragging ->
-                  store.setState \prev ->
-                    if prev.paneDragging == dragging then prev
-                    else prev { paneDragging = dragging }
+                  store.dispatch $ Assign $ partialWhen \prev ->
+                    if prev.paneDragging == dragging then Nothing
+                    else Just { paneDragging: dragging }
               , onPanZoomStart: Just \evt vp -> do
                   s <- store.getState
                   for_ s.onMoveStart \cb -> cb (mouseFromEvt evt) vp
@@ -170,10 +172,10 @@ zoomPane =
             writeRef panZoomRef (Just inst)
             vp <- inst.getViewport
             rootDiv <- closestReactFlowRootImpl divEl
-            store.setState \s -> s
-              { panZoom = Just inst
-              , transform = mkTransform vp.x vp.y vp.zoom
-              , domNode = toMaybe rootDiv
+            store.dispatch $ Assign $ partial
+              { panZoom: Just inst
+              , transform: mkTransform vp.x vp.y vp.zoom
+              , domNode: toMaybe rootDiv
               }
             pure do
               mInst <- readRef panZoomRef
@@ -207,7 +209,7 @@ zoomPane =
                   for_ props.onViewportChange \cb ->
                     cb { x: t.tx, y: t.ty, zoom: t.scale }
                   when (not props.isControlledViewport) do
-                    store.setState \s -> s { transform = Transform t }
+                    store.dispatch (Assign (partial { transform: Transform t }))
               , connectionInProgress:
                   (case slice of ZoomPaneSlice s -> s.connectionInProgress)
               , selectionOnDrag: props.selectionOnDrag

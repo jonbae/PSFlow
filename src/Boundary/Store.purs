@@ -39,11 +39,18 @@
 -- | assignment, `getState().x = v`, writes into the live state and notifies
 -- | nobody, which is what the same line does to upstream's plain object.
 -- |
+-- | A state's keys come in upstream's order: `createStore`'s, then each key
+-- | in the order a `set` first named it. Every internal write names the
+-- | members upstream's `set` names, through `React.Store.Partial` or the
+-- | reducer's `writes`.
+-- |
 -- | `setState(next, true)`, or a partial that is not an object, replaces the
--- | state, and `getState()` then returns `next` itself: its member properties
--- | become accessors over the new PureScript state, in place. Each later
--- | state is `Object.assign({}, state, partial)` over it, so a member `next`
--- | left out stays out until something writes it.
+-- | state, and `getState()` then returns `next` itself, untouched. Each later
+-- | state is `Object.assign({}, state, partial)` over it, a plain object, so
+-- | a member `next` left out comes back at the first `set` that names it.
+-- | Upstream's internals read such a state with `get().member`, so ps-flow's
+-- | are brought up to date with the object before each read: a direct write
+-- | into it, or a member it inherits, is what they use.
 -- |
 -- | ## What a write leaves the internals
 -- |
@@ -175,7 +182,7 @@ import Foreign.Object (Object)
 import React.FFI.Env (isDevelopment)
 import React.Store.Action (Action(..))
 import React.Store.PanBy (panBy) as StorePanBy
-import React.Store.InitialState (defaultOnError)
+import React.Store.InitialState (defaultOnError, initialStateKeys)
 import React.Store.Shell (Store)
 import React.Store.InPlace (mirrorInPlace)
 import React.Types.Edges (DefaultEdgeOptions, Edge)
@@ -248,7 +255,9 @@ type ViewSpec =
   , patch :: (State -> State) -> Effect Unit
   , mutate :: (State -> State) -> Effect Unit
   , subscribeStates :: (State -> State -> Effect Unit) -> Effect (Effect Unit)
-  , observeTransitions :: (State -> State -> Boolean -> Effect Unit) -> Effect Unit
+  , observeTransitions :: (State -> State -> Array String -> Effect Unit) -> Effect Unit
+  , beforeRead :: (State -> Effect Unit) -> Effect Unit
+  , mirror :: Foreign
   , keys :: Array String
   , fields :: Object Foreign
   , actions :: Foreign
@@ -282,6 +291,8 @@ viewSpec store =
   , mutate: \f -> store.dispatch (MutateState f)
   , subscribeStates: store.subscribeStates
   , observeTransitions: store.observeTransitions
+  , beforeRead: store.beforeRead
+  , mirror: unsafeToForeign (mirrorInPlace :: (State -> State -> State) -> State -> State -> State)
   , keys: stateKeys
   , fields: unsafeCoerce stateFields
   , actions: actionsOut store
@@ -296,23 +307,13 @@ viewSpec store =
 -- | callbacks `StoreUpdater` adds. The view places the 20 actions between the
 -- | two, where `createStore` spreads them.
 stateKeys :: Array String
-stateKeys =
-  [ "rfId", "width", "height", "transform", "nodes", "nodesInitialized", "nodeLookup"
-  , "parentLookup", "edges", "edgeLookup", "connectionLookup", "onNodesChange"
-  , "onEdgesChange", "hasDefaultNodes", "hasDefaultEdges", "panZoom", "minZoom"
-  , "maxZoom", "translateExtent", "nodeExtent", "nodesSelectionActive"
-  , "userSelectionActive", "userSelectionRect", "connectionMode", "domNode"
-  , "paneDragging", "noPanClassName", "nodeOrigin", "nodeDragThreshold"
-  , "connectionDragThreshold", "snapGrid", "snapToGrid", "nodesDraggable"
-  , "nodesConnectable", "nodesFocusable", "edgesFocusable", "edgesReconnectable"
-  , "elementsSelectable", "elevateNodesOnSelect", "elevateEdgesOnSelect"
-  , "selectNodesOnDrag", "multiSelectionActive", "fitViewQueued", "fitViewOptions"
-  , "fitViewResolver", "connection", "connectionClickStartHandle", "connectOnClick"
-  , "ariaLiveMessage", "autoPanOnConnect", "autoPanOnNodeDrag", "autoPanOnNodeFocus"
-  , "autoPanSpeed", "connectionRadius", "onError", "isValidConnection"
-  , "onSelectionChangeHandlers", "lib", "debug", "ariaLabelConfig", "zIndexMode"
-  , "onNodesChangeMiddlewareMap", "onEdgesChangeMiddlewareMap"
-  , "onNodeDragStart", "onNodeDrag", "onNodeDragStop", "onSelectionDragStart"
+stateKeys = initialStateKeys <> optionalKeys
+
+-- | The 22 members upstream's initial state leaves out, which a state has
+-- | once something writes them.
+optionalKeys :: Array String
+optionalKeys =
+  [ "onNodeDragStart", "onNodeDrag", "onNodeDragStop", "onSelectionDragStart"
   , "onSelectionDrag", "onSelectionDragStop", "onMoveStart", "onMove", "onMoveEnd"
   , "onConnect", "onConnectStart", "onConnectEnd", "onClickConnectStart"
   , "onClickConnectEnd", "defaultEdgeOptions", "onNodesDelete", "onEdgesDelete"

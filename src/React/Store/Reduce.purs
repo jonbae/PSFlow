@@ -22,6 +22,7 @@ import Data.Tuple (Tuple(..))
 import React.Store.Action
   ( Action(..)
   , Effect_(..)
+  , FitInputs
   , NodeInternalsResult
   )
 import React.Store.InPlace (inPlace, inPlaceThen)
@@ -33,7 +34,8 @@ import React.Store.Changes
   , getEdgeSelectionChanges
   , getNodeSelectionChanges
   )
-import React.Store.InitialState (resetState)
+import React.Store.InitialState (initialStateKeys, resetState)
+import React.Store.Partial (applyPartial)
 import React.Types.Edges (Edge)
 import React.Types.General (UnselectNodesAndEdgesParams)
 import React.Types.Nodes (Node)
@@ -42,7 +44,7 @@ import System.Types.Connection (ConnectionState(..), noConnection)
 import System.Types.Edge (EdgeBase, EdgeChange(..))
 import System.Types.Ids (NodeId)
 import System.Types.Geometry (CoordinateExtent, Position(..))
-import System.Types.Node (InternalNodeBase, NodeChange(..), NodeDragItem)
+import System.Types.Node (InternalNodeBase, NodeChange(..), NodeDragItem, NodeLookup)
 import System.Utils.Edges.Positions (getHandlePosition)
 import System.Utils.Store
   ( adoptUserNodes
@@ -52,9 +54,15 @@ import System.Utils.Store
   , updateConnectionLookup
   )
 
+-- | `writes` names the members upstream's `set` calls for the same action
+-- | name, in the order they name them, whether or not their values change.
+-- | A member a `setState(next, true)` left out comes back at the first one
+-- | that names it. `PatchState`'s JavaScript caller keeps its own record, and
+-- | `MutateState` hands the state back.
 type ReduceResult n e =
   { state :: ReactFlowState n e
   , effects :: Array (Effect_ n e)
+  , writes :: Array String
   }
 
 -- | The top-level dispatcher. One case per `Action` constructor.
@@ -68,7 +76,7 @@ reduce state = case _ of
   SetEdges es -> reduceSetEdges state es
   SetDefaultNodesAndEdges mNs mEs -> reduceSetDefaults state mNs mEs
   UpdateNodeInternals updates opts ->
-    { state, effects: [ RunDomUpdateNodeInternals updates opts ] }
+    { state, effects: [ RunDomUpdateNodeInternals updates opts ], writes: [] }
   MergeNodeInternalsResult r -> reduceMergeNodeInternals state r
   UpdateNodePositions items dragging ->
     reduceUpdateNodePositions state items dragging
@@ -85,34 +93,47 @@ reduce state = case _ of
   -- upstream's `get()` before its `set()` gives it.
   SetMinZoom z ->
     { state: state { minZoom = z }
-    , effects: [ RunSetScaleExtent z state.maxZoom ]
+    , effects: [ RunSetScaleExtent state.panZoom z state.maxZoom ]
+    , writes: [ "minZoom" ]
     }
   SetMaxZoom z ->
     { state: state { maxZoom = z }
-    , effects: [ RunSetScaleExtent state.minZoom z ]
+    , effects: [ RunSetScaleExtent state.panZoom state.minZoom z ]
+    , writes: [ "maxZoom" ]
     }
   SetTranslateExtent ext ->
     { state: state { translateExtent = ext }
-    , effects: [ RunSetTranslateExtent ext ]
+    , effects: [ RunSetTranslateExtent state.panZoom ext ]
+    , writes: [ "translateExtent" ]
     }
   SetNodeExtent ext -> reduceSetNodeExtent state ext
-  SetCenter x y opts -> { state, effects: [ RunSetCenter x y opts ] }
-  CancelConnection -> { state: state { connection = noConnection }, effects: [] }
-  UpdateConnection c -> { state: state { connection = c }, effects: [] }
+  SetCenter x y opts -> { state, effects: [ RunSetCenter x y opts ], writes: [] }
+  CancelConnection ->
+    { state: state { connection = noConnection }, effects: [], writes: [ "connection" ] }
+  UpdateConnection c ->
+    { state: state { connection = c }, effects: [], writes: [ "connection" ] }
   ResetSelectedElements -> reduceResetSelectedElements state
-  Reset -> { state: resetState state, effects: [] }
+  Reset -> { state: resetState state, effects: [], writes: initialStateKeys }
+  -- `useOnViewportChange` writes all three on mount, `undefined` included.
   SetViewportChangeStartHandler callback ->
-    { state: state { onViewportChangeStart = callback }, effects: [] }
+    { state: state { onViewportChangeStart = callback }
+    , effects: []
+    , writes: [ "onViewportChangeStart" ]
+    }
   SetViewportChangeHandler callback ->
-    { state: state { onViewportChange = callback }, effects: [] }
+    { state: state { onViewportChange = callback }, effects: [], writes: [ "onViewportChange" ] }
   SetViewportChangeEndHandler callback ->
-    { state: state { onViewportChangeEnd = callback }, effects: [] }
+    { state: state { onViewportChangeEnd = callback }
+    , effects: []
+    , writes: [ "onViewportChangeEnd" ]
+    }
   AddSelectionChangeHandler cb ->
     { state: state
         { onSelectionChangeHandlers =
             Array.snoc state.onSelectionChangeHandlers cb
         }
     , effects: []
+    , writes: [ "onSelectionChangeHandlers" ]
     }
   RemoveSelectionChangeHandler cb ->
     { state: state
@@ -121,9 +142,13 @@ reduce state = case _ of
               state.onSelectionChangeHandlers
         }
     , effects: []
+    , writes: [ "onSelectionChangeHandlers" ]
     }
-  PatchState f -> { state: f state, effects: [] }
-  MutateState f -> { state: inPlace f state, effects: [] }
+  Assign p -> case applyPartial p state of
+    Just r -> { state: r.state, effects: [], writes: r.written }
+    Nothing -> { state, effects: [], writes: [] }
+  PatchState f -> { state: f state, effects: [], writes: [] }
+  MutateState f -> { state: inPlace f state, effects: [], writes: [] }
 
 -- SetNodes ---------------------------------------------------------------
 
@@ -140,8 +165,29 @@ reduceSetNodes state nodes =
     { state:
         if fitViewNow then s1 { fitViewQueued = false, fitViewOptions = Nothing }
         else s1
-    , effects: if fitViewNow then [ ResolveFitView state.fitViewOptions ] else []
+    , effects: if fitViewNow then [ ResolveFitView (fitInputs state s1.nodeLookup) ] else []
+    , writes: setNodesWrites fitViewNow
     }
+
+-- | What upstream's `resolveFitView` reads with `get()`: `state` is the
+-- | state the update started from, and `nodes` the lookup it adopted.
+fitInputs :: forall n e. ReactFlowState n e -> NodeLookup n -> FitInputs n
+fitInputs state nodes =
+  { nodes
+  , width: state.width
+  , height: state.height
+  , panZoom: state.panZoom
+  , minZoom: state.minZoom
+  , maxZoom: state.maxZoom
+  , options: state.fitViewOptions
+  , resolver: state.fitViewResolver
+  }
+
+-- | `setNodes`' `set`: with the queued fit's two members when it fits.
+setNodesWrites :: Boolean -> Array String
+setNodesWrites fits =
+  if fits then [ "nodes", "nodesInitialized", "fitViewQueued", "fitViewOptions", "nodesSelectionActive" ]
+  else [ "nodes", "nodesInitialized", "nodesSelectionActive" ]
 
 -- | Re-adopt `nodes` into the lookups and write
 -- | `nodes`/`nodeLookup`/`parentLookup`/`nodesInitialized` back onto the
@@ -191,6 +237,7 @@ reduceSetEdges state edges =
         , connectionLookup = r.connectionLookup
         }
     , effects: []
+    , writes: [ "edges" ]
     }
 
 -- SetDefaultNodesAndEdges -----------------------------------------------
@@ -208,8 +255,11 @@ reduceSetDefaults state mNs mEs =
         let
           res = reduceSetNodes state ns
         in
-          { state: res.state { hasDefaultNodes = true }, effects: res.effects }
-      Nothing -> { state, effects: [] }
+          { state: res.state { hasDefaultNodes = true }
+          , effects: res.effects
+          , writes: res.writes <> [ "hasDefaultNodes" ]
+          }
+      Nothing -> { state, effects: [], writes: [] }
     afterEdges = case mEs of
       Just es ->
         let
@@ -217,6 +267,7 @@ reduceSetDefaults state mNs mEs =
         in
           { state: res.state { hasDefaultEdges = true }
           , effects: afterNodes.effects <> res.effects
+          , writes: afterNodes.writes <> res.writes <> [ "hasDefaultEdges" ]
           }
       Nothing -> afterNodes
   in
@@ -232,7 +283,7 @@ reduceMergeNodeInternals
 reduceMergeNodeInternals state r
   -- TS `if (!updatedInternals) return;`: nothing was measured, so nothing
   -- is set, fitted, or reported.
-  | not r.updatedInternals = { state, effects: [] }
+  | not r.updatedInternals = { state, effects: [], writes: [] }
   | otherwise =
       let
         -- TS `updateAbsolutePositions(nodeLookup, parentLookup, ...)`, now
@@ -256,13 +307,16 @@ reduceMergeNodeInternals state r
         -- sets it, and upstream's action takes no such parameter.
         fitNow = state.fitViewQueued || r.triggerFitView
         s2 = if fitNow then s1 { fitViewQueued = false, fitViewOptions = Nothing } else s1
-        fit = if fitNow then [ ResolveFitView state.fitViewOptions ] else []
+        fit = if fitNow then [ ResolveFitView (fitInputs state s1.nodeLookup) ] else []
         -- Upstream first calls set({}) to notify about the measured
         -- internals, then triggerNodeChanges may call setNodes. Combining
         -- those writes loses a selector evaluation and its observable errors.
         changes = if Array.null r.changes then [] else [ RunTriggerNodeChanges r.changes ]
       in
-        { state: s2, effects: fit <> changes }
+        { state: s2
+        , effects: fit <> changes
+        , writes: if fitNow then [ "fitViewQueued", "fitViewOptions" ] else []
+        }
 
 -- UpdateNodePositions ---------------------------------------------------
 
@@ -335,13 +389,19 @@ reduceUpdateNodePositions state items dragging =
     -- no store write; a redundant write wakes subscribers upstream leaves idle.
     nextState = if unsafeRefEq state.connection stepped.connection then state
       else state { connection = stepped.connection }
+    -- Upstream's `updateConnection` sets `connection`.
+    connectionWrites = if unsafeRefEq state.connection stepped.connection then [] else [ "connection" ]
   in
     -- With middleware registered, the changes run through it in the shell,
     -- where a store write the consumer's middleware makes survives. With
     -- none, there is nothing to run and the trigger stays in this update.
     if hasMiddleware state.onNodesChangeMiddlewareMap then
-      { state: nextState, effects: [ RunNodesChangeMiddleware changes ] }
-    else reduceTriggerNodeChanges nextState changes
+      { state: nextState, effects: [ RunNodesChangeMiddleware changes ], writes: connectionWrites }
+    else
+      let
+        triggered = reduceTriggerNodeChanges nextState changes
+      in
+        triggered { writes = connectionWrites <> triggered.writes }
 
 -- TriggerNodeChanges ----------------------------------------------------
 
@@ -355,7 +415,7 @@ reduceTriggerNodeChanges state changes
   -- commit in uncontrolled mode and no `onNodesChange`. Every caller that
   -- found nothing to change, such as a pane click with nothing selected,
   -- reaches here with one.
-  | Array.null changes = { state, effects: [] }
+  | Array.null changes = { state, effects: [], writes: [] }
   | otherwise =
       let
         s1 =
@@ -366,7 +426,10 @@ reduceTriggerNodeChanges state changes
             adoptNodesInto state (applyNodeChanges changes state.nodes)
           else state
       in
-        { state: s1, effects: [ FireOnNodesChange changes ] }
+        { state: s1
+        , effects: [ FireOnNodesChange changes ]
+        , writes: if state.hasDefaultNodes then setNodesWrites false else []
+        }
 
 -- TriggerEdgeChanges ----------------------------------------------------
 
@@ -377,7 +440,7 @@ reduceTriggerEdgeChanges
   -> ReduceResult n e
 reduceTriggerEdgeChanges state changes
   -- TS `triggerEdgeChanges` guards the same way as `triggerNodeChanges`.
-  | Array.null changes = { state, effects: [] }
+  | Array.null changes = { state, effects: [], writes: [] }
   | otherwise =
       let
         s1 =
@@ -398,7 +461,10 @@ reduceTriggerEdgeChanges state changes
                 }
           else state
       in
-        { state: s1, effects: [ FireOnEdgesChange changes ] }
+        { state: s1
+        , effects: [ FireOnEdgesChange changes ]
+        , writes: if state.hasDefaultEdges then [ "edges" ] else []
+        }
 
 -- AddSelectedNodes ------------------------------------------------------
 
@@ -432,6 +498,7 @@ reduceAddSelectedNodes state ids
       in
         { state: afterEdges.state
         , effects: afterNodes.effects <> afterEdges.effects
+        , writes: afterNodes.writes <> afterEdges.writes
         }
 
 -- AddSelectedEdges ------------------------------------------------------
@@ -462,6 +529,7 @@ reduceAddSelectedEdges state ids
       in
         { state: afterNodes.state
         , effects: afterEdges.effects <> afterNodes.effects
+        , writes: afterEdges.writes <> afterNodes.writes
         }
 
 -- UnselectNodesAndEdges -------------------------------------------------
@@ -510,6 +578,7 @@ reduceUnselectNodesAndEdges state params =
   in
     { state: afterEdges.state
     , effects: afterNodes.effects <> afterEdges.effects
+    , writes: afterNodes.writes <> afterEdges.writes
     }
 
 -- SetNodeExtent ---------------------------------------------------------
@@ -536,6 +605,7 @@ reduceSetNodeExtent state ext =
         , parentLookup = r.parentLookup
         }
     , effects: []
+    , writes: [ "nodeExtent" ]
     }
 
 -- ResetSelectedElements -------------------------------------------------
@@ -548,7 +618,7 @@ reduceResetSelectedElements state
   -- TS `resetSelectedElements` returns before it reads a node or an edge
   -- when `elementsSelectable` is false. A selection the consumer passed in,
   -- such as a controlled node with `selected: true`, survives a pane click.
-  | not state.elementsSelectable = { state, effects: [] }
+  | not state.elementsSelectable = { state, effects: [], writes: [] }
   | otherwise =
       let
         nodePairs :: Array (Tuple NodeId (InternalNodeBase n))
@@ -576,4 +646,5 @@ reduceResetSelectedElements state
       in
         { state: afterEdges.state
         , effects: afterNodes.effects <> afterEdges.effects
+        , writes: afterNodes.writes <> afterEdges.writes
         }

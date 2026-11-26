@@ -16,7 +16,7 @@ module React.Store.Shell
 import Prelude
 
 import Control.Monad.Rec.Class (Step(..), tailRecM)
-import Data.Array (any, filter, length, partition, unsafeIndex) as Array
+import Data.Array (any, filter, length, null, partition, unsafeIndex) as Array
 import Data.Foldable (for_, traverse_)
 import Data.Maybe (Maybe(..), fromMaybe)
 import Effect (Effect)
@@ -29,6 +29,7 @@ import React.Store.InitialState (InitialStateOptions, initialState)
 import React.Store.Reduce (reduce)
 import React.Store.FitViewResolver (resolveFitView)
 import React.Store.Middleware (runNodesChangeMiddleware)
+import React.Store.Partial (partial)
 import React.Types.Store (ReactFlowState)
 import System.Constants (errorMessage)
 import System.Utils.Graph (fitViewport)
@@ -101,11 +102,17 @@ type Store n e =
   -- | `Boundary.Store` hands over one function per JavaScript listener.
   , subscribeStates :: (ReactFlowState n e -> ReactFlowState n e -> Effect Unit) -> Effect (Effect Unit)
   , dispatch :: Action n e -> Effect Unit
-  -- | Called with each state the store moves to and the one before it, as
-  -- | soon as the new state is written and before any subscriber hears of
-  -- | it. The `Boolean` says whether the update was `reset`.
+  -- | Called with each state the store moves to, the one before it, and the
+  -- | members upstream's `set` names for the update, as soon as the new
+  -- | state is written and before any subscriber hears of it.
   -- | `Boundary.Store` keeps the JavaScript shape of each state with it.
-  , observeTransitions :: (ReactFlowState n e -> ReactFlowState n e -> Boolean -> Effect Unit) -> Effect Unit
+  , observeTransitions :: (ReactFlowState n e -> ReactFlowState n e -> Array String -> Effect Unit) -> Effect Unit
+  -- | Called before the store reads its state, for itself or for a caller
+  -- | of `getState`. After `setState(next, true)`, upstream's state is the
+  -- | consumer's object, which the consumer can write into at any time, and
+  -- | upstream's internals read it as it then is. `Boundary.Store` brings the
+  -- | state up to date with that object here, handed the state as it is.
+  , beforeRead :: (ReactFlowState n e -> Effect Unit) -> Effect Unit
   }
 
 type StoreApi n e = Store n e
@@ -116,26 +123,35 @@ createStore opts = do
   stateRef <- Ref.new firstState
   subsRef <- Ref.new ([] :: Array (Subscriber n e))
   nextSubKeyRef <- Ref.new 0
-  observersRef <- Ref.new ([] :: Array (ReactFlowState n e -> ReactFlowState n e -> Boolean -> Effect Unit))
+  observersRef <- Ref.new ([] :: Array (ReactFlowState n e -> ReactFlowState n e -> Array String -> Effect Unit))
+  readHooksRef <- Ref.new ([] :: Array (ReactFlowState n e -> Effect Unit))
 
   let
+    readState :: Effect (ReactFlowState n e)
+    readState = do
+      hooks <- Ref.read readHooksRef
+      unless (Array.null hooks) do
+        current <- Ref.read stateRef
+        for_ hooks (_ $ current)
+      Ref.read stateRef
+
     interpretEffect :: (Action n e -> Effect Unit) -> Effect_ n e -> Effect Unit
     interpretEffect dispatch_ eff = case eff of
       FireOnNodesChange cs -> do
-        s <- Ref.read stateRef
+        s <- readState
         case s.onNodesChange of
           Just cb -> cb cs
           Nothing -> pure unit
       FireOnEdgesChange cs -> do
-        s <- Ref.read stateRef
+        s <- readState
         case s.onEdgesChange of
           Just cb -> cb cs
           Nothing -> pure unit
       FireOnSelectionChange params -> do
-        s <- Ref.read stateRef
+        s <- readState
         for_ s.onSelectionChangeHandlers \cb -> cb params
       FireOnConnect c -> do
-        s <- Ref.read stateRef
+        s <- readState
         case s.onConnect of
           Just cb -> cb c
           Nothing -> pure unit
@@ -145,7 +161,7 @@ createStore opts = do
       FireOnConnectStart _ -> pure unit
       FireOnConnectEnd _ -> pure unit
       RunDomUpdateNodeInternals updates dopts -> do
-        s <- Ref.read stateRef
+        s <- readState
         r <- updateNodeInternals updates s.nodeLookup s.parentLookup
           (map toHTMLElement s.domNode)
           s.nodeOrigin
@@ -162,36 +178,30 @@ createStore opts = do
           )
       RunTriggerNodeChanges changes -> dispatch_ (TriggerNodeChanges changes)
       RunNodesChangeMiddleware changes -> do
-        s <- Ref.read stateRef
+        s <- readState
         filtered <- runNodesChangeMiddleware s.onNodesChangeMiddlewareMap changes
         dispatch_ (TriggerNodeChanges filtered)
-      RunSetCenter x y opts -> do
+      RunSetCenter x y center -> do
         -- The store's setCenter is also used by NodeWrapper's focus path.
         -- Reading and invoking panZoom happens before its async continuation,
         -- just as in the upstream store action.
-        s <- Ref.read stateRef
+        s <- readState
         for_ s.panZoom \pz -> do
-          let zoom = fromMaybe s.maxZoom opts.zoom
+          let zoom = fromMaybe s.maxZoom center.zoom
           launchAff_ $ void $ pz.setViewport
             { x: s.width / 2.0 - x * zoom
             , y: s.height / 2.0 - y * zoom
             , zoom
             }
-            (Just { duration: opts.duration, ease: opts.ease, interpolate: opts.interpolate })
-      RunSetScaleExtent mn mx -> do
-        -- No instance yet means the flow has not mounted its pane, and
-        -- `createXYPanZoom` seeds the extent from the same state when it
-        -- does. That is upstream's `panZoom?.` optional call.
-        s <- Ref.read stateRef
-        case s.panZoom of
-          Just pz -> pz.setScaleExtent mn mx
-          Nothing -> pure unit
-      RunSetTranslateExtent ext -> do
-        s <- Ref.read stateRef
-        case s.panZoom of
-          Just pz -> pz.setTranslateExtent ext
-          Nothing -> pure unit
-      ResolveFitView options -> do
+            (Just { duration: center.duration, ease: center.ease, interpolate: center.interpolate })
+      -- No instance yet means the flow has not mounted its pane, and
+      -- `createXYPanZoom` seeds the extent from the same state when it
+      -- does. That is upstream's `panZoom?.` optional call.
+      RunSetScaleExtent panZoom mn mx ->
+        for_ panZoom \pz -> pz.setScaleExtent mn mx
+      RunSetTranslateExtent panZoom ext ->
+        for_ panZoom \pz -> pz.setTranslateExtent ext
+      ResolveFitView fit -> do
         -- Mirror the React store's `resolveFitView`: apply the fitted
         -- viewport via `panZoom.setViewport` (which fires d3's zoom event,
         -- so `ZoomPane.onTransformChange` writes the new `state.transform`),
@@ -200,27 +210,22 @@ createStore opts = do
         -- settled.
         -- Without a pan-zoom instance upstream returns at once: the
         -- resolver stays in the store, unresolved, for the next fit.
-        s <- Ref.read stateRef
-        let
-          resolveFit = case s.fitViewResolver of
-            Just resolver -> liftEffect (resolveFitView resolver true)
-            Nothing -> pure unit
-        case s.panZoom of
+        case fit.panZoom of
           Nothing -> pure unit
           Just pz -> launchAff_ do
             _ <- fitViewport
-              { nodes: s.nodeLookup
-              , width: s.width
-              , height: s.height
+              { nodes: fit.nodes
+              , width: fit.width
+              , height: fit.height
               , panZoom: pz
-              , minZoom: s.minZoom
-              , maxZoom: s.maxZoom
+              , minZoom: fit.minZoom
+              , maxZoom: fit.maxZoom
               }
-              options
-            resolveFit
-            liftEffect $ dispatch_ (PatchState _ { fitViewResolver = Nothing })
+              fit.options
+            for_ fit.resolver \resolver -> liftEffect (resolveFitView resolver true)
+            liftEffect $ dispatch_ (Assign (partial { fitViewResolver: Nothing }))
       LogError code -> do
-        s <- Ref.read stateRef
+        s <- readState
         case s.onError of
           Just cb -> cb (errorCodeName code) (errorMessage code)
           Nothing -> pure unit
@@ -251,12 +256,12 @@ createStore opts = do
   let
     dispatch :: Action n e -> Effect Unit
     dispatch action = do
-      prev <- Ref.read stateRef
+      prev <- readState
       let res = reduce prev action
       Ref.write res.state stateRef
       unless (unsafeRefEq prev res.state) do
         observers <- Ref.read observersRef
-        for_ observers \observe -> observe prev res.state (isReset action)
+        for_ observers \observe -> observe prev res.state res.writes
       -- Upstream calls `resolveFitView()` before the `set` that clears the
       -- queue, so the viewport is set before any subscriber hears of it.
       let effects = Array.partition runsBeforeSet res.effects
@@ -265,7 +270,7 @@ createStore opts = do
       traverse_ (interpretEffect dispatch) effects.no
 
     setState f = dispatch (PatchState f)
-    getState = Ref.read stateRef
+    getState = readState
 
     subscribe = Subscribe \selector cb -> do
       let
@@ -306,9 +311,7 @@ createStore opts = do
 
     observeTransitions observer = Ref.modify_ (_ <> [ observer ]) observersRef
 
-    isReset = case _ of
-      Reset -> true
-      _ -> false
+    beforeRead hook = Ref.modify_ (_ <> [ hook ]) readHooksRef
 
     runsBeforeSet = case _ of
       ResolveFitView _ -> true
@@ -323,6 +326,7 @@ createStore opts = do
     , subscribeStates
     , dispatch
     , observeTransitions
+    , beforeRead
     }
 
 -- | The first subscriber whose key is greater than `after`. Keys grow along

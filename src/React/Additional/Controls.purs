@@ -9,6 +9,8 @@ import Prelude
 
 import Data.Foldable (for_)
 import Data.Maybe (Maybe(..), fromMaybe)
+import React.Store.Action (Action(..))
+import React.Store.Partial (partial)
 import Data.Nullable (null)
 import Data.Newtype (class Newtype)
 import Effect (Effect)
@@ -95,10 +97,10 @@ controls =
         onToggleInteractivity :: Effect Unit
         onToggleInteractivity = do
           let next = not slice.isInteractive
-          store.setState \s -> s
-            { nodesDraggable = next
-            , nodesConnectable = next
-            , elementsSelectable = next
+          store.dispatch $ Assign $ partial
+            { nodesDraggable: next
+            , nodesConnectable: next
+            , elementsSelectable: next
             }
           for_ props.onInteractiveChange \cb -> cb next
 

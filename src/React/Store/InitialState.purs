@@ -11,6 +11,7 @@ module React.Store.InitialState
   , defaultInitialStateOptions
   , defaultOnError
   , initialState
+  , initialStateKeys
   , resetState
   ) where
 
@@ -246,6 +247,28 @@ initialState opts =
     , onNodesChangeMiddlewareMap: freshMiddlewareMap unit
     , onEdgesChangeMiddlewareMap: freshMiddlewareMap unit
     }
+
+-- | The members `getInitialState` names, in the order it names them, which
+-- | is the order upstream's `createStore` lays them out and `reset` writes
+-- | them.
+initialStateKeys :: Array String
+initialStateKeys =
+  [ "rfId", "width", "height", "transform", "nodes", "nodesInitialized", "nodeLookup"
+  , "parentLookup", "edges", "edgeLookup", "connectionLookup", "onNodesChange"
+  , "onEdgesChange", "hasDefaultNodes", "hasDefaultEdges", "panZoom", "minZoom"
+  , "maxZoom", "translateExtent", "nodeExtent", "nodesSelectionActive"
+  , "userSelectionActive", "userSelectionRect", "connectionMode", "domNode"
+  , "paneDragging", "noPanClassName", "nodeOrigin", "nodeDragThreshold"
+  , "connectionDragThreshold", "snapGrid", "snapToGrid", "nodesDraggable"
+  , "nodesConnectable", "nodesFocusable", "edgesFocusable", "edgesReconnectable"
+  , "elementsSelectable", "elevateNodesOnSelect", "elevateEdgesOnSelect"
+  , "selectNodesOnDrag", "multiSelectionActive", "fitViewQueued", "fitViewOptions"
+  , "fitViewResolver", "connection", "connectionClickStartHandle", "connectOnClick"
+  , "ariaLiveMessage", "autoPanOnConnect", "autoPanOnNodeDrag", "autoPanOnNodeFocus"
+  , "autoPanSpeed", "connectionRadius", "onError", "isValidConnection"
+  , "onSelectionChangeHandlers", "lib", "debug", "ariaLabelConfig", "zIndexMode"
+  , "onNodesChangeMiddlewareMap", "onEdgesChangeMiddlewareMap"
+  ]
 
 -- | Upstream's `reset`, `set({ ...getInitialState() })`. The `set` merges, so
 -- | every member the initial state names goes back to its initial value and

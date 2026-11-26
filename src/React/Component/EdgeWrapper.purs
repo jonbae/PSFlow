@@ -69,6 +69,7 @@ import React.Edge.Bezier (bezierEdgeInternal)
 import React.FFI.DOM (blurElement, g_, opt, spreadOver)
 import React.Hook.Store (UseStoreApi, useStore, useStoreApi)
 import React.Store.Action (Action(..))
+import React.Store.Partial (partial)
 import React.Types.Edges
   ( DefaultEdgeOptions
   , Edge
@@ -466,7 +467,7 @@ edgeWrapper =
           let me = (unsafeCoerce se) :: MouseEvent
           when isSelectable do
             store.dispatch
-              (PatchState (\s -> s { nodesSelectionActive = false }))
+              (Assign (partial { nodesSelectionActive: false }))
             if edge.selected == Just true && state.multiSelectionActive then do
               store.dispatch
                 (UnselectNodesAndEdges { nodes: Nothing, edges: Just [ edge ] })

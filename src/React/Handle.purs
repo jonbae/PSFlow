@@ -43,6 +43,7 @@ import React.Context.NodeId (useNodeId)
 import React.FFI.DOM (div_, opt, spreadOver)
 import React.Hook.Store (UseStoreApi, useStore, useStoreApi)
 import React.Store.Action (Action(..))
+import React.Store.Partial (partial)
 import React.Store.PanBy as StorePanBy
 import React.Store.Shell (Store)
 import React.Types.Component (HandleProps)
@@ -473,15 +474,13 @@ handle = unsafePerformEffect $ memo $ reactComponentWithChildren "Handle" \(prop
               , handleType: Just handleType
               }
             store.dispatch
-              ( PatchState
-                  ( _
-                      { connectionClickStartHandle = Just
-                          { nodeId: nodeIdStr
-                          , id: handleId
-                          , handleType
-                          } :: Maybe ConnectionClickStartHandle
-                      }
-                  )
+              ( Assign $ partial
+                  { connectionClickStartHandle: Just
+                      { nodeId: nodeIdStr
+                      , id: handleId
+                      , handleType
+                      } :: Maybe ConnectionClickStartHandle
+                  }
               )
           Just startHandle -> do
             host <- getHostForElement Nothing
@@ -510,7 +509,7 @@ handle = unsafePerformEffect $ memo $ reactComponentWithChildren "Handle" \(prop
               _, _ -> pure unit
             for_ state.onClickConnectEnd \cb -> cb (Left me) (clickConnectEndState state.connection)
             store.dispatch
-              ( PatchState (_ { connectionClickStartHandle = Nothing }) )
+              (Assign (partial { connectionClickStartHandle: Nothing :: Maybe ConnectionClickStartHandle }))
 
   -- TS `<div … ref={ref} {...rest}>`: the rest comes last.
   pure $ div_

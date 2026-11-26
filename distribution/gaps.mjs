@@ -32,13 +32,14 @@ export const NOTES = [
       'A store callback written as a falsy value other than `null` or `undefined` counts as set.',
   },
   {
-    id: 'store-replacement',
-    accepted: 'Full JavaScript store compatibility',
+    id: 'store-default-view',
+    accepted: 'Store residual parity',
     text:
-      '`setState(next, true)` makes `getState()` return `next` itself, with its member properties ' +
-      'turned into accessors; a sealed `next` is copied instead. A member the replacement left out ' +
-      'comes back when its value changes or on `reset`, where upstream also brings back one it rewrites ' +
-      'with an unchanged value.',
+      "Until `setState(next, true)` replaces it, the state `useStoreApi()`'s `getState()` returns holds " +
+      "its members as accessor properties, where upstream's holds data properties; each reads and writes " +
+      'as upstream\'s does. A key assigned directly to that state that it did not already have stays on ' +
+      "that one object: ps-flow's internals do not read it, so a callback assigned that way is not " +
+      'called, and later states do not carry it.',
   },
   {
     id: 'styles-warning',

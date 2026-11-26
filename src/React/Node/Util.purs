@@ -30,6 +30,7 @@ import Effect (Effect)
 import React.Basic (Ref)
 import React.Basic.Hooks (readRef)
 import React.Store.Action (Action(..))
+import React.Store.Partial (partial)
 import React.Store.Shell (Store)
 import Data.Newtype (unwrap)
 import React.Types.Nodes (Node)
@@ -99,7 +100,7 @@ handleNodeClick args = do
       -- from the internal one (which would require duplicating
       -- positionAbsolute/measured fields).
       let asNode = (unsafeCoerce node) :: Node n
-      args.store.dispatch (PatchState _ { nodesSelectionActive = false })
+      args.store.dispatch (Assign (partial { nodesSelectionActive: false }))
       if asNode.selected /= Just true then
         args.store.dispatch (AddSelectedNodes [ args.id ])
       else if args.unselect || (asNode.selected == Just true && state.multiSelectionActive) then do
@@ -156,7 +157,7 @@ moveNodesByArrowKey args = do
       , x: toInt32 at.x
       , y: toInt32 at.y
       }
-  args.store.dispatch (PatchState _ { ariaLiveMessage = message })
+  args.store.dispatch (Assign (partial { ariaLiveMessage: message }))
   args.moveSelectedNodes args.direction args.factor
 
 -- | JavaScript's `~~n`: `n` truncated toward zero and wrapped to a 32-bit

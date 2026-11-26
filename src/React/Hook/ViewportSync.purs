@@ -33,6 +33,7 @@ import React.Basic.Hooks (Hook, UnsafeReference(..), UseEffect, coerceHook, useE
 import React.Basic.Hooks as React
 import React.Hook.Store (UseStore, UseStoreApi, useStore, useStoreApi)
 import React.Store.Action (Action(..))
+import React.Store.Partial (partial)
 import System.Types.Connection (Viewport)
 import System.Types.Geometry (mkTransform)
 import System.Types.PanZoom (PanZoomInstance)
@@ -72,6 +73,4 @@ runViewportSync sync mViewport =
   for_ mViewport \vp -> do
     for_ sync.syncViewport \f -> f vp
     sync.dispatch
-      ( PatchState \s -> s
-          { transform = mkTransform vp.x vp.y vp.zoom }
-      )
+      (Assign (partial { transform: mkTransform vp.x vp.y vp.zoom }))
