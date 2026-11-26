@@ -2,15 +2,15 @@
 // is the one that landed.
 //
 // `package.json` declares React as a peer at a caret range and exact-pins it as
-// a devDependency. The pin is one release; the range admits more than one. CI
+// a devDependency. The pin is one release; a range can admit more than one. CI
 // runs the whole job once per release the range admits, and this script is how
-// a leg swaps its release in. A range that only the pinned release has run is a
-// claim held by convention rather than by a check.
+// each run swaps its release in. A range wider than the releases CI has run is
+// a claim held by convention rather than by a check.
 //
 // It rewrites `package.json` and `package-lock.json` in place, rather than
 // installing with `--no-save`, because the net reinstalls from the lockfile:
 // `parity/system/linux.mjs` runs `npm ci` in the Playwright image, keyed on the
-// lockfile's hash. A leg that changed only `node_modules/` would run every gate
+// lockfile's hash. A run that changed only `node_modules/` would run every gate
 // on its release except the net, which would run on the pin.
 //
 // So run it in a checkout you are about to throw away, or restore the two files
@@ -47,7 +47,7 @@ const compare = (a, b) => {
  *
  * Only that one shape is read. Any other throws rather than being interpreted,
  * because CI's matrix is built from this floor: a range written another way —
- * `>=`, `||`, a prerelease — is a change to which releases need a leg, and that
+ * `>=`, `||`, a prerelease — is a change to which releases need a run, and that
  * change belongs in this script and the matrix, deliberately.
  */
 export function caretFloor(range) {
@@ -96,7 +96,7 @@ export function assertAdmitted(pkg, version) {
       if (!satisfiesCaret(version, range)) {
         throw new Error(
           `[install-react] ${name} ${version} is outside the declared peer range ` +
-            `${range}. A leg runs only a release the package claims to support.`
+            `${range}. CI runs only a release the package claims to support.`
         );
       }
       return [name, range];
@@ -126,7 +126,7 @@ export function assertInstalled(root, version) {
     throw new Error(
       `[install-react] asked for React ${version}, but ` +
         wrong.map(([where, at]) => `${where} is ${at}`).join(", ") +
-        `. A leg that installed something else would report on a release it did not run.`
+        `. A run that installed something else would report on a release it did not run.`
     );
   }
   return found;
@@ -151,7 +151,7 @@ function install(version) {
 
   // npm widens a peer range that the saved version falls outside. That cannot
   // happen to an admitted version, and a range that moved would leave every
-  // later check reading a claim this leg wrote.
+  // later check reading a claim this run wrote.
   const after = readJson(manifest).peerDependencies;
   for (const [name, range] of Object.entries(ranges)) {
     if (after[name] !== range) {

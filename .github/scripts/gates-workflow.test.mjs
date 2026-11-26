@@ -56,7 +56,7 @@ const BEYOND_GATES = [
  */
 const LINUX_RUNNER = "node parity/system/linux.mjs";
 
-/** The step that swaps each leg's React release in, by the matrix value it is handed. */
+/** The step that swaps each run's React release in, by the matrix value it is handed. */
 const INSTALL_REACT = "node .github/scripts/install-react.mjs ${{ matrix.react }}";
 
 const indentOf = (line) => line.match(/^\s*/)[0].length;
@@ -304,7 +304,7 @@ const CLAIMS = {
 
   // The peer range is a claim about which React releases ps-flow works on, and
   // CI is its evidence. The floor is the oldest release the range claims; the
-  // devDependency pin is the one development runs. A leg for each, with the
+  // devDependency pin is the one development runs. A run on each, with the
   // install ahead of everything it should run under, is what makes the range
   // measured rather than declared. The matrix is read as one flow-style line.
   "CI runs every gate on the floor of the declared React range and on the locked version": ({
@@ -321,14 +321,14 @@ const CLAIMS = {
 
     const matrix = uncommented.match(/^\s*react:\s*\[(.*)\]\s*$/m);
     assert.ok(matrix, `${WORKFLOW} has a react matrix`);
-    const legs = [...matrix[1].matchAll(/"([^"]*)"/g)].map(([, version]) => version);
+    const releases = [...matrix[1].matchAll(/"([^"]*)"/g)].map(([, version]) => version);
 
     assert.deepEqual(
-      [...legs].sort(),
+      [...releases].sort(),
       [...new Set([caretFloor(peers.react), pins.react])].sort(),
-      `the legs are the floor of ${peers.react} and the pin ${pins.react}`
+      `the matrix runs the floor of ${peers.react} and the pin ${pins.react}`
     );
-    assert.match(uncommented, /^\s*fail-fast:\s*false\s*$/m, "a red leg does not cancel the other");
+    assert.match(uncommented, /^\s*fail-fast:\s*false\s*$/m, "a red run does not cancel the others");
 
     const at = (command) => steps.indexOf(running(command)[0]);
     const install = at(INSTALL_REACT);
@@ -510,23 +510,31 @@ const PROBES = [
   },
   {
     breaks: "CI runs every gate on the floor of the declared React range and on the locked version",
-    by: "the floor's leg dropping out of the matrix",
-    patch: { workflow: (w) => w.replace('react: ["18.3.0", "18.3.1"]', 'react: ["18.3.1"]') },
-  },
-  {
-    breaks: "CI runs every gate on the floor of the declared React range and on the locked version",
-    by: "the peer range rising to the pin without the matrix following",
+    by: "the peer range widening to a release CI does not run",
     patch: {
       packageJson: (p) =>
         p.replace(
-          '"react": "^18.3.0",\n    "react-dom": "^18.3.0"',
-          '"react": "^18.3.1",\n    "react-dom": "^18.3.1"'
+          '"react": "^18.3.1",\n    "react-dom": "^18.3.1"',
+          '"react": "^18.3.0",\n    "react-dom": "^18.3.0"'
         ),
     },
   },
   {
     breaks: "CI runs every gate on the floor of the declared React range and on the locked version",
-    by: "the install moving after a gate, which then runs on the pin in both legs",
+    by: "the pin moving without the matrix following",
+    patch: {
+      packageJson: (p) =>
+        p.replace('"react": "18.3.1",\n    "react-dom": "18.3.1"', '"react": "18.3.2",\n    "react-dom": "18.3.2"'),
+    },
+  },
+  {
+    breaks: "CI runs every gate on the floor of the declared React range and on the locked version",
+    by: "the matrix running a release the range does not claim",
+    patch: { workflow: (w) => w.replace('react: ["18.3.1"]', 'react: ["18.3.0", "18.3.1"]') },
+  },
+  {
+    breaks: "CI runs every gate on the floor of the declared React range and on the locked version",
+    by: "the install moving after a gate, which then runs on whatever npm ci installed",
     patch: {
       workflow: (w) =>
         w
@@ -537,7 +545,7 @@ const PROBES = [
   },
   {
     breaks: "CI runs every gate on the floor of the declared React range and on the locked version",
-    by: "the install moving ahead of the self-test, which would read the leg's rewritten package.json",
+    by: "the install moving ahead of the self-test, which would read the rewritten package.json",
     patch: {
       workflow: (w) =>
         w
@@ -548,7 +556,7 @@ const PROBES = [
   },
   {
     breaks: "CI runs every gate on the floor of the declared React range and on the locked version",
-    by: "a red leg cancelling the other",
+    by: "a red run cancelling the others",
     patch: { workflow: (w) => w.replace("      fail-fast: false\n", "") },
   },
   {

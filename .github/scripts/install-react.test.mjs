@@ -41,7 +41,7 @@ test("a caret range's floor is the release it names", () => {
 });
 
 // The CI matrix is built from the floor, so a range this script would have to
-// interpret is a range whose legs nobody chose.
+// interpret is a range whose runs nobody chose.
 test("a range of any other shape is refused rather than interpreted", () => {
   for (const range of [
     "~18.3.0",
@@ -110,7 +110,7 @@ test("an install where all four places report the release is accepted", () => {
   assert.ok(found.every(([, version]) => version === "18.3.0"));
 });
 
-// The read-back is the evidence that the leg ran the release it is named for,
+// The read-back is the evidence that the run used the release it is named for,
 // so each place it reads must be able to fail it on its own.
 test("an install where any one place reports another release fails, naming it", () => {
   const cases = [

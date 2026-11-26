@@ -30,14 +30,16 @@
 # order.
 #
 # **The whole job runs once per React release the peer range admits.**
-# `package.json` declares `react` and `react-dom` peers at `^18.3.0` and pins
-# 18.3.1 as the devDependency. That range admits two published releases, so the
-# job runs on both: 18.3.0, the range's floor, and 18.3.1, the pin. A range that
-# only the pin had run would be a claim held by convention. Each leg installs its
-# release before anything is built and rewrites the lockfile. The net
-# reinstalls from the lockfile in the Playwright image, so it runs the leg's
-# release too. `npm run test:ci` holds the matrix to `package.json`, so a range
-# or pin that moves without it goes red.
+# `package.json` declares `react` and `react-dom` peers at `^18.3.1` and pins
+# 18.3.1 as the devDependency, so the range's floor is the pin and the matrix
+# holds one release. A range wider than what CI runs would be a claim held by
+# convention, and `npm run test:ci` holds the matrix to `package.json`: its
+# releases must be the range's floor and the pin, so widening the range or
+# moving the pin without adding a run goes red. The range starts at 18.3.1
+# because 18.3.0's `react` does not export `act`, which the boundary tests use.
+# Each run installs its release before anything is built and rewrites the
+# lockfile. The net reinstalls from the lockfile in the Playwright image, so it
+# runs that release too.
 #
 # **Ordering is not arbitrary.** Surface parity is the only *hard*
 # precondition: interop breakage has a cheap static signature and an expensive
@@ -78,11 +80,12 @@ jobs:
     runs-on: ubuntu-24.04
     # The net is most of the run: about nine of its eleven minutes.
     timeout-minutes: 30
-    # A red leg must not cancel the other: which releases fail is the result.
+    # With more than one release, a red run must not cancel the others: which
+    # releases fail is the result.
     strategy:
       fail-fast: false
       matrix:
-        react: ["18.3.0", "18.3.1"]
+        react: ["18.3.1"]
 
     steps:
       - uses: actions/checkout@v7
@@ -126,7 +129,7 @@ jobs:
 
       # Not a gate either. It runs after the self-tests, which read the
       # committed `package.json` that this step rewrites, and before anything is
-      # built, so every gate and check after it runs on this leg's release.
+      # built, so every gate and check after it runs on this run's release.
       - name: Install React ${{ matrix.react }}
         run: node .github/scripts/install-react.mjs ${{ matrix.react }}
 
