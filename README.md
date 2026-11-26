@@ -13,9 +13,10 @@ npm run build:oracle   # regenerate oracle/index.js, the @psflow/oracle bundle
 npm run build:package  # spago build + dist/, the package a JS or TS consumer installs
 ```
 
-The package is `index.js` bundled, upstream's declarations with ps-flow's gaps
-written in, and upstream's stylesheets; [`distribution/README.md`](distribution/README.md)
-says how each is built.
+The package ships an ES module, a UMD bundle, TypeScript declarations, and
+stylesheets. The UMD bundle supports `require('ps-flow')`, AMD, and classic
+scripts via `window.ReactFlow`. See the [distribution guide](distribution/README.md)
+for browser script tags and build details.
 
 ## The five gates
 

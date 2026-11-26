@@ -2,6 +2,7 @@
 //
 //   dist/index.js       `index.js` and the compiled PureScript it reaches, as one
 //                       ES module. Its dependencies stay imports.
+//   dist/umd/index.js  UMD build for CommonJS, AMD and classic script tags
 //   dist/index.d.ts     the entry declaration: ps-flow's notes, then upstream's
 //   dist/types/         declarations with `gaps.mjs`' overlays applied
 //   dist/style.css      upstream's stylesheets, byte for byte: the files the
@@ -99,6 +100,52 @@ const importedPackages = [...new Set([...imported].map(packageOf))].sort();
 if (JSON.stringify(importedPackages) !== JSON.stringify([...runtime].sort())) {
   fail(`the bundle imports ${importedPackages.join(', ')}; package.json declares ${runtime.sort().join(', ')}.`);
 }
+
+// The UMD build bundles D3 and the JSX runtime. React and React DOM come
+// from the host so components use the same React instance as their renderer.
+const umd = await build({
+  entryPoints: [join(repoRoot, 'index.js')],
+  bundle: true,
+  format: 'cjs',
+  platform: 'browser',
+  plugins: [{
+    name: 'react-peers',
+    setup({ onResolve }) {
+      onResolve({ filter: /^(react|react-dom)$/ }, ({ path }) => ({ path, external: true }));
+    },
+  }],
+  define: { 'process.env.NODE_ENV': '"production"' },
+  write: false,
+  metafile: true,
+  logLevel: 'warning',
+});
+const umdImports = Object.values(umd.metafile.outputs).flatMap((output) => output.imports);
+if (umdImports.some(({ path }) => path !== 'react' && path !== 'react-dom')) {
+  fail('the UMD bundle imports a module other than React or React DOM.');
+}
+mkdirSync(join(dist, 'umd'));
+writeFileSync(join(dist, 'umd/package.json'), '{"type":"commonjs"}\n');
+writeFileSync(join(dist, 'umd/index.js'), `// ps-flow UMD, built by distribution/build.mjs.
+(function (root, factory) {
+  if (typeof module === 'object' && module.exports) {
+    module.exports = factory(require('react'), require('react-dom'));
+  } else if (typeof define === 'function' && define.amd) {
+    define(['react', 'react-dom'], factory);
+  } else {
+    root.ReactFlow = factory(root.React, root.ReactDOM);
+  }
+})(typeof globalThis !== 'undefined' ? globalThis : this, function (React, ReactDOM) {
+  "use strict";
+  var module = { exports: {} };
+  function require(name) {
+    if (name === 'react') return React;
+    if (name === 'react-dom') return ReactDOM;
+    throw new Error('Unexpected ps-flow dependency: ' + name);
+  }
+${umd.outputFiles[0].text}
+  return module.exports;
+});
+`);
 
 // ── The declarations ───────────────────────────────────────────────────
 
