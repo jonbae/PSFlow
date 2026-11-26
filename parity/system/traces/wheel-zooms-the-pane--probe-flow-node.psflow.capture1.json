@@ -505,7 +505,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 53,
+            "timeStamp": 52,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -574,7 +574,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 53,
+            "timeStamp": 52,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -636,7 +636,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 53,
+            "timeStamp": 52,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -701,7 +701,7 @@
             "eventPhase": 3,
             "bubbles": true,
             "cancelable": true,
-            "timeStamp": 53,
+            "timeStamp": 52,
             "defaultPrevented": false,
             "isTrusted": true,
             "view": {
@@ -1483,33 +1483,6 @@
           "reset": {
             "@ref": "function"
           },
-          "onNodeDragStart": {
-            "@ref": "function"
-          },
-          "onNodeDrag": {
-            "@ref": "function"
-          },
-          "onNodeDragStop": {
-            "@ref": "function"
-          },
-          "onSelectionDragStart": {
-            "@ref": "function"
-          },
-          "onSelectionDrag": {
-            "@ref": "function"
-          },
-          "onSelectionDragStop": {
-            "@ref": "function"
-          },
-          "onMoveStart": {
-            "@ref": "function"
-          },
-          "onMove": {
-            "@ref": "function"
-          },
-          "onMoveEnd": {
-            "@ref": "function"
-          },
           "onConnect": {
             "@ref": "function"
           },
@@ -1534,6 +1507,36 @@
           "onDelete": {
             "@ref": "function"
           },
+          "onNodeDrag": {
+            "@ref": "function"
+          },
+          "onNodeDragStart": {
+            "@ref": "function"
+          },
+          "onNodeDragStop": {
+            "@ref": "function"
+          },
+          "onSelectionDrag": {
+            "@ref": "function"
+          },
+          "onSelectionDragStart": {
+            "@ref": "function"
+          },
+          "onSelectionDragStop": {
+            "@ref": "function"
+          },
+          "onMoveStart": {
+            "@ref": "function"
+          },
+          "onMove": {
+            "@ref": "function"
+          },
+          "onMoveEnd": {
+            "@ref": "function"
+          },
+          "onBeforeDelete": {
+            "@ref": "function"
+          },
           "onViewportChangeStart": {
             "@ref": "function"
           },
@@ -1541,9 +1544,6 @@
             "@ref": "function"
           },
           "onViewportChangeEnd": {
-            "@ref": "function"
-          },
-          "onBeforeDelete": {
             "@ref": "function"
           }
         },
