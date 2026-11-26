@@ -135,7 +135,7 @@
   "ControlPosition": ["data", "dual-run-dom", [], "NodeResizeControl surface — unmounted and known-wrong (073)."],
   "ControlProps": ["props", "none", [], "PSFlow renames it ControlsProps; cancelled on both sides by the allowlist. Type-only, so the rename cannot reach a JS consumer."],
   "CoordinateExtent": ["data", "oracle", ["function"], "Marshalled by the clampPosition property."],
-  "DefaultEdgeOptions": ["options", "dual-run-dom", ["boundary"], "All 23 members convert, where ten did and thirteen were refused before Step 3 G. parity:boundary mounts a value for every member, and `Test.Boundary.DefaultEdgeOptions` holds the merge under an edge and under `onConnect` against upstream's spread and `addEdge`. No browser fixture sets the options, so the coverage hole stays declared."],
+  "DefaultEdgeOptions": ["options", "dual-run-dom", ["boundary"], "All 23 members convert, where ten did and thirteen were refused before Step 3 G. The merge spreads keys outside the type too, such as `pathOptions`, as upstream's spread does. parity:boundary mounts a value for every member, `Test.Boundary.DefaultEdgeOptions` holds the merge under an edge and under `onConnect` against upstream's spread and `addEdge`, and `parity/boundary/edge-fields.test.mjs` compares the render of keys outside the type with upstream's. The browser fixture `edges/default-options.ts` sets the options, so the net drives this entry."],
   "DeleteElementsOptions": ["options", "dual-run-api", [], ""],
   "Dimensions": ["data", "oracle", ["function"], "Marshalled by the clampPosition property."],
   "Edge": ["data", "dual-run-dom", ["conformance:generic-edges.spec.ts"], "Selection, class, style, hidden, animated, zIndex, aria-label and deletion all asserted by generic-edges."],

@@ -46,13 +46,16 @@ Four browser contract cases hold issue 207's exact difference and fail as
 stale once fixed. This refresh neither accepts nor closes either difference.
 
 The existing compatibility scope remains explicit: the store's residual write
-differences, default-edge keys outside the declared type, custom keys on
-internally rebuilt uncontrolled nodes, module formats, the React peer range,
-the styles warning, and the permanent surface-shape exceptions. The JSON points
-to their existing contracts, including
-[distribution/gaps.mjs](../../../distribution/gaps.mjs). The recorded review
-also listed four store write exclusions; the later JavaScript store
-compatibility work retires them, and the declarations name what still differs.
+differences, module formats, the React peer range, the styles warning, and the
+permanent surface-shape exceptions. The JSON points to their existing
+contracts, including [distribution/gaps.mjs](../../../distribution/gaps.mjs).
+The recorded review also listed four store write exclusions; the later
+JavaScript store compatibility work retires them, and the declarations name
+what still differs. It also listed default-edge keys outside the declared type
+and custom keys on internally rebuilt uncontrolled nodes. The default-edge
+follow-up merges every key, and the uncontrolled-node follow-up keeps the
+consumer's fields on rebuilt nodes, so both exclusions retire and the JSON no
+longer lists them.
 The recorded review had one declared coverage hole,
 `UnselectNodesAndEdgesParams`. The subsequent store-action witness retires it
 through `api.storeCalls` and four `store-unselect-*` scenarios; the current

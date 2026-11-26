@@ -81,8 +81,7 @@ file where a type or its documentation can say the difference; an overlay
 whose text no longer occurs once fails the build as stale. The register has no
 overlays. A **note** goes into the header of `dist/index.d.ts`, which lists
 every difference: what the store's internals hold for values they cannot
-convert, whole-state replacement, handlers on rebuilt nodes in an uncontrolled
-flow, and the styles warning's wording.
+convert, whole-state replacement, and the styles warning's wording.
 
 The documentation comments are otherwise upstream's, and so is the behavior
 they describe. ps-flow matches it where its gates say so; behavior no gate
