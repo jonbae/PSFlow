@@ -6,9 +6,9 @@
 -- | `update`/`destroy` methods. The PS port collapses that state into a
 -- | plain `DragState` record and lifts the lifecycle handlers (`onStart`,
 -- | `onDragHandler`, `onEnd`, `startDrag`, `autoPan`, `updateNodes`) to
--- | `StateT DragState Effect`. A single outer `Ref DragState` carries the
--- | snapshot across the d3-callback boundary via `runOnRef`. d3-drag
--- | wiring goes through `System.FFI.D3Drag`.
+-- | `DragM`, which reads and writes one `Ref DragState` as TS reads and
+-- | writes its closure variables. d3-drag wiring goes through
+-- | `System.FFI.D3Drag`.
 -- |
 -- | Type-parameter divergence from TS: the TS source has a single
 -- | `<OnNodeDrag>` parameter that abstracts the user callback shape.
@@ -29,7 +29,9 @@ module System.XYDrag
   , createXYDrag
   , startDrag
   , updateNodes
+  , DragM
   , DragState
+  , execDrag
   , initialDragState
   , autoPanLoop
   ) where
@@ -38,14 +40,13 @@ import Prelude
 
 import Control.Lazy (defer)
 import Control.Monad.Except (runExcept)
-import Control.Monad.State (StateT, get, modify_, runStateT)
+import Control.Monad.State (get, modify_)
 import Data.Either (Either(..))
 import Data.Foldable (foldMap, for_, traverse_)
 import Data.Array (any, length) as Array
 import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isNothing)
 import Data.Number (sqrt)
-import Data.Tuple (Tuple(..))
 import Effect (Effect)
 import Effect.Aff (Aff, launchAff_)
 import Effect.Class (liftEffect)
@@ -76,6 +77,8 @@ import System.FFI.D3Selection
   , d3SelectionOnNull
   )
 import System.FFI.Microtask (awaitMicrotask)
+import System.Utils.RefState (RefState, execOnRef, runOnRef)
+import System.Utils.Truthy (isSet)
 import System.Constants (ErrorCode, errorId, errorMessage)
 import System.Types.Edge (EdgeBase)
 import System.Types.Geometry
@@ -191,15 +194,8 @@ type XYDragInstance =
   , destroy :: Effect Unit
   }
 
--- | Plain-record closure state. Lifecycle handlers run as
--- | `StateT DragState Effect` and a single outer `Ref DragState`
--- | carries the snapshot across the d3-callback boundary via `runOnRef`.
--- | Mirrors the shape `System.XYHandle` uses for its drag lifecycle.
--- |
--- | `runOnRef` is not re-entrant: a nested call reads the snapshot the outer
--- | one has not yet written, and the outer write then discards the inner's.
--- | Anything that re-enters from a callback has to run after its caller has
--- | returned — see `autoPanStep`.
+-- | Plain-record closure state, in one outer `Ref DragState` that the
+-- | lifecycle handlers read and write through `DragM`.
 -- |
 -- | Public for testing, with `initialDragState`.
 type DragState =
@@ -231,15 +227,13 @@ initialDragState =
   , dragEvent: Nothing
   }
 
--- | Run a `StateT DragState Effect a` against an outer `Ref` and write
--- | the new state back. Forms the bridge from the d3-event `Effect`
--- | boundary (and rAF / aff callbacks) to the pure-state interior.
-runOnRef :: forall a. Ref DragState -> StateT DragState Effect a -> Effect a
-runOnRef ref st = do
-  s0 <- Ref.read ref
-  Tuple a s1 <- runStateT st s0
-  Ref.write s1 ref
-  pure a
+-- | A drag step. See `System.Utils.RefState`.
+type DragM = RefState DragState
+
+-- | Run a drag step from `start`, and read the state it leaves. Public for
+-- | testing.
+execDrag :: forall a. DragM a -> DragState -> Effect DragState
+execDrag = execOnRef
 
 -- | The d3 source event arrives as `Foreign`. We attempt a tag-check via
 -- | `Foreign.unsafeReadTagged` and only fall back to `unsafeCoerce` (the
@@ -275,7 +269,7 @@ foreign import mouseEventTarget :: MouseEvent -> Effect Element
 -- | Construct the controller. Allocates a single `Ref DragState` and
 -- | returns the `update`/`destroy` interface. Subsequent `update` calls
 -- | re-bind the d3 drag behavior on a (possibly new) DOM node. Each d3
--- | callback enters the StateT interior via `runOnRef stateRef`.
+-- | callback enters the drag steps via `runOnRef stateRef`.
 createXYDrag
   :: forall nodeData edgeData
    . XYDragParams nodeData edgeData
@@ -312,7 +306,7 @@ onStart
    . XYDragParams n e
   -> DragUpdateParams
   -> D3DragEvent
-  -> StateT DragState Effect Unit
+  -> DragM Unit
 onStart params upd ev = do
   store <- liftEffect params.getStoreItems
   src <- liftEffect (dragSourceEvent ev)
@@ -344,7 +338,7 @@ onDragHandler
   -> Ref DragState
   -> DragUpdateParams
   -> D3DragEvent
-  -> StateT DragState Effect Unit
+  -> DragM Unit
 onDragHandler params stateRef upd ev = do
   store <- liftEffect params.getStoreItems
   src <- liftEffect (dragSourceEvent ev)
@@ -390,7 +384,7 @@ onEnd
    . XYDragParams n e
   -> DragUpdateParams
   -> D3DragEvent
-  -> StateT DragState Effect Unit
+  -> DragM Unit
 onEnd params upd ev = do
   src <- liftEffect (dragSourceEvent ev)
   s0 <- get
@@ -414,7 +408,8 @@ onEnd params upd ev = do
         eventArgs = getEventHandlerParams upd.nodeId s0.dragItems
           store.nodes
           false
-      liftEffect do
+      -- TS runs the stop callbacks only when one of them is truthy.
+      liftEffect $ when (isSet params.onDragStop || isSet store.onNodeDragStop || (isNothing upd.nodeId && isSet store.onSelectionDragStop)) do
         for_ eventArgs.currentNode \cn -> do
           for_ params.onDragStop \cb ->
             cb mouseEv s0.dragItems cn eventArgs.allNodes
@@ -457,7 +452,7 @@ startDrag
    . XYDragParams n e
   -> DragUpdateParams
   -> D3DragEvent
-  -> StateT DragState Effect Unit
+  -> DragM Unit
 startDrag params upd ev = do
   store <- liftEffect params.getStoreItems
   src <- liftEffect (dragSourceEvent ev)
@@ -504,7 +499,8 @@ startDrag params upd ev = do
     , dragItems = items
     }
 
-  when (Array.length items > 0) do
+  -- TS runs the start callbacks only when one of them is truthy.
+  when (Array.length items > 0 && (isSet params.onDragStart || isSet store.onNodeDragStart || (isNothing upd.nodeId && isSet store.onSelectionDragStart))) do
     let
       -- Upstream reports each item's `internals.userNode`, which the
       -- selection above reaches only when the flow applies it to its own
@@ -546,12 +542,9 @@ autoPanLoop params mNodeId stateRef =
 -- |
 -- | The wait is `awaitMicrotask` as well as the `panBy` bind. ps-flow's
 -- | `panBy` completes synchronously, and an `Aff` bound after a synchronous
--- | one continues on the same stack — here, inside the `runOnRef` of the drag
--- | handler or frame that called this step. The continuation would read the
--- | state as it stood before that caller began, and its writes would be lost
--- | when the caller wrote back. The next frame's handle is one of them, which
--- | leaves `onEnd` cancelling a frame that has already run while the loop
--- | carries on. TS gets the same yield from `await`.
+-- | one continues on the same stack, inside the drag handler or frame that
+-- | called this step. TS's `await` yields first, so the rest of the frame
+-- | runs after its caller has finished, and so does it here.
 -- |
 -- | The node id is the grabbed node of the drag that started the loop, and it
 -- | rides every frame. TS gets it from scope: `autoPan` is a closure inside
@@ -564,7 +557,7 @@ autoPanStep
    . XYDragParams n e
   -> Maybe NodeId
   -> Ref DragState
-  -> StateT DragState Effect Unit
+  -> DragM Unit
 autoPanStep params mNodeId stateRef = do
   s <- get
   case s.containerBounds of
@@ -613,7 +606,7 @@ updateNodes
    . XYDragParams n e
   -> Maybe NodeId
   -> XYPosition
-  -> StateT DragState Effect Unit
+  -> DragM Unit
 updateNodes params mNodeId pos = do
   store <- liftEffect params.getStoreItems
   modify_ _ { lastPos = { x: Just pos.x, y: Just pos.y } }
@@ -725,7 +718,9 @@ updateNodes params mNodeId pos = do
     modify_ _ { nodePositionsChanged = true }
     s2 <- get
     liftEffect (store.updateNodePositions s2.dragItems true)
-    liftEffect $ traverse_
+    -- TS runs the drag callbacks only when one of them is truthy.
+    let runsCallbacks = isSet params.onDrag || isSet store.onNodeDrag || (isNothing mNodeId && isSet store.onSelectionDrag)
+    liftEffect $ when runsCallbacks $ traverse_
       ( \ev -> do
           let
             eventArgs = getEventHandlerParams mNodeId s2.dragItems store.nodes true

@@ -12,6 +12,8 @@ module React.Additional.MiniMap
 
 import Prelude
 
+import System.Utils.Number as JsNumber
+
 import Data.Foldable (for_)
 import Data.Map (isEmpty, lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe)
@@ -201,7 +203,7 @@ miniMap =
         elementHeight = asArithmetic elementHeightAttr
         scaledWidth = slice.boundingRect.width / elementWidth
         scaledHeight = slice.boundingRect.height / elementHeight
-        viewScale = max scaledWidth scaledHeight
+        viewScale = JsNumber.max scaledWidth scaledHeight
         viewWidth = viewScale * elementWidth
         viewHeight = viewScale * elementHeight
         offset = fromMaybe 5.0 props.offsetScale * viewScale

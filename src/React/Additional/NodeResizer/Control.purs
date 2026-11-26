@@ -8,6 +8,8 @@ module React.Additional.NodeResizer.Control
 
 import Prelude
 
+import System.Utils.Number as JsNumber
+
 import Data.Array (length) as Array
 import Data.Foldable (foldl, for_)
 import Data.Map (lookup) as Map
@@ -82,7 +84,7 @@ selectScale :: Boolean -> forall n e. ReactFlowState n e -> Maybe String
 selectScale enabled s =
   if enabled then
     let Transform t = s.transform
-    in Just (NumberFormat.toString (max (1.0 / t.scale) 1.0))
+    in Just (NumberFormat.toString (JsNumber.max (1.0 / t.scale) 1.0))
   else Nothing
 
 -- | Keys driving `XYResizer.update` re-runs. Callbacks are wrapped in
@@ -156,10 +158,10 @@ buildChanges store nid change childChanges resizeDirection = do
                 }
               parentEx = handleExpandParent [ child ] st.nodeLookup st.parentLookup nodeOrigin
               clampedX = case change.x of
-                Just cx | cx /= 0.0 && not (Number.isNaN cx) -> Just (max (o.ox * width) cx)
+                Just cx | cx /= 0.0 && not (Number.isNaN cx) -> Just (JsNumber.max (o.ox * width) cx)
                 _ -> Nothing
               clampedY = case change.y of
-                Just cy | cy /= 0.0 && not (Number.isNaN cy) -> Just (max (o.oy * height) cy)
+                Just cy | cy /= 0.0 && not (Number.isNaN cy) -> Just (JsNumber.max (o.oy * height) cy)
                 _ -> Nothing
             in
               Tuple parentEx { x: clampedX, y: clampedY }

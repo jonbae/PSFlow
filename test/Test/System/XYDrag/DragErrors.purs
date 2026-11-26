@@ -18,7 +18,6 @@ module Test.System.XYDrag.DragErrors
 
 import Prelude
 
-import Control.Monad.State (execStateT)
 import Data.Maybe (Maybe(..))
 import Effect (Effect)
 import Effect.Class.Console (log)
@@ -34,7 +33,7 @@ import System.Types.Geometry (mkNodeOrigin)
 import System.Types.Ids (NodeId(..))
 import System.Types.Node (NodeExtent(..))
 import System.Utils.Graph (calculateNodePosition)
-import System.XYDrag (initialDragState, startDrag, updateNodes)
+import System.XYDrag (execDrag, initialDragState, startDrag, updateNodes)
 import Web.DOM.Element (Element)
 
 foreign import dragEventAtOrigin :: D3DragEvent
@@ -112,7 +111,7 @@ moveA nodes = do
       , onNodeMouseDown: Nothing
       , autoPanSpeed: Nothing
       }
-  _ <- execStateT
+  _ <- execDrag
     ( startDrag params
         { noDragClassName: Nothing
         , handleSelector: Nothing

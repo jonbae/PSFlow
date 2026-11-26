@@ -57,6 +57,7 @@ import React.Types.Store (ReactFlowState)
 import System.Types.Edge (EdgeChange)
 import System.Types.Node (NodeChange)
 import System.FFI.AnimationFrame (requestAnimationFrame)
+import System.Utils.Truthy (isTruthy)
 import Unsafe.Coerce (unsafeCoerce)
 
 -- | The queue's type parameter is the *element* type (a `Node` / `Edge`,
@@ -157,7 +158,9 @@ batchProvider =
           when (not (Array.null edgeItems)) do
             let plan = planEdgeQueue s nextEdges
             for_ plan.setEdges (store.dispatch <<< SetEdges)
-            for_ plan.onEdgesChange \changes -> for_ s.onEdgesChange (_ $ changes)
+            -- Upstream's `else if (onEdgesChange)`, which a falsy one skips.
+            for_ plan.onEdgesChange \changes -> for_ s.onEdgesChange \cb ->
+              when (isTruthy cb) (cb changes)
             edgeQueue.reset
         pure (pure unit)
       let

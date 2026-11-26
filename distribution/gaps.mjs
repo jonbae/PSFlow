@@ -24,12 +24,10 @@ export const NOTES = [
     accepted: 'Full JavaScript store compatibility',
     text:
       "`useStoreApi()`'s `getState()` reads back every value written into the store, as upstream's " +
-      'does. A boolean, number or string member also holds that value internally, but ps-flow compares ' +
-      "it through PureScript's `Ord`, which can answer differently from `Math.min`/`Math.max` for " +
-      '`undefined` or `NaN`. A structured member written with a value ps-flow cannot convert, such as ' +
+      "does, and ps-flow's internals use a boolean, number, string or callback member as written, as " +
+      "upstream's do. A structured member written with a value ps-flow cannot convert, such as " +
       "`setState({ nodes: 'x' })`, keeps its previous value internally and for readers such as " +
-      '`getNodes()`, and development builds warn; upstream stores the value everywhere and fails later. ' +
-      'A store callback written as a falsy value other than `null` or `undefined` counts as set.',
+      '`getNodes()`, and development builds warn; upstream stores the value everywhere and fails later.',
   },
   {
     id: 'store-default-view',

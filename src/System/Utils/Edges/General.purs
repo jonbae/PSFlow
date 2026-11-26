@@ -16,6 +16,8 @@ module System.Utils.Edges.General
 
 import Prelude
 
+import System.Utils.Number as JsNumber
+
 import Data.Array (any, filter, snoc) as Array
 import Data.Either (Either(..))
 import Data.Int (floor) as Int
@@ -99,7 +101,7 @@ getElevatedEdgeZIndex p = case p.zIndexMode of
           || (p.elevateOnSelect && p.targetNode.selected == Just true)
       sourceZ = if sourceContributes then p.sourceNode.internals.z else 0.0
       targetZ = if targetContributes then p.targetNode.internals.z else 0.0
-      nodeZ = max sourceZ targetZ
+      nodeZ = JsNumber.max sourceZ targetZ
     in
       edgeZ + Int.floor nodeZ
 

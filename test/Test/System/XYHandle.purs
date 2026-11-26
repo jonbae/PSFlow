@@ -4,15 +4,16 @@
 -- | connection drag that upstream does not pan" (#126). TS `onPointerMove`
 -- | writes `position` and then calls `autoPan()`, which reads it. ps-flow
 -- | wrote the position inside a `runOnRef` and started the loop through a
--- | second, nested `runOnRef`, which is not re-entrant: the first frame read
--- | the state from before the move. `connect-drag-holding-source` presses at
+-- | second, nested `runOnRef`, which was not re-entrant then: the first frame
+-- | read the state from before the move. `connect-drag-holding-source` presses at
 -- | y = 20 and moves to y = 40, the edge of the 40px band, so upstream pans
 -- | by nothing and ps-flow panned by the velocity at y = 20: 15 × 20 / 40 =
 -- | 7.5px. The caller's write-back then discarded the frame's handle, so a
 -- | pointer-up before that frame ran cancelled nothing.
 -- |
 -- | Running the first frame through `runOnRef` again, which is what the
--- | handler did before the fix, fails the first two checks. Like
+-- | handler did before the fix, failed the first two checks while
+-- | `runOnRef` worked on a copy of the state. Like
 -- | `Test.System.XYDrag`, this runs against a frame clock that counts
 -- | requests and runs none of them.
 module Test.System.XYHandle

@@ -15,6 +15,8 @@ module System.XYMinimap
 
 import Prelude
 
+import System.Utils.Number as JsNumber
+
 import Data.Maybe (Maybe(..))
 import Effect (Effect)
 import Effect.Aff (launchAff_)
@@ -144,7 +146,7 @@ panHandler params upd _sel panStart event = do
     viewScale <- params.getViewScale
     let
       moveScale =
-        viewScale * (max t.scale (logN t.scale))
+        viewScale * (JsNumber.max t.scale (logN t.scale))
           * (if upd.inversePan then -1.0 else 1.0)
       position :: Viewport
       position =

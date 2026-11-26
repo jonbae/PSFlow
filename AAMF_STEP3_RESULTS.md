@@ -917,6 +917,25 @@ retires all four:
 `parity/boundary/store.test.mjs` compares each against upstream. The
 declarations header lists what still differs.
 
+The store residual parity work after it matches three more groups:
+
+- Lifecycle: `reset` merges the initial state, keeping the callbacks it does
+  not name. Notification walks zustand's listener `Set` as it stands, and a
+  queued `fitView` without a pan-zoom instance leaves its promise pending.
+- Replacement: a replaced state is `next`, untouched, and each later state is
+  `Object.assign({}, state, partial)`. Every internal write names the members
+  upstream's `set` names, so a member a replacement left out comes back at
+  the first one, unchanged values included.
+- Coercion: the internals use `Math.min`, `Math.max` and upstream's `clamp`
+  defaults on written numbers. A falsy callback is skipped where upstream asks
+  `if (callback)`, and a drag or connection whose callback throws goes on as
+  upstream's does.
+
+`store-lifecycle.test.mjs`, `store-replacement.test.mjs` and
+`store-coercion.test.mjs` compare them against upstream. A structured member
+that cannot convert still keeps its previous value internally, as the
+declarations say.
+
 ### Evidence
 
 | Check | Result |

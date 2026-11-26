@@ -67,6 +67,7 @@ import System.Types.Node
   , NodeLookup
   )
 import System.Types.PanZoom (PanZoomInstance)
+import System.Utils.Truthy (isTruthy)
 import System.Utils.General
   ( boxToRect
   , clampPosition
@@ -516,14 +517,15 @@ getElementsToRemove p = do
         connectedEdges
         deletableEdges
 
+  -- Upstream's `if (!onBeforeDelete) return …`: a falsy one is not asked.
   case p.onBeforeDelete of
-    Nothing -> pure { nodes: matchingNodes, edges: matchingEdges }
-    Just cb -> do
+    Just cb | isTruthy cb -> do
       result <- cb { nodes: matchingNodes, edges: matchingEdges }
       pure case result of
         Left true -> { nodes: matchingNodes, edges: matchingEdges }
         Left false -> { nodes: [], edges: [] }
         Right r -> r
+    _ -> pure { nodes: matchingNodes, edges: matchingEdges }
   where
   collectMatchingNodes nodeIds nodes = Array.foldl step [] nodes
     where

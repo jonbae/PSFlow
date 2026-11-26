@@ -44,6 +44,7 @@ import React.Hook.Store (UseStore, UseStoreApi, useStore, useStoreApi)
 import React.Hook.ViewportHelper (UseViewportHelper, useViewportHelper)
 import React.Store.Action (Action(..))
 import React.Store.Partial (partial)
+import System.Utils.Truthy (isTruthy)
 import React.Store.FitViewResolver (awaitFitView, newFitViewResolver)
 import React.Store.Shell (Store)
 import React.Types.Edges (Edge)
@@ -239,7 +240,9 @@ mkGeneralHelpers store batchContext =
         , edgesToRemove
         , nodes: s.nodes
         , edges: s.edges
-        , onBeforeDelete: map adaptOnBeforeDelete s.onBeforeDelete
+        -- `getElementsToRemove` skips a falsy `onBeforeDelete`. The adapter
+        -- is a new function, so the store's own value is asked here.
+        , onBeforeDelete: map adaptOnBeforeDelete (s.onBeforeDelete >>= \f -> if isTruthy f then Just f else Nothing)
         }
       liftEffect do
         when (Array.length result.edges > 0) do

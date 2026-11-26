@@ -213,6 +213,7 @@ import System.Types.Node (InternalNodeBase, InternalNodeUpdate, NodeBase, NodeCh
 import System.FFI.D3Zoom (ZoomTransform)
 import System.Types.PanZoom (PanOnDrag(..), PanZoomInstance, PanZoomTransformOptions, PanZoomUpdateOptions)
 import System.Utils.General (devWarn)
+import System.Utils.Truthy (isTruthy, markFalsy)
 import System.Utils.Graph (FitViewOptions)
 import Unsafe.Coerce (unsafeCoerce)
 import Unsafe.Reference (unsafeRefEq)
@@ -590,10 +591,13 @@ callbackOut out f = case originalOf f of
 -- | An adapter the store handed out goes back as its PureScript function.
 -- | Anything else converts, and is called when it is used: upstream calls
 -- | whatever a member holds, and a value that is not a function throws then.
+-- | A falsy value is marked, for the places upstream asks `if (callback)`.
 functionIn :: forall js ps. (js -> ps) -> Foreign -> ps
 functionIn convert v = case adaptedFrom v of
   Just ps -> ps
-  Nothing -> remembering convert (unsafeCoerce v)
+  Nothing
+    | isTruthy v -> remembering convert (unsafeCoerce v)
+    | otherwise -> markFalsy (remembering convert (unsafeCoerce v))
 
 -- | A member upstream's initial state holds with a fixed value when nothing
 -- | was set: `null` for the change handlers, `undefined` for

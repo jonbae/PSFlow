@@ -9,6 +9,8 @@ module React.Additional.NodeToolbar
 
 import Prelude
 
+import System.Utils.Number as JsNumber
+
 import Data.Array (filter, foldl, fromFoldable, length) as Array
 import Data.Either (Either(..))
 import Data.FoldableWithIndex (allWithIndex)
@@ -46,7 +48,7 @@ toForeignStyle = unsafeCoerce
 -- | Upstream's `Math.max(...nodesArray.map((node) => node.internals.z + 1))`,
 -- | over the toolbar's nodes' `internals.z`.
 toolbarZIndex :: Array Number -> Number
-toolbarZIndex = Array.foldl (\m z -> max m (z + 1.0)) (-infinity)
+toolbarZIndex = Array.foldl (\m z -> JsNumber.max m (z + 1.0)) (-infinity)
 
 -- | Upstream's `{ position: 'absolute', transform, zIndex, ...style }`: the
 -- | consumer's style goes last, so its keys win. `Object.union` prefers its
