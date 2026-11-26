@@ -121,7 +121,7 @@
   "remainingIssues": [],
   "compatibilityLimits": [
     { "id": "store-write-residuals", "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-g-completion-november-12-utc", "parity/boundary/store.test.mjs", "distribution/gaps.mjs"] },
-    { "id": "module-formats-react-peer-range-and-styles-warning", "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-i-completion-november-13-utc", "distribution/gaps.mjs", "package.json"] },
+    { "id": "react-peer-range-and-styles-warning", "evidenceRefs": ["AAMF_STEP3_RESULTS.md#order-i-completion-november-13-utc", "distribution/gaps.mjs", "package.json"] },
     { "id": "permanent-surface-shape-exceptions", "evidenceRefs": ["parity/surface/allowlist.json", "parity/surface/report.md"] }
   ]
 }

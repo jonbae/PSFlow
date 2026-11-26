@@ -1247,6 +1247,13 @@ the layout effect on the server.
 - The development warning for missing styles keeps upstream's wording, which
   names `@xyflow/react/dist/style.css`.
 
+That was the Order I checkpoint. The later UMD build work retires the first:
+`dist/umd/index.js`, at upstream's path, serves `require('ps-flow')`, AMD
+loaders and classic scripts through the `ReactFlow` global, as upstream's UMD
+build does. `parity:package` checks that all three expose `index.js`'s names
+and shapes and render the same markup. The peer range, since narrowed to
+`^18.3.1`, and the styles warning remain.
+
 ### Evidence
 
 | Check | Result |
