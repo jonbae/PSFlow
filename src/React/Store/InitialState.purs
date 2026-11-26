@@ -11,6 +11,7 @@ module React.Store.InitialState
   , defaultInitialStateOptions
   , defaultOnError
   , initialState
+  , resetState
   ) where
 
 import Prelude
@@ -245,6 +246,36 @@ initialState opts =
     , onNodesChangeMiddlewareMap: freshMiddlewareMap unit
     , onEdgesChangeMiddlewareMap: freshMiddlewareMap unit
     }
+
+-- | Upstream's `reset`, `set({ ...getInitialState() })`. The `set` merges, so
+-- | every member the initial state names goes back to its initial value and
+-- | the 22 it does not name, the callbacks `StoreUpdater` adds beside it and
+-- | `defaultEdgeOptions`, keep theirs.
+resetState :: forall n e. ReactFlowState n e -> ReactFlowState n e
+resetState s = (initialState defaultInitialStateOptions)
+  { onNodeDragStart = s.onNodeDragStart
+  , onNodeDrag = s.onNodeDrag
+  , onNodeDragStop = s.onNodeDragStop
+  , onSelectionDragStart = s.onSelectionDragStart
+  , onSelectionDrag = s.onSelectionDrag
+  , onSelectionDragStop = s.onSelectionDragStop
+  , onMoveStart = s.onMoveStart
+  , onMove = s.onMove
+  , onMoveEnd = s.onMoveEnd
+  , onConnect = s.onConnect
+  , onConnectStart = s.onConnectStart
+  , onConnectEnd = s.onConnectEnd
+  , onClickConnectStart = s.onClickConnectStart
+  , onClickConnectEnd = s.onClickConnectEnd
+  , defaultEdgeOptions = s.defaultEdgeOptions
+  , onNodesDelete = s.onNodesDelete
+  , onEdgesDelete = s.onEdgesDelete
+  , onDelete = s.onDelete
+  , onViewportChangeStart = s.onViewportChangeStart
+  , onViewportChange = s.onViewportChange
+  , onViewportChangeEnd = s.onViewportChangeEnd
+  , onBeforeDelete = s.onBeforeDelete
+  }
 
 -- | Upstream's initial `onError`, `devWarn`: in development it writes
 -- | `[React Flow]: <message> Help: https://reactflow.dev/error#<id>` with

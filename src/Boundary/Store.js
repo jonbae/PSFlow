@@ -325,10 +325,20 @@ function createView(spec) {
     else mergeIn(next);
   };
 
+  // One PureScript listener per JavaScript one, so the store's `Set` sees
+  // the same listener each time it is subscribed. zustand takes any value,
+  // and calls it when it notifies.
+  const listeners = new WeakMap();
+  const primitiveListeners = new Map();
+  const listenerFor = (listener) => {
+    const table = isReference(listener) ? listeners : primitiveListeners;
+    if (!table.has(listener)) {
+      table.set(listener, (state) => (previous) => () => listener(viewOf(state), viewOf(previous)));
+    }
+    return table.get(listener);
+  };
   const subscribe = (listener) => {
-    const unsubscribe = spec.subscribeStates((state) => (previous) => () =>
-      listener(viewOf(state), viewOf(previous))
-    )();
+    const unsubscribe = spec.subscribeStates(listenerFor(listener))();
     return () => {
       unsubscribe();
     };

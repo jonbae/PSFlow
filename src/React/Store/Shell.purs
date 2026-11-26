@@ -15,10 +15,12 @@ module React.Store.Shell
 
 import Prelude
 
-import Data.Array (filter) as Array
+import Control.Monad.Rec.Class (Step(..), tailRecM)
+import Data.Array (any, filter, length, partition, unsafeIndex) as Array
 import Data.Foldable (for_, traverse_)
 import Data.Maybe (Maybe(..), fromMaybe)
 import Effect (Effect)
+import Partial.Unsafe (unsafePartial)
 import Effect.Aff (launchAff_)
 import Effect.Ref as Ref
 import Effect.Class (liftEffect)
@@ -31,6 +33,7 @@ import React.Types.Store (ReactFlowState)
 import System.Constants (errorMessage)
 import System.Utils.Graph (fitViewport)
 import System.Utils.Store (updateNodeInternals)
+import Unsafe.Coerce (unsafeCoerce)
 import Unsafe.Reference (unsafeRefEq)
 import Web.HTML.HTMLDivElement (toHTMLElement)
 
@@ -39,10 +42,22 @@ import Web.HTML.HTMLDivElement (toHTMLElement)
 -- | `ReactFlowState -> ReactFlowState -> Effect Unit`. The closure
 -- | re-runs the selector on the prev/next state, compares, and fires
 -- | the callback if the projection changed.
+-- |
+-- | The list is zustand's `Set` of listeners. `identity` is what the `Set`
+-- | holds, the listener a caller handed over, so one listener is held
+-- | once. `key` is its place in insertion order: keys only grow, and a
+-- | listener that is removed and added again gets a new one, at the end.
 type Subscriber n e =
   { onUpdate :: ReactFlowState n e -> ReactFlowState n e -> Effect Unit
+  , identity :: Identity
   , key :: Int
   }
+
+-- | A listener's reference, compared with `unsafeRefEq`.
+foreign import data Identity :: Type
+
+identityOf :: forall a. a -> Identity
+identityOf = unsafeCoerce
 
 -- | Rank-N polymorphic `subscribe` wrapped in a newtype so it can live
 -- | inside the `Store` record (PS records don't permit polymorphic
@@ -79,6 +94,11 @@ type Store n e =
   -- | listener runs, and the `previousState` of the `set` that notified, so
   -- | a listener that dispatches lets the next one see the newer state beside
   -- | the older previous one. This hands over the same two.
+  -- |
+  -- | All three kinds share one list, zustand's `Set`: a listener already
+  -- | in it is not added again, and undoing any of its subscriptions
+  -- | removes it. A listener is compared by reference, so
+  -- | `Boundary.Store` hands over one function per JavaScript listener.
   , subscribeStates :: (ReactFlowState n e -> ReactFlowState n e -> Effect Unit) -> Effect (Effect Unit)
   , dispatch :: Action n e -> Effect Unit
   -- | Called with each state the store moves to and the one before it, as
@@ -177,14 +197,16 @@ createStore opts = do
         -- so `ZoomPane.onTransformChange` writes the new `state.transform`),
         -- then call the resolver's `resolve(true)` and clear it, as
         -- upstream's `set({ fitViewResolver: null })` does once the fit has
-        -- settled. No panZoom yet → just resolve.
+        -- settled.
+        -- Without a pan-zoom instance upstream returns at once: the
+        -- resolver stays in the store, unresolved, for the next fit.
         s <- Ref.read stateRef
         let
           resolveFit = case s.fitViewResolver of
             Just resolver -> liftEffect (resolveFitView resolver true)
             Nothing -> pure unit
         case s.panZoom of
-          Nothing -> launchAff_ resolveFit
+          Nothing -> pure unit
           Just pz -> launchAff_ do
             _ <- fitViewport
               { nodes: s.nodeLookup
@@ -203,9 +225,28 @@ createStore opts = do
           Just cb -> cb (errorCodeName code) (errorMessage code)
           Nothing -> pure unit
 
-    notifySubscribers prev next = do
+    -- zustand's `listeners.forEach(…)` over a `Set`, which visits each
+    -- entry present when the walk reaches it: a listener removed before its
+    -- turn is skipped, and one added during the walk is reached in it. The
+    -- walk reads the list afresh at each step and goes on from the last key
+    -- it visited.
+    notifySubscribers prev next = flip tailRecM (-1) \after -> do
       subs <- Ref.read subsRef
-      for_ subs \sub -> sub.onUpdate prev next
+      case firstAfter after subs of
+        Nothing -> pure (Done unit)
+        Just sub -> do
+          sub.onUpdate prev next
+          pure (Loop sub.key)
+
+    -- `listeners.add(listener)`: a listener the `Set` holds already stays
+    -- where it is. `listeners.delete(listener)` removes it whichever
+    -- subscription is undone.
+    addSubscriber identity onUpdate = do
+      subs <- Ref.read subsRef
+      unless (Array.any (\sub -> unsafeRefEq sub.identity identity) subs) do
+        key <- Ref.modify (_ + 1) nextSubKeyRef
+        Ref.write (subs <> [ { onUpdate, identity, key } ]) subsRef
+      pure (Ref.modify_ (Array.filter (\sub -> not (unsafeRefEq sub.identity identity))) subsRef)
 
   let
     dispatch :: Action n e -> Effect Unit
@@ -216,14 +257,17 @@ createStore opts = do
       unless (unsafeRefEq prev res.state) do
         observers <- Ref.read observersRef
         for_ observers \observe -> observe prev res.state (isReset action)
+      -- Upstream calls `resolveFitView()` before the `set` that clears the
+      -- queue, so the viewport is set before any subscriber hears of it.
+      let effects = Array.partition runsBeforeSet res.effects
+      traverse_ (interpretEffect dispatch) effects.yes
       notifySubscribers prev res.state
-      traverse_ (interpretEffect dispatch) res.effects
+      traverse_ (interpretEffect dispatch) effects.no
 
     setState f = dispatch (PatchState f)
     getState = Ref.read stateRef
 
     subscribe = Subscribe \selector cb -> do
-      key <- Ref.modify (_ + 1) nextSubKeyRef
       let
         onUpdate prev next =
           let
@@ -232,7 +276,7 @@ createStore opts = do
           in
             if prevV == nextV then pure unit
             else cb nextV
-      Ref.modify_ (\xs -> xs <> [ { onUpdate, key } ]) subsRef
+      unsubscribe <- addSubscriber (identityOf onUpdate) onUpdate
       -- No fire on subscribe. Zustand's `subscribe` does not call back with
       -- the current value; only `subscribeWithSelector` under an explicit
       -- `fireImmediately` does, and upstream never asks for it. The one
@@ -246,32 +290,28 @@ createStore opts = do
       -- of 94 scenarios into `callbacks | ordered differently` against their
       -- own second capture. See "Diagnose why ps-flow does not reproduce
       -- itself on 52 of 94 scenarios" (#94).
-      pure (Ref.modify_ (Array.filter (\sub -> sub.key /= key)) subsRef)
+      pure unsubscribe
 
     -- Zustand notifies when `!Object.is(nextState, state)`, and so does
     -- this: a dispatch whose reducer handed the same state back is not a
     -- change. Listeners share the selector subscribers' list, so the two
     -- kinds run in the order they subscribed, as zustand's one `Set` does.
-    subscribeAll listener = do
-      key <- Ref.modify (_ + 1) nextSubKeyRef
-      let
-        onUpdate prev next = unless (unsafeRefEq prev next) listener
-      Ref.modify_ (\xs -> xs <> [ { onUpdate, key } ]) subsRef
-      pure (Ref.modify_ (Array.filter (\sub -> sub.key /= key)) subsRef)
+    subscribeAll listener =
+      addSubscriber (identityOf listener) \prev next -> unless (unsafeRefEq prev next) listener
 
-    subscribeStates listener = do
-      key <- Ref.modify (_ + 1) nextSubKeyRef
-      let
-        onUpdate prev next = unless (unsafeRefEq prev next) do
-          current <- Ref.read stateRef
-          listener current prev
-      Ref.modify_ (\xs -> xs <> [ { onUpdate, key } ]) subsRef
-      pure (Ref.modify_ (Array.filter (\sub -> sub.key /= key)) subsRef)
+    subscribeStates listener =
+      addSubscriber (identityOf listener) \prev next -> unless (unsafeRefEq prev next) do
+        current <- Ref.read stateRef
+        listener current prev
 
     observeTransitions observer = Ref.modify_ (_ <> [ observer ]) observersRef
 
     isReset = case _ of
       Reset -> true
+      _ -> false
+
+    runsBeforeSet = case _ of
+      ResolveFitView _ -> true
       _ -> false
 
   pure
@@ -284,6 +324,20 @@ createStore opts = do
     , dispatch
     , observeTransitions
     }
+
+-- | The first subscriber whose key is greater than `after`. Keys grow along
+-- | the list, so this is a binary search.
+firstAfter :: forall n e. Int -> Array (Subscriber n e) -> Maybe (Subscriber n e)
+firstAfter after subs = go 0 (Array.length subs)
+  where
+  at i = unsafePartial (Array.unsafeIndex subs i)
+  go low high
+    | low >= high = if low < Array.length subs then Just (at low) else Nothing
+    | otherwise =
+        let
+          mid = (low + high) / 2
+        in
+          if (at mid).key > after then go low mid else go (mid + 1) high
 
 -- | The first segment of `https://reactflow.dev/error#NNN` — the
 -- | numeric tag. Used to satisfy the `OnError` signature

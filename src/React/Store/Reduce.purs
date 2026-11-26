@@ -33,7 +33,7 @@ import React.Store.Changes
   , getEdgeSelectionChanges
   , getNodeSelectionChanges
   )
-import React.Store.InitialState (defaultInitialStateOptions, initialState)
+import React.Store.InitialState (resetState)
 import React.Types.Edges (Edge)
 import React.Types.General (UnselectNodesAndEdgesParams)
 import React.Types.Nodes (Node)
@@ -100,7 +100,7 @@ reduce state = case _ of
   CancelConnection -> { state: state { connection = noConnection }, effects: [] }
   UpdateConnection c -> { state: state { connection = c }, effects: [] }
   ResetSelectedElements -> reduceResetSelectedElements state
-  Reset -> { state: initialState defaultInitialStateOptions, effects: [] }
+  Reset -> { state: resetState state, effects: [] }
   SetViewportChangeStartHandler callback ->
     { state: state { onViewportChangeStart = callback }, effects: [] }
   SetViewportChangeHandler callback ->
