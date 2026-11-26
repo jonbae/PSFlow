@@ -219,7 +219,8 @@ it as `node parity/system/linux.mjs npm run parity:system`, in the Playwright
 image that matches `package-lock.json`: the recorded checkpoints were captured
 there, and the capture environment is part of each receipt. It was kept out of
 CI while the divergence backlog held it red on purpose. When it is red, the
-job keeps its report and traces as the `system-parity` artifact.
+job keeps its report and traces as the `system-parity-react-<version>`
+artifact.
 
 **Three checks that are not gates run after the five.** The boundary checks,
 `npm run parity:boundary`, mount every crossing through `index.js` with server
@@ -229,6 +230,21 @@ check builds the package with `npm run build:package` and then installs it
 into a scratch consumer with
 `npm run parity:package`. All three run after system parity, so a red one never
 withholds a gate's result.
+
+**The whole job runs on every React release the peer range admits.**
+`package.json` declares `react` and `react-dom` peers at `^18.3.1`, and 18.3.1
+is also the exact-pinned devDependency that the lockfile resolves, so CI runs
+the job once, on 18.3.1. The range starts at 18.3.1 rather than 18.3.0 because
+18.3.0's `react` package does not export `act`, which the boundary tests use.
+The job's matrix lists the releases to run, and `npm run test:ci` holds it to
+`package.json`: the list must be the range's floor and the pin. Widening the
+range or moving the pin without adding a run to the list goes red. Each run
+calls `node .github/scripts/install-react.mjs <version>` before it builds
+anything. The script refuses a version outside either peer range, installs
+`react` and `react-dom` together, rewrites `package.json` and the lockfile so
+the net's `npm ci` installs the same release, and fails unless the installed
+packages and both lockfile entries name it. The driver build and the package
+check name the React they ran on in their logs.
 
 **Surface parity runs first and blocks.** It is the only hard precondition, so
 when it is red the four gates and three checks after it do not run, and the

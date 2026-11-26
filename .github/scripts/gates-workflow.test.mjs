@@ -27,6 +27,8 @@ import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join, resolve } from "node:path";
 
+import { caretFloor } from "./install-react.mjs";
+
 const here = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(here, "..", "..");
 
@@ -53,6 +55,9 @@ const BEYOND_GATES = [
  * the recorded checkpoints were captured.
  */
 const LINUX_RUNNER = "node parity/system/linux.mjs";
+
+/** The step that swaps each run's React release in, by the matrix value it is handed. */
+const INSTALL_REACT = "node .github/scripts/install-react.mjs ${{ matrix.react }}";
 
 const indentOf = (line) => line.match(/^\s*/)[0].length;
 
@@ -148,6 +153,7 @@ function view({ workflow, readme, packageJson }) {
       gate,
       command: gate === "system parity" ? `${LINUX_RUNNER} ${command}` : command,
     })),
+    manifest: JSON.parse(packageJson),
     scripts: JSON.parse(packageJson).scripts,
     /** Steps whose `run` executes `command` as a command line of its own. */
     running: (command) =>
@@ -293,6 +299,50 @@ const CLAIMS = {
       assert.equal(running(command)[0].if, undefined, `\`${command}\` runs unconditionally`);
       assert.ok(ciSection.includes(`\`${command}\``), `README's CI section names \`${command}\``);
       previous = at(command);
+    }
+  },
+
+  // The peer range is a claim about which React releases ps-flow works on, and
+  // CI is its evidence. The floor is the oldest release the range claims; the
+  // devDependency pin is the one development runs. A run on each, with the
+  // install ahead of everything it should run under, is what makes the range
+  // measured rather than declared. The matrix is read as one flow-style line.
+  "CI runs every gate on the floor of the declared React range and on the locked version": ({
+    manifest,
+    uncommented,
+    gates,
+    steps,
+    running,
+  }) => {
+    const { peerDependencies: peers, devDependencies: pins } = manifest;
+
+    assert.equal(peers["react-dom"], peers.react, "react-dom's peer range is react's");
+    assert.equal(pins["react-dom"], pins.react, "react-dom's devDependency pin is react's");
+
+    const matrix = uncommented.match(/^\s*react:\s*\[(.*)\]\s*$/m);
+    assert.ok(matrix, `${WORKFLOW} has a react matrix`);
+    const releases = [...matrix[1].matchAll(/"([^"]*)"/g)].map(([, version]) => version);
+
+    assert.deepEqual(
+      [...releases].sort(),
+      [...new Set([caretFloor(peers.react), pins.react])].sort(),
+      `the matrix runs the floor of ${peers.react} and the pin ${pins.react}`
+    );
+    assert.match(uncommented, /^\s*fail-fast:\s*false\s*$/m, "a red run does not cancel the others");
+
+    const at = (command) => steps.indexOf(running(command)[0]);
+    const install = at(INSTALL_REACT);
+
+    assert.equal(running(INSTALL_REACT).length, 1, `\`${INSTALL_REACT}\` in ${WORKFLOW}`);
+    assert.equal(steps[install].if, undefined, "the install runs unconditionally");
+    assert.ok(at("npm ci") < install, "the install runs after npm ci");
+    assert.ok(at("npm run test:ci") < install, "and after the self-test, which reads the committed package.json");
+    assert.ok(install < at("spago build"), "and before anything is built");
+    for (const { gate, command } of gates) {
+      assert.ok(install < at(command), `and before ${gate}`);
+    }
+    for (const command of BEYOND_GATES) {
+      assert.ok(install < at(command), `and before \`${command}\``);
     }
   },
 
@@ -457,6 +507,57 @@ const PROBES = [
       readme: (r) =>
         r.replace("consumer with\n`npm run parity:package`.", "consumer."),
     },
+  },
+  {
+    breaks: "CI runs every gate on the floor of the declared React range and on the locked version",
+    by: "the peer range widening to a release CI does not run",
+    patch: {
+      packageJson: (p) =>
+        p.replace(
+          '"react": "^18.3.1",\n    "react-dom": "^18.3.1"',
+          '"react": "^18.3.0",\n    "react-dom": "^18.3.0"'
+        ),
+    },
+  },
+  {
+    breaks: "CI runs every gate on the floor of the declared React range and on the locked version",
+    by: "the pin moving without the matrix following",
+    patch: {
+      packageJson: (p) =>
+        p.replace('"react": "18.3.1",\n    "react-dom": "18.3.1"', '"react": "18.3.2",\n    "react-dom": "18.3.2"'),
+    },
+  },
+  {
+    breaks: "CI runs every gate on the floor of the declared React range and on the locked version",
+    by: "the matrix running a release the range does not claim",
+    patch: { workflow: (w) => w.replace('react: ["18.3.1"]', 'react: ["18.3.0", "18.3.1"]') },
+  },
+  {
+    breaks: "CI runs every gate on the floor of the declared React range and on the locked version",
+    by: "the install moving after a gate, which then runs on whatever npm ci installed",
+    patch: {
+      workflow: (w) =>
+        w
+          .replace(`run: ${INSTALL_REACT}`, "run: SWAP")
+          .replace("run: npm run test:smoke", `run: ${INSTALL_REACT}`)
+          .replace("run: SWAP", "run: npm run test:smoke"),
+    },
+  },
+  {
+    breaks: "CI runs every gate on the floor of the declared React range and on the locked version",
+    by: "the install moving ahead of the self-test, which would read the rewritten package.json",
+    patch: {
+      workflow: (w) =>
+        w
+          .replace(`run: ${INSTALL_REACT}`, "run: SWAP")
+          .replace("run: npm run test:ci\n", `run: ${INSTALL_REACT}\n`)
+          .replace("run: SWAP", "run: npm run test:ci"),
+    },
+  },
+  {
+    breaks: "CI runs every gate on the floor of the declared React range and on the locked version",
+    by: "a red run cancelling the others",
+    patch: { workflow: (w) => w.replace("      fail-fast: false\n", "") },
   },
   {
     breaks: "every npm script the workflow runs exists",
