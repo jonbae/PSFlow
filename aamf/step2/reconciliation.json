@@ -13,7 +13,7 @@
     "dateUTC": "2026-11-26",
     "profiles": "aamf/step4/order-11/profiles.json",
     "profilesSha256": "141c0c7635f6bc819352d890739395321199c9d87f353e66240421a564ca76a1",
-    "mappingSha256": "b6323fd6b22c92cbc2623e783cae517e3ebdcd1b8122d84cad49409fd0b1c338",
+    "mappingSha256": "38465598ca6455199fc86b9801532f02653a38b3a237ba3ca96a313926f221c9",
     "inventorySha256": "5ec27d3f88d3f3a5a66516d95136a0c45260d2deebe77c368f6a1832e38a2940",
     "importsSha256": "7e4470c29fb402fefb63160a57af56428b81d6ba1035716dd15d7a1f08a08463"
   },
@@ -327,7 +327,8 @@
         "src/React/Additional/MiniMap/Node.js",
         "src/React/FFI/DOM.js",
         "src/React/FFI/ForwardRef.js",
-        "src/React/Hook/Store.js"
+        "src/React/Hook/Store.js",
+        "src/System/Utils/Number.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
       "imports": [
@@ -441,6 +442,7 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/Number.js",
         "src/System/XYHandle.js",
         "src/System/XYResizer.js"
       ],
@@ -508,6 +510,7 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/Number.js",
         "src/System/XYHandle.js",
         "src/System/XYResizer.js"
       ],
@@ -582,6 +585,7 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/Number.js",
         "src/System/XYHandle.js",
         "src/System/XYResizer.js"
       ],
@@ -1287,7 +1291,8 @@
         "src/React/FFI/ForwardRef.js",
         "src/React/Handle.js",
         "src/React/Hook/Store.js",
-        "src/System/Types/Edge.js"
+        "src/System/Types/Edge.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
       "imports": [
@@ -1398,6 +1403,7 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/Lookup.js",
         "src/System/XYHandle.js",
         "src/System/XYResizer.js"
       ],
@@ -1556,6 +1562,7 @@
         "src/System/Types/Connection.js",
         "src/System/Utils/General.js",
         "src/System/Utils/Graph.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Number.js",
         "src/System/XYMinimap.js"
       ],
@@ -1682,7 +1689,8 @@
         "src/React/Additional/MiniMap.js",
         "src/React/Additional/MiniMap/Node.js",
         "src/React/FFI/DOM.js",
-        "src/React/FFI/ForwardRef.js"
+        "src/React/FFI/ForwardRef.js",
+        "src/System/Utils/Number.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
       "imports": [
@@ -1778,7 +1786,9 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/General.js",
+        "src/System/Utils/Lookup.js",
         "src/System/XYHandle.js",
         "src/System/XYResizer.js"
       ],
@@ -1891,8 +1901,10 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/General.js",
         "src/System/Utils/Graph.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Number.js",
         "src/System/XYHandle.js",
         "src/System/XYMinimap.js",
@@ -2085,6 +2097,7 @@
         "src/React/Hook/Store.js",
         "src/System/Types/Node.js",
         "src/System/Utils/General.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Number.js",
         "src/System/Utils/Store.js",
         "src/System/XYResizer.js"
@@ -2287,6 +2300,7 @@
         "src/System/Types/Node.js",
         "src/System/Utils/Dom.js",
         "src/System/Utils/General.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Number.js",
         "src/System/Utils/Store.js",
         "src/System/XYHandle.js",
@@ -2371,6 +2385,7 @@
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
         "src/System/Utils/Dom.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Number.js",
         "src/System/XYHandle.js",
         "src/System/XYResizer.js"
@@ -2460,6 +2475,7 @@
         "src/React/Hook/Store.js",
         "src/System/Types/Node.js",
         "src/System/Utils/Graph.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Number.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
@@ -2660,6 +2676,7 @@
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
         "src/System/Utils/Graph.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Number.js",
         "src/System/XYHandle.js",
         "src/System/XYResizer.js"
@@ -3093,6 +3110,7 @@
         "src/System/FFI/AnimationFrame.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/Truthy.js"
       ],
       "callers": "`react/src/components/ReactFlowProvider/index.tsx::ReactFlowProvider` → `BatchProvider`<br>`react/src/hooks/useReactFlow.ts::useReactFlow` → `useBatchContext` |",
@@ -3213,6 +3231,7 @@
         "src/System/FFI/AnimationFrame.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/Truthy.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
@@ -3272,6 +3291,7 @@
         "src/System/FFI/AnimationFrame.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/Truthy.js"
       ],
       "callers": "`react/src/components/BatchProvider/index.tsx::BatchProvider` → `useQueue` |",
@@ -3362,6 +3382,7 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/Number.js",
         "src/System/XYHandle.js",
         "src/System/XYResizer.js"
       ],
@@ -3674,7 +3695,9 @@
         "src/React/Store/Partial.js",
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
-        "src/System/Types/Node.js"
+        "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
       "imports": [
@@ -3856,7 +3879,8 @@
         "src/Boundary/Untagged.js",
         "src/Boundary/Wrapper.js",
         "src/React/Edge/Text.js",
-        "src/React/FFI/DOM.js"
+        "src/React/FFI/DOM.js",
+        "src/System/Utils/General.js"
       ],
       "callers": "`react/src/components/Edges/BezierEdge.tsx::createBezierEdge` → `BaseEdge`<br>`react/src/components/Edges/SimpleBezierEdge.tsx::createSimpleBezierEdge` → `BaseEdge`<br>`react/src/components/Edges/SmoothStepEdge.tsx::createSmoothStepEdge` → `BaseEdge`<br>`react/src/components/Edges/StraightEdge.tsx::createStraightEdge` → `BaseEdge` |",
       "imports": [
@@ -4146,7 +4170,8 @@
         "src/Boundary/Untagged.js",
         "src/Boundary/Wrapper.js",
         "src/React/Edge/Text.js",
-        "src/React/FFI/DOM.js"
+        "src/React/FFI/DOM.js",
+        "src/System/Utils/Number.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
       "imports": [
@@ -4247,7 +4272,8 @@
         "src/Boundary/Undefined.js",
         "src/Boundary/Untagged.js",
         "src/Boundary/Wrapper.js",
-        "src/React/Edge/Text.js"
+        "src/React/Edge/Text.js",
+        "src/System/Utils/Number.js"
       ],
       "callers": "`react/src/components/ConnectionLine/index.tsx::ConnectionLine` → `getSimpleBezierPath` |",
       "imports": [
@@ -4607,7 +4633,9 @@
       ],
       "converters": [
         "src/React/Edge/Text.js",
-        "src/React/FFI/DOM.js"
+        "src/React/FFI/DOM.js",
+        "src/System/Utils/General.js",
+        "src/System/Utils/Number.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
       "imports": [
@@ -4706,6 +4734,7 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/Dom.js",
         "src/System/XYHandle.js",
         "src/System/XYResizer.js"
@@ -4866,9 +4895,11 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/Dom.js",
         "src/System/Utils/General.js",
         "src/System/Utils/Graph.js",
+        "src/System/Utils/Lookup.js",
         "src/System/XYDrag.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
@@ -5096,7 +5127,9 @@
       "targets": [
         "src/React/Component/NodeWrapper/Util.purs"
       ],
-      "converters": [],
+      "converters": [
+        "src/System/Utils/Number.js"
+      ],
       "callers": "`react/src/components/NodeWrapper/index.tsx::NodeWrapper` → `getNodeInlineStyleDimensions` |",
       "imports": [
         {
@@ -5465,7 +5498,8 @@
       "converters": [
         "src/React/Node/Util.js",
         "src/React/Store/Partial.js",
-        "src/System/FFI/AnimationFrame.js"
+        "src/System/FFI/AnimationFrame.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "`react/src/components/NodeWrapper/index.tsx::NodeWrapper` → `handleNodeClick`<br>`react/src/hooks/useDrag.ts::useDrag` → `handleNodeClick` |",
       "imports": [
@@ -5563,6 +5597,7 @@
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
         "src/System/Utils/Graph.js",
+        "src/System/Utils/Number.js",
         "src/System/XYDrag.js",
         "src/System/XYHandle.js",
         "src/System/XYResizer.js"
@@ -5930,6 +5965,8 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/Lookup.js",
         "src/System/XYHandle.js",
         "src/System/XYResizer.js"
       ],
@@ -6138,7 +6175,8 @@
       "converters": [
         "src/React/FFI/DOM.js",
         "src/React/Hook/Store.js",
-        "src/System/Types/Connection.js"
+        "src/System/Types/Connection.js",
+        "src/System/Utils/Number.js"
       ],
       "callers": "`react/src/container/Pane/index.tsx::Pane` → `UserSelection` |",
       "imports": [
@@ -7286,6 +7324,7 @@
         "src/System/Utils/Dom.js",
         "src/System/Utils/General.js",
         "src/System/Utils/Graph.js",
+        "src/System/Utils/Lookup.js",
         "src/System/XYHandle.js",
         "src/System/XYResizer.js"
       ],
@@ -7732,6 +7771,7 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/Number.js",
         "src/System/XYHandle.js",
         "src/System/XYResizer.js"
       ],
@@ -7949,7 +7989,9 @@
         "src/React/Hook/UpdateNodeInternals.js",
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
-        "src/System/Types/Node.js"
+        "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
       "imports": [
@@ -8169,7 +8211,9 @@
         "src/React/Hook/UpdateNodeInternals.js",
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
-        "src/System/Types/Node.js"
+        "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "`react/src/container/ReactFlow/index.tsx::ReactFlow` → `useColorModeClass` |",
       "imports": [
@@ -8245,7 +8289,9 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
-        "src/System/Utils/General.js"
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/General.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "`react/src/components/ConnectionLine/index.tsx::ConnectionLine` → `useConnection` |",
       "imports": [
@@ -8344,6 +8390,8 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/Lookup.js",
         "src/System/XYDrag.js"
       ],
       "callers": "`react/src/components/NodeWrapper/index.tsx::NodeWrapper` → `useDrag`<br>`react/src/components/NodesSelection/index.tsx::NodesSelection` → `useDrag` |",
@@ -8446,7 +8494,9 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
-        "src/System/Utils/General.js"
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/General.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
       "imports": [
@@ -8530,7 +8580,9 @@
         "src/React/Store/Partial.js",
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
-        "src/System/Types/Node.js"
+        "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "`react/src/container/FlowRenderer/index.tsx::FlowRendererComponent` → `useGlobalKeyHandler` |",
       "imports": [
@@ -8640,6 +8692,8 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Store.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
@@ -8736,7 +8790,9 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
-        "src/System/Utils/General.js"
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/General.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
       "imports": [
@@ -8832,7 +8888,9 @@
         "src/React/Hook/UpdateNodeInternals.js",
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
-        "src/System/Types/Node.js"
+        "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
       "imports": [
@@ -8911,7 +8969,9 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
-        "src/System/Utils/Dom.js"
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/Dom.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "`react/src/container/FlowRenderer/index.tsx::target0` → `useKeyPress`<br>`react/src/container/FlowRenderer/index.tsx::target1` → `useKeyPress`<br>`react/src/container/ZoomPane/index.tsx::ZoomPane` → `useKeyPress`<br>`react/src/hooks/useGlobalKeyHandler.ts::actInsideInputWithModifier0` → `useKeyPress`<br>`react/src/hooks/useGlobalKeyHandler.ts::target0` → `useKeyPress` |",
       "imports": [
@@ -9013,8 +9073,10 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/General.js",
-        "src/System/Utils/Graph.js"
+        "src/System/Utils/Graph.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "`react/src/components/NodeWrapper/index.tsx::NodeWrapper` → `useMoveSelectedNodes`<br>`react/src/components/NodesSelection/index.tsx::NodesSelection` → `useMoveSelectedNodes` |",
       "imports": [
@@ -9116,6 +9178,8 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Store.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
@@ -9213,7 +9277,9 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
-        "src/System/Utils/General.js"
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/General.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
       "imports": [
@@ -9295,7 +9361,9 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
-        "src/System/Utils/General.js"
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/General.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
       "imports": [
@@ -9389,8 +9457,10 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/General.js",
-        "src/System/Utils/Graph.js"
+        "src/System/Utils/Graph.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
       "imports": [
@@ -9473,7 +9543,9 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
-        "src/System/Utils/General.js"
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/General.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
       "imports": [
@@ -9555,7 +9627,9 @@
         "src/React/Store/Middleware.js",
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
-        "src/System/Types/Node.js"
+        "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
       "imports": [
@@ -9645,7 +9719,9 @@
         "src/System/FFI/Timer.js",
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
-        "src/System/Types/Node.js"
+        "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "`react/src/container/GraphView/index.tsx::GraphViewComponent` → `useOnInitHandler` |",
       "imports": [
@@ -9725,7 +9801,9 @@
         "src/React/Store/Middleware.js",
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
-        "src/System/Types/Node.js"
+        "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
       "imports": [
@@ -9816,7 +9894,9 @@
         "src/System/FFI/Timer.js",
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
-        "src/System/Types/Node.js"
+        "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
       "imports": [
@@ -9897,7 +9977,9 @@
         "src/System/FFI/Timer.js",
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
-        "src/System/Types/Node.js"
+        "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
       "imports": [
@@ -9980,11 +10062,14 @@
         "src/React/Hook/UpdateNodeInternals.js",
         "src/React/Store/FitViewResolver.js",
         "src/React/Store/Partial.js",
+        "src/System/FFI/Microtask.js",
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/General.js",
         "src/System/Utils/Graph.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Store.js",
         "src/System/Utils/Truthy.js"
       ],
@@ -10133,7 +10218,9 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
-        "src/System/Utils/Dom.js"
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/Dom.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "`react/src/container/ZoomPane/index.tsx::ZoomPane` → `useResizeHandler` |",
       "imports": [
@@ -10230,8 +10317,10 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/General.js",
         "src/System/Utils/Graph.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Truthy.js",
         "src/System/XYDrag.js",
         "src/System/XYHandle.js"
@@ -10789,6 +10878,8 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Store.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
@@ -10878,7 +10969,9 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
-        "src/System/Utils/General.js"
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/General.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
       "imports": [
@@ -10970,9 +11063,11 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/Dom.js",
         "src/System/Utils/General.js",
-        "src/System/Utils/Graph.js"
+        "src/System/Utils/Graph.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
       "imports": [
@@ -11063,7 +11158,9 @@
         "src/React/Store/Partial.js",
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
-        "src/System/Types/Node.js"
+        "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "`react/src/container/GraphView/index.tsx::GraphViewComponent` → `useViewportSync` |",
       "imports": [
@@ -11151,7 +11248,9 @@
         "src/React/Hook/UpdateNodeInternals.js",
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
-        "src/System/Types/Node.js"
+        "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "`react/src/container/EdgeRenderer/index.tsx::EdgeRendererComponent` → `useVisibleEdgeIds` |",
       "imports": [
@@ -11257,7 +11356,9 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
-        "src/System/Utils/Graph.js"
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/Graph.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "`react/src/container/NodeRenderer/index.tsx::NodeRendererComponent` → `useVisibleNodeIds` |",
       "imports": [
@@ -11742,8 +11843,10 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/General.js",
         "src/System/Utils/Graph.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Number.js",
         "src/System/Utils/Store.js",
         "src/System/Utils/Truthy.js",
@@ -11867,6 +11970,7 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/General.js",
         "src/System/Utils/Graph.js",
         "src/System/Utils/Store.js",
@@ -11954,6 +12058,7 @@
         "src/System/Utils/Dom.js",
         "src/System/Utils/General.js",
         "src/System/Utils/Graph.js",
+        "src/System/Utils/Number.js",
         "src/System/Utils/Store.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
@@ -12161,7 +12266,8 @@
         "src/React/Hook/Store.js",
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
-        "src/System/Types/Node.js"
+        "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
       "imports": [
@@ -12269,8 +12375,10 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/General.js",
         "src/System/Utils/Graph.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Truthy.js",
         "src/System/XYHandle.js",
         "src/System/XYResizer.js"
@@ -13043,7 +13151,8 @@
         "src/Boundary/SetState.js",
         "src/Boundary/Undefined.js",
         "src/Boundary/Untagged.js",
-        "src/System/Types/Connection.js"
+        "src/System/Types/Connection.js",
+        "src/System/Utils/AsWritten.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
       "imports": [
@@ -13124,7 +13233,8 @@
         "src/React/FFI/ResizeObserver.js",
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
-        "src/System/Types/Node.js"
+        "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
       "imports": [
@@ -13248,8 +13358,10 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/General.js",
         "src/System/Utils/Graph.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Truthy.js",
         "src/System/XYDrag.js",
         "src/System/XYHandle.js"
@@ -13327,8 +13439,10 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/General.js",
-        "src/System/Utils/Graph.js"
+        "src/System/Utils/Graph.js",
+        "src/System/Utils/Lookup.js"
       ],
       "callers": "`react/src/components/BatchProvider/index.tsx::BatchProvider` → `getElementsDiffChanges`<br>`react/src/container/Pane/index.tsx::Pane` → `getSelectionChanges`<br>`react/src/hooks/useNodesEdgesState.ts::useEdgesState` → `applyEdgeChanges`<br>`react/src/hooks/useNodesEdgesState.ts::useNodesState` → `applyNodeChanges`<br>`react/src/hooks/useReactFlow.ts::useReactFlow` → `elementToRemoveChange`<br>`react/src/store/index.ts::createStore` → `applyEdgeChanges`<br>`react/src/store/index.ts::createStore` → `applyNodeChanges`<br>`react/src/store/index.ts::createStore` → `createSelectionChange`<br>`react/src/store/index.ts::createStore` → `getSelectionChanges` |",
       "imports": [
@@ -13420,6 +13534,7 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/General.js",
         "src/System/Utils/Graph.js",
         "src/System/Utils/Number.js"
@@ -13501,8 +13616,10 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/General.js",
         "src/System/Utils/Graph.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Truthy.js"
       ],
       "callers": "`react/src/components/Handle/index.tsx::Handle` → `fixedForwardRef` |",
@@ -13600,8 +13717,10 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/General.js",
         "src/System/Utils/Graph.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Number.js",
         "src/System/Utils/Truthy.js"
       ],
@@ -13812,9 +13931,11 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/Dom.js",
         "src/System/Utils/General.js",
         "src/System/Utils/Graph.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Number.js",
         "src/System/Utils/Store.js",
         "src/System/Utils/Truthy.js",
@@ -14614,7 +14735,8 @@
         "src/Boundary/Wrapper.js",
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
-        "src/System/Types/Node.js"
+        "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
       "imports": [
@@ -14688,7 +14810,8 @@
         "src/React/Edge/Text.js",
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
-        "src/System/Types/Node.js"
+        "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
       "imports": [
@@ -14833,9 +14956,11 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/Dom.js",
         "src/System/Utils/General.js",
         "src/System/Utils/Graph.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Number.js",
         "src/System/Utils/Truthy.js",
         "src/System/XYDrag.js",
@@ -14988,7 +15113,8 @@
         "src/React/Handle.js",
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
-        "src/System/Types/Node.js"
+        "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
       "imports": [
@@ -15063,6 +15189,7 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/Number.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
@@ -15405,6 +15532,7 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/Number.js"
       ],
       "callers": "No recorded cross-file call; inspect type/import/re-export consumers and public entry points. |",
@@ -15785,7 +15913,8 @@
       "converters": [
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
-        "src/System/Types/Node.js"
+        "src/System/Types/Node.js",
+        "src/System/Utils/Number.js"
       ],
       "callers": "`react/src/additional-components/EdgeToolbar/EdgeToolbar.tsx::EdgeToolbar` → `getEdgeToolbarTransform` |",
       "imports": [],
@@ -15831,7 +15960,8 @@
       ],
       "converters": [
         "src/Boundary/EdgePaths.purs",
-        "src/Boundary/Undefined.js"
+        "src/Boundary/Undefined.js",
+        "src/System/Utils/Number.js"
       ],
       "callers": "`react/src/components/ConnectionLine/index.tsx::ConnectionLine` → `getBezierPath`<br>`react/src/components/Edges/BezierEdge.tsx::createBezierEdge` → `getBezierPath`<br>`react/src/components/Edges/SimpleBezierEdge.tsx::getSimpleBezierPath` → `getBezierEdgeCenter` |",
       "imports": [
@@ -15900,6 +16030,7 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/General.js",
         "src/System/Utils/Graph.js",
         "src/System/Utils/Number.js"
@@ -16237,7 +16368,8 @@
       ],
       "converters": [
         "src/Boundary/EdgePaths.purs",
-        "src/Boundary/Undefined.js"
+        "src/Boundary/Undefined.js",
+        "src/System/Utils/Number.js"
       ],
       "callers": "`react/src/components/ConnectionLine/index.tsx::ConnectionLine` → `getStraightPath`<br>`react/src/components/Edges/StraightEdge.tsx::createStraightEdge` → `getStraightPath` |",
       "imports": [
@@ -16326,8 +16458,10 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/General.js",
         "src/System/Utils/Graph.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Number.js"
       ],
       "callers": "`react/src/additional-components/MiniMap/MiniMapNodes.tsx::NodeComponentWrapperInner` → `getNodeDimensions`<br>`react/src/additional-components/MiniMap/MiniMapNodes.tsx::NodeComponentWrapperInner` → `nodeHasDimensions`<br>`react/src/additional-components/NodeResizer/NodeResizeControl.tsx::ResizeControl` → `evaluateAbsolutePosition`<br>`react/src/components/NodeWrapper/index.tsx::NodeWrapper` → `getNodeDimensions`<br>`react/src/components/NodeWrapper/index.tsx::NodeWrapper` → `nodeHasDimensions`<br>`react/src/components/StoreUpdater/index.tsx::ariaLabelConfig0` → `mergeAriaLabelConfig`<br>`react/src/container/Pane/index.tsx::Pane` → `areSetsEqual`<br>`react/src/hooks/useNodesInitialized.ts::selector` → `nodeHasDimensions`<br>`react/src/hooks/useReactFlow.ts::useReactFlow` → `evaluateAbsolutePosition`<br>`react/src/hooks/useReactFlow.ts::useReactFlow` → `withResolvers`<br>`react/src/types/store.ts::fitViewResolver` → `withResolvers`<br>`system/src/utils/edges/positions.ts::getHandlePosition` → `getNodeDimensions`<br>`system/src/utils/graph.ts::calculateNodePosition` → `isCoordinateExtent`<br>`system/src/utils/graph.ts::getNodePositionWithOrigin` → `getNodeDimensions`<br>`system/src/utils/store.ts::adoptUserNodes` → `getNodeDimensions`<br>`system/src/utils/store.ts::adoptUserNodes` → `isCoordinateExtent`<br>`system/src/utils/store.ts::calculateChildXYZ` → `clampPositionToParent`<br>`system/src/utils/store.ts::calculateChildXYZ` → `getNodeDimensions`<br>`system/src/utils/store.ts::calculateChildXYZ` → `isCoordinateExtent`<br>`system/src/utils/store.ts::handleExpandParent` → `getNodeDimensions`<br>`system/src/utils/store.ts::updateAbsolutePositions` → `getNodeDimensions`<br>`system/src/utils/store.ts::updateAbsolutePositions` → `isCoordinateExtent`<br>`system/src/utils/store.ts::updateNodeInternals` → `clampPositionToParent`<br>`system/src/utils/store.ts::updateNodeInternals` → `isCoordinateExtent`<br>`system/src/xyresizer/XYResizer.ts::XYResizer` → `isCoordinateExtent` |",
@@ -16471,8 +16605,10 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/General.js",
         "src/System/Utils/Graph.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Truthy.js"
       ],
       "callers": "`react/src/hooks/useMoveSelectedNodes.ts::useMoveSelectedNodes` → `calculateNodePosition`<br>`react/src/hooks/useReactFlow.ts::useReactFlow` → `getElementsToRemove`<br>`react/src/store/index.ts::createStore` → `fitViewport`<br>`system/src/xydrag/XYDrag.ts::XYDrag` → `calculateNodePosition` |",
@@ -16583,9 +16719,11 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/Dom.js",
         "src/System/Utils/General.js",
         "src/System/Utils/Graph.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Number.js",
         "src/System/Utils/Store.js",
         "src/System/Utils/Truthy.js"
@@ -16797,7 +16935,9 @@
         "src/System/Utils/Marker.purs"
       ],
       "converters": [
-        "src/System/Types/Edge.js"
+        "src/System/Types/Edge.js",
+        "src/System/Utils/AsWritten.js",
+        "src/System/Utils/Number.js"
       ],
       "callers": "`react/src/components/EdgeWrapper/index.tsx::EdgeWrapper` → `getMarkerId`<br>`react/src/container/EdgeRenderer/MarkerDefinitions.tsx::MarkerDefinitions` → `createMarkerIds` |",
       "imports": [
@@ -16848,7 +16988,8 @@
       "converters": [
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
-        "src/System/Types/Node.js"
+        "src/System/Types/Node.js",
+        "src/System/Utils/Number.js"
       ],
       "callers": "`react/src/additional-components/NodeToolbar/NodeToolbar.tsx::NodeToolbar` → `getNodeToolbarTransform` |",
       "imports": [
@@ -16975,8 +17116,10 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/Dom.js",
         "src/System/Utils/General.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Number.js",
         "src/System/Utils/Store.js"
       ],
@@ -17081,8 +17224,10 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/Dom.js",
         "src/System/Utils/General.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Number.js",
         "src/System/Utils/Store.js"
       ],
@@ -17165,9 +17310,11 @@
         "src/System/FFI/Microtask.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/Dom.js",
         "src/System/Utils/General.js",
         "src/System/Utils/Graph.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Truthy.js",
         "src/System/XYDrag.js",
         "src/System/XYDrag/Utils.js"
@@ -17261,9 +17408,11 @@
         "src/System/FFI/Microtask.js",
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
+        "src/System/Utils/AsWritten.js",
         "src/System/Utils/Dom.js",
         "src/System/Utils/General.js",
         "src/System/Utils/Graph.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Truthy.js",
         "src/System/XYDrag.js",
         "src/System/XYDrag/Utils.js"
@@ -17320,6 +17469,7 @@
       "converters": [
         "src/System/Types/Node.js",
         "src/System/Utils/General.js",
+        "src/System/Utils/Lookup.js",
         "src/System/XYDrag/Utils.js"
       ],
       "callers": "`system/src/xydrag/XYDrag.ts::XYDrag` → `calculateSnapOffset`<br>`system/src/xydrag/XYDrag.ts::XYDrag` → `getDragItems`<br>`system/src/xydrag/XYDrag.ts::XYDrag` → `getEventHandlerParams`<br>`system/src/xydrag/XYDrag.ts::XYDrag` → `hasSelector` |",
@@ -17389,6 +17539,7 @@
         "src/System/Types/Node.js",
         "src/System/Utils/Dom.js",
         "src/System/Utils/General.js",
+        "src/System/Utils/Lookup.js",
         "src/System/XYHandle.js",
         "src/System/XYHandle/Utils.js"
       ],
@@ -17475,6 +17626,7 @@
         "src/System/Types/Node.js",
         "src/System/Utils/Dom.js",
         "src/System/Utils/General.js",
+        "src/System/Utils/Lookup.js",
         "src/System/XYHandle.js",
         "src/System/XYHandle/Utils.js"
       ],
@@ -17532,6 +17684,7 @@
         "src/System/Types/Node.js",
         "src/System/Utils/Dom.js",
         "src/System/Utils/General.js",
+        "src/System/Utils/Lookup.js",
         "src/System/XYHandle.js",
         "src/System/XYHandle/Utils.js"
       ],
@@ -17597,6 +17750,7 @@
         "src/System/Types/Connection.js",
         "src/System/Types/Node.js",
         "src/System/Utils/General.js",
+        "src/System/Utils/Lookup.js",
         "src/System/XYHandle/Utils.js"
       ],
       "callers": "`system/src/xyhandle/XYHandle.ts::isValidHandle` → `getHandle`<br>`system/src/xyhandle/XYHandle.ts::isValidHandle` → `getHandleType`<br>`system/src/xyhandle/XYHandle.ts::onPointerDown` → `getClosestHandle`<br>`system/src/xyhandle/XYHandle.ts::onPointerDown` → `getHandle`<br>`system/src/xyhandle/XYHandle.ts::onPointerDown` → `getHandleType`<br>`system/src/xyhandle/XYHandle.ts::onPointerDown` → `isConnectionValid` |",
@@ -18201,6 +18355,7 @@
         "src/System/FFI/D3Selection.js",
         "src/System/Types/Node.js",
         "src/System/Utils/Dom.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Number.js",
         "src/System/XYResizer.js"
       ],
@@ -18296,6 +18451,7 @@
         "src/System/FFI/D3Selection.js",
         "src/System/Types/Node.js",
         "src/System/Utils/Dom.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Number.js",
         "src/System/XYResizer.js"
       ],
@@ -18377,6 +18533,7 @@
         "src/System/Types/Edge.js",
         "src/System/Types/Node.js",
         "src/System/Utils/Dom.js",
+        "src/System/Utils/Lookup.js",
         "src/System/Utils/Number.js",
         "src/System/XYResizer.js"
       ],
@@ -18543,7 +18700,7 @@
     "src/Boundary/EdgePaths.purs": "ced0f08206b47e379641c77c98e553948f92df2f9d38ef431ade035d581530e0",
     "src/Boundary/Edges.purs": "6411c4def0669b9d08a0daaadeb89fd201e7afa4b475e6b122b7e441313d991d",
     "src/Boundary/Elements.js": "b854f879f57aaeed7dd499ac558b2e6d26aafa82919bb331a58c8ea20a82f6e7",
-    "src/Boundary/Elements.purs": "cb0ab64846e2b5629bde48e0c6233dfe5609e45411d1fbef59d5561d0a66e9a0",
+    "src/Boundary/Elements.purs": "515d7c0ed3679123d7473bcb11e7663c9474e4de9cdf15318ef90d6e2b41734f",
     "src/Boundary/Enums.purs": "203dfa0bf03b42a1eb020826fa1ab552ba485b74c2e2b5d4d4bb6102f1505d13",
     "src/Boundary/FitView.js": "0f574e0a3ef099a6cf9d474173044d93ec9b3b4e214d918a1073686d04332ca8",
     "src/Boundary/FitView.purs": "a8f41b458670bd2cdd698f243c08874f5947ed9baf9f9e95a4e758c83aff05cc",
@@ -18551,9 +18708,9 @@
     "src/Boundary/Flow.purs": "0ecef96becc10aa9c2cc48b2d519aee7730ed932f67b98daa65ee40668ad6f7d",
     "src/Boundary/FlowMembers.purs": "928da585114735183b32826c40e75ee99f3258d04daa49419ce99b358bb2c082",
     "src/Boundary/Hooks.js": "dafd60d44595dfdfbe3ae90f61bb7752cad34a57f04ec830cb4e69d4dc0298a3",
-    "src/Boundary/Hooks.purs": "aca9ffc2228f819abfaf9ac0d31906313d7256d19066886c08135fcdd4dba918",
+    "src/Boundary/Hooks.purs": "c405b146f74c5fe5c9eaf0f0de6a72800668c9b47d92f52ae5a76ec54e84686e",
     "src/Boundary/Instance.js": "fd9e7d19da6f3fceeeb245244203467329acd7730140c461841c2c5062de7e7c",
-    "src/Boundary/Instance.purs": "9b1744c99b1ebaad77869a0960000c0012bf74969f1d7e376bc1dd01683db6bb",
+    "src/Boundary/Instance.purs": "d4eccc272fe9149a7024559fe30c80ffae91070a841b1bbc3d7ac6ad061a4860",
     "src/Boundary/NodeChrome.purs": "02e00c1dab2e4808e6ce727bc2f82cf13c6152ff52a95f32f82120689b2cd0c0",
     "src/Boundary/Original.js": "8ac25289c92b495a041cccc95f44c3b8e43060a77736c86add48a758741c767f",
     "src/Boundary/Original.purs": "02db790378eb8da831acd72627dbd99e9dd852cf12cd6ae9e6e9ac1d7cd78c43",
@@ -18563,9 +18720,9 @@
     "src/Boundary/Resizer.purs": "9dac6ee946344e863cb2d4f4d63b12a5edbb889e5f9cba3b534f367d115819f9",
     "src/Boundary/Rest.purs": "02d41b66333d45845ec0e2cf6383c029dc7bc502563f65c581e72b229abcd1c6",
     "src/Boundary/SetState.js": "73a9f224637c82d55b65097bd1d9fdc911a331135c8132b6a9d413d96320b798",
-    "src/Boundary/SetState.purs": "d45b48c8bfcbcc2dbe01bc4257183b2b8a39a15481ae20e7a4572390b778db04",
-    "src/Boundary/Store.js": "4f01e35992a6fb0a226f1dd8723b3dd140a540c96afa974ea3157893099bc36f",
-    "src/Boundary/Store.purs": "12d03f7bbd399de2dba71fb5c830a744d7adfd1dcd0ef69d022c1ec8d76b8d4d",
+    "src/Boundary/SetState.purs": "3ec5655c22ef7fd3246121ccadf417a413b159de1eb35dd9830076f889a632a9",
+    "src/Boundary/Store.js": "5015442cdc7c98e56ef859edee56b565920a23a196e55d41052367b35d716ea5",
+    "src/Boundary/Store.purs": "e8b39a332e3fe1327496dc122925ee48f0b4203be1ba66d87a17f36e6f9d1d89",
     "src/Boundary/Undefined.js": "0812b5182f02f3d84e6223f8854becba6c75850824ea7c78ad3555b5e2498bb3",
     "src/Boundary/Undefined.purs": "525035837fc634aaf54e1d1c31d7d6b32c31eaa2f5a4bd02deb438a64f1932c8",
     "src/Boundary/Untagged.js": "652b426030d8feefcab6a9a882783dcf760976bbac146dfbd56e2677fbf40ce9",
@@ -18575,34 +18732,34 @@
     "src/Boundary/Wrapper.js": "82c0cd49419691661c7bc36a91655c9a27e32d047b6bfde481ea38c35bb58524",
     "src/Boundary/Wrapper.purs": "46434a2fbfa18b4e64db0f8f04e5db37ab4d84df7f512d20ef4995df4a65a4f2",
     "src/React.purs": "5666eb8425d729b211e187bd5deada8c123cc63de65b22493624959231e4968c",
-    "src/React/Additional/Background.purs": "9a4ab0c5ac483b032ddbe017621a8f9cc13f0736b89c9e6c11657ff85f31d282",
-    "src/React/Additional/Background/Patterns.purs": "d67726b249254b2b501568414db3156613d1a35cca5011077262ccb7c2acceb2",
+    "src/React/Additional/Background.purs": "a20910f6b23c510eb13c485acc928fd5a71017881b12728f161dc508129a800b",
+    "src/React/Additional/Background/Patterns.purs": "50f93991279bb89bc3790066eccc50842df1f6addff13c49521eced76d0ad46b",
     "src/React/Additional/Controls.purs": "6ec8fec7874a5f5b072ff0876baaaea389a5f04a92bd7de9e366d803bb8f6d02",
     "src/React/Additional/Controls/Button.purs": "bc736fbb66cc56254ad1edc2d9a0db5c6bc34e0f1de5184b75ed8ca279f64035",
     "src/React/Additional/Controls/Icons.purs": "1e4792dc50d5b3db1574480922cd01864d41dc3fef0e1af8f6b8dabb9cc31ee6",
-    "src/React/Additional/EdgeToolbar.purs": "0d5d54582d16bef80aca8f6b7a6957f36d57c75700d26a58cc629d52bbe7867d",
+    "src/React/Additional/EdgeToolbar.purs": "1b59377b4951aa08d6df5e828326ecfa8c4b577a73feef2ce9da5d9a95872567",
     "src/React/Additional/MiniMap.js": "073df5344195e6a1af9a8e6254d0280fef1a5a5647c5a0d35e7364d65671c4ad",
-    "src/React/Additional/MiniMap.purs": "ebf28fbb06f54ce9cb4042035bca15d266bddbca0c78d1853115fc0325ea6e11",
+    "src/React/Additional/MiniMap.purs": "c7cd8f55a5930628a1ef809ee671c9e602b4a328452ee1d2daadd1128603193c",
     "src/React/Additional/MiniMap/Node.js": "f6312f92383e3314b6137e7140ef893f1a73c2bbf25036fb21d2f25154260a32",
-    "src/React/Additional/MiniMap/Node.purs": "ce13f8bd7a699b61a2e3b5665a534a04cccd0162f15c3b73a55e37dab4a4ab53",
+    "src/React/Additional/MiniMap/Node.purs": "cb1faa2999ed926b30d2b3eedd49bfff5cb9f5d2fed3f5c99d664325709b2e5b",
     "src/React/Additional/MiniMap/Nodes.js": "0f926fd4f36011e6207a15392643e0d70f9d4a81614e7b74ce3d1098d03fce71",
-    "src/React/Additional/MiniMap/Nodes.purs": "221b5f50083b5ed18dc3613c24ef0f92ca455937f8c3b51c7a333bd8740306d8",
+    "src/React/Additional/MiniMap/Nodes.purs": "322ccf9e636b9739dd4da903694c7bc6bc5bfee0a018a0601a3e7bba4ef1ae25",
     "src/React/Additional/NodeResizer.purs": "c160258472bd13708eb52004f70b98d8c7e94166f4480632a2b161ab8f5c718a",
-    "src/React/Additional/NodeResizer/Control.purs": "d7d63ea073378f58868538f8d6b887a065c0eff6ca9f79e6386db03a1fba6d84",
-    "src/React/Additional/NodeToolbar.purs": "c9ee9fe94fe995f73a1ab5409c74ebb703f4a1a66a717b4b93c70f3fa2c1668e",
+    "src/React/Additional/NodeResizer/Control.purs": "ff9a8c18bdae9aba31b1d9965342713e3e6968cbc6a38e760396691402850fde",
+    "src/React/Additional/NodeToolbar.purs": "b40b0c0d92f095be389699dd599f7f92b9ef651a574144b2405fdd31e3de77c2",
     "src/React/Additional/NodeToolbar/Portal.purs": "4ac5eaaec0519d4fe7e6c60a3d0a150b0dc6553d72d7e741b886b47cf1963341",
     "src/React/Component/ConnectionLine.js": "d8005ae075bfa7fa69a38f8ddbf3cfd00d3ce417efff3417dca8ca0cb75659dc",
-    "src/React/Component/ConnectionLine.purs": "f6da4dad7c9106f75eb692d1de541d503d6d348ee49e3b33a8a16d929a4c4b1c",
+    "src/React/Component/ConnectionLine.purs": "8cad07d7ca1212d3f0179dbb601f0efb955b830213ec6b78fa0dc25afc5a54bf",
     "src/React/Component/EdgeWrapper.js": "486991224020033cad447dfc91dcca66cc472d78638348a4a23db87ba5abb92d",
-    "src/React/Component/EdgeWrapper.purs": "0c72a17013dca618db5e1083bbe24683a4c78c3df1e2adbc99df8851b38a9581",
+    "src/React/Component/EdgeWrapper.purs": "aca71e189fa6235f388bf1dca378a438dfe2f96c99f662be73c99c557ce940df",
     "src/React/Component/EdgeWrapper/UpdateAnchors.purs": "9b035683de4d9e81bdca9be60bca299d7d59992854678917665584a6881dc8a6",
     "src/React/Component/EdgeWrapper/Util.purs": "dfdfe5e6e76351c64f5bc28ef6f3039f5cd2987a85ae8efdce302a18e436695f",
     "src/React/Component/NodesSelection.js": "f4a5f0bcf32dde0660f1831bf68f9dd485197d5dc79a616a80f6d328d64b47a7",
-    "src/React/Component/NodesSelection.purs": "682e683331f16afef70e0a4cc917421dd2ee95fdf996026edfc5031310ea34a8",
+    "src/React/Component/NodesSelection.purs": "ca6a31984d3612e8c01ae0934889c38fa4c89db90b89f5b7a090712b7d437f45",
     "src/React/Component/NodeWrapper.js": "2fae03a916e51ffaa2a5622f28146850b93e907f972e6f311c348cc8e2588ca9",
-    "src/React/Component/NodeWrapper.purs": "4e37be2e5323f6bcb289967e9acde5b0928f808d2c4200a23a37ee74df0d91e9",
-    "src/React/Component/NodeWrapper/Util.purs": "30cc461d545f539c7f91c293f0cfa52661188d40751dcd4400cdaa0825e54e5e",
-    "src/React/Component/UserSelection.purs": "6ec3494d0d2986c5c9c2ed15855b0d25e6f50ec05f294524d0fc35f3de69b635",
+    "src/React/Component/NodeWrapper.purs": "e1d1889dce092d5b948833e14e8b3874b4ec980e240ef837d6d0e640492e3373",
+    "src/React/Component/NodeWrapper/Util.purs": "0e3e1110cd7bdf823fbab1ced6c27c62ba3013b0403c3a6b93f20a4c5ee147ef",
+    "src/React/Component/UserSelection.purs": "3b629b8bdbd725e2125f61444d45a88be099c0779c1c5dd7d411db284a2b1216",
     "src/React/Container/A11yDescriptions.purs": "71c87c2a94c09fb6b0d5c5310a247ef657c6326a19b86690d08c15d72a131a22",
     "src/React/Container/Attribution.js": "15ac3cbf1b1e67410d9e90a9b7e08f9df035f8006eb8b51679083d1375accf7a",
     "src/React/Container/Attribution.purs": "88af0e9f749734e734dde1f8d0a7cbf5406f01adfe88cc961f1c9c62e2a44699",
@@ -18614,26 +18771,26 @@
     "src/React/Container/MarkerSymbols.purs": "c7fcf762bee28107b7b7ca09062cf5f2d81db89cfa7c2c43431c424645962262",
     "src/React/Container/NodeRenderer.purs": "e6f16d149a7f03b640b88f889b073d76559b5a9ad657cd9668d9c67a89f27549",
     "src/React/Container/Pane.js": "54187766057767e2dca8b088b2fc81504ad1807c14114d0957b44c8dac581f2d",
-    "src/React/Container/Pane.purs": "e4f7af6156133506082daa505959c2d56b77c8fc55bd7eebc4e43844bf9a3f1e",
-    "src/React/Container/Pane/Internal.purs": "f8b7d9da0e43792372058ce3a0b221ee1a54a2b4275594a5dbf70fa9f11a1285",
+    "src/React/Container/Pane.purs": "0eded6c2f96819580688aba7261fdb351d886ef3c767cc6bd27cd63e696ba05c",
+    "src/React/Container/Pane/Internal.purs": "e168af4f4ab42af3cfeeaa1684cdc3c56db588081dd38d8edc45eebd56c003e8",
     "src/React/Container/ReactFlow.js": "84962aae1df22c6ac91e2a97397f3a0f7e0565a6a69b26473677000888afbce4",
     "src/React/Container/ReactFlow.purs": "659d642975e92cf9d7a3ed569d67aef01bd703611194d2d38f752d6078475ff3",
-    "src/React/Container/Viewport.purs": "a43322e61f09b208922bc3cca39e9bed484c821339416798e2bb21f5de217437",
+    "src/React/Container/Viewport.purs": "9bf708a6e36ad08833fbd903fc98e0233caa1c7869800009bb7344c586d32d44",
     "src/React/Container/Wrapper.purs": "73e59a4f02f449d81ea41b12b85ef2465093708594af9313aac2a14717683c72",
     "src/React/Container/ZoomPane.js": "c92615eab1cc93cc076113950772a63bfd5d1062981472669d26e333792e4bea",
-    "src/React/Container/ZoomPane.purs": "5bcd3e9e7288c8913c47501010fbcf8cdc4d3d4bd91f0f6ee949a305af32b2c8",
+    "src/React/Container/ZoomPane.purs": "801db693ca4d790ac8d5021fd872ec70041557b96c7441995def4a3802203e91",
     "src/React/Context/Batch.purs": "e7cdd6ca04befc432a2ee73f49d8a87f29d83741b026d5b22757cee63f30f06d",
     "src/React/Context/NodeId.purs": "d9e10014e64644adeefb6dacb96f093dd325e502f4df405585b302dae28791c1",
     "src/React/Context/Store.purs": "32b474c67cb774717105557b7cd91f43af6736ef636e35d0e008fbd60a0f0519",
     "src/React/Edge/Anchor.purs": "d060ac703b063120050901fff1316d9f516d8d822a91141b6e003d51f159b426",
-    "src/React/Edge/Base.purs": "2c9512e30d456cfa310c82f3871f69964b077c1b2f7576084557ba7a10813c5e",
+    "src/React/Edge/Base.purs": "b2a584b7a09504e9b140dbc966c74a922893a19e9e5355e26ad1a2e752b1e961",
     "src/React/Edge/Bezier.purs": "85600132d4d600176a8d15921bbfed4a86bdf7d591a6c00513ffbc20f38ce4ce",
     "src/React/Edge/SimpleBezier.purs": "8886be1994a569c21d301260fa39bf1d984c57bac962495918c910a17ebdf4aa",
     "src/React/Edge/SmoothStep.purs": "3e3d8685cf1a28236677facd2f4d095e55c0e8917784ff3daca648c862e89a93",
     "src/React/Edge/Step.purs": "4828e0f82ec6a0c231eb74d6afc33dcc25282ce937a642c2bc42788cb3721ace",
     "src/React/Edge/Straight.purs": "8ef99a640e301043bc1c495f345f3b5fba54b3d19b7dc6c70ae14a1b25cf2527",
     "src/React/Edge/Text.js": "d14525b854a8a6fb74f3ed2642a28caea16dba124b985f4c8f9a950f90b54bf1",
-    "src/React/Edge/Text.purs": "5677e5a0f1386d8069693ef8aa98b1bd841940cdd641b3ccbcb6dbcc04690090",
+    "src/React/Edge/Text.purs": "5d28cf8b4bbbacb0d817ab85455e1622ae9a4ea6826ca87e246c2e99a8701bd9",
     "src/React/FFI/DOM.js": "9af2c6b4cd218de2d5a53be30ce2ef1fcaa01494bf2561623c28d5439346bd70",
     "src/React/FFI/DOM.purs": "16c2def334961aa18ff59f4f186d1b0a1854e3c0a2d4a408818f412ec72c6f69",
     "src/React/FFI/Env.js": "9d5d2e9375cda263a60134569475181dd0b7223c6837f02875a29ead897de593",
@@ -18646,67 +18803,67 @@
     "src/React/FFI/ResizeObserver.js": "e429035c0ca5ec12f4024889bac4d16acf0d40bc3fa6863b80539387ac1a68bf",
     "src/React/FFI/ResizeObserver.purs": "2afb9c9f8ac24f80ac3eb10307f91c981ae1667cc07277268dbdb1e13bffce75",
     "src/React/Handle.js": "a6061655d87e05195640a146e9840b6550949f717df40241fbc93ee2e69451f2",
-    "src/React/Handle.purs": "b41854a993582e980090f9deaeba659639898624c4be78084ca80da7b0e93cfc",
+    "src/React/Handle.purs": "81b3d2ae37f573e2c3d414d1c55a50a4b0a0eb4f70794647e444ee52ccf74ec6",
     "src/React/Hook/ColorModeClass.purs": "003d234fbd0fea4389530eb72b12f1cd6cc1fac770fc819f36b5e4a020223b94",
     "src/React/Hook/Drag.purs": "b3e35bb92fb6b2646f3680a724be91ce5f2a737ed6d47943d9ef2968e6c1f4ea",
     "src/React/Hook/GlobalKeyHandler.purs": "e905e0fc34e0c22826edc8a4d03dca40df66dfd569557065b01affacb6301191",
-    "src/React/Hook/HandleConnections.purs": "ee98f6dbf2bb8392e8d123718dd84683db21635fc61448ca1120f8081694e877",
+    "src/React/Hook/HandleConnections.purs": "c2bbc7a1293a40b8ce29327de0c0e77c83d3acfeee6b9dab469eda321a14f874",
     "src/React/Hook/IsomorphicLayoutEffect.js": "252fe62336e2f2684ef69a85b838cdc0865a6d5eeb11bde6e4db8b84d13e361c",
     "src/React/Hook/IsomorphicLayoutEffect.purs": "2a6813cecbc72a3b4dd54b6290b5b87df607470fb8fbf878a6f27d34c82b0629",
     "src/React/Hook/KeyPress.js": "529c1c019fede30bfc20c985f16bdf57380b8d564c7cdbe8c21f1f18e4226868",
     "src/React/Hook/KeyPress.purs": "67b99353ab82adc6f060a0e84859f32bdef4a8941114716c25198db80e6e3c0f",
     "src/React/Hook/Listeners.purs": "08526fefe433e1941ffc5fbe95b2b0a9311cc8629e7b8879232960f79774658a",
     "src/React/Hook/Middleware.purs": "5fcb1e7e20b42e588beaf83e64fa97760468525bb2e89409df03d6b52730c7d7",
-    "src/React/Hook/MoveSelectedNodes.purs": "e28290f1457141ba34962c75490504ea3f31edd314fdf940b73623340d79b193",
-    "src/React/Hook/NodeConnections.purs": "8558c3e276ee5a6c73599d99255fbcb5efaa103453dbc3810f72b0ee7cb8cfb8",
+    "src/React/Hook/MoveSelectedNodes.purs": "ccc69fdcad3405c38bc03f1903241bc2a47b915050565584326544607ddeaa91",
+    "src/React/Hook/NodeConnections.purs": "a3806f2d001d72954c647c9353acc9d71325cc4b341df762ccacf7651fd68ac1",
     "src/React/Hook/NodeObserver.purs": "237358f41f1a29d1480ecc6aa43da6df192b982e782c261a704160039f5f11e9",
     "src/React/Hook/NodeOrEdgeTypesWarning.js": "c2c5894f7eaade804b2a0c3615aeae2e46e31f51116eea3a96b39bb0f3348d5e",
     "src/React/Hook/NodeOrEdgeTypesWarning.purs": "21cc5f0fba1cc9f57f4c5ca8f31f1d8f80796e91755d4366cea57997042061af",
     "src/React/Hook/NodesEdgesState.purs": "67d1679487f26600598a2928821f9ad5923741563b6210930f6c9d912640877f",
-    "src/React/Hook/ReactFlow.purs": "705c8f36173e2485511a602b2b8e6e7880c73a6783c61124380c8eac8128567f",
+    "src/React/Hook/ReactFlow.purs": "a1c6b7377e09e1bcfb9fcf25371eac33dbb7190957982988b44b252aff80395d",
     "src/React/Hook/ResizeHandler.js": "3c593a9cd645b68f11145b50d896e3f9509b6a9a94707bcc0c2cde7f2a28f1f5",
     "src/React/Hook/ResizeHandler.purs": "8e60ce08f4ee58fb79bec563aefd66d41b327898446a148b6d7b8753adb3ccca",
-    "src/React/Hook/Selectors.purs": "3420bd011e8abcf25b4ca41e091aa753396448e17b50130bea79e44a0eb81c55",
+    "src/React/Hook/Selectors.purs": "398f912246745c8221560d4b42eba44c080b8a7815cd30254e17464b0c85e847",
     "src/React/Hook/Store.js": "ae7f93ce642e7ebc990006be87c9b68af6dd3c9fd7d02f7c911b0ff5bd9d8ada",
     "src/React/Hook/Store.purs": "80e4890c27a03fe53866ff4482e9fb4628bc6fc735a33f423bdef3731d0725fd",
     "src/React/Hook/StylesLoadedWarning.js": "2b7375527798c3e1ae372e36a26747fbcb947fbf57030e8740e727668ed68e7d",
     "src/React/Hook/StylesLoadedWarning.purs": "4b23fdfbe5977598887ecfdff0f2f8be622d02305b8d2377604bbd8b35e20784",
     "src/React/Hook/UpdateNodeInternals.js": "99e4382847ad80b36070bf4185c931935e4de4c2d6d054fd30f1743e2f056415",
     "src/React/Hook/UpdateNodeInternals.purs": "ebda2c68f128433a6913acb69a14198d7534ac7445516590489f0d1962a4c618",
-    "src/React/Hook/ViewportHelper.purs": "03438d87230bc35c560401bd5ea13c83dfcfd95897063df726cf5e290e4124c9",
+    "src/React/Hook/ViewportHelper.purs": "aab578b40526ae80439274d226af2182ea0e42d5db288add7f387b7a057eb99a",
     "src/React/Hook/ViewportSync.purs": "b1b4ab5ff66ccae6465111790c79a4b3ff3bc9e995a1236ba2075c5cf04083f1",
     "src/React/Hook/VisibleIds.purs": "062dc6802367a7a276e34c7ba21e61b4b738ffdd7241308f64a0912a803e0b6c",
-    "src/React/Hook/VisibleIds/Pure.purs": "10f39af8b49652abe96d4ac4c2ae054baa797ea584fe21408d1660a337f48104",
+    "src/React/Hook/VisibleIds/Pure.purs": "01887afcaf1856da6e0fe008b5ce129ed6008b4c9131a615012ecf139e397377",
     "src/React/Node/Default.purs": "fd92b55abfb90f515468346dfb0fb42053e3cc32a8be4fa6f2fa9db6df2ce1ed",
     "src/React/Node/Group.purs": "13fc2c037cac19596c3abcc668b39972bffdd035c6ddc4a86a30088cd8b818c0",
     "src/React/Node/Input.purs": "4ed88653f4ed9da83ca224a1ed84ec7bc30131db4e5b02d433fe9f728093c210",
     "src/React/Node/Output.purs": "e93746e7f395c9fb4d8b3a87e378e47f4885509a005625fb0677b3199dff816e",
     "src/React/Node/Util.js": "9605738e667073e1a4bdc72b2ea9001221361e22065a2d37bbe56f19b66dcaeb",
-    "src/React/Node/Util.purs": "821c2d48870dcc4f9ebfaab25ea6946c48cf498c1f0291bd62861a3f982bade0",
+    "src/React/Node/Util.purs": "6c6b01aa686707fcb41a252e63c64cfbcc882477910df6424975c938198c2d02",
     "src/React/Portal/EdgeLabelRenderer.purs": "6745df4709cf616d2b25dd646581fbdbf9b724b70d1a918607b315a0927399c7",
     "src/React/Portal/FFI.js": "a462c0a2762dc1b95e5c59a43c4c5b9c18d8850293d574feb7f4b15a4ed9d65a",
     "src/React/Portal/FFI.purs": "be769f5b008f6c6087b822d74c645dbebec73260b298cfd378dbde386ba78159",
     "src/React/Portal/Panel.purs": "ea2b2f42c4846aba75c2963d43e04404ea0c42ac364c58cf47aecae7f6456433",
     "src/React/Portal/ViewportPortal.purs": "ae198487c830028c5c7662c19ae6361d49a77bd8ce0045df9ec8ab28464721fb",
     "src/React/Provider.purs": "1486d29771ba6b041ac2b13adcc6b3806759f66215ea39def56019c421ca1397",
-    "src/React/Provider/Batch.purs": "7aadb517101884a5f028b55788a34d024a6f765701e27d5a694d856bb5b34d86",
-    "src/React/Provider/SelectionListener.purs": "9c28131221de47ddc425b32a0d152e6888e2a87c3ad298ca85b671642b6f0b9a",
+    "src/React/Provider/Batch.purs": "23bd3002410ce07c7fd2f86e513f986dbec7f15d0cd0af00c816fe87eb3d5045",
+    "src/React/Provider/SelectionListener.purs": "79088fee908c9b6e421860dadda01a1e313058dad4b852aedd19aace5aad88cf",
     "src/React/Provider/StoreUpdater.purs": "925931ea6aa1cc2ce1f2c033bb52145a0c65285f5282c2a80ae2c5d8a95a1546",
     "src/React/Provider/TrackedProp.purs": "c10f373e26358088a0fb2325bc1448611c4c0e1f95f91321411dfab375b6e25b",
     "src/React/Store/Action.purs": "930717be9f41bad0b40f9b07adaa5086e7cef62d58467d44261844caed355efc",
-    "src/React/Store/Changes.purs": "c2dc05d9e92b66bb37a6c017d9a2982a988d0b1392f18a5cb13f694b3a17be2a",
+    "src/React/Store/Changes.purs": "7de29c7737c3d2b543735f95bbfbdbadd2220f1165acd30c746fd44164497024",
     "src/React/Store/FitViewResolver.js": "cca9125ba1dea401f2ea1debe5e0551982d34ca07cfd85bbafd0a0f226c3b2d3",
     "src/React/Store/FitViewResolver.purs": "7ad2cc1ac66dd8687394bca8b42ffcacc12b09b9440020e07b19474b64432451",
-    "src/React/Store/InitialState.purs": "98097a5ed4f58984b39ccfd6a8434868bd222cf8a13fed9778e244523a06e846",
+    "src/React/Store/InitialState.purs": "b090a1236a6ded039dbd702a4e9f135a2fb4b566f5de26dfcc93b6552054be88",
     "src/React/Store/InPlace.js": "01da5b646f4b3ded550b07c88c79551e55daeeaa4312e56d7c799b8f96f4cceb",
     "src/React/Store/InPlace.purs": "91ecf766cfb7cce79111c91493cc254239111be6023eeaa8a769c8982a3a7ffa",
-    "src/React/Store/Middleware.js": "c68638934c29b1590715982a96c78a91567568a5cda34006339016a448665b18",
+    "src/React/Store/Middleware.js": "845450310658bea30cb525afc475ec6fd5cd05d2f09a0ca09b62aa6b45fd36fa",
     "src/React/Store/Middleware.purs": "8f2fe41053e567deab548590d9fc7871339d66608b7997e8797e9be0d69a0299",
     "src/React/Store/PanBy.purs": "a9a742f35c08c6a9586e5a653294b2fb1e53c88d0bbdcfcd430ceeb9fb15efa6",
     "src/React/Store/Partial.js": "8c45ab08f136e27a92a7df8aaa37b1999baf33fbd6dfcd355feba4531310a153",
     "src/React/Store/Partial.purs": "0d662fd1e842862fc37819c76aaf56dbc460cc79e513682a7f23e606d458a75e",
-    "src/React/Store/Reduce.purs": "1ce1c0f3264d23ef0a161ecc3c6a189044ca39f154c89c9d386b50b507992395",
-    "src/React/Store/Shell.purs": "1b5ee4eba8372368e043c2b539984428d3bc9ffaea3cd627f23e8dee3e108a61",
+    "src/React/Store/Reduce.purs": "76ee539f0568aa9a98270c8c1f88972aa41c64eb2e12b8837a8f2a3799d662f7",
+    "src/React/Store/Shell.purs": "4282e86582903efb4111ff9dfba35cef7a9abf06614db02d753a3ad7385f70ae",
     "src/React/Types.purs": "08d9bd66a86422d90b5b14af636c5b9ef7e6e7b607453455c1a2f0765d37a894",
     "src/React/Types/Component.purs": "21c1ef6ae7fa7716886b1a1ea556fefe2c1d5244b502eddc79c0e306872585f2",
     "src/React/Types/Edges.purs": "d90b72eb430f81f9b7e7d837e11607afeefdd255c39950ec6ca7958009b2f99a",
@@ -18715,7 +18872,7 @@
     "src/React/Types/Nodes.purs": "3437d0a16683fca4f9737e9a6ae36e77c70efa9e07f5a3c12e14995a1feeb45f",
     "src/React/Types/Store.purs": "02ab3fef1a82e6a8846fe97213f55ba3973cd2c7984d0437144979165bd3b8e8",
     "src/React/Util/General.purs": "206ea0ff251c205946f378b551f42925dcd5f53a8e6a745717838a1ce8a7fcf2",
-    "src/System/Constants.purs": "1fdbba1fa3350f27c62450ae8be1218a65ad5903d27da1642e2a55b43338332b",
+    "src/System/Constants.purs": "39fd0c7f1090c2354e3eea08801f6b682aaee6041870ef559a6194572bbbfb04",
     "src/System/FFI/AnimationFrame.js": "0b230f7fe98561e6f5ab71f70b46798931443c98cfba5002085d8a8b99a18ef2",
     "src/System/FFI/AnimationFrame.purs": "69215a1462cf1780bc0c56059e721f15919b85a76762daed437dcc0649e3e3aa",
     "src/System/FFI/D3Drag.js": "aacb8179a26e90df99476f80d29b761844abcdae5cd59774da3852e8a34f68cf",
@@ -18729,7 +18886,7 @@
     "src/System/FFI/Timer.js": "d74ef3798221fe758ccbeb9dfdfc0683b6dd7d5f7341e7a00ed43559950a25a1",
     "src/System/FFI/Timer.purs": "bdd40010002c597e0b2eb20f7280cd297f76737c81d7f80bdd688fd3dbad638f",
     "src/System/Types/Connection.js": "f9451123efaf633cb96af9f25569444120325bb89ab60d069a80a0dd9b8ce35a",
-    "src/System/Types/Connection.purs": "52f0bf2b03982bcf390069d32b447947efe39d4247d12cc42d369bcb24ec3b7b",
+    "src/System/Types/Connection.purs": "67d61954ccbaa89f0167fdfad7a764cf28894a5f3aced2602768497635178705",
     "src/System/Types/Edge.js": "871a7adb734cffcbde0afc638de7d3537cb373151175bbcb8c00af4e3e00fc56",
     "src/System/Types/Edge.purs": "3b49d81555b6fb301f8c0b3dc557d9c6dc60809d4554d0c0327258ec6d0db780",
     "src/System/Types/Geometry.purs": "876f6dd2c09ac2222dd9f7507bc12a3aefc6b77ec32e7179711b3acbd13f500d",
@@ -18739,38 +18896,42 @@
     "src/System/Types/Node.purs": "f912d7db4e7a5092f3d80906f6fb346405010afd93857136209398232b4199db",
     "src/System/Types/Opaque.purs": "8c94ee157f882347cd69e3d93076e4676049ba3bf212d3ce1cdf6d6536dcfdee",
     "src/System/Types/PanZoom.purs": "ab615e7a20f5cb1c86de5888508059581e5eef6573421d1afef969a122ad4d33",
+    "src/System/Utils/AsWritten.js": "3e393e1947a7ad26769dca94fbb20e12a8bc5ae08a8bf724769e6b9f26eca634",
+    "src/System/Utils/AsWritten.purs": "a5fe3faf1eb6db72c7dd28bd80aa00fd8264c0284e3a46c690920fc6f9730c9e",
     "src/System/Utils/Connections.purs": "968d1dfa5b53c968eb82cfed40798a623ae0b4084a7f926ee01c69dd88aede3a",
     "src/System/Utils/Dom.js": "9e79975ad95861f295347f7c8729103131f911b2ae356a6e8becf3771f673072",
     "src/System/Utils/Dom.purs": "cfa0cfb771e04d27564b0e82e58dcd632a6bf22e48c9fa71aa6bda07935a505f",
     "src/System/Utils/Edges.purs": "3087b8dd6263cdcb89d23a7bdec96da1e8ab3433e93bea9fff7b6db3640bc3e6",
-    "src/System/Utils/Edges/Bezier.purs": "fa0df392c1e96905400753c1192ad042c8c1c154298c21eb25476f24bf929113",
-    "src/System/Utils/Edges/General.purs": "02ba473b542cb895ee8839523718aab70d919ec785dcb5fb6fac912fa5483f80",
+    "src/System/Utils/Edges/Bezier.purs": "a0257ff0cdd40f45def7b83f9209caacf9d48dd1815f61f7748c05b5a4497d2f",
+    "src/System/Utils/Edges/General.purs": "348e4fa4e417f77ccd54dee52c344a5d06ffd78827f03ef17c28507961e792d2",
     "src/System/Utils/Edges/Positions.purs": "7eeddbf903e2cc00950581025895944e959591ea271a6b5ab2c24b7fe9f0b9ba",
-    "src/System/Utils/Edges/SimpleBezier.purs": "c7914cb7f396e5786c336279966c0a9a9860e4b8ea7554be2aebe74f5ece547d",
-    "src/System/Utils/Edges/SmoothStep.purs": "f92330148d60fc396d6abdd2b7ea425d6b177e6aca7f5cd0dcd71194a4ad3944",
-    "src/System/Utils/Edges/Straight.purs": "fd9f24aeddfe66cf710dd34a8a4dad69154fc9c68dce8a19570a0787bfe75374",
+    "src/System/Utils/Edges/SimpleBezier.purs": "8ea9ff972425a2726a3ad00ce7e75eea9109368e68ce4dbbcca43291ea328750",
+    "src/System/Utils/Edges/SmoothStep.purs": "bd84ea6effa445d335f621432c74fb8c3c51416a68343632ad871530d71e92b8",
+    "src/System/Utils/Edges/Straight.purs": "9b06089920b91b27f5d4f1049adecdabc54922317e09173219d61a9fac414644",
     "src/System/Utils/General.js": "7764f11bf69cbd3ba2845c7d936408527393c03b6f61cbe54e8aa4ba7638f8d8",
-    "src/System/Utils/General.purs": "ff5512301630dd4915c227e2712204634994a4fc38cc4d2257286bbe05e023c0",
+    "src/System/Utils/General.purs": "c7a3d40f026463b44f0036f42ecc0d6ca6ad9a2b51428b7b301ed174cc5cf4d9",
     "src/System/Utils/Graph.js": "36d1b0c9616d87f1833f01408145085004d7c62ba030daf31aee8565e595a8d2",
-    "src/System/Utils/Graph.purs": "9f9e671fa1d77e3936de38a65831a615c23e63097fc629fe1b07823b056248a4",
-    "src/System/Utils/Marker.purs": "d9f8ff451a310f121c923f7b0837650c6b319556f7eb3abd9555844e0cfa1a54",
-    "src/System/Utils/Number.js": "05ade3941edba5f3e1185f6989fbdae9858bba6be32d4aad635ee108d4981366",
-    "src/System/Utils/Number.purs": "6267d15051983fc838f5fc2d3914f037e8e67669503b5338d503652689ac8a27",
+    "src/System/Utils/Graph.purs": "23093d0304bea12ef350e2abb77ba5a6e28c98280d0202bf7a0b01f24a0c82d5",
+    "src/System/Utils/Lookup.js": "a6ebc4e034dd1c18c553be0d92db44c4ddfa51f35129d1736ceab69c54830e0f",
+    "src/System/Utils/Lookup.purs": "c5bd11e4f8150aab0de8f39b4ed5a3b0089724b6948ab829a9880414b574c755",
+    "src/System/Utils/Marker.purs": "c711d901364211c95a01f6e5a4c6032b89cd8ad38a9ab417062a56357bcfb1ab",
+    "src/System/Utils/Number.js": "81e75843af80332ad5a8841d6e7b6a8e1f39a31e6a914216c777db13a8639ee5",
+    "src/System/Utils/Number.purs": "c4395a8c63cc774e973b1fdef6fac6680a31dd5170b3544b6ec6120dba21174d",
     "src/System/Utils/RefState.purs": "1a462371ac776ebaaa46a331ba453820dab56e54109c0d84452bc69ed9b488a0",
     "src/System/Utils/ShallowNodeData.purs": "79f74ee9add124783307882ffcc8a83a7faf91eb8edb12c021a744db40b03459",
     "src/System/Utils/Store.js": "68e5078ada6263f6b41e47e1a79f682cb48809211ec06b486609ce0e237f4089",
-    "src/System/Utils/Store.purs": "363ed62a3540ef49bb86266361ce84a298b69067d820ba61e3bc657ae72f7f06",
-    "src/System/Utils/Toolbar.purs": "ac3d9a2ce2fa45a85df420b746db9e139b26e84a1460a27d33745d7171709157",
+    "src/System/Utils/Store.purs": "c2e58726f5cc1502d5c100e6d2f863be594a573669e97f801f3a01c287cdf90f",
+    "src/System/Utils/Toolbar.purs": "545dde4725833f36ee5d47309d0eca2a832e513c405c06e0e2115ca5f201dc89",
     "src/System/Utils/Truthy.js": "5cdf07bbb00132645bf866bf9c3803040affa5ed8a034d1b2a255e066b580621",
     "src/System/Utils/Truthy.purs": "d75da6207e34949a14865db15f33a66d09839f9a1f05d3877d5b916ea1bce7a9",
     "src/System/XYDrag.js": "71be719efd7551c952f5220ee982dc756960615ee1e556cc6fc4b4ea647cca70",
-    "src/System/XYDrag.purs": "f6a95fe7939f354f6a1c1f74230aa84a1852a67b11789679e8967b5abae9bedb",
+    "src/System/XYDrag.purs": "9f5bfa92b55da3833d4fde63ecd2bb81f9ae1a00f5b02d69d0dfb868ec6ce02d",
     "src/System/XYDrag/Utils.js": "3667c04d691b124af88ae9172b1d921108dcd41ea0d67998131dce9e471b4f10",
-    "src/System/XYDrag/Utils.purs": "96f710f94f583202f899abd8202d417e1dcbf9acda58de6818d4f3940b9ea622",
+    "src/System/XYDrag/Utils.purs": "5996991b0f6377da4d628c4c21e9c067848ded355ba1b9ff791ae3d1c3f8e020",
     "src/System/XYHandle.js": "d061952b727ad3aa6feaf9297dc500177ff14b1c4250ccb1f41b16be94aa6034",
-    "src/System/XYHandle.purs": "89374b4d28feae991e5a088397e0e27c475655f240ee1823e56439157d313299",
+    "src/System/XYHandle.purs": "a53808fa8e776286424eb60c6e5e1f00fc7572b8551ebaf1841d38e003594450",
     "src/System/XYHandle/Utils.js": "96b3360cd408468503996687f3583aa6a1410e50262ca8cac251bbe415f0f5d8",
-    "src/System/XYHandle/Utils.purs": "48186aa647044c7f797473df091f55c6732f170635a90de901ab64076639728a",
+    "src/System/XYHandle/Utils.purs": "8d174f3b57399893f424b5355902ee78c2f09a03ff0d331a6d5fd4cb37a6bb2b",
     "src/System/XYMinimap.js": "e819743c221e87bcdef99746d138470b4287a20e1d68895a8cbf2931dc5022f9",
     "src/System/XYMinimap.purs": "ee9596680c201882074be433744f2e0d2d3426a04c89ed0e0d87f43ee04093db",
     "src/System/XYPanZoom.purs": "6182b96379c22baa0f41a64688f4e31d718d442af43bf3d1bf4fda3e4a5edad4",
@@ -18781,13 +18942,13 @@
     "src/System/XYPanZoom/Utils.js": "389c441adf3581a2bbcd2370eca0a2ef14389e133d7b0fa9805497fd4226037f",
     "src/System/XYPanZoom/Utils.purs": "86f51b4adb5f671a6833ee758ebc10fe29dc9e3e4997658641014327597ae7d3",
     "src/System/XYResizer.js": "75005567fd2cc3fb8d524173a7153574ef8fc70a97e3deb4b9eb251722d73055",
-    "src/System/XYResizer.purs": "6380c5595d8dc100d2052da1fdd6f285428fb974279610255a61eed7337b2b76",
+    "src/System/XYResizer.purs": "4272f96d4ca8e9036e96a111d53d77cbd6f0fe438faf8e6ca409411f403da723",
     "src/System/XYResizer/Types.purs": "750397deb27aa7851920f1f08b9a1fa963ce080386cac30b502c06b45d37bd73",
     "src/System/XYResizer/Utils.purs": "5eed2170ddd0876e360b3bee7beab5dc610660bb6dfdae8f9a228cd8a2dfd819"
   },
   "evidenceHashes": {
     "AAMF_STEP2_RESULTS.md": "ee6dbae1d96c411e9a368682a0a133896f77d74a30174dca1b0f339b99ce4760",
-    "AAMF_STEP3_RESULTS.md": "0cc7201690de1f360085bdc372669d0aff6f733aa4b43d84acce5911cb5cbe04",
+    "AAMF_STEP3_RESULTS.md": "1592f018147e82b7fb4059dc7f6ccdcbcd4bfdbd10123b6504b1528d382e36d2",
     "AAMF_TYPE_CONTRACT_REVIEW.md": "28f67d3dbf93f2e838fc509847092f625d89c75f0418a7b57d2d12658be8bf72",
     "aamf/step4/order-10/change-shapes-probe.txt": "8c6d6bfab71afcd369751145ec4d49066507ed240d6e41fa975258cc01c60500",
     "aamf/step4/order-10/README.md": "5190d1e86387a62cb9addb593710dd8babce8b18408f71217837319ec34c788b",
@@ -18796,7 +18957,7 @@
     "distribution/build.mjs": "c375601daa4e4d6a6a5c7b375f3bddc32414dd614dfeb1c8fa02d59639a81a55",
     "distribution/check.mjs": "39ec53720ec193887bdbb45c0186f3d9225893bd78e9f2f4db572fa5bfe22b4c",
     "distribution/declarations.mjs": "d2d3ea41c64bd618f8aad52efa9f4dbd42f353396f194389217c5d9b294d1fa7",
-    "distribution/gaps.mjs": "90b0e2aac372fa5dfaef80a3699b093d01ff7df79e576224335fa542aa34a071",
+    "distribution/gaps.mjs": "f0c35c3732b8c32c0a5505ad1df4bcd8299e1178ff12e17a61212d22e97b9520",
     "distribution/README.md": "a7c83f7058c7d8a309f7210508893945c6c24b0808e40daadeaa73327dcfdd5a",
     "package.json": "a24ca04391f1fe2aac6840f73331f0ec84bc3d4838413b1b7d196bf0f9ab7608",
     "parity/boundary/chrome-contracts.test.mjs": "90f922b3454fc9fb09134d999516fbd377f913175c0262f070b575790234447d",
@@ -18820,12 +18981,12 @@
     "parity/boundary/references.test.mjs": "cbcee56269da33f6df490332042582ddfac2d0912eea3c8231ea342a0c782b2a",
     "parity/boundary/selector-equality.test.mjs": "57bca5da058e07ec85805247b84cd93422c602b67447216ec03953a363a66122",
     "parity/boundary/store-callbacks.test.mjs": "e2ee4b5c753c727fd4c082fe58f80004b2b1432832376507c5ad9017ffa83737",
-    "parity/boundary/store.test.mjs": "a38ebd477b69d3a303b472a5d186b5830299960255511219ae0aefe8ea83c5b4",
+    "parity/boundary/store.test.mjs": "ef3555a69e52d006220f508b22db01ee89fd0d1bf9409f3c42e141fcaea961da",
     "parity/boundary/type-fallback.test.mjs": "9ee799d09e74516073cecad1530ed2a143554dd1b2bc5afc159410162454c52f",
     "parity/boundary/user-node.test.mjs": "fe0d084d6da336d39dff8e81607a5786a2be7bcce14eda7c4fe54464413adba1",
     "parity/boundary/viewport.test.mjs": "65e0d6ddbb4ccbf47158fb91fb4adf5f6f8311406783f0beb3aa1c18ca272078",
     "parity/surface/allowlist.json": "81f3a67b6ce5da47c7a494bc13a66164adecdb350abee1e7c66fd0afa428c6aa",
-    "parity/surface/report.md": "fcf90885ad3640e3a060a6fbe8f2cf0e16f1e1aab78881704a20281bff69176f",
+    "parity/surface/report.md": "b133344073140ce83bc468ec81bb67522d16ce5dbf25d144427962e8f9ed019f",
     "parity/system/coverage.md": "bb7869d45c72c02bd573eb42b655ffff161d18794f9edf43037515898fe37278",
     "parity/system/coverage/holes.json": "eb02044363b91f66c9b6c692947a1e5ea84dfdc3feed1fb93094c595d7ea28fe",
     "parity/system/coverage/store-action.test.mjs": "a1c0cacabc4ce7b2069ac8f119e4d90d9be052be585b91976d717169a5a326ff",
