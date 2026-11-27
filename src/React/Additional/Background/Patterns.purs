@@ -8,7 +8,7 @@ module React.Additional.Background.Patterns
 import Prelude
 
 import Data.Maybe (fromMaybe)
-import Data.Number.Format (toString) as NumberFormat
+import System.Utils.Number (toString) as NumberFormat
 import Data.Tuple (Tuple(..))
 import Effect.Unsafe (unsafePerformEffect)
 import React.Basic (ReactComponent)

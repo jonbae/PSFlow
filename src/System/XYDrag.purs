@@ -38,13 +38,16 @@ module System.XYDrag
 
 import Prelude
 
+import System.Utils.AsWritten (nullish, orIfUndefined, truthy) as AsWritten
+
+import System.Utils.Lookup as Lookup
+
 import Control.Lazy (defer)
 import Control.Monad.Except (runExcept)
 import Control.Monad.State (get, modify_)
 import Data.Either (Either(..))
 import Data.Foldable (foldMap, for_, traverse_)
 import Data.Array (any, length) as Array
-import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isNothing)
 import Data.Number (sqrt)
 import Effect (Effect)
@@ -87,6 +90,7 @@ import System.Types.Geometry
   , SnapGrid
   , Transform(..)
   , XYPosition
+  , mkNodeOrigin
   )
 import System.Types.Ids (NodeId)
 import System.Types.Node
@@ -354,7 +358,7 @@ onDragHandler params stateRef upd ev = do
   multi <- liftEffect (isMultiTouchSourceEvent src)
   let
     deletedDuringDrag = case upd.nodeId of
-      Just nid -> isNothing (Map.lookup nid store.nodeLookup)
+      Just nid -> isNothing (Lookup.get nid store.nodeLookup)
       Nothing -> false
   when (multi || deletedDuringDrag) (modify_ _ { abortDrag = true })
 
@@ -406,7 +410,7 @@ onEnd params upd ev = do
       let
         mouseEv = foreignAsMouseEvent src
         eventArgs = getEventHandlerParams upd.nodeId s0.dragItems
-          store.nodes
+          store.nodeLookup
           false
       -- TS runs the stop callbacks only when one of them is truthy.
       liftEffect $ when (isSet params.onDragStop || isSet store.onNodeDragStop || (isNothing upd.nodeId && isSet store.onSelectionDragStop)) do
@@ -464,7 +468,7 @@ startDrag params upd ev = do
         && not store.multiSelectionActive
   liftEffect $ case upd.nodeId of
     Just nid | deselectFirst -> do
-      let alreadySelected = case Map.lookup nid store.nodeLookup of
+      let alreadySelected = case Lookup.get nid store.nodeLookup of
             Just n -> n.selected == Just true
             Nothing -> false
       when (not alreadySelected) store.unselectNodesAndEdges
@@ -490,7 +494,8 @@ startDrag params upd ev = do
     }
 
   let
-    items = getDragItems (map _.id latest.nodes) latest.nodeLookup
+    -- TS `for (const [id, node] of nodeLookup)`.
+    items = getDragItems (Lookup.fillOrderKeys latest.nodes latest.nodeLookup) latest.nodeLookup
       store.nodesDraggable
       { x: pp.x, y: pp.y }
       upd.nodeId
@@ -505,7 +510,7 @@ startDrag params upd ev = do
       -- Upstream reports each item's `internals.userNode`, which the
       -- selection above reaches only when the flow applies it to its own
       -- nodes, as an uncontrolled one does at once.
-      eventArgs = getEventHandlerParams upd.nodeId items latest.nodes true
+      eventArgs = getEventHandlerParams upd.nodeId items latest.nodeLookup true
       mouseEv = foreignAsMouseEvent src
     liftEffect do
       for_ eventArgs.currentNode \cn -> do
@@ -622,10 +627,9 @@ updateNodes params mNodeId pos = do
 
     -- Upstream's `nodesBox`, `rectToBox(getInternalNodesBounds(dragItems))`:
     -- the dragged nodes' bounds before this move, from each item's absolute
-    -- position and measured size. Upstream also asks for `nodeExtent`, which
-    -- the store always has.
+    -- position and measured size, when `nodeExtent` is truthy.
     nodesBox =
-      if isMultiDrag then
+      if isMultiDrag && AsWritten.truthy store.nodeExtent then
         Just $ rectToBox $ boxToRect $ Box.toBox $ foldMap
           ( \i ->
               let
@@ -657,7 +661,7 @@ updateNodes params mNodeId pos = do
     -- One iteration: compute the next position with `calculateNodePosition`,
     -- and record whether the node moved.
     step :: NodeDragItem -> { item :: NodeDragItem, moved :: Boolean, errors :: Array ErrorCode }
-    step dragItem = case Map.lookup dragItem.id store.nodeLookup of
+    step dragItem = case Lookup.get dragItem.id store.nodeLookup of
       Nothing -> { item: dragItem, moved: false, errors: [] }
       Just _ ->
         let
@@ -683,8 +687,15 @@ updateNodes params mNodeId pos = do
               { nodeId: dragItem.id
               , nextPosition: stepNext
               , nodeLookup: store.nodeLookup
-              , nodeOrigin: store.nodeOrigin
-              , nodeExtent: Just (extentFor dragItem)
+              -- TS's `nodeOrigin = [0, 0]` parameter, and its
+              -- `isCoordinateExtent(extent)`, which skips `null` and
+              -- `undefined`.
+              , nodeOrigin: AsWritten.orIfUndefined (mkNodeOrigin 0.0 0.0) store.nodeOrigin
+              , nodeExtent:
+                  let
+                    extent = extentFor dragItem
+                  in
+                    if AsWritten.nullish extent then Nothing else Just extent
               }
             of
             Nothing -> { item: dragItem, moved: false, errors: [] }
@@ -723,7 +734,7 @@ updateNodes params mNodeId pos = do
     liftEffect $ when runsCallbacks $ traverse_
       ( \ev -> do
           let
-            eventArgs = getEventHandlerParams mNodeId s2.dragItems store.nodes true
+            eventArgs = getEventHandlerParams mNodeId s2.dragItems store.nodeLookup true
           for_ eventArgs.currentNode \cn -> do
             for_ params.onDrag \cb -> cb ev s2.dragItems cn eventArgs.allNodes
             for_ store.onNodeDrag \cb -> cb ev cn eventArgs.allNodes

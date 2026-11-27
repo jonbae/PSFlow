@@ -67,8 +67,13 @@
 -- |   * `connectionMode` and `zIndexMode` hold the mode upstream's
 -- |     comparisons choose for the written value.
 -- |   * Any other member holds the written value converted. When it cannot
--- |     convert, the internals keep the previous value, and development
--- |     builds say so.
+-- |     convert, the member holds the written value itself, as upstream's
+-- |     does (`System.Utils.AsWritten`), and ps-flow's code reads it where
+-- |     upstream's does, with the operation upstream's line uses: `.map`
+-- |     throws a `TypeError` for a string, `for…of` walks its characters.
+-- |     A tuple such as `transform` is read by index, as upstream reads it,
+-- |     and a lookup with the `Map` method upstream calls
+-- |     (`System.Utils.Lookup`).
 -- |
 -- | A callback that PureScript code installed has no JavaScript original, so
 -- | it reads back as an adapter from `Boundary.Callbacks`, which JavaScript
@@ -213,6 +218,7 @@ import System.Types.Node (InternalNodeBase, InternalNodeUpdate, NodeBase, NodeCh
 import System.FFI.D3Zoom (ZoomTransform)
 import System.Types.PanZoom (PanOnDrag(..), PanZoomInstance, PanZoomTransformOptions, PanZoomUpdateOptions)
 import System.Utils.General (devWarn)
+import System.Utils.AsWritten (hold, indexed, isHeld, orElse, writtenOf) as AsWritten
 import System.Utils.Truthy (isTruthy, markFalsy)
 import System.Utils.Graph (FitViewOptions)
 import Unsafe.Coerce (unsafeCoerce)
@@ -262,7 +268,8 @@ type ViewSpec =
   , keys :: Array String
   , fields :: Object Foreign
   , actions :: Foreign
-  , isDevelopment :: Boolean
+  , hold :: Foreign -> Foreign
+  , isHeld :: Foreign -> Boolean
   }
 
 -- | The view of a store, built on the first call and shared after it.
@@ -297,7 +304,8 @@ viewSpec store =
   , keys: stateKeys
   , fields: unsafeCoerce stateFields
   , actions: actionsOut store
-  , isDevelopment
+  , hold: AsWritten.hold
+  , isHeld: AsWritten.isHeld
   }
 
 -- ────────────────────────────────────────────────────────────────────────
@@ -325,10 +333,15 @@ optionalKeys =
 -- | Both directions of one member. `toJs` is handed the whole state too,
 -- | because the lookups take their iteration order from `nodes` and `edges`,
 -- | as upstream's maps take theirs from the order they were filled in.
+-- |
+-- | `converts` says the member's PureScript value is never the written value
+-- | itself, so `Store.js` can tell a value `fromJs` could not read, which the
+-- | member then holds as written, from one it converted.
 type Field a =
   { toJs :: State -> a -> Foreign
   , fromJs :: Foreign -> a
   , optional :: Boolean
+  , converts :: Boolean
   }
 
 -- | One `Field` per state member, typed by the member it converts. Its labels
@@ -431,7 +444,8 @@ stateFields =
   { rfId: written
   , width: written
   , height: written
-  , transform: plain transformOut (transformIn "transform")
+  , transform: tuple transformOut (transformIn "transform")
+      [ { field: "tx", at: [ 0 ] }, { field: "ty", at: [ 1 ] }, { field: "scale", at: [ 2 ] } ]
   , nodes: plain nodesOut (listOf "nodes" (reversible nodeIn))
   , nodesInitialized: written
   , nodeLookup: field nodeLookupOut (nodeLookupIn "nodeLookup")
@@ -449,9 +463,10 @@ stateFields =
   , panZoom: plain (maybe nullValue panZoomOut) (absentOr (Just <<< panZoomFromJs))
   , minZoom: written
   , maxZoom: written
-  , translateExtent: plain (unsafeToForeign <<< coordinateExtentOut) (coordinateExtentIn "translateExtent" <<< unsafeCoerce)
-  , nodeExtent: plain (unsafeToForeign <<< coordinateExtentOut) (coordinateExtentIn "nodeExtent" <<< unsafeCoerce)
-  , nodeOrigin: plain (unsafeToForeign <<< nodeOriginOut) (nodeOriginIn "nodeOrigin" <<< unsafeCoerce)
+  , translateExtent: tuple (unsafeToForeign <<< coordinateExtentOut) (coordinateExtentIn "translateExtent" <<< unsafeCoerce) extentIndexes
+  , nodeExtent: tuple (unsafeToForeign <<< coordinateExtentOut) (coordinateExtentIn "nodeExtent" <<< unsafeCoerce) extentIndexes
+  , nodeOrigin: tuple (unsafeToForeign <<< nodeOriginOut) (nodeOriginIn "nodeOrigin" <<< unsafeCoerce)
+      [ { field: "ox", at: [ 0 ] }, { field: "oy", at: [ 1 ] } ]
   , nodeDragThreshold: written
   , connectionDragThreshold: written
   , nodesSelectionActive: written
@@ -461,7 +476,8 @@ stateFields =
   , connectionMode: plain connectionModeOut connectionModeFromJs
   , connectionClickStartHandle: plain clickStartOut clickStartIn
   , snapToGrid: written
-  , snapGrid: plain (\g -> unsafeToForeign [ (unwrap g).gx, (unwrap g).gy ]) (snapGridIn "snapGrid" <<< unsafeCoerce)
+  , snapGrid: tuple (\g -> unsafeToForeign [ (unwrap g).gx, (unwrap g).gy ]) (snapGridIn "snapGrid" <<< unsafeCoerce)
+      [ { field: "gx", at: [ 0 ] }, { field: "gy", at: [ 1 ] } ]
   , nodesDraggable: written
   , autoPanOnNodeFocus: written
   , nodesConnectable: written
@@ -492,6 +508,7 @@ stateFields =
       { toJs: \_ -> maybe absent (unsafeToForeign <<< defaultEdgeOptionsOut)
       , fromJs: absentOr (Just <<< defaultEdgeOptionsIn <<< unsafeCoerce)
       , optional: true
+      , converts: true
       }
   , fitViewQueued: written
   , fitViewOptions: plain (maybe (unsafeToForeign undefined) fitViewOptionsOut)
@@ -528,7 +545,7 @@ stateFields =
 -- ────────────────────────────────────────────────────────────────────────
 
 field :: forall a. (State -> a -> Foreign) -> (Foreign -> a) -> Field a
-field toJs fromJs = { toJs, fromJs, optional: false }
+field toJs fromJs = { toJs, fromJs, optional: false, converts: true }
 
 plain :: forall a. (a -> Foreign) -> (Foreign -> a) -> Field a
 plain toJs = field (const toJs)
@@ -537,7 +554,30 @@ plain toJs = field (const toJs)
 -- | it is. Upstream stores it as it is, and these compile to the same
 -- | JavaScript operators upstream's internals use on it.
 written :: forall a. Field a
-written = plain unsafeToForeign unsafeCoerce
+written = (plain unsafeToForeign unsafeCoerce) { converts = false }
+
+-- | A member upstream holds as an array and reads by index, such as
+-- | `transform` or `nodeExtent`. A value of another shape is held as a record
+-- | that reads it by index, at the indexes each field names, when the field
+-- | is read: upstream's `transform[2]`, wherever ps-flow reads `scale`.
+tuple
+  :: forall a
+   . (a -> Foreign)
+  -> (Foreign -> a)
+  -> Array { field :: String, at :: Array Int }
+  -> Field a
+tuple out strict indexes =
+  plain (\v -> fromMaybe' (\_ -> out v) (AsWritten.writtenOf v))
+    (AsWritten.orElse strict (AsWritten.indexed indexes))
+
+-- | `[[minX, minY], [maxX, maxY]]`.
+extentIndexes :: Array { field :: String, at :: Array Int }
+extentIndexes =
+  [ { field: "minX", at: [ 0, 0 ] }
+  , { field: "minY", at: [ 0, 1 ] }
+  , { field: "maxX", at: [ 1, 0 ] }
+  , { field: "maxY", at: [ 1, 1 ] }
+  ]
 
 -- | `fromMaybe` with a fallback that runs only when needed, because every
 -- | fallback here throws.
@@ -655,6 +695,14 @@ edgesOut edges = case originalOf edges of
   Just original -> original
   Nothing -> unsafeToForeign (map (reversibleImpl (unsafeToForeign <<< edgeIdentityOut)) edges)
 
+-- | The elements a lookup's order comes from. While `nodes` or `edges` holds
+-- | a value a consumer wrote, which upstream's lookups do not follow, the
+-- | lookups read in key order.
+orderOf :: forall a. Array a -> Array a
+orderOf items
+  | AsWritten.isHeld items = []
+  | otherwise = items
+
 -- | `preferred`, deduplicated and kept to `present`, then what is left of
 -- | `present` in its own order.
 ordered :: forall k. Ord k => Array k -> Array k -> Array k
@@ -673,7 +721,7 @@ nodeLookupOut :: State -> NodeLookup Foreign -> Foreign
 nodeLookupOut s lookup =
   newMap $ Array.catMaybes $ map
     (\id -> map (\n -> entry (unwrap id) (internalNodeOutCached n)) (Map.lookup id lookup))
-    (ordered (map _.id s.nodes) (Set.toUnfoldable (Map.keys lookup)))
+    (ordered (map _.id (orderOf s.nodes)) (Set.toUnfoldable (Map.keys lookup)))
 
 parentLookupOut :: State -> ParentLookup Foreign -> Foreign
 parentLookupOut s lookup =
@@ -681,17 +729,17 @@ parentLookupOut s lookup =
     ( \parent -> map
         ( \children -> entry (unwrap parent) $ newMap $ Array.catMaybes $ map
             (\id -> map (\n -> entry (unwrap id) (internalNodeOutCached n)) (Map.lookup id children))
-            (ordered (map _.id s.nodes) (Set.toUnfoldable (Map.keys children)))
+            (ordered (map _.id (orderOf s.nodes)) (Set.toUnfoldable (Map.keys children)))
         )
         (Map.lookup parent lookup)
     )
-    (ordered (Array.catMaybes (map _.parentId s.nodes)) (Set.toUnfoldable (Map.keys lookup)))
+    (ordered (Array.catMaybes (map _.parentId (orderOf s.nodes))) (Set.toUnfoldable (Map.keys lookup)))
 
 edgeLookupOut :: State -> EdgeLookup Foreign -> Foreign
 edgeLookupOut s lookup =
   newMap $ Array.catMaybes $ map
     (\id -> map (\e -> entry id (edgeOutOne e)) (Map.lookup id lookup))
-    (ordered (map _.id s.edges) (Set.toUnfoldable (Map.keys lookup)))
+    (ordered (map _.id (orderOf s.edges)) (Set.toUnfoldable (Map.keys lookup)))
   where
   edgeOutOne = reversibleImpl (unsafeToForeign <<< edgeIdentityOut)
 
@@ -702,7 +750,7 @@ connectionLookupOut :: State -> Map String HandleConnections -> Foreign
 connectionLookupOut s lookup =
   newMap $ Array.catMaybes $ map
     (\key -> map (\c -> entry key (connectionsOut c)) (Map.lookup key lookup))
-    (ordered (edgeKeys =<< s.edges) (Set.toUnfoldable (Map.keys lookup)))
+    (ordered (edgeKeys =<< orderOf s.edges) (Set.toUnfoldable (Map.keys lookup)))
   where
   edgeKeys e =
     sideKeys (unwrap e.source) "source" e.sourceHandle

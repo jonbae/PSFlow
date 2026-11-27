@@ -13,7 +13,7 @@ import Data.Foldable (foldl)
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Newtype (class Newtype)
 import Data.Number (isNaN, (%))
-import Data.Number.Format (toString) as NumberFormat
+import System.Utils.Number (toString) as NumberFormat
 import Data.Tuple (Tuple(..))
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)

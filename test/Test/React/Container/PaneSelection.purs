@@ -25,6 +25,7 @@ module Test.React.Container.PaneSelection
 import Prelude
 
 import Data.Array (foldl) as Array
+import Data.Map as Map
 import Data.Maybe (Maybe(..))
 import Data.Set (Set)
 import Data.Set as Set
@@ -52,7 +53,7 @@ graph
      }
 graph defaultEdgeOptions =
   let
-    lookups = updateConnectionLookup
+    lookups = updateConnectionLookup (\_ -> unit) Map.empty Map.empty
       [ mkEdge "ab" "a" "b"
       , (mkEdge "ac" "a" "c") { selectable = Just false }
       , (mkEdge "bc" "b" "c") { selectable = Just true }

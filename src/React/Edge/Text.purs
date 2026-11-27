@@ -14,7 +14,7 @@ import Prelude
 
 import Data.Foldable (for_)
 import Data.Maybe (Maybe(..), fromMaybe)
-import Data.Number.Format (toString) as NumberFormat
+import System.Utils.Number (toString) as NumberFormat
 import Data.Nullable (Nullable, toMaybe, toNullable)
 import Data.Tuple.Nested ((/\))
 import Effect (Effect)

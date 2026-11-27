@@ -24,10 +24,11 @@ module React.Hook.NodeConnections
 
 import Prelude
 
+import System.Utils.Lookup as Lookup
+
 import Control.Alt ((<|>))
 import Data.Array (any, filter, null) as Array
 import Data.Foldable (for_)
-import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..))
 import Data.Newtype (class Newtype)
 import Effect (Effect)
@@ -88,7 +89,7 @@ useNodeConnections params = coerceHook React.do
     key = nodeLookupKey currentNodeId params.handleType params.handleId
 
   connections <- useStore \s ->
-    case Map.lookup key s.connectionLookup of
+    case Lookup.get key s.connectionLookup of
       Nothing -> [] :: Array NodeConnection
       Just inner -> handleConnectionsInOrder inner
 

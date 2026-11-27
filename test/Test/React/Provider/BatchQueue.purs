@@ -129,7 +129,7 @@ runBatchQueueTests = do
   let
     set :: (Array (Node Foreign) -> Array (Node Foreign)) -> Effect Unit
     set f = Ref.write (f jsNodes) result
-  runEffectFn1 (setStateOut "setNodes" nodeIn nodeOut set) relabelB
+  runEffectFn1 (setStateOut nodeIn nodeOut set) relabelB
   next <- Ref.read result
   assert "a setNodes updater's untouched nodes come back as the same records"
     ( case next !! 0, jsNodes !! 0, next !! 1, jsNodes !! 1 of

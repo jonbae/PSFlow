@@ -932,9 +932,22 @@ The store residual parity work after it matches three more groups:
   upstream's does.
 
 `store-lifecycle.test.mjs`, `store-replacement.test.mjs` and
-`store-coercion.test.mjs` compare them against upstream. A structured member
-that cannot convert still keeps its previous value internally, as the
-declarations say.
+`store-coercion.test.mjs` compare them against upstream.
+
+A fourth group then matches a structured member written with a value of the
+wrong shape, such as `nodes: 'x'`. Upstream's store holds the string, and
+ps-flow's now holds it too, as written. Each place ps-flow's code reads the
+member does what upstream's line does with it: it calls the same array or
+`Map` method, walks it with `for…of`, asks `!!` of it, or puts a default in
+place of `undefined`, so JavaScript throws or goes on where it does upstream.
+`System.Utils.AsWritten` and `System.Utils.Lookup` hold those operations. Tuples
+such as `transform` are read by index, as upstream reads them, and a throw
+partway through one of upstream's in-place lookup rebuilds leaves the lookups
+as far as it got. `store-unreadable.test.mjs` writes each of seventeen
+structured members with the values its converter rejects and compares a
+render, the instance's readers, pointer and keyboard input, the store's
+actions and the hooks against upstream. The declarations list the two
+differences left.
 
 ### Evidence
 

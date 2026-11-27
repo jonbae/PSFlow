@@ -9,6 +9,8 @@ module React.Additional.NodeToolbar
 
 import Prelude
 
+import System.Utils.Lookup as Lookup
+
 import System.Utils.Number as JsNumber
 
 import Data.Array (filter, foldl, fromFoldable, length) as Array
@@ -19,7 +21,7 @@ import Data.Map (empty, insert, isEmpty, lookup, size, values) as Map
 import Data.Maybe (Maybe(..), fromMaybe, maybe)
 import Data.Newtype (unwrap)
 import Data.Number (infinity)
-import Data.Number.Format (toString) as Number
+import System.Utils.Number (toString) as Number
 import Data.String (trim) as String
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)
@@ -124,7 +126,7 @@ lookupNodes
   -> Map NodeId (InternalNode n)
 lookupNodes ids s =
   Array.foldl
-    ( \acc nid -> case Map.lookup nid s.nodeLookup of
+    ( \acc nid -> case Lookup.get nid s.nodeLookup of
         Nothing -> acc
         Just n -> Map.insert n.id n acc
     )

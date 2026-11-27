@@ -21,8 +21,9 @@ module React.Node.Util
 
 import Prelude
 
+import System.Utils.Lookup as Lookup
+
 import Data.Foldable (for_)
-import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Nullable (Nullable, toMaybe)
 import Data.String (Pattern(..), Replacement(..), replace, toLower)
@@ -89,7 +90,7 @@ type HandleNodeClickArgs n e =
 handleNodeClick :: forall n e. HandleNodeClickArgs n e -> Effect Unit
 handleNodeClick args = do
   state <- args.store.getState
-  case Map.lookup args.id state.nodeLookup of
+  case Lookup.get args.id state.nodeLookup of
     Nothing -> case state.onError of
       Just cb -> cb "012" (errorMessage (E012 (unwrap args.id)))
       Nothing -> pure unit
@@ -151,7 +152,7 @@ moveNodesByArrowKey args = do
   state <- args.store.getState
   let
     at = fromMaybe args.positionAbsolute
-      (_.internals.positionAbsolute <$> Map.lookup args.id state.nodeLookup)
+      (_.internals.positionAbsolute <$> Lookup.get args.id state.nodeLookup)
     message = state.ariaLabelConfig.nodeA11yDescriptionAriaLiveMessage
       { direction: toLower (replace (Pattern "Arrow") (Replacement "") args.key)
       , x: toInt32 at.x

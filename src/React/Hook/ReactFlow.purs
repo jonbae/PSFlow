@@ -28,10 +28,13 @@ module React.Hook.ReactFlow
 
 import Prelude
 
-import Data.Array (filter, find, length, mapMaybe) as Array
+import System.Utils.AsWritten (absent, member, orIfUndefined) as AsWritten
+
+import System.Utils.Lookup as Lookup
+
+import Data.Array (filter, length, mapMaybe) as Array
 import Data.Either (Either(..))
 import Data.Foldable (for_)
-import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isJust)
 import Data.Newtype (class Newtype)
 import Effect (Effect)
@@ -66,8 +69,9 @@ import System.Types.Geometry (Rect, Transform(..))
 import System.Types.Handle (HandleType(..))
 import System.Types.Ids (NodeId(..), parentToNode)
 import System.Types.Node (NodeChange(..), NodeBase, InternalNodeBase, NodeLookup)
-import System.Utils.General (evaluateAbsolutePosition, getOverlappingArea, nodeToRect)
+import System.Utils.General (destructuredTransform, evaluateAbsolutePosition, getOverlappingArea, nodeToRect)
 import System.Utils.Graph (getElementsToRemove, getNodesBounds) as Graph
+import System.FFI.Microtask (awaitMicrotask)
 import System.Utils.Store (handleConnectionsInOrder)
 import Unsafe.Coerce (unsafeCoerce)
 
@@ -198,15 +202,17 @@ mkGeneralHelpers store batchContext =
 
   , getNode: \id -> do
       s <- store.getState
-      pure (Array.find (\n -> n.id == NodeId id) s.nodes)
+      -- TS `getInternalNode(id)?.internals.userNode`.
+      pure (_.internals.userNode <$> Lookup.get (NodeId id) s.nodeLookup)
 
   , getInternalNode: \id -> do
       s <- store.getState
-      pure (Map.lookup (NodeId id) s.nodeLookup)
+      pure (Lookup.get (NodeId id) s.nodeLookup)
 
+  -- TS `const { edges = [] } = store.getState()`.
   , getEdges: do
       s <- store.getState
-      pure s.edges
+      pure (AsWritten.orIfUndefined [] s.edges)
 
   , setEdges: \updater ->
       pushEdgeQueue batchContext (QueueUpdate (coerceEdgeFn updater))
@@ -217,14 +223,16 @@ mkGeneralHelpers store batchContext =
 
   , getEdge: \id -> do
       s <- store.getState
-      pure (Map.lookup id s.edgeLookup)
+      pure (Lookup.get id s.edgeLookup)
 
+  -- TS `const { nodes = [], edges = [], transform } = store.getState()`,
+  -- then `const [x, y, zoom] = transform`.
   , toObject: do
       s <- store.getState
-      let Transform t = s.transform
+      let Transform t = destructuredTransform s.transform
       pure
-        { nodes: s.nodes
-        , edges: s.edges
+        { nodes: AsWritten.orIfUndefined [] s.nodes
+        , edges: AsWritten.orIfUndefined [] s.edges
         , viewport: { x: t.tx, y: t.ty, zoom: t.scale }
         }
 
@@ -244,6 +252,11 @@ mkGeneralHelpers store batchContext =
         -- is a new function, so the store's own value is asked here.
         , onBeforeDelete: map adaptOnBeforeDelete (s.onBeforeDelete >>= \f -> if isTruthy f then Just f else Nothing)
         }
+      -- TS `await getElementsToRemove(…)`, an `async` function, which
+      -- resumes on the microtask queue even when nothing was asked: the
+      -- delete key's `setState({ nodesSelectionActive: false })` notifies
+      -- before anything is deleted.
+      awaitMicrotask
       liftEffect do
         when (Array.length result.edges > 0) do
           for_ s.onEdgesDelete \cb -> cb result.edges
@@ -285,7 +298,7 @@ mkGeneralHelpers store batchContext =
               RectArg _ -> true
               _ -> false
             keep n =
-              case Map.lookup n.id s.nodeLookup of
+              case Lookup.get n.id s.nodeLookup of
                 Just internal ->
                   if (not isRect) && excludesSelf internal nodeOrRect
                   then false
@@ -389,7 +402,7 @@ mkGeneralHelpers store batchContext =
 -- | Read the current connection-lookup slice for a given key and turn
 -- | it into a flat array, in the order upstream's `Map` holds it.
 connectionsForKey :: forall n e. ReactFlowState n e -> String -> Array HandleConnection
-connectionsForKey s key = case Map.lookup key s.connectionLookup of
+connectionsForKey s key = case Lookup.get key s.connectionLookup of
   Nothing -> []
   Just inner -> handleConnectionsInOrder inner
 
@@ -475,7 +488,9 @@ excludesSelf internal = case _ of
 -- | Compute the `Rect` for a `NodeOrIdOrRect`:
 -- |
 -- | * `RectArg r` — pass through.
--- | * `IdArg id` — lookup in `nodeLookup`; on miss, `Nothing`.
+-- | * `IdArg id` — lookup in `nodeLookup`. TS writes
+-- |    `nodeLookup.get(node.id)!` and reads `parentId` of what it gets, so
+-- |    an id the lookup lacks throws a `TypeError` there.
 -- | * `NodeArg n` — compute the absolute position from `parentId`
 -- |    chain via `evaluateAbsolutePosition`, then `nodeToRect`.
 getNodeRect
@@ -487,9 +502,10 @@ getNodeRect store = case _ of
   RectArg r -> pure (Just r)
   IdArg id -> do
     s <- store.getState
-    pure $ case Map.lookup id s.nodeLookup of
-      Nothing -> Nothing
-      Just internal -> Just (nodeToRect (Right internal) s.nodeOrigin)
+    internal <- case Lookup.get id s.nodeLookup of
+      Just found -> pure found
+      Nothing -> pure (unsafeCoerce (AsWritten.member "parentId" AsWritten.absent))
+    pure (Just (nodeToRect (Right internal) s.nodeOrigin))
   NodeArg n -> do
     s <- store.getState
     let
@@ -521,7 +537,7 @@ resolveBoundsRef
 resolveBoundsRef lookup = case _ of
   BoundsNode n -> Just n
   BoundsInternal internal -> Just (stripInternals internal)
-  BoundsId id -> map stripInternals (Map.lookup id lookup)
+  BoundsId id -> map stripInternals (Lookup.get id lookup)
 
 -- | Drop the `internals` field from an `InternalNodeBase` to recover a
 -- | `NodeBase`. The two share `NodeBaseRow nodeData`, so the runtime

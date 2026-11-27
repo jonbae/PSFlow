@@ -14,12 +14,11 @@ module System.XYDrag.Utils
 
 import Prelude
 
+import System.Utils.Lookup as Lookup
+
 import Data.Array (find, foldl, head, mapMaybe, nub, snoc) as Array
-import Data.Map (Map)
-import Data.Map (fromFoldable, lookup) as Map
 import Data.Function.Uncurried (runFn2)
 import Data.Maybe (Maybe(..), fromMaybe, maybe)
-import Data.Tuple (Tuple(..))
 import Data.Set (Set)
 import Data.Set (empty, insert, member) as Set
 import Effect (Effect)
@@ -50,7 +49,7 @@ isParentSelected node lookup = go Set.empty node.parentId
   go _ Nothing = false
   go visited (Just pid)
     | Set.member pid visited = false
-    | otherwise = case Map.lookup (parentToNode pid) lookup of
+    | otherwise = case Lookup.get (parentToNode pid) lookup of
         Nothing -> false
         Just parent ->
           if parent.selected == Just true then true
@@ -126,7 +125,7 @@ getDragItems order lookup nodesDraggable mousePos mNodeId =
 
     -- A repeated id keeps its first position, as a second `set` on a JS
     -- `Map` does.
-    step acc id = case Map.lookup id lookup of
+    step acc id = case Lookup.get id lookup of
       Just node | keep node -> Array.snoc acc (toItem node)
       _ -> acc
   in
@@ -149,14 +148,14 @@ getEventHandlerParams
   :: forall n
    . Maybe NodeId
   -> Array NodeDragItem
-  -> Array (NodeBase n)
+  -> NodeLookup n
   -> Boolean
   -> { currentNode :: Maybe (NodeBase n), allNodes :: Array (NodeBase n) }
-getEventHandlerParams mNodeId dragItems userNodes dragging =
+getEventHandlerParams mNodeId dragItems lookup dragging =
   let
-    -- A repeated id keeps its last node, as `adoptUserNodes`' `set` does.
-    users :: Map NodeId (NodeBase n)
-    users = Map.fromFoldable (map (\n -> Tuple n.id n) userNodes)
+    -- TS `nodeLookup.get(id)?.internals.userNode`.
+    userNodeOf :: NodeId -> Maybe (NodeBase n)
+    userNodeOf id = Lookup.get id lookup <#> _.internals.userNode
 
     -- TS's `{ ...node, position, dragging }`: the consumer's node with two
     -- members replaced, which crosses back with every key it had.
@@ -166,12 +165,12 @@ getEventHandlerParams mNodeId dragItems userNodes dragging =
 
     allNodes :: Array (NodeBase n)
     allNodes = Array.mapMaybe
-      (\item -> Map.lookup item.id users <#> \node -> dragged node item.position)
+      (\item -> userNodeOf item.id <#> \node -> dragged node item.position)
       dragItems
 
     -- TS: `position: dragItems.get(nodeId)?.position || node.position`.
     currentNode :: Maybe (NodeBase n)
-    currentNode = case mNodeId >>= \nid -> Map.lookup nid users of
+    currentNode = case mNodeId >>= userNodeOf of
       Nothing -> Array.head allNodes
       Just node -> Just $ dragged node
         (maybe node.position _.position (Array.find (\i -> i.id == node.id) dragItems))

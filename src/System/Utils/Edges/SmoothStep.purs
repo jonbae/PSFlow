@@ -12,7 +12,7 @@ import Data.Array (range, length, (!!)) as Array
 import Data.Foldable (foldl)
 import Data.Maybe (Maybe, fromMaybe)
 import Data.Number (abs, pow, sqrt) as Number
-import Data.Number.Format (toString) as NumberFormat
+import System.Utils.Number (toString) as NumberFormat
 import System.Types.Geometry (Position(..), XYPosition)
 import System.Utils.Edges.General (EdgePathResult, getEdgeCenter)
 

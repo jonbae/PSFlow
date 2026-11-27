@@ -115,7 +115,7 @@ initialState opts =
     width = fromMaybe 0.0 opts.width
     height = fromMaybe 0.0 opts.height
 
-    connRes = updateConnectionLookup edges
+    connRes = updateConnectionLookup (\_ -> unit) Map.empty Map.empty edges
 
     adoptOpts = defaultUpdateNodesOptions
       { nodeOrigin = nodeOrigin

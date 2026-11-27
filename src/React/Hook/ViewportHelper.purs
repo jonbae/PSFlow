@@ -37,7 +37,7 @@ import System.Types.Connection (Padding(..), PaddingValue(..), SetCenterOptions,
 import System.Types.Geometry (Rect, SnapGrid(..), Transform(..), XYPosition)
 import System.Types.PanZoom (PanZoomInstance, PanZoomTransformOptions)
 import System.Utils.Dom (elementBoundingRect)
-import System.Utils.General (getViewportForBounds, pointToRendererPoint, rendererPointToPoint)
+import System.Utils.General (destructuredTransform, getViewportForBounds, pointToRendererPoint, rendererPointToPoint)
 import Web.HTML.HTMLDivElement (toElement)
 
 newtype UseViewportHelper hooks =
@@ -70,8 +70,9 @@ mkHelper store =
         Just pz -> do
           _ <- pz.setViewport viewport (Just (toPzOpts opts))
           pure true
+  -- TS `const [x, y, zoom] = store.getState().transform`.
   , getViewport: do
-      Transform t <- _.transform <$> store.getState
+      Transform t <- destructuredTransform <<< _.transform <$> store.getState
       pure { x: t.tx, y: t.ty, zoom: t.scale }
   , setCenter: \x y opts -> setCenter store x y opts
   , fitBounds: \bounds opts -> fitBounds store bounds opts

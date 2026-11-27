@@ -13,7 +13,7 @@ module System.Utils.Edges.SimpleBezier
 
 import Prelude
 
-import Data.Number.Format (toString) as NumberFormat
+import System.Utils.Number (toString) as NumberFormat
 import System.Types.Geometry (Position(..))
 import System.Utils.Edges.Bezier (getBezierEdgeCenter)
 import System.Utils.Edges.General (EdgePathResult)

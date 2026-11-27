@@ -8,17 +8,21 @@
 -- | output is QuickCheck-testable directly.
 module React.Store.Reduce
   ( reduce
+  , reduceWith
+  , Setup
   , ReduceResult
   ) where
 
 import Prelude
+
+import System.Utils.AsWritten (isHeld, iterated, member, orIfUndefined, reduced) as AsWritten
+
+import System.Utils.Lookup as Lookup
 import System.Utils.Number as JsNumber
 
-import Data.Array (filter, foldl, mapMaybe, null, snoc) as Array
-import Data.Map as Map
+import Data.Array (filter, foldl, null, snoc) as Array
 import Data.Maybe (Maybe(..))
 import Data.Set as Set
-import Data.Tuple (Tuple(..))
 import React.Store.Action
   ( Action(..)
   , Effect_(..)
@@ -27,6 +31,7 @@ import React.Store.Action
   )
 import React.Store.InPlace (inPlace, inPlaceThen)
 import React.Store.Middleware (hasMiddleware)
+import Foreign (unsafeToForeign)
 import Unsafe.Reference (unsafeRefEq)
 import React.Store.Changes
   ( applyEdgeChanges
@@ -40,11 +45,12 @@ import React.Types.Edges (Edge)
 import React.Types.General (UnselectNodesAndEdgesParams)
 import React.Types.Nodes (Node)
 import React.Types.Store (ReactFlowState)
-import System.Types.Connection (ConnectionState(..), noConnection)
-import System.Types.Edge (EdgeBase, EdgeChange(..))
+import System.Types.Connection (ConnectionLookup, ConnectionState(..), isInProgress, noConnection)
+import System.Types.Edge (EdgeChange(..), EdgeLookup)
 import System.Types.Ids (NodeId)
+import System.Constants (infiniteExtent)
 import System.Types.Geometry (CoordinateExtent, Position(..))
-import System.Types.Node (InternalNodeBase, NodeChange(..), NodeDragItem, NodeLookup)
+import System.Types.Node (NodeChange(..), NodeDragItem, NodeLookup)
 import System.Utils.Edges.Positions (getHandlePosition)
 import System.Utils.Store
   ( adoptUserNodes
@@ -65,26 +71,42 @@ type ReduceResult n e =
   , writes :: Array String
   }
 
--- | The top-level dispatcher. One case per `Action` constructor.
+-- | The top-level dispatcher, for a store created with an infinite
+-- | `nodeExtent`. One case per `Action` constructor.
 reduce
   :: forall n e
    . ReactFlowState n e
   -> Action n e
   -> ReduceResult n e
-reduce state = case _ of
-  SetNodes ns -> reduceSetNodes state ns
+reduce = reduceWith { nodeExtent: infiniteExtent }
+
+-- | What upstream's store closes over when `createStore` builds it. Its
+-- | `setNodes` adopts with the `nodeExtent` the store was created with, a
+-- | closure variable, whatever the store's own `nodeExtent` has become since;
+-- | `setNodeExtent`, the drag and `updateNodeInternals` read the store's.
+type Setup = { nodeExtent :: CoordinateExtent }
+
+-- | `reduce`, for a store created with `setup`.
+reduceWith
+  :: forall n e
+   . Setup
+  -> ReactFlowState n e
+  -> Action n e
+  -> ReduceResult n e
+reduceWith setup state = case _ of
+  SetNodes ns -> reduceSetNodes setup state ns
   SetEdges es -> reduceSetEdges state es
-  SetDefaultNodesAndEdges mNs mEs -> reduceSetDefaults state mNs mEs
+  SetDefaultNodesAndEdges mNs mEs -> reduceSetDefaults setup state mNs mEs
   UpdateNodeInternals updates opts ->
     { state, effects: [ RunDomUpdateNodeInternals updates opts ], writes: [] }
   MergeNodeInternalsResult r -> reduceMergeNodeInternals state r
   UpdateNodePositions items dragging ->
-    reduceUpdateNodePositions state items dragging
-  TriggerNodeChanges cs -> reduceTriggerNodeChanges state cs
+    reduceUpdateNodePositions setup state items dragging
+  TriggerNodeChanges cs -> reduceTriggerNodeChanges setup state cs
   TriggerEdgeChanges cs -> reduceTriggerEdgeChanges state cs
-  AddSelectedNodes ids -> reduceAddSelectedNodes state ids
-  AddSelectedEdges ids -> reduceAddSelectedEdges state ids
-  UnselectNodesAndEdges params -> reduceUnselectNodesAndEdges state params
+  AddSelectedNodes ids -> reduceAddSelectedNodes setup state ids
+  AddSelectedEdges ids -> reduceAddSelectedEdges setup state ids
+  UnselectNodesAndEdges params -> reduceUnselectNodesAndEdges setup state params
   -- The limits live in two places: store state, which `panBy` and the
   -- viewport helpers read, and the d3 zoom behavior, which enforces them
   -- on a gesture. Writing only the first leaves a flow that changes any
@@ -112,7 +134,7 @@ reduce state = case _ of
     { state: state { connection = noConnection }, effects: [], writes: [ "connection" ] }
   UpdateConnection c ->
     { state: state { connection = c }, effects: [], writes: [ "connection" ] }
-  ResetSelectedElements -> reduceResetSelectedElements state
+  ResetSelectedElements -> reduceResetSelectedElements setup state
   Reset -> { state: resetState state, effects: [], writes: initialStateKeys }
   -- `useOnViewportChange` writes all three on mount, `undefined` included.
   SetViewportChangeStartHandler callback ->
@@ -154,12 +176,13 @@ reduce state = case _ of
 
 reduceSetNodes
   :: forall n e
-   . ReactFlowState n e
+   . Setup
+  -> ReactFlowState n e
   -> Array (Node n)
   -> ReduceResult n e
-reduceSetNodes state nodes =
+reduceSetNodes setup state nodes =
   let
-    s1 = adoptNodesInto state nodes
+    s1 = adoptNodesInto setup state nodes
     fitViewNow = state.fitViewQueued && s1.nodesInitialized
   in
     { state:
@@ -198,17 +221,24 @@ setNodesWrites fits =
 -- | `handleBounds`/`bounds` of nodes that survive the change.
 adoptNodesInto
   :: forall n e
-   . ReactFlowState n e
+   . Setup
+  -> ReactFlowState n e
   -> Array (Node n)
   -> ReactFlowState n e
-adoptNodesInto state nodes =
+adoptNodesInto setup state nodes =
   let
     r = adoptUserNodes nodes state.nodeLookup state.parentLookup
       ( defaultUpdateNodesOptions
-          { nodeOrigin = state.nodeOrigin
-          , nodeExtent = state.nodeExtent
+          -- TS `mergeObjects(defaultOptions, options)` puts the default in
+          -- place of an `undefined` option.
+          { nodeOrigin = AsWritten.orIfUndefined defaultUpdateNodesOptions.nodeOrigin state.nodeOrigin
+          , nodeExtent = setup.nodeExtent
           , elevateNodesOnSelect = state.elevateNodesOnSelect
           , zIndexMode = state.zIndexMode
+          -- TS fills the store's own lookups in place, and a node that
+          -- throws leaves them holding the nodes before it, set by nobody.
+          , keepProgress = \progress ->
+              inPlaceThen (_ { nodeLookup = progress.nodeLookup, parentLookup = progress.parentLookup }) state unit
           }
       )
   in
@@ -229,7 +259,7 @@ reduceSetEdges
   -> ReduceResult n e
 reduceSetEdges state edges =
   let
-    r = updateConnectionLookup edges
+    r = updateConnectionLookup (keepLookups state) state.connectionLookup state.edgeLookup edges
   in
     { state: state
         { edges = edges
@@ -244,16 +274,17 @@ reduceSetEdges state edges =
 
 reduceSetDefaults
   :: forall n e
-   . ReactFlowState n e
+   . Setup
+  -> ReactFlowState n e
   -> Maybe (Array (Node n))
   -> Maybe (Array (Edge e))
   -> ReduceResult n e
-reduceSetDefaults state mNs mEs =
+reduceSetDefaults setup state mNs mEs =
   let
     afterNodes = case mNs of
       Just ns ->
         let
-          res = reduceSetNodes state ns
+          res = reduceSetNodes setup state ns
         in
           { state: res.state { hasDefaultNodes = true }
           , effects: res.effects
@@ -292,8 +323,12 @@ reduceMergeNodeInternals state r
         -- nodes come back.
         positioned = updateAbsolutePositions r.nodeLookup r.parentLookup
           ( defaultUpdateNodesOptions
-              { nodeOrigin = state.nodeOrigin
-              , nodeExtent = state.nodeExtent
+              { nodeOrigin = AsWritten.orIfUndefined defaultUpdateNodesOptions.nodeOrigin state.nodeOrigin
+              , nodeExtent = AsWritten.orIfUndefined defaultUpdateNodesOptions.nodeExtent state.nodeExtent
+              -- TS has already written the measured internals into the
+              -- store's lookup, and placed the nodes before one that throws.
+              , keepProgress = \progress ->
+                  inPlaceThen (_ { nodeLookup = progress.nodeLookup, parentLookup = progress.parentLookup }) state unit
               , zIndexMode = state.zIndexMode
               }
           )
@@ -322,11 +357,12 @@ reduceMergeNodeInternals state r
 
 reduceUpdateNodePositions
   :: forall n e
-   . ReactFlowState n e
+   . Setup
+  -> ReactFlowState n e
   -> Array NodeDragItem
   -> Boolean
   -> ReduceResult n e
-reduceUpdateNodePositions state items dragging =
+reduceUpdateNodePositions setup state items dragging =
   let
     stepped = Array.foldl step { changes: [], parentExpandChildren: [], connection: state.connection } items
 
@@ -334,7 +370,7 @@ reduceUpdateNodePositions state items dragging =
     -- sure to use the current expandParent and parentId value".
     step acc item =
       let
-        mNode = Map.lookup item.id state.nodeLookup
+        mNode = Lookup.get item.id state.nodeLookup
 
         expandParentOf = case mNode of
           Just node | node.expandParent == Just true -> node.parentId
@@ -355,6 +391,13 @@ reduceUpdateNodePositions state items dragging =
         -- The connection being drawn from a dragged node follows it, from
         -- the node as the lookup holds it before this change.
         connection = case mNode, acc.connection of
+          -- TS `connection.inProgress && connection.fromNode.id === node.id`,
+          -- of a connection a consumer wrote with a value of another shape,
+          -- which only reads it.
+          Just node, c
+            | AsWritten.isHeld c
+                && isInProgress c
+                && unsafeRefEq (AsWritten.member "id" (AsWritten.member "fromNode" c)) (unsafeToForeign node.id) -> c
           Just node, ConnectionInProgress p
             | p.fromNode.id == node.id ->
                 ConnectionInProgress p { from = getHandlePosition node (Just p.fromHandle) PosLeft true }
@@ -399,7 +442,7 @@ reduceUpdateNodePositions state items dragging =
       { state: nextState, effects: [ RunNodesChangeMiddleware changes ], writes: connectionWrites }
     else
       let
-        triggered = reduceTriggerNodeChanges nextState changes
+        triggered = reduceTriggerNodeChanges setup nextState changes
       in
         triggered { writes = connectionWrites <> triggered.writes }
 
@@ -407,10 +450,11 @@ reduceUpdateNodePositions state items dragging =
 
 reduceTriggerNodeChanges
   :: forall n e
-   . ReactFlowState n e
+   . Setup
+  -> ReactFlowState n e
   -> Array (NodeChange n)
   -> ReduceResult n e
-reduceTriggerNodeChanges state changes
+reduceTriggerNodeChanges setup state changes
   -- TS `triggerNodeChanges` does nothing at all for an empty list: no
   -- commit in uncontrolled mode and no `onNodesChange`. Every caller that
   -- found nothing to change, such as a pane click with nothing selected,
@@ -423,7 +467,7 @@ reduceTriggerNodeChanges state changes
             -- Uncontrolled mode: commit the change *and* re-adopt so the lookup
             -- (what NodeWrapper renders from) reflects it — fixes uncontrolled
             -- drag and delete, which previously updated `nodes` but not the screen.
-            adoptNodesInto state (applyNodeChanges changes state.nodes)
+            adoptNodesInto setup state (applyNodeChanges changes state.nodes)
           else state
       in
         { state: s1
@@ -452,7 +496,7 @@ reduceTriggerEdgeChanges state changes
             -- re-adopt; without it uncontrolled edge select/delete never hit the DOM.
             let
               newEdges = applyEdgeChanges changes state.edges
-              r = updateConnectionLookup newEdges
+              r = updateConnectionLookup (keepLookups state) state.connectionLookup state.edgeLookup newEdges
             in
               state
                 { edges = newEdges
@@ -470,17 +514,18 @@ reduceTriggerEdgeChanges state changes
 
 reduceAddSelectedNodes
   :: forall n e
-   . ReactFlowState n e
+   . Setup
+  -> ReactFlowState n e
   -> Array NodeId
   -> ReduceResult n e
-reduceAddSelectedNodes state ids
+reduceAddSelectedNodes setup state ids
   -- TS `addSelectedNodes`: while multi-selection is active, just mark these
   -- nodes selected — keep the existing node selection and leave edges untouched.
   | state.multiSelectionActive =
       let
         changes = map (\id -> NodeSelectionChange { id, selected: true }) ids
       in
-        reduceTriggerNodeChanges state changes
+        reduceTriggerNodeChanges setup state changes
   | otherwise =
       let
         selectedSet = Set.fromFoldable ids
@@ -493,7 +538,7 @@ reduceAddSelectedNodes state ids
         -- in place, so a controlled flow's store notifies nobody until the
         -- consumer's nodes come back.
         s1 = inPlace (_ { nodeLookup = nodeRes.items }) state
-        afterNodes = reduceTriggerNodeChanges s1 nodeRes.changes
+        afterNodes = reduceTriggerNodeChanges setup s1 nodeRes.changes
         afterEdges = reduceTriggerEdgeChanges afterNodes.state edgeRes.changes
       in
         { state: afterEdges.state
@@ -505,10 +550,11 @@ reduceAddSelectedNodes state ids
 
 reduceAddSelectedEdges
   :: forall n e
-   . ReactFlowState n e
+   . Setup
+  -> ReactFlowState n e
   -> Array String
   -> ReduceResult n e
-reduceAddSelectedEdges state ids
+reduceAddSelectedEdges setup state ids
   -- TS `addSelectedEdges`: while multi-selection is active, just mark these
   -- edges selected — keep the existing edge selection and leave nodes untouched.
   | state.multiSelectionActive =
@@ -525,7 +571,7 @@ reduceAddSelectedEdges state ids
           else getNodeSelectionChanges state.nodeLookup Set.empty true
         s1 = inPlace (_ { nodeLookup = nodeRes.items }) state
         afterEdges = reduceTriggerEdgeChanges s1 edgeRes.changes
-        afterNodes = reduceTriggerNodeChanges afterEdges.state nodeRes.changes
+        afterNodes = reduceTriggerNodeChanges setup afterEdges.state nodeRes.changes
       in
         { state: afterNodes.state
         , effects: afterEdges.effects <> afterNodes.effects
@@ -536,15 +582,17 @@ reduceAddSelectedEdges state ids
 
 reduceUnselectNodesAndEdges
   :: forall n e
-   . ReactFlowState n e
+   . Setup
+  -> ReactFlowState n e
   -> UnselectNodesAndEdgesParams n e
   -> ReduceResult n e
-reduceUnselectNodesAndEdges state params =
+reduceUnselectNodesAndEdges setup state params =
   let
-    targetNodes = case params.nodes of
+    -- TS walks each with `for…of`.
+    targetNodes = AsWritten.iterated case params.nodes of
       Just ns -> ns
       Nothing -> state.nodes
-    targetEdges = case params.edges of
+    targetEdges = AsWritten.iterated case params.edges of
       Just es -> es
       Nothing -> state.edges
 
@@ -563,7 +611,7 @@ reduceUnselectNodesAndEdges state params =
     s1 = inPlace
       ( _
           { nodeLookup = Array.foldl
-              ( \lookup n -> case Map.lookup n.id lookup of
+              ( \lookup n -> case Lookup.get n.id lookup of
                   Nothing -> lookup
                   Just internal -> inPlaceThen (_ { selected = Just false }) internal lookup
               )
@@ -573,7 +621,7 @@ reduceUnselectNodesAndEdges state params =
       )
       state
 
-    afterNodes = reduceTriggerNodeChanges s1 nodeChanges
+    afterNodes = reduceTriggerNodeChanges setup s1 nodeChanges
     afterEdges = reduceTriggerEdgeChanges afterNodes.state edgeChanges
   in
     { state: afterEdges.state
@@ -608,40 +656,50 @@ reduceSetNodeExtent state ext =
     , writes: [ "nodeExtent" ]
     }
 
+-- | Where upstream's `updateConnectionLookup` throws partway, the store's
+-- | own lookups, which it clears and fills in place, stay as far as it got,
+-- | set by nobody.
+keepLookups
+  :: forall n e
+   . ReactFlowState n e
+  -> { connectionLookup :: ConnectionLookup, edgeLookup :: EdgeLookup e }
+  -> Unit
+keepLookups state progress =
+  inPlaceThen (_ { connectionLookup = progress.connectionLookup, edgeLookup = progress.edgeLookup }) state unit
+
 -- ResetSelectedElements -------------------------------------------------
 
 reduceResetSelectedElements
   :: forall n e
-   . ReactFlowState n e
+   . Setup
+  -> ReactFlowState n e
   -> ReduceResult n e
-reduceResetSelectedElements state
+reduceResetSelectedElements setup state
   -- TS `resetSelectedElements` returns before it reads a node or an edge
   -- when `elementsSelectable` is false. A selection the consumer passed in,
   -- such as a controlled node with `selected: true`, survives a pane click.
   | not state.elementsSelectable = { state, effects: [], writes: [] }
   | otherwise =
       let
-        nodePairs :: Array (Tuple NodeId (InternalNodeBase n))
-        nodePairs = Map.toUnfoldable state.nodeLookup
-        edgePairs :: Array (Tuple String (EdgeBase e))
-        edgePairs = Map.toUnfoldable state.edgeLookup
-
-        nodeChanges = Array.mapMaybe
-          ( \(Tuple _ n) ->
-              if n.selected == Just true then
-                Just (NodeSelectionChange { id: n.id, selected: false })
-              else Nothing
+        -- TS `nodes.reduce(…)` and `edges.reduce(…)` over the consumer's
+        -- nodes and edges, not the lookups: a node selected in place, by a
+        -- selection box in a flow that ignores the change, is not reset.
+        nodeChanges = AsWritten.reduced
+          ( \res n ->
+              if n.selected == Just true then Array.snoc res (NodeSelectionChange { id: n.id, selected: false })
+              else res
           )
-          nodePairs
-        edgeChanges = Array.mapMaybe
-          ( \(Tuple _ e) ->
-              if e.selected == Just true then
-                Just (EdgeSelectionChange { id: e.id, selected: false })
-              else Nothing
+          []
+          state.nodes
+        edgeChanges = AsWritten.reduced
+          ( \res e ->
+              if e.selected == Just true then Array.snoc res (EdgeSelectionChange { id: e.id, selected: false })
+              else res
           )
-          edgePairs
+          []
+          state.edges
 
-        afterNodes = reduceTriggerNodeChanges state nodeChanges
+        afterNodes = reduceTriggerNodeChanges setup state nodeChanges
         afterEdges = reduceTriggerEdgeChanges afterNodes.state edgeChanges
       in
         { state: afterEdges.state

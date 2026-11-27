@@ -12,9 +12,11 @@ module System.Utils.Marker
 
 import Prelude
 
-import Data.Array (catMaybes, foldl, sortBy) as Array
+import System.Utils.AsWritten (reduced) as AsWritten
+
+import Data.Array (catMaybes, sortBy) as Array
 import Data.Maybe (Maybe(..))
-import Data.Number.Format (toString) as NumberFormat
+import System.Utils.Number (toString) as NumberFormat
 import Data.Set (Set)
 import Data.Set (empty, insert, member) as Set
 import Data.String (joinWith) as String
@@ -77,7 +79,8 @@ createMarkerIds
 createMarkerIds edges cfg =
   Array.sortBy (\a b -> compare a.id b.id)
     ( _.markers
-        ( Array.foldl step { ids: Set.empty :: Set String, markers: [] } edges
+        -- TS `edges.reduce(…)`.
+        ( AsWritten.reduced step { ids: Set.empty :: Set String, markers: [] } edges
         )
     )
   where

@@ -26,12 +26,12 @@ import Effect.Ref as Ref
 import Effect.Class (liftEffect)
 import React.Store.Action (Action(..), Effect_(..))
 import React.Store.InitialState (InitialStateOptions, initialState)
-import React.Store.Reduce (reduce)
+import React.Store.Reduce (reduceWith)
 import React.Store.FitViewResolver (resolveFitView)
 import React.Store.Middleware (runNodesChangeMiddleware)
 import React.Store.Partial (partial)
 import React.Types.Store (ReactFlowState)
-import System.Constants (errorMessage)
+import System.Constants (errorMessage, infiniteExtent)
 import System.Utils.Graph (fitViewport)
 import System.Utils.Store (updateNodeInternals)
 import Unsafe.Coerce (unsafeCoerce)
@@ -119,7 +119,10 @@ type StoreApi n e = Store n e
 
 createStore :: forall n e. InitialStateOptions n e -> Effect (Store n e)
 createStore opts = do
-  let firstState = initialState opts
+  let
+    firstState = initialState opts
+    -- What upstream's `createStore` closes over.
+    setup = { nodeExtent: fromMaybe infiniteExtent opts.nodeExtent }
   stateRef <- Ref.new firstState
   subsRef <- Ref.new ([] :: Array (Subscriber n e))
   nextSubKeyRef <- Ref.new 0
@@ -257,7 +260,7 @@ createStore opts = do
     dispatch :: Action n e -> Effect Unit
     dispatch action = do
       prev <- readState
-      let res = reduce prev action
+      let res = reduceWith setup prev action
       Ref.write res.state stateRef
       unless (unsafeRefEq prev res.state) do
         observers <- Ref.read observersRef

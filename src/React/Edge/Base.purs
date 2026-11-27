@@ -22,6 +22,7 @@ import Effect.Unsafe (unsafePerformEffect)
 import React.Basic (JSX, ReactComponent, element)
 import React.Basic.Hooks (memo, reactComponent)
 import React.Edge.Text (edgeText, labelShown)
+import System.Utils.General (isNumeric)
 import React.FFI.DOM (opt, path_, spreadUnder)
 import React.Types.Edges (BaseEdgeProps)
 
@@ -61,7 +62,7 @@ baseEdge = unsafePerformEffect $ memo $ reactComponent "BaseEdge" \(props :: Bas
       label = case props.label, props.labelX, props.labelY of
         -- TS `label && isNumeric(labelX) && isNumeric(labelY)`: a falsy
         -- label draws nothing.
-        Just shown, Just lx, Just ly | labelShown shown ->
+        Just shown, Just lx, Just ly | labelShown shown && isNumeric lx && isNumeric ly ->
           element edgeText
             { x: lx
             , y: ly

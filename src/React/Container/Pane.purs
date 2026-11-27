@@ -65,7 +65,7 @@ import React.Store.PanBy (panBy) as StorePanBy
 import React.Types.Component (PaneProps)
 import React.Types.Store (ReactFlowState)
 import System.FFI.AnimationFrame (RafHandle, cancelAnimationFrame, requestAnimationFrame)
-import System.Types.Connection (ConnectionState(..), SelectionMode(..))
+import System.Types.Connection (SelectionMode(..), isInProgress)
 import System.Types.Ids (NodeId)
 import System.Types.PanZoom (PanOnDrag(..))
 import System.Utils.Dom (DOMRect, elementBoundingRect, getEventPosition)
@@ -109,9 +109,8 @@ selectSlice :: forall n e. ReactFlowState n e -> PaneSlice
 selectSlice s =
   { userSelectionActive: s.userSelectionActive
   , elementsSelectable: s.elementsSelectable
-  , connectionInProgress: case s.connection of
-      ConnectionInProgress _ -> true
-      NoConnection -> false
+  -- TS `s.connection.inProgress`.
+  , connectionInProgress: isInProgress s.connection
   , dragging: s.paneDragging
   , autoPanSpeed: s.autoPanSpeed
   }

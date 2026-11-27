@@ -8,15 +8,16 @@ module React.Additional.NodeResizer.Control
 
 import Prelude
 
+import System.Utils.Lookup as Lookup
+
 import System.Utils.Number as JsNumber
 
 import Data.Array (length) as Array
 import Data.Foldable (foldl, for_)
-import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Newtype (class Newtype)
 import Data.Number as Number
-import Data.Number.Format (toString) as NumberFormat
+import System.Utils.Number (toString) as NumberFormat
 import Data.Nullable (Nullable, toMaybe, toNullable)
 import Data.Tuple (Tuple(..))
 import Effect (Effect)
@@ -120,7 +121,7 @@ buildChanges
 buildChanges store nid change childChanges resizeDirection = do
   st <- store.getState
   let
-    mNode = Map.lookup nid st.nodeLookup
+    mNode = Lookup.get nid st.nodeLookup
     nodeOrigin = st.nodeOrigin
     initialPosition =
       { x: change.x, y: change.y }
@@ -257,7 +258,8 @@ nodeResizeControl =
                           st <- store.getState
                           pure
                             { nodeLookup: st.nodeLookup
-                            , nodeOrder: map _.id st.nodes
+                            -- TS `for (const [childId, child] of nodeLookup)`.
+                            , nodeOrder: Lookup.fillOrderKeys st.nodes st.nodeLookup
                             , transform: st.transform
                             , snapGrid: Just st.snapGrid
                             , snapToGrid: st.snapToGrid

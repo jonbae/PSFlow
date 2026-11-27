@@ -25,7 +25,7 @@ import Data.Foldable (oneOf) as Foldable
 import Data.Map (Map)
 import Data.Map (fromFoldable) as Map
 import Data.Maybe (Maybe(..), fromMaybe)
-import Data.Number.Format (toString) as NumberFormat
+import System.Utils.Number (toString) as NumberFormat
 import Data.Nullable (toNullable)
 import Data.Tuple.Nested ((/\))
 import Foreign (Foreign, unsafeToForeign)

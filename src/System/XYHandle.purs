@@ -34,10 +34,11 @@ module System.XYHandle
 
 import Prelude
 
+import System.Utils.Lookup as Lookup
+
 import Control.Monad.State (get, modify_)
 import Data.Either (Either(..))
 import Data.Foldable (for_)
-import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isJust)
 import Data.Newtype (unwrap)
 import Data.Nullable (Nullable, toMaybe)
@@ -341,7 +342,7 @@ onPointerDown event params = do
               , position = fromHandleInternal.position
               }
 
-          mFromInternalNode <- pure (Map.lookup params.nodeId params.nodeLookup)
+          mFromInternalNode <- pure (Lookup.get params.nodeId params.nodeLookup)
           case mFromInternalNode of
             Nothing -> pure unit
             Just fromInternalNode -> do
@@ -473,13 +474,13 @@ onPointerDown event params = do
 
                   prev <- Ref.read previousConnection
                   let
-                    fromInternalNode' = Map.lookup params.nodeId nodeLookup
+                    fromInternalNode' = Lookup.get params.nodeId nodeLookup
                     fresh = case fromInternalNode' of
                       Just fn -> getHandlePosition fn (Just fromHandle)
                         PosLeft true
                       Nothing -> prev.from
                     nextToNode = case result.toHandle of
-                      Just toH -> Map.lookup toH.nodeId nodeLookup
+                      Just toH -> Lookup.get toH.nodeId nodeLookup
                       Nothing -> Nothing
                     next :: ConnectionInProgressData (InternalNodeBase nodeData)
                     next = prev

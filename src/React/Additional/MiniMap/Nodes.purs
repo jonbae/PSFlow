@@ -12,8 +12,11 @@ module React.Additional.MiniMap.Nodes
 
 import Prelude
 
+import System.Utils.AsWritten (mapped) as AsWritten
+
+import System.Utils.Lookup as Lookup
+
 import Data.Array (mapMaybe)
-import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Newtype (unwrap)
 import Effect (Effect)
@@ -35,7 +38,8 @@ foreign import shapeRenderingNow :: Effect String
 
 selectNodes :: forall n e. ReactFlowState n e -> UnsafeReference (Array (InternalNode n))
 selectNodes s =
-  UnsafeReference (mapMaybe (\node -> Map.lookup node.id s.nodeLookup) s.nodes)
+  -- TS `s.nodes.map((node) => node.id)`, then `s.nodeLookup.get(id)` for each.
+  UnsafeReference (mapMaybe (\id -> Lookup.get id s.nodeLookup) (AsWritten.mapped _.id s.nodes))
 
 -- | Upstream reads each minimap node from `internals.userNode`, the node the
 -- | consumer wrote, and only its position from the internal node. So a node

@@ -27,6 +27,7 @@ module System.Types.Connection
   , ConnectionInProgressData
   , ConnectionInProgress
   , noConnection
+  , isInProgress
   , FinalConnectionState
   ) where
 
@@ -45,6 +46,7 @@ import Foreign (Foreign)
 import System.Types.Geometry (Position, XYPosition)
 import System.Types.Handle (Handle)
 import System.Types.Ids (NodeId)
+import System.Utils.AsWritten (isHeld, member, truthy) as AsWritten
 
 type Connection =
   { source :: NodeId
@@ -396,3 +398,12 @@ type FinalConnectionState node = Maybe
   , toNode :: Maybe node
   , pointer :: XYPosition
   }
+
+-- | TS `connection.inProgress`. A connection a consumer wrote with a value of
+-- | another shape is asked the same, so `null` throws a `TypeError`.
+isInProgress :: forall n. ConnectionState n -> Boolean
+isInProgress connection
+  | AsWritten.isHeld connection = AsWritten.truthy (AsWritten.member "inProgress" connection)
+  | otherwise = case connection of
+      ConnectionInProgress _ -> true
+      NoConnection -> false

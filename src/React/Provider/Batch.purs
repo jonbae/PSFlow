@@ -35,6 +35,8 @@ module React.Provider.Batch
 
 import Prelude
 
+import System.Utils.AsWritten (orIfUndefined) as AsWritten
+
 import Data.Array (null) as Array
 import Data.Foldable (foldl, for_)
 import Data.Maybe (Maybe(..))
@@ -98,7 +100,7 @@ planNodeQueue s nextNodes =
   let
     changes =
       unsafePerformEffect $ runNodesChangeMiddleware s.onNodesChangeMiddlewareMap
-        (getNodeElementsDiffChanges (Just nextNodes) s.nodeLookup s.nodes)
+        (getNodeElementsDiffChanges (Just nextNodes) s.nodeLookup)
   in
     { setNodes: if s.hasDefaultNodes then Just nextNodes else Nothing
     , onNodesChange: if Array.null changes then Nothing else Just changes
@@ -147,8 +149,9 @@ batchProvider =
         when (not (Array.null nodeItems) || not (Array.null edgeItems)) do
           s <- store.getState
           let
-            nextNodes = foldl applyQueueItem s.nodes nodeItems
-            nextEdges = foldl applyQueueItem s.edges edgeItems
+            -- TS `const { nodes = [] } = store.getState()`, and `edges`.
+            nextNodes = foldl applyQueueItem (AsWritten.orIfUndefined [] s.nodes) nodeItems
+            nextEdges = foldl applyQueueItem (AsWritten.orIfUndefined [] s.edges) edgeItems
           when (not (Array.null nodeItems)) do
             let plan = planNodeQueue s nextNodes
             for_ plan.setNodes (store.dispatch <<< SetNodes)

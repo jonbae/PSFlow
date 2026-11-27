@@ -62,8 +62,12 @@ const withoutTimeStamps = (value) => {
   return Object.fromEntries(Object.entries(value).filter(([key]) => key !== 'timeStamp').map(([key, v]) => [key, withoutTimeStamps(v)]));
 };
 
+// A lookup's entries. A lookup a consumer wrote with something other than a
+// `Map` is read as that value.
 const entries = (map) =>
-  [...map.entries()].map(([key, value]) => [key, value instanceof Map ? entries(value) : serializeValue(value, { maxDepth: 24 })]);
+  map instanceof Map
+    ? [...map.entries()].map(([key, value]) => [key, entries(value)])
+    : serializeValue(map, { maxDepth: 24 });
 
 function readState(state, omit) {
   const plain = {};

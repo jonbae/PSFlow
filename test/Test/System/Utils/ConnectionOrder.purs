@@ -67,7 +67,7 @@ edge id source target =
 -- | The edge ids of `key`'s connections, in the order the lookup gives them.
 edgeIdsAt :: String -> Array (EdgeBase Unit) -> Array String
 edgeIdsAt key edges =
-  case Map.lookup key (updateConnectionLookup edges).connectionLookup of
+  case Map.lookup key (updateConnectionLookup (\_ -> unit) Map.empty Map.empty edges).connectionLookup of
     Just connections -> map _.edgeId (handleConnectionsInOrder connections)
     Nothing -> []
 

@@ -21,13 +21,15 @@ export const OVERLAYS = [];
 export const NOTES = [
   {
     id: 'store-unreadable-members',
-    accepted: 'Full JavaScript store compatibility',
+    accepted: 'Store residual parity',
     text:
-      "`useStoreApi()`'s `getState()` reads back every value written into the store, as upstream's " +
-      "does, and ps-flow's internals use a boolean, number, string or callback member as written, as " +
-      "upstream's do. A structured member written with a value ps-flow cannot convert, such as " +
-      "`setState({ nodes: 'x' })`, keeps its previous value internally and for readers such as " +
-      '`getNodes()`, and development builds warn; upstream stores the value everywhere and fails later.',
+      "A structured store member written with a value of the wrong shape, such as " +
+      "`setState({ nodes: 'x' })`, reads back as written, and ps-flow's internals hold it as written " +
+      "and read it where upstream's code reads it, so they fail or go on where upstream's do. Two " +
+      'differences remain. An array ps-flow can read only in part, such as `[node, null]`, is held ' +
+      "whole, so ps-flow's code reads even its readable items as written values and can fail on one " +
+      "where upstream's goes on. And while `nodes` or `edges` holds a written value, ps-flow walks the " +
+      'lookups in id order, where upstream walks them in the order they were filled.',
   },
   {
     id: 'store-default-view',

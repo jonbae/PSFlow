@@ -20,7 +20,9 @@
 -- | The test runs `deleteSelectedElements`, the handler's effect body,
 -- | with a real store and the `deleteElements` `useReactFlow` builds from
 -- | it. That the hook calls it when the key goes down is the net's to
--- | check: `spago test` has no DOM to press a key in.
+-- | check: `spago test` has no DOM to press a key in. Upstream's
+-- | `deleteElements` awaits `getElementsToRemove`, so the test reads what
+-- | fired a timer tick after the key, as a consumer would.
 module Test.React.Hook.DeleteKey
   ( runDeleteKeyTests
   ) where
@@ -31,7 +33,8 @@ import Data.Array (intercalate)
 import Data.Maybe (Maybe(..))
 import Data.Newtype (unwrap)
 import Effect (Effect)
-import Effect.Class (liftEffect)
+import Effect.Aff (Aff, Milliseconds(..), delay, launchAff_)
+import Effect.Class (class MonadEffect, liftEffect)
 import Effect.Class.Console (log)
 import Effect.Ref as Ref
 import Partial.Unsafe (unsafeCrashWith)
@@ -46,10 +49,10 @@ import System.Types.Ids (NodeId(..))
 import System.Types.Node (NodeChange(..))
 import Unsafe.Coerce (unsafeCoerce)
 
-assert :: String -> Boolean -> Effect Unit
+assert :: forall m. MonadEffect m => String -> Boolean -> m Unit
 assert label cond =
   if cond then log ("ok  " <> label)
-  else unsafeCrashWith ("FAIL " <> label)
+  else liftEffect (unsafeCrashWith ("FAIL " <> label))
 
 node :: String -> { selected :: Boolean, deletable :: Boolean } -> Node Unit
 node id flags =
@@ -136,8 +139,17 @@ nodeIds xs = "[" <> intercalate "," (map (unwrap <<< _.id) xs) <> "]"
 pressDelete
   :: Array (Node Unit)
   -> Array (Edge Unit)
-  -> Effect { fired :: Array String, nodesSelectionActive :: Boolean }
+  -> Aff { fired :: Array String, nodesSelectionActive :: Boolean }
 pressDelete nodes edges = do
+  result <- liftEffect (pressDeleteNow nodes edges)
+  delay (Milliseconds 0.0)
+  liftEffect result
+
+pressDeleteNow
+  :: Array (Node Unit)
+  -> Array (Edge Unit)
+  -> Effect (Effect { fired :: Array String, nodesSelectionActive :: Boolean })
+pressDeleteNow nodes edges = do
   store <- createStore
     ((defaultInitialStateOptions :: InitialStateOptions Unit Unit) { nodes = Just nodes, edges = Just edges })
   fired <- Ref.new ([] :: Array String)
@@ -154,7 +166,7 @@ pressDelete nodes edges = do
     , onNodesChange = Just \cs -> record ("onNodesChange " <> intercalate "," (map nodeChange cs))
     }
   deleteSelectedElements store (mkGeneralHelpers store (unsafeCoerce unit)).deleteElements
-  { fired: _, nodesSelectionActive: _ }
+  pure $ { fired: _, nodesSelectionActive: _ }
     <$> Ref.read fired
     <*> map _.nodesSelectionActive store.getState
   where
@@ -166,7 +178,7 @@ pressDelete nodes edges = do
     _ -> "other"
 
 runDeleteKeyTests :: Effect Unit
-runDeleteKeyTests = do
+runDeleteKeyTests = launchAff_ do
   log "\n=== The delete key deletes the selection through deleteElements ==="
 
   let

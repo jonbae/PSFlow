@@ -52,7 +52,7 @@ import React.Hook.ResizeHandler (useResizeHandler)
 import React.Hook.Store (UseStoreApi, useStore, useStoreApi)
 import React.Types.Component (ZoomPaneProps)
 import React.Types.Store (ReactFlowState)
-import System.Types.Connection (ConnectionState(..))
+import System.Types.Connection (isInProgress)
 import System.Types.Geometry (Transform(..), mkTransform)
 import System.Types.PanZoom (PanZoomInstance)
 import System.XYPanZoom (createXYPanZoom)
@@ -91,9 +91,8 @@ selectSlice :: forall n e. ReactFlowState n e -> ZoomPaneSlice
 selectSlice s = ZoomPaneSlice
   { userSelectionActive: s.userSelectionActive
   , lib: s.lib
-  , connectionInProgress: case s.connection of
-      ConnectionInProgress _ -> true
-      NoConnection -> false
+  -- TS `s.connection.inProgress`.
+  , connectionInProgress: isInProgress s.connection
   }
 
 -- ----------------------------------------------------------------------------

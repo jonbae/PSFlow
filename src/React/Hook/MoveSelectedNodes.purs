@@ -32,9 +32,13 @@ module React.Hook.MoveSelectedNodes
 
 import Prelude
 
+import System.Utils.AsWritten (nullish, orIfUndefined) as AsWritten
+
+import System.Utils.Lookup as Lookup
+
 import Data.Array (foldl, snoc) as Array
 import Data.Foldable (for_)
-import Data.Map (insert, lookup) as Map
+import Data.Map (insert) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isNothing)
 import Effect (Effect)
 import React.Basic.Hooks (Hook)
@@ -42,7 +46,7 @@ import React.Hook.Store (UseStoreApi, useStoreApi)
 import React.Store.Action (Action(..))
 import React.Store.Shell (Store)
 import System.Constants (errorId, errorMessage)
-import System.Types.Geometry (SnapGrid(..), XYPosition)
+import System.Types.Geometry (SnapGrid(..), XYPosition, mkNodeOrigin)
 import System.Types.Node (InternalNodeBase, NodeDragItem)
 import System.Utils.General (snapPosition)
 import System.Utils.Graph (calculateNodePosition)
@@ -67,7 +71,7 @@ moveSelectedNodes store direction factor = do
       node.selected == Just true
         && (node.draggable == Just true || (st.nodesDraggable && isNothing node.draggable))
 
-    step acc { id } = case Map.lookup id acc.nodeLookup of
+    step acc { id } = case Lookup.get id acc.nodeLookup of
       Just node | isSelected node ->
         let
           next =
@@ -81,8 +85,11 @@ moveSelectedNodes store direction factor = do
               { nodeId: id
               , nextPosition
               , nodeLookup: acc.nodeLookup
-              , nodeOrigin: st.nodeOrigin
-              , nodeExtent: Just st.nodeExtent
+              -- TS's `nodeOrigin = [0, 0]` parameter, and its
+              -- `isCoordinateExtent(extent)`, which skips `null` and
+              -- `undefined`.
+              , nodeOrigin: AsWritten.orIfUndefined (mkNodeOrigin 0.0 0.0) st.nodeOrigin
+              , nodeExtent: if AsWritten.nullish st.nodeExtent then Nothing else Just st.nodeExtent
               }
             of
             Just r ->
@@ -99,7 +106,9 @@ moveSelectedNodes store direction factor = do
             Nothing -> acc
       _ -> acc
 
-    stepped = Array.foldl step { nodeLookup: st.nodeLookup, updates: [], errors: [] } st.nodes
+    -- TS `for (const [, node] of nodeLookup)`.
+    stepped = Array.foldl step { nodeLookup: st.nodeLookup, updates: [], errors: [] }
+      (map (\id -> { id }) (Lookup.fillOrderKeys st.nodes st.nodeLookup))
 
   -- TS's `calculateNodePosition` raises each node's errors in the loop,
   -- before `updateNodePositions`.

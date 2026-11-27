@@ -98,11 +98,12 @@ function createView(spec) {
   const plain = new WeakMap();
   const held = new WeakMap();
 
-  const warn = (message) => {
-    if (spec.isDevelopment) console.warn(message);
-  };
+  // A member whose converter cannot read the value written holds the value
+  // itself, as upstream's plain object holds it, and reads back as it.
+  const converts = new Set(keys.filter((key) => fields[key].converts));
 
   const toJs = (key, state, value) => {
+    if (converts.has(key) && spec.isHeld(value)) return value;
     const last = lastConverted.get(key);
     if (last !== undefined && Object.is(last.ps, value)) return last.js;
     const js = fields[key].toJs(state)(value);
@@ -119,9 +120,8 @@ function createView(spec) {
   // A value the store handed out goes back as the PureScript value it came
   // from. Anything else converts, and reads back as the consumer's own value:
   // a conversion that would read back differently gets a fresh reference, and
-  // a value the member's converter cannot read leaves `state`'s value in
-  // place, under a fresh reference, for the internals. `kept` hears of that.
-  const toPs = (key, js, state, kept) => {
+  // a value the member's converter cannot read is held as it was written.
+  const toPs = (key, js, state) => {
     const out = handedOut.get(key);
     if (isReference(js) && out.has(js)) {
       const value = out.get(js);
@@ -131,24 +131,16 @@ function createView(spec) {
     let value;
     try {
       value = fields[key].fromJs(js);
-    } catch (error) {
-      kept(key, error);
-      value = freshCopy(state[key]);
-      lastConverted.set(key, { ps: value, js });
-      return value;
+    } catch {
+      spec.hold(js);
+      lastConverted.set(key, { ps: js, js });
+      return js;
     }
     if (!Object.is(fields[key].toJs(state)(value), js)) value = freshCopy(value);
     lastConverted.set(key, { ps: value, js });
     if (isReference(js)) out.set(js, value);
     return value;
   };
-
-  const keptOne = (key, error) =>
-    warn(
-      `ps-flow: the store member \`${key}\` holds a value ps-flow's internals cannot read ` +
-        `(${error && error.message ? error.message : String(error)}). They keep its previous ` +
-        "value; getState() reads back the value written."
-    );
 
   // Upstream's state is a plain object, and a write into it is a write into
   // the live state that notifies nobody. `mutate` is that write when this is
@@ -172,7 +164,7 @@ function createView(spec) {
         return js;
       },
       set(js) {
-        const value = toPs(key, js, state, keptOne);
+        const value = toPs(key, js, state);
         seen.set(key, { ps: value, js });
         writeInPlace(state, key, value);
       },
@@ -218,14 +210,14 @@ function createView(spec) {
   // Brings `state` up to date with its plain object: each member whose value
   // the object answers differently from the one the internals hold converts
   // in place, as upstream's internals would read it next.
-  const syncFrom = (state, kept) => {
+  const syncFrom = (state) => {
     const object = plain.get(state);
     const agreed = held.get(state);
     for (const key of keys) {
       const js = memberOf(object, key);
       const entry = agreed.get(key);
       if (entry !== undefined && Object.is(js, entry.js)) continue;
-      const value = toPs(key, js, state, kept);
+      const value = toPs(key, js, state);
       agreed.set(key, { js, ps: value });
       state[key] = value;
     }
@@ -251,10 +243,10 @@ function createView(spec) {
     }
   };
 
-  const adoptPlain = (state, object, agreed, kept) => {
+  const adoptPlain = (state, object, agreed) => {
     plain.set(state, object);
     held.set(state, agreed);
-    syncFrom(state, kept);
+    syncFrom(state);
     if (isReference(object)) {
       spec.mirror((source) => () => (refreshFrom(source), {}))(state)(object);
     }
@@ -279,11 +271,11 @@ function createView(spec) {
     }
     const agreed = new Map(held.get(previous));
     for (const key of Object.keys(partial)) agreed.set(key, { js: partial[key], ps: next[key] });
-    adoptPlain(next, Object.assign({}, before, partial), agreed, keptOne);
+    adoptPlain(next, Object.assign({}, before, partial), agreed);
   })();
 
   spec.beforeRead((state) => () => {
-    if (plain.has(state)) syncFrom(state, keptOne);
+    if (plain.has(state)) syncFrom(state);
   })();
 
   const viewOf = (state) => {
@@ -307,7 +299,7 @@ function createView(spec) {
       const object = Object.assign({}, plain.get(state), partial);
       spec.patch((s) => {
         const merged = Object.assign({}, s);
-        adoptPlain(merged, object, new Map(held.get(s)), keptOne);
+        adoptPlain(merged, object, new Map(held.get(s)));
         return merged;
       })();
       return;
@@ -322,7 +314,7 @@ function createView(spec) {
       const js = source[key];
       if (!isMember(key)) raw.set(key, js);
       else if (!(isPresent(current, key) && Object.is(js, current[key]))) {
-        values[key] = toPs(key, js, state, keptOne);
+        values[key] = toPs(key, js, state);
       }
     }
     const nextLayout = withKeys(layout, written, raw);
@@ -335,25 +327,13 @@ function createView(spec) {
 
   // zustand's `state = nextState`. Every member converts from what `next`
   // answers for it, through its prototype, as upstream's internals would read
-  // it. A member whose value ps-flow's internals cannot hold keeps its
-  // previous value for them, and the ones `next` leaves out say so together.
+  // it, and one ps-flow's internals cannot read holds that answer as it is.
   const replaceWith = (next) => {
-    const leftOut = [];
-    const kept = (key, error) => {
-      if (isReference(next) ? key in next : false) keptOne(key, error);
-      else leftOut.push(key);
-    };
     spec.patch((s) => {
       const replaced = Object.assign({}, s);
-      adoptPlain(replaced, next, new Map(), kept);
+      adoptPlain(replaced, next, new Map());
       return replaced;
     })();
-    if (leftOut.length > 0) {
-      warn(
-        `ps-flow: \`setState\` replaced the state without ${leftOut.map((key) => `\`${key}\``).join(", ")}. ` +
-          "ps-flow's internals keep their previous values; getState() leaves them out, as upstream's does."
-      );
-    }
   };
 
   // zustand 4.5.7's `setState`, field for field: a function is called with

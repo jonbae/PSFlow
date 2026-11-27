@@ -9,8 +9,11 @@ module React.Hook.VisibleIds.Pure
 
 import Prelude
 
+import System.Utils.AsWritten (iterated, mapped) as AsWritten
+
+import System.Utils.Lookup as Lookup
+
 import Data.Array (mapMaybe) as Array
-import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..))
 import React.Types.Store (ReactFlowState)
 import System.Types.Ids (NodeId)
@@ -44,15 +47,17 @@ selectVisibleEdgeIds
   :: forall n e. Boolean -> ReactFlowState n e -> Array String
 selectVisibleEdgeIds onlyRenderVisible s =
   if not onlyRenderVisible then
-    map _.id s.edges
+    -- TS `s.edges.map((edge) => edge.id)`.
+    AsWritten.mapped _.id s.edges
   else if s.width <= 0.0 || s.height <= 0.0 then
     []
   else
-    Array.mapMaybe keep s.edges
+    -- TS `for (const edge of s.edges)`.
+    Array.mapMaybe keep (AsWritten.iterated s.edges)
   where
   keep edge =
-    case Map.lookup edge.source s.nodeLookup,
-      Map.lookup edge.target s.nodeLookup of
+    case Lookup.get edge.source s.nodeLookup,
+      Lookup.get edge.target s.nodeLookup of
       Just src, Just tgt ->
         if isEdgeVisible
           { sourceNode: src

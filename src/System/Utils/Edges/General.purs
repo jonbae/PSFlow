@@ -16,9 +16,11 @@ module System.Utils.Edges.General
 
 import Prelude
 
+import System.Utils.AsWritten (some) as AsWritten
+
 import System.Utils.Number as JsNumber
 
-import Data.Array (any, filter, snoc) as Array
+import Data.Array (filter, snoc) as Array
 import Data.Either (Either(..))
 import Data.Int (floor) as Int
 import Data.Maybe (Maybe(..), fromMaybe, isJust)
@@ -151,7 +153,7 @@ getEdgeId c =
     <> fromMaybe "" c.targetHandle
 
 connectionExists :: forall e. EdgeBase e -> Array (EdgeBase e) -> Boolean
-connectionExists edge edges = Array.any matches edges
+connectionExists edge edges = AsWritten.some matches edges
   where
   matches el =
     el.source == edge.source

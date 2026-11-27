@@ -46,10 +46,13 @@ module React.Component.EdgeWrapper
 
 import Prelude
 
+import System.Utils.AsWritten (absent) as AsWritten
+
+import System.Utils.Lookup as Lookup
+
 import Data.Array (elem) as Array
 import Data.Foldable (for_)
 import Data.Function.Uncurried (runFn3)
-import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isNothing)
 import Data.Nullable (Nullable, toMaybe, toNullable)
 import Data.Tuple.Nested ((/\))
@@ -114,13 +117,20 @@ type EdgeSlice e =
 selectEdgeSlice
   :: forall n e. String -> ReactFlowState n e -> EdgeSlice e
 selectEdgeSlice edgeId state =
-  { edge: UnsafeReference (fromMaybe (placeholderEdge edgeId) (Map.lookup edgeId state.edgeLookup))
+  { edge: UnsafeReference case Lookup.get edgeId state.edgeLookup, state.defaultEdgeOptions of
+      Just edge, _ -> edge
+      -- TS `s.edgeLookup.get(id)!`, then `edge.type`: an edge `edges` names
+      -- that the lookup lacks, such as one a consumer wrote into `edges`
+      -- alone, throws a `TypeError` where the wrapper first reads it.
+      Nothing, Nothing -> AsWritten.absent
+      Nothing, Just _ -> placeholderEdge edgeId
   , defaultEdgeOptions: UnsafeReference state.defaultEdgeOptions
   }
 
--- | Sentinel returned by the slice selector when the edge has been
--- | removed from the store between dispatch and re-render. The
--- | wrapper's `hidden: true` flag ensures it skips the render path.
+-- | What the wrapper reads for an edge the lookup lacks when the store has
+-- | `defaultEdgeOptions`: TS spreads them over `undefined`, which is an edge
+-- | without a source or a target, and draws nothing. The `hidden: true`
+-- | flag skips the render path.
 placeholderEdge :: forall e. String -> Edge e
 placeholderEdge edgeId =
   { id: edgeId
@@ -216,8 +226,8 @@ selectEdgePosition
   -> ReactFlowState n e
   -> EdgePositionSlice
 selectEdgePosition onError edgeId edge state =
-  case Map.lookup edge.source state.nodeLookup,
-    Map.lookup edge.target state.nodeLookup of
+  case Lookup.get edge.source state.nodeLookup,
+    Lookup.get edge.target state.nodeLookup of
     Just src, Just tgt ->
       let
         z = getElevatedEdgeZIndex
