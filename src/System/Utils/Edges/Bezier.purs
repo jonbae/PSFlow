@@ -10,7 +10,7 @@ module System.Utils.Edges.Bezier
 import Prelude
 
 import Data.Number (abs, sqrt) as Number
-import Data.Number.Format (toString) as NumberFormat
+import System.Utils.Number (toString) as NumberFormat
 import System.Types.Geometry (Position(..))
 import System.Utils.Edges.General (EdgeCenter, EdgePathResult)
 

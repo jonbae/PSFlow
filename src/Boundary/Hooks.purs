@@ -91,6 +91,10 @@ module Boundary.Hooks
   ) where
 
 import Prelude
+
+import System.Utils.Lookup as Lookup
+
+import System.Utils.AsWritten (isHeld) as AsWritten
 import React.Types.General (OnViewportChange)
 
 import Boundary.Callbacks
@@ -140,7 +144,6 @@ import Boundary.Undefined (Undefinable, fromUndefinable, toUndefinable)
 import Boundary.Untagged (asArray, asString, oneOrMany, typeName)
 import Data.Array (head) as Array
 import Data.Function.Uncurried (Fn3, runFn3)
-import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isJust, maybe)
 import Data.Newtype (wrap)
 import Data.Nullable (Nullable, toNullable)
@@ -295,8 +298,9 @@ nodesTripleOut
      }
   -> JsNodesState
 nodesTripleOut bundle = runFn3 mkTriple
-  (map nodeOut bundle.nodes)
-  (setStateOut "setNodes" nodeIn nodeOut bundle.setNodes)
+  -- A value the setter held as written is React's state as it was set.
+  (if AsWritten.isHeld bundle.nodes then unsafeCoerce bundle.nodes else map nodeOut bundle.nodes)
+  (setStateOut nodeIn nodeOut bundle.setNodes)
   (mkEffectFn1 \changes -> bundle.onNodesChange (map nodeChangeIn changes))
 
 useEdgesState :: EffectFn1 (Array JsEdge) JsEdgesState
@@ -310,8 +314,8 @@ edgesTripleOut
      }
   -> JsEdgesState
 edgesTripleOut bundle = runFn3 mkTriple
-  (map edgeOut bundle.edges)
-  (setStateOut "setEdges" edgeIn edgeOut bundle.setEdges)
+  (if AsWritten.isHeld bundle.edges then unsafeCoerce bundle.edges else map edgeOut bundle.edges)
+  (setStateOut edgeIn edgeOut bundle.setEdges)
   (mkEffectFn1 \changes -> bundle.onEdgesChange (map edgeChangeIn changes))
 
 -- ────────────────────────────────────────────────────────────────────────
@@ -380,7 +384,7 @@ useInternalNode = mkEffectFn1 \id -> runHook (PS.useStoreWith (selectInternalNod
   where
   selectInternalNode :: NodeId -> JsState -> Undefinable JsInternalNode
   selectInternalNode id s =
-    toUndefinable (map (unsafeCoerce <<< internalNodeOutCached) (Map.lookup id s.nodeLookup))
+    toUndefinable (map (unsafeCoerce <<< internalNodeOutCached) (Lookup.get id s.nodeLookup))
 
 -- | `string | string[]`, and the shape of the answer follows the shape of the
 -- | argument: upstream's two overloads return a single pick-or-`null` for one
@@ -465,7 +469,9 @@ useConnection = mkEffectFn1 \selector ->
   -- `connection` member has it. A connection in progress always has a
   -- `toPosition`; only the final state `onConnectEnd` receives drops it.
   stateOut :: ConnectionState (InternalNodeBase Foreign) -> JsConnectionState
-  stateOut = case _ of
+  stateOut connection
+    | AsWritten.isHeld connection = unsafeCoerce connection
+  stateOut connection = case connection of
     NoConnection -> unsafeCoerce (withInProgress false (connectionStateOut Nothing))
     ConnectionInProgress inProgress ->
       unsafeCoerce

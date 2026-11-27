@@ -25,6 +25,7 @@ module System.Utils.General
   , snapPosition
   , roundHalfUp
   , pointToRendererPoint
+  , destructuredTransform
   , rendererPointToPoint
   , getViewportForBounds
   , isMacOs
@@ -41,7 +42,6 @@ import Prelude hiding (clamp, min, max)
 
 import Data.Either (Either(..))
 import Data.Foldable (any, oneOf) as Foldable
-import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isJust)
 import Data.Number (abs, floor, isFinite, isNaN, round) as Number
 import Data.Set (Set)
@@ -66,17 +66,21 @@ import System.Types.Node
   , NodeExtent(..)
   , NodeLookup
   )
-import System.Utils.Number (min, max)
+import System.Utils.Number (min, max, orDefault)
+import System.Utils.AsWritten (destructured) as AsWritten
+import System.Utils.Lookup as Lookup
+import Unsafe.Coerce (unsafeCoerce)
 
 -- | Default pan-zoom transform. Mirrors the TS literal `[0, 0, 1]` used as the
 -- | default `Transform` value in many callsites.
 identityTransform :: Transform
 identityTransform = mkTransform 0.0 0.0 1.0
 
--- | Total `clamp` with explicit min/max. The TS version defaults to `[0, 1]`;
--- | here we expose `clamp01` for that case to keep the core total.
+-- | Upstream's `clamp = (val, min = 0, max = 1) => Math.min(Math.max(val, min), max)`.
+-- | A limit that is `undefined`, such as a `minZoom` a consumer wrote as
+-- | one, takes its default, as upstream's parameter does.
 clamp :: Number -> Number -> Number -> Number
-clamp val mn mx = min (max val mn) mx
+clamp val mn mx = min (max val (orDefault 0.0 mn)) (orDefault 1.0 mx)
 
 clamp01 :: Number -> Number
 clamp01 v = clamp v 0.0 1.0
@@ -234,8 +238,9 @@ pointToRendererPoint
   -> Transform
   -> Maybe SnapGrid
   -> XYPosition
-pointToRendererPoint p (Transform t) mGrid =
+pointToRendererPoint p transform mGrid =
   let
+    Transform t = destructuredTransform transform
     pos = { x: (p.x - t.tx) / t.scale, y: (p.y - t.ty) / t.scale }
   in
     case mGrid of
@@ -243,8 +248,21 @@ pointToRendererPoint p (Transform t) mGrid =
       Nothing -> pos
 
 rendererPointToPoint :: XYPosition -> Transform -> XYPosition
-rendererPointToPoint p (Transform t) =
-  { x: p.x * t.scale + t.tx, y: p.y * t.scale + t.ty }
+rendererPointToPoint p transform =
+  let
+    Transform t = destructuredTransform transform
+  in
+    { x: p.x * t.scale + t.tx, y: p.y * t.scale + t.ty }
+
+-- | The transform as upstream's `const [x, y, zoom] = transform`, or its
+-- | `[tx, ty, tScale]` parameter, reads it. A transform a consumer wrote with
+-- | a value of another shape is read by index everywhere else; here it is
+-- | walked, so a value that cannot be walked, such as a number, throws a
+-- | `TypeError`.
+destructuredTransform :: Transform -> Transform
+destructuredTransform transform = case AsWritten.destructured transform of
+  Just [ x, y, zoom ] -> Transform { tx: unsafeCoerce x, ty: unsafeCoerce y, scale: unsafeCoerce zoom }
+  _ -> transform
 
 getViewportForBounds
   :: Rect
@@ -260,7 +278,7 @@ getViewportForBounds bounds width height minZoom maxZoom padding =
     xZoom = (width - p.x) / bounds.width
     yZoom = (height - p.y) / bounds.height
     zoom = min xZoom yZoom
-    clampedZoom = min (max zoom minZoom) maxZoom
+    clampedZoom = clamp zoom minZoom maxZoom
     boundsCenterX = bounds.x + bounds.width / 2.0
     boundsCenterY = bounds.y + bounds.height / 2.0
     x0 = width / 2.0 - boundsCenterX * clampedZoom
@@ -410,7 +428,7 @@ evaluateAbsolutePosition
   -> NodeOrigin
   -> XYPosition
 evaluateAbsolutePosition position dimensions parentId lookup defaultOrigin =
-  case Map.lookup parentId lookup of
+  case Lookup.get parentId lookup of
     Nothing -> position
     Just parent ->
       let

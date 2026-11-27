@@ -26,6 +26,7 @@ import Partial.Unsafe (unsafeCrashWith)
 import React.Hook.ViewportSync (runViewportSync)
 import React.Store.Action (Action(..))
 import React.Store.InitialState (InitialStateOptions, defaultInitialStateOptions, initialState)
+import React.Store.Partial (applyPartial)
 import React.Types.Store (ReactFlowState)
 import System.Types.Connection (Viewport)
 import System.Types.Geometry (Transform(..))
@@ -58,10 +59,10 @@ run hasInstance mViewport = do
         if hasInstance then Just \vp -> record (Synced vp)
         else Nothing
     , dispatch: case _ of
-        PatchState f -> do
-          let Transform t = (f start).transform
+        Assign p | Just r <- applyPartial p start, r.written == [ "transform" ] -> do
+          let Transform t = r.state.transform
           record (Wrote { x: t.tx, y: t.ty, zoom: t.scale })
-        _ -> unsafeCrashWith "useViewportSync dispatched something other than PatchState"
+        _ -> unsafeCrashWith "useViewportSync dispatched something other than a write of `transform`"
     }
     mViewport
   Ref.read steps

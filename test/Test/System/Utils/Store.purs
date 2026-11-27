@@ -221,7 +221,7 @@ runStoreProperties = do
   quickCheck do
     es <- genEdgeArray
     let
-      r = updateConnectionLookup es
+      r = updateConnectionLookup (\_ -> unit) Map.empty Map.empty es
       uniqueIds = Array.nub (map _.id es)
     pure
       ( Map.size r.edgeLookup == Array.length uniqueIds
@@ -232,7 +232,7 @@ runStoreProperties = do
   --    silently dropped).
   quickCheck do
     es <- genEdgeArray
-    let r = updateConnectionLookup es
+    let r = updateConnectionLookup (\_ -> unit) Map.empty Map.empty es
     pure
       ( Foldable.all (\e -> Set.member e.id (Map.keys r.edgeLookup)) es
           <?> "edge id missing from edgeLookup"

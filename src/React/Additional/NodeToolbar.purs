@@ -9,6 +9,10 @@ module React.Additional.NodeToolbar
 
 import Prelude
 
+import System.Utils.Lookup as Lookup
+
+import System.Utils.Number as JsNumber
+
 import Data.Array (filter, foldl, fromFoldable, length) as Array
 import Data.Either (Either(..))
 import Data.FoldableWithIndex (allWithIndex)
@@ -17,7 +21,7 @@ import Data.Map (empty, insert, isEmpty, lookup, size, values) as Map
 import Data.Maybe (Maybe(..), fromMaybe, maybe)
 import Data.Newtype (unwrap)
 import Data.Number (infinity)
-import Data.Number.Format (toString) as Number
+import System.Utils.Number (toString) as Number
 import Data.String (trim) as String
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)
@@ -46,7 +50,7 @@ toForeignStyle = unsafeCoerce
 -- | Upstream's `Math.max(...nodesArray.map((node) => node.internals.z + 1))`,
 -- | over the toolbar's nodes' `internals.z`.
 toolbarZIndex :: Array Number -> Number
-toolbarZIndex = Array.foldl (\m z -> max m (z + 1.0)) (-infinity)
+toolbarZIndex = Array.foldl (\m z -> JsNumber.max m (z + 1.0)) (-infinity)
 
 -- | Upstream's `{ position: 'absolute', transform, zIndex, ...style }`: the
 -- | consumer's style goes last, so its keys win. `Object.union` prefers its
@@ -122,7 +126,7 @@ lookupNodes
   -> Map NodeId (InternalNode n)
 lookupNodes ids s =
   Array.foldl
-    ( \acc nid -> case Map.lookup nid s.nodeLookup of
+    ( \acc nid -> case Lookup.get nid s.nodeLookup of
         Nothing -> acc
         Just n -> Map.insert n.id n acc
     )

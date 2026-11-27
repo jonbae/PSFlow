@@ -21,24 +21,25 @@ export const OVERLAYS = [];
 export const NOTES = [
   {
     id: 'store-unreadable-members',
-    accepted: 'Full JavaScript store compatibility',
+    accepted: 'Store residual parity',
     text:
-      "`useStoreApi()`'s `getState()` reads back every value written into the store, as upstream's " +
-      'does. A boolean, number or string member also holds that value internally, but ps-flow compares ' +
-      "it through PureScript's `Ord`, which can answer differently from `Math.min`/`Math.max` for " +
-      '`undefined` or `NaN`. A structured member written with a value ps-flow cannot convert, such as ' +
-      "`setState({ nodes: 'x' })`, keeps its previous value internally and for readers such as " +
-      '`getNodes()`, and development builds warn; upstream stores the value everywhere and fails later. ' +
-      'A store callback written as a falsy value other than `null` or `undefined` counts as set.',
+      "A structured store member written with a value of the wrong shape, such as " +
+      "`setState({ nodes: 'x' })`, reads back as written, and ps-flow's internals hold it as written " +
+      "and read it where upstream's code reads it, so they fail or go on where upstream's do. Two " +
+      'differences remain. An array ps-flow can read only in part, such as `[node, null]`, is held ' +
+      "whole, so ps-flow's code reads even its readable items as written values and can fail on one " +
+      "where upstream's goes on. And while `nodes` or `edges` holds a written value, ps-flow walks the " +
+      'lookups in id order, where upstream walks them in the order they were filled.',
   },
   {
-    id: 'store-replacement',
-    accepted: 'Full JavaScript store compatibility',
+    id: 'store-default-view',
+    accepted: 'Store residual parity',
     text:
-      '`setState(next, true)` makes `getState()` return `next` itself, with its member properties ' +
-      'turned into accessors; a sealed `next` is copied instead. A member the replacement left out ' +
-      'comes back when its value changes or on `reset`, where upstream also brings back one it rewrites ' +
-      'with an unchanged value.',
+      "Until `setState(next, true)` replaces it, the state `useStoreApi()`'s `getState()` returns holds " +
+      "its members as accessor properties, where upstream's holds data properties; each reads and writes " +
+      'as upstream\'s does. A key assigned directly to that state that it did not already have stays on ' +
+      "that one object: ps-flow's internals do not read it, so a callback assigned that way is not " +
+      'called, and later states do not carry it.',
   },
   {
     id: 'styles-warning',

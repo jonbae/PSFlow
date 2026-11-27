@@ -15,7 +15,7 @@ module System.Constants
 import Prelude
 
 import Data.Maybe (Maybe(..), fromMaybe)
-import Data.Number.Format (toString) as NumberFormat
+import System.Utils.Number (toString) as NumberFormat
 import System.Types.Geometry (CoordinateExtent, mkCoordinateExtent)
 import System.Types.Handle (HandleType(..))
 

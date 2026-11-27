@@ -38,50 +38,50 @@ module Boundary.SetState
 
 import Prelude
 
-import Boundary.Untagged (asArray, asFunction, typeName)
+import Boundary.Untagged (asArray, asFunction)
 import Data.Function.Uncurried (Fn4, runFn4)
 import Data.Maybe (Maybe(..))
 import Effect (Effect)
-import Effect.Exception.Unsafe (unsafeThrow)
 import Effect.Uncurried (EffectFn1, mkEffectFn1)
 import Foreign (Foreign)
+import System.Utils.AsWritten (hold, isHeld, orHeld) as AsWritten
 import Unsafe.Coerce (unsafeCoerce)
 
 foreign import keepIdentityImpl :: forall js ps. Fn4 (Array ps) (Array js) (Array js) (js -> ps) (Array ps)
 
--- | `name` is the setter as the consumer wrote it, so a bad argument names
--- | `setEdges` rather than some helper of ours.
+-- | Upstream's setters take any value: the instance's queues it, and a
+-- | `useNodesState` setter is React's own. An array or a function's result
+-- | whose items ps-flow cannot read is held as it was written, as is any
+-- | other value, and fails where the flow first uses it, as upstream's does.
+-- | A previous value held as written is handed to the function as it is.
 setStateOut
   :: forall js ps
-   . String
-  -> (js -> ps)
+   . (js -> ps)
   -> (ps -> js)
   -> ((Array ps -> Array ps) -> Effect Unit)
   -> EffectFn1 Foreign Unit
-setStateOut name inward outward set = mkEffectFn1 \action ->
+setStateOut inward outward set = mkEffectFn1 \action ->
   case asFunction action of
     Just update ->
       set \previous ->
-        let
-          handed = map outward previous
-        in
-          runFn4 keepIdentityImpl previous handed (expect "returned" (update (unsafeCoerce handed))) inward
+        if AsWritten.isHeld previous then nextOf (update (unsafeCoerce previous))
+        else
+          let
+            handed = map outward previous
+            returned = update (unsafeCoerce handed)
+          in
+            case asArray returned of
+              Just entries ->
+                AsWritten.orHeld (\_ -> runFn4 keepIdentityImpl previous handed (unsafeCoerce entries) inward)
+                  (unsafeCoerce returned)
+              Nothing -> AsWritten.hold (unsafeCoerce returned)
     Nothing ->
-      -- Read *before* the updater is built, not inside it. The instance's
-      -- `setNodes` hands its updater to the store's batch queue, which is
-      -- drained by an effect, so a check inside the closure would report a bad
-      -- argument on some later tick and from inside React rather than at the
-      -- call that made the mistake. The array form is already fully known here,
-      -- so there is nothing to wait for.
       let
-        next = map inward (expect "was called with" action)
+        next = nextOf action
       in
         set \_ -> next
   where
-  expect :: String -> Foreign -> Array js
-  expect what raw = case asArray raw of
-    Just entries -> unsafeCoerce entries
-    Nothing ->
-      unsafeThrow $
-        "ps-flow: `" <> name <> "` " <> what <> " " <> typeName raw
-          <> " — it takes the next array, or a function of the previous one."
+  nextOf :: Foreign -> Array ps
+  nextOf raw = case asArray raw of
+    Just entries -> AsWritten.orHeld (\_ -> map inward (unsafeCoerce entries)) (unsafeCoerce raw)
+    Nothing -> AsWritten.hold (unsafeCoerce raw)

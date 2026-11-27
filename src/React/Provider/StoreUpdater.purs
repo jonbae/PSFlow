@@ -27,12 +27,12 @@
 -- |   * Setter-action fields (`SetNodes`, `SetEdges`, `SetMinZoom`,
 -- |     `SetMaxZoom`, `SetTranslateExtent`, `SetNodeExtent`) get a
 -- |     dedicated action.
--- |   * `fitView` → `PatchState (_ { fitViewQueued = … })` (renamed).
--- |   * `fitViewOptions` → `PatchState (_ { fitViewOptions = Just … })`.
--- |   * `ariaLabelConfig` → `PatchState` after running through
+-- |   * `fitView` → `Assign (partial { fitViewQueued: … })` (renamed).
+-- |   * `fitViewOptions` → `Assign (partial { fitViewOptions: Just … })`.
+-- |   * `ariaLabelConfig` → `Assign` after running through
 -- |     `mergeAriaLabelConfig`.
--- |   * Everything else → a generic `PatchState` setter on the matching
--- |     field name.
+-- |   * Everything else → a generic `Assign` of the matching member, which
+-- |     is upstream's `store.setState({ [fieldName]: fieldValue })`.
 -- |
 -- | **Mount/unmount.** On mount, `SetDefaultNodesAndEdges` seeds the
 -- | controlled-default branch. On unmount, the reducer's `Reset` action
@@ -56,6 +56,7 @@ import React.Basic.Hooks as React
 import React.Hook.Store (useStoreApi)
 import React.Provider.TrackedProp (TrackedProp(..), dispatchable, initPrevValues)
 import React.Store.Action (Action(..))
+import React.Store.Partial (partial)
 import React.Types.Component (StoreUpdaterProps)
 import System.Constants (mergeAriaLabelConfig)
 
@@ -89,111 +90,111 @@ storeUpdater =
 
       -- Renamed / wrapped fields
       effectOnJust dispatch props.fitView \v ->
-        PatchState \s -> s { fitViewQueued = v }
+        Assign (partial { fitViewQueued: v })
       effectOnJust dispatch props.fitViewOptions \v ->
-        PatchState \s -> s { fitViewOptions = Just v }
+        Assign (partial { fitViewOptions: Just v })
       effectOnJust dispatch props.ariaLabelConfig \v ->
-        PatchState \s -> s { ariaLabelConfig = mergeAriaLabelConfig v }
+        Assign (partial { ariaLabelConfig: mergeAriaLabelConfig v })
 
-      -- Generic PatchState — one effect per field
+      -- Generic Assign — one effect per field
       effectOnJust dispatch props.onConnect \v ->
-        PatchState \s -> s { onConnect = Just v }
+        Assign (partial { onConnect: Just v })
       effectOnJust dispatch props.onConnectStart \v ->
-        PatchState \s -> s { onConnectStart = Just v }
+        Assign (partial { onConnectStart: Just v })
       effectOnJust dispatch props.onConnectEnd \v ->
-        PatchState \s -> s { onConnectEnd = Just v }
+        Assign (partial { onConnectEnd: Just v })
       effectOnJust dispatch props.onClickConnectStart \v ->
-        PatchState \s -> s { onClickConnectStart = Just v }
+        Assign (partial { onClickConnectStart: Just v })
       effectOnJust dispatch props.onClickConnectEnd \v ->
-        PatchState \s -> s { onClickConnectEnd = Just v }
+        Assign (partial { onClickConnectEnd: Just v })
       effectOnJust dispatch props.nodesDraggable \v ->
-        PatchState \s -> s { nodesDraggable = v }
+        Assign (partial { nodesDraggable: v })
       effectOnJust dispatch props.autoPanOnNodeFocus \v ->
-        PatchState \s -> s { autoPanOnNodeFocus = v }
+        Assign (partial { autoPanOnNodeFocus: v })
       effectOnJust dispatch props.nodesConnectable \v ->
-        PatchState \s -> s { nodesConnectable = v }
+        Assign (partial { nodesConnectable: v })
       effectOnJust dispatch props.nodesFocusable \v ->
-        PatchState \s -> s { nodesFocusable = v }
+        Assign (partial { nodesFocusable: v })
       effectOnJust dispatch props.edgesFocusable \v ->
-        PatchState \s -> s { edgesFocusable = v }
+        Assign (partial { edgesFocusable: v })
       effectOnJust dispatch props.edgesReconnectable \v ->
-        PatchState \s -> s { edgesReconnectable = v }
+        Assign (partial { edgesReconnectable: v })
       effectOnJust dispatch props.elevateNodesOnSelect \v ->
-        PatchState \s -> s { elevateNodesOnSelect = v }
+        Assign (partial { elevateNodesOnSelect: v })
       effectOnJust dispatch props.elevateEdgesOnSelect \v ->
-        PatchState \s -> s { elevateEdgesOnSelect = v }
+        Assign (partial { elevateEdgesOnSelect: v })
       effectOnJust dispatch props.onNodesChange \v ->
-        PatchState \s -> s { onNodesChange = Just v }
+        Assign (partial { onNodesChange: Just v })
       effectOnJust dispatch props.onEdgesChange \v ->
-        PatchState \s -> s { onEdgesChange = Just v }
+        Assign (partial { onEdgesChange: Just v })
       effectOnJustFrom initPrevValues.elementsSelectable dispatch props.elementsSelectable \v ->
-        PatchState \s -> s { elementsSelectable = v }
+        Assign (partial { elementsSelectable: v })
       effectOnJust dispatch props.connectionMode \v ->
-        PatchState \s -> s { connectionMode = v }
+        Assign (partial { connectionMode: v })
       effectOnJust dispatch props.snapGrid \v ->
-        PatchState \s -> s { snapGrid = v }
+        Assign (partial { snapGrid: v })
       effectOnJust dispatch props.snapToGrid \v ->
-        PatchState \s -> s { snapToGrid = v }
+        Assign (partial { snapToGrid: v })
       effectOnJust dispatch props.connectOnClick \v ->
-        PatchState \s -> s { connectOnClick = v }
+        Assign (partial { connectOnClick: v })
       effectOnJust dispatch props.defaultEdgeOptions \v ->
-        PatchState \s -> s { defaultEdgeOptions = Just v }
+        Assign (partial { defaultEdgeOptions: Just v })
       effectOnJust dispatch props.onNodesDelete \v ->
-        PatchState \s -> s { onNodesDelete = Just v }
+        Assign (partial { onNodesDelete: Just v })
       effectOnJust dispatch props.onEdgesDelete \v ->
-        PatchState \s -> s { onEdgesDelete = Just v }
+        Assign (partial { onEdgesDelete: Just v })
       effectOnJust dispatch props.onDelete \v ->
-        PatchState \s -> s { onDelete = Just v }
+        Assign (partial { onDelete: Just v })
       effectOnJust dispatch props.onNodeDrag \v ->
-        PatchState \s -> s { onNodeDrag = Just v }
+        Assign (partial { onNodeDrag: Just v })
       effectOnJust dispatch props.onNodeDragStart \v ->
-        PatchState \s -> s { onNodeDragStart = Just v }
+        Assign (partial { onNodeDragStart: Just v })
       effectOnJust dispatch props.onNodeDragStop \v ->
-        PatchState \s -> s { onNodeDragStop = Just v }
+        Assign (partial { onNodeDragStop: Just v })
       effectOnJust dispatch props.onSelectionDrag \v ->
-        PatchState \s -> s { onSelectionDrag = Just v }
+        Assign (partial { onSelectionDrag: Just v })
       effectOnJust dispatch props.onSelectionDragStart \v ->
-        PatchState \s -> s { onSelectionDragStart = Just v }
+        Assign (partial { onSelectionDragStart: Just v })
       effectOnJust dispatch props.onSelectionDragStop \v ->
-        PatchState \s -> s { onSelectionDragStop = Just v }
+        Assign (partial { onSelectionDragStop: Just v })
       effectOnJust dispatch props.onMoveStart \v ->
-        PatchState \s -> s { onMoveStart = Just v }
+        Assign (partial { onMoveStart: Just v })
       effectOnJust dispatch props.onMove \v ->
-        PatchState \s -> s { onMove = Just v }
+        Assign (partial { onMove: Just v })
       effectOnJust dispatch props.onMoveEnd \v ->
-        PatchState \s -> s { onMoveEnd = Just v }
+        Assign (partial { onMoveEnd: Just v })
       effectOnJustFrom initPrevValues.noPanClassName dispatch props.noPanClassName \v ->
-        PatchState \s -> s { noPanClassName = v }
+        Assign (partial { noPanClassName: v })
       effectOnJustFrom initPrevValues.nodeOrigin dispatch props.nodeOrigin \v ->
-        PatchState \s -> s { nodeOrigin = v }
+        Assign (partial { nodeOrigin: v })
       effectOnJust dispatch props.autoPanOnConnect \v ->
-        PatchState \s -> s { autoPanOnConnect = v }
+        Assign (partial { autoPanOnConnect: v })
       effectOnJust dispatch props.autoPanOnNodeDrag \v ->
-        PatchState \s -> s { autoPanOnNodeDrag = v }
+        Assign (partial { autoPanOnNodeDrag: v })
       effectOnJust dispatch props.onError \v ->
-        PatchState \s -> s { onError = Just v }
+        Assign (partial { onError: Just v })
       effectOnJust dispatch props.connectionRadius \v ->
-        PatchState \s -> s { connectionRadius = v }
+        Assign (partial { connectionRadius: v })
       effectOnJust dispatch props.isValidConnection \v ->
-        PatchState \s -> s { isValidConnection = Just v }
+        Assign (partial { isValidConnection: Just v })
       effectOnJust dispatch props.selectNodesOnDrag \v ->
-        PatchState \s -> s { selectNodesOnDrag = v }
+        Assign (partial { selectNodesOnDrag: v })
       effectOnJust dispatch props.nodeDragThreshold \v ->
-        PatchState \s -> s { nodeDragThreshold = v }
+        Assign (partial { nodeDragThreshold: v })
       effectOnJust dispatch props.connectionDragThreshold \v ->
-        PatchState \s -> s { connectionDragThreshold = v }
+        Assign (partial { connectionDragThreshold: v })
       effectOnJust dispatch props.onBeforeDelete \v ->
-        PatchState \s -> s { onBeforeDelete = Just v }
+        Assign (partial { onBeforeDelete: Just v })
       effectOnJust dispatch props.debug \v ->
-        PatchState \s -> s { debug = v }
+        Assign (partial { debug: v })
       effectOnJust dispatch props.autoPanSpeed \v ->
-        PatchState \s -> s { autoPanSpeed = v }
+        Assign (partial { autoPanSpeed: v })
       effectOnJust dispatch props.zIndexMode \v ->
-        PatchState \s -> s { zIndexMode = v }
+        Assign (partial { zIndexMode: v })
 
       -- rfId — always present (not Maybe), and seeded like the six above.
       effectOnJustFrom initPrevValues.rfId dispatch (Just props.rfId) \v ->
-        PatchState \s -> s { rfId = v }
+        Assign (partial { rfId: v })
 
       pure mempty
 

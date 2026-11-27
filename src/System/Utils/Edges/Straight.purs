@@ -7,7 +7,7 @@ module System.Utils.Edges.Straight
 
 import Prelude
 
-import Data.Number.Format (toString) as NumberFormat
+import System.Utils.Number (toString) as NumberFormat
 import System.Utils.Edges.General (EdgePathResult, getEdgeCenter)
 
 type StraightPathParams =

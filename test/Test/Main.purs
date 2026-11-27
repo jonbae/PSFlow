@@ -5,7 +5,7 @@ import Prelude
 import Record as Record
 import Type.Proxy (Proxy(..))
 
-import Data.Array (any, fromFoldable, length) as Array
+import Data.Array (any, length) as Array
 import Data.Array.NonEmpty as NEA
 import Data.Map as Map
 import Data.Maybe (Maybe(..))
@@ -26,7 +26,6 @@ import System.Utils.Edges.General (addEdge, getEdgeId)
 import System.Utils.Edges.Straight (getStraightPath)
 import System.Utils.General as G
 import System.Utils.Graph (calculateNodePosition, getIncomers, getNodesBounds, getOutgoers, isEdgeBase, isNodeBase)
-import Unsafe.Coerce (unsafeCoerce)
 import System.Utils.Marker (getMarkerId)
 import System.Utils.ShallowNodeData (NodeSummary, shallowNodeData, shallowNodeDataSingle)
 import System.Utils.Store (isManualZIndexMode)
@@ -857,12 +856,9 @@ main = do
       Map.fromFoldable
         [ Tuple (NodeId "s") selectedNode, Tuple (NodeId "d") draggableNode ]
         :: NodeLookup Unit
-    -- The user's nodes the lookup was adopted from: the same objects without
-    -- `internals`, narrowed as `React.Hook.ReactFlow`'s `stripInternals` does.
-    users2 = map (\n -> (unsafeCoerce n :: NodeBase Unit)) (Array.fromFoldable (Map.values lookup2))
-    paramsHead = XYDrag.getEventHandlerParams Nothing items2 users2 true
+    paramsHead = XYDrag.getEventHandlerParams Nothing items2 lookup2 true
     paramsTargeted =
-      XYDrag.getEventHandlerParams (Just (NodeId "d")) items2 users2 true
+      XYDrag.getEventHandlerParams (Just (NodeId "d")) items2 lookup2 true
   assert "getEventHandlerParams Nothing returns first item as current"
     ( case paramsHead.currentNode of
         Just n -> n.id == NodeId "s" || n.id == NodeId "d" -- map order isn't fixed

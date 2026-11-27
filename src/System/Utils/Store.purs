@@ -30,6 +30,11 @@ module System.Utils.Store
   ) where
 
 import Prelude
+
+import System.Utils.Lookup as Lookup
+import System.Utils.AsWritten (isHeld, member, truthy) as AsWritten
+import Data.Nullable (toMaybe)
+import Unsafe.Coerce (unsafeCoerce)
 import System.Utils.Number as JsNumber
 
 import Data.Array (any, findIndex, foldl, fromFoldable, length, mapMaybe, reverse, snoc, updateAt) as Array
@@ -112,6 +117,10 @@ type UpdateNodesOptions n =
   , defaults :: Maybe (NodeBase n -> NodeBase n)
   , zIndexMode :: ZIndexMode
   , checkEquality :: Boolean
+  -- | What the lookups held when a step threw. Upstream clears the store's
+  -- | lookups and fills them again in place, so a throw partway leaves them
+  -- | holding what came before it; the store keeps that.
+  , keepProgress :: { nodeLookup :: NodeLookup n, parentLookup :: ParentLookup n } -> Unit
   }
 
 defaultUpdateNodesOptions :: forall n. UpdateNodesOptions n
@@ -122,6 +131,7 @@ defaultUpdateNodesOptions =
   , defaults: Nothing
   , zIndexMode: ZBasic
   , checkEquality: true
+  , keepProgress: \_ -> unit
   }
 
 type AdoptUserNodesReturn =
@@ -207,11 +217,11 @@ updateParentLookup node parentLookup = case node.parentId of
   Nothing -> parentLookup
   Just pid ->
     let
-      childMap = case Map.lookup pid parentLookup of
+      childMap = case Lookup.get pid parentLookup of
         Just m -> m
         Nothing -> Map.empty
     in
-      Map.insert pid (Map.insert node.id node childMap) parentLookup
+      Lookup.set pid (Lookup.set node.id node childMap) parentLookup
 
 updateChildNodePure
   :: forall n
@@ -229,7 +239,7 @@ updateChildNodePure node nodeLookup parentLookup options rootParentIndex =
   case node.parentId of
     Nothing -> { node, nodeLookup, parentLookup, rootParentIndex }
     Just parentId ->
-      case Map.lookup (parentToNode parentId) nodeLookup of
+      case Lookup.get (parentToNode parentId) nodeLookup of
         -- TS writes this warning with `console.warn` from inside the same
         -- update, in every environment, and moves on.
         Nothing -> unsafePerformEffect do
@@ -319,7 +329,11 @@ updateAbsolutePositions
   -> { nodeLookup :: NodeLookup n, parentLookup :: ParentLookup n }
 updateAbsolutePositions initial parents options =
   let
-    finalState = Foldable.foldl
+    -- TS `for (const node of nodeLookup.values())`, assigning each position
+    -- into the lookup it holds, so a node that throws leaves the ones before
+    -- it placed.
+    finalState = Lookup.foldlKeepingProgress
+      (\st -> options.keepProgress { nodeLookup: st.nodeLookup, parentLookup: st.parentLookup })
       ( \st node ->
           if isJust node.parentId then
             let
@@ -346,13 +360,13 @@ updateAbsolutePositions initial parents options =
               -- node keeps its identity whether or not the position moved.
               updated = writePositionAbsolute clamped node
             in
-              st { nodeLookup = Map.insert node.id updated st.nodeLookup }
+              st { nodeLookup = Lookup.set node.id updated st.nodeLookup }
       )
       { nodeLookup: initial
       , parentLookup: parents
       , rootParentIndex: Nothing :: Maybe Int
       }
-      (Map.values initial)
+      (Lookup.values initial)
   in
     { nodeLookup: finalState.nodeLookup
     , parentLookup: finalState.parentLookup
@@ -369,41 +383,58 @@ adoptUserNodes
      , nodesInitialized :: Boolean
      , hasSelectedNodes :: Boolean
      }
-adoptUserNodes nodes prev _prevParent options =
+adoptUserNodes nodes prev prevParent options =
   let
     selZ =
       if options.elevateNodesOnSelect
         && not (isManualZIndexMode options.zIndexMode) then selectedNodeZ
       else 0
 
+    -- TS `const tmpLookup = new Map(nodeLookup)`, `nodes.length > 0`, then
+    -- `nodeLookup.clear()` and `parentLookup.clear()`, in that order and in
+    -- place: a lookup a consumer wrote with another value is copied and
+    -- cleared as upstream's statements copy and clear it, and one that
+    -- cannot be cleared throws with the lookups before it already empty.
+    tmpLookup = Lookup.copied prev
+    initiallyInitialized = Lookup.after tmpLookup (Array.length nodes > 0)
+    clearedNodes = Lookup.after initiallyInitialized (Lookup.cleared prev)
+    clearedParents =
+      Lookup.onThrow (\_ -> options.keepProgress { nodeLookup: clearedNodes, parentLookup: prevParent })
+        (\_ -> Lookup.cleared prevParent)
+
     initial =
-      { nodeLookup: (Map.empty :: NodeLookup n)
-      , parentLookup: (Map.empty :: ParentLookup n)
-      , nodesInitialized: Array.length nodes > 0
+      { nodeLookup: clearedNodes
+      , parentLookup: clearedParents
+      , nodesInitialized: initiallyInitialized
       , hasSelectedNodes: false
       , rootParentIndex: Just 0 :: Maybe Int
       }
 
     step st userNode =
       let
+        -- TS `tmpLookup.get(userNode.id)`, before anything else of the node.
+        oldInternal = Lookup.get userNode.id tmpLookup
         userNodeWithDefaults = case options.defaults of
           Just f -> f userNode
           Nothing -> userNode
-        positionWithOrigin =
-          getNodePositionWithOrigin userNodeWithDefaults options.nodeOrigin
-        extent = case isCoordinateExtent userNodeWithDefaults.extent of
-          Just ce -> ce
-          Nothing -> options.nodeExtent
-        dims = fromMaybe { width: 0.0, height: 0.0 }
-          (getNodeDimensions userNodeWithDefaults)
-        clamped = clampPosition positionWithOrigin extent
-          { width: Just dims.width, height: Just dims.height }
-        oldInternal = Map.lookup userNodeWithDefaults.id prev
         internalNode :: InternalNodeBase n
         internalNode = case oldInternal of
           Just old | options.checkEquality
             && unsafeRefEq (userNodeIdentity userNode) (userNodeIdentity old.internals.userNode) -> old
+          -- TS reads the origin, the extent and the dimensions only for a
+          -- node it does not reuse.
           _ ->
+            let
+              positionWithOrigin =
+                getNodePositionWithOrigin userNodeWithDefaults options.nodeOrigin
+              extent = case isCoordinateExtent userNodeWithDefaults.extent of
+                Just ce -> ce
+                Nothing -> options.nodeExtent
+              dims = fromMaybe { width: 0.0, height: 0.0 }
+                (getNodeDimensions userNodeWithDefaults)
+              clamped = clampPosition positionWithOrigin extent
+                { width: Just dims.width, height: Just dims.height }
+            in
               { id: userNodeWithDefaults.id
               , position: userNodeWithDefaults.position
               , data: userNodeWithDefaults.data
@@ -451,7 +482,7 @@ adoptUserNodes nodes prev _prevParent options =
               }
 
         nodeLookup1 =
-          Map.insert userNodeWithDefaults.id internalNode st.nodeLookup
+          Lookup.set userNodeWithDefaults.id internalNode st.nodeLookup
         st1 = st { nodeLookup = nodeLookup1 }
 
         st2 =
@@ -483,7 +514,11 @@ adoptUserNodes nodes prev _prevParent options =
           { hasSelectedNodes = st3.hasSelectedNodes || userNodeWithDefaults.selected == Just true
           }
 
-    final = Foldable.foldl step initial nodes
+    final = Lookup.foldlKeepingProgress
+      (\st -> options.keepProgress { nodeLookup: st.nodeLookup, parentLookup: st.parentLookup })
+      step
+      initial
+      nodes
   in
     { nodeLookup: final.nodeLookup
     , parentLookup: final.parentLookup
@@ -544,7 +579,7 @@ handleExpandParent children nodeLookup parentLookup defaultOrigin =
     expansions =
       Foldable.foldl
         ( \acc child ->
-            case Map.lookup (parentToNode child.parentId) nodeLookup of
+            case Lookup.get (parentToNode child.parentId) nodeLookup of
               Nothing -> acc
               Just parent ->
                 let
@@ -617,7 +652,7 @@ stepExpansion children parentLookup defaultOrigin changes (Tuple parentId rec) =
 
     childPosChanges =
       if significantPositionChange then
-        case Map.lookup parentId parentLookup of
+        case Lookup.get parentId parentLookup of
           Nothing -> []
           Just kids ->
             ( Array.fromFoldable (Map.values kids)
@@ -769,7 +804,7 @@ processUpdate
   -> ZIndexMode
   -> Effect (UpdateAcc n)
 processUpdate update acc zoom origin extent zMode =
-  case Map.lookup update.id acc.nodeLookup of
+  case Lookup.get update.id acc.nodeLookup of
     Nothing -> pure acc
     Just node ->
       if node.hidden == Just true then
@@ -803,10 +838,11 @@ processUpdate update acc zoom origin extent zMode =
           let
             chosenExt = case isCoordinateExtent node.extent of
               Just ce -> Just ce
-              Nothing -> Just extent
+              -- TS `else if (extent)`, which a falsy one skips.
+              Nothing -> if AsWritten.truthy extent then Just extent else Nothing
             positionAbsoluteAdjusted = case node.parentId, node.extent of
               Just pid, Just ParentExtent ->
-                case Map.lookup (parentToNode pid) acc.nodeLookup of
+                case Lookup.get (parentToNode pid) acc.nodeLookup of
                   Just parent ->
                     clampPositionToParent node.internals.positionAbsolute dims
                       parent
@@ -899,7 +935,7 @@ addConnectionToLookup typeStr connection connectionKey connectionLookup nodeId m
   let
     addAt key lookup =
       let
-        inner = case Map.lookup key lookup of
+        inner = case Lookup.get key lookup of
           Just m -> m
           Nothing -> { byKey: Map.empty, order: Nil }
       in
@@ -927,19 +963,36 @@ handleConnectionsInOrder connections =
   Array.mapMaybe (\key -> Map.lookup key connections.byKey)
     (Array.reverse (Array.fromFoldable connections.order))
 
+-- | Upstream clears both lookups and fills them again in place, in that
+-- | order, walking `edges` with `for…of`. A throw partway leaves them as far
+-- | as they got, and `keep` is handed that.
 updateConnectionLookup
   :: forall e
-   . Array (EdgeBase e)
+   . ({ connectionLookup :: ConnectionLookup, edgeLookup :: EdgeLookup e } -> Unit)
+  -> ConnectionLookup
+  -> EdgeLookup e
+  -> Array (EdgeBase e)
   -> { connectionLookup :: ConnectionLookup, edgeLookup :: EdgeLookup e }
-updateConnectionLookup edges =
+updateConnectionLookup keep connectionLookup edgeLookup edges =
   let
+    clearedConnections = Lookup.cleared connectionLookup
     initial =
-      { connectionLookup: (Map.empty :: ConnectionLookup)
-      , edgeLookup: (Map.empty :: EdgeLookup e)
+      { connectionLookup: clearedConnections
+      , edgeLookup:
+          Lookup.onThrow (\_ -> keep { connectionLookup: clearedConnections, edgeLookup })
+            (\_ -> Lookup.cleared edgeLookup)
       }
-    final = Foldable.foldl
+    -- TS `const { sourceHandle = null, targetHandle = null } = edge`, of
+    -- an edge a consumer wrote that ps-flow could not read.
+    handleOf :: String -> Maybe String -> EdgeBase e -> Maybe String
+    handleOf name converted edge
+      | AsWritten.isHeld edges = toMaybe (unsafeCoerce (AsWritten.member name edge))
+      | otherwise = converted
+    final = Lookup.foldlKeepingProgress keep
       ( \st edge ->
           let
+            sourceHandle = handleOf "sourceHandle" edge.sourceHandle edge
+            targetHandle = handleOf "targetHandle" edge.targetHandle edge
             -- Connection composite keys are bare strings (internal
             -- index shape); the typed NodeIds are unwrapped at this
             -- boundary.
@@ -950,34 +1003,34 @@ updateConnectionLookup edges =
               { edgeId: edge.id
               , source: edge.source
               , target: edge.target
-              , sourceHandle: edge.sourceHandle
-              , targetHandle: edge.targetHandle
+              , sourceHandle: sourceHandle
+              , targetHandle: targetHandle
               }
             sourceKey =
-              sourceStr <> "-" <> fromMaybe "null" edge.sourceHandle
+              sourceStr <> "-" <> fromMaybe "null" sourceHandle
                 <> "--"
                 <> targetStr
                 <> "-"
-                <> fromMaybe "null" edge.targetHandle
+                <> fromMaybe "null" targetHandle
             targetKey =
-              targetStr <> "-" <> fromMaybe "null" edge.targetHandle
+              targetStr <> "-" <> fromMaybe "null" targetHandle
                 <> "--"
                 <> sourceStr
                 <> "-"
-                <> fromMaybe "null" edge.sourceHandle
+                <> fromMaybe "null" sourceHandle
             connLookup1 =
               addConnectionToLookup "source" connection targetKey
                 st.connectionLookup
                 sourceStr
-                edge.sourceHandle
+                sourceHandle
             connLookup2 =
               addConnectionToLookup "target" connection sourceKey
                 connLookup1
                 targetStr
-                edge.targetHandle
+                targetHandle
           in
             { connectionLookup: connLookup2
-            , edgeLookup: Map.insert edge.id edge st.edgeLookup
+            , edgeLookup: Lookup.set edge.id edge st.edgeLookup
             }
       )
       initial

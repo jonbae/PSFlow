@@ -25,6 +25,8 @@ module React.Handle
 
 import Prelude
 
+import System.Utils.AsWritten (isHeld, member, optionalMember, truthy) as AsWritten
+
 import Data.Array (uncons) as Array
 import Data.Either (Either(..))
 import Data.Foldable (for_)
@@ -43,6 +45,7 @@ import React.Context.NodeId (useNodeId)
 import React.FFI.DOM (div_, opt, spreadOver)
 import React.Hook.Store (UseStoreApi, useStore, useStoreApi)
 import React.Store.Action (Action(..))
+import React.Store.Partial (partial)
 import React.Store.PanBy as StorePanBy
 import React.Store.Shell (Store)
 import React.Types.Component (HandleProps)
@@ -65,6 +68,9 @@ import System.Utils.Dom (getHostForElement)
 import System.Utils.Edges.General (addEdge, getEdgeId)
 import System.XYHandle (xyHandle)
 import Unsafe.Coerce (unsafeCoerce)
+import Unsafe.Reference (unsafeRefEq)
+import Data.Nullable (toNullable)
+import Data.Newtype (unwrap)
 import Web.DOM.Element (Element)
 import Web.TouchEvent.TouchEvent (TouchEvent)
 import Web.Event.Event (currentTarget) as Event
@@ -104,12 +110,37 @@ selectConnectingFlags
   -> ReactFlowState n e
   -> ConnectingFlags
 selectConnectingFlags nodeId handleId hType state =
-  case state.connection of
+  -- TS `const { fromHandle, toHandle, isValid } = connection`, then each
+  -- `?.nodeId`, `?.id` and `?.type`, of a connection a consumer wrote with a
+  -- value of another shape.
+  if AsWritten.isHeld state.connection then
+      let
+        read name = AsWritten.member name state.connection
+        fromHandle = read "fromHandle"
+        toHandle = read "toHandle"
+        isValid = read "isValid"
+        is :: forall v. String -> v -> Foreign -> Boolean
+        is name value side = unsafeRefEq (AsWritten.optionalMember name side) (unsafeToForeign value)
+        matches side = is "nodeId" (unwrap nodeId) side && is "id" (toNullable handleId) side
+          && is "type" (handleTypeName hType) side
+        connectingTo = matches toHandle
+      in
+        { connectingFrom: matches fromHandle
+        , connectingTo
+        , clickConnecting
+        , isPossibleEndHandle: case state.connectionMode of
+            Strict -> not (is "type" (handleTypeName hType) fromHandle)
+            Loose -> not (is "nodeId" (unwrap nodeId) fromHandle) || not (is "id" (toNullable handleId) fromHandle)
+        , connectionInProcess: AsWritten.truthy fromHandle
+        , clickConnectionInProcess
+        , valid: connectingTo && AsWritten.truthy isValid
+        }
+  else case state.connection of
     NoConnection ->
       { connectingFrom: false
       , connectingTo: false
       , clickConnecting
-      , isPossibleEndHandle: case state.connectionClickStartHandle of
+      , isPossibleEndHandle: case clickStartOf state.connectionClickStartHandle of
           Just s -> case state.connectionMode of
             Strict -> s.handleType /= hType
             Loose -> nodeId /= NodeId s.nodeId || handleId /= s.id
@@ -145,13 +176,50 @@ selectConnectingFlags nodeId handleId hType state =
         , valid: toMatches && p.isValid == Just true
         }
   where
-  clickConnecting = case state.connectionClickStartHandle of
-    Just s -> NodeId s.nodeId == nodeId
-      && s.id == handleId
-      && s.handleType == hType
-    Nothing -> false
+  -- TS `clickHandle?.nodeId === nodeId && clickHandle?.id === handleId &&
+  -- clickHandle?.type === type`, of the members a consumer wrote when the
+  -- store holds their value.
+  clickConnecting
+    | AsWritten.isHeld state.connectionClickStartHandle =
+        let
+          written = state.connectionClickStartHandle
+          is :: forall v. String -> v -> Boolean
+          is name value = unsafeRefEq (AsWritten.member name written) (unsafeToForeign value)
+        in
+          is "nodeId" (unwrap nodeId) && is "id" (toNullable handleId) && is "type" (handleTypeName hType)
+    | otherwise = case state.connectionClickStartHandle of
+        Just s -> NodeId s.nodeId == nodeId
+          && s.id == handleId
+          && s.handleType == hType
+        Nothing -> false
 
-  clickConnectionInProcess = isJust state.connectionClickStartHandle
+  -- TS `!!clickHandle`.
+  clickConnectionInProcess = isJust (clickStartOf state.connectionClickStartHandle)
+
+handleTypeName :: HandleType -> String
+handleTypeName = case _ of
+  Source -> "source"
+  Target -> "target"
+
+-- | What upstream's handle reads of `connectionClickStartHandle`: nothing
+-- | when it is falsy, and otherwise its `nodeId`, its `id || null` and
+-- | whether its `type` is `'target'`. A value a consumer wrote that ps-flow
+-- | could not read is read the same way.
+clickStartOf :: Maybe ConnectionClickStartHandle -> Maybe ConnectionClickStartHandle
+clickStartOf start
+  | AsWritten.isHeld start =
+      if not (AsWritten.truthy start) then Nothing
+      else
+        let
+          id = AsWritten.member "id" start
+        in
+          Just
+            { nodeId: unsafeCoerce (AsWritten.member "nodeId" start)
+            , id: if AsWritten.truthy id then Just (unsafeCoerce id) else Nothing
+            , handleType:
+                if unsafeRefEq (AsWritten.member "type" start) (unsafeToForeign "target") then Target else Source
+            }
+  | otherwise = start
 
 positionString :: Position -> String
 positionString = case _ of
@@ -463,9 +531,9 @@ handle = unsafePerformEffect $ memo $ reactComponentWithChildren "Handle" \(prop
       state <- store.getState
       let
         canStart = isConnectableStart
-        haveStart = isJust state.connectionClickStartHandle
+        haveStart = isJust (clickStartOf state.connectionClickStartHandle)
       when (canStart || haveStart) do
-        case state.connectionClickStartHandle of
+        case clickStartOf state.connectionClickStartHandle of
           Nothing -> do
             for_ state.onClickConnectStart \cb -> cb event
               { nodeId: Just nodeId
@@ -473,15 +541,13 @@ handle = unsafePerformEffect $ memo $ reactComponentWithChildren "Handle" \(prop
               , handleType: Just handleType
               }
             store.dispatch
-              ( PatchState
-                  ( _
-                      { connectionClickStartHandle = Just
-                          { nodeId: nodeIdStr
-                          , id: handleId
-                          , handleType
-                          } :: Maybe ConnectionClickStartHandle
-                      }
-                  )
+              ( Assign $ partial
+                  { connectionClickStartHandle: Just
+                      { nodeId: nodeIdStr
+                      , id: handleId
+                      , handleType
+                      } :: Maybe ConnectionClickStartHandle
+                  }
               )
           Just startHandle -> do
             host <- getHostForElement Nothing
@@ -510,7 +576,7 @@ handle = unsafePerformEffect $ memo $ reactComponentWithChildren "Handle" \(prop
               _, _ -> pure unit
             for_ state.onClickConnectEnd \cb -> cb (Left me) (clickConnectEndState state.connection)
             store.dispatch
-              ( PatchState (_ { connectionClickStartHandle = Nothing }) )
+              (Assign (partial { connectionClickStartHandle: Nothing :: Maybe ConnectionClickStartHandle }))
 
   -- TS `<div … ref={ref} {...rest}>`: the rest comes last.
   pure $ div_

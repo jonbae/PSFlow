@@ -18,7 +18,6 @@ module Test.System.XYDrag.DragGroupExtent
 
 import Prelude
 
-import Control.Monad.State (execStateT)
 import Data.Array (sortWith) as Array
 import Data.Maybe (Maybe(..))
 import Data.Newtype (unwrap)
@@ -33,7 +32,7 @@ import System.FFI.D3Drag (D3DragEvent)
 import System.Types.Geometry (CoordinateExtent(..), XYPosition)
 import System.Types.Ids (NodeId(..))
 import System.Types.Node (NodeExtent(..))
-import System.XYDrag (initialDragState, startDrag, updateNodes)
+import System.XYDrag (execDrag, initialDragState, startDrag, updateNodes)
 import Test.Parity.Builders (mkNode)
 import Web.DOM.Element (Element)
 
@@ -74,7 +73,7 @@ drag nodeExtent nodes to = do
       , onNodeMouseDown: Nothing
       , autoPanSpeed: Nothing
       }
-  s <- execStateT
+  s <- execDrag
     ( startDrag params
         { noDragClassName: Nothing
         , handleSelector: Nothing

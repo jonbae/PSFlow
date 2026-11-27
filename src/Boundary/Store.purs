@@ -39,11 +39,18 @@
 -- | assignment, `getState().x = v`, writes into the live state and notifies
 -- | nobody, which is what the same line does to upstream's plain object.
 -- |
+-- | A state's keys come in upstream's order: `createStore`'s, then each key
+-- | in the order a `set` first named it. Every internal write names the
+-- | members upstream's `set` names, through `React.Store.Partial` or the
+-- | reducer's `writes`.
+-- |
 -- | `setState(next, true)`, or a partial that is not an object, replaces the
--- | state, and `getState()` then returns `next` itself: its member properties
--- | become accessors over the new PureScript state, in place. Each later
--- | state is `Object.assign({}, state, partial)` over it, so a member `next`
--- | left out stays out until something writes it.
+-- | state, and `getState()` then returns `next` itself, untouched. Each later
+-- | state is `Object.assign({}, state, partial)` over it, a plain object, so
+-- | a member `next` left out comes back at the first `set` that names it.
+-- | Upstream's internals read such a state with `get().member`, so ps-flow's
+-- | are brought up to date with the object before each read: a direct write
+-- | into it, or a member it inherits, is what they use.
 -- |
 -- | ## What a write leaves the internals
 -- |
@@ -60,8 +67,13 @@
 -- |   * `connectionMode` and `zIndexMode` hold the mode upstream's
 -- |     comparisons choose for the written value.
 -- |   * Any other member holds the written value converted. When it cannot
--- |     convert, the internals keep the previous value, and development
--- |     builds say so.
+-- |     convert, the member holds the written value itself, as upstream's
+-- |     does (`System.Utils.AsWritten`), and ps-flow's code reads it where
+-- |     upstream's does, with the operation upstream's line uses: `.map`
+-- |     throws a `TypeError` for a string, `for…of` walks its characters.
+-- |     A tuple such as `transform` is read by index, as upstream reads it,
+-- |     and a lookup with the `Map` method upstream calls
+-- |     (`System.Utils.Lookup`).
 -- |
 -- | A callback that PureScript code installed has no JavaScript original, so
 -- | it reads back as an adapter from `Boundary.Callbacks`, which JavaScript
@@ -175,7 +187,7 @@ import Foreign.Object (Object)
 import React.FFI.Env (isDevelopment)
 import React.Store.Action (Action(..))
 import React.Store.PanBy (panBy) as StorePanBy
-import React.Store.InitialState (defaultOnError)
+import React.Store.InitialState (defaultOnError, initialStateKeys)
 import React.Store.Shell (Store)
 import React.Store.InPlace (mirrorInPlace)
 import React.Types.Edges (DefaultEdgeOptions, Edge)
@@ -206,6 +218,8 @@ import System.Types.Node (InternalNodeBase, InternalNodeUpdate, NodeBase, NodeCh
 import System.FFI.D3Zoom (ZoomTransform)
 import System.Types.PanZoom (PanOnDrag(..), PanZoomInstance, PanZoomTransformOptions, PanZoomUpdateOptions)
 import System.Utils.General (devWarn)
+import System.Utils.AsWritten (hold, indexed, isHeld, orElse, writtenOf) as AsWritten
+import System.Utils.Truthy (isTruthy, markFalsy)
 import System.Utils.Graph (FitViewOptions)
 import Unsafe.Coerce (unsafeCoerce)
 import Unsafe.Reference (unsafeRefEq)
@@ -248,11 +262,14 @@ type ViewSpec =
   , patch :: (State -> State) -> Effect Unit
   , mutate :: (State -> State) -> Effect Unit
   , subscribeStates :: (State -> State -> Effect Unit) -> Effect (Effect Unit)
-  , observeTransitions :: (State -> State -> Boolean -> Effect Unit) -> Effect Unit
+  , observeTransitions :: (State -> State -> Array String -> Effect Unit) -> Effect Unit
+  , beforeRead :: (State -> Effect Unit) -> Effect Unit
+  , mirror :: Foreign
   , keys :: Array String
   , fields :: Object Foreign
   , actions :: Foreign
-  , isDevelopment :: Boolean
+  , hold :: Foreign -> Foreign
+  , isHeld :: Foreign -> Boolean
   }
 
 -- | The view of a store, built on the first call and shared after it.
@@ -282,10 +299,13 @@ viewSpec store =
   , mutate: \f -> store.dispatch (MutateState f)
   , subscribeStates: store.subscribeStates
   , observeTransitions: store.observeTransitions
+  , beforeRead: store.beforeRead
+  , mirror: unsafeToForeign (mirrorInPlace :: (State -> State -> State) -> State -> State -> State)
   , keys: stateKeys
   , fields: unsafeCoerce stateFields
   , actions: actionsOut store
-  , isDevelopment
+  , hold: AsWritten.hold
+  , isHeld: AsWritten.isHeld
   }
 
 -- ────────────────────────────────────────────────────────────────────────
@@ -296,23 +316,13 @@ viewSpec store =
 -- | callbacks `StoreUpdater` adds. The view places the 20 actions between the
 -- | two, where `createStore` spreads them.
 stateKeys :: Array String
-stateKeys =
-  [ "rfId", "width", "height", "transform", "nodes", "nodesInitialized", "nodeLookup"
-  , "parentLookup", "edges", "edgeLookup", "connectionLookup", "onNodesChange"
-  , "onEdgesChange", "hasDefaultNodes", "hasDefaultEdges", "panZoom", "minZoom"
-  , "maxZoom", "translateExtent", "nodeExtent", "nodesSelectionActive"
-  , "userSelectionActive", "userSelectionRect", "connectionMode", "domNode"
-  , "paneDragging", "noPanClassName", "nodeOrigin", "nodeDragThreshold"
-  , "connectionDragThreshold", "snapGrid", "snapToGrid", "nodesDraggable"
-  , "nodesConnectable", "nodesFocusable", "edgesFocusable", "edgesReconnectable"
-  , "elementsSelectable", "elevateNodesOnSelect", "elevateEdgesOnSelect"
-  , "selectNodesOnDrag", "multiSelectionActive", "fitViewQueued", "fitViewOptions"
-  , "fitViewResolver", "connection", "connectionClickStartHandle", "connectOnClick"
-  , "ariaLiveMessage", "autoPanOnConnect", "autoPanOnNodeDrag", "autoPanOnNodeFocus"
-  , "autoPanSpeed", "connectionRadius", "onError", "isValidConnection"
-  , "onSelectionChangeHandlers", "lib", "debug", "ariaLabelConfig", "zIndexMode"
-  , "onNodesChangeMiddlewareMap", "onEdgesChangeMiddlewareMap"
-  , "onNodeDragStart", "onNodeDrag", "onNodeDragStop", "onSelectionDragStart"
+stateKeys = initialStateKeys <> optionalKeys
+
+-- | The 22 members upstream's initial state leaves out, which a state has
+-- | once something writes them.
+optionalKeys :: Array String
+optionalKeys =
+  [ "onNodeDragStart", "onNodeDrag", "onNodeDragStop", "onSelectionDragStart"
   , "onSelectionDrag", "onSelectionDragStop", "onMoveStart", "onMove", "onMoveEnd"
   , "onConnect", "onConnectStart", "onConnectEnd", "onClickConnectStart"
   , "onClickConnectEnd", "defaultEdgeOptions", "onNodesDelete", "onEdgesDelete"
@@ -323,10 +333,15 @@ stateKeys =
 -- | Both directions of one member. `toJs` is handed the whole state too,
 -- | because the lookups take their iteration order from `nodes` and `edges`,
 -- | as upstream's maps take theirs from the order they were filled in.
+-- |
+-- | `converts` says the member's PureScript value is never the written value
+-- | itself, so `Store.js` can tell a value `fromJs` could not read, which the
+-- | member then holds as written, from one it converted.
 type Field a =
   { toJs :: State -> a -> Foreign
   , fromJs :: Foreign -> a
   , optional :: Boolean
+  , converts :: Boolean
   }
 
 -- | One `Field` per state member, typed by the member it converts. Its labels
@@ -429,7 +444,8 @@ stateFields =
   { rfId: written
   , width: written
   , height: written
-  , transform: plain transformOut (transformIn "transform")
+  , transform: tuple transformOut (transformIn "transform")
+      [ { field: "tx", at: [ 0 ] }, { field: "ty", at: [ 1 ] }, { field: "scale", at: [ 2 ] } ]
   , nodes: plain nodesOut (listOf "nodes" (reversible nodeIn))
   , nodesInitialized: written
   , nodeLookup: field nodeLookupOut (nodeLookupIn "nodeLookup")
@@ -447,9 +463,10 @@ stateFields =
   , panZoom: plain (maybe nullValue panZoomOut) (absentOr (Just <<< panZoomFromJs))
   , minZoom: written
   , maxZoom: written
-  , translateExtent: plain (unsafeToForeign <<< coordinateExtentOut) (coordinateExtentIn "translateExtent" <<< unsafeCoerce)
-  , nodeExtent: plain (unsafeToForeign <<< coordinateExtentOut) (coordinateExtentIn "nodeExtent" <<< unsafeCoerce)
-  , nodeOrigin: plain (unsafeToForeign <<< nodeOriginOut) (nodeOriginIn "nodeOrigin" <<< unsafeCoerce)
+  , translateExtent: tuple (unsafeToForeign <<< coordinateExtentOut) (coordinateExtentIn "translateExtent" <<< unsafeCoerce) extentIndexes
+  , nodeExtent: tuple (unsafeToForeign <<< coordinateExtentOut) (coordinateExtentIn "nodeExtent" <<< unsafeCoerce) extentIndexes
+  , nodeOrigin: tuple (unsafeToForeign <<< nodeOriginOut) (nodeOriginIn "nodeOrigin" <<< unsafeCoerce)
+      [ { field: "ox", at: [ 0 ] }, { field: "oy", at: [ 1 ] } ]
   , nodeDragThreshold: written
   , connectionDragThreshold: written
   , nodesSelectionActive: written
@@ -459,7 +476,8 @@ stateFields =
   , connectionMode: plain connectionModeOut connectionModeFromJs
   , connectionClickStartHandle: plain clickStartOut clickStartIn
   , snapToGrid: written
-  , snapGrid: plain (\g -> unsafeToForeign [ (unwrap g).gx, (unwrap g).gy ]) (snapGridIn "snapGrid" <<< unsafeCoerce)
+  , snapGrid: tuple (\g -> unsafeToForeign [ (unwrap g).gx, (unwrap g).gy ]) (snapGridIn "snapGrid" <<< unsafeCoerce)
+      [ { field: "gx", at: [ 0 ] }, { field: "gy", at: [ 1 ] } ]
   , nodesDraggable: written
   , autoPanOnNodeFocus: written
   , nodesConnectable: written
@@ -490,6 +508,7 @@ stateFields =
       { toJs: \_ -> maybe absent (unsafeToForeign <<< defaultEdgeOptionsOut)
       , fromJs: absentOr (Just <<< defaultEdgeOptionsIn <<< unsafeCoerce)
       , optional: true
+      , converts: true
       }
   , fitViewQueued: written
   , fitViewOptions: plain (maybe (unsafeToForeign undefined) fitViewOptionsOut)
@@ -526,7 +545,7 @@ stateFields =
 -- ────────────────────────────────────────────────────────────────────────
 
 field :: forall a. (State -> a -> Foreign) -> (Foreign -> a) -> Field a
-field toJs fromJs = { toJs, fromJs, optional: false }
+field toJs fromJs = { toJs, fromJs, optional: false, converts: true }
 
 plain :: forall a. (a -> Foreign) -> (Foreign -> a) -> Field a
 plain toJs = field (const toJs)
@@ -535,7 +554,30 @@ plain toJs = field (const toJs)
 -- | it is. Upstream stores it as it is, and these compile to the same
 -- | JavaScript operators upstream's internals use on it.
 written :: forall a. Field a
-written = plain unsafeToForeign unsafeCoerce
+written = (plain unsafeToForeign unsafeCoerce) { converts = false }
+
+-- | A member upstream holds as an array and reads by index, such as
+-- | `transform` or `nodeExtent`. A value of another shape is held as a record
+-- | that reads it by index, at the indexes each field names, when the field
+-- | is read: upstream's `transform[2]`, wherever ps-flow reads `scale`.
+tuple
+  :: forall a
+   . (a -> Foreign)
+  -> (Foreign -> a)
+  -> Array { field :: String, at :: Array Int }
+  -> Field a
+tuple out strict indexes =
+  plain (\v -> fromMaybe' (\_ -> out v) (AsWritten.writtenOf v))
+    (AsWritten.orElse strict (AsWritten.indexed indexes))
+
+-- | `[[minX, minY], [maxX, maxY]]`.
+extentIndexes :: Array { field :: String, at :: Array Int }
+extentIndexes =
+  [ { field: "minX", at: [ 0, 0 ] }
+  , { field: "minY", at: [ 0, 1 ] }
+  , { field: "maxX", at: [ 1, 0 ] }
+  , { field: "maxY", at: [ 1, 1 ] }
+  ]
 
 -- | `fromMaybe` with a fallback that runs only when needed, because every
 -- | fallback here throws.
@@ -589,10 +631,13 @@ callbackOut out f = case originalOf f of
 -- | An adapter the store handed out goes back as its PureScript function.
 -- | Anything else converts, and is called when it is used: upstream calls
 -- | whatever a member holds, and a value that is not a function throws then.
+-- | A falsy value is marked, for the places upstream asks `if (callback)`.
 functionIn :: forall js ps. (js -> ps) -> Foreign -> ps
 functionIn convert v = case adaptedFrom v of
   Just ps -> ps
-  Nothing -> remembering convert (unsafeCoerce v)
+  Nothing
+    | isTruthy v -> remembering convert (unsafeCoerce v)
+    | otherwise -> markFalsy (remembering convert (unsafeCoerce v))
 
 -- | A member upstream's initial state holds with a fixed value when nothing
 -- | was set: `null` for the change handlers, `undefined` for
@@ -650,6 +695,14 @@ edgesOut edges = case originalOf edges of
   Just original -> original
   Nothing -> unsafeToForeign (map (reversibleImpl (unsafeToForeign <<< edgeIdentityOut)) edges)
 
+-- | The elements a lookup's order comes from. While `nodes` or `edges` holds
+-- | a value a consumer wrote, which upstream's lookups do not follow, the
+-- | lookups read in key order.
+orderOf :: forall a. Array a -> Array a
+orderOf items
+  | AsWritten.isHeld items = []
+  | otherwise = items
+
 -- | `preferred`, deduplicated and kept to `present`, then what is left of
 -- | `present` in its own order.
 ordered :: forall k. Ord k => Array k -> Array k -> Array k
@@ -668,7 +721,7 @@ nodeLookupOut :: State -> NodeLookup Foreign -> Foreign
 nodeLookupOut s lookup =
   newMap $ Array.catMaybes $ map
     (\id -> map (\n -> entry (unwrap id) (internalNodeOutCached n)) (Map.lookup id lookup))
-    (ordered (map _.id s.nodes) (Set.toUnfoldable (Map.keys lookup)))
+    (ordered (map _.id (orderOf s.nodes)) (Set.toUnfoldable (Map.keys lookup)))
 
 parentLookupOut :: State -> ParentLookup Foreign -> Foreign
 parentLookupOut s lookup =
@@ -676,17 +729,17 @@ parentLookupOut s lookup =
     ( \parent -> map
         ( \children -> entry (unwrap parent) $ newMap $ Array.catMaybes $ map
             (\id -> map (\n -> entry (unwrap id) (internalNodeOutCached n)) (Map.lookup id children))
-            (ordered (map _.id s.nodes) (Set.toUnfoldable (Map.keys children)))
+            (ordered (map _.id (orderOf s.nodes)) (Set.toUnfoldable (Map.keys children)))
         )
         (Map.lookup parent lookup)
     )
-    (ordered (Array.catMaybes (map _.parentId s.nodes)) (Set.toUnfoldable (Map.keys lookup)))
+    (ordered (Array.catMaybes (map _.parentId (orderOf s.nodes))) (Set.toUnfoldable (Map.keys lookup)))
 
 edgeLookupOut :: State -> EdgeLookup Foreign -> Foreign
 edgeLookupOut s lookup =
   newMap $ Array.catMaybes $ map
     (\id -> map (\e -> entry id (edgeOutOne e)) (Map.lookup id lookup))
-    (ordered (map _.id s.edges) (Set.toUnfoldable (Map.keys lookup)))
+    (ordered (map _.id (orderOf s.edges)) (Set.toUnfoldable (Map.keys lookup)))
   where
   edgeOutOne = reversibleImpl (unsafeToForeign <<< edgeIdentityOut)
 
@@ -697,7 +750,7 @@ connectionLookupOut :: State -> Map String HandleConnections -> Foreign
 connectionLookupOut s lookup =
   newMap $ Array.catMaybes $ map
     (\key -> map (\c -> entry key (connectionsOut c)) (Map.lookup key lookup))
-    (ordered (edgeKeys =<< s.edges) (Set.toUnfoldable (Map.keys lookup)))
+    (ordered (edgeKeys =<< orderOf s.edges) (Set.toUnfoldable (Map.keys lookup)))
   where
   edgeKeys e =
     sideKeys (unwrap e.source) "source" e.sourceHandle

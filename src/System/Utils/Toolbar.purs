@@ -9,7 +9,7 @@ module System.Utils.Toolbar
 
 import Prelude
 
-import Data.Number.Format (toString) as NumberFormat
+import System.Utils.Number (toString) as NumberFormat
 import System.Types.Connection (Viewport)
 import System.Types.Edge (AlignX(..), AlignY(..))
 import System.Types.Geometry (Position(..), Rect)

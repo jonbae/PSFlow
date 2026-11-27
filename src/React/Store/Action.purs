@@ -10,11 +10,13 @@
 module React.Store.Action
   ( Action(..)
   , Effect_(..)
+  , FitInputs
   , NodeInternalsResult
   ) where
 
 
 import Data.Maybe (Maybe)
+import React.Store.Partial (StatePartial)
 import React.Types.Edges (Edge)
 import React.Types.General
   ( FitViewOptions
@@ -24,7 +26,7 @@ import React.Types.General
   , UnselectNodesAndEdgesParams
   )
 import React.Types.Nodes (InternalNode, Node)
-import React.Types.Store (ReactFlowState)
+import React.Types.Store (FitViewResolver, ReactFlowState)
 import System.Constants (ErrorCode)
 import System.Types.Connection
   ( Connection
@@ -43,7 +45,20 @@ import System.Types.Node
   , NodeLookup
   , ParentLookup
   )
+import System.Types.PanZoom (PanZoomInstance)
 import System.XYHandle (OnConnectStartParams)
+
+-- | What a queued fit fits with.
+type FitInputs n =
+  { nodes :: NodeLookup n
+  , width :: Number
+  , height :: Number
+  , panZoom :: Maybe PanZoomInstance
+  , minZoom :: Number
+  , maxZoom :: Number
+  , options :: Maybe FitViewOptions
+  , resolver :: Maybe FitViewResolver
+  }
 
 -- | The payload returned by `System.Utils.Store.updateNodeInternals`.
 -- | Carried back into the reducer via `MergeNodeInternalsResult` so the
@@ -65,7 +80,11 @@ type NodeInternalsResult n =
 -- |     by `React.Hook.Listeners`. Their state updates live in
 -- |     `React.Store.Reduce`. The middleware hooks write into the live
 -- |     middleware map in place, as upstream's do, so they need none.
--- |   * `PatchState` — escape hatch for `useStoreApi().setState(fn)`.
+-- |   * `Assign` — upstream's `store.setState(partial)` from a component or
+-- |     hook. The partial names the members it writes; see
+-- |     `React.Store.Partial`.
+-- |   * `PatchState` — escape hatch for `useStoreApi().setState(fn)`, whose
+-- |     JavaScript caller keeps its own record of the keys it wrote.
 -- |   * `MutateState` — upstream's in-place writes into the state, which
 -- |     notify nobody. See `React.Store.InPlace`.
 data Action n e
@@ -99,6 +118,7 @@ data Action n e
   | SetViewportChangeEndHandler (Maybe OnViewportChange)
   | AddSelectionChangeHandler (OnSelectionChangeFunc n e)
   | RemoveSelectionChangeHandler (OnSelectionChangeFunc n e)
+  | Assign (StatePartial (ReactFlowState n e))
   | PatchState (ReactFlowState n e -> ReactFlowState n e)
   | MutateState (ReactFlowState n e -> ReactFlowState n e)
 
@@ -126,16 +146,18 @@ data Effect_ n e
   -- `triggerNodeChanges` reads the store.
   | RunNodesChangeMiddleware (Array (NodeChange n))
   | RunSetCenter Number Number SetCenterOptions
-  -- Zoom and pan limits, pushed onto the live pan-zoom instance. The
-  -- reducer carries the values rather than leaving the shell to read
-  -- them back, so the descriptor says what it asks for — and so it
-  -- matches upstream's explicit `setScaleExtent([minZoom, maxZoom])`,
-  -- which passes the changed bound beside the one already in state.
-  | RunSetScaleExtent Number Number
-  | RunSetTranslateExtent CoordinateExtent
-  -- Resolution of the queued fit: the options it fits with, read from the
-  -- state before the reducer cleared them, as upstream's `resolveFitView`
-  -- reads them before its `set` clears them.
-  | ResolveFitView (Maybe FitViewOptions)
+  -- Zoom and pan limits, pushed onto the pan-zoom instance. The reducer
+  -- carries the values rather than leaving the shell to read them back,
+  -- so the descriptor says what it asks for — and so it matches
+  -- upstream's explicit `setScaleExtent([minZoom, maxZoom])`, which passes
+  -- the changed bound beside the one already in state. The instance is the
+  -- one upstream's `get()` reads before its `set`.
+  | RunSetScaleExtent (Maybe PanZoomInstance) Number Number
+  | RunSetTranslateExtent (Maybe PanZoomInstance) CoordinateExtent
+  -- Resolution of the queued fit, with everything upstream's
+  -- `resolveFitView` reads from `get()` before its caller's `set`: the
+  -- options before the reducer cleared them, and the node lookup the
+  -- update adopted, which upstream changes in place first.
+  | ResolveFitView (FitInputs n)
   -- Error logging — swallowed if `state.onError` is `Nothing`.
   | LogError ErrorCode

@@ -3,11 +3,11 @@
 -- |
 -- | Exports a singleton `xyHandle :: XYHandleInstance` plus the parameter
 -- | record types. `onPointerDown` collapses the TS closure state into a
--- | plain `HandleDragState` record and runs its lifecycle handlers under
--- | `StateT HandleDragState Effect`; a single outer `Ref HandleDragState`
--- | carries the snapshot across d3 callbacks via `runOnRef`. (A second
--- | `Ref` is kept for `previousConnection` only because its type doesn't
--- | fold cleanly into the StateT.) `onPointerDown` is still `Effect`-shaped
+-- | plain `HandleDragState` record and runs its lifecycle handlers as
+-- | `RefState HandleDragState` steps, which read and write a single outer
+-- | `Ref HandleDragState` as TS reads and writes its closure variables. (A
+-- | second `Ref` is kept for `previousConnection` only because its type
+-- | doesn't fold cleanly into the record.) `onPointerDown` is still `Effect`-shaped
 -- | at the boundary — it registers DOM listeners on the document/host and
 -- | schedules an auto-pan rAF loop. `isValid` is `Effect`-typed because it
 -- | queries the DOM via `querySelector`/`elementFromPoint`.
@@ -34,14 +34,14 @@ module System.XYHandle
 
 import Prelude
 
-import Control.Monad.State (StateT, get, modify_, runStateT)
+import System.Utils.Lookup as Lookup
+
+import Control.Monad.State (get, modify_)
 import Data.Either (Either(..))
 import Data.Foldable (for_)
-import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isJust)
 import Data.Newtype (unwrap)
 import Data.Nullable (Nullable, toMaybe)
-import Data.Tuple (Tuple(..))
 import Effect (Effect)
 import Effect.Aff (Aff, launchAff_)
 import Effect.Class (liftEffect)
@@ -82,6 +82,8 @@ import System.Utils.Dom
   )
 import System.Utils.Edges.Positions (getHandlePosition)
 import System.Utils.General (calcAutoPan, pointToRendererPoint, rendererPointToPoint)
+import System.Utils.RefState (RefState)
+import System.Utils.RefState (runOnRef) as RefState
 import System.XYHandle.Utils
   ( HandleRef
   , getClosestHandle
@@ -217,9 +219,9 @@ connectionEnd p =
 
 -- | Closure state for `onPointerDown`. The TS source threads these values
 -- | through nested handlers via captured locals; here the lifecycle handlers
--- | run as `StateT HandleDragState Effect` and the only true `Effect`
--- | boundary is the d3 callback registration, where a single outer
--- | `Ref HandleDragState` carries the snapshot across calls.
+-- | run as `RefState HandleDragState` steps over a single outer
+-- | `Ref HandleDragState`, and the only true `Effect` boundary is the
+-- | listener registration.
 type HandleDragState =
   { autoPanId :: Maybe RafHandle
   , closestHandle :: Maybe Handle
@@ -243,19 +245,10 @@ initialDragState startPos =
   , resultHandleDomNode: Nothing
   }
 
--- | Run a `StateT HandleDragState Effect a` against an outer `Ref` and write
--- | the new state back. Forms the bridge from the d3-event `Effect` boundary
--- | to the pure-state interior.
--- |
--- | Not re-entrant: a nested call reads the snapshot the outer one has not
--- | yet written, and the outer write then discards the inner's. Code already
--- | inside the `StateT` runs a step directly instead — see `trackPointer`.
-runOnRef :: forall a. Ref HandleDragState -> StateT HandleDragState Effect a -> Effect a
-runOnRef ref st = do
-  s0 <- Ref.read ref
-  Tuple a s1 <- runStateT st s0
-  Ref.write s1 ref
-  pure a
+-- | Run a step against the drag's `Ref`. Forms the bridge from the
+-- | d3-event `Effect` boundary to the steps. See `System.Utils.RefState`.
+runOnRef :: forall a. Ref HandleDragState -> RefState HandleDragState a -> Effect a
+runOnRef = RefState.runOnRef
 
 -- | What the connection's auto-pan loop reads besides the drag state.
 type AutoPanEnv =
@@ -271,7 +264,7 @@ autoPanLoop env stateRef = runOnRef stateRef (autoPanStep env stateRef)
 
 -- | TS `autoPan`: pan by the velocity at the pointer's position, then ask
 -- | for the next frame. The pan is not awaited, as TS does not await it.
-autoPanStep :: AutoPanEnv -> Ref HandleDragState -> StateT HandleDragState Effect Unit
+autoPanStep :: AutoPanEnv -> Ref HandleDragState -> RefState HandleDragState Unit
 autoPanStep env stateRef =
   when env.autoPanOnConnect do
     s <- get
@@ -288,15 +281,13 @@ autoPanStep env stateRef =
 -- | three things in this order, before it validates the handle.
 -- |
 -- | The first frame runs inside this step, so it reads the position just
--- | written. Run through `runOnRef`, it would read the state as it stood
--- | before the move, which is the pointer-down position, and the handle of
--- | the frame it asks for would be lost when the caller wrote back.
+-- | written.
 trackPointer
   :: AutoPanEnv
   -> Ref HandleDragState
   -> XYPosition
   -> Maybe Handle
-  -> StateT HandleDragState Effect Unit
+  -> RefState HandleDragState Unit
 trackPointer env stateRef position closestHandle = do
   modify_ _ { position = position, closestHandle = closestHandle }
   s <- get
@@ -351,7 +342,7 @@ onPointerDown event params = do
               , position = fromHandleInternal.position
               }
 
-          mFromInternalNode <- pure (Map.lookup params.nodeId params.nodeLookup)
+          mFromInternalNode <- pure (Lookup.get params.nodeId params.nodeLookup)
           case mFromInternalNode of
             Nothing -> pure unit
             Just fromInternalNode -> do
@@ -379,7 +370,7 @@ onPointerDown event params = do
               previousConnection <- Ref.new initialConnection
 
               let
-                startConnection :: StateT HandleDragState Effect Unit
+                startConnection :: RefState HandleDragState Unit
                 startConnection = do
                   modify_ _ { connectionStarted = true }
                   prev <- liftEffect (Ref.read previousConnection)
@@ -483,13 +474,13 @@ onPointerDown event params = do
 
                   prev <- Ref.read previousConnection
                   let
-                    fromInternalNode' = Map.lookup params.nodeId nodeLookup
+                    fromInternalNode' = Lookup.get params.nodeId nodeLookup
                     fresh = case fromInternalNode' of
                       Just fn -> getHandlePosition fn (Just fromHandle)
                         PosLeft true
                       Nothing -> prev.from
                     nextToNode = case result.toHandle of
-                      Just toH -> Map.lookup toH.nodeId nodeLookup
+                      Just toH -> Lookup.get toH.nodeId nodeLookup
                       Nothing -> Nothing
                     next :: ConnectionInProgressData (InternalNodeBase nodeData)
                     next = prev

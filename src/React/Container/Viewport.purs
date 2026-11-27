@@ -14,7 +14,7 @@ module React.Container.Viewport
 
 import Prelude
 
-import Data.Number.Format (toString) as NumberFormat
+import System.Utils.Number (toString) as NumberFormat
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)
 import React.Basic (ReactComponent)

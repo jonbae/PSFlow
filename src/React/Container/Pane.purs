@@ -59,12 +59,13 @@ import React.FFI.DOM (div_)
 import React.Hook.Store (UseStoreApi, useStore, useStoreApi)
 import React.Store.Shell (Store)
 import React.Store.Action (Action(..))
+import React.Store.Partial (partial)
 import React.Store.Changes (getEdgeSelectionChanges, getNodeSelectionChanges)
 import React.Store.PanBy (panBy) as StorePanBy
 import React.Types.Component (PaneProps)
 import React.Types.Store (ReactFlowState)
 import System.FFI.AnimationFrame (RafHandle, cancelAnimationFrame, requestAnimationFrame)
-import System.Types.Connection (ConnectionState(..), SelectionMode(..))
+import System.Types.Connection (SelectionMode(..), isInProgress)
 import System.Types.Ids (NodeId)
 import System.Types.PanZoom (PanOnDrag(..))
 import System.Utils.Dom (DOMRect, elementBoundingRect, getEventPosition)
@@ -108,9 +109,8 @@ selectSlice :: forall n e. ReactFlowState n e -> PaneSlice
 selectSlice s =
   { userSelectionActive: s.userSelectionActive
   , elementsSelectable: s.elementsSelectable
-  , connectionInProgress: case s.connection of
-      ConnectionInProgress _ -> true
-      NoConnection -> false
+  -- TS `s.connection.inProgress`.
+  , connectionInProgress: isInProgress s.connection
   , dragging: s.paneDragging
   , autoPanSpeed: s.autoPanSpeed
   }
@@ -243,10 +243,10 @@ pane =
               writeRef selectedNodeIdsRef step.nodeIds
               writeRef selectedEdgeIdsRef step.edgeIds
 
-              store.setState \s -> s
-                { userSelectionRect = Just nextRect
-                , userSelectionActive = true
-                , nodesSelectionActive = false
+              store.dispatch $ Assign $ partial
+                { userSelectionRect: Just nextRect
+                , userSelectionActive: true
+                , nodesSelectionActive: false
                 }
 
         -- ---- autoPan loop ---------------------------------------------------
@@ -273,7 +273,7 @@ pane =
           else do
             for_ props.onPaneClick \cb -> cb me
             store.dispatch ResetSelectedElements
-            store.setState \s -> s { nodesSelectionActive = false }
+            store.dispatch (Assign (partial { nodesSelectionActive: false }))
 
         -- ---- onContextMenu --------------------------------------------------
         onContextMenu :: MouseEvent -> Effect Unit
@@ -326,8 +326,8 @@ pane =
                     { x: pos.x, y: pos.y }
                     st.transform
                     Nothing
-                store.setState \s -> s
-                  { userSelectionRect = Just
+                store.dispatch $ Assign $ partial
+                  { userSelectionRect: Just
                       { width: 0.0
                       , height: 0.0
                       , startX: startScreen.x
@@ -396,17 +396,17 @@ pane =
                   && st.userSelectionRect /= Nothing
               ) do
               onClick (unsafeCoerce se :: MouseEvent)
-            store.setState \s -> s
-              { userSelectionActive = false
-              , userSelectionRect = Nothing
+            store.dispatch $ Assign $ partial
+              { userSelectionActive: false
+              , userSelectionRect: Nothing
               }
             inProgress <- readRef selectionInProgressRef
             when inProgress do
               for_ props.onSelectionEnd \cb ->
                 cb (unsafeCoerce se :: MouseEvent)
               nodeIds <- readRef selectedNodeIdsRef
-              store.setState \s -> s
-                { nodesSelectionActive = Set.size nodeIds > 0
+              store.dispatch $ Assign $ partial
+                { nodesSelectionActive: Set.size nodeIds > 0
                 }
             cleanupAutoPan autoPanRefs
 

@@ -16,7 +16,11 @@ module System.Utils.Edges.General
 
 import Prelude
 
-import Data.Array (any, filter, snoc) as Array
+import System.Utils.AsWritten (some) as AsWritten
+
+import System.Utils.Number as JsNumber
+
+import Data.Array (filter, snoc) as Array
 import Data.Either (Either(..))
 import Data.Int (floor) as Int
 import Data.Maybe (Maybe(..), fromMaybe, isJust)
@@ -99,7 +103,7 @@ getElevatedEdgeZIndex p = case p.zIndexMode of
           || (p.elevateOnSelect && p.targetNode.selected == Just true)
       sourceZ = if sourceContributes then p.sourceNode.internals.z else 0.0
       targetZ = if targetContributes then p.targetNode.internals.z else 0.0
-      nodeZ = max sourceZ targetZ
+      nodeZ = JsNumber.max sourceZ targetZ
     in
       edgeZ + Int.floor nodeZ
 
@@ -149,7 +153,7 @@ getEdgeId c =
     <> fromMaybe "" c.targetHandle
 
 connectionExists :: forall e. EdgeBase e -> Array (EdgeBase e) -> Boolean
-connectionExists edge edges = Array.any matches edges
+connectionExists edge edges = AsWritten.some matches edges
   where
   matches el =
     el.source == edge.source

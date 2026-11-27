@@ -23,7 +23,6 @@ module Test.System.XYDrag.DragSelection
 
 import Prelude
 
-import Control.Monad.State (execStateT)
 import Data.Maybe (Maybe(..))
 import Data.Newtype (unwrap)
 import Data.Nullable (Nullable)
@@ -39,7 +38,7 @@ import React.Store.Shell (createStore)
 import React.Types.Nodes (Node)
 import System.FFI.D3Drag (D3DragEvent)
 import System.Types.Ids (NodeId(..))
-import System.XYDrag (initialDragState, startDrag)
+import System.XYDrag (execDrag, initialDragState, startDrag)
 import Web.DOM.Element (Element)
 import Web.HTML.HTMLDivElement (HTMLDivElement)
 
@@ -100,7 +99,7 @@ dragA o nodes = do
     { selectNodesOnDrag = o.selectNodesOnDrag
     , onNodeDragStart = Just \_ _ ns -> Ref.write (map (\n -> unwrap n.id <> (if n.selected == Just true then "*" else "")) ns) reported
     }
-  state <- execStateT
+  state <- execDrag
     ( startDrag
         { getStoreItems: mkDragStoreItems store
         , onDragStart: Nothing

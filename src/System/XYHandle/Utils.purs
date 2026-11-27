@@ -14,9 +14,10 @@ module System.XYHandle.Utils
 
 import Prelude
 
-import Data.Array (concat, find, foldl, fromFoldable, head) as Array
+import System.Utils.Lookup as Lookup
+
+import Data.Array (concat, find, foldl, head) as Array
 import Data.Either (Either(..))
-import Data.Map (lookup, values) as Map
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Number (sqrt)
 import Data.Tuple (Tuple(..))
@@ -78,10 +79,9 @@ nodesWithinDistance position lookup distance =
       []
       (mapValues lookup)
 
--- | `Map.values` returns a `List`; we want an `Array` for the foldl helpers
--- | below. `Array.fromFoldable` is the standard bridge.
+-- | TS `for (const node of nodeLookup.values())`.
 mapValues :: forall n. NodeLookup n -> Array (InternalNodeBase n)
-mapValues lookup = Array.fromFoldable (Map.values lookup)
+mapValues = Lookup.values
 
 -- | Find the nearest handle to `position` within `connectionRadius`. Skips the
 -- | `fromHandle` itself. When several handles tie at the minimum distance the
@@ -182,7 +182,7 @@ getHandle
   -> Boolean
   -> Maybe Handle
 getHandle nodeId handleType handleId lookup mode withAbsolutePosition =
-  case Map.lookup nodeId lookup of
+  case Lookup.get nodeId lookup of
     Nothing -> Nothing
     Just node ->
       let

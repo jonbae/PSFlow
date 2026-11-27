@@ -101,7 +101,7 @@ test('every gap names the work that accepted it, and ids are unique', () => {
   const ids = [...OVERLAYS, ...NOTES].map(({ id }) => id);
   assert.equal(new Set(ids).size, ids.length);
   for (const gap of [...OVERLAYS, ...NOTES]) {
-    assert.match(gap.accepted, /^(Step 3 [A-I]|Full JavaScript store compatibility$)/, gap.id);
+    assert.match(gap.accepted, /^(Step 3 [A-I]|Full JavaScript store compatibility$|Store residual parity$)/, gap.id);
   }
   for (const { id, file, find, replace, reason } of OVERLAYS) {
     for (const [field, value] of Object.entries({ file, find, replace, reason })) {

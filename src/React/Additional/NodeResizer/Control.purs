@@ -8,13 +8,16 @@ module React.Additional.NodeResizer.Control
 
 import Prelude
 
+import System.Utils.Lookup as Lookup
+
+import System.Utils.Number as JsNumber
+
 import Data.Array (length) as Array
 import Data.Foldable (foldl, for_)
-import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Newtype (class Newtype)
 import Data.Number as Number
-import Data.Number.Format (toString) as NumberFormat
+import System.Utils.Number (toString) as NumberFormat
 import Data.Nullable (Nullable, toMaybe, toNullable)
 import Data.Tuple (Tuple(..))
 import Effect (Effect)
@@ -82,7 +85,7 @@ selectScale :: Boolean -> forall n e. ReactFlowState n e -> Maybe String
 selectScale enabled s =
   if enabled then
     let Transform t = s.transform
-    in Just (NumberFormat.toString (max (1.0 / t.scale) 1.0))
+    in Just (NumberFormat.toString (JsNumber.max (1.0 / t.scale) 1.0))
   else Nothing
 
 -- | Keys driving `XYResizer.update` re-runs. Callbacks are wrapped in
@@ -118,7 +121,7 @@ buildChanges
 buildChanges store nid change childChanges resizeDirection = do
   st <- store.getState
   let
-    mNode = Map.lookup nid st.nodeLookup
+    mNode = Lookup.get nid st.nodeLookup
     nodeOrigin = st.nodeOrigin
     initialPosition =
       { x: change.x, y: change.y }
@@ -156,10 +159,10 @@ buildChanges store nid change childChanges resizeDirection = do
                 }
               parentEx = handleExpandParent [ child ] st.nodeLookup st.parentLookup nodeOrigin
               clampedX = case change.x of
-                Just cx | cx /= 0.0 && not (Number.isNaN cx) -> Just (max (o.ox * width) cx)
+                Just cx | cx /= 0.0 && not (Number.isNaN cx) -> Just (JsNumber.max (o.ox * width) cx)
                 _ -> Nothing
               clampedY = case change.y of
-                Just cy | cy /= 0.0 && not (Number.isNaN cy) -> Just (max (o.oy * height) cy)
+                Just cy | cy /= 0.0 && not (Number.isNaN cy) -> Just (JsNumber.max (o.oy * height) cy)
                 _ -> Nothing
             in
               Tuple parentEx { x: clampedX, y: clampedY }
@@ -255,7 +258,8 @@ nodeResizeControl =
                           st <- store.getState
                           pure
                             { nodeLookup: st.nodeLookup
-                            , nodeOrder: map _.id st.nodes
+                            -- TS `for (const [childId, child] of nodeLookup)`.
+                            , nodeOrder: Lookup.fillOrderKeys st.nodes st.nodeLookup
                             , transform: st.transform
                             , snapGrid: Just st.snapGrid
                             , snapToGrid: st.snapToGrid

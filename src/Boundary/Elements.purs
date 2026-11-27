@@ -111,6 +111,8 @@ module Boundary.Elements
 
 import Prelude
 
+import System.Utils.AsWritten (isHeld) as AsWritten
+
 import Boundary.Enums
   ( handleTypeIn
   , handleTypeOut
@@ -911,13 +913,18 @@ edgeOut e = pruneUndefined
 
 -- | The consumer's own edge object when this record was decoded from one,
 -- | and `edgeOut`'s copy otherwise. Upstream's store holds the consumer's
--- | edges, so a raw store read hands the same objects back.
+-- | edges, so a raw store read hands the same objects back. An item of an
+-- | `edges` the store holds as written is handed back as it is.
 edgeIdentityOut :: forall e. EdgeBase e -> JsEdge
-edgeIdentityOut e = maybe (edgeOut e) unsafeCoerce (toMaybe (originalUserEdge e))
+edgeIdentityOut e
+  | AsWritten.isHeld e = unsafeCoerce e
+  | otherwise = maybe (edgeOut e) unsafeCoerce (toMaybe (originalUserEdge e))
 
 -- | The node counterpart of `edgeIdentityOut`.
 nodeIdentityOut :: NodeBase Foreign -> JsNode
-nodeIdentityOut n = maybe (nodeOut n) unsafeCoerce (toMaybe (originalUserNode n))
+nodeIdentityOut n
+  | AsWritten.isHeld n = unsafeCoerce n
+  | otherwise = maybe (nodeOut n) unsafeCoerce (toMaybe (originalUserNode n))
 
 -- | `boolean | HandleType`.
 edgeReconnectableIn :: String -> Foreign -> EdgeReconnectable

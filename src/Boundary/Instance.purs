@@ -89,6 +89,8 @@ module Boundary.Instance
 
 import Prelude
 
+import System.Utils.AsWritten (copies, isHeld) as AsWritten
+
 import Boundary.Elements
   ( JsEdge
   , JsInternalNode
@@ -297,9 +299,9 @@ instanceOut :: ReactFlowInstance Foreign Foreign -> JsReactFlowInstance
 instanceOut i =
   -- Upstream's `nodes.map((n) => ({ ...n }))`: a copy of each node the
   -- consumer gave, custom keys and all.
-  { getNodes: map (copyOf <<< nodeIdentityOut) <$> i.getNodes
+  { getNodes: copiesOut nodeIdentityOut <$> i.getNodes
 
-  , setNodes: setStateOut "setNodes" nodeIn nodeIdentityOut i.setNodes
+  , setNodes: setStateOut nodeIn nodeIdentityOut i.setNodes
 
   -- `Node | Node[]`. ps-flow takes the array, which is the wider form.
   , addNodes: mkEffectFn1 \payload -> i.addNodes (map jsNode (oneOrMany payload))
@@ -310,9 +312,9 @@ instanceOut i =
   , getInternalNode: mkEffectFn1 \id ->
       toUndefinable <<< map internalNodeOut <$> i.getInternalNode id
 
-  , getEdges: map (copyOf <<< edgeIdentityOut) <$> i.getEdges
+  , getEdges: copiesOut edgeIdentityOut <$> i.getEdges
 
-  , setEdges: setStateOut "setEdges" edgeIn edgeIdentityOut i.setEdges
+  , setEdges: setStateOut edgeIn edgeIdentityOut i.setEdges
 
   , addEdges: mkEffectFn1 \payload -> i.addEdges (map jsEdge (oneOrMany payload))
 
@@ -322,8 +324,8 @@ instanceOut i =
   , toObject: do
       o <- i.toObject
       pure
-        { nodes: map (copyOf <<< nodeIdentityOut) o.nodes
-        , edges: map (copyOf <<< edgeIdentityOut) o.edges
+        { nodes: copiesOut nodeIdentityOut o.nodes
+        , edges: copiesOut edgeIdentityOut o.edges
         , viewport: viewportOut o.viewport
         }
 
@@ -658,3 +660,10 @@ foreign import shallowCopy :: Foreign -> Foreign
 -- | Upstream's `{ ...value }`, for a node or edge the consumer gave.
 copyOf :: forall a. a -> a
 copyOf = unsafeCoerce <<< shallowCopy <<< unsafeCoerce
+
+-- | Upstream's `nodes.map((n) => ({ ...n }))`, of what the store holds: a
+-- | value a consumer wrote that ps-flow could not read is mapped as it is.
+copiesOut :: forall a js. (a -> js) -> Array a -> Array js
+copiesOut out items
+  | AsWritten.isHeld items = unsafeCoerce (AsWritten.copies items)
+  | otherwise = map (copyOf <<< out) items

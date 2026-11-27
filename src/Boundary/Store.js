@@ -61,30 +61,49 @@ export const storeViewImpl = (store) => (makeSpec) => {
   return view;
 };
 
-// Each PureScript state has one JavaScript view. Until a consumer replaces
-// the whole state, a view is built the way upstream's `createStore` lays its
-// state out: the members, the actions, the optional callbacks that are set,
-// and the keys a consumer wrote beside them. After a replacement, upstream's
-// state is whatever the consumer handed over, and each later state is
-// `Object.assign({}, state, partial)` over it; a *layout* records those keys
-// in order, for the replaced state and every state after it.
+const hasOwn = (object, key) => Object.prototype.hasOwnProperty.call(object, key);
+
+// What `object[key]` answers, through the prototype and any getter, as
+// upstream's `get().member` reads it. A primitive state has no members.
+const memberOf = (object, key) => (object === null || object === undefined ? undefined : Object(object)[key]);
+
+// Each PureScript state has one JavaScript view.
+//
+// Until a consumer replaces the whole state, a view is built from the state's
+// *layout*: the keys upstream's state object would have, in its order, and
+// the values of the keys that are not members. The first layout is
+// `createStore`'s: the initial state's members, the actions, and the optional
+// callbacks that are set. Each later state's layout adds the keys its update
+// wrote that the layout lacked, as `Object.assign` adds them. A member reads
+// through an accessor, converted on its first read.
+//
+// After `setState(next, true)`, upstream's state is `next` itself, and each
+// later state is `Object.assign({}, state, partial)`. Here too, the view of a
+// replaced state is `next`, untouched, and each later view is that merge, a
+// plain object. Its members are the values upstream's state would hold, and
+// the internals are brought up to date with it before they read: upstream's
+// read `get().member`, which answers whatever the object then holds.
 function createView(spec) {
   const { fields, actions } = spec;
   const keys = spec.keys;
   const known = new Set(keys);
   const isMember = (key) => typeof key === "string" && known.has(key);
+  const actionNames = Object.keys(actions);
   const lastConverted = new Map();
   const handedOut = new Map(keys.map((key) => [key, new WeakMap()]));
   const viewOfState = new WeakMap();
-  const extrasOfState = new WeakMap();
-  let extras = {};
   const layouts = new WeakMap();
+  // A replaced state's plain object, and for each member the JavaScript value
+  // and the PureScript value the internals last agreed on with it.
+  const plain = new WeakMap();
+  const held = new WeakMap();
 
-  const warn = (message) => {
-    if (spec.isDevelopment) console.warn(message);
-  };
+  // A member whose converter cannot read the value written holds the value
+  // itself, as upstream's plain object holds it, and reads back as it.
+  const converts = new Set(keys.filter((key) => fields[key].converts));
 
   const toJs = (key, state, value) => {
+    if (converts.has(key) && spec.isHeld(value)) return value;
     const last = lastConverted.get(key);
     if (last !== undefined && Object.is(last.ps, value)) return last.js;
     const js = fields[key].toJs(state)(value);
@@ -93,12 +112,16 @@ function createView(spec) {
     return js;
   };
 
+  const jsOf = (key, state) => {
+    const js = toJs(key, state, state[key]);
+    return js === absent ? undefined : js;
+  };
+
   // A value the store handed out goes back as the PureScript value it came
   // from. Anything else converts, and reads back as the consumer's own value:
   // a conversion that would read back differently gets a fresh reference, and
-  // a value the member's converter cannot read leaves `state`'s value in
-  // place, under a fresh reference, for the internals. `kept` hears of that.
-  const toPs = (key, js, state, kept) => {
+  // a value the member's converter cannot read is held as it was written.
+  const toPs = (key, js, state) => {
     const out = handedOut.get(key);
     if (isReference(js) && out.has(js)) {
       const value = out.get(js);
@@ -108,24 +131,16 @@ function createView(spec) {
     let value;
     try {
       value = fields[key].fromJs(js);
-    } catch (error) {
-      kept(key, error);
-      value = freshCopy(state[key]);
-      lastConverted.set(key, { ps: value, js });
-      return value;
+    } catch {
+      spec.hold(js);
+      lastConverted.set(key, { ps: js, js });
+      return js;
     }
     if (!Object.is(fields[key].toJs(state)(value), js)) value = freshCopy(value);
     lastConverted.set(key, { ps: value, js });
     if (isReference(js)) out.set(js, value);
     return value;
   };
-
-  const keptOne = (key, error) =>
-    warn(
-      `ps-flow: the store member \`${key}\` holds a value ps-flow's internals cannot read ` +
-        `(${error && error.message ? error.message : String(error)}). They keep its previous ` +
-        "value; getState() reads back the value written."
-    );
 
   // Upstream's state is a plain object, and a write into it is a write into
   // the live state that notifies nobody. `mutate` is that write when this is
@@ -149,32 +164,38 @@ function createView(spec) {
         return js;
       },
       set(js) {
-        const value = toPs(key, js, state, keptOne);
+        const value = toPs(key, js, state);
         seen.set(key, { ps: value, js });
         writeInPlace(state, key, value);
       },
     });
   };
 
-  const defaultView = (state) => {
-    const object = {};
-    const seen = new Map();
-    const optional = [];
+  // ── Before a replacement ──────────────────────────────────────────────
+
+  const makeLayout = (order, raw) => ({ keys: order, present: new Set(order), raw });
+
+  const firstLayout = (state) => {
+    const order = keys.filter((key) => !fields[key].optional);
+    order.push(...actionNames);
     for (const key of keys) {
-      if (fields[key].optional) optional.push(key);
-      else defineField(object, state, key, seen);
+      if (fields[key].optional && toJs(key, state, state[key]) !== absent) order.push(key);
     }
-    for (const name of Object.keys(actions)) object[name] = actions[name];
-    for (const key of optional) {
-      if (toJs(key, state, state[key]) !== absent) defineField(object, state, key, seen);
-    }
-    const own = extrasOfState.get(state) ?? extras;
-    for (const key of Reflect.ownKeys(own)) object[key] = own[key];
-    return object;
+    return makeLayout(order, new Map(actionNames.map((name) => [name, actions[name]])));
   };
 
-  const layoutView = (state, layout) => {
-    if (layout.primitive) return layout.base;
+  const layoutOf = (state) => {
+    if (!layouts.has(state)) layouts.set(state, firstLayout(state));
+    return layouts.get(state);
+  };
+
+  const withKeys = (layout, written, raw = layout.raw) => {
+    const added = written.filter((key) => !layout.present.has(key));
+    return added.length === 0 && raw === layout.raw ? layout : makeLayout([...layout.keys, ...added], raw);
+  };
+
+  const defaultView = (state) => {
+    const layout = layoutOf(state);
     const object = {};
     const seen = new Map();
     for (const key of layout.keys) {
@@ -184,33 +205,86 @@ function createView(spec) {
     return object;
   };
 
+  // ── After a replacement ───────────────────────────────────────────────
+
+  // Brings `state` up to date with its plain object: each member whose value
+  // the object answers differently from the one the internals hold converts
+  // in place, as upstream's internals would read it next.
+  const syncFrom = (state) => {
+    const object = plain.get(state);
+    const agreed = held.get(state);
+    for (const key of keys) {
+      const js = memberOf(object, key);
+      const entry = agreed.get(key);
+      if (entry !== undefined && Object.is(js, entry.js)) continue;
+      const value = toPs(key, js, state);
+      agreed.set(key, { js, ps: value });
+      state[key] = value;
+    }
+  };
+
+  // Upstream's internals change some members inside the objects they hold,
+  // such as a node selected in `nodeLookup`, without a `set`. A member the
+  // plain object holds as a writable value shows the internals' new value;
+  // any other stays as the object answers it.
+  const refreshFrom = (state) => {
+    const object = plain.get(state);
+    const agreed = held.get(state);
+    for (const key of keys) {
+      const entry = agreed.get(key);
+      if (entry !== undefined && Object.is(entry.ps, state[key])) continue;
+      const descriptor = Object.getOwnPropertyDescriptor(object, key);
+      let js = memberOf(object, key);
+      if (descriptor !== undefined && "value" in descriptor && descriptor.writable) {
+        js = jsOf(key, state);
+        object[key] = js;
+      }
+      agreed.set(key, { js, ps: state[key] });
+    }
+  };
+
+  const adoptPlain = (state, object, agreed) => {
+    plain.set(state, object);
+    held.set(state, agreed);
+    syncFrom(state);
+    if (isReference(object)) {
+      spec.mirror((source) => () => (refreshFrom(source), {}))(state)(object);
+    }
+  };
+
+  // A state the internals moved to: an update after a replacement merges the
+  // members its `set` names over the plain object, and one before it adds
+  // them to the layout. A member the internals changed without naming it
+  // shows its new value where the object holds it.
+  spec.observeTransitions((previous) => (next) => (written) => () => {
+    if (plain.has(next) || layouts.has(next)) return;
+    if (!plain.has(previous)) {
+      layouts.set(next, withKeys(layoutOf(previous), written));
+      return;
+    }
+    const before = plain.get(previous);
+    const partial = {};
+    for (const key of written) partial[key] = jsOf(key, next);
+    for (const key of keys) {
+      if (hasOwn(partial, key) || Object.is(previous[key], next[key])) continue;
+      if (isReference(before) && Object.prototype.propertyIsEnumerable.call(before, key)) partial[key] = jsOf(key, next);
+    }
+    const agreed = new Map(held.get(previous));
+    for (const key of Object.keys(partial)) agreed.set(key, { js: partial[key], ps: next[key] });
+    adoptPlain(next, Object.assign({}, before, partial), agreed);
+  })();
+
+  spec.beforeRead((state) => () => {
+    if (plain.has(state)) syncFrom(state);
+  })();
+
   const viewOf = (state) => {
+    if (plain.has(state)) return plain.get(state);
     if (viewOfState.has(state)) return viewOfState.get(state);
-    const layout = layouts.get(state);
-    const view = layout === undefined ? defaultView(state) : layoutView(state, layout);
+    const view = defaultView(state);
     viewOfState.set(state, view);
     return view;
   };
-
-  // A state the internals moved to, after a replacement: the keys carry
-  // over, and a member the replacement left out comes back once the
-  // internals change it, as an upstream `set` adds it back. `reset` sets
-  // every key of `getInitialState`, which leaves out the optional members.
-  spec.observeTransitions((previous) => (next) => (wasReset) => () => {
-    if (layouts.has(next)) return;
-    const layout = layouts.get(previous);
-    if (layout === undefined) return;
-    const present = new Set(layout.keys);
-    const nextKeys = [...layout.keys];
-    for (const key of keys) {
-      if (present.has(key)) continue;
-      if ((wasReset && !fields[key].optional) || !Object.is(previous[key], next[key])) {
-        nextKeys.push(key);
-        present.add(key);
-      }
-    }
-    layouts.set(next, { primitive: false, keys: nextKeys, raw: layout.raw });
-  })();
 
   const getState = () => viewOf(spec.getState());
 
@@ -221,95 +295,45 @@ function createView(spec) {
   // key is kept beside the state as written.
   const mergeIn = (partial) => {
     const state = spec.getState();
+    if (plain.has(state)) {
+      const object = Object.assign({}, plain.get(state), partial);
+      spec.patch((s) => {
+        const merged = Object.assign({}, s);
+        adoptPlain(merged, object, new Map(held.get(s)));
+        return merged;
+      })();
+      return;
+    }
     const current = viewOf(state);
     const source = partial === null || partial === undefined ? {} : Object(partial);
-    const layout = layouts.get(state);
-    const nextLayout =
-      layout === undefined ? null : { primitive: false, keys: [...layout.keys], raw: new Map(layout.raw) };
-    const present = nextLayout === null ? null : new Set(nextLayout.keys);
+    const layout = layoutOf(state);
+    const raw = new Map(layout.raw);
+    const written = assignedKeys(source);
     const values = {};
-    let nextExtras = null;
-    for (const key of assignedKeys(source)) {
+    for (const key of written) {
       const js = source[key];
-      if (isMember(key)) {
-        if (!(isPresent(current, key) && Object.is(js, current[key]))) {
-          values[key] = toPs(key, js, state, keptOne);
-        }
-      } else if (nextLayout !== null) nextLayout.raw.set(key, js);
-      else {
-        nextExtras ??= { ...extras };
-        nextExtras[key] = js;
-      }
-      if (nextLayout !== null && !present.has(key)) {
-        nextLayout.keys.push(key);
-        present.add(key);
+      if (!isMember(key)) raw.set(key, js);
+      else if (!(isPresent(current, key) && Object.is(js, current[key]))) {
+        values[key] = toPs(key, js, state);
       }
     }
-    if (nextExtras !== null) extras = nextExtras;
+    const nextLayout = withKeys(layout, written, raw);
     spec.patch((s) => {
       const patched = Object.assign({}, s, values);
-      if (nextLayout !== null) layouts.set(patched, nextLayout);
-      else extrasOfState.set(patched, extras);
+      layouts.set(patched, nextLayout);
       return patched;
     })();
   };
 
-  // `next` becomes the view of `state` itself: its own members turn into
-  // accessors over `state`, keeping their values, order and enumerability.
-  // A frozen object cannot be written into upstream either, so it is the
-  // view as it is. One whose members cannot be redefined is not adopted.
-  const adopt = (next, state) => {
-    if (Object.isFrozen(next)) return next;
-    const members = assignedKeys(next).filter(isMember);
-    if (members.some((key) => !Object.getOwnPropertyDescriptor(next, key).configurable)) return null;
-    const seen = new Map();
-    for (const key of members) defineField(next, state, key, seen);
-    return next;
-  };
-
-  // zustand's `state = nextState`. Every member converts from `next`, the
-  // ones `next` leaves out from `undefined`, as upstream's internals would
-  // read them. A member whose value ps-flow's internals cannot hold keeps
-  // its previous value for them, and the left-out ones say so together.
+  // zustand's `state = nextState`. Every member converts from what `next`
+  // answers for it, through its prototype, as upstream's internals would read
+  // it, and one ps-flow's internals cannot read holds that answer as it is.
   const replaceWith = (next) => {
-    const state = spec.getState();
-    const reference = isReference(next);
-    const source = next === null || next === undefined ? {} : Object(next);
-    const own = assignedKeys(source);
-    const ownSet = new Set(own);
-    const values = {};
-    const leftOut = [];
-    for (const key of keys) {
-      const js = next === null || next === undefined ? undefined : source[key];
-      if (ownSet.has(key)) values[key] = toPs(key, js, state, keptOne);
-      else {
-        try {
-          values[key] = fields[key].fromJs(js);
-        } catch {
-          leftOut.push(key);
-        }
-      }
-    }
-    const raw = new Map(own.filter((key) => !isMember(key)).map((key) => [key, source[key]]));
-    const layout = reference
-      ? { primitive: false, keys: own, raw }
-      : { primitive: true, base: next, keys: own, raw };
     spec.patch((s) => {
-      const replaced = Object.assign({}, s, values);
-      layouts.set(replaced, layout);
-      if (!reference) viewOfState.set(replaced, next);
-      else {
-        const adopted = adopt(next, replaced);
-        if (adopted !== null) viewOfState.set(replaced, adopted);
-      }
+      const replaced = Object.assign({}, s);
+      adoptPlain(replaced, next, new Map());
       return replaced;
     })();
-    if (leftOut.length > 0) {
-      warn(
-        `ps-flow: \`setState\` replaced the state without ${leftOut.map((key) => `\`${key}\``).join(", ")}. ` +
-          "ps-flow's internals keep their previous values; getState() leaves them out, as upstream's does."
-      );
-    }
   };
 
   // zustand 4.5.7's `setState`, field for field: a function is called with
@@ -325,10 +349,20 @@ function createView(spec) {
     else mergeIn(next);
   };
 
+  // One PureScript listener per JavaScript one, so the store's `Set` sees
+  // the same listener each time it is subscribed. zustand takes any value,
+  // and calls it when it notifies.
+  const listeners = new WeakMap();
+  const primitiveListeners = new Map();
+  const listenerFor = (listener) => {
+    const table = isReference(listener) ? listeners : primitiveListeners;
+    if (!table.has(listener)) {
+      table.set(listener, (state) => (previous) => () => listener(viewOf(state), viewOf(previous)));
+    }
+    return table.get(listener);
+  };
   const subscribe = (listener) => {
-    const unsubscribe = spec.subscribeStates((state) => (previous) => () =>
-      listener(viewOf(state), viewOf(previous))
-    )();
+    const unsubscribe = spec.subscribeStates(listenerFor(listener))();
     return () => {
       unsubscribe();
     };

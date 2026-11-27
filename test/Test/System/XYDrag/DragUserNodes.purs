@@ -22,7 +22,7 @@ module Test.System.XYDrag.DragUserNodes
 
 import Prelude
 
-import Control.Monad.State (execStateT, modify_)
+import Control.Monad.State (modify_)
 import Data.Maybe (Maybe(..))
 import Data.Newtype (unwrap)
 import Data.Nullable (Nullable)
@@ -39,7 +39,7 @@ import React.Types.Nodes (Node)
 import System.FFI.D3Drag (D3DragEvent)
 import System.Types.Geometry (XYPosition)
 import System.Types.Ids (NodeId(..))
-import System.XYDrag (initialDragState, startDrag, updateNodes)
+import System.XYDrag (execDrag, initialDragState, startDrag, updateNodes)
 import Web.DOM.Element (Element)
 import Web.HTML.HTMLDivElement (HTMLDivElement)
 import Web.UIEvent.MouseEvent (MouseEvent)
@@ -128,7 +128,7 @@ dragA o nodes = do
           handleNodeClick { id: nid, store, unselect: false, nodeRef: emptyNodeRef }
       , autoPanSpeed: Nothing
       }
-  _ <- execStateT
+  _ <- execDrag
     ( do
         startDrag params
           { noDragClassName: Nothing

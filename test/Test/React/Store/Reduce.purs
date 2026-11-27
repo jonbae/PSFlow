@@ -231,11 +231,13 @@ edgeSelected :: ReactFlowState Unit Unit -> String -> Boolean
 edgeSelected st eid = maybe false (\e -> e.selected == Just true) (Map.lookup eid st.edgeLookup)
 
 -- 1. ResetSelectedElements emits selection-change effects ------------
+--
+-- TS reads the consumer's `nodes` and `edges`, so the selection is there.
 
 testResetSelected :: Effect Unit
 testResetSelected =
   let
-    r = reduce sampleState ResetSelectedElements
+    r = reduce (sampleState { nodes = [ n1Base ], edges = [ sampleEdge { selected = Just true } ] }) ResetSelectedElements
   in
     assert "ResetSelectedElements emits selection changes"
       (not (Array.null r.effects))

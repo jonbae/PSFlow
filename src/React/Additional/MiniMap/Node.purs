@@ -8,7 +8,7 @@ import Prelude
 
 import Data.Array (foldr) as Array
 import Data.Maybe (Maybe(..))
-import Data.Number.Format (toString) as NumberFormat
+import System.Utils.Number (toString) as NumberFormat
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)
 import Foreign.Object (Object)

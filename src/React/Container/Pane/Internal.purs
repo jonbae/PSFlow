@@ -18,10 +18,12 @@ module React.Container.Pane.Internal
 
 import Prelude
 
+import System.Utils.Lookup as Lookup
+
 import Data.Array (filter) as Array
 import Data.Array.NonEmpty (elem) as NEA
 import Data.Foldable (foldl)
-import Data.Map (lookup, values) as Map
+import Data.Map (values) as Map
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Newtype (unwrap)
 import Data.Set (Set)
@@ -91,12 +93,12 @@ collectIncidentEdgeIds state selectedNodeIds =
   edgesSelectable = fromMaybe true (state.defaultEdgeOptions >>= _.selectable)
 
   -- `connectionLookup` is keyed by the bare node id.
-  addEdgesForNode acc nodeId = case Map.lookup (unwrap nodeId) state.connectionLookup of
+  addEdgesForNode acc nodeId = case Lookup.get (unwrap nodeId) state.connectionLookup of
     Nothing -> acc
     Just connections -> foldl addEdgeIfSelectable acc (Map.values connections.byKey)
 
   addEdgeIfSelectable :: Set String -> HandleConnection -> Set String
-  addEdgeIfSelectable acc connection = case Map.lookup connection.edgeId state.edgeLookup of
+  addEdgeIfSelectable acc connection = case Lookup.get connection.edgeId state.edgeLookup of
     Just edge | fromMaybe edgesSelectable edge.selectable -> Set.insert connection.edgeId acc
     _ -> acc
 

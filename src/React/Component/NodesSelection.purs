@@ -42,7 +42,7 @@ import Data.Maybe (Maybe(..))
 import Data.Newtype (unwrap)
 import Data.Nullable (Nullable, toNullable)
 import Data.Number (isFinite, isNaN) as Number
-import Data.Number.Format (toString) as NumberFormat
+import System.Utils.Number (toString) as NumberFormat
 import Effect (Effect)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign (Foreign)

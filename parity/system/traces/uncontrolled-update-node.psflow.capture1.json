@@ -834,12 +834,12 @@
         "getNodes": [
           {
             "id": "Node-1",
+            "data": {
+              "label": "updated"
+            },
             "position": {
               "x": 0,
               "y": 0
-            },
-            "data": {
-              "label": "updated"
             },
             "type": "input",
             "measured": {
@@ -849,12 +849,12 @@
           },
           {
             "id": "Node-2",
+            "data": {
+              "label": "data updated"
+            },
             "position": {
               "x": -100,
               "y": 100
-            },
-            "data": {
-              "label": "data updated"
             },
             "type": "output",
             "measured": {
@@ -864,12 +864,12 @@
           },
           {
             "id": "Node-3",
+            "data": {
+              "label": "Node-3"
+            },
             "position": {
               "x": 100,
               "y": 100
-            },
-            "data": {
-              "label": "Node-3"
             },
             "measured": {
               "width": 150,
@@ -878,12 +878,12 @@
           },
           {
             "id": "Node-4",
+            "data": {
+              "label": "Node-4"
+            },
             "position": {
               "x": 0,
               "y": 200
-            },
-            "data": {
-              "label": "Node-4"
             },
             "type": "output",
             "measured": {
@@ -893,12 +893,12 @@
           },
           {
             "id": "added",
+            "data": {
+              "label": "added"
+            },
             "position": {
               "x": 240,
               "y": 240
-            },
-            "data": {
-              "label": "added"
             },
             "measured": {
               "width": 150,
@@ -908,12 +908,12 @@
         ],
         "getNode": {
           "id": "Node-1",
+          "data": {
+            "label": "updated"
+          },
           "position": {
             "x": 0,
             "y": 0
-          },
-          "data": {
-            "label": "updated"
           },
           "type": "input",
           "measured": {
@@ -923,12 +923,12 @@
         },
         "getInternalNode": {
           "id": "Node-1",
+          "data": {
+            "label": "updated"
+          },
           "position": {
             "x": 0,
             "y": 0
-          },
-          "data": {
-            "label": "updated"
           },
           "type": "input",
           "measured": {
@@ -943,12 +943,12 @@
             "z": 0,
             "userNode": {
               "id": "Node-1",
+              "data": {
+                "label": "updated"
+              },
               "position": {
                 "x": 0,
                 "y": 0
-              },
-              "data": {
-                "label": "updated"
               },
               "type": "input",
               "measured": {
@@ -1004,12 +1004,12 @@
         "getIntersectingNodes": [
           {
             "id": "Node-1",
+            "data": {
+              "label": "updated"
+            },
             "position": {
               "x": 0,
               "y": 0
-            },
-            "data": {
-              "label": "updated"
             },
             "type": "input",
             "measured": {
@@ -1019,12 +1019,12 @@
           },
           {
             "id": "Node-2",
+            "data": {
+              "label": "data updated"
+            },
             "position": {
               "x": -100,
               "y": 100
-            },
-            "data": {
-              "label": "data updated"
             },
             "type": "output",
             "measured": {
@@ -1034,12 +1034,12 @@
           },
           {
             "id": "Node-3",
+            "data": {
+              "label": "Node-3"
+            },
             "position": {
               "x": 100,
               "y": 100
-            },
-            "data": {
-              "label": "Node-3"
             },
             "measured": {
               "width": 150,
@@ -1048,12 +1048,12 @@
           },
           {
             "id": "Node-4",
+            "data": {
+              "label": "Node-4"
+            },
             "position": {
               "x": 0,
               "y": 200
-            },
-            "data": {
-              "label": "Node-4"
             },
             "type": "output",
             "measured": {
@@ -1063,12 +1063,12 @@
           },
           {
             "id": "added",
+            "data": {
+              "label": "added"
+            },
             "position": {
               "x": 240,
               "y": 240
-            },
-            "data": {
-              "label": "added"
             },
             "measured": {
               "width": 150,
@@ -1133,12 +1133,12 @@
           "nodes": [
             {
               "id": "Node-1",
+              "data": {
+                "label": "updated"
+              },
               "position": {
                 "x": 0,
                 "y": 0
-              },
-              "data": {
-                "label": "updated"
               },
               "type": "input",
               "measured": {
@@ -1148,12 +1148,12 @@
             },
             {
               "id": "Node-2",
+              "data": {
+                "label": "data updated"
+              },
               "position": {
                 "x": -100,
                 "y": 100
-              },
-              "data": {
-                "label": "data updated"
               },
               "type": "output",
               "measured": {
@@ -1163,12 +1163,12 @@
             },
             {
               "id": "Node-3",
+              "data": {
+                "label": "Node-3"
+              },
               "position": {
                 "x": 100,
                 "y": 100
-              },
-              "data": {
-                "label": "Node-3"
               },
               "measured": {
                 "width": 150,
@@ -1177,12 +1177,12 @@
             },
             {
               "id": "Node-4",
+              "data": {
+                "label": "Node-4"
+              },
               "position": {
                 "x": 0,
                 "y": 200
-              },
-              "data": {
-                "label": "Node-4"
               },
               "type": "output",
               "measured": {
@@ -1192,12 +1192,12 @@
             },
             {
               "id": "added",
+              "data": {
+                "label": "added"
+              },
               "position": {
                 "x": 240,
                 "y": 240
-              },
-              "data": {
-                "label": "added"
               },
               "measured": {
                 "width": 150,

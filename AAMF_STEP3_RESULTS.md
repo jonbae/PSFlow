@@ -917,6 +917,38 @@ retires all four:
 `parity/boundary/store.test.mjs` compares each against upstream. The
 declarations header lists what still differs.
 
+The store residual parity work after it matches three more groups:
+
+- Lifecycle: `reset` merges the initial state, keeping the callbacks it does
+  not name. Notification walks zustand's listener `Set` as it stands, and a
+  queued `fitView` without a pan-zoom instance leaves its promise pending.
+- Replacement: a replaced state is `next`, untouched, and each later state is
+  `Object.assign({}, state, partial)`. Every internal write names the members
+  upstream's `set` names, so a member a replacement left out comes back at
+  the first one, unchanged values included.
+- Coercion: the internals use `Math.min`, `Math.max` and upstream's `clamp`
+  defaults on written numbers. A falsy callback is skipped where upstream asks
+  `if (callback)`, and a drag or connection whose callback throws goes on as
+  upstream's does.
+
+`store-lifecycle.test.mjs`, `store-replacement.test.mjs` and
+`store-coercion.test.mjs` compare them against upstream.
+
+A fourth group then matches a structured member written with a value of the
+wrong shape, such as `nodes: 'x'`. Upstream's store holds the string, and
+ps-flow's now holds it too, as written. Each place ps-flow's code reads the
+member does what upstream's line does with it: it calls the same array or
+`Map` method, walks it with `for…of`, asks `!!` of it, or puts a default in
+place of `undefined`, so JavaScript throws or goes on where it does upstream.
+`System.Utils.AsWritten` and `System.Utils.Lookup` hold those operations. Tuples
+such as `transform` are read by index, as upstream reads them, and a throw
+partway through one of upstream's in-place lookup rebuilds leaves the lookups
+as far as it got. `store-unreadable.test.mjs` writes each of seventeen
+structured members with the values its converter rejects and compares a
+render, the instance's readers, pointer and keyboard input, the store's
+actions and the hooks against upstream. The declarations list the two
+differences left.
+
 ### Evidence
 
 | Check | Result |

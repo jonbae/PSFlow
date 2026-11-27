@@ -46,6 +46,8 @@ module React.Component.NodeWrapper
 
 import Prelude
 
+import System.Utils.Lookup as Lookup
+
 import Record as Record
 import Type.Proxy (Proxy(..))
 
@@ -130,10 +132,9 @@ type NodeWrapperSlice n =
 selectNodeSlice
   :: forall n e. NodeId -> ReactFlowState n e -> NodeWrapperSlice n
 selectNodeSlice nodeId state =
-  { node: UnsafeReference (fromMaybe (placeholderNode nodeId) (Map.lookup nodeId state.nodeLookup))
-  , isParent: case Map.lookup (nodeToParent nodeId) state.parentLookup of
-      Just _ -> true
-      Nothing -> false
+  { node: UnsafeReference (fromMaybe (placeholderNode nodeId) (Lookup.get nodeId state.nodeLookup))
+  -- TS `s.parentLookup.has(id)`.
+  , isParent: Lookup.has (nodeToParent nodeId) state.parentLookup
   }
 
 placeholderNode :: forall n. NodeId -> InternalNode n

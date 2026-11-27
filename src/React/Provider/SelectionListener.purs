@@ -21,9 +21,11 @@ module React.Provider.SelectionListener
 
 import Prelude
 
-import Data.Array (mapMaybe) as Array
+import System.Utils.Lookup as Lookup
+
+import Data.Array (filter, mapMaybe, nub) as Array
 import Data.Foldable (for_)
-import Data.Map (lookup) as Map
+import Data.Map (Map)
 import Data.Maybe (Maybe(..))
 import Effect.Unsafe (unsafePerformEffect)
 import React.Basic (ReactComponent, element)
@@ -34,6 +36,7 @@ import React.Types.Component (SelectionListenerProps)
 import React.Types.Edges (Edge)
 import React.Types.Nodes (Node)
 import React.Types.Store (ReactFlowState)
+import System.Utils.AsWritten (forEachItems, isHeld, truthy) as AsWritten
 
 -- | The selection `onSelectionChange` receives, compared by ids only.
 newtype Selected n e = Selected { nodes :: Array (Node n), edges :: Array (Edge e) }
@@ -55,16 +58,19 @@ instance eqSelected :: Eq (Selected n e) where
 selectSelected :: forall n e. ReactFlowState n e -> Selected n e
 selectSelected s = Selected
   { nodes: Array.mapMaybe
-      ( \n -> Map.lookup n.id s.nodeLookup >>= \internal ->
-          if internal.selected == Just true then Just internal.internals.userNode else Nothing
-      )
-      s.nodes
-  , edges: Array.mapMaybe
-      ( \e -> Map.lookup e.id s.edgeLookup >>= \edge ->
-          if edge.selected == Just true then Just edge else Nothing
-      )
-      s.edges
+      (\internal -> if internal.selected == Just true then Just internal.internals.userNode else Nothing)
+      (walked s.nodes s.nodeLookup)
+  , edges: Array.filter (\edge -> edge.selected == Just true) (walked s.edges s.edgeLookup)
   }
+
+-- | TS `for (const [, item] of lookup)`, in the order the lookup was filled
+-- | from `items`. A lookup a consumer wrote with another value is walked as
+-- | upstream walks it. While `items` holds a value a consumer wrote, which
+-- | upstream's lookup does not follow, the walk is in key order.
+walked :: forall k v r. Ord k => Array { id :: k | r } -> Map k v -> Array v
+walked items lookup
+  | AsWritten.isHeld lookup || AsWritten.isHeld items = Lookup.entryValues lookup
+  | otherwise = Array.mapMaybe (\id -> Lookup.get id lookup) (Array.nub (map _.id items))
 
 -- The inner component that subscribes and runs the effect.
 selectionListenerInner :: forall n e. ReactComponent (SelectionListenerProps n e)
@@ -79,17 +85,28 @@ selectionListenerInner =
         case props.onSelectionChange of
           Just cb -> cb params
           Nothing -> pure unit
-        for_ s.onSelectionChangeHandlers \fn -> fn params
+        -- TS `s.onSelectionChangeHandlers.forEach((fn) => fn(…))`.
+        for_ (AsWritten.forEachItems s.onSelectionChangeHandlers) \fn -> fn params
         pure (pure unit)
       pure mempty
 
 -- | TS mounts the inner component when `onSelectionChange || !!s.onSelectionChangeHandlers`.
 -- | The handlers are an array, which is always truthy, so the inner one is
--- | always mounted. That matters: a handler `useOnSelectionChange` registers
--- | after the mount is not called until the selection changes, because the
--- | inner component's effect has already run.
+-- | mounted unless a consumer wrote a falsy value there. That matters: a
+-- | handler `useOnSelectionChange` registers after the mount is not called
+-- | until the selection changes, because the inner component's effect has
+-- | already run.
 selectionListener :: forall n e. ReactComponent (SelectionListenerProps n e)
 selectionListener =
   unsafePerformEffect $ reactComponent "SelectionListener"
-    \(props :: SelectionListenerProps n e) ->
-      pure (element selectionListenerInner props)
+    \(props :: SelectionListenerProps n e) -> React.do
+      hasHandlers <- useStore selectHasHandlers
+      pure case props.onSelectionChange of
+        Just _ -> element selectionListenerInner props
+        Nothing
+          | hasHandlers -> element selectionListenerInner props
+          | otherwise -> mempty
+
+-- | TS's `changeSelector`, `!!s.onSelectionChangeHandlers`.
+selectHasHandlers :: forall n e. ReactFlowState n e -> Boolean
+selectHasHandlers s = AsWritten.truthy s.onSelectionChangeHandlers

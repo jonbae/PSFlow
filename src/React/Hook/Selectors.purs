@@ -47,21 +47,24 @@ module React.Hook.Selectors
 
 import Prelude
 
-import Data.Array (length, mapMaybe) as Array
-import Data.List (List)
-import Data.List (foldl) as List
-import Data.Map (lookup, values) as Map
-import Data.Maybe (Maybe(..))
+import System.Utils.AsWritten (hold, isHeld, member, spread, spreadWith) as AsWritten
+import Unsafe.Coerce (unsafeCoerce)
+import Foreign (unsafeToForeign)
+
+import System.Utils.Lookup as Lookup
+
+import Data.Array (all, mapMaybe) as Array
+import Data.Maybe (Maybe(..), isJust)
 import Data.Newtype (unwrap)
 import React.Basic.Hooks (Hook)
 import React.Hook.Store (UseStore, useStore, useStoreWith)
 import React.Types.Edges (Edge)
 import React.Types.Nodes (InternalNode, Node)
 import React.Types.Store (ReactFlowState)
-import System.Types.Connection (ConnectionState(..), Viewport)
+import System.Types.Connection (ConnectionState(..), Viewport, isInProgress)
 import System.Types.Ids (NodeId)
 import System.Types.Node (InternalNodeBase)
-import System.Utils.General (pointToRendererPoint)
+import System.Utils.General (nodeHasDimensions, pointToRendererPoint)
 import System.Utils.ShallowNodeData (NodeSummary, shallowNodeData)
 
 -- | Mirrors the TS `UseNodesInitializedOptions = { includeHiddenNodes?: boolean }`.
@@ -141,7 +144,18 @@ useConnectionWith selector = useStore selectConn
 -- | and the connection line and `useConnection` read the same point.
 -- | `pointer` stays in the container's coordinates, as TS's does.
 selectConnection :: forall n e. ReactFlowState n e -> ConnectionState (InternalNodeBase n)
-selectConnection s = case s.connection of
+selectConnection s
+  -- TS `s.connection.inProgress ? { ...s.connection, to:
+  -- pointToRendererPoint(s.connection.to, s.transform) } : { ...s.connection }`,
+  -- of a connection a consumer wrote with a value of another shape. The
+  -- copy is held as written, so the boundary hands it out as it is.
+  | AsWritten.isHeld s.connection = AsWritten.hold $ unsafeCoerce
+      if isInProgress s.connection then
+        AsWritten.spreadWith "to"
+          (unsafeToForeign (pointToRendererPoint (unsafeCoerce (AsWritten.member "to" s.connection)) s.transform Nothing))
+          s.connection
+      else AsWritten.spread s.connection
+  | otherwise = case s.connection of
   ConnectionInProgress d -> ConnectionInProgress d { to = pointToRendererPoint d.to s.transform Nothing }
   NoConnection -> NoConnection
 
@@ -168,7 +182,7 @@ useNodesData ids = useStoreWith select same
 selectNodesData :: forall n e. Array NodeId -> ReactFlowState n e -> Array (NodeSummary n)
 selectNodesData ids s =
   Array.mapMaybe
-    ( \i -> Map.lookup i s.nodeLookup <#> \n ->
+    ( \i -> Lookup.get i s.nodeLookup <#> \n ->
         { id: unwrap n.id, nodeType: n.nodeType, data: n.data }
     )
     ids
@@ -183,36 +197,22 @@ useInternalNode
 useInternalNode nodeId = useStore selectOne
   where
   selectOne :: ReactFlowState n Unit -> Maybe (InternalNode n)
-  selectOne s = Map.lookup nodeId s.nodeLookup
+  selectOne s = Lookup.get nodeId s.nodeLookup
 
--- | TS port. Returns `true` when every non-hidden node has measured
--- | `handleBounds`. Short-circuits on the first node with missing
--- | measurements. Honours `includeHiddenNodes` — pass `true` to count
--- | hidden nodes as well.
--- |
--- | Returns `false` if there are no nodes at all (matches the TS
--- | `s.nodes.length > 0` guard).
+-- | TS's selector: the store's `nodesInitialized`, and with
+-- | `includeHiddenNodes`, whether every internal node in `nodeLookup` has its
+-- | handle bounds and its dimensions, `false` for an empty lookup.
 useNodesInitialized
   :: UseNodesInitializedOptions
   -> Hook (UseStore Boolean) Boolean
 useNodesInitialized opts = useStore selectInitialized
   where
   selectInitialized :: ReactFlowState Unit Unit -> Boolean
-  selectInitialized s =
-    let
-      nodes :: List (InternalNodeBase Unit)
-      nodes = Map.values s.nodeLookup
-
-      -- Mirror the TS loop: start at `false`, flip to `true` on the first
-      -- visible measured node, hard-stop at `false` on any visible
-      -- missing-measurement node. `acc.broken` carries the hard-stop.
-      step acc n =
-        if n.hidden == Just true && not opts.includeHiddenNodes then acc
-        else if acc.broken then acc
-        else case n.internals.handleBounds of
-          Nothing -> { initialised: false, broken: true }
-          Just _ -> { initialised: true, broken: false }
-
-      result = List.foldl step { initialised: false, broken: false } nodes
-    in
-      Array.length s.nodes > 0 && result.initialised
+  selectInitialized s
+    | not opts.includeHiddenNodes = s.nodesInitialized
+    | Lookup.isEmptyBySize s.nodeLookup = false
+    | otherwise =
+        -- TS `for (const [, { internals }] of s.nodeLookup)`.
+        Array.all
+          (\n -> isJust n.internals.handleBounds && nodeHasDimensions n.internals.userNode)
+          (Lookup.entryValues s.nodeLookup)

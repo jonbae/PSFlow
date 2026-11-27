@@ -11,6 +11,8 @@ module React.Store.InitialState
   , defaultInitialStateOptions
   , defaultOnError
   , initialState
+  , initialStateKeys
+  , resetState
   ) where
 
 import Prelude
@@ -113,7 +115,7 @@ initialState opts =
     width = fromMaybe 0.0 opts.width
     height = fromMaybe 0.0 opts.height
 
-    connRes = updateConnectionLookup edges
+    connRes = updateConnectionLookup (\_ -> unit) Map.empty Map.empty edges
 
     adoptOpts = defaultUpdateNodesOptions
       { nodeOrigin = nodeOrigin
@@ -245,6 +247,58 @@ initialState opts =
     , onNodesChangeMiddlewareMap: freshMiddlewareMap unit
     , onEdgesChangeMiddlewareMap: freshMiddlewareMap unit
     }
+
+-- | The members `getInitialState` names, in the order it names them, which
+-- | is the order upstream's `createStore` lays them out and `reset` writes
+-- | them.
+initialStateKeys :: Array String
+initialStateKeys =
+  [ "rfId", "width", "height", "transform", "nodes", "nodesInitialized", "nodeLookup"
+  , "parentLookup", "edges", "edgeLookup", "connectionLookup", "onNodesChange"
+  , "onEdgesChange", "hasDefaultNodes", "hasDefaultEdges", "panZoom", "minZoom"
+  , "maxZoom", "translateExtent", "nodeExtent", "nodesSelectionActive"
+  , "userSelectionActive", "userSelectionRect", "connectionMode", "domNode"
+  , "paneDragging", "noPanClassName", "nodeOrigin", "nodeDragThreshold"
+  , "connectionDragThreshold", "snapGrid", "snapToGrid", "nodesDraggable"
+  , "nodesConnectable", "nodesFocusable", "edgesFocusable", "edgesReconnectable"
+  , "elementsSelectable", "elevateNodesOnSelect", "elevateEdgesOnSelect"
+  , "selectNodesOnDrag", "multiSelectionActive", "fitViewQueued", "fitViewOptions"
+  , "fitViewResolver", "connection", "connectionClickStartHandle", "connectOnClick"
+  , "ariaLiveMessage", "autoPanOnConnect", "autoPanOnNodeDrag", "autoPanOnNodeFocus"
+  , "autoPanSpeed", "connectionRadius", "onError", "isValidConnection"
+  , "onSelectionChangeHandlers", "lib", "debug", "ariaLabelConfig", "zIndexMode"
+  , "onNodesChangeMiddlewareMap", "onEdgesChangeMiddlewareMap"
+  ]
+
+-- | Upstream's `reset`, `set({ ...getInitialState() })`. The `set` merges, so
+-- | every member the initial state names goes back to its initial value and
+-- | the 22 it does not name, the callbacks `StoreUpdater` adds beside it and
+-- | `defaultEdgeOptions`, keep theirs.
+resetState :: forall n e. ReactFlowState n e -> ReactFlowState n e
+resetState s = (initialState defaultInitialStateOptions)
+  { onNodeDragStart = s.onNodeDragStart
+  , onNodeDrag = s.onNodeDrag
+  , onNodeDragStop = s.onNodeDragStop
+  , onSelectionDragStart = s.onSelectionDragStart
+  , onSelectionDrag = s.onSelectionDrag
+  , onSelectionDragStop = s.onSelectionDragStop
+  , onMoveStart = s.onMoveStart
+  , onMove = s.onMove
+  , onMoveEnd = s.onMoveEnd
+  , onConnect = s.onConnect
+  , onConnectStart = s.onConnectStart
+  , onConnectEnd = s.onConnectEnd
+  , onClickConnectStart = s.onClickConnectStart
+  , onClickConnectEnd = s.onClickConnectEnd
+  , defaultEdgeOptions = s.defaultEdgeOptions
+  , onNodesDelete = s.onNodesDelete
+  , onEdgesDelete = s.onEdgesDelete
+  , onDelete = s.onDelete
+  , onViewportChangeStart = s.onViewportChangeStart
+  , onViewportChange = s.onViewportChange
+  , onViewportChangeEnd = s.onViewportChangeEnd
+  , onBeforeDelete = s.onBeforeDelete
+  }
 
 -- | Upstream's initial `onError`, `devWarn`: in development it writes
 -- | `[React Flow]: <message> Help: https://reactflow.dev/error#<id>` with

@@ -49,7 +49,9 @@ export const deleteMiddlewareImpl = (key, map) => {
   map.delete(key);
 };
 
-export const hasMiddleware = (map) => map.size > 0;
+// Upstream walks `map.values()` whatever the map holds, so a value a
+// consumer wrote that is not a `Map` is walked, and throws where it throws.
+export const hasMiddleware = (map) => !(map instanceof Map) || map.size > 0;
 
 export const runNodesChangeMiddlewareImpl = (map, changes) => {
   let current = changes;

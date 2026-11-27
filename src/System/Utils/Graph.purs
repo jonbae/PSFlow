@@ -30,12 +30,16 @@ module System.Utils.Graph
 
 import Prelude
 
+import System.Utils.AsWritten (isHeld) as AsWritten
+
+import System.Utils.Lookup as Lookup
+
 import Control.Alt ((<|>))
-import Data.Array (any, filter, foldl, fromFoldable, length, mapMaybe, nub, snoc) as Array
+import Data.Array (any, filter, foldl, length, mapMaybe, nub, snoc) as Array
 import Data.Either (Either(..))
 import Data.Foldable (foldMap) as Foldable
 import Data.Map (Map)
-import Data.Map (filter, lookup, size, values) as Map
+import Data.Map (filter) as Map
 import Data.Maybe (Maybe(..), fromMaybe, isJust, isNothing)
 import Data.Newtype (unwrap)
 import Data.Set (Set)
@@ -67,6 +71,7 @@ import System.Types.Node
   , NodeLookup
   )
 import System.Types.PanZoom (PanZoomInstance)
+import System.Utils.Truthy (isTruthy)
 import System.Utils.General
   ( boxToRect
   , clampPosition
@@ -165,7 +170,7 @@ getNodesBounds nodes mLookup origin
       nodeBoundingBox node =
         let
           source = case mLookup of
-            Just lookup -> case Map.lookup node.id lookup of
+            Just lookup -> case Lookup.get node.id lookup of
               Just internal -> Right internal
               Nothing -> Left node
             Nothing -> Left node
@@ -188,7 +193,8 @@ getInternalNodesBounds nodeLookup mFilter =
       Nothing -> true
       Just f -> f node
 
-    kept = Array.filter keep (Array.fromFoldable (Map.values nodeLookup))
+    -- TS `nodeLookup.forEach(…)`.
+    kept = Array.filter keep (Lookup.forEachValues nodeLookup)
   in
     if Array.length kept == 0
       then { x: 0.0, y: 0.0, width: 0.0, height: 0.0 }
@@ -207,18 +213,21 @@ type GetNodesInsideOptions =
   , excludeNonSelectable :: Boolean
   }
 
--- | The internal nodes in the order upstream's `nodeLookup` iterates them.
--- | `adoptUserNodes` rebuilds the lookup by iterating `nodes`, and a
+-- | The internal nodes in the order upstream's `nodeLookup.values()` gives
+-- | them. `adoptUserNodes` rebuilds the lookup by iterating `nodes`, and a
 -- | JavaScript `Map` keeps the first position of an id it's given twice. A
 -- | `Data.Map` iterates by key instead, so the order comes from `nodes`, and
--- | each id is looked up.
+-- | each id is looked up. A lookup a consumer wrote with another value is
+-- | walked as upstream walks it. While `nodes` holds a value a consumer
+-- | wrote, which upstream's lookup does not follow, the walk is in key order.
 orderedInternalNodes
   :: forall n r
    . Array { id :: NodeId | r }
   -> NodeLookup n
   -> Array (InternalNodeBase n)
-orderedInternalNodes nodes lookup =
-  Array.mapMaybe (\id -> Map.lookup id lookup) (Array.nub (map _.id nodes))
+orderedInternalNodes nodes lookup
+  | AsWritten.isHeld lookup || AsWritten.isHeld nodes = Lookup.values lookup
+  | otherwise = Array.mapMaybe (\id -> Lookup.get id lookup) (Array.nub (map _.id nodes))
 
 -- | Upstream's `getNodesInside` iterates the `nodeLookup` it's given, so
 -- | the nodes come in as an array in that order. `orderedInternalNodes`
@@ -338,7 +347,7 @@ fitViewport params mOptions = do
     nodesToFit = filterFitViewNodes params.nodes options
   -- TS returns early on an empty flow, and only then: options that pick no
   -- node fit the empty bounds, the zero rect at the origin.
-  if Map.size params.nodes == 0 then pure true
+  if Lookup.isEmptyBySize params.nodes then pure true
   else do
     let
       bounds = getInternalNodesBounds nodesToFit Nothing
@@ -407,12 +416,12 @@ calculateNodePosition
   :: forall n
    . CalculateNodePositionParams n
   -> Maybe { position :: XYPosition, positionAbsolute :: XYPosition, errors :: Array ErrorCode }
-calculateNodePosition p = case Map.lookup p.nodeId p.nodeLookup of
+calculateNodePosition p = case Lookup.get p.nodeId p.nodeLookup of
   Nothing -> Nothing
   Just node ->
     let
       parentNode = case node.parentId of
-        Just pid -> Map.lookup (parentToNode pid) p.nodeLookup
+        Just pid -> Lookup.get (parentToNode pid) p.nodeLookup
         Nothing -> Nothing
       parentX = case parentNode of
         Just pn -> pn.internals.positionAbsolute.x
@@ -516,14 +525,15 @@ getElementsToRemove p = do
         connectedEdges
         deletableEdges
 
+  -- Upstream's `if (!onBeforeDelete) return …`: a falsy one is not asked.
   case p.onBeforeDelete of
-    Nothing -> pure { nodes: matchingNodes, edges: matchingEdges }
-    Just cb -> do
+    Just cb | isTruthy cb -> do
       result <- cb { nodes: matchingNodes, edges: matchingEdges }
       pure case result of
         Left true -> { nodes: matchingNodes, edges: matchingEdges }
         Left false -> { nodes: [], edges: [] }
         Right r -> r
+    _ -> pure { nodes: matchingNodes, edges: matchingEdges }
   where
   collectMatchingNodes nodeIds nodes = Array.foldl step [] nodes
     where

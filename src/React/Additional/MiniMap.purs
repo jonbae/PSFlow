@@ -12,11 +12,14 @@ module React.Additional.MiniMap
 
 import Prelude
 
+import System.Utils.Lookup as Lookup
+
+import System.Utils.Number as JsNumber
+
 import Data.Foldable (for_)
-import Data.Map (isEmpty, lookup) as Map
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Newtype (class Newtype)
-import Data.Number.Format (toString) as NumberFormat
+import System.Utils.Number (toString) as NumberFormat
 import Data.Nullable (Nullable, null, toMaybe, toNullable)
 import Effect (Effect)
 import Effect.Unsafe (unsafePerformEffect)
@@ -81,15 +84,15 @@ defaultHeight :: Number
 defaultHeight = 150.0
 
 -- | Subscribe to the per-frame inputs the minimap viewport math depends
--- | on. Newtype-wrap for `Eq`; the `panZoom` and `ariaLabelConfig`
--- | fields use `UnsafeReference` for JS reference equality (both are
--- | records of functions / opaque foreign config).
+-- | on. Newtype-wrap for `Eq`; the `panZoom`, `translateExtent` and
+-- | `ariaLabelConfig` fields use `UnsafeReference` for JS reference
+-- | equality, as upstream's `shallow` compares each member with `Object.is`.
 newtype MMSlice = MMSlice
   { viewBB :: Rect
   , boundingRect :: Rect
   , rfId :: String
   , panZoom :: UnsafeReference (Maybe PanZoomInstance)
-  , translateExtent :: CoordinateExtent
+  , translateExtent :: UnsafeReference CoordinateExtent
   , flowWidth :: Number
   , flowHeight :: Number
   , ariaLabelConfig :: UnsafeReference AriaLabelConfig
@@ -110,7 +113,8 @@ selector s =
       , height: s.height / t.scale
       }
     boundingRect =
-      if Map.isEmpty s.nodeLookup then viewBB
+      -- TS `s.nodeLookup.size > 0`.
+      if not (Lookup.hasEntries s.nodeLookup) then viewBB
       else getBoundsOfRects
         (getInternalNodesBounds s.nodeLookup (Just (\n -> n.hidden /= Just true)))
         viewBB
@@ -120,7 +124,7 @@ selector s =
       , boundingRect
       , rfId: s.rfId
       , panZoom: UnsafeReference s.panZoom
-      , translateExtent: s.translateExtent
+      , translateExtent: UnsafeReference s.translateExtent
       , flowWidth: s.width
       , flowHeight: s.height
       , ariaLabelConfig: UnsafeReference s.ariaLabelConfig
@@ -134,7 +138,8 @@ newtype UpdateDeps = UpdateDeps
   , zoomable :: Boolean
   , inversePan :: Boolean
   , zoomStep :: Number
-  , translateExtent :: CoordinateExtent
+  -- React compares upstream's effect dependencies with `Object.is`.
+  , translateExtent :: UnsafeReference CoordinateExtent
   , flowWidth :: Number
   , flowHeight :: Number
   }
@@ -201,7 +206,7 @@ miniMap =
         elementHeight = asArithmetic elementHeightAttr
         scaledWidth = slice.boundingRect.width / elementWidth
         scaledHeight = slice.boundingRect.height / elementHeight
-        viewScale = max scaledWidth scaledHeight
+        viewScale = JsNumber.max scaledWidth scaledHeight
         viewWidth = viewScale * elementWidth
         viewHeight = viewScale * elementHeight
         offset = fromMaybe 5.0 props.offsetScale * viewScale
@@ -256,10 +261,12 @@ miniMap =
 
       -- Update effect keyed on the option bundle.
       useEffect deps do
-        let UpdateDeps d = deps
+        let
+          UpdateDeps d = deps
+          UnsafeReference extent = d.translateExtent
         mInst <- toMaybe <$> readRef instanceRef
         for_ mInst \inst -> inst.update
-          { translateExtent: d.translateExtent
+          { translateExtent: extent
           , width: d.flowWidth
           , height: d.flowHeight
           , inversePan: d.inversePan
@@ -289,7 +296,7 @@ miniMap =
           Nothing -> Nothing
           Just cb -> Just \me nid -> do
             st <- store.getState
-            case Map.lookup (NodeId nid) st.nodeLookup of
+            case Lookup.get (NodeId nid) st.nodeLookup of
               Nothing -> pure unit
               Just internal -> cb me (unsafeCoerce internal)
 

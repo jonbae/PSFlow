@@ -7,7 +7,8 @@ module React.Additional.EdgeToolbar
 
 import Prelude
 
-import Data.Map (lookup) as Map
+import System.Utils.Lookup as Lookup
+
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Nullable (toMaybe)
 import Effect.Unsafe (unsafePerformEffect)
@@ -33,7 +34,7 @@ toForeignStyle = unsafeCoerce
 
 -- | TS's `edgeSelector`, the edge the toolbar is for.
 selectEdge :: forall n e. String -> ReactFlowState n e -> Maybe (Edge e)
-selectEdge edgeId s = Map.lookup edgeId s.edgeLookup
+selectEdge edgeId s = Lookup.get edgeId s.edgeLookup
 
 -- | TS's `zoomSelector`, compared by `Object.is` as `useStore` compares a
 -- | selection upstream hands it no equality for.

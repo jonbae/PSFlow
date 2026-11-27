@@ -3,11 +3,12 @@ module System.XYResizer (module Types, createXYResizer) where
 
 import Prelude hiding (min, max)
 
+import System.Utils.Lookup as Lookup
+
 import Data.Either (Either(..))
 import Data.Array as Array
 import Data.Foldable (for_)
 import Data.Function.Uncurried (Fn2, runFn2)
-import Data.Map as Map
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Number as Number
 import Effect (Effect)
@@ -106,7 +107,7 @@ createXYResizer params = do
 onStart :: forall n. XYResizerParams n -> ResizerState n -> XYResizerUpdateParams -> D3DragEvent -> Effect Unit
 onStart params state upd event = do
   store <- params.getStoreItems
-  let found = Map.lookup params.nodeId store.nodeLookup
+  let found = Lookup.get params.nodeId store.nodeLookup
   Ref.write found state.node
   for_ found \node -> do
     bounds <- case store.paneDomNode of
@@ -126,7 +127,7 @@ onStart params state upd event = do
       } state.startValues
     let
       parent = case node.parentId of
-        Just pid | node.extent == Just ParentExtent || node.expandParent == Just true -> Map.lookup (parentToNode pid) store.nodeLookup
+        Just pid | node.extent == Just ParentExtent || node.expandParent == Just true -> Lookup.get (parentToNode pid) store.nodeLookup
         _ -> Nothing
       extent = case node.extent, parent of
         Just ParentExtent, Just p -> Just $ CoordinateExtent
@@ -137,7 +138,7 @@ onStart params state upd event = do
     Ref.write extent state.nodeExtent
     Ref.write [] state.childNodes
     Ref.write Nothing state.childExtent
-    for_ store.nodeOrder \childId -> for_ (Map.lookup childId store.nodeLookup) \child ->
+    for_ store.nodeOrder \childId -> for_ (Lookup.get childId store.nodeLookup) \child ->
       when (map parentToNode child.parentId == Just params.nodeId) do
         Ref.modify_ (_ <> [ { id: childId, position: { x: child.position.x, y: child.position.y }, extent: child.extent } ]) state.childNodes
         when (child.extent == Just ParentExtent || child.expandParent == Just true) do

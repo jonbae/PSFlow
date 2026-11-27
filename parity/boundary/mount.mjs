@@ -1539,7 +1539,7 @@ const hooks = [
   { name: "useEdgesState", setter: "setEdges", hook: useEdgesState, initial: jsEdges, shaped: "edgeType" },
 ];
 
-for (const { name, setter: setterName, hook, initial, shaped } of hooks) {
+for (const { name, hook, initial, shaped } of hooks) {
   check(`\`${name}\` returns upstream's three-slot array, not a thunk`, () => {
     const [tuple] = hookProbe(hook, initial);
     assert(Array.isArray(tuple), `returned ${typeof tuple} — a consumer destructures an array`);
@@ -1584,11 +1584,13 @@ for (const { name, setter: setterName, hook, initial, shaped } of hooks) {
     assert(seen.at(-1)[0].length === 0, `the array did not land: ${JSON.stringify(seen.at(-1)[0])}`);
   });
 
-  throws(
-    `\`${name}\`'s setter refuses an argument that is neither`,
-    () => hookProbe(hook, initial, ([, set], pass) => pass === 0 && set(42)),
-    setterName
-  );
+  // Upstream's setter is React's own, which holds whatever it is handed;
+  // the value fails later, where the flow first uses it.
+  check(`\`${name}\`'s setter holds an argument that is neither, as React's does`, () => {
+    const seen = hookProbe(hook, initial, ([, set], pass) => pass === 0 && set(42));
+    assert(seen.length > 1, "the update did not re-render the probe");
+    assert(seen.at(-1)[0] === 42, `slot 0 reads ${JSON.stringify(seen.at(-1)[0])}, not what was set`);
+  });
 }
 
 // ── 7. The imperative instance, and the other nineteen hooks ────────────
@@ -1809,11 +1811,11 @@ check("`setNodes` also takes the plain array React's contract allows", () => {
   assert(instance.setNodes([]) === undefined, "did not run");
 });
 
-throws(
-  "`setNodes` refuses an argument that is neither an array nor a function",
-  () => instance.setNodes(42),
-  "setNodes"
-);
+// Upstream's queue takes any value, and its diff fails at `items.map`
+// when the queue is drained, which no server render does.
+check("`setNodes` takes an argument that is neither an array nor a function, as upstream's queue does", () => {
+  assert(instance.setNodes(42) === undefined, "did not run");
+});
 
 for (const [name, args] of [
   ["setEdges", [[]]],

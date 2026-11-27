@@ -324,8 +324,10 @@ test('a value outside a member type reads back as written', () => {
 });
 
 // ps-flow reads `NODE_ENV` once, when it loads, so a development build is a
-// process of its own.
-test('in development, ps-flow says which members its internals keep', () => {
+// process of its own. zustand's `setState` prints nothing whatever it is
+// handed, and ps-flow's internals hold a value they cannot read as it was
+// written rather than keeping an earlier one, so there is nothing to say.
+test('in development, a value of the wrong shape and a replacement print nothing', () => {
   const script = `
     import { createElement } from 'react';
     import { renderToStaticMarkup } from 'react-dom/server';
@@ -337,9 +339,8 @@ test('in development, ps-flow says which members its internals keep', () => {
     const warnings = [];
     console.warn = (...args) => warnings.push(args.join(' '));
     flow.api.setState({ nodes: 'x', minZoom: '2' });
-    const written = warnings.length;
     flow.api.setState({ custom: 1 }, true);
-    console.log(JSON.stringify({ written: warnings.slice(0, written), replaced: warnings.slice(written) }));
+    console.log(JSON.stringify({ warnings, nodes: flow.api.getState().nodes ?? null }));
   `;
   const run = spawnSync(process.execPath, ['--input-type=module', '-e', script], {
     cwd: fileURLToPath(new URL('../../', import.meta.url)),
@@ -347,13 +348,8 @@ test('in development, ps-flow says which members its internals keep', () => {
     encoding: 'utf8',
   });
   assert.equal(run.status, 0, run.stderr);
-  const { written, replaced } = JSON.parse(run.stdout.trim().split('\n').at(-1));
-  assert.equal(written.length, 1, 'one member could not be read');
-  assert.match(written[0], /`nodes`/);
-  assert.doesNotMatch(written[0], /`minZoom`/, 'a primitive member holds what was written');
-  assert.equal(replaced.length, 1, 'a replacement says once which members it left out');
-  for (const key of ['nodes', 'nodeLookup', 'transform']) assert.match(replaced[0], new RegExp(`\`${key}\``));
-  assert.doesNotMatch(replaced[0], /`minZoom`/);
+  const { warnings } = JSON.parse(run.stdout.trim().split('\n').at(-1));
+  assert.deepEqual(warnings, []);
 });
 
 test('a value written outside its type does not leak into other states', () => {
