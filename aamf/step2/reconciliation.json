@@ -18862,7 +18862,7 @@
     "src/React/Store/PanBy.purs": "a9a742f35c08c6a9586e5a653294b2fb1e53c88d0bbdcfcd430ceeb9fb15efa6",
     "src/React/Store/Partial.js": "8c45ab08f136e27a92a7df8aaa37b1999baf33fbd6dfcd355feba4531310a153",
     "src/React/Store/Partial.purs": "0d662fd1e842862fc37819c76aaf56dbc460cc79e513682a7f23e606d458a75e",
-    "src/React/Store/Reduce.purs": "76ee539f0568aa9a98270c8c1f88972aa41c64eb2e12b8837a8f2a3799d662f7",
+    "src/React/Store/Reduce.purs": "7d792914dcb705cf9fcc71175143f34096ee7fb31c146f9404089c33465ad25c",
     "src/React/Store/Shell.purs": "4282e86582903efb4111ff9dfba35cef7a9abf06614db02d753a3ad7385f70ae",
     "src/React/Types.purs": "08d9bd66a86422d90b5b14af636c5b9ef7e6e7b607453455c1a2f0765d37a894",
     "src/React/Types/Component.purs": "21c1ef6ae7fa7716886b1a1ea556fefe2c1d5244b502eddc79c0e306872585f2",

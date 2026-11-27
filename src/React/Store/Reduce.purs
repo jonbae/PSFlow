@@ -49,7 +49,7 @@ import System.Types.Connection (ConnectionLookup, ConnectionState(..), isInProgr
 import System.Types.Edge (EdgeChange(..), EdgeLookup)
 import System.Types.Ids (NodeId)
 import System.Constants (infiniteExtent)
-import System.Types.Geometry (CoordinateExtent, Position(..))
+import System.Types.Geometry (CoordinateExtent(..), Position(..))
 import System.Types.Node (NodeChange(..), NodeDragItem, NodeLookup)
 import System.Utils.Edges.Positions (getHandlePosition)
 import System.Utils.Store
@@ -636,25 +636,40 @@ reduceSetNodeExtent
    . ReactFlowState n e
   -> CoordinateExtent
   -> ReduceResult n e
-reduceSetNodeExtent state ext =
-  let
-    r = adoptUserNodes state.nodes state.nodeLookup state.parentLookup
-      ( defaultUpdateNodesOptions
-          { nodeOrigin = state.nodeOrigin
-          , nodeExtent = ext
-          , elevateNodesOnSelect = state.elevateNodesOnSelect
-          , zIndexMode = state.zIndexMode
-          }
-      )
-  in
-    { state: state
-        { nodeExtent = ext
-        , nodeLookup = r.nodeLookup
-        , parentLookup = r.parentLookup
+reduceSetNodeExtent state ext
+  -- TS compares the four numbers with `===` and returns before its `set`.
+  | sameExtent ext state.nodeExtent = { state, effects: [], writes: [] }
+  | otherwise =
+      let
+        -- TS re-adopts with `checkEquality: false`, so a node whose user
+        -- object is unchanged is still rebuilt and clamped to the new extent.
+        r = adoptUserNodes state.nodes state.nodeLookup state.parentLookup
+          ( defaultUpdateNodesOptions
+              { nodeOrigin = state.nodeOrigin
+              , nodeExtent = ext
+              , elevateNodesOnSelect = state.elevateNodesOnSelect
+              , zIndexMode = state.zIndexMode
+              , checkEquality = false
+              }
+          )
+      in
+        { state: state
+            { nodeExtent = ext
+            , nodeLookup = r.nodeLookup
+            , parentLookup = r.parentLookup
+            }
+        , effects: []
+        , writes: [ "nodeExtent" ]
         }
-    , effects: []
-    , writes: [ "nodeExtent" ]
-    }
+
+-- | TS's four `===` comparisons, in its order: `[0][0]`, `[0][1]`, `[1][0]`,
+-- | `[1][1]`, stopping at the first that differs.
+sameExtent :: CoordinateExtent -> CoordinateExtent -> Boolean
+sameExtent (CoordinateExtent a) (CoordinateExtent b) =
+  a.minX == b.minX
+    && a.minY == b.minY
+    && a.maxX == b.maxX
+    && a.maxY == b.maxY
 
 -- | Where upstream's `updateConnectionLookup` throws partway, the store's
 -- | own lookups, which it clears and fills in place, stay as far as it got,
