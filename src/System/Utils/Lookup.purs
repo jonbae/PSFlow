@@ -18,6 +18,7 @@ module System.Utils.Lookup
   , entryValues
   , entryKeys
   , fillOrderKeys
+  , fillOrderEntries
   , forEachValues
   , copied
   , cleared
@@ -29,12 +30,14 @@ module System.Utils.Lookup
 
 import Prelude
 
-import Data.Array (fromFoldable, nub) as Array
+import Data.Array (fromFoldable, mapMaybe, nub) as Array
+import Data.Foldable (foldr)
 import Data.Function.Uncurried (Fn2, Fn3, Fn4, runFn2, runFn3, runFn4)
 import Data.Map (Map)
-import Data.Map (empty, insert, isEmpty, keys, lookup, member, values) as Map
+import Data.Map (delete, empty, insert, isEmpty, keys, lookup, member, toUnfoldable, values) as Map
 import Data.Maybe (Maybe)
 import Data.Nullable (Nullable, toMaybe)
+import Data.Tuple (Tuple(..), fst)
 import System.Utils.AsWritten (hold, isHeld)
 
 foreign import getImpl :: forall k v. Fn2 k (Map k v) (Nullable v)
@@ -45,6 +48,7 @@ foreign import valuesImpl :: forall k v. Map k v -> Array v
 foreign import entryValuesImpl :: forall k v. Map k v -> Array v
 foreign import forEachValuesImpl :: forall k v. Map k v -> Array v
 foreign import entryKeysImpl :: forall k v. Map k v -> Array k
+foreign import entriesImpl :: forall k v. Map k v -> Array { key :: k, value :: v }
 foreign import copiedImpl :: forall k v. Map k v -> Map k v
 foreign import clearImpl :: forall k v. Map k v -> Map k v
 foreign import setImpl :: forall k v. Fn3 k v (Map k v) (Map k v)
@@ -104,6 +108,21 @@ fillOrderKeys :: forall k v r. Ord k => Array { id :: k | r } -> Map k v -> Arra
 fillOrderKeys items lookup
   | isHeld lookup || isHeld items = entryKeys lookup
   | otherwise = Array.nub (map _.id items)
+
+-- | TS `for (const [key, value] of lookup)` over a lookup filled from
+-- | `items`: its entries in the order it was filled, which is `fillOrderKeys`'
+-- | order. An entry `items` does not name, which only a direct `setState` of
+-- | `items` leaves, comes after them, in key order. A lookup a consumer wrote
+-- | with another value is walked as upstream walks it.
+fillOrderEntries :: forall k v r. Ord k => Array { id :: k | r } -> Map k v -> Array (Tuple k v)
+fillOrderEntries items lookup
+  | isHeld lookup = map (\entry -> Tuple entry.key entry.value) (entriesImpl lookup)
+  | otherwise =
+      let
+        named = Array.mapMaybe (\key -> Tuple key <$> Map.lookup key lookup) (fillOrderKeys items lookup)
+        unnamed = Map.toUnfoldable (foldr (Map.delete <<< fst) lookup named)
+      in
+        named <> unnamed
 
 -- | `lookup.forEach((value) => …)`.
 forEachValues :: forall k v. Map k v -> Array v

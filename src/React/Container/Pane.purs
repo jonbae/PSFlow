@@ -166,7 +166,7 @@ selectNodesInBox store ids = do
   -- Read inside the effect: discovery mutates internal nodes, so constructing
   -- an action for `when nodesChanged` must not run it before the guard.
   st <- store.getState
-  let r = getNodeSelectionChanges st.nodeLookup ids true
+  let r = getNodeSelectionChanges st.nodes st.nodeLookup ids true
   store.dispatch (MutateState _ { nodeLookup = r.items })
   store.dispatch (TriggerNodeChanges r.changes)
 
@@ -237,7 +237,7 @@ pane =
                 selectNodesInBox store step.nodeIds
 
               when step.edgesChanged do
-                let r = getEdgeSelectionChanges st.edgeLookup step.edgeIds
+                let r = getEdgeSelectionChanges st.edges st.edgeLookup step.edgeIds
                 store.dispatch (TriggerEdgeChanges r.changes)
 
               writeRef selectedNodeIdsRef step.nodeIds

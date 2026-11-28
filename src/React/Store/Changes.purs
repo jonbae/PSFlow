@@ -250,21 +250,23 @@ insertItemAt mIndex item arr = case mIndex of
 -- | `Boolean`, and an edge's is a `Maybe Boolean`, read as `false` when it's
 -- | unset. That reading is upstream's
 -- | `!(item.selected === undefined && !willBeSelected) && item.selected !== willBeSelected`.
+-- |
+-- | TS walks the lookup with `for…of`, in the order it was filled from
+-- | `filledFrom`, so the changes come in that order.
 getSelectionChangesGeneric
-  :: forall k s r
+  :: forall k s r q
    . Ord k
   => (s -> Boolean)
   -> (Boolean -> s)
+  -> Array { id :: k | q }
   -> Map k { id :: k, selected :: s | r }
   -> Set k
   -> Boolean
   -> { changes :: Array { id :: k, selected :: Boolean }
      , items :: Map k { id :: k, selected :: s | r }
      }
-getSelectionChangesGeneric isSelected toSelected items selectedIds mutate =
+getSelectionChangesGeneric isSelected toSelected filledFrom items selectedIds mutate =
   let
-    pairs :: Array (Tuple k { id :: k, selected :: s | r })
-    pairs = Map.toUnfoldable items
     step acc (Tuple id item) =
       let
         willBeSelected = Set.member id selectedIds
@@ -279,32 +281,38 @@ getSelectionChangesGeneric isSelected toSelected items selectedIds mutate =
             else result
         else acc
   in
-    foldl step { changes: [], items } pairs
+    foldl step { changes: [], items } (Lookup.fillOrderEntries filledFrom items)
 
+-- | TS `getSelectionChanges(nodeLookup, selectedIds, mutate)`, for a lookup
+-- | filled from `nodes`.
 getNodeSelectionChanges
-  :: forall n
-   . NodeLookup n
+  :: forall n q
+   . Array { id :: NodeId | q }
+  -> NodeLookup n
   -> Set NodeId
   -> Boolean
   -> { changes :: Array (NodeChange n)
      , items :: NodeLookup n
      }
-getNodeSelectionChanges lookup selectedIds mutate =
+getNodeSelectionChanges nodes lookup selectedIds mutate =
   let
-    r = getSelectionChangesGeneric (_ == Just true) Just lookup selectedIds mutate
+    r = getSelectionChangesGeneric (_ == Just true) Just nodes lookup selectedIds mutate
     changes = map (\p -> NodeSelectionChange { id: p.id, selected: p.selected }) r.changes
   in
     { changes, items: r.items }
 
+-- | TS `getSelectionChanges(edgeLookup, selectedIds)`, for a lookup filled
+-- | from `edges`.
 getEdgeSelectionChanges
-  :: forall e
-   . EdgeLookup e
+  :: forall e q
+   . Array { id :: String | q }
+  -> EdgeLookup e
   -> Set String
   -> { changes :: Array (EdgeChange e)
      }
-getEdgeSelectionChanges lookup selectedIds =
+getEdgeSelectionChanges edges lookup selectedIds =
   let
-    r = getSelectionChangesGeneric (_ == Just true) Just lookup selectedIds false
+    r = getSelectionChangesGeneric (_ == Just true) Just edges lookup selectedIds false
     changes = map (\p -> EdgeSelectionChange { id: p.id, selected: p.selected }) r.changes
   in
     { changes }

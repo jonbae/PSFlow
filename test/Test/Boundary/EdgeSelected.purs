@@ -43,7 +43,7 @@ assert label cond =
 selectionChanges :: JsEdge -> Array String -> Int
 selectionChanges edge selectedIds =
   Array.length
-    ( getEdgeSelectionChanges (Map.singleton "ab" (edgeIn edge)) (Set.fromFoldable selectedIds)
+    ( getEdgeSelectionChanges [ edgeIn edge ] (Map.singleton "ab" (edgeIn edge)) (Set.fromFoldable selectedIds)
     ).changes
 
 runEdgeSelectedTests :: Effect Unit
