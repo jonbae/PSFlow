@@ -214,11 +214,10 @@ setNodesWrites fits =
 
 -- | Re-adopt `nodes` into the lookups and write
 -- | `nodes`/`nodeLookup`/`parentLookup`/`nodesInitialized` back onto the
--- | state. Shared by `reduceSetNodes` and the uncontrolled branch of
--- | `reduceTriggerNodeChanges`: a committed change has to re-adopt so the
--- | rendered nodes reflect it (`NodeWrapper` reads from `nodeLookup`, not
--- | the `nodes` array). `prev = state.nodeLookup` preserves the measured
--- | `handleBounds`/`bounds` of nodes that survive the change.
+-- | state, for `reduceSetNodes`. `NodeWrapper` renders from `nodeLookup`, not
+-- | the `nodes` array, so every new `nodes` has to re-adopt. `prev =
+-- | state.nodeLookup` preserves the measured `handleBounds`/`bounds` of
+-- | nodes that survive the change.
 adoptNodesInto
   :: forall n e
    . Setup
@@ -460,20 +459,15 @@ reduceTriggerNodeChanges setup state changes
   -- found nothing to change, such as a pane click with nothing selected,
   -- reaches here with one.
   | Array.null changes = { state, effects: [], writes: [] }
-  | otherwise =
+  -- Uncontrolled mode: TS applies the changes and calls `setNodes`, which
+  -- re-adopts them into the lookup `NodeWrapper` renders from and fits a
+  -- queued view once the nodes are initialized.
+  | state.hasDefaultNodes =
       let
-        s1 =
-          if state.hasDefaultNodes then
-            -- Uncontrolled mode: commit the change *and* re-adopt so the lookup
-            -- (what NodeWrapper renders from) reflects it — fixes uncontrolled
-            -- drag and delete, which previously updated `nodes` but not the screen.
-            adoptNodesInto setup state (applyNodeChanges changes state.nodes)
-          else state
+        r = reduceSetNodes setup state (applyNodeChanges changes state.nodes)
       in
-        { state: s1
-        , effects: [ FireOnNodesChange changes ]
-        , writes: if state.hasDefaultNodes then setNodesWrites false else []
-        }
+        r { effects = r.effects <> [ FireOnNodesChange changes ] }
+  | otherwise = { state, effects: [ FireOnNodesChange changes ], writes: [] }
 
 -- TriggerEdgeChanges ----------------------------------------------------
 
