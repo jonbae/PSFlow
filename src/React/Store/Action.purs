@@ -151,6 +151,11 @@ data Effect_ n e
   -- the lookups as they are then.
   | RunReplaceNodeSelection (Set NodeId)
   | RunReplaceEdgeSelection (Set String)
+  -- TS `if (debug) console.log('React Flow: trigger node changes', changes)`,
+  -- and its edge counterpart. The reducer emits them when the state it
+  -- reduced has `debug` set, which is when upstream's `get()` reads it.
+  | LogNodeChanges (Array (NodeChange n))
+  | LogEdgeChanges (Array (EdgeChange e))
   -- A drag's position changes, to run through the node-change middleware
   -- and then trigger. Middleware is consumer code, so it runs in the shell,
   -- after the reducer's state is written, and a store write it makes is

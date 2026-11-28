@@ -1206,10 +1206,20 @@ check("`<ReactFlow />` takes upstream's props, its children and a ref together",
 // No DOM needed. A `forwardRef` exposes its render function, and calling it
 // runs the boundary conversion and returns an element rather than rendering
 // one, so no hook runs and nothing needs mounting. What comes back is the
-// element for the PureScript component, and the converted props are on it.
+// provider of the change log `debug` prints through, holding the element for
+// the PureScript component, and the converted props are on that.
+const flowElement = (rendered) => {
+  assert(
+    rendered.type?.$$typeof === Symbol.for("react.provider"),
+    "`<ReactFlow />` no longer renders the change-log provider around the PureScript component"
+  );
+  const children = [rendered.props.children].flat();
+  assert(children.length === 1, `the change-log provider holds ${children.length} elements, not 1`);
+  return children[0];
+};
 check("`<ReactFlow />` hands the forwarded ref to the PureScript component", () => {
   const sentinel = { current: null };
-  const withRef = ReactFlow.render({ ...convertedProps }, sentinel);
+  const withRef = flowElement(ReactFlow.render({ ...convertedProps }, sentinel));
   assert(
     withRef.props.innerRef === sentinel,
     "the forwarded ref never reached `ReactFlowProps.innerRef` — it is accepted and dropped"
@@ -1218,7 +1228,7 @@ check("`<ReactFlow />` hands the forwarded ref to the PureScript component", () 
   // a `Maybe`: React passes `null` when the caller supplied no ref, and that
   // has to survive as the `null` React reads back as "no ref". A conversion
   // that turned it into anything else would put a truthy non-ref on the div.
-  const withNone = ReactFlow.render({ ...convertedProps }, null);
+  const withNone = flowElement(ReactFlow.render({ ...convertedProps }, null));
   assert(
     withNone.props.innerRef === null,
     `no-ref mount put ${JSON.stringify(withNone.props.innerRef)} on \`innerRef\`, not null`
