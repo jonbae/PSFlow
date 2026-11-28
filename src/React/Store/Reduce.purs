@@ -348,7 +348,11 @@ reduceMergeNodeInternals state r
         -- Upstream first calls set({}) to notify about the measured
         -- internals, then triggerNodeChanges may call setNodes. Combining
         -- those writes loses a selector evaluation and its observable errors.
-        changes = if Array.null r.changes then [] else [ RunTriggerNodeChanges r.changes ]
+        -- Under `debug`, TS logs the changes here too, before
+        -- `triggerNodeChanges` logs them again.
+        changes =
+          if Array.null r.changes then []
+          else debugNodeLog state r.changes <> [ RunTriggerNodeChanges r.changes ]
       in
         { state: s2
         , effects: fit <> changes
@@ -465,12 +469,23 @@ reduceTriggerNodeChanges setup state changes
   -- Uncontrolled mode: TS applies the changes and calls `setNodes`, which
   -- re-adopts them into the lookup `NodeWrapper` renders from and fits a
   -- queued view once the nodes are initialized.
+  -- In both modes, TS logs the changes under `debug` before it calls
+  -- `onNodesChange`.
   | state.hasDefaultNodes =
       let
         r = reduceSetNodes setup state (applyNodeChanges changes state.nodes)
       in
-        r { effects = r.effects <> [ FireOnNodesChange changes ] }
-  | otherwise = { state, effects: [ FireOnNodesChange changes ], writes: [] }
+        r { effects = r.effects <> debugNodeLog state changes <> [ FireOnNodesChange changes ] }
+  | otherwise =
+      { state, effects: debugNodeLog state changes <> [ FireOnNodesChange changes ], writes: [] }
+
+-- | TS `if (debug) console.log('React Flow: trigger node changes', changes)`.
+debugNodeLog :: forall n e. ReactFlowState n e -> Array (NodeChange n) -> Array (Effect_ n e)
+debugNodeLog state changes = if state.debug then [ LogNodeChanges changes ] else []
+
+-- | TS `if (debug) console.log('React Flow: trigger edge changes', changes)`.
+debugEdgeLog :: forall n e. ReactFlowState n e -> Array (EdgeChange e) -> Array (Effect_ n e)
+debugEdgeLog state changes = if state.debug then [ LogEdgeChanges changes ] else []
 
 -- TriggerEdgeChanges ----------------------------------------------------
 
@@ -503,7 +518,7 @@ reduceTriggerEdgeChanges state changes
           else state
       in
         { state: s1
-        , effects: [ FireOnEdgesChange changes ]
+        , effects: debugEdgeLog state changes <> [ FireOnEdgesChange changes ]
         , writes: if state.hasDefaultEdges then [ "edges" ] else []
         }
 

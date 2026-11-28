@@ -11,6 +11,7 @@ module React.Store.Shell
   , StoreApi
   , Subscribe(..)
   , createStore
+  , createStoreWith
   ) where
 
 import Prelude
@@ -24,6 +25,7 @@ import Partial.Unsafe (unsafePartial)
 import Effect.Aff (launchAff_)
 import Effect.Ref as Ref
 import Effect.Class (liftEffect)
+import React.Context.ChangeLog (ChangeLog, changesAsTheyAre, logChanges)
 import React.Store.Action (Action(..), Effect_(..))
 import React.Store.InitialState (InitialStateOptions, initialState)
 import React.Store.Reduce (reduceWith)
@@ -34,6 +36,7 @@ import React.Types.Store (ReactFlowState)
 import System.Constants (errorMessage, infiniteExtent)
 import System.Utils.Graph (fitViewport)
 import System.Utils.Store (updateNodeInternals)
+import Foreign (unsafeToForeign)
 import Unsafe.Coerce (unsafeCoerce)
 import Unsafe.Reference (unsafeRefEq)
 import Web.HTML.HTMLDivElement (toHTMLElement)
@@ -117,8 +120,14 @@ type Store n e =
 
 type StoreApi n e = Store n e
 
+-- | A store whose `debug` logs show changes as the PureScript surface's
+-- | callbacks receive them.
 createStore :: forall n e. InitialStateOptions n e -> Effect (Store n e)
-createStore opts = do
+createStore = createStoreWith changesAsTheyAre
+
+-- | A store whose `debug` logs show changes through `changeLog`.
+createStoreWith :: forall n e. ChangeLog -> InitialStateOptions n e -> Effect (Store n e)
+createStoreWith changeLog opts = do
   let
     firstState = initialState opts
     -- What upstream's `createStore` closes over.
@@ -180,6 +189,10 @@ createStore opts = do
               }
           )
       RunTriggerNodeChanges changes -> dispatch_ (TriggerNodeChanges changes)
+      LogNodeChanges changes ->
+        logChanges "React Flow: trigger node changes" (changeLog.nodeChanges (unsafeToForeign changes))
+      LogEdgeChanges changes ->
+        logChanges "React Flow: trigger edge changes" (changeLog.edgeChanges (unsafeToForeign changes))
       RunReplaceNodeSelection ids -> dispatch_ (ReplaceNodeSelection ids)
       RunReplaceEdgeSelection ids -> dispatch_ (ReplaceEdgeSelection ids)
       RunNodesChangeMiddleware changes -> do

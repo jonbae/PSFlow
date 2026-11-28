@@ -20,12 +20,13 @@ import Prelude
 import Data.Maybe (Maybe(..))
 import Effect.Unsafe (unsafePerformEffect)
 import React.Basic (ReactComponent, element)
-import React.Basic.Hooks (reactComponentWithChildren, useMemo)
+import React.Basic.Hooks (reactComponentWithChildren, useContext, useMemo)
 import React.Basic.Hooks as React
+import React.Context.ChangeLog (changeLogContext)
 import React.Context.Store (OpaqueStore, storeProvider)
 import React.Provider.Batch (batchProvider)
 import React.Store.InitialState (InitialStateOptions)
-import React.Store.Shell (Store, createStore)
+import React.Store.Shell (Store, createStoreWith)
 import React.Types.Component (ReactFlowProviderProps)
 import Unsafe.Coerce (unsafeCoerce)
 
@@ -38,8 +39,9 @@ reactFlowProvider :: forall n e. ReactComponent (ReactFlowProviderProps n e)
 reactFlowProvider =
   unsafePerformEffect $ reactComponentWithChildren "ReactFlowProvider"
     \(props :: ReactFlowProviderProps n e) -> React.do
+      changeLog <- useContext changeLogContext
       store <- useMemo unit \_ ->
-        unsafePerformEffect (createStore (toInitOptions props))
+        unsafePerformEffect (createStoreWith changeLog (toInitOptions props))
       pure $ storeProvider (Just (storeToOpaque store))
         [ element batchProvider { children: props.children } ]
   where

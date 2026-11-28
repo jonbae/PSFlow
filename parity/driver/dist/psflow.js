@@ -36552,6 +36552,26 @@ var RunReplaceEdgeSelection = /* @__PURE__ */ function() {
   };
   return RunReplaceEdgeSelection2;
 }();
+var LogNodeChanges = /* @__PURE__ */ function() {
+  function LogNodeChanges2(value0) {
+    this.value0 = value0;
+  }
+  ;
+  LogNodeChanges2.create = function(value0) {
+    return new LogNodeChanges2(value0);
+  };
+  return LogNodeChanges2;
+}();
+var LogEdgeChanges = /* @__PURE__ */ function() {
+  function LogEdgeChanges2(value0) {
+    this.value0 = value0;
+  }
+  ;
+  LogEdgeChanges2.create = function(value0) {
+    return new LogEdgeChanges2(value0);
+  };
+  return LogEdgeChanges2;
+}();
 var RunNodesChangeMiddleware = /* @__PURE__ */ function() {
   function RunNodesChangeMiddleware2(value0) {
     this.value0 = value0;
@@ -59059,6 +59079,18 @@ var graphView = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ memo(/* @__P
   });
 })));
 
+// output/React.Context.ChangeLog/foreign.js
+var logChanges = (message2) => (changes) => () => console.log(message2, changes);
+
+// output/React.Context.ChangeLog/index.js
+var identity8 = /* @__PURE__ */ identity(categoryFn);
+var changesAsTheyAre = {
+  nodeChanges: identity8,
+  edgeChanges: identity8
+};
+var changeLogContext = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ createContext(changesAsTheyAre));
+var changeLogProvider = /* @__PURE__ */ provider(changeLogContext);
+
 // output/React.Hook.IsomorphicLayoutEffect/foreign.js
 var hasWindow = typeof window !== "undefined";
 
@@ -59208,10 +59240,10 @@ var batchProvider = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCom
 }));
 
 // output/React.Store.Reduce/index.js
+var append25 = /* @__PURE__ */ append(semigroupArray);
 var map72 = /* @__PURE__ */ map(functorArray);
 var fromFoldable15 = /* @__PURE__ */ fromFoldable5(foldableArray);
 var fromFoldable16 = /* @__PURE__ */ fromFoldable15(ordString);
-var append25 = /* @__PURE__ */ append(semigroupArray);
 var fromFoldable24 = /* @__PURE__ */ fromFoldable15(ordNodeId);
 var eq114 = /* @__PURE__ */ eq(/* @__PURE__ */ eqMaybe(eqBoolean));
 var get29 = /* @__PURE__ */ get3(ordNodeId);
@@ -59341,7 +59373,7 @@ var reduceSetNodeExtent = function(state3) {
       };
     }
     ;
-    throw new Error("Failed pattern match at React.Store.Reduce (line 641, column 1 - line 645, column 22): " + [state3.constructor.name, ext.constructor.name]);
+    throw new Error("Failed pattern match at React.Store.Reduce (line 656, column 1 - line 660, column 22): " + [state3.constructor.name, ext.constructor.name]);
   };
 };
 var keepLookups = function(state3) {
@@ -59533,157 +59565,6 @@ var reduceSetEdges = function(state3) {
     };
   };
 };
-var reduceTriggerEdgeChanges = function(state3) {
-  return function(changes) {
-    if ($$null(changes)) {
-      return {
-        state: state3,
-        effects: [],
-        writes: []
-      };
-    }
-    ;
-    if (otherwise) {
-      var s1 = function() {
-        if (state3.hasDefaultEdges) {
-          var newEdges = applyEdgeChanges(changes)(state3.edges);
-          var r = updateConnectionLookup(keepLookups(state3))(state3.connectionLookup)(state3.edgeLookup)(newEdges);
-          return {
-            ariaLabelConfig: state3.ariaLabelConfig,
-            ariaLiveMessage: state3.ariaLiveMessage,
-            autoPanOnConnect: state3.autoPanOnConnect,
-            autoPanOnNodeDrag: state3.autoPanOnNodeDrag,
-            autoPanOnNodeFocus: state3.autoPanOnNodeFocus,
-            autoPanSpeed: state3.autoPanSpeed,
-            connectOnClick: state3.connectOnClick,
-            connection: state3.connection,
-            connectionClickStartHandle: state3.connectionClickStartHandle,
-            connectionDragThreshold: state3.connectionDragThreshold,
-            connectionMode: state3.connectionMode,
-            connectionRadius: state3.connectionRadius,
-            debug: state3.debug,
-            defaultEdgeOptions: state3.defaultEdgeOptions,
-            domNode: state3.domNode,
-            edgesFocusable: state3.edgesFocusable,
-            edgesReconnectable: state3.edgesReconnectable,
-            elementsSelectable: state3.elementsSelectable,
-            elevateEdgesOnSelect: state3.elevateEdgesOnSelect,
-            elevateNodesOnSelect: state3.elevateNodesOnSelect,
-            fitViewOptions: state3.fitViewOptions,
-            fitViewQueued: state3.fitViewQueued,
-            fitViewResolver: state3.fitViewResolver,
-            hasDefaultEdges: state3.hasDefaultEdges,
-            hasDefaultNodes: state3.hasDefaultNodes,
-            height: state3.height,
-            isValidConnection: state3.isValidConnection,
-            lib: state3.lib,
-            maxZoom: state3.maxZoom,
-            minZoom: state3.minZoom,
-            multiSelectionActive: state3.multiSelectionActive,
-            noPanClassName: state3.noPanClassName,
-            nodeDragThreshold: state3.nodeDragThreshold,
-            nodeExtent: state3.nodeExtent,
-            nodeLookup: state3.nodeLookup,
-            nodeOrigin: state3.nodeOrigin,
-            nodes: state3.nodes,
-            nodesConnectable: state3.nodesConnectable,
-            nodesDraggable: state3.nodesDraggable,
-            nodesFocusable: state3.nodesFocusable,
-            nodesInitialized: state3.nodesInitialized,
-            nodesSelectionActive: state3.nodesSelectionActive,
-            onBeforeDelete: state3.onBeforeDelete,
-            onClickConnectEnd: state3.onClickConnectEnd,
-            onClickConnectStart: state3.onClickConnectStart,
-            onConnect: state3.onConnect,
-            onConnectEnd: state3.onConnectEnd,
-            onConnectStart: state3.onConnectStart,
-            onDelete: state3.onDelete,
-            onEdgesChange: state3.onEdgesChange,
-            onEdgesChangeMiddlewareMap: state3.onEdgesChangeMiddlewareMap,
-            onEdgesDelete: state3.onEdgesDelete,
-            onError: state3.onError,
-            onMove: state3.onMove,
-            onMoveEnd: state3.onMoveEnd,
-            onMoveStart: state3.onMoveStart,
-            onNodeDrag: state3.onNodeDrag,
-            onNodeDragStart: state3.onNodeDragStart,
-            onNodeDragStop: state3.onNodeDragStop,
-            onNodesChange: state3.onNodesChange,
-            onNodesChangeMiddlewareMap: state3.onNodesChangeMiddlewareMap,
-            onNodesDelete: state3.onNodesDelete,
-            onSelectionChangeHandlers: state3.onSelectionChangeHandlers,
-            onSelectionDrag: state3.onSelectionDrag,
-            onSelectionDragStart: state3.onSelectionDragStart,
-            onSelectionDragStop: state3.onSelectionDragStop,
-            onViewportChange: state3.onViewportChange,
-            onViewportChangeEnd: state3.onViewportChangeEnd,
-            onViewportChangeStart: state3.onViewportChangeStart,
-            panZoom: state3.panZoom,
-            paneDragging: state3.paneDragging,
-            parentLookup: state3.parentLookup,
-            rfId: state3.rfId,
-            selectNodesOnDrag: state3.selectNodesOnDrag,
-            snapGrid: state3.snapGrid,
-            snapToGrid: state3.snapToGrid,
-            transform: state3.transform,
-            translateExtent: state3.translateExtent,
-            userSelectionActive: state3.userSelectionActive,
-            userSelectionRect: state3.userSelectionRect,
-            width: state3.width,
-            zIndexMode: state3.zIndexMode,
-            edges: newEdges,
-            edgeLookup: r.edgeLookup,
-            connectionLookup: r.connectionLookup
-          };
-        }
-        ;
-        return state3;
-      }();
-      return {
-        state: s1,
-        effects: [new FireOnEdgesChange(changes)],
-        writes: function() {
-          if (state3.hasDefaultEdges) {
-            return ["edges"];
-          }
-          ;
-          return [];
-        }()
-      };
-    }
-    ;
-    throw new Error("Failed pattern match at React.Store.Reduce (line 477, column 1 - line 481, column 22): " + [state3.constructor.name, changes.constructor.name]);
-  };
-};
-var reduceReplaceEdgeSelection = function(state3) {
-  return function(ids) {
-    return reduceTriggerEdgeChanges(state3)(getEdgeSelectionChanges(state3.edges)(state3.edgeLookup)(ids).changes);
-  };
-};
-var reduceAddSelectedEdges = function(state3) {
-  return function(ids) {
-    if (state3.multiSelectionActive) {
-      var changes = map72(function(id3) {
-        return new EdgeSelectionChange({
-          id: id3,
-          selected: true
-        });
-      })(ids);
-      return reduceTriggerEdgeChanges(state3)(changes);
-    }
-    ;
-    if (otherwise) {
-      var edges2 = reduceReplaceEdgeSelection(state3)(fromFoldable16(ids));
-      return {
-        state: edges2.state,
-        writes: edges2.writes,
-        effects: append25(edges2.effects)([new RunReplaceNodeSelection(empty5)])
-      };
-    }
-    ;
-    throw new Error("Failed pattern match at React.Store.Reduce (line 537, column 1 - line 541, column 22): " + [state3.constructor.name, ids.constructor.name]);
-  };
-};
 var fitInputs = function(state3) {
   return function(nodes3) {
     return {
@@ -59696,6 +59577,15 @@ var fitInputs = function(state3) {
       options: state3.fitViewOptions,
       resolver: state3.fitViewResolver
     };
+  };
+};
+var debugNodeLog = function(state3) {
+  return function(changes) {
+    if (state3.debug) {
+      return [new LogNodeChanges(changes)];
+    }
+    ;
+    return [];
   };
 };
 var reduceMergeNodeInternals = function(state3) {
@@ -59997,12 +59887,12 @@ var reduceMergeNodeInternals = function(state3) {
         return [];
       }();
       var changes = function() {
-        var $67 = $$null(r.changes);
-        if ($67) {
+        var $62 = $$null(r.changes);
+        if ($62) {
           return [];
         }
         ;
-        return [new RunTriggerNodeChanges(r.changes)];
+        return append25(debugNodeLog(state3)(r.changes))([new RunTriggerNodeChanges(r.changes)]);
       }();
       return {
         state: s2,
@@ -60018,6 +59908,166 @@ var reduceMergeNodeInternals = function(state3) {
     }
     ;
     throw new Error("Failed pattern match at React.Store.Reduce (line 311, column 1 - line 315, column 22): " + [state3.constructor.name, r.constructor.name]);
+  };
+};
+var debugEdgeLog = function(state3) {
+  return function(changes) {
+    if (state3.debug) {
+      return [new LogEdgeChanges(changes)];
+    }
+    ;
+    return [];
+  };
+};
+var reduceTriggerEdgeChanges = function(state3) {
+  return function(changes) {
+    if ($$null(changes)) {
+      return {
+        state: state3,
+        effects: [],
+        writes: []
+      };
+    }
+    ;
+    if (otherwise) {
+      var s1 = function() {
+        if (state3.hasDefaultEdges) {
+          var newEdges = applyEdgeChanges(changes)(state3.edges);
+          var r = updateConnectionLookup(keepLookups(state3))(state3.connectionLookup)(state3.edgeLookup)(newEdges);
+          return {
+            ariaLabelConfig: state3.ariaLabelConfig,
+            ariaLiveMessage: state3.ariaLiveMessage,
+            autoPanOnConnect: state3.autoPanOnConnect,
+            autoPanOnNodeDrag: state3.autoPanOnNodeDrag,
+            autoPanOnNodeFocus: state3.autoPanOnNodeFocus,
+            autoPanSpeed: state3.autoPanSpeed,
+            connectOnClick: state3.connectOnClick,
+            connection: state3.connection,
+            connectionClickStartHandle: state3.connectionClickStartHandle,
+            connectionDragThreshold: state3.connectionDragThreshold,
+            connectionMode: state3.connectionMode,
+            connectionRadius: state3.connectionRadius,
+            debug: state3.debug,
+            defaultEdgeOptions: state3.defaultEdgeOptions,
+            domNode: state3.domNode,
+            edgesFocusable: state3.edgesFocusable,
+            edgesReconnectable: state3.edgesReconnectable,
+            elementsSelectable: state3.elementsSelectable,
+            elevateEdgesOnSelect: state3.elevateEdgesOnSelect,
+            elevateNodesOnSelect: state3.elevateNodesOnSelect,
+            fitViewOptions: state3.fitViewOptions,
+            fitViewQueued: state3.fitViewQueued,
+            fitViewResolver: state3.fitViewResolver,
+            hasDefaultEdges: state3.hasDefaultEdges,
+            hasDefaultNodes: state3.hasDefaultNodes,
+            height: state3.height,
+            isValidConnection: state3.isValidConnection,
+            lib: state3.lib,
+            maxZoom: state3.maxZoom,
+            minZoom: state3.minZoom,
+            multiSelectionActive: state3.multiSelectionActive,
+            noPanClassName: state3.noPanClassName,
+            nodeDragThreshold: state3.nodeDragThreshold,
+            nodeExtent: state3.nodeExtent,
+            nodeLookup: state3.nodeLookup,
+            nodeOrigin: state3.nodeOrigin,
+            nodes: state3.nodes,
+            nodesConnectable: state3.nodesConnectable,
+            nodesDraggable: state3.nodesDraggable,
+            nodesFocusable: state3.nodesFocusable,
+            nodesInitialized: state3.nodesInitialized,
+            nodesSelectionActive: state3.nodesSelectionActive,
+            onBeforeDelete: state3.onBeforeDelete,
+            onClickConnectEnd: state3.onClickConnectEnd,
+            onClickConnectStart: state3.onClickConnectStart,
+            onConnect: state3.onConnect,
+            onConnectEnd: state3.onConnectEnd,
+            onConnectStart: state3.onConnectStart,
+            onDelete: state3.onDelete,
+            onEdgesChange: state3.onEdgesChange,
+            onEdgesChangeMiddlewareMap: state3.onEdgesChangeMiddlewareMap,
+            onEdgesDelete: state3.onEdgesDelete,
+            onError: state3.onError,
+            onMove: state3.onMove,
+            onMoveEnd: state3.onMoveEnd,
+            onMoveStart: state3.onMoveStart,
+            onNodeDrag: state3.onNodeDrag,
+            onNodeDragStart: state3.onNodeDragStart,
+            onNodeDragStop: state3.onNodeDragStop,
+            onNodesChange: state3.onNodesChange,
+            onNodesChangeMiddlewareMap: state3.onNodesChangeMiddlewareMap,
+            onNodesDelete: state3.onNodesDelete,
+            onSelectionChangeHandlers: state3.onSelectionChangeHandlers,
+            onSelectionDrag: state3.onSelectionDrag,
+            onSelectionDragStart: state3.onSelectionDragStart,
+            onSelectionDragStop: state3.onSelectionDragStop,
+            onViewportChange: state3.onViewportChange,
+            onViewportChangeEnd: state3.onViewportChangeEnd,
+            onViewportChangeStart: state3.onViewportChangeStart,
+            panZoom: state3.panZoom,
+            paneDragging: state3.paneDragging,
+            parentLookup: state3.parentLookup,
+            rfId: state3.rfId,
+            selectNodesOnDrag: state3.selectNodesOnDrag,
+            snapGrid: state3.snapGrid,
+            snapToGrid: state3.snapToGrid,
+            transform: state3.transform,
+            translateExtent: state3.translateExtent,
+            userSelectionActive: state3.userSelectionActive,
+            userSelectionRect: state3.userSelectionRect,
+            width: state3.width,
+            zIndexMode: state3.zIndexMode,
+            edges: newEdges,
+            edgeLookup: r.edgeLookup,
+            connectionLookup: r.connectionLookup
+          };
+        }
+        ;
+        return state3;
+      }();
+      return {
+        state: s1,
+        effects: append25(debugEdgeLog(state3)(changes))([new FireOnEdgesChange(changes)]),
+        writes: function() {
+          if (state3.hasDefaultEdges) {
+            return ["edges"];
+          }
+          ;
+          return [];
+        }()
+      };
+    }
+    ;
+    throw new Error("Failed pattern match at React.Store.Reduce (line 492, column 1 - line 496, column 22): " + [state3.constructor.name, changes.constructor.name]);
+  };
+};
+var reduceReplaceEdgeSelection = function(state3) {
+  return function(ids) {
+    return reduceTriggerEdgeChanges(state3)(getEdgeSelectionChanges(state3.edges)(state3.edgeLookup)(ids).changes);
+  };
+};
+var reduceAddSelectedEdges = function(state3) {
+  return function(ids) {
+    if (state3.multiSelectionActive) {
+      var changes = map72(function(id3) {
+        return new EdgeSelectionChange({
+          id: id3,
+          selected: true
+        });
+      })(ids);
+      return reduceTriggerEdgeChanges(state3)(changes);
+    }
+    ;
+    if (otherwise) {
+      var edges2 = reduceReplaceEdgeSelection(state3)(fromFoldable16(ids));
+      return {
+        state: edges2.state,
+        writes: edges2.writes,
+        effects: append25(edges2.effects)([new RunReplaceNodeSelection(empty5)])
+      };
+    }
+    ;
+    throw new Error("Failed pattern match at React.Store.Reduce (line 552, column 1 - line 556, column 22): " + [state3.constructor.name, ids.constructor.name]);
   };
 };
 var adoptNodesInto = function(setup) {
@@ -60556,19 +60606,19 @@ var reduceTriggerNodeChanges = function(setup) {
         return {
           state: r.state,
           writes: r.writes,
-          effects: append25(r.effects)([new FireOnNodesChange(changes)])
+          effects: append25(r.effects)(append25(debugNodeLog(state3)(changes))([new FireOnNodesChange(changes)]))
         };
       }
       ;
       if (otherwise) {
         return {
           state: state3,
-          effects: [new FireOnNodesChange(changes)],
+          effects: append25(debugNodeLog(state3)(changes))([new FireOnNodesChange(changes)]),
           writes: []
         };
       }
       ;
-      throw new Error("Failed pattern match at React.Store.Reduce (line 453, column 1 - line 458, column 22): " + [setup.constructor.name, state3.constructor.name, changes.constructor.name]);
+      throw new Error("Failed pattern match at React.Store.Reduce (line 457, column 1 - line 462, column 22): " + [setup.constructor.name, state3.constructor.name, changes.constructor.name]);
     };
   };
 };
@@ -60691,7 +60741,7 @@ var reduceAddSelectedNodes = function(setup) {
         };
       }
       ;
-      throw new Error("Failed pattern match at React.Store.Reduce (line 512, column 1 - line 517, column 22): " + [setup.constructor.name, state3.constructor.name, ids.constructor.name]);
+      throw new Error("Failed pattern match at React.Store.Reduce (line 527, column 1 - line 532, column 22): " + [setup.constructor.name, state3.constructor.name, ids.constructor.name]);
     };
   };
 };
@@ -60708,8 +60758,8 @@ var reduceResetSelectedElements = function(setup) {
     if (otherwise) {
       var nodeChanges = reduced(function(res) {
         return function(n) {
-          var $83 = eq114(n.selected)(new Just(true));
-          if ($83) {
+          var $85 = eq114(n.selected)(new Just(true));
+          if ($85) {
             return snoc(res)(new NodeSelectionChange({
               id: n.id,
               selected: false
@@ -60721,8 +60771,8 @@ var reduceResetSelectedElements = function(setup) {
       })([])(state3.nodes);
       var edgeChanges = reduced(function(res) {
         return function(e) {
-          var $84 = eq114(e.selected)(new Just(true));
-          if ($84) {
+          var $86 = eq114(e.selected)(new Just(true));
+          if ($86) {
             return snoc(res)(new EdgeSelectionChange({
               id: e.id,
               selected: false
@@ -60741,7 +60791,7 @@ var reduceResetSelectedElements = function(setup) {
       };
     }
     ;
-    throw new Error("Failed pattern match at React.Store.Reduce (line 694, column 1 - line 698, column 22): " + [setup.constructor.name, state3.constructor.name]);
+    throw new Error("Failed pattern match at React.Store.Reduce (line 709, column 1 - line 713, column 22): " + [setup.constructor.name, state3.constructor.name]);
   };
 };
 var reduceUnselectNodesAndEdges = function(setup) {
@@ -60756,7 +60806,7 @@ var reduceUnselectNodesAndEdges = function(setup) {
           return state3.nodes;
         }
         ;
-        throw new Error("Failed pattern match at React.Store.Reduce (line 599, column 38 - line 601, column 29): " + [params.nodes.constructor.name]);
+        throw new Error("Failed pattern match at React.Store.Reduce (line 614, column 38 - line 616, column 29): " + [params.nodes.constructor.name]);
       }());
       var targetEdges = iterated(function() {
         if (params.edges instanceof Just) {
@@ -60767,7 +60817,7 @@ var reduceUnselectNodesAndEdges = function(setup) {
           return state3.edges;
         }
         ;
-        throw new Error("Failed pattern match at React.Store.Reduce (line 602, column 38 - line 604, column 29): " + [params.edges.constructor.name]);
+        throw new Error("Failed pattern match at React.Store.Reduce (line 617, column 38 - line 619, column 29): " + [params.edges.constructor.name]);
       }());
       var nodesToUnselect = filter(function(n) {
         return eq114(n.selected)(new Just(true));
@@ -60905,7 +60955,7 @@ var reduceUnselectNodesAndEdges = function(setup) {
                 })(v1.value0)(lookup9);
               }
               ;
-              throw new Error("Failed pattern match at React.Store.Reduce (line 621, column 30 - line 623, column 93): " + [v1.constructor.name]);
+              throw new Error("Failed pattern match at React.Store.Reduce (line 636, column 30 - line 638, column 93): " + [v1.constructor.name]);
             };
           })(state3.nodeLookup)(nodesToUnselect)
         };
@@ -60966,7 +61016,7 @@ var reduceUpdateNodePositions = function(setup) {
                 return [];
               }
               ;
-              throw new Error("Failed pattern match at React.Store.Reduce (line 408, column 23 - line 420, column 24): " + [expandParentOf.constructor.name]);
+              throw new Error("Failed pattern match at React.Store.Reduce (line 412, column 23 - line 424, column 24): " + [expandParentOf.constructor.name]);
             }();
             var connection = function() {
               if (mNode instanceof Just && (isHeld(acc.connection) && (isInProgress(acc.connection) && unsafeRefEq(member("id")(member("fromNode")(acc.connection)))(unsafeToForeign(mNode.value0.id))))) {
@@ -61004,7 +61054,7 @@ var reduceUpdateNodePositions = function(setup) {
                   return item.position;
                 }
                 ;
-                throw new Error("Failed pattern match at React.Store.Reduce (line 383, column 28 - line 388, column 39): " + [expandParentOf.constructor.name]);
+                throw new Error("Failed pattern match at React.Store.Reduce (line 387, column 28 - line 392, column 39): " + [expandParentOf.constructor.name]);
               }()),
               positionAbsolute: Nothing.value,
               dragging: new Just(dragging)
@@ -61022,8 +61072,8 @@ var reduceUpdateNodePositions = function(setup) {
           connection: state3.connection
         })(items);
         var nextState = function() {
-          var $102 = unsafeRefEq(state3.connection)(stepped.connection);
-          if ($102) {
+          var $104 = unsafeRefEq(state3.connection)(stepped.connection);
+          if ($104) {
             return state3;
           }
           ;
@@ -61116,24 +61166,24 @@ var reduceUpdateNodePositions = function(setup) {
           };
         }();
         var expandChanges = function() {
-          var $103 = $$null(stepped.parentExpandChildren);
-          if ($103) {
+          var $105 = $$null(stepped.parentExpandChildren);
+          if ($105) {
             return [];
           }
           ;
           return handleExpandParent(stepped.parentExpandChildren)(state3.nodeLookup)(state3.parentLookup)(state3.nodeOrigin);
         }();
         var connectionWrites = function() {
-          var $104 = unsafeRefEq(state3.connection)(stepped.connection);
-          if ($104) {
+          var $106 = unsafeRefEq(state3.connection)(stepped.connection);
+          if ($106) {
             return [];
           }
           ;
           return ["connection"];
         }();
         var changes = append25(stepped.changes)(expandChanges);
-        var $105 = hasMiddleware(state3.onNodesChangeMiddlewareMap);
-        if ($105) {
+        var $107 = hasMiddleware(state3.onNodesChangeMiddlewareMap);
+        if ($107) {
           return {
             state: nextState,
             effects: [new RunNodesChangeMiddleware(changes)],
@@ -62274,7 +62324,7 @@ var firstAfter = function(after2) {
             return;
           }
           ;
-          throw new Error("Failed pattern match at React.Store.Shell (line 343, column 3 - line 349, column 73): " + [low2.constructor.name, high2.constructor.name]);
+          throw new Error("Failed pattern match at React.Store.Shell (line 356, column 3 - line 362, column 73): " + [low2.constructor.name, high2.constructor.name]);
         }
         ;
         while (!$tco_done) {
@@ -62290,329 +62340,339 @@ var firstAfter = function(after2) {
 var errorCodeName = function(v) {
   return "";
 };
-var createStore = function(opts) {
-  var setup = {
-    nodeExtent: fromMaybe(infiniteExtent)(opts.nodeExtent)
-  };
-  var firstState = initialState(opts);
-  return function __do5() {
-    var stateRef = $$new(firstState)();
-    var subsRef = $$new([])();
-    var nextSubKeyRef = $$new(0)();
-    var observersRef = $$new([])();
-    var readHooksRef = $$new([])();
-    var readState = function __do6() {
-      var hooks2 = read(readHooksRef)();
-      unless7($$null(hooks2))(function __do7() {
-        var current = read(stateRef)();
-        return for_110(hooks2)(function(v) {
-          return v(current);
+var createStoreWith = function(changeLog) {
+  return function(opts) {
+    var setup = {
+      nodeExtent: fromMaybe(infiniteExtent)(opts.nodeExtent)
+    };
+    var firstState = initialState(opts);
+    return function __do5() {
+      var stateRef = $$new(firstState)();
+      var subsRef = $$new([])();
+      var nextSubKeyRef = $$new(0)();
+      var observersRef = $$new([])();
+      var readHooksRef = $$new([])();
+      var readState = function __do6() {
+        var hooks2 = read(readHooksRef)();
+        unless7($$null(hooks2))(function __do7() {
+          var current = read(stateRef)();
+          return for_110(hooks2)(function(v) {
+            return v(current);
+          })();
         })();
-      })();
-      return read(stateRef)();
-    };
-    var notifySubscribers = function(prev) {
-      return function(next) {
-        return flip(tailRecM3)(-1 | 0)(function(after2) {
-          return function __do6() {
-            var subs = read(subsRef)();
-            var v = firstAfter(after2)(subs);
-            if (v instanceof Nothing) {
-              return new Done(unit);
-            }
-            ;
-            if (v instanceof Just) {
-              v.value0.onUpdate(prev)(next)();
-              return new Loop(v.value0.key);
-            }
-            ;
-            throw new Error("Failed pattern match at React.Store.Shell (line 245, column 7 - line 249, column 30): " + [v.constructor.name]);
-          };
-        });
+        return read(stateRef)();
       };
-    };
-    var interpretEffect = function(dispatch_) {
-      return function(eff) {
-        if (eff instanceof FireOnNodesChange) {
-          return function __do6() {
-            var s = readState();
-            if (s.onNodesChange instanceof Just) {
-              return s.onNodesChange.value0(eff.value0)();
-            }
-            ;
-            if (s.onNodesChange instanceof Nothing) {
-              return unit;
-            }
-            ;
-            throw new Error("Failed pattern match at React.Store.Shell (line 145, column 9 - line 147, column 31): " + [s.onNodesChange.constructor.name]);
-          };
-        }
-        ;
-        if (eff instanceof FireOnEdgesChange) {
-          return function __do6() {
-            var s = readState();
-            if (s.onEdgesChange instanceof Just) {
-              return s.onEdgesChange.value0(eff.value0)();
-            }
-            ;
-            if (s.onEdgesChange instanceof Nothing) {
-              return unit;
-            }
-            ;
-            throw new Error("Failed pattern match at React.Store.Shell (line 150, column 9 - line 152, column 31): " + [s.onEdgesChange.constructor.name]);
-          };
-        }
-        ;
-        if (eff instanceof FireOnSelectionChange) {
-          return function __do6() {
-            var s = readState();
-            return for_110(s.onSelectionChangeHandlers)(function(cb) {
-              return cb(eff.value0);
-            })();
-          };
-        }
-        ;
-        if (eff instanceof FireOnConnect) {
-          return function __do6() {
-            var s = readState();
-            if (s.onConnect instanceof Just) {
-              return s.onConnect.value0(eff.value0)();
-            }
-            ;
-            if (s.onConnect instanceof Nothing) {
-              return unit;
-            }
-            ;
-            throw new Error("Failed pattern match at React.Store.Shell (line 158, column 9 - line 160, column 31): " + [s.onConnect.constructor.name]);
-          };
-        }
-        ;
-        if (eff instanceof FireOnConnectStart) {
-          return pure75(unit);
-        }
-        ;
-        if (eff instanceof FireOnConnectEnd) {
-          return pure75(unit);
-        }
-        ;
-        if (eff instanceof RunDomUpdateNodeInternals) {
-          return function __do6() {
-            var s = readState();
-            var r = updateNodeInternals(eff.value0)(s.nodeLookup)(s.parentLookup)(map73(toHTMLElement)(s.domNode))(s.nodeOrigin)(s.nodeExtent)(s.zIndexMode)();
-            return dispatch_(new MergeNodeInternalsResult({
-              nodeLookup: r.nodeLookup,
-              parentLookup: r.parentLookup,
-              changes: r.changes,
-              updatedInternals: r.updatedInternals,
-              triggerFitView: eff.value1.triggerFitView
-            }))();
-          };
-        }
-        ;
-        if (eff instanceof RunTriggerNodeChanges) {
-          return dispatch_(new TriggerNodeChanges(eff.value0));
-        }
-        ;
-        if (eff instanceof RunReplaceNodeSelection) {
-          return dispatch_(new ReplaceNodeSelection(eff.value0));
-        }
-        ;
-        if (eff instanceof RunReplaceEdgeSelection) {
-          return dispatch_(new ReplaceEdgeSelection(eff.value0));
-        }
-        ;
-        if (eff instanceof RunNodesChangeMiddleware) {
-          return function __do6() {
-            var s = readState();
-            var filtered = runNodesChangeMiddleware(s.onNodesChangeMiddlewareMap)(eff.value0)();
-            return dispatch_(new TriggerNodeChanges(filtered))();
-          };
-        }
-        ;
-        if (eff instanceof RunSetCenter) {
-          return function __do6() {
-            var s = readState();
-            return for_28(s.panZoom)(function(pz) {
-              var zoom = fromMaybe(s.maxZoom)(eff.value2.zoom);
-              return launchAff_($$void13(pz.setViewport({
-                x: s.width / 2 - eff.value0 * zoom,
-                y: s.height / 2 - eff.value1 * zoom,
-                zoom
-              })(new Just({
-                duration: eff.value2.duration,
-                ease: eff.value2.ease,
-                interpolate: eff.value2.interpolate
-              }))));
-            })();
-          };
-        }
-        ;
-        if (eff instanceof RunSetScaleExtent) {
-          return for_28(eff.value0)(function(pz) {
-            return pz.setScaleExtent(eff.value1)(eff.value2);
+      var notifySubscribers = function(prev) {
+        return function(next) {
+          return flip(tailRecM3)(-1 | 0)(function(after2) {
+            return function __do6() {
+              var subs = read(subsRef)();
+              var v = firstAfter(after2)(subs);
+              if (v instanceof Nothing) {
+                return new Done(unit);
+              }
+              ;
+              if (v instanceof Just) {
+                v.value0.onUpdate(prev)(next)();
+                return new Loop(v.value0.key);
+              }
+              ;
+              throw new Error("Failed pattern match at React.Store.Shell (line 258, column 7 - line 262, column 30): " + [v.constructor.name]);
+            };
           });
-        }
-        ;
-        if (eff instanceof RunSetTranslateExtent) {
-          return for_28(eff.value0)(function(pz) {
-            return pz.setTranslateExtent(eff.value1);
-          });
-        }
-        ;
-        if (eff instanceof ResolveFitView) {
-          if (eff.value0.panZoom instanceof Nothing) {
+        };
+      };
+      var interpretEffect = function(dispatch_) {
+        return function(eff) {
+          if (eff instanceof FireOnNodesChange) {
+            return function __do6() {
+              var s = readState();
+              if (s.onNodesChange instanceof Just) {
+                return s.onNodesChange.value0(eff.value0)();
+              }
+              ;
+              if (s.onNodesChange instanceof Nothing) {
+                return unit;
+              }
+              ;
+              throw new Error("Failed pattern match at React.Store.Shell (line 154, column 9 - line 156, column 31): " + [s.onNodesChange.constructor.name]);
+            };
+          }
+          ;
+          if (eff instanceof FireOnEdgesChange) {
+            return function __do6() {
+              var s = readState();
+              if (s.onEdgesChange instanceof Just) {
+                return s.onEdgesChange.value0(eff.value0)();
+              }
+              ;
+              if (s.onEdgesChange instanceof Nothing) {
+                return unit;
+              }
+              ;
+              throw new Error("Failed pattern match at React.Store.Shell (line 159, column 9 - line 161, column 31): " + [s.onEdgesChange.constructor.name]);
+            };
+          }
+          ;
+          if (eff instanceof FireOnSelectionChange) {
+            return function __do6() {
+              var s = readState();
+              return for_110(s.onSelectionChangeHandlers)(function(cb) {
+                return cb(eff.value0);
+              })();
+            };
+          }
+          ;
+          if (eff instanceof FireOnConnect) {
+            return function __do6() {
+              var s = readState();
+              if (s.onConnect instanceof Just) {
+                return s.onConnect.value0(eff.value0)();
+              }
+              ;
+              if (s.onConnect instanceof Nothing) {
+                return unit;
+              }
+              ;
+              throw new Error("Failed pattern match at React.Store.Shell (line 167, column 9 - line 169, column 31): " + [s.onConnect.constructor.name]);
+            };
+          }
+          ;
+          if (eff instanceof FireOnConnectStart) {
             return pure75(unit);
           }
           ;
-          if (eff.value0.panZoom instanceof Just) {
-            return launchAff_(bind125(fitViewport({
-              nodes: eff.value0.nodes,
-              width: eff.value0.width,
-              height: eff.value0.height,
-              panZoom: eff.value0.panZoom.value0,
-              minZoom: eff.value0.minZoom,
-              maxZoom: eff.value0.maxZoom
-            })(eff.value0.options))(function() {
-              return discard28(for_32(eff.value0.resolver)(function(resolver) {
-                return liftEffect11(resolveFitView(resolver)(true));
-              }))(function() {
-                return liftEffect11(dispatch_(new Assign(partial12({
-                  fitViewResolver: Nothing.value
-                }))));
-              });
-            }));
+          if (eff instanceof FireOnConnectEnd) {
+            return pure75(unit);
           }
           ;
-          throw new Error("Failed pattern match at React.Store.Shell (line 218, column 9 - line 231, column 83): " + [eff.value0.panZoom.constructor.name]);
-        }
-        ;
-        if (eff instanceof LogError) {
-          return function __do6() {
-            var s = readState();
-            if (s.onError instanceof Just) {
-              return s.onError.value0(errorCodeName(eff.value0))(errorMessage(eff.value0))();
+          if (eff instanceof RunDomUpdateNodeInternals) {
+            return function __do6() {
+              var s = readState();
+              var r = updateNodeInternals(eff.value0)(s.nodeLookup)(s.parentLookup)(map73(toHTMLElement)(s.domNode))(s.nodeOrigin)(s.nodeExtent)(s.zIndexMode)();
+              return dispatch_(new MergeNodeInternalsResult({
+                nodeLookup: r.nodeLookup,
+                parentLookup: r.parentLookup,
+                changes: r.changes,
+                updatedInternals: r.updatedInternals,
+                triggerFitView: eff.value1.triggerFitView
+              }))();
+            };
+          }
+          ;
+          if (eff instanceof RunTriggerNodeChanges) {
+            return dispatch_(new TriggerNodeChanges(eff.value0));
+          }
+          ;
+          if (eff instanceof LogNodeChanges) {
+            return logChanges("React Flow: trigger node changes")(changeLog.nodeChanges(unsafeToForeign(eff.value0)));
+          }
+          ;
+          if (eff instanceof LogEdgeChanges) {
+            return logChanges("React Flow: trigger edge changes")(changeLog.edgeChanges(unsafeToForeign(eff.value0)));
+          }
+          ;
+          if (eff instanceof RunReplaceNodeSelection) {
+            return dispatch_(new ReplaceNodeSelection(eff.value0));
+          }
+          ;
+          if (eff instanceof RunReplaceEdgeSelection) {
+            return dispatch_(new ReplaceEdgeSelection(eff.value0));
+          }
+          ;
+          if (eff instanceof RunNodesChangeMiddleware) {
+            return function __do6() {
+              var s = readState();
+              var filtered = runNodesChangeMiddleware(s.onNodesChangeMiddlewareMap)(eff.value0)();
+              return dispatch_(new TriggerNodeChanges(filtered))();
+            };
+          }
+          ;
+          if (eff instanceof RunSetCenter) {
+            return function __do6() {
+              var s = readState();
+              return for_28(s.panZoom)(function(pz) {
+                var zoom = fromMaybe(s.maxZoom)(eff.value2.zoom);
+                return launchAff_($$void13(pz.setViewport({
+                  x: s.width / 2 - eff.value0 * zoom,
+                  y: s.height / 2 - eff.value1 * zoom,
+                  zoom
+                })(new Just({
+                  duration: eff.value2.duration,
+                  ease: eff.value2.ease,
+                  interpolate: eff.value2.interpolate
+                }))));
+              })();
+            };
+          }
+          ;
+          if (eff instanceof RunSetScaleExtent) {
+            return for_28(eff.value0)(function(pz) {
+              return pz.setScaleExtent(eff.value1)(eff.value2);
+            });
+          }
+          ;
+          if (eff instanceof RunSetTranslateExtent) {
+            return for_28(eff.value0)(function(pz) {
+              return pz.setTranslateExtent(eff.value1);
+            });
+          }
+          ;
+          if (eff instanceof ResolveFitView) {
+            if (eff.value0.panZoom instanceof Nothing) {
+              return pure75(unit);
             }
             ;
-            if (s.onError instanceof Nothing) {
-              return unit;
+            if (eff.value0.panZoom instanceof Just) {
+              return launchAff_(bind125(fitViewport({
+                nodes: eff.value0.nodes,
+                width: eff.value0.width,
+                height: eff.value0.height,
+                panZoom: eff.value0.panZoom.value0,
+                minZoom: eff.value0.minZoom,
+                maxZoom: eff.value0.maxZoom
+              })(eff.value0.options))(function() {
+                return discard28(for_32(eff.value0.resolver)(function(resolver) {
+                  return liftEffect11(resolveFitView(resolver)(true));
+                }))(function() {
+                  return liftEffect11(dispatch_(new Assign(partial12({
+                    fitViewResolver: Nothing.value
+                  }))));
+                });
+              }));
             }
             ;
-            throw new Error("Failed pattern match at React.Store.Shell (line 234, column 9 - line 236, column 31): " + [s.onError.constructor.name]);
-          };
-        }
-        ;
-        throw new Error("Failed pattern match at React.Store.Shell (line 142, column 37 - line 236, column 31): " + [eff.constructor.name]);
-      };
-    };
-    var addSubscriber = function(identity9) {
-      return function(onUpdate) {
-        return function __do6() {
-          var subs = read(subsRef)();
-          unless7(any2(function(sub1) {
-            return unsafeRefEq(sub1.identity)(identity9);
-          })(subs))(function __do7() {
-            var key2 = modify(function(v) {
-              return v + 1 | 0;
-            })(nextSubKeyRef)();
-            return write(append26(subs)([{
-              onUpdate,
-              identity: identity9,
-              key: key2
-            }]))(subsRef)();
-          })();
-          return modify_(filter(function(sub1) {
-            return !unsafeRefEq(sub1.identity)(identity9);
-          }))(subsRef);
-        };
-      };
-    };
-    var subscribeStates = function(listener) {
-      return addSubscriber(identityOf(listener))(function(prev) {
-        return function(next) {
-          return unless7(unsafeRefEq(prev)(next))(function __do6() {
-            var current = read(stateRef)();
-            return listener(current)(prev)();
-          });
-        };
-      });
-    };
-    var subscribeAll = function(listener) {
-      return addSubscriber(identityOf(listener))(function(prev) {
-        return function(next) {
-          return unless7(unsafeRefEq(prev)(next))(listener);
-        };
-      });
-    };
-    var subscribe = function(dictEq) {
-      var eq50 = eq(dictEq);
-      return function(selector4) {
-        return function(cb) {
-          var onUpdate = function(prev) {
-            return function(next) {
-              var prevV = selector4(prev);
-              var nextV = selector4(next);
-              var $79 = eq50(prevV)(nextV);
-              if ($79) {
-                return pure75(unit);
+            throw new Error("Failed pattern match at React.Store.Shell (line 231, column 9 - line 244, column 83): " + [eff.value0.panZoom.constructor.name]);
+          }
+          ;
+          if (eff instanceof LogError) {
+            return function __do6() {
+              var s = readState();
+              if (s.onError instanceof Just) {
+                return s.onError.value0(errorCodeName(eff.value0))(errorMessage(eff.value0))();
               }
               ;
-              return cb(nextV);
+              if (s.onError instanceof Nothing) {
+                return unit;
+              }
+              ;
+              throw new Error("Failed pattern match at React.Store.Shell (line 247, column 9 - line 249, column 31): " + [s.onError.constructor.name]);
             };
-          };
+          }
+          ;
+          throw new Error("Failed pattern match at React.Store.Shell (line 151, column 37 - line 249, column 31): " + [eff.constructor.name]);
+        };
+      };
+      var addSubscriber = function(identity10) {
+        return function(onUpdate) {
           return function __do6() {
-            var unsubscribe = addSubscriber(identityOf(onUpdate))(onUpdate)();
-            return unsubscribe;
+            var subs = read(subsRef)();
+            unless7(any2(function(sub1) {
+              return unsafeRefEq(sub1.identity)(identity10);
+            })(subs))(function __do7() {
+              var key2 = modify(function(v) {
+                return v + 1 | 0;
+              })(nextSubKeyRef)();
+              return write(append26(subs)([{
+                onUpdate,
+                identity: identity10,
+                key: key2
+              }]))(subsRef)();
+            })();
+            return modify_(filter(function(sub1) {
+              return !unsafeRefEq(sub1.identity)(identity10);
+            }))(subsRef);
           };
         };
       };
-    };
-    var runsBeforeSet = function(v) {
-      if (v instanceof ResolveFitView) {
-        return true;
-      }
-      ;
-      return false;
-    };
-    var observeTransitions = function(observer) {
-      return modify_(function(v) {
-        return append26(v)([observer]);
-      })(observersRef);
-    };
-    var dispatch2 = function(action2) {
-      return function __do6() {
-        var prev = readState();
-        var res = reduceWith(setup)(prev)(action2);
-        write(res.state)(stateRef)();
-        unless7(unsafeRefEq(prev)(res.state))(function __do7() {
-          var observers = read(observersRef)();
-          return for_110(observers)(function(observe2) {
-            return observe2(prev)(res.state)(res.writes);
-          })();
-        })();
-        var effects = partition(runsBeforeSet)(res.effects);
-        traverse_3(interpretEffect(dispatch2))(effects.yes)();
-        notifySubscribers(prev)(res.state)();
-        return traverse_3(interpretEffect(dispatch2))(effects.no)();
+      var subscribeStates = function(listener) {
+        return addSubscriber(identityOf(listener))(function(prev) {
+          return function(next) {
+            return unless7(unsafeRefEq(prev)(next))(function __do6() {
+              var current = read(stateRef)();
+              return listener(current)(prev)();
+            });
+          };
+        });
       };
-    };
-    var setState = function(f) {
-      return dispatch2(new PatchState(f));
-    };
-    var beforeRead = function(hook) {
-      return modify_(function(v) {
-        return append26(v)([hook]);
-      })(readHooksRef);
-    };
-    return {
-      getState: readState,
-      getInitialState: pure75(firstState),
-      setState,
-      subscribe,
-      subscribeAll,
-      subscribeStates,
-      dispatch: dispatch2,
-      observeTransitions,
-      beforeRead
+      var subscribeAll = function(listener) {
+        return addSubscriber(identityOf(listener))(function(prev) {
+          return function(next) {
+            return unless7(unsafeRefEq(prev)(next))(listener);
+          };
+        });
+      };
+      var subscribe = function(dictEq) {
+        var eq50 = eq(dictEq);
+        return function(selector4) {
+          return function(cb) {
+            var onUpdate = function(prev) {
+              return function(next) {
+                var prevV = selector4(prev);
+                var nextV = selector4(next);
+                var $81 = eq50(prevV)(nextV);
+                if ($81) {
+                  return pure75(unit);
+                }
+                ;
+                return cb(nextV);
+              };
+            };
+            return function __do6() {
+              var unsubscribe = addSubscriber(identityOf(onUpdate))(onUpdate)();
+              return unsubscribe;
+            };
+          };
+        };
+      };
+      var runsBeforeSet = function(v) {
+        if (v instanceof ResolveFitView) {
+          return true;
+        }
+        ;
+        return false;
+      };
+      var observeTransitions = function(observer) {
+        return modify_(function(v) {
+          return append26(v)([observer]);
+        })(observersRef);
+      };
+      var dispatch2 = function(action2) {
+        return function __do6() {
+          var prev = readState();
+          var res = reduceWith(setup)(prev)(action2);
+          write(res.state)(stateRef)();
+          unless7(unsafeRefEq(prev)(res.state))(function __do7() {
+            var observers = read(observersRef)();
+            return for_110(observers)(function(observe2) {
+              return observe2(prev)(res.state)(res.writes);
+            })();
+          })();
+          var effects = partition(runsBeforeSet)(res.effects);
+          traverse_3(interpretEffect(dispatch2))(effects.yes)();
+          notifySubscribers(prev)(res.state)();
+          return traverse_3(interpretEffect(dispatch2))(effects.no)();
+        };
+      };
+      var setState = function(f) {
+        return dispatch2(new PatchState(f));
+      };
+      var beforeRead = function(hook) {
+        return modify_(function(v) {
+          return append26(v)([hook]);
+        })(readHooksRef);
+      };
+      return {
+        getState: readState,
+        getInitialState: pure75(firstState),
+        setState,
+        subscribe,
+        subscribeAll,
+        subscribeStates,
+        dispatch: dispatch2,
+        observeTransitions,
+        beforeRead
+      };
     };
   };
 };
@@ -62641,12 +62701,14 @@ var reactFlowProvider = /* @__PURE__ */ function() {
     };
   };
   return unsafePerformEffect(reactComponentWithChildren()()("ReactFlowProvider")(function(v) {
-    return bind54(useMemo8(unit)(function(v1) {
-      return unsafePerformEffect(createStore(toInitOptions(v)));
-    }))(function(store) {
-      return pure76(storeProvider(new Just(storeToOpaque(store)))([element(batchProvider)({
-        children: v.children
-      })]));
+    return bind54(useContext(changeLogContext))(function(changeLog) {
+      return bind54(useMemo8(unit)(function(v1) {
+        return unsafePerformEffect(createStoreWith(changeLog)(toInitOptions(v)));
+      }))(function(store) {
+        return pure76(storeProvider(new Just(storeToOpaque(store)))([element(batchProvider)({
+          children: v.children
+        })]));
+      });
     });
   }));
 }();
@@ -63607,8 +63669,8 @@ var reactFlow = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactCompone
 // output/Boundary.Flow/index.js
 var bind60 = /* @__PURE__ */ bind5(ixBindRender);
 var pure82 = /* @__PURE__ */ pure(/* @__PURE__ */ applicativeRender(refl));
-var map75 = /* @__PURE__ */ map(functorMaybe);
-var map124 = /* @__PURE__ */ map(functorArray);
+var map75 = /* @__PURE__ */ map(functorArray);
+var map124 = /* @__PURE__ */ map(functorMaybe);
 var restOf3 = /* @__PURE__ */ restOf()(/* @__PURE__ */ rowLabelsCons({
   reflectSymbol: function() {
     return "ariaLabelConfig";
@@ -64134,112 +64196,120 @@ var proOptionsIn = function(o) {
     account: fromUndefinable(o.account)
   };
 };
+var jsChangeLog = {
+  nodeChanges: function(changes) {
+    return unsafeToForeign(map75(nodeChangeIdentityOut)(unsafeFromForeign(changes)));
+  },
+  edgeChanges: function(changes) {
+    return unsafeToForeign(map75(edgeChangeIdentityOut)(unsafeFromForeign(changes)));
+  }
+};
 var convertProvider = function(p) {
   return {
-    initialNodes: map75(remembering(map124(nodeIn)))(fromUndefinable(p.initialNodes)),
-    initialEdges: map75(remembering(map124(edgeIn)))(fromUndefinable(p.initialEdges)),
-    defaultNodes: map75(remembering(map124(nodeIn)))(fromUndefinable(p.defaultNodes)),
-    defaultEdges: map75(remembering(map124(edgeIn)))(fromUndefinable(p.defaultEdges)),
+    initialNodes: map124(remembering(map75(nodeIn)))(fromUndefinable(p.initialNodes)),
+    initialEdges: map124(remembering(map75(edgeIn)))(fromUndefinable(p.initialEdges)),
+    defaultNodes: map124(remembering(map75(nodeIn)))(fromUndefinable(p.defaultNodes)),
+    defaultEdges: map124(remembering(map75(edgeIn)))(fromUndefinable(p.defaultEdges)),
     initialWidth: fromUndefinable(p.initialWidth),
     initialHeight: fromUndefinable(p.initialHeight),
     fitView: fromUndefinable(p.fitView),
-    initialFitViewOptions: map75(fitViewOptionsIn)(fromUndefinable(p.initialFitViewOptions)),
+    initialFitViewOptions: map124(fitViewOptionsIn)(fromUndefinable(p.initialFitViewOptions)),
     initialMinZoom: fromUndefinable(p.initialMinZoom),
     initialMaxZoom: fromUndefinable(p.initialMaxZoom),
-    nodeOrigin: map75(nodeOriginIn("ReactFlowProvider.nodeOrigin"))(fromUndefinable(p.nodeOrigin)),
-    nodeExtent: map75(coordinateExtentIn("ReactFlowProvider.nodeExtent"))(fromUndefinable(p.nodeExtent)),
-    zIndexMode: map75(zIndexModeIn("ReactFlowProvider.zIndexMode"))(fromUndefinable(p.zIndexMode)),
+    nodeOrigin: map124(nodeOriginIn("ReactFlowProvider.nodeOrigin"))(fromUndefinable(p.nodeOrigin)),
+    nodeExtent: map124(coordinateExtentIn("ReactFlowProvider.nodeExtent"))(fromUndefinable(p.nodeExtent)),
+    zIndexMode: map124(zIndexModeIn("ReactFlowProvider.zIndexMode"))(fromUndefinable(p.zIndexMode)),
     children: p.children
   };
 };
 var reactFlowProvider2 = /* @__PURE__ */ unsafePerformEffect(/* @__PURE__ */ reactComponentWithChildren()()("ReactFlowProvider")(function(v) {
-  return pure82(element(reactFlowProvider)(convertProvider(v)));
+  return pure82(changeLogProvider(jsChangeLog)([element(reactFlowProvider)(convertProvider(v))]));
 }));
 var convertProps = function(p) {
   return function(forwarded) {
     return {
       children: p.children,
-      nodes: map75(stably("nodes")(remembering(map124(nodeIn))))(fromUndefinable(p.nodes)),
-      edges: map75(stably("edges")(remembering(map124(edgeIn))))(fromUndefinable(p.edges)),
-      defaultNodes: map75(stably("defaultNodes")(remembering(map124(nodeIn))))(fromUndefinable(p.defaultNodes)),
-      defaultEdges: map75(stably("defaultEdges")(remembering(map124(edgeIn))))(fromUndefinable(p.defaultEdges)),
-      defaultEdgeOptions: map75(stably("defaultEdgeOptions")(defaultEdgeOptionsIn))(fromUndefinable(p.defaultEdgeOptions)),
-      onNodeClick: map75(stably("onNodeClick")(nodeMouseHandlerIn))(fromUndefinable(p.onNodeClick)),
-      onNodeDoubleClick: map75(stably("onNodeDoubleClick")(nodeMouseHandlerIn))(fromUndefinable(p.onNodeDoubleClick)),
-      onNodeMouseEnter: map75(stably("onNodeMouseEnter")(nodeMouseHandlerIn))(fromUndefinable(p.onNodeMouseEnter)),
-      onNodeMouseMove: map75(stably("onNodeMouseMove")(nodeMouseHandlerIn))(fromUndefinable(p.onNodeMouseMove)),
-      onNodeMouseLeave: map75(stably("onNodeMouseLeave")(nodeMouseHandlerIn))(fromUndefinable(p.onNodeMouseLeave)),
-      onNodeContextMenu: map75(stably("onNodeContextMenu")(nodeMouseHandlerIn))(fromUndefinable(p.onNodeContextMenu)),
-      onNodeDragStart: map75(stably("onNodeDragStart")(remembering(onNodeDragIn)))(fromUndefinable(p.onNodeDragStart)),
-      onNodeDrag: map75(stably("onNodeDrag")(remembering(onNodeDragIn)))(fromUndefinable(p.onNodeDrag)),
-      onNodeDragStop: map75(stably("onNodeDragStop")(remembering(onNodeDragIn)))(fromUndefinable(p.onNodeDragStop)),
-      onEdgeClick: map75(stably("onEdgeClick")(edgeMouseHandlerIn))(fromUndefinable(p.onEdgeClick)),
-      onEdgeContextMenu: map75(stably("onEdgeContextMenu")(edgeMouseHandlerIn))(fromUndefinable(p.onEdgeContextMenu)),
-      onEdgeMouseEnter: map75(stably("onEdgeMouseEnter")(edgeMouseHandlerIn))(fromUndefinable(p.onEdgeMouseEnter)),
-      onEdgeMouseMove: map75(stably("onEdgeMouseMove")(edgeMouseHandlerIn))(fromUndefinable(p.onEdgeMouseMove)),
-      onEdgeMouseLeave: map75(stably("onEdgeMouseLeave")(edgeMouseHandlerIn))(fromUndefinable(p.onEdgeMouseLeave)),
-      onEdgeDoubleClick: map75(stably("onEdgeDoubleClick")(edgeMouseHandlerIn))(fromUndefinable(p.onEdgeDoubleClick)),
-      onReconnect: map75(stably("onReconnect")(onReconnectIn))(fromUndefinable(p.onReconnect)),
-      onReconnectStart: map75(stably("onReconnectStart")(onReconnectStartIn))(fromUndefinable(p.onReconnectStart)),
-      onReconnectEnd: map75(stably("onReconnectEnd")(onReconnectEndIn))(fromUndefinable(p.onReconnectEnd)),
-      onNodesChange: map75(stably("onNodesChange")(remembering(onNodesChangeIn)))(fromUndefinable(p.onNodesChange)),
-      onEdgesChange: map75(stably("onEdgesChange")(remembering(onEdgesChangeIn)))(fromUndefinable(p.onEdgesChange)),
-      onNodesDelete: map75(stably("onNodesDelete")(remembering(onNodesDeleteIn)))(fromUndefinable(p.onNodesDelete)),
-      onEdgesDelete: map75(stably("onEdgesDelete")(remembering(onEdgesDeleteIn)))(fromUndefinable(p.onEdgesDelete)),
-      onDelete: map75(stably("onDelete")(remembering(onDeleteIn)))(fromUndefinable(p.onDelete)),
-      onSelectionDragStart: map75(stably("onSelectionDragStart")(remembering(selectionDragHandlerIn)))(fromUndefinable(p.onSelectionDragStart)),
-      onSelectionDrag: map75(stably("onSelectionDrag")(remembering(selectionDragHandlerIn)))(fromUndefinable(p.onSelectionDrag)),
-      onSelectionDragStop: map75(stably("onSelectionDragStop")(remembering(selectionDragHandlerIn)))(fromUndefinable(p.onSelectionDragStop)),
-      onSelectionStart: map75(stably("onSelectionStart")(mouseEventHandlerIn))(fromUndefinable(p.onSelectionStart)),
-      onSelectionEnd: map75(stably("onSelectionEnd")(mouseEventHandlerIn))(fromUndefinable(p.onSelectionEnd)),
-      onSelectionContextMenu: map75(stably("onSelectionContextMenu")(selectionDragHandlerIn))(fromUndefinable(p.onSelectionContextMenu)),
-      onSelectionChange: map75(stably("onSelectionChange")(onSelectionChangeIn))(fromUndefinable(p.onSelectionChange)),
-      onConnect: map75(stably("onConnect")(remembering(onConnectIn)))(fromUndefinable(p.onConnect)),
-      onConnectStart: map75(stably("onConnectStart")(remembering(onConnectStartIn)))(fromUndefinable(p.onConnectStart)),
-      onConnectEnd: map75(stably("onConnectEnd")(remembering(onConnectEndIn)))(fromUndefinable(p.onConnectEnd)),
-      onClickConnectStart: map75(stably("onClickConnectStart")(remembering(onConnectStartIn)))(fromUndefinable(p.onClickConnectStart)),
-      onClickConnectEnd: map75(stably("onClickConnectEnd")(remembering(onConnectEndIn)))(fromUndefinable(p.onClickConnectEnd)),
-      onInit: map75(stably("onInit")(onInitIn))(fromUndefinable(p.onInit)),
-      onMove: map75(stably("onMove")(remembering(onMoveIn)))(fromUndefinable(p.onMove)),
-      onMoveStart: map75(stably("onMoveStart")(remembering(onMoveIn)))(fromUndefinable(p.onMoveStart)),
-      onMoveEnd: map75(stably("onMoveEnd")(remembering(onMoveIn)))(fromUndefinable(p.onMoveEnd)),
+      nodes: map124(stably("nodes")(remembering(map75(nodeIn))))(fromUndefinable(p.nodes)),
+      edges: map124(stably("edges")(remembering(map75(edgeIn))))(fromUndefinable(p.edges)),
+      defaultNodes: map124(stably("defaultNodes")(remembering(map75(nodeIn))))(fromUndefinable(p.defaultNodes)),
+      defaultEdges: map124(stably("defaultEdges")(remembering(map75(edgeIn))))(fromUndefinable(p.defaultEdges)),
+      defaultEdgeOptions: map124(stably("defaultEdgeOptions")(defaultEdgeOptionsIn))(fromUndefinable(p.defaultEdgeOptions)),
+      onNodeClick: map124(stably("onNodeClick")(nodeMouseHandlerIn))(fromUndefinable(p.onNodeClick)),
+      onNodeDoubleClick: map124(stably("onNodeDoubleClick")(nodeMouseHandlerIn))(fromUndefinable(p.onNodeDoubleClick)),
+      onNodeMouseEnter: map124(stably("onNodeMouseEnter")(nodeMouseHandlerIn))(fromUndefinable(p.onNodeMouseEnter)),
+      onNodeMouseMove: map124(stably("onNodeMouseMove")(nodeMouseHandlerIn))(fromUndefinable(p.onNodeMouseMove)),
+      onNodeMouseLeave: map124(stably("onNodeMouseLeave")(nodeMouseHandlerIn))(fromUndefinable(p.onNodeMouseLeave)),
+      onNodeContextMenu: map124(stably("onNodeContextMenu")(nodeMouseHandlerIn))(fromUndefinable(p.onNodeContextMenu)),
+      onNodeDragStart: map124(stably("onNodeDragStart")(remembering(onNodeDragIn)))(fromUndefinable(p.onNodeDragStart)),
+      onNodeDrag: map124(stably("onNodeDrag")(remembering(onNodeDragIn)))(fromUndefinable(p.onNodeDrag)),
+      onNodeDragStop: map124(stably("onNodeDragStop")(remembering(onNodeDragIn)))(fromUndefinable(p.onNodeDragStop)),
+      onEdgeClick: map124(stably("onEdgeClick")(edgeMouseHandlerIn))(fromUndefinable(p.onEdgeClick)),
+      onEdgeContextMenu: map124(stably("onEdgeContextMenu")(edgeMouseHandlerIn))(fromUndefinable(p.onEdgeContextMenu)),
+      onEdgeMouseEnter: map124(stably("onEdgeMouseEnter")(edgeMouseHandlerIn))(fromUndefinable(p.onEdgeMouseEnter)),
+      onEdgeMouseMove: map124(stably("onEdgeMouseMove")(edgeMouseHandlerIn))(fromUndefinable(p.onEdgeMouseMove)),
+      onEdgeMouseLeave: map124(stably("onEdgeMouseLeave")(edgeMouseHandlerIn))(fromUndefinable(p.onEdgeMouseLeave)),
+      onEdgeDoubleClick: map124(stably("onEdgeDoubleClick")(edgeMouseHandlerIn))(fromUndefinable(p.onEdgeDoubleClick)),
+      onReconnect: map124(stably("onReconnect")(onReconnectIn))(fromUndefinable(p.onReconnect)),
+      onReconnectStart: map124(stably("onReconnectStart")(onReconnectStartIn))(fromUndefinable(p.onReconnectStart)),
+      onReconnectEnd: map124(stably("onReconnectEnd")(onReconnectEndIn))(fromUndefinable(p.onReconnectEnd)),
+      onNodesChange: map124(stably("onNodesChange")(remembering(onNodesChangeIn)))(fromUndefinable(p.onNodesChange)),
+      onEdgesChange: map124(stably("onEdgesChange")(remembering(onEdgesChangeIn)))(fromUndefinable(p.onEdgesChange)),
+      onNodesDelete: map124(stably("onNodesDelete")(remembering(onNodesDeleteIn)))(fromUndefinable(p.onNodesDelete)),
+      onEdgesDelete: map124(stably("onEdgesDelete")(remembering(onEdgesDeleteIn)))(fromUndefinable(p.onEdgesDelete)),
+      onDelete: map124(stably("onDelete")(remembering(onDeleteIn)))(fromUndefinable(p.onDelete)),
+      onSelectionDragStart: map124(stably("onSelectionDragStart")(remembering(selectionDragHandlerIn)))(fromUndefinable(p.onSelectionDragStart)),
+      onSelectionDrag: map124(stably("onSelectionDrag")(remembering(selectionDragHandlerIn)))(fromUndefinable(p.onSelectionDrag)),
+      onSelectionDragStop: map124(stably("onSelectionDragStop")(remembering(selectionDragHandlerIn)))(fromUndefinable(p.onSelectionDragStop)),
+      onSelectionStart: map124(stably("onSelectionStart")(mouseEventHandlerIn))(fromUndefinable(p.onSelectionStart)),
+      onSelectionEnd: map124(stably("onSelectionEnd")(mouseEventHandlerIn))(fromUndefinable(p.onSelectionEnd)),
+      onSelectionContextMenu: map124(stably("onSelectionContextMenu")(selectionDragHandlerIn))(fromUndefinable(p.onSelectionContextMenu)),
+      onSelectionChange: map124(stably("onSelectionChange")(onSelectionChangeIn))(fromUndefinable(p.onSelectionChange)),
+      onConnect: map124(stably("onConnect")(remembering(onConnectIn)))(fromUndefinable(p.onConnect)),
+      onConnectStart: map124(stably("onConnectStart")(remembering(onConnectStartIn)))(fromUndefinable(p.onConnectStart)),
+      onConnectEnd: map124(stably("onConnectEnd")(remembering(onConnectEndIn)))(fromUndefinable(p.onConnectEnd)),
+      onClickConnectStart: map124(stably("onClickConnectStart")(remembering(onConnectStartIn)))(fromUndefinable(p.onClickConnectStart)),
+      onClickConnectEnd: map124(stably("onClickConnectEnd")(remembering(onConnectEndIn)))(fromUndefinable(p.onClickConnectEnd)),
+      onInit: map124(stably("onInit")(onInitIn))(fromUndefinable(p.onInit)),
+      onMove: map124(stably("onMove")(remembering(onMoveIn)))(fromUndefinable(p.onMove)),
+      onMoveStart: map124(stably("onMoveStart")(remembering(onMoveIn)))(fromUndefinable(p.onMoveStart)),
+      onMoveEnd: map124(stably("onMoveEnd")(remembering(onMoveIn)))(fromUndefinable(p.onMoveEnd)),
       className: fromUndefinable(p.className),
-      style: map75(stably("style")(asCssStyle))(fromUndefinable(p.style)),
-      onScroll: map75(stably("onScroll")(onScrollIn))(fromUndefinable(p.onScroll)),
-      onPaneScroll: map75(stably("onPaneScroll")(onPaneScrollIn))(fromUndefinable(p.onPaneScroll)),
-      onPaneClick: map75(stably("onPaneClick")(mouseEventHandlerIn))(fromUndefinable(p.onPaneClick)),
-      onPaneContextMenu: map75(stably("onPaneContextMenu")(mouseEventHandlerIn))(fromUndefinable(p.onPaneContextMenu)),
-      onPaneMouseEnter: map75(stably("onPaneMouseEnter")(mouseEventHandlerIn))(fromUndefinable(p.onPaneMouseEnter)),
-      onPaneMouseMove: map75(stably("onPaneMouseMove")(mouseEventHandlerIn))(fromUndefinable(p.onPaneMouseMove)),
-      onPaneMouseLeave: map75(stably("onPaneMouseLeave")(mouseEventHandlerIn))(fromUndefinable(p.onPaneMouseLeave)),
+      style: map124(stably("style")(asCssStyle))(fromUndefinable(p.style)),
+      onScroll: map124(stably("onScroll")(onScrollIn))(fromUndefinable(p.onScroll)),
+      onPaneScroll: map124(stably("onPaneScroll")(onPaneScrollIn))(fromUndefinable(p.onPaneScroll)),
+      onPaneClick: map124(stably("onPaneClick")(mouseEventHandlerIn))(fromUndefinable(p.onPaneClick)),
+      onPaneContextMenu: map124(stably("onPaneContextMenu")(mouseEventHandlerIn))(fromUndefinable(p.onPaneContextMenu)),
+      onPaneMouseEnter: map124(stably("onPaneMouseEnter")(mouseEventHandlerIn))(fromUndefinable(p.onPaneMouseEnter)),
+      onPaneMouseMove: map124(stably("onPaneMouseMove")(mouseEventHandlerIn))(fromUndefinable(p.onPaneMouseMove)),
+      onPaneMouseLeave: map124(stably("onPaneMouseLeave")(mouseEventHandlerIn))(fromUndefinable(p.onPaneMouseLeave)),
       paneClickDistance: fromUndefinable(p.paneClickDistance),
       nodeClickDistance: fromUndefinable(p.nodeClickDistance),
-      onBeforeDelete: map75(stably("onBeforeDelete")(remembering(onBeforeDeleteIn)))(fromUndefinable(p.onBeforeDelete)),
-      isValidConnection: map75(stably("isValidConnection")(remembering(isValidConnectionIn)))(fromUndefinable(p.isValidConnection)),
-      onError: map75(stably("onError")(remembering(onErrorIn)))(fromUndefinable(p.onError)),
-      nodeTypes: map75(stably("nodeTypes")(nodeTypesIn))(fromUndefinable(p.nodeTypes)),
-      edgeTypes: map75(stably("edgeTypes")(edgeTypesIn))(fromUndefinable(p.edgeTypes)),
-      connectionLineType: map75(stably("connectionLineType")(connectionLineTypeIn("connectionLineType")))(fromUndefinable(p.connectionLineType)),
-      connectionLineStyle: map75(stably("connectionLineStyle")(asCssStyle))(fromUndefinable(p.connectionLineStyle)),
-      connectionLineComponent: map75(stably("connectionLineComponent")(connectionLineComponentIn))(fromUndefinable(p.connectionLineComponent)),
-      connectionLineContainerStyle: map75(stably("connectionLineContainerStyle")(asCssStyle))(fromUndefinable(p.connectionLineContainerStyle)),
-      connectionMode: map75(stably("connectionMode")(connectionModeIn("connectionMode")))(fromUndefinable(p.connectionMode)),
+      onBeforeDelete: map124(stably("onBeforeDelete")(remembering(onBeforeDeleteIn)))(fromUndefinable(p.onBeforeDelete)),
+      isValidConnection: map124(stably("isValidConnection")(remembering(isValidConnectionIn)))(fromUndefinable(p.isValidConnection)),
+      onError: map124(stably("onError")(remembering(onErrorIn)))(fromUndefinable(p.onError)),
+      nodeTypes: map124(stably("nodeTypes")(nodeTypesIn))(fromUndefinable(p.nodeTypes)),
+      edgeTypes: map124(stably("edgeTypes")(edgeTypesIn))(fromUndefinable(p.edgeTypes)),
+      connectionLineType: map124(stably("connectionLineType")(connectionLineTypeIn("connectionLineType")))(fromUndefinable(p.connectionLineType)),
+      connectionLineStyle: map124(stably("connectionLineStyle")(asCssStyle))(fromUndefinable(p.connectionLineStyle)),
+      connectionLineComponent: map124(stably("connectionLineComponent")(connectionLineComponentIn))(fromUndefinable(p.connectionLineComponent)),
+      connectionLineContainerStyle: map124(stably("connectionLineContainerStyle")(asCssStyle))(fromUndefinable(p.connectionLineContainerStyle)),
+      connectionMode: map124(stably("connectionMode")(connectionModeIn("connectionMode")))(fromUndefinable(p.connectionMode)),
       deleteKeyCode: keyCodeIn("deleteKeyCode")(p.deleteKeyCode),
       selectionKeyCode: keyCodeIn("selectionKeyCode")(p.selectionKeyCode),
       selectionOnDrag: fromUndefinable(p.selectionOnDrag),
-      selectionMode: map75(stably("selectionMode")(selectionModeIn("selectionMode")))(fromUndefinable(p.selectionMode)),
+      selectionMode: map124(stably("selectionMode")(selectionModeIn("selectionMode")))(fromUndefinable(p.selectionMode)),
       panActivationKeyCode: keyCodeIn("panActivationKeyCode")(p.panActivationKeyCode),
       multiSelectionKeyCode: keyCodeIn("multiSelectionKeyCode")(p.multiSelectionKeyCode),
       zoomActivationKeyCode: keyCodeIn("zoomActivationKeyCode")(p.zoomActivationKeyCode),
       snapToGrid: fromUndefinable(p.snapToGrid),
-      snapGrid: map75(stably("snapGrid")(snapGridIn("snapGrid")))(fromUndefinable(p.snapGrid)),
+      snapGrid: map124(stably("snapGrid")(snapGridIn("snapGrid")))(fromUndefinable(p.snapGrid)),
       onlyRenderVisibleElements: fromUndefinable(p.onlyRenderVisibleElements),
       nodesDraggable: fromUndefinable(p.nodesDraggable),
       nodesConnectable: fromUndefinable(p.nodesConnectable),
       nodesFocusable: fromUndefinable(p.nodesFocusable),
       nodeDragThreshold: fromUndefinable(p.nodeDragThreshold),
-      nodeOrigin: map75(stably("nodeOrigin")(nodeOriginIn("nodeOrigin")))(fromUndefinable(p.nodeOrigin)),
-      nodeExtent: map75(stably("nodeExtent")(coordinateExtentIn("nodeExtent")))(fromUndefinable(p.nodeExtent)),
+      nodeOrigin: map124(stably("nodeOrigin")(nodeOriginIn("nodeOrigin")))(fromUndefinable(p.nodeOrigin)),
+      nodeExtent: map124(stably("nodeExtent")(coordinateExtentIn("nodeExtent")))(fromUndefinable(p.nodeExtent)),
       autoPanOnNodeFocus: fromUndefinable(p.autoPanOnNodeFocus),
       autoPanOnNodeDrag: fromUndefinable(p.autoPanOnNodeDrag),
       noDragClassName: fromUndefinable(p.noDragClassName),
@@ -64251,22 +64321,22 @@ var convertProps = function(p) {
       selectNodesOnDrag: fromUndefinable(p.selectNodesOnDrag),
       elevateNodesOnSelect: fromUndefinable(p.elevateNodesOnSelect),
       elevateEdgesOnSelect: fromUndefinable(p.elevateEdgesOnSelect),
-      panOnDrag: map75(stably("panOnDrag")(panOnDragIn))(fromUndefinable(p.panOnDrag)),
+      panOnDrag: map124(stably("panOnDrag")(panOnDragIn))(fromUndefinable(p.panOnDrag)),
       minZoom: fromUndefinable(p.minZoom),
       maxZoom: fromUndefinable(p.maxZoom),
-      translateExtent: map75(stably("translateExtent")(coordinateExtentIn("translateExtent")))(fromUndefinable(p.translateExtent)),
+      translateExtent: map124(stably("translateExtent")(coordinateExtentIn("translateExtent")))(fromUndefinable(p.translateExtent)),
       zoomOnScroll: fromUndefinable(p.zoomOnScroll),
       zoomOnPinch: fromUndefinable(p.zoomOnPinch),
       zoomOnDoubleClick: fromUndefinable(p.zoomOnDoubleClick),
       panOnScroll: fromUndefinable(p.panOnScroll),
       panOnScrollSpeed: fromUndefinable(p.panOnScrollSpeed),
-      panOnScrollMode: map75(stably("panOnScrollMode")(panOnScrollModeIn("panOnScrollMode")))(fromUndefinable(p.panOnScrollMode)),
+      panOnScrollMode: map124(stably("panOnScrollMode")(panOnScrollModeIn("panOnScrollMode")))(fromUndefinable(p.panOnScrollMode)),
       preventScrolling: fromUndefinable(p.preventScrolling),
-      viewport: map75(stably("viewport")(viewportIn))(fromUndefinable(p.viewport)),
-      defaultViewport: map75(stably("defaultViewport")(viewportIn))(fromUndefinable(p.defaultViewport)),
-      onViewportChange: map75(stably("onViewportChange")(remembering(onViewportChangeIn)))(fromUndefinable(p.onViewportChange)),
+      viewport: map124(stably("viewport")(viewportIn))(fromUndefinable(p.viewport)),
+      defaultViewport: map124(stably("defaultViewport")(viewportIn))(fromUndefinable(p.defaultViewport)),
+      onViewportChange: map124(stably("onViewportChange")(remembering(onViewportChangeIn)))(fromUndefinable(p.onViewportChange)),
       fitView: fromUndefinable(p.fitView),
-      fitViewOptions: map75(stably("fitViewOptions")(remembering(fitViewOptionsIn)))(fromUndefinable(p.fitViewOptions)),
+      fitViewOptions: map124(stably("fitViewOptions")(remembering(fitViewOptionsIn)))(fromUndefinable(p.fitViewOptions)),
       defaultMarkerColor: function() {
         var $398 = isNull2(p.defaultMarkerColor);
         if ($398) {
@@ -64277,20 +64347,20 @@ var convertProps = function(p) {
       }(),
       width: fromUndefinable(p.width),
       height: fromUndefinable(p.height),
-      colorMode: map75(stably("colorMode")(colorModeIn("colorMode")))(fromUndefinable(p.colorMode)),
-      attributionPosition: map75(stably("attributionPosition")(panelPositionIn("attributionPosition")))(fromUndefinable(p.attributionPosition)),
-      proOptions: map75(stably("proOptions")(proOptionsIn))(fromUndefinable(p.proOptions)),
+      colorMode: map124(stably("colorMode")(colorModeIn("colorMode")))(fromUndefinable(p.colorMode)),
+      attributionPosition: map124(stably("attributionPosition")(panelPositionIn("attributionPosition")))(fromUndefinable(p.attributionPosition)),
+      proOptions: map124(stably("proOptions")(proOptionsIn))(fromUndefinable(p.proOptions)),
       noWheelClassName: fromUndefinable(p.noWheelClassName),
       noPanClassName: fromUndefinable(p.noPanClassName),
       disableKeyboardA11y: fromUndefinable(p.disableKeyboardA11y),
-      ariaLabelConfig: map75(stably("ariaLabelConfig")(ariaLabelConfigIn))(fromUndefinable(p.ariaLabelConfig)),
+      ariaLabelConfig: map124(stably("ariaLabelConfig")(ariaLabelConfigIn))(fromUndefinable(p.ariaLabelConfig)),
       autoPanOnConnect: fromUndefinable(p.autoPanOnConnect),
       autoPanSpeed: fromUndefinable(p.autoPanSpeed),
       autoPanOnSelection: fromUndefinable(p.autoPanOnSelection),
       connectOnClick: fromUndefinable(p.connectOnClick),
       connectionRadius: fromUndefinable(p.connectionRadius),
       debug: fromUndefinable(p.debug),
-      zIndexMode: map75(stably("zIndexMode")(zIndexModeIn("zIndexMode")))(fromUndefinable(p.zIndexMode)),
+      zIndexMode: map124(stably("zIndexMode")(zIndexModeIn("zIndexMode")))(fromUndefinable(p.zIndexMode)),
       innerRef: orNullable(p.ref)(forwarded),
       wrapperAttributes: restOf3(p)
     };
@@ -64298,7 +64368,7 @@ var convertProps = function(p) {
 };
 var reactFlow2 = /* @__PURE__ */ forwardNullableRef("ReactFlow")(function(v) {
   return function(forwarded) {
-    return element(reactFlow)(function() {
+    return changeLogProvider(jsChangeLog)([element(reactFlow)(function() {
       var v1 = convertProps(v)(forwarded);
       return {
         nodes: v1.nodes,
@@ -64433,7 +64503,7 @@ var reactFlow2 = /* @__PURE__ */ forwardNullableRef("ReactFlow")(function(v) {
           defaultEdges: v.defaultEdges
         }))])(reactChildrenToArray(v.children)))
       };
-    }());
+    }())]);
   };
 });
 
@@ -68078,7 +68148,7 @@ var selectProbeHooks = (names, probeCallback) => names.filter((name15) => !CALLB
 
 // parity/driver/src/Probes.tsx
 var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
-var identity8 = (value12) => value12;
+var identity9 = (value12) => value12;
 var storeSlice = (state3) => ({
   nodes: state3.nodes,
   edges: state3.edges,
@@ -68087,8 +68157,8 @@ var storeSlice = (state3) => ({
 });
 var callback2 = (name15) => publishCallLog().wrapProbe(name15);
 var hooks = {
-  experimental_useOnEdgesChangeMiddleware: () => experimental_useOnEdgesChangeMiddleware(identity8),
-  experimental_useOnNodesChangeMiddleware: () => experimental_useOnNodesChangeMiddleware(identity8),
+  experimental_useOnEdgesChangeMiddleware: () => experimental_useOnEdgesChangeMiddleware(identity9),
+  experimental_useOnNodesChangeMiddleware: () => experimental_useOnNodesChangeMiddleware(identity9),
   useConnection: () => useConnection(),
   useEdges: () => useEdges(),
   useEdgesState: () => useEdgesState2([]),

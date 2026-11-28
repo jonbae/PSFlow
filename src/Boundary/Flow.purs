@@ -66,7 +66,9 @@ import Prelude
 
 import Boundary.FitView (JsFitViewOptions, fitViewOptionsIn)
 import Boundary.Callbacks
-  ( JsEdgeMouseHandler
+  ( edgeChangeIdentityOut
+  , nodeChangeIdentityOut
+  , JsEdgeMouseHandler
   , JsIsValidConnection
   , JsMouseEventHandler
   , JsNodeMouseHandler
@@ -157,7 +159,7 @@ import Boundary.Undefined (Undefinable, fromUndefinable, isNull, orNullable)
 import Data.Maybe (Maybe(..))
 import Data.Nullable (Nullable)
 import Effect.Unsafe (unsafePerformEffect)
-import Foreign (Foreign)
+import Foreign (Foreign, unsafeFromForeign, unsafeToForeign)
 import Foreign.Object (Object)
 import React.Basic (JSX, ReactComponent, element, keyed)
 import React.Basic.Hooks (ReactChildren, reactChildrenFromArray, reactChildrenToArray, reactComponent, reactComponentWithChildren)
@@ -166,6 +168,9 @@ import React.Hook.Store (useStoreApi)
 import React.Store.Shell (Store)
 import React.Container.ReactFlow (reactFlow) as PS
 import React.FFI.ForwardRef (forwardNullableRef)
+import React.Context.ChangeLog (ChangeLog, changeLogProvider)
+import System.Types.Edge (EdgeChange)
+import System.Types.Node (NodeChange)
 import React.Provider (reactFlowProvider) as PS
 import React.Types.Component (ReactFlowProps, ReactFlowProviderProps)
 import React.Types.General (ProOptions)
@@ -527,16 +532,29 @@ proOptionsIn o =
 reactFlow :: ReactComponent JsFlowProps
 reactFlow =
   forwardNullableRef "ReactFlow" \(props :: JsFlowProps) forwarded ->
-    element PS.reactFlow
-      ( (convertProps props forwarded)
-          { children = reactChildrenFromArray
-              ( [ keyed "ps-flow-store-defaults"
-                    (element storeDefaults { defaultNodes: props.defaultNodes, defaultEdges: props.defaultEdges })
-                ]
-                  <> reactChildrenToArray props.children
-              )
-          }
-      )
+    changeLogProvider jsChangeLog
+      [ element PS.reactFlow
+          ( (convertProps props forwarded)
+              { children = reactChildrenFromArray
+                  ( [ keyed "ps-flow-store-defaults"
+                        (element storeDefaults { defaultNodes: props.defaultNodes, defaultEdges: props.defaultEdges })
+                    ]
+                      <> reactChildrenToArray props.children
+                  )
+              }
+          )
+      ]
+
+-- | The changes a `debug` log shows, as the JS surface's `onNodesChange` and
+-- | `onEdgesChange` receive them. The store reads it when it is created, so
+-- | `<ReactFlow />` and `<ReactFlowProvider />` both provide it.
+jsChangeLog :: ChangeLog
+jsChangeLog =
+  { nodeChanges: \changes ->
+      unsafeToForeign (map nodeChangeIdentityOut (unsafeFromForeign changes :: Array (NodeChange Foreign)))
+  , edgeChanges: \changes ->
+      unsafeToForeign (map edgeChangeIdentityOut (unsafeFromForeign changes :: Array (EdgeChange Foreign)))
+  }
 
 -- | `defaultNodes` and `defaultEdges` as upstream's `<StoreUpdater />` leaves
 -- | them: two keys of the store's state that `ReactFlowState` does not
@@ -617,4 +635,4 @@ reactFlowProvider :: ReactComponent JsReactFlowProviderProps
 reactFlowProvider =
   unsafePerformEffect $ reactComponentWithChildren "ReactFlowProvider"
     \(props :: JsReactFlowProviderProps) ->
-      pure (element PS.reactFlowProvider (convertProvider props))
+      pure (changeLogProvider jsChangeLog [ element PS.reactFlowProvider (convertProvider props) ])
