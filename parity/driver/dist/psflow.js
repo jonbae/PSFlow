@@ -59261,7 +59261,7 @@ var reduceSetNodeExtent = function(state3) {
       };
     }
     ;
-    throw new Error("Failed pattern match at React.Store.Reduce (line 634, column 1 - line 638, column 22): " + [state3.constructor.name, ext.constructor.name]);
+    throw new Error("Failed pattern match at React.Store.Reduce (line 628, column 1 - line 632, column 22): " + [state3.constructor.name, ext.constructor.name]);
   };
 };
 var keepLookups = function(state3) {
@@ -59572,7 +59572,7 @@ var reduceTriggerEdgeChanges = function(state3) {
       };
     }
     ;
-    throw new Error("Failed pattern match at React.Store.Reduce (line 480, column 1 - line 484, column 22): " + [state3.constructor.name, changes.constructor.name]);
+    throw new Error("Failed pattern match at React.Store.Reduce (line 474, column 1 - line 478, column 22): " + [state3.constructor.name, changes.constructor.name]);
   };
 };
 var fitInputs = function(state3) {
@@ -59888,8 +59888,8 @@ var reduceMergeNodeInternals = function(state3) {
         return [];
       }();
       var changes = function() {
-        var $63 = $$null(r.changes);
-        if ($63) {
+        var $64 = $$null(r.changes);
+        if ($64) {
           return [];
         }
         ;
@@ -59908,7 +59908,7 @@ var reduceMergeNodeInternals = function(state3) {
       };
     }
     ;
-    throw new Error("Failed pattern match at React.Store.Reduce (line 309, column 1 - line 313, column 22): " + [state3.constructor.name, r.constructor.name]);
+    throw new Error("Failed pattern match at React.Store.Reduce (line 308, column 1 - line 312, column 22): " + [state3.constructor.name, r.constructor.name]);
   };
 };
 var adoptNodesInto = function(setup) {
@@ -60322,7 +60322,7 @@ var reduceSetDefaults = function(setup) {
             };
           }
           ;
-          throw new Error("Failed pattern match at React.Store.Reduce (line 284, column 18 - line 293, column 52): " + [mNs.constructor.name]);
+          throw new Error("Failed pattern match at React.Store.Reduce (line 283, column 18 - line 292, column 52): " + [mNs.constructor.name]);
         }();
         var afterEdges = function() {
           if (mEs instanceof Just) {
@@ -60424,7 +60424,7 @@ var reduceSetDefaults = function(setup) {
             return afterNodes;
           }
           ;
-          throw new Error("Failed pattern match at React.Store.Reduce (line 294, column 18 - line 303, column 28): " + [mEs.constructor.name]);
+          throw new Error("Failed pattern match at React.Store.Reduce (line 293, column 18 - line 302, column 28): " + [mEs.constructor.name]);
         }();
         return afterEdges;
       };
@@ -60442,28 +60442,24 @@ var reduceTriggerNodeChanges = function(setup) {
         };
       }
       ;
-      if (otherwise) {
-        var s1 = function() {
-          if (state3.hasDefaultNodes) {
-            return adoptNodesInto(setup)(state3)(applyNodeChanges(changes)(state3.nodes));
-          }
-          ;
-          return state3;
-        }();
+      if (state3.hasDefaultNodes) {
+        var r = reduceSetNodes(setup)(state3)(applyNodeChanges(changes)(state3.nodes));
         return {
-          state: s1,
-          effects: [new FireOnNodesChange(changes)],
-          writes: function() {
-            if (state3.hasDefaultNodes) {
-              return setNodesWrites(false);
-            }
-            ;
-            return [];
-          }()
+          state: r.state,
+          writes: r.writes,
+          effects: append24(r.effects)([new FireOnNodesChange(changes)])
         };
       }
       ;
-      throw new Error("Failed pattern match at React.Store.Reduce (line 451, column 1 - line 456, column 22): " + [setup.constructor.name, state3.constructor.name, changes.constructor.name]);
+      if (otherwise) {
+        return {
+          state: state3,
+          effects: [new FireOnNodesChange(changes)],
+          writes: []
+        };
+      }
+      ;
+      throw new Error("Failed pattern match at React.Store.Reduce (line 450, column 1 - line 455, column 22): " + [setup.constructor.name, state3.constructor.name, changes.constructor.name]);
     };
   };
 };
@@ -60483,8 +60479,8 @@ var reduceAddSelectedEdges = function(setup) {
       if (otherwise) {
         var selectedSet = fromFoldable16(ids);
         var nodeRes = function() {
-          var $79 = $$null(ids);
-          if ($79) {
+          var $78 = $$null(ids);
+          if ($78) {
             return {
               changes: [],
               items: state3.nodeLookup
@@ -60592,7 +60588,7 @@ var reduceAddSelectedEdges = function(setup) {
         };
       }
       ;
-      throw new Error("Failed pattern match at React.Store.Reduce (line 551, column 1 - line 556, column 22): " + [setup.constructor.name, state3.constructor.name, ids.constructor.name]);
+      throw new Error("Failed pattern match at React.Store.Reduce (line 545, column 1 - line 550, column 22): " + [setup.constructor.name, state3.constructor.name, ids.constructor.name]);
     };
   };
 };
@@ -60702,8 +60698,8 @@ var reduceAddSelectedNodes = function(setup) {
           };
         })(state3);
         var edgeRes = function() {
-          var $83 = $$null(ids);
-          if ($83) {
+          var $82 = $$null(ids);
+          if ($82) {
             return {
               changes: []
             };
@@ -60720,7 +60716,7 @@ var reduceAddSelectedNodes = function(setup) {
         };
       }
       ;
-      throw new Error("Failed pattern match at React.Store.Reduce (line 515, column 1 - line 520, column 22): " + [setup.constructor.name, state3.constructor.name, ids.constructor.name]);
+      throw new Error("Failed pattern match at React.Store.Reduce (line 509, column 1 - line 514, column 22): " + [setup.constructor.name, state3.constructor.name, ids.constructor.name]);
     };
   };
 };
@@ -60737,8 +60733,8 @@ var reduceResetSelectedElements = function(setup) {
     if (otherwise) {
       var nodeChanges = reduced(function(res) {
         return function(n) {
-          var $86 = eq114(n.selected)(new Just(true));
-          if ($86) {
+          var $85 = eq114(n.selected)(new Just(true));
+          if ($85) {
             return snoc(res)(new NodeSelectionChange({
               id: n.id,
               selected: false
@@ -60750,8 +60746,8 @@ var reduceResetSelectedElements = function(setup) {
       })([])(state3.nodes);
       var edgeChanges = reduced(function(res) {
         return function(e) {
-          var $87 = eq114(e.selected)(new Just(true));
-          if ($87) {
+          var $86 = eq114(e.selected)(new Just(true));
+          if ($86) {
             return snoc(res)(new EdgeSelectionChange({
               id: e.id,
               selected: false
@@ -60770,7 +60766,7 @@ var reduceResetSelectedElements = function(setup) {
       };
     }
     ;
-    throw new Error("Failed pattern match at React.Store.Reduce (line 687, column 1 - line 691, column 22): " + [setup.constructor.name, state3.constructor.name]);
+    throw new Error("Failed pattern match at React.Store.Reduce (line 681, column 1 - line 685, column 22): " + [setup.constructor.name, state3.constructor.name]);
   };
 };
 var reduceUnselectNodesAndEdges = function(setup) {
@@ -60785,7 +60781,7 @@ var reduceUnselectNodesAndEdges = function(setup) {
           return state3.nodes;
         }
         ;
-        throw new Error("Failed pattern match at React.Store.Reduce (line 592, column 38 - line 594, column 29): " + [params.nodes.constructor.name]);
+        throw new Error("Failed pattern match at React.Store.Reduce (line 586, column 38 - line 588, column 29): " + [params.nodes.constructor.name]);
       }());
       var targetEdges = iterated(function() {
         if (params.edges instanceof Just) {
@@ -60796,7 +60792,7 @@ var reduceUnselectNodesAndEdges = function(setup) {
           return state3.edges;
         }
         ;
-        throw new Error("Failed pattern match at React.Store.Reduce (line 595, column 38 - line 597, column 29): " + [params.edges.constructor.name]);
+        throw new Error("Failed pattern match at React.Store.Reduce (line 589, column 38 - line 591, column 29): " + [params.edges.constructor.name]);
       }());
       var nodesToUnselect = filter(function(n) {
         return eq114(n.selected)(new Just(true));
@@ -60934,7 +60930,7 @@ var reduceUnselectNodesAndEdges = function(setup) {
                 })(v1.value0)(lookup9);
               }
               ;
-              throw new Error("Failed pattern match at React.Store.Reduce (line 614, column 30 - line 616, column 93): " + [v1.constructor.name]);
+              throw new Error("Failed pattern match at React.Store.Reduce (line 608, column 30 - line 610, column 93): " + [v1.constructor.name]);
             };
           })(state3.nodeLookup)(nodesToUnselect)
         };
@@ -60995,7 +60991,7 @@ var reduceUpdateNodePositions = function(setup) {
                 return [];
               }
               ;
-              throw new Error("Failed pattern match at React.Store.Reduce (line 406, column 23 - line 418, column 24): " + [expandParentOf.constructor.name]);
+              throw new Error("Failed pattern match at React.Store.Reduce (line 405, column 23 - line 417, column 24): " + [expandParentOf.constructor.name]);
             }();
             var connection = function() {
               if (mNode instanceof Just && (isHeld(acc.connection) && (isInProgress(acc.connection) && unsafeRefEq(member("id")(member("fromNode")(acc.connection)))(unsafeToForeign(mNode.value0.id))))) {
@@ -61033,7 +61029,7 @@ var reduceUpdateNodePositions = function(setup) {
                   return item.position;
                 }
                 ;
-                throw new Error("Failed pattern match at React.Store.Reduce (line 381, column 28 - line 386, column 39): " + [expandParentOf.constructor.name]);
+                throw new Error("Failed pattern match at React.Store.Reduce (line 380, column 28 - line 385, column 39): " + [expandParentOf.constructor.name]);
               }()),
               positionAbsolute: Nothing.value,
               dragging: new Just(dragging)
@@ -61051,8 +61047,8 @@ var reduceUpdateNodePositions = function(setup) {
           connection: state3.connection
         })(items);
         var nextState = function() {
-          var $105 = unsafeRefEq(state3.connection)(stepped.connection);
-          if ($105) {
+          var $104 = unsafeRefEq(state3.connection)(stepped.connection);
+          if ($104) {
             return state3;
           }
           ;
@@ -61145,24 +61141,24 @@ var reduceUpdateNodePositions = function(setup) {
           };
         }();
         var expandChanges = function() {
-          var $106 = $$null(stepped.parentExpandChildren);
-          if ($106) {
+          var $105 = $$null(stepped.parentExpandChildren);
+          if ($105) {
             return [];
           }
           ;
           return handleExpandParent(stepped.parentExpandChildren)(state3.nodeLookup)(state3.parentLookup)(state3.nodeOrigin);
         }();
         var connectionWrites = function() {
-          var $107 = unsafeRefEq(state3.connection)(stepped.connection);
-          if ($107) {
+          var $106 = unsafeRefEq(state3.connection)(stepped.connection);
+          if ($106) {
             return [];
           }
           ;
           return ["connection"];
         }();
         var changes = append24(stepped.changes)(expandChanges);
-        var $108 = hasMiddleware(state3.onNodesChangeMiddlewareMap);
-        if ($108) {
+        var $107 = hasMiddleware(state3.onNodesChangeMiddlewareMap);
+        if ($107) {
           return {
             state: nextState,
             effects: [new RunNodesChangeMiddleware(changes)],
