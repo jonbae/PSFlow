@@ -46,7 +46,7 @@ runNodeSelectedTests = do
     state = initialState
       ((defaultInitialStateOptions :: InitialStateOptions Foreign Foreign) { nodes = Just [ nodeIn plainNode ] })
     selectionChanges ids =
-      Array.length (getNodeSelectionChanges state.nodeLookup (Set.fromFoldable (map NodeId ids)) false).changes
+      Array.length (getNodeSelectionChanges state.nodes state.nodeLookup (Set.fromFoldable (map NodeId ids)) false).changes
 
   assert "a node written without selected reads back without it"
     (not (hasOwnKey "selected" (nodeOut (nodeIn plainNode))))

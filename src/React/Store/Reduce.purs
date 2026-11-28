@@ -22,6 +22,7 @@ import System.Utils.Number as JsNumber
 
 import Data.Array (filter, foldl, null, snoc) as Array
 import Data.Maybe (Maybe(..))
+import Data.Set (Set)
 import Data.Set as Set
 import React.Store.Action
   ( Action(..)
@@ -105,7 +106,9 @@ reduceWith setup state = case _ of
   TriggerNodeChanges cs -> reduceTriggerNodeChanges setup state cs
   TriggerEdgeChanges cs -> reduceTriggerEdgeChanges state cs
   AddSelectedNodes ids -> reduceAddSelectedNodes setup state ids
-  AddSelectedEdges ids -> reduceAddSelectedEdges setup state ids
+  AddSelectedEdges ids -> reduceAddSelectedEdges state ids
+  ReplaceNodeSelection ids -> reduceReplaceNodeSelection setup state ids
+  ReplaceEdgeSelection ids -> reduceReplaceEdgeSelection state ids
   UnselectNodesAndEdges params -> reduceUnselectNodesAndEdges setup state params
   -- The limits live in two places: store state, which `panBy` and the
   -- viewport helpers read, and the d3 zoom behavior, which enforces them
@@ -520,35 +523,23 @@ reduceAddSelectedNodes setup state ids
         changes = map (\id -> NodeSelectionChange { id, selected: true }) ids
       in
         reduceTriggerNodeChanges setup state changes
+  -- Otherwise TS selects exactly these nodes, then unselects every edge, an
+  -- empty list included. The edge statement runs once the node one's `set`
+  -- and `onNodesChange` are done.
   | otherwise =
       let
-        selectedSet = Set.fromFoldable ids
-        nodeRes = getNodeSelectionChanges state.nodeLookup selectedSet true
-        -- TS behaviour: when selecting any nodes, deselect all edges.
-        edgeRes =
-          if Array.null ids then { changes: [] }
-          else getEdgeSelectionChanges state.edgeLookup Set.empty
-        -- TS's `getSelectionChanges(..., true)` selects the internal nodes
-        -- in place, so a controlled flow's store notifies nobody until the
-        -- consumer's nodes come back.
-        s1 = inPlace (_ { nodeLookup = nodeRes.items }) state
-        afterNodes = reduceTriggerNodeChanges setup s1 nodeRes.changes
-        afterEdges = reduceTriggerEdgeChanges afterNodes.state edgeRes.changes
+        nodes = reduceReplaceNodeSelection setup state (Set.fromFoldable ids)
       in
-        { state: afterEdges.state
-        , effects: afterNodes.effects <> afterEdges.effects
-        , writes: afterNodes.writes <> afterEdges.writes
-        }
+        nodes { effects = nodes.effects <> [ RunReplaceEdgeSelection Set.empty ] }
 
 -- AddSelectedEdges ------------------------------------------------------
 
 reduceAddSelectedEdges
   :: forall n e
-   . Setup
-  -> ReactFlowState n e
+   . ReactFlowState n e
   -> Array String
   -> ReduceResult n e
-reduceAddSelectedEdges setup state ids
+reduceAddSelectedEdges state ids
   -- TS `addSelectedEdges`: while multi-selection is active, just mark these
   -- edges selected — keep the existing edge selection and leave nodes untouched.
   | state.multiSelectionActive =
@@ -556,21 +547,43 @@ reduceAddSelectedEdges setup state ids
         changes = map (\id -> EdgeSelectionChange { id, selected: true }) ids
       in
         reduceTriggerEdgeChanges state changes
+  -- Otherwise TS selects exactly these edges, then unselects every node, an
+  -- empty list included. The node statement runs once the edge one's `set`
+  -- and `onEdgesChange` are done, so the internal nodes are unselected
+  -- after `onEdgesChange`.
   | otherwise =
       let
-        selectedSet = Set.fromFoldable ids
-        edgeRes = getEdgeSelectionChanges state.edgeLookup selectedSet
-        nodeRes =
-          if Array.null ids then { changes: [], items: state.nodeLookup }
-          else getNodeSelectionChanges state.nodeLookup Set.empty true
-        s1 = inPlace (_ { nodeLookup = nodeRes.items }) state
-        afterEdges = reduceTriggerEdgeChanges s1 edgeRes.changes
-        afterNodes = reduceTriggerNodeChanges setup afterEdges.state nodeRes.changes
+        edges = reduceReplaceEdgeSelection state (Set.fromFoldable ids)
       in
-        { state: afterNodes.state
-        , effects: afterEdges.effects <> afterNodes.effects
-        , writes: afterEdges.writes <> afterNodes.writes
-        }
+        edges { effects = edges.effects <> [ RunReplaceNodeSelection Set.empty ] }
+
+-- ReplaceNodeSelection, ReplaceEdgeSelection -----------------------------
+
+-- | TS `triggerNodeChanges(getSelectionChanges(nodeLookup, ids, true))`.
+reduceReplaceNodeSelection
+  :: forall n e
+   . Setup
+  -> ReactFlowState n e
+  -> Set NodeId
+  -> ReduceResult n e
+reduceReplaceNodeSelection setup state ids =
+  let
+    r = getNodeSelectionChanges state.nodes state.nodeLookup ids true
+    -- TS's `getSelectionChanges(..., true)` selects the internal nodes in
+    -- place, so a controlled flow's store notifies nobody until the
+    -- consumer's nodes come back.
+    s1 = inPlace (_ { nodeLookup = r.items }) state
+  in
+    reduceTriggerNodeChanges setup s1 r.changes
+
+-- | TS `triggerEdgeChanges(getSelectionChanges(edgeLookup, ids))`.
+reduceReplaceEdgeSelection
+  :: forall n e
+   . ReactFlowState n e
+  -> Set String
+  -> ReduceResult n e
+reduceReplaceEdgeSelection state ids =
+  reduceTriggerEdgeChanges state (getEdgeSelectionChanges state.edges state.edgeLookup ids).changes
 
 -- UnselectNodesAndEdges -------------------------------------------------
 

@@ -18,6 +18,12 @@ export const entryValuesImpl = (lookup) => [...lookup].map(([, value]) => value)
 
 export const entryKeysImpl = (lookup) => [...lookup].map(([key]) => key);
 
+export const entriesImpl = (lookup) => {
+  const entries = [];
+  for (const [key, value] of lookup) entries.push({ key, value });
+  return entries;
+};
+
 export const forEachValuesImpl = (lookup) => {
   const values = [];
   lookup.forEach((value) => values.push(value));

@@ -180,6 +180,8 @@ createStore opts = do
               }
           )
       RunTriggerNodeChanges changes -> dispatch_ (TriggerNodeChanges changes)
+      RunReplaceNodeSelection ids -> dispatch_ (ReplaceNodeSelection ids)
+      RunReplaceEdgeSelection ids -> dispatch_ (ReplaceEdgeSelection ids)
       RunNodesChangeMiddleware changes -> do
         s <- readState
         filtered <- runNodesChangeMiddleware s.onNodesChangeMiddlewareMap changes
